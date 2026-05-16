@@ -16,7 +16,10 @@ import { Results } from "./collections/Results";
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
-const databaseUrl = process.env.DATABASE_URL;
+const databaseUrl =
+  process.env.POSTGRES_URL_NON_POOLING ||
+  process.env.DATABASE_URL_UNPOOLED ||
+  process.env.DATABASE_URL;
 
 const db = databaseUrl
   ? postgresAdapter({ pool: { connectionString: databaseUrl } })
