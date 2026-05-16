@@ -52,8 +52,8 @@ export default function MethodiekPage() {
                 <p className="mt-8 text-lg md:text-xl text-ink-2 leading-relaxed">
                   We willen niet weten of je &lsquo;links&rsquo; of
                   &lsquo;rechts&rsquo; bent. We willen weten waar je staat op
-                  vijf onafhankelijke politieke vragen. Dat geeft een rijker
-                  en eerlijker beeld dan een enkele as.
+                  vijf onafhankelijke politieke vragen. Dat geeft een rijker en
+                  eerlijker beeld dan een enkele as.
                 </p>
               </ScrollRevealItem>
             </ScrollReveal>
@@ -135,11 +135,13 @@ export default function MethodiekPage() {
                 <div className="mt-8 editorial-prose">
                   <p>
                     Per dimensie staan stellingen die{" "}
-                    <strong>richting de positieve pool</strong> wijzen, en even
-                    veel stellingen die{" "}
-                    <strong>richting de negatieve pool</strong> wijzen. Zo kan
-                    een &lsquo;mee eens&rsquo; nooit eenzijdig één kant op
-                    wegen — de balans is wiskundig ingebouwd.
+                    <strong>richting de positieve pool</strong>
+                    {" "}
+                    wijzen, en even veel stellingen die{" "}
+                    <strong>richting de negatieve pool</strong>
+                    {" "}
+                    wijzen. Zo kan een &lsquo;mee eens&rsquo; nooit eenzijdig
+                    één kant op wegen; de balans is wiskundig ingebouwd.
                   </p>
                   <p>
                     We kiezen <strong>concrete en actuele stellingen</strong>.
@@ -162,17 +164,15 @@ export default function MethodiekPage() {
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
                 <Kicker number={4}>Scoring</Kicker>
-                <h2 className="display mt-5">
-                  Hoe komen de scores tot stand?
-                </h2>
+                <h2 className="display mt-5">Hoe komen de scores tot stand?</h2>
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <div className="mt-8 editorial-prose">
                   <p>
                     Elk antwoord krijgt een waarde van <strong>−2</strong>{" "}
-                    (volledig mee oneens) tot <strong>+2</strong> (volledig mee
-                    eens). Neutraal telt als 0; overgeslagen wordt niet
-                    meegenomen in de normalisatie.
+                    (volledig mee oneens) tot <strong>+2</strong>{" "}
+                    (volledig mee eens). Neutraal telt als 0; overgeslagen wordt
+                    niet meegenomen in de normalisatie.
                   </p>
                 </div>
               </ScrollRevealItem>
@@ -180,7 +180,7 @@ export default function MethodiekPage() {
                 <div className="mt-8 border border-rule p-6 md:p-8 bg-paper-50/60">
                   <p className="kicker mb-4">Formule per dimensie</p>
                   <pre className="mono text-sm leading-relaxed text-ink overflow-x-auto whitespace-pre">
-{`raw    = Σ ( direction × antwoord × gewicht )
+                    {`raw    = Σ ( direction × antwoord × gewicht )
 maxW   = Σ ( |gewicht|  ) over beantwoorde vragen
 score  = ( raw / ( maxW × 2 ) ) × 100   →  [-100 … +100]`}
                   </pre>
@@ -211,8 +211,9 @@ score  = ( raw / ( maxW × 2 ) ) × 100   →  [-100 … +100]`}
               <ScrollRevealItem>
                 <div className="mt-8 editorial-prose">
                   <p>
-                    Dit kompas is geen <strong>stemwijzer</strong> en geen
-                    wetenschappelijke meting. Het is een instrument voor
+                    Dit kompas is geen <strong>stemwijzer</strong>
+                    {" "}
+                    en geen wetenschappelijke meting. Het is een instrument voor
                     reflectie. We werken met geschatte profielposities van
                     politici en landen die we afleiden uit publieke indices,
                     programma&apos;s en debatten. Posities zijn discutabel, en
@@ -220,7 +221,7 @@ score  = ( raw / ( maxW × 2 ) ) × 100   →  [-100 … +100]`}
                   </p>
                   <p>
                     Politiek is bovendien meer dan een vragenlijst kan vangen.
-                    Zie jouw resultaat als een gespreksopener met jezelf — niet
+                    Zie jouw resultaat als een gespreksopener met jezelf, niet
                     als een eindoordeel.
                   </p>
                 </div>

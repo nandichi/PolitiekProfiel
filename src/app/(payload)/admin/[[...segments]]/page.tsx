@@ -1,4 +1,4 @@
-/* GENERATED BASED ON PAYLOAD TEMPLATE — DO NOT MODIFY DIRECTLY */
+/* GENERATED BASED ON PAYLOAD TEMPLATE - DO NOT MODIFY DIRECTLY */
 import type { Metadata } from "next";
 
 import config from "@payload-config";
@@ -14,7 +14,10 @@ type Args = {
   }>;
 };
 
-export const generateMetadata = ({ params, searchParams }: Args): Promise<Metadata> =>
+export const generateMetadata = ({
+  params,
+  searchParams,
+}: Args): Promise<Metadata> =>
   generatePageMetadata({ config, params, searchParams });
 
 const Page = ({ params, searchParams }: Args) =>

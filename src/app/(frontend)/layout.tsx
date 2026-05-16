@@ -3,6 +3,7 @@ import { Inter, Fraunces, IBM_Plex_Mono } from "next/font/google";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { WebMcpProvider } from "@/components/WebMcpProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -28,10 +29,10 @@ const plex = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
   ),
   title: {
-    default: "PolitiekProfiel — Een serieus politiek kompas",
+    default: "PolitiekProfiel - Een serieus politiek kompas",
     template: "%s · PolitiekProfiel",
   },
   description:
@@ -71,6 +72,7 @@ export default function FrontendLayout({
         <main className="flex-1">{children}</main>
         <SiteFooter />
         <ConsentBanner />
+        <WebMcpProvider />
       </body>
     </html>
   );

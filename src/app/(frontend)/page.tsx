@@ -66,10 +66,12 @@ export default function HomePage() {
 
                 <p className="mt-8 md:mt-10 max-w-xl text-lg text-ink-2 leading-relaxed">
                   Een rustig, doordacht profiel op{" "}
-                  <strong className="text-ink">vijf onafhankelijke
-                  dimensies</strong>. Geen scorelijst voor partijen. Geen
-                  reclame. Wel heldere uitleg, ruimte voor twijfel, en
-                  herkenbare vergelijking met politici en landen.
+                  <strong className="text-ink">
+                    vijf onafhankelijke dimensies
+                  </strong>
+                  . Geen scorelijst voor partijen. Geen reclame. Wel heldere
+                  uitleg, ruimte voor twijfel, en herkenbare vergelijking met
+                  politici en landen.
                 </p>
 
                 <div className="mt-10 flex flex-wrap gap-3">

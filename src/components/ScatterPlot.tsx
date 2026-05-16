@@ -48,7 +48,7 @@ export function ScatterPlot({
       cx: toPx(user[xDim]),
       cy: CHART_SIZE - toPx(user[yDim]),
     }),
-    [user, xDim, yDim],
+    [user, xDim, yDim]
   );
 
   const placed = useMemo(
@@ -61,7 +61,7 @@ export function ScatterPlot({
         const distance = Math.hypot(dx, dy);
         return { ...p, cx, cy, distance };
       }),
-    [points, xDim, yDim, userPos.cx, userPos.cy],
+    [points, xDim, yDim, userPos.cx, userPos.cy]
   );
 
   // Top 3 closest for leaderlines / highlights
@@ -183,7 +183,7 @@ export function ScatterPlot({
             strokeWidth={1}
           />
 
-          {/* Axis labels — mono */}
+          {/* Axis labels - mono */}
           <text
             x={PADDING + 6}
             y={HALF - 8}
@@ -227,24 +227,22 @@ export function ScatterPlot({
           </text>
 
           {/* Corner coords */}
-          {(
-            [
-              { x: PADDING + 6, y: CHART_SIZE - PADDING - 8, t: "-100,-100" },
-              {
-                x: CHART_SIZE - PADDING - 6,
-                y: CHART_SIZE - PADDING - 8,
-                t: "+100,-100",
-                anchor: "end" as const,
-              },
-              { x: PADDING + 6, y: PADDING + 14, t: "-100,+100" },
-              {
-                x: CHART_SIZE - PADDING - 6,
-                y: PADDING + 14,
-                t: "+100,+100",
-                anchor: "end" as const,
-              },
-            ]
-          ).map((c, i) => (
+          {[
+            { x: PADDING + 6, y: CHART_SIZE - PADDING - 8, t: "-100,-100" },
+            {
+              x: CHART_SIZE - PADDING - 6,
+              y: CHART_SIZE - PADDING - 8,
+              t: "+100,-100",
+              anchor: "end" as const,
+            },
+            { x: PADDING + 6, y: PADDING + 14, t: "-100,+100" },
+            {
+              x: CHART_SIZE - PADDING - 6,
+              y: PADDING + 14,
+              t: "+100,+100",
+              anchor: "end" as const,
+            },
+          ].map((c, i) => (
             <text
               key={i}
               x={c.x}
@@ -370,10 +368,7 @@ export function ScatterPlot({
           Jij
         </span>
         <span className="inline-flex items-center gap-2">
-          <span
-            aria-hidden
-            className="w-2.5 h-2.5 rounded-full bg-navy"
-          />
+          <span aria-hidden className="w-2.5 h-2.5 rounded-full bg-navy" />
           Top-3 dichtstbij
         </span>
         <span className="inline-flex items-center gap-2">

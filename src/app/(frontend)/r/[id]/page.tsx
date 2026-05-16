@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
     title: `${name}`,
     description: ideo?.shortDescription ?? "Bekijk dit politieke profiel.",
     openGraph: {
-      title: `${name} — PolitiekProfiel`,
+      title: `${name} - PolitiekProfiel`,
       description: ideo?.shortDescription ?? "Bekijk dit politieke profiel.",
       images: [
         {
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: `${name} — PolitiekProfiel`,
+      title: `${name} - PolitiekProfiel`,
       description: ideo?.shortDescription ?? "Bekijk dit politieke profiel.",
       images: [`/api/og/${id}`],
     },
@@ -81,7 +81,7 @@ export default async function ResultPage({ params }: Args) {
       primary: p.name,
       secondary: `${p.party} · ${p.country}`,
       vector: p.positionVector,
-    })),
+    }))
   );
   const rankedCountries = rankByDistance(
     result.dimensions,
@@ -90,7 +90,7 @@ export default async function ResultPage({ params }: Args) {
       primary: c.name,
       secondary: c.description,
       vector: c.positionVector,
-    })),
+    }))
   );
 
   return (

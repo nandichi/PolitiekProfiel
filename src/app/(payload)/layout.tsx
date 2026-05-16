@@ -1,4 +1,4 @@
-/* GENERATED BASED ON PAYLOAD TEMPLATE — DO NOT MODIFY DIRECTLY */
+/* GENERATED BASED ON PAYLOAD TEMPLATE - DO NOT MODIFY DIRECTLY */
 import type { ServerFunctionClient } from "payload";
 import { handleServerFunctions, RootLayout } from "@payloadcms/next/layouts";
 import config from "@payload-config";
@@ -22,7 +22,11 @@ const serverFunction: ServerFunctionClient = async function (args) {
 };
 
 const Layout = ({ children }: Args) => (
-  <RootLayout config={config} importMap={importMap} serverFunction={serverFunction}>
+  <RootLayout
+    config={config}
+    importMap={importMap}
+    serverFunction={serverFunction}
+  >
     {children}
   </RootLayout>
 );

@@ -74,7 +74,7 @@ export function SiteFooter() {
         </div>
 
         {/* Bottom line */}
-        <div className="mt-14 lg:mt-20 pt-6 border-t border-rule flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+        <div className="mt-14 lg:mt-20 pt-6 border-t border-rule flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-baseline gap-4">
             <span className="display text-lg font-medium tracking-tight">
               <span className="text-ink">Politiek</span>
@@ -88,9 +88,33 @@ export function SiteFooter() {
               © {year} · Geen tracking · Geen reclame
             </span>
           </div>
-          <p className="mono text-xs text-ink-muted tracking-wide">
-            v1.0 · Gemaakt in Nederland
-          </p>
+          <div className="flex flex-col gap-1 sm:items-end">
+            <p className="mono text-xs text-ink-muted tracking-wide">
+              Gebouwd door{" "}
+              <a
+                href="https://naoufalandichi.nl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink-2 underline-offset-2 hover:text-navy hover:underline"
+              >
+                Naoufal Andichi
+              </a>
+              <span aria-hidden className="mx-1.5 text-ink-muted">
+                ·
+              </span>
+              <a
+                href="https://www.linkedin.com/in/naoufalandichi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink-2 underline-offset-2 hover:text-navy hover:underline"
+              >
+                LinkedIn
+              </a>
+            </p>
+            <p className="mono text-xs text-ink-muted tracking-wide">
+              v1.0 · Gemaakt in Nederland
+            </p>
+          </div>
         </div>
       </div>
     </footer>

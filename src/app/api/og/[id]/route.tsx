@@ -29,22 +29,22 @@ async function fetchFont(url: string): Promise<ArrayBuffer | undefined> {
 async function loadFonts() {
   if (!fontCache.fraunces) {
     fontCache.fraunces = await fetchFont(
-      "https://cdn.jsdelivr.net/fontsource/fonts/fraunces:vf@latest/latin-wght-normal.woff2",
+      "https://cdn.jsdelivr.net/fontsource/fonts/fraunces:vf@latest/latin-wght-normal.woff2"
     );
   }
   if (!fontCache.fraunces600) {
     fontCache.fraunces600 = await fetchFont(
-      "https://cdn.jsdelivr.net/fontsource/fonts/fraunces:vf@latest/latin-wght-normal.woff2",
+      "https://cdn.jsdelivr.net/fontsource/fonts/fraunces:vf@latest/latin-wght-normal.woff2"
     );
   }
   if (!fontCache.plex) {
     fontCache.plex = await fetchFont(
-      "https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-mono@latest/latin-500-normal.woff2",
+      "https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-mono@latest/latin-500-normal.woff2"
     );
   }
   if (!fontCache.inter) {
     fontCache.inter = await fetchFont(
-      "https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2",
+      "https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2"
     );
   }
   return fontCache;
@@ -66,7 +66,7 @@ const COLORS = {
 
 export async function GET(
   _req: Request,
-  context: { params: Promise<{ id: string }> },
+  context: { params: Promise<{ id: string }> }
 ) {
   const { id } = await context.params;
   const result = await getResult(id);
@@ -122,9 +122,7 @@ export async function GET(
 
   const displayFont = fonts.fraunces ? "Fraunces" : "Georgia, serif";
   const sansFont = fonts.inter ? "Inter" : "Helvetica, Arial, sans-serif";
-  const monoFont = fonts.plex
-    ? "Plex"
-    : "Menlo, ui-monospace, monospace";
+  const monoFont = fonts.plex ? "Plex" : "Menlo, ui-monospace, monospace";
 
   const ideoName = ideology?.name ?? result.ideologySlug;
   const ideoShort = ideology?.shortDescription;
@@ -224,7 +222,7 @@ export async function GET(
                 color: COLORS.inkMuted,
               }}
             >
-              01 — PROFIEL
+              01 - PROFIEL
             </span>
             <span
               style={{
@@ -296,7 +294,7 @@ export async function GET(
                 color: COLORS.inkMuted,
               }}
             >
-              02 — DIMENSIES
+              02 - DIMENSIES
             </span>
             <span
               style={{
@@ -413,6 +411,6 @@ export async function GET(
         </div>
       </div>
     ),
-    { width: WIDTH, height: HEIGHT, fonts: fontConfig },
+    { width: WIDTH, height: HEIGHT, fonts: fontConfig }
   );
 }
