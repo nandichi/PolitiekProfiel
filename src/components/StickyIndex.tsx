@@ -15,6 +15,18 @@ interface StickyIndexProps {
   topOffset?: number;
 }
 
+/**
+ * Sticky index voor lange leespaginas.
+ *
+ * - Desktop: een verticale rail in een grid-kolom (sticky binnen content).
+ * - Mobile: een horizontale strip die `fixed` onder de site-header hangt.
+ *   Bewust `fixed` ipv `sticky`, omdat een `sticky` element in een grid-cel
+ *   de track op `auto` (intrinsic) breedte forceert; dat blies de page-breedte
+ *   op tot voorbij de viewport en zorgde voor horizontale overflow op mobiel.
+ *   Door `fixed` blijft de mobile nav buiten de grid-context en kan hij
+ *   veilig full-bleed zijn. Er wordt een spacer ingebouwd zodat de content
+ *   eronder begint.
+ */
 export function StickyIndex({
   items,
   className,
@@ -139,14 +151,14 @@ export function StickyIndex({
         </ol>
       </nav>
 
-      {/* Mobile horizontal strip */}
+      {/* Mobile horizontal strip — fixed buiten de grid */}
       <nav
         aria-label="Pagina-index"
-        className="lg:hidden sticky top-[64px] z-20 -mx-6 px-6 border-b border-rule bg-paper/90 backdrop-blur-md"
+        className="lg:hidden fixed inset-x-0 top-16 md:top-[72px] z-30 border-b border-rule bg-paper/90 backdrop-blur-md"
       >
         <div
           ref={mobileScrollRef}
-          className="flex gap-5 overflow-x-auto py-3 no-scrollbar"
+          className="flex gap-5 overflow-x-auto py-3 px-6 no-scrollbar"
           style={{ scrollbarWidth: "none" }}
         >
           {items.map((item, i) => {
@@ -170,6 +182,8 @@ export function StickyIndex({
           })}
         </div>
       </nav>
+      {/* Spacer onder de fixed mobile nav zodat content niet wegvalt */}
+      <div aria-hidden className="lg:hidden h-12" />
     </>
   );
 }

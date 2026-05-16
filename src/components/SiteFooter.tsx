@@ -35,7 +35,7 @@ export function SiteFooter() {
     <footer className="mt-24 border-t border-rule bg-paper">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10 pt-16 lg:pt-24 pb-10">
         {/* Top: meta + columns */}
-        <div className="grid gap-12 lg:gap-16 lg:grid-cols-[1.5fr_3fr]">
+        <div className="grid grid-cols-1 gap-12 lg:gap-16 lg:grid-cols-[1.5fr_3fr]">
           <div>
             <p className="kicker mb-5">Colofon</p>
             <p className="display text-2xl leading-snug text-ink">

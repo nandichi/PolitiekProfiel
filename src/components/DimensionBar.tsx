@@ -43,7 +43,10 @@ export function DimensionBar({
           )}
           <div className="min-w-0">
             <p className="kicker mb-1.5">{meta.label}</p>
-            <h3 className="display text-xl md:text-2xl leading-tight text-ink">
+            <h3
+              lang="nl"
+              className="display text-xl md:text-2xl leading-tight text-ink wrap-break-word [hyphens:auto]"
+            >
               {meta.poleNegative.label}
               <span className="text-ink-subtle font-light mx-2">/</span>
               {meta.polePositive.label}
@@ -139,32 +142,36 @@ export function DimensionBar({
         </motion.div>
       </div>
 
-      {/* Tick labels */}
+      {/* Tick labels — eerste/laatste anchoren aan rand om overhang/overflow
+          op smalle viewports te voorkomen. */}
       <div
-        className="relative mt-2 mono text-[0.7rem] text-ink-muted tabular-nums"
+        className="relative mt-2 h-4 mono text-[0.7rem] text-ink-muted tabular-nums"
         aria-hidden
       >
-        {TICKS.map((tick) => {
+        {TICKS.map((tick, i) => {
+          const isFirst = i === 0;
+          const isLast = i === TICKS.length - 1;
           const left = ((tick + 100) / 200) * 100;
+          const style: React.CSSProperties = isFirst
+            ? { left: 0 }
+            : isLast
+              ? { right: 0 }
+              : { left: `${left}%`, transform: "translateX(-50%)" };
           return (
-            <span
-              key={tick}
-              className="absolute top-0"
-              style={{ left: `${left}%`, transform: "translateX(-50%)" }}
-            >
+            <span key={tick} className="absolute top-0" style={style}>
               {tick > 0 ? `+${tick}` : tick}
             </span>
           );
         })}
       </div>
 
-      {/* Pole labels */}
-      <div className="flex justify-between mt-7 text-xs">
-        <span className="text-ink-muted">
+      {/* Pole labels — gap zorgt dat ze niet overlappen op smalle schermen */}
+      <div className="flex justify-between gap-3 mt-7 text-xs">
+        <span className="text-ink-muted min-w-0 wrap-break-word">
           <span className="mono mr-1.5 text-[0.65rem]">←</span>
           {meta.poleNegative.label}
         </span>
-        <span className="text-ink-muted">
+        <span className="text-ink-muted min-w-0 wrap-break-word text-right">
           {meta.polePositive.label}
           <span className="mono ml-1.5 text-[0.65rem]">→</span>
         </span>

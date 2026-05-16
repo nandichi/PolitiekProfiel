@@ -30,8 +30,9 @@ export function QuizSegmentBar({
     >
       <legend className="sr-only">Antwoordkeuze</legend>
 
-      {/* Pole labels */}
-      <div className="hidden sm:flex items-baseline justify-between px-5 pt-4 pb-2">
+      {/* Pole labels — altijd zichtbaar zodat op mobiel zonder lange button-
+          labels nog duidelijk is welke pool waar zit. */}
+      <div className="flex items-baseline justify-between px-3 sm:px-5 pt-3 sm:pt-4 pb-1 sm:pb-2">
         <span className="kicker">← Oneens</span>
         <span className="kicker">Eens →</span>
       </div>
@@ -51,7 +52,7 @@ export function QuizSegmentBar({
               aria-checked={isSelected}
               onClick={() => onChange(opt.value)}
               className={cx(
-                "relative px-2 py-5 sm:py-6 text-center transition-colors group focus:outline-none",
+                "relative min-w-0 px-1 sm:px-2 py-4 sm:py-6 text-center transition-colors group focus:outline-none",
                 isSelected ? "text-paper" : "text-ink hover:bg-paper-50",
               )}
             >
@@ -66,7 +67,7 @@ export function QuizSegmentBar({
                   }}
                 />
               )}
-              <span className="relative z-10 flex flex-col items-center gap-1.5">
+              <span className="relative z-10 flex flex-col items-center gap-1 sm:gap-1.5">
                 <span
                   className={cx(
                     "mono text-[0.78rem] tabular-nums tracking-wider",
@@ -75,9 +76,10 @@ export function QuizSegmentBar({
                 >
                   {opt.short}
                 </span>
+                {/* Volledige label vanaf sm — daaronder is te krap voor 5 kolommen */}
                 <span
                   className={cx(
-                    "text-[0.78rem] sm:text-[0.85rem] leading-tight font-medium",
+                    "hidden sm:block text-[0.78rem] sm:text-[0.85rem] leading-tight font-medium",
                     isSelected ? "text-paper" : "text-ink",
                   )}
                 >
@@ -90,7 +92,7 @@ export function QuizSegmentBar({
       </div>
 
       {/* Track underneath */}
-      <div className="px-5 pb-4 pt-1">
+      <div className="px-3 sm:px-5 pb-3 sm:pb-4 pt-1">
         <div className="relative h-px bg-rule">
           <div className="absolute left-1/2 -translate-x-1/2 -top-1 w-1 h-2 bg-rule-strong" />
         </div>

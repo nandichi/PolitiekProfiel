@@ -122,7 +122,7 @@ export default async function ResultPage({ params }: Args) {
   return (
     <div>
       <Container width="bleed" className="pt-10 md:pt-16">
-        <div className="grid gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
+        <div className="grid grid-cols-1 gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
           {/* ─── Sticky Index ─── */}
           <StickyIndex items={INDEX_ITEMS} topOffset={96} />
 
@@ -136,7 +136,8 @@ export default async function ResultPage({ params }: Args) {
                 </ScrollRevealItem>
                 <ScrollRevealItem>
                   <h1
-                    className="display mt-6 text-ink leading-[0.95]"
+                    lang="nl"
+                    className="display mt-6 text-ink leading-[0.95] wrap-break-word [hyphens:auto]"
                     style={{
                       fontSize: "clamp(2.6rem, 7vw, 6rem)",
                       letterSpacing: "-0.025em",
@@ -211,7 +212,7 @@ export default async function ResultPage({ params }: Args) {
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
             >
               <ScrollReveal variant="stagger">
-                <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end mb-8">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_auto] md:items-end mb-8">
                   <ScrollRevealItem>
                     <Kicker number={2}>Je scores op vijf assen</Kicker>
                     <h2 className="display mt-5">Waar je staat, in cijfers.</h2>
@@ -251,8 +252,8 @@ export default async function ResultPage({ params }: Args) {
                   </h2>
                 </ScrollRevealItem>
                 <ScrollRevealItem>
-                  <div className="mt-10 grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-                    <div>
+                  <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
+                    <div className="min-w-0">
                       <ScatterPlot
                         user={result.dimensions}
                         points={politicians.map((p) => ({
@@ -265,7 +266,7 @@ export default async function ResultPage({ params }: Args) {
                         initialY="social"
                       />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <p className="kicker mb-4">Rangschikking</p>
                       <RankedList
                         matches={rankedPoliticians}
@@ -291,8 +292,8 @@ export default async function ResultPage({ params }: Args) {
                   </h2>
                 </ScrollRevealItem>
                 <ScrollRevealItem>
-                  <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-12">
-                    <div className="lg:order-2">
+                  <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-12">
+                    <div className="min-w-0 lg:order-2">
                       <ScatterPlot
                         user={result.dimensions}
                         points={countries.map((c) => ({
@@ -305,7 +306,7 @@ export default async function ResultPage({ params }: Args) {
                         initialY="governance"
                       />
                     </div>
-                    <div className="lg:order-1">
+                    <div className="min-w-0 lg:order-1">
                       <p className="kicker mb-4">Rangschikking</p>
                       <RankedList matches={rankedCountries} highlightFirst />
                     </div>

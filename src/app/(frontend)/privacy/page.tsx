@@ -66,7 +66,7 @@ export default function PrivacyPage() {
           __html: jsonLdString([articleLd, breadcrumbLd]),
         }}
       />
-      <div className="grid gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
+      <div className="grid grid-cols-1 gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
         <StickyIndex items={INDEX} topOffset={96} />
 
         <div className="min-w-0 max-w-3xl">

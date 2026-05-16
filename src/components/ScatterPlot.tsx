@@ -75,7 +75,7 @@ export function ScatterPlot({
   return (
     <div className="space-y-5">
       {/* Axis controls */}
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <AxisSelect
           value={xDim}
           onChange={setXDim}
@@ -183,11 +183,13 @@ export function ScatterPlot({
             strokeWidth={1}
           />
 
-          {/* Axis labels - mono */}
+          {/* Axis labels - mono. fontSize via inline style (px) zodat de tekst
+              NIET meeschaalt met de viewBox; op smalle viewports blijft hij
+              leesbaar in plaats van te krimpen tot 5px. */}
           <text
             x={PADDING + 6}
             y={HALF - 8}
-            fontSize="11"
+            style={{ fontSize: "0.78rem" }}
             fill="var(--color-ink-muted)"
             fontFamily="var(--font-plex)"
             letterSpacing="0.04em"
@@ -197,7 +199,7 @@ export function ScatterPlot({
           <text
             x={CHART_SIZE - PADDING - 6}
             y={HALF - 8}
-            fontSize="11"
+            style={{ fontSize: "0.78rem" }}
             textAnchor="end"
             fill="var(--color-ink-muted)"
             fontFamily="var(--font-plex)"
@@ -208,7 +210,7 @@ export function ScatterPlot({
           <text
             x={HALF + 8}
             y={PADDING + 14}
-            fontSize="11"
+            style={{ fontSize: "0.78rem" }}
             fill="var(--color-ink-muted)"
             fontFamily="var(--font-plex)"
             letterSpacing="0.04em"
@@ -218,7 +220,7 @@ export function ScatterPlot({
           <text
             x={HALF + 8}
             y={CHART_SIZE - PADDING - 6}
-            fontSize="11"
+            style={{ fontSize: "0.78rem" }}
             fill="var(--color-ink-muted)"
             fontFamily="var(--font-plex)"
             letterSpacing="0.04em"
@@ -226,35 +228,38 @@ export function ScatterPlot({
             ↓ {yMeta.poleNegative.label.toUpperCase()}
           </text>
 
-          {/* Corner coords */}
-          {[
-            { x: PADDING + 6, y: CHART_SIZE - PADDING - 8, t: "-100,-100" },
-            {
-              x: CHART_SIZE - PADDING - 6,
-              y: CHART_SIZE - PADDING - 8,
-              t: "+100,-100",
-              anchor: "end" as const,
-            },
-            { x: PADDING + 6, y: PADDING + 14, t: "-100,+100" },
-            {
-              x: CHART_SIZE - PADDING - 6,
-              y: PADDING + 14,
-              t: "+100,+100",
-              anchor: "end" as const,
-            },
-          ].map((c, i) => (
-            <text
-              key={i}
-              x={c.x}
-              y={c.y}
-              fontSize="9"
-              fill="var(--color-ink-subtle)"
-              fontFamily="var(--font-plex)"
-              textAnchor={c.anchor ?? "start"}
-            >
-              ({c.t})
-            </text>
-          ))}
+          {/* Corner coords — alleen op grotere viewports zichtbaar via een
+              wrapper-group, omdat ze op mobiel onleesbaar zouden zijn. */}
+          <g className="hidden sm:inline">
+            {[
+              { x: PADDING + 6, y: CHART_SIZE - PADDING - 8, t: "-100,-100" },
+              {
+                x: CHART_SIZE - PADDING - 6,
+                y: CHART_SIZE - PADDING - 8,
+                t: "+100,-100",
+                anchor: "end" as const,
+              },
+              { x: PADDING + 6, y: PADDING + 14, t: "-100,+100" },
+              {
+                x: CHART_SIZE - PADDING - 6,
+                y: PADDING + 14,
+                t: "+100,+100",
+                anchor: "end" as const,
+              },
+            ].map((c, i) => (
+              <text
+                key={i}
+                x={c.x}
+                y={c.y}
+                style={{ fontSize: "0.68rem" }}
+                fill="var(--color-ink-subtle)"
+                fontFamily="var(--font-plex)"
+                textAnchor={c.anchor ?? "start"}
+              >
+                ({c.t})
+              </text>
+            ))}
+          </g>
 
           {/* Leaderlines top-3 */}
           <AnimatePresence>
@@ -346,7 +351,7 @@ export function ScatterPlot({
           <text
             x={userPos.cx + 22}
             y={userPos.cy + 4}
-            fontSize="12"
+            style={{ fontSize: "0.85rem" }}
             fontWeight={600}
             fill="var(--color-ink)"
             fontFamily="var(--font-inter)"

@@ -44,7 +44,7 @@ export function CompareLookup({
   return (
     <form
       onSubmit={submit}
-      className="grid gap-8 md:gap-12 md:grid-cols-[1fr_1fr_auto] md:items-end"
+      className="grid grid-cols-1 gap-8 md:gap-12 md:grid-cols-[1fr_1fr_auto] md:items-end"
     >
       <label className="block">
         <span className="kicker">

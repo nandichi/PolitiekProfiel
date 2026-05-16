@@ -102,7 +102,7 @@ export default function MethodiekPage() {
           __html: jsonLdString([articleLd, breadcrumbLd, faqLd]),
         }}
       />
-      <div className="grid gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
+      <div className="grid grid-cols-1 gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
         <StickyIndex items={INDEX} topOffset={96} />
 
         <div className="min-w-0 max-w-3xl">
@@ -153,7 +153,7 @@ export default function MethodiekPage() {
                   {DIMENSIONS.map((d, i) => (
                     <article
                       key={d.id}
-                      className="grid gap-5 lg:grid-cols-[80px_1fr] border-b border-rule pb-8 last:border-b-0"
+                      className="grid grid-cols-1 gap-5 lg:grid-cols-[80px_1fr] border-b border-rule pb-8 last:border-b-0"
                     >
                       <div>
                         <p className="index-num text-sm">
@@ -172,7 +172,7 @@ export default function MethodiekPage() {
                         <p className="mt-3 text-ink-2 leading-relaxed">
                           {d.description}
                         </p>
-                        <dl className="mt-6 grid gap-4 sm:grid-cols-2">
+                        <dl className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
                           <div className="border-l-2 border-ink pl-4">
                             <dt className="kicker mb-1.5">
                               {d.poleNegative.label}

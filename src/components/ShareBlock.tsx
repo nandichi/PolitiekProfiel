@@ -54,14 +54,14 @@ export function ShareBlock({
 
   return (
     <div className="border border-rule-strong bg-paper">
-      <div className="grid gap-0 lg:grid-cols-[1fr_auto]">
+      <div className="grid grid-cols-1 gap-0 lg:grid-cols-[1fr_auto]">
         {/* URL display */}
-        <div className="px-6 py-6 lg:py-7 border-b lg:border-b-0 lg:border-r border-rule">
+        <div className="px-4 sm:px-6 py-6 lg:py-7 border-b lg:border-b-0 lg:border-r border-rule min-w-0">
           <p className="kicker mb-3 flex items-center gap-2">
             <Link2 size={12} strokeWidth={1.8} />
             <span>Deelbare link</span>
           </p>
-          <code className="block mono text-sm md:text-base text-ink break-all leading-relaxed">
+          <code className="block mono text-xs sm:text-sm md:text-base text-ink break-all leading-relaxed">
             {url || "…"}
           </code>
           <p className="mt-3 mono text-[0.62rem] tracking-wider text-ink-subtle">
@@ -74,7 +74,7 @@ export function ShareBlock({
           <button
             type="button"
             onClick={copy}
-            className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-6 py-4 lg:py-6 text-sm font-medium border-r lg:border-r-0 lg:border-b border-rule hover:bg-paper-50 transition-colors min-w-[140px]"
+            className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-4 sm:px-6 py-4 lg:py-6 text-sm font-medium border-r lg:border-r-0 lg:border-b border-rule hover:bg-paper-50 transition-colors lg:min-w-[140px]"
             disabled={!url}
           >
             <AnimatePresence mode="wait" initial={false}>
@@ -109,7 +109,7 @@ export function ShareBlock({
             <button
               type="button"
               onClick={share}
-              className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-6 py-4 lg:py-6 text-sm font-medium bg-ink text-paper hover:bg-navy transition-colors min-w-[140px]"
+              className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-4 sm:px-6 py-4 lg:py-6 text-sm font-medium bg-ink text-paper hover:bg-navy transition-colors lg:min-w-[140px]"
             >
               <Share2 size={16} strokeWidth={1.8} />
               Deel

@@ -129,7 +129,7 @@ export default async function ComparePage({ searchParams }: Args) {
                   <Kicker number={1}>Profielen</Kicker>
                 </ScrollRevealItem>
                 <ScrollRevealItem>
-                  <div className="mt-8 grid gap-12 lg:gap-16 lg:grid-cols-2 relative">
+                  <div className="mt-8 grid grid-cols-1 gap-12 lg:gap-16 lg:grid-cols-2 relative">
                     <div
                       aria-hidden
                       className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-rule"
@@ -245,7 +245,10 @@ function ProfileSummary({
         </span>
         <span className="kicker">{label}</span>
       </div>
-      <h3 className="display text-3xl md:text-4xl leading-tight text-ink">
+      <h3
+        lang="nl"
+        className="display text-3xl md:text-4xl leading-tight text-ink wrap-break-word [hyphens:auto]"
+      >
         {ideologyName}
       </h3>
       {shortDescription && (

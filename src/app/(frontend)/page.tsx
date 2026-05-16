@@ -60,7 +60,7 @@ export default function HomePage() {
               <Kicker number={"NL · 2026"}>Een onafhankelijk kompas</Kicker>
             </ScrollRevealItem>
 
-            <div className="mt-8 md:mt-12 grid gap-12 lg:gap-20 lg:grid-cols-12 items-start">
+            <div className="mt-8 md:mt-12 grid grid-cols-1 gap-12 lg:gap-20 lg:grid-cols-12 items-start">
               {/* Manifesto headline */}
               <ScrollRevealItem className="lg:col-span-7">
                 <h1
@@ -142,7 +142,7 @@ export default function HomePage() {
               </h2>
             </ScrollRevealItem>
 
-            <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-x-12">
+            <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-x-12">
               {FEATURES.map((f, i) => (
                 <ScrollRevealItem key={i}>
                   <article className="relative pl-8 border-l border-rule">
@@ -169,7 +169,7 @@ export default function HomePage() {
       <section className="border-b border-rule">
         <Container width="bleed" className="py-20 md:py-28">
           <ScrollReveal variant="stagger">
-            <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-end mb-12">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_auto] md:items-end mb-12">
               <ScrollRevealItem>
                 <Kicker number={2}>Kies een lengte</Kicker>
                 <h2 className="display max-w-2xl mt-5">
@@ -188,7 +188,7 @@ export default function HomePage() {
               </ScrollRevealItem>
             </div>
 
-            <div className="grid gap-px bg-rule border border-rule md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-px bg-rule border border-rule md:grid-cols-3">
               <TierCard
                 tier="quick"
                 title="Quick"
@@ -220,7 +220,7 @@ export default function HomePage() {
       <section>
         <Container width="bleed" className="py-20 md:py-28">
           <ScrollReveal variant="stagger">
-            <div className="grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-20 mb-14">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_2fr] lg:gap-20 mb-14">
               <ScrollRevealItem>
                 <Kicker number={3}>De vijf assen</Kicker>
                 <h2 className="display mt-5">
@@ -244,7 +244,7 @@ export default function HomePage() {
                   as="li"
                   className="border-b border-rule"
                 >
-                  <div className="grid gap-4 lg:grid-cols-[80px_1fr_2fr_auto] lg:gap-8 py-7 md:py-9 items-baseline group">
+                  <div className="grid grid-cols-1 gap-4 lg:grid-cols-[80px_1fr_2fr_auto] lg:gap-8 py-7 md:py-9 items-baseline group">
                     <p className="index-num text-sm">
                       {String(i + 1).padStart(2, "0")}
                     </p>
