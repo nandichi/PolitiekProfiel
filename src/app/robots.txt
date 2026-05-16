@@ -3,13 +3,10 @@
 # Beleid: open. Alle (zoek- en AI-)crawlers mogen de site indexeren en gebruiken
 # voor zoekresultaten, AI-search (real-time grounding) en training.
 #
-# Content Signals (https://contentsignals.org, draft-romm-aipref-contentsignals):
-#   ai-train  = yes  — content mag gebruikt worden voor (fine-)training van AI-modellen
-#   search    = yes  — content mag in zoekindexen worden opgenomen en gebruikt voor zoekresultaten
-#   ai-input  = yes  — content mag real-time aan AI-modellen worden gevoerd (grounding/RAG)
+# /admin/ en /api/ zijn afgeschermd om interne endpoints en dashboards uit
+# zoekindexen en AI-training te houden.
 
 User-agent: *
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
@@ -17,115 +14,96 @@ Disallow: /api/
 # AI / LLM crawlers (expliciet, om te voorkomen dat strengere defaults ergens worden afgedwongen)
 
 User-agent: GPTBot
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: OAI-SearchBot
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: ChatGPT-User
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: Claude-Web
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: ClaudeBot
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: anthropic-ai
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: Google-Extended
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: PerplexityBot
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: Perplexity-User
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: Applebot-Extended
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: CCBot
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: Bytespider
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: meta-externalagent
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: FacebookBot
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: Amazonbot
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: cohere-ai
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: Diffbot
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: Mistral-AI
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/
 
 User-agent: YouBot
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/

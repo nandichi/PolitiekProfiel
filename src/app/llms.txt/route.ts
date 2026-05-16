@@ -43,11 +43,11 @@ Elke dimensie meet onafhankelijk; scores lopen van −100 tot +100.
 
 ## Voor agents en developers
 
-- [API & Agent Discovery](${BASE_URL}/docs/api): OpenAPI 3.1 spec, linkset, Content-Signal directives, markdown content negotiation, WebMCP-tools.
+- [API & Agent Discovery](${BASE_URL}/docs/api): OpenAPI 3.1 spec, linkset, markdown content negotiation, WebMCP-tools.
 - [OpenAPI 3.1 spec](${BASE_URL}/api/docs/openapi.json)
 - [Linkset (RFC 9727)](${BASE_URL}/.well-known/api-catalog)
 - [Sitemap](${BASE_URL}/sitemap.xml)
-- [robots.txt](${BASE_URL}/robots.txt) — bevat Content-Signal directives die expliciet ai-train, search en ai-input op "yes" zetten voor alle openbare content.
+- [robots.txt](${BASE_URL}/robots.txt) — open opt-in (Allow: /) voor zowel zoekcrawlers als AI/LLM-crawlers; alleen \`/admin/\` en \`/api/\` zijn afgeschermd.
 
 Editorial pagina's ondersteunen content negotiation: stuur \`Accept: text/markdown\` en je krijgt een markdown-versie terug die direct als grounding context bruikbaar is.
 

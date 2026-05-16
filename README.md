@@ -253,7 +253,7 @@ Het ontwerp scheidt drie zorgen:
 
 - **Editorial content** — stellingen, ideologieën, politici en landen worden beheerd in Payload CMS op Neon Postgres. Dit is wat redacteuren bewerken.
 - **Resultaten** — antwoorden worden server-side gescoord en alleen de geaggregeerde dimensiescores + ideologieslug worden anoniem opgeslagen in Firestore. Geen IP, geen user-agent, geen individuele antwoorden.
-- **Discovery** — de hele site is gebouwd om door zowel mensen als AI-agents gelezen te worden: OpenAPI-spec, `robots.txt` met Content-Signal, `/.well-known/api-catalog`, markdown content negotiation en WebMCP.
+- **Discovery** — de hele site is gebouwd om door zowel mensen als AI-agents gelezen te worden: OpenAPI-spec, `robots.txt` met expliciete AI-bot rules, `/.well-known/api-catalog`, markdown content negotiation en WebMCP.
 
 <br />
 
@@ -376,7 +376,7 @@ src/
 │  ├─ icon.tsx                 · 32×32 favicon (P in Fraunces serif)
 │  ├─ apple-icon.tsx           · 180×180 apple touch icon
 │  ├─ manifest.ts              · PWA manifest
-│  ├─ robots.txt               · Content-Signal (open AI policy)
+│  ├─ robots.txt               · open opt-in (zoek + AI), per-bot rules
 │  └─ sitemap.ts
 │
 ├─ collections/                ─ Payload schema (Postgres)
@@ -423,7 +423,7 @@ src/
 | `/api/docs/openapi.json` | GET | OpenAPI 3.1 spec |
 | `/.well-known/api-catalog` | GET | `application/linkset+json` (RFC 9727) |
 | `/sitemap.xml` | GET | Genereerd via `app/sitemap.ts` |
-| `/robots.txt` | static | `Content-Signal: ai-train=yes, search=yes, ai-input=yes` |
+| `/robots.txt` | static | Open opt-in voor zoek + AI; expliciete rules voor 18 AI-bots |
 | `/manifest.webmanifest` | GET | PWA manifest |
 | `/icon` `/apple-icon` `/favicon.ico` | GET | Dynamisch gerenderd via `next/og` |
 
@@ -465,13 +465,12 @@ results/{shareId}
 PolitiekProfiel is gebouwd om door zowel mensen als AI-agents leesbaar te zijn. De volgende standaarden zijn geïmplementeerd:
 
 <details>
-<summary><b>robots.txt met Content Signals</b></summary>
+<summary><b>robots.txt — open opt-in voor zoek én AI</b></summary>
 
-Open beleid: zoekmachines, AI-search en AI-training mogen de site indexeren. Specifieke regels voor 18 bekende AI-crawlers (GPTBot, OAI-SearchBot, Claude-Web, PerplexityBot, etc.).
+Open beleid: zoekmachines, AI-search en AI-training mogen de site indexeren. Specifieke regels voor 18 bekende AI-crawlers (GPTBot, OAI-SearchBot, Claude-Web, PerplexityBot, etc.) zodat strengere defaults nergens worden afgedwongen. Alleen `/admin/` en `/api/` zijn afgeschermd.
 
 ```
 User-agent: *
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /admin/
 Disallow: /api/

@@ -7,7 +7,7 @@ import { buildBreadcrumbList, jsonLdString } from "@/lib/structured-data";
 export const metadata: Metadata = {
   title: "API & Agent Discovery",
   description:
-    "Technische documentatie van de PolitiekProfiel API en de agent-discovery-endpoints: OpenAPI 3.1 spec, robots.txt met Content-Signal, sitemap, /.well-known/api-catalog (RFC 9727), markdown content negotiation en WebMCP-tools.",
+    "Technische documentatie van de PolitiekProfiel API en de agent-discovery-endpoints: OpenAPI 3.1 spec, robots.txt, sitemap, /.well-known/api-catalog (RFC 9727), markdown content negotiation en WebMCP-tools.",
   alternates: { canonical: "/docs/api" },
   openGraph: {
     title: "API & Agent Discovery · PolitiekProfiel",
@@ -30,7 +30,7 @@ const ENDPOINTS: Array<{
     path: "/robots.txt",
     contentType: "text/plain",
     description:
-      "Crawl-policy met expliciete User-agent rules per AI/zoekbot en Content-Signal directives (ai-train, search, ai-input).",
+      "Crawl-policy met expliciete User-agent rules per AI/zoekbot. Open opt-in voor zowel zoekindexering als AI-training en grounding.",
   },
   {
     method: "GET",
@@ -179,11 +179,13 @@ export default function ApiDocsPage() {
         <h2 className="font-serif text-2xl md:text-3xl text-ink mb-6">Crawl-beleid</h2>
         <p className="text-ink/80 leading-relaxed">
           Volledig open: zowel zoekmachines als AI-crawlers (training, real-time grounding,
-          search) mogen de publieke pagina&apos;s indexeren en gebruiken. Zie{" "}
+          search) mogen de publieke pagina&apos;s indexeren en gebruiken. Alleen{" "}
+          <code className="font-mono text-sm">/admin/</code> en{" "}
+          <code className="font-mono text-sm">/api/</code> zijn afgeschermd. Zie{" "}
           <Link href="/robots.txt" className="underline">
             /robots.txt
           </Link>
-          {" "}voor de Content-Signal directives per User-agent.
+          {" "}voor de expliciete User-agent rules per AI/zoekbot.
         </p>
       </section>
     </Container>

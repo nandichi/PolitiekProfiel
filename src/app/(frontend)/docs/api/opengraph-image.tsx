@@ -25,7 +25,7 @@ export default async function ApiDocsOg() {
           { text: "begrijpen", italic: true, navy: true },
           { text: ".", terra: true },
         ]}
-        body="OpenAPI 3.1 spec, /.well-known/api-catalog (RFC 9727), robots.txt met Content-Signal, markdown content negotiation en WebMCP-tools voor browser-agents."
+        body="OpenAPI 3.1 spec, /.well-known/api-catalog (RFC 9727), robots.txt met expliciete AI-bot rules, markdown content negotiation en WebMCP-tools voor browser-agents."
         meta={[
           { label: "Spec", value: "OpenAPI 3.1" },
           { label: "Catalog", value: "RFC 9727" },
