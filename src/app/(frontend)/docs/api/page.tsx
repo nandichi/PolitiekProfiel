@@ -6,7 +6,15 @@ import { Kicker } from "@/components/Kicker";
 export const metadata: Metadata = {
   title: "API & Agent Discovery",
   description:
-    "Technische documentatie van de PolitiekProfiel API en de agent-discovery-endpoints (sitemap, robots, api-catalog, OpenAPI).",
+    "Technische documentatie van de PolitiekProfiel API en de agent-discovery-endpoints: OpenAPI 3.1 spec, robots.txt met Content-Signal, sitemap, /.well-known/api-catalog (RFC 9727), markdown content negotiation en WebMCP-tools.",
+  alternates: { canonical: "/docs/api" },
+  openGraph: {
+    title: "API & Agent Discovery · PolitiekProfiel",
+    description:
+      "OpenAPI 3.1, linkset, markdown for agents, WebMCP-tools — een site die agents begrijpen.",
+    url: "/docs/api",
+    type: "article",
+  },
 };
 
 const ENDPOINTS: Array<{

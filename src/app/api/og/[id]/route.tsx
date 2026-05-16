@@ -2,67 +2,12 @@ import { ImageResponse } from "next/og";
 import { getResult } from "@/lib/results-store";
 import { getIdeologyBySlug } from "@/lib/result-data";
 import { DIMENSIONS } from "@/lib/dimensions";
+import { OG_COLORS as COLORS, getOgFontConfig } from "@/lib/og-template";
 
 export const runtime = "nodejs";
 
 const WIDTH = 1200;
 const HEIGHT = 630;
-
-// Cached font buffers (per-process)
-const fontCache: {
-  fraunces?: ArrayBuffer;
-  fraunces600?: ArrayBuffer;
-  plex?: ArrayBuffer;
-  inter?: ArrayBuffer;
-} = {};
-
-async function fetchFont(url: string): Promise<ArrayBuffer | undefined> {
-  try {
-    const res = await fetch(url, { cache: "force-cache" });
-    if (!res.ok) return undefined;
-    return await res.arrayBuffer();
-  } catch {
-    return undefined;
-  }
-}
-
-async function loadFonts() {
-  if (!fontCache.fraunces) {
-    fontCache.fraunces = await fetchFont(
-      "https://cdn.jsdelivr.net/fontsource/fonts/fraunces:vf@latest/latin-wght-normal.woff2"
-    );
-  }
-  if (!fontCache.fraunces600) {
-    fontCache.fraunces600 = await fetchFont(
-      "https://cdn.jsdelivr.net/fontsource/fonts/fraunces:vf@latest/latin-wght-normal.woff2"
-    );
-  }
-  if (!fontCache.plex) {
-    fontCache.plex = await fetchFont(
-      "https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-mono@latest/latin-500-normal.woff2"
-    );
-  }
-  if (!fontCache.inter) {
-    fontCache.inter = await fetchFont(
-      "https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2"
-    );
-  }
-  return fontCache;
-}
-
-const COLORS = {
-  paper: "#fafaf7",
-  paper50: "#f4f3ed",
-  paper100: "#ecebe2",
-  paper200: "#ddd9c7",
-  ink: "#0e1014",
-  inkMuted: "#5a6071",
-  inkSubtle: "#8c93a3",
-  navy: "#142850",
-  terra: "#b34329",
-  rule: "#dcd8c9",
-  ruleStrong: "#b5ad95",
-};
 
 export async function GET(
   _req: Request,
@@ -75,54 +20,8 @@ export async function GET(
   }
   const ideology = await getIdeologyBySlug(result.ideologySlug);
 
-  const fonts = await loadFonts();
-  const fontConfig: Array<{
-    name: string;
-    data: ArrayBuffer;
-    weight: 400 | 500 | 600 | 700;
-    style: "normal";
-  }> = [];
-
-  if (fonts.fraunces) {
-    fontConfig.push({
-      name: "Fraunces",
-      data: fonts.fraunces,
-      weight: 500,
-      style: "normal",
-    });
-    fontConfig.push({
-      name: "Fraunces",
-      data: fonts.fraunces,
-      weight: 600,
-      style: "normal",
-    });
-  }
-  if (fonts.inter) {
-    fontConfig.push({
-      name: "Inter",
-      data: fonts.inter,
-      weight: 400,
-      style: "normal",
-    });
-    fontConfig.push({
-      name: "Inter",
-      data: fonts.inter,
-      weight: 500,
-      style: "normal",
-    });
-  }
-  if (fonts.plex) {
-    fontConfig.push({
-      name: "Plex",
-      data: fonts.plex,
-      weight: 500,
-      style: "normal",
-    });
-  }
-
-  const displayFont = fonts.fraunces ? "Fraunces" : "Georgia, serif";
-  const sansFont = fonts.inter ? "Inter" : "Helvetica, Arial, sans-serif";
-  const monoFont = fonts.plex ? "Plex" : "Menlo, ui-monospace, monospace";
+  const { fonts: fontConfig, display: displayFont, sans: sansFont, mono: monoFont } =
+    await getOgFontConfig();
 
   const ideoName = ideology?.name ?? result.ideologySlug;
   const ideoShort = ideology?.shortDescription;

@@ -11,7 +11,15 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Methodiek",
   description:
-    "Hoe we politieke profielen meten: vijf dimensies, eerlijke balans, neutrale stellingen.",
+    "Hoe PolitiekProfiel politieke houding meet: vijf onafhankelijke dimensies, gebalanceerde stellingen, transparante scoring op −100 tot +100. Lees over de werking, de aannames en de beperkingen.",
+  alternates: { canonical: "/methodiek" },
+  openGraph: {
+    title: "Methodiek · PolitiekProfiel",
+    description:
+      "Vijf onafhankelijke dimensies, gebalanceerde stellingen, transparante scoring. Geen één-as label.",
+    url: "/methodiek",
+    type: "article",
+  },
 };
 
 const INDEX = [

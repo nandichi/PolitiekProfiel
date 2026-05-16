@@ -10,7 +10,15 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy",
   description:
-    "Wat we wel en niet opslaan over jou. Hoe we omgaan met politieke voorkeur als bijzondere persoonsgegevens.",
+    "Politieke voorkeur valt onder bijzondere persoonsgegevens (AVG). Wat we wel en niet opslaan, hoe we anonieme resultaten bewaren, en je recht op verwijdering.",
+  alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "Privacy · PolitiekProfiel",
+    description:
+      "Geen account, geen tracking. Anonieme opslag onder de AVG. Politieke voorkeur als bijzondere persoonsgegevens.",
+    url: "/privacy",
+    type: "article",
+  },
 };
 
 const INDEX = [

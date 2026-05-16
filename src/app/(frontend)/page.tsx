@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock3 } from "lucide-react";
 import { Container } from "@/components/Container";
@@ -9,6 +10,22 @@ import {
 } from "@/components/motion/ScrollReveal";
 import { DIMENSIONS, TIER_QUESTION_COUNT } from "@/lib/dimensions";
 import { cx } from "@/lib/cx";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "PolitiekProfiel — een onafhankelijk politiek kompas",
+  },
+  description:
+    "Politiek is meer dan links of rechts. Een rustig, doordacht profiel op vijf onafhankelijke dimensies. Geen scorelijst voor partijen, geen tracking, anonieme deelbare resultaten.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "PolitiekProfiel — een onafhankelijk politiek kompas",
+    description:
+      "Politiek is meer dan links of rechts. Een rustig, doordacht profiel op vijf onafhankelijke dimensies.",
+    url: "/",
+    type: "website",
+  },
+};
 
 const FEATURES: Array<{
   kicker: string;

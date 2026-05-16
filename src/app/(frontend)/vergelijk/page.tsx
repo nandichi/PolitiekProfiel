@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Container } from "@/components/Container";
@@ -11,6 +12,20 @@ import { getResult } from "@/lib/results-store";
 import { getIdeologyBySlug } from "@/lib/result-data";
 import { DIMENSIONS } from "@/lib/dimensions";
 import { CompareLookup } from "@/components/CompareLookup";
+
+export const metadata: Metadata = {
+  title: "Vergelijk",
+  description:
+    "Twee politieke profielen naast elkaar. Vergelijk jouw resultaat met dat van een vriend, een politicus of een ideologie op de vijf onafhankelijke dimensies.",
+  alternates: { canonical: "/vergelijk" },
+  openGraph: {
+    title: "Vergelijk · PolitiekProfiel",
+    description:
+      "Twee profielen naast elkaar op de vijf dimensies. Zonder oordeel, met nuance.",
+    url: "/vergelijk",
+    type: "website",
+  },
+};
 
 type Args = { searchParams: Promise<{ a?: string; b?: string }> };
 
