@@ -45,25 +45,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Naoufal Andichi", url: "https://naoufalandichi.nl" }],
   creator: "Naoufal Andichi",
   publisher: "PolitiekProfiel",
-  keywords: [
-    "politiek kompas",
-    "politieke quiz",
-    "ideologie",
-    "stemwijzer alternatief",
-    "politieke dimensies",
-    "Nederland politiek",
-    "politiek profiel",
-    "vergelijken politici",
-    "politieke ideologieën",
-    "burgerrechten",
-    "EU bestuur",
-    "AVG",
-  ],
   category: "Politics",
   alternates: {
     canonical: "/",
     languages: {
       "nl-NL": "/",
+      "x-default": "/",
     },
   },
   openGraph: {
@@ -113,11 +100,39 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const PERSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${SITE_URL}#founder`,
+  name: "Naoufal Andichi",
+  url: "https://naoufalandichi.nl",
+  jobTitle: "Software Developer",
+  worksFor: {
+    "@type": "Organization",
+    name: "Developing B.V.",
+    url: "https://developing.nl/",
+  },
+  knowsAbout: [
+    "Nederlandse politiek",
+    "politieke ideologieën",
+    "data-visualisatie",
+    "webdevelopment",
+  ],
+  knowsLanguage: ["nl-NL", "en"],
+  sameAs: [
+    "https://naoufalandichi.nl",
+    "https://www.linkedin.com/in/naoufalandichi/",
+    "https://politiekpraat.nl",
+  ],
+};
+
 const ORGANIZATION_LD = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": `${SITE_URL}#organization`,
   name: SITE_NAME,
+  legalName: SITE_NAME,
+  alternateName: "Een onafhankelijk politiek kompas",
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",
@@ -125,18 +140,33 @@ const ORGANIZATION_LD = {
     width: 180,
     height: 180,
   },
+  image: `${SITE_URL}/opengraph-image`,
   description: SITE_DESCRIPTION,
-  founder: {
-    "@type": "Person",
-    name: "Naoufal Andichi",
-    url: "https://naoufalandichi.nl",
+  founder: { "@id": `${SITE_URL}#founder` },
+  founders: [{ "@id": `${SITE_URL}#founder` }],
+  foundingDate: "2026",
+  foundingLocation: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "NL",
+    },
   },
   areaServed: {
     "@type": "Country",
     name: "Netherlands",
   },
   knowsLanguage: ["nl-NL"],
-  sameAs: [],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "privacy",
+    email: "privacy@politiekprofiel.nl",
+    availableLanguage: ["nl"],
+  },
+  sameAs: [
+    "https://naoufalandichi.nl",
+    "https://www.linkedin.com/in/naoufalandichi/",
+  ],
 };
 
 const WEBSITE_LD = {
@@ -149,6 +179,19 @@ const WEBSITE_LD = {
   inLanguage: "nl-NL",
   description: SITE_DESCRIPTION,
   publisher: { "@id": `${SITE_URL}#organization` },
+  creator: { "@id": `${SITE_URL}#founder` },
+  about: [
+    { "@type": "Thing", name: "Nederlandse politiek" },
+    { "@type": "Thing", name: "politieke ideologieën" },
+    { "@type": "Thing", name: "politiek kompas" },
+  ],
+  audience: {
+    "@type": "Audience",
+    audienceType: "Nederlandse kiezers",
+    geographicArea: { "@type": "Country", name: "Netherlands" },
+  },
+  isAccessibleForFree: true,
+  license: `${SITE_URL}/privacy`,
 };
 
 export default function FrontendLayout({
@@ -171,7 +214,7 @@ export default function FrontendLayout({
           type="application/ld+json"
           suppressHydrationWarning
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([ORGANIZATION_LD, WEBSITE_LD]),
+            __html: JSON.stringify([PERSON_LD, ORGANIZATION_LD, WEBSITE_LD]),
           }}
         />
       </body>

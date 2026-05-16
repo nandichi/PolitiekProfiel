@@ -6,19 +6,34 @@ import {
   ScrollRevealItem,
 } from "@/components/motion/ScrollReveal";
 import { DIMENSIONS } from "@/lib/dimensions";
+import {
+  buildArticleSchema,
+  buildBreadcrumbList,
+  buildFaqPage,
+  jsonLdString,
+} from "@/lib/structured-data";
 import type { Metadata } from "next";
 
+const PAGE_PATH = "/methodiek";
+const PAGE_PUBLISHED = "2026-01-15";
+const PAGE_MODIFIED = "2026-05-16";
+const PAGE_TITLE = "Methodiek";
+const PAGE_DESCRIPTION =
+  "Hoe PolitiekProfiel politieke houding meet: vijf onafhankelijke dimensies, gebalanceerde stellingen, transparante scoring op −100 tot +100. Lees over de werking, de aannames en de beperkingen.";
+
 export const metadata: Metadata = {
-  title: "Methodiek",
-  description:
-    "Hoe PolitiekProfiel politieke houding meet: vijf onafhankelijke dimensies, gebalanceerde stellingen, transparante scoring op −100 tot +100. Lees over de werking, de aannames en de beperkingen.",
-  alternates: { canonical: "/methodiek" },
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: PAGE_PATH },
   openGraph: {
     title: "Methodiek · PolitiekProfiel",
     description:
       "Vijf onafhankelijke dimensies, gebalanceerde stellingen, transparante scoring. Geen één-as label.",
-    url: "/methodiek",
+    url: PAGE_PATH,
     type: "article",
+    publishedTime: PAGE_PUBLISHED,
+    modifiedTime: PAGE_MODIFIED,
+    authors: ["https://naoufalandichi.nl"],
   },
 };
 
@@ -30,9 +45,63 @@ const INDEX = [
   { id: "beperkingen", label: "Beperkingen" },
 ];
 
+const FAQ_ENTRIES = [
+  {
+    question: "Hoe meet PolitiekProfiel mijn politieke houding?",
+    answer:
+      "PolitiekProfiel meet je politieke houding op vijf onafhankelijke dimensies: economisch (vrije markt vs sterke staat), sociaal-cultureel (conservatief vs progressief), burgerrechten (autoritair vs libertair), bestuur (nationaal-soeverein vs multilevel/EU) en systeemvertrouwen (wantrouwen vs vertrouwen). Per dimensie worden gebalanceerde stellingen voorgelegd en je antwoorden vertaald naar een score van −100 tot +100.",
+  },
+  {
+    question: "Hoe komen de scores tot stand?",
+    answer:
+      "Elk antwoord krijgt een waarde van −2 (volledig mee oneens) tot +2 (volledig mee eens). De score per dimensie wordt berekend als: raw = Σ(direction × antwoord × gewicht), genormaliseerd door de som van absolute gewichten over beantwoorde vragen, geschaald naar het bereik −100 tot +100. Overgeslagen vragen worden niet meegenomen in de normalisatie.",
+  },
+  {
+    question: "Hoe wordt mijn dichtstbijzijnde ideologie of politicus bepaald?",
+    answer:
+      "Je profiel is een vector in een vijfdimensionale ruimte. De dichtstbijzijnde ideologie, politicus of land wordt bepaald via Euclidische afstand in die ruimte. Posities van politici en landen zijn schattingen op basis van publieke indices, partijprogramma's en debatten.",
+  },
+  {
+    question: "Waarom vijf dimensies en niet één links-rechts schaal?",
+    answer:
+      "Een enkele links-rechts as kan onafhankelijke politieke houdingen niet vangen. Een conservatief op cultuur kan economisch links zijn; een libertair kan EU-gezind zijn. Vijf onafhankelijke dimensies geven een rijker en eerlijker beeld dan een gereduceerd één-as label.",
+  },
+  {
+    question: "Is dit een stemwijzer?",
+    answer:
+      "Nee. PolitiekProfiel is geen stemwijzer en geen wetenschappelijke meting, maar een instrument voor reflectie. Het laat zien waar je staat ten opzichte van ideologische posities, niet welke partij je zou moeten stemmen.",
+  },
+  {
+    question: "Hoe worden stellingen gekozen?",
+    answer:
+      "Per dimensie staan evenveel stellingen die richting de positieve pool wijzen als richting de negatieve pool, zodat een 'mee eens' nooit eenzijdig één kant op weegt. We kiezen concrete en actuele beleidsstellingen, geen vage platitudes. Bij elke stelling zijn context, argumenten voor en tegen, en bronnen beschikbaar.",
+  },
+];
+
 export default function MethodiekPage() {
+  const articleLd = buildArticleSchema({
+    path: PAGE_PATH,
+    headline: "Methodiek — hoe PolitiekProfiel politieke houding meet",
+    description: PAGE_DESCRIPTION,
+    datePublished: PAGE_PUBLISHED,
+    dateModified: PAGE_MODIFIED,
+    articleSection: "Methodologie",
+  });
+  const breadcrumbLd = buildBreadcrumbList([
+    { name: "Start", item: "/" },
+    { name: "Methodiek", item: PAGE_PATH },
+  ]);
+  const faqLd = buildFaqPage(FAQ_ENTRIES, PAGE_PATH);
+
   return (
     <Container width="bleed" className="pt-12 md:pt-20">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: jsonLdString([articleLd, breadcrumbLd, faqLd]),
+        }}
+      />
       <div className="grid gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
         <StickyIndex items={INDEX} topOffset={96} />
 

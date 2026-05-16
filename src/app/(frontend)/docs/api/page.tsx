@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
+import { buildBreadcrumbList, jsonLdString } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "API & Agent Discovery",
@@ -71,8 +72,20 @@ const HOMEPAGE_LINK_HEADERS = [
 ];
 
 export default function ApiDocsPage() {
+  // /docs is geen eigen pagina (404), dus we maken een platte breadcrumb
+  // van Start direct naar de huidige pagina.
+  const breadcrumbLd = buildBreadcrumbList([
+    { name: "Start", item: "/" },
+    { name: "API & Agent Discovery", item: "/docs/api" },
+  ]);
+
   return (
     <Container width="default" className="pt-12 md:pt-20 pb-24">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: jsonLdString(breadcrumbLd) }}
+      />
       <Kicker>API & Agent Discovery</Kicker>
       <h1 className="font-serif text-4xl md:text-5xl tracking-tight text-ink mt-3 mb-6">
         Voor developers en AI-agents

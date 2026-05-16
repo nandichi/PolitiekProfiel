@@ -28,26 +28,52 @@ type Args = { params: Promise<{ id: string }> };
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { id } = await params;
   const result = await getResult(id);
-  if (!result) return { title: "Resultaat niet gevonden" };
+  if (!result) {
+    return {
+      title: "Resultaat niet gevonden",
+      robots: { index: false, follow: false },
+    };
+  }
   const ideo = await getIdeologyBySlug(result.ideologySlug);
   const name = ideo?.name ?? "Politiek profiel";
   return {
     title: `${name}`,
     description: ideo?.shortDescription ?? "Bekijk dit politieke profiel.",
+    // Persoonlijke resultaten zijn deelbaar maar mogen niet in zoekindexen
+    // verschijnen: privacy-belofte (anoniem) + vermijdt doorway-page risico
+    // (zelfde structuur per ideologie). follow=true zodat link equity naar
+    // /methodiek, /quiz/* en /vergelijk wel doorvloeit.
+    robots: {
+      index: false,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        index: false,
+        follow: true,
+        noimageindex: true,
+      },
+    },
+    // Canonical naar de vergelijk-pagina met share-ID prefilled, omdat deze
+    // pagina geen unieke "indexable" content is maar een deelbare view op
+    // een record. /vergelijk is de bredere functionaliteit.
+    alternates: { canonical: `/vergelijk?a=${result.shareId}` },
     openGraph: {
-      title: `${name} - PolitiekProfiel`,
+      title: `${name} · PolitiekProfiel`,
       description: ideo?.shortDescription ?? "Bekijk dit politieke profiel.",
+      url: `/r/${id}`,
+      type: "profile",
       images: [
         {
           url: `/api/og/${id}`,
           width: 1200,
           height: 630,
+          alt: `Politiek profiel: ${name}`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${name} - PolitiekProfiel`,
+      title: `${name} · PolitiekProfiel`,
       description: ideo?.shortDescription ?? "Bekijk dit politieke profiel.",
       images: [`/api/og/${id}`],
     },

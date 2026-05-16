@@ -4,26 +4,45 @@ import { getQuestionsForTier } from "@/lib/quiz-data";
 import { QuizEngine } from "@/components/QuizEngine";
 import type { Tier } from "@/lib/dimensions";
 import { TIER_QUESTION_COUNT } from "@/lib/dimensions";
+import {
+  buildBreadcrumbList,
+  buildQuizSchema,
+  jsonLdString,
+} from "@/lib/structured-data";
 
 const VALID_TIERS: Tier[] = ["quick", "standard", "extended"];
 
-const TIER_LABELS: Record<Tier, { title: string; minutes: string; tagline: string }> = {
+const TIER_LABELS: Record<
+  Tier,
+  {
+    title: string;
+    minutes: string;
+    tagline: string;
+    /** ISO 8601 duration. */
+    duration: string;
+  }
+> = {
   quick: {
     title: "Quick quiz",
     minutes: "5 minuten",
     tagline: "Korte indicatie van waar je staat op de vijf dimensies.",
+    duration: "PT5M",
   },
   standard: {
     title: "Standaard quiz",
     minutes: "10 minuten",
     tagline: "Aanbevolen lengte voor een degelijk politiek profiel.",
+    duration: "PT10M",
   },
   extended: {
     title: "Uitgebreide quiz",
     minutes: "20 minuten",
     tagline: "Diepgaande analyse met de meeste nuances.",
+    duration: "PT20M",
   },
 };
+
+type Args = { params: Promise<{ tier: string }> };
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { tier } = await params;
@@ -46,8 +65,6 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
   };
 }
 
-type Args = { params: Promise<{ tier: string }> };
-
 export default async function QuizPage({ params }: Args) {
   const { tier } = await params;
   if (!VALID_TIERS.includes(tier as Tier)) {
@@ -57,7 +74,35 @@ export default async function QuizPage({ params }: Args) {
   if (questions.length === 0) {
     notFound();
   }
-  return <QuizEngine tier={tier as Tier} questions={questions} />;
+
+  const tierKey = tier as Tier;
+  const meta = TIER_LABELS[tierKey];
+  const count = TIER_QUESTION_COUNT[tierKey];
+  const path = `/quiz/${tierKey}`;
+  const quizLd = buildQuizSchema({
+    path,
+    name: `PolitiekProfiel — ${meta.title}`,
+    description: `${meta.tagline} ${count} stellingen, ongeveer ${meta.minutes}.`,
+    numberOfQuestions: count,
+    timeRequired: meta.duration,
+  });
+  const breadcrumbLd = buildBreadcrumbList([
+    { name: "Start", item: "/" },
+    { name: meta.title, item: path },
+  ]);
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: jsonLdString([quizLd, breadcrumbLd]),
+        }}
+      />
+      <QuizEngine tier={tierKey} questions={questions} />
+    </>
+  );
 }
 
 export const dynamic = "force-dynamic";

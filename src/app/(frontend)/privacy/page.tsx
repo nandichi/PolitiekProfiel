@@ -5,19 +5,32 @@ import {
   ScrollReveal,
   ScrollRevealItem,
 } from "@/components/motion/ScrollReveal";
+import {
+  buildArticleSchema,
+  buildBreadcrumbList,
+  jsonLdString,
+} from "@/lib/structured-data";
 import type { Metadata } from "next";
+
+const PAGE_PATH = "/privacy";
+const PAGE_PUBLISHED = "2026-01-15";
+const PAGE_MODIFIED = "2026-05-16";
+const PAGE_DESCRIPTION =
+  "Politieke voorkeur valt onder bijzondere persoonsgegevens (AVG). Wat we wel en niet opslaan, hoe we anonieme resultaten bewaren, en je recht op verwijdering.";
 
 export const metadata: Metadata = {
   title: "Privacy",
-  description:
-    "Politieke voorkeur valt onder bijzondere persoonsgegevens (AVG). Wat we wel en niet opslaan, hoe we anonieme resultaten bewaren, en je recht op verwijdering.",
-  alternates: { canonical: "/privacy" },
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: PAGE_PATH },
   openGraph: {
     title: "Privacy · PolitiekProfiel",
     description:
       "Geen account, geen tracking. Anonieme opslag onder de AVG. Politieke voorkeur als bijzondere persoonsgegevens.",
-    url: "/privacy",
+    url: PAGE_PATH,
     type: "article",
+    publishedTime: PAGE_PUBLISHED,
+    modifiedTime: PAGE_MODIFIED,
+    authors: ["https://naoufalandichi.nl"],
   },
 };
 
@@ -31,8 +44,28 @@ const INDEX = [
 ];
 
 export default function PrivacyPage() {
+  const articleLd = buildArticleSchema({
+    path: PAGE_PATH,
+    headline: "Privacyverklaring — hoe we omgaan met jouw gegevens",
+    description: PAGE_DESCRIPTION,
+    datePublished: PAGE_PUBLISHED,
+    dateModified: PAGE_MODIFIED,
+    articleSection: "Privacy",
+  });
+  const breadcrumbLd = buildBreadcrumbList([
+    { name: "Start", item: "/" },
+    { name: "Privacy", item: PAGE_PATH },
+  ]);
+
   return (
     <Container width="bleed" className="pt-12 md:pt-20">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: jsonLdString([articleLd, breadcrumbLd]),
+        }}
+      />
       <div className="grid gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
         <StickyIndex items={INDEX} topOffset={96} />
 

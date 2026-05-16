@@ -12,6 +12,7 @@ import { getResult } from "@/lib/results-store";
 import { getIdeologyBySlug } from "@/lib/result-data";
 import { DIMENSIONS } from "@/lib/dimensions";
 import { CompareLookup } from "@/components/CompareLookup";
+import { buildBreadcrumbList, jsonLdString } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Vergelijk",
@@ -44,8 +45,18 @@ export default async function ComparePage({ searchParams }: Args) {
     b ? getIdeologyBySlug(b.ideologySlug) : Promise.resolve(null),
   ]);
 
+  const breadcrumbLd = buildBreadcrumbList([
+    { name: "Start", item: "/" },
+    { name: "Vergelijk", item: "/vergelijk" },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: jsonLdString(breadcrumbLd) }}
+      />
       {/* Hero */}
       <Container width="bleed" className="pt-12 md:pt-20 pb-12">
         <ScrollReveal variant="stagger" immediate>
