@@ -3,29 +3,30 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import {
   ArrowLeft,
   ArrowRight,
   Info,
   Loader2,
-  X,
-  ExternalLink,
+  SkipForward,
 } from "lucide-react";
 import type { QuizQuestion } from "@/lib/quiz-data";
-import type { AnswerValue, Tier } from "@/lib/dimensions";
+import {
+  type AnswerValue,
+  type Tier,
+  type DimensionId,
+  dimensionMeta,
+} from "@/lib/dimensions";
 import { Container } from "@/components/Container";
+import { InfoDrawer } from "@/components/quiz/InfoDrawer";
+import { QuizSegmentBar } from "@/components/quiz/QuizSegmentBar";
+import { QuizProgressDots } from "@/components/quiz/QuizProgressDots";
+import { cx } from "@/lib/cx";
 
 type AnswerMap = Record<number, AnswerValue | null>;
 
 const STORAGE_KEY = (tier: Tier) => `politiekprofiel-quiz-${tier}`;
-
-const ANSWER_OPTIONS: { value: AnswerValue; label: string }[] = [
-  { value: 2, label: "Volledig mee eens" },
-  { value: 1, label: "Mee eens" },
-  { value: 0, label: "Neutraal" },
-  { value: -1, label: "Mee oneens" },
-  { value: -2, label: "Volledig mee oneens" },
-];
 
 const TIER_LABELS: Record<Tier, string> = {
   quick: "Quick",
@@ -48,8 +49,10 @@ export function QuizEngine({
   questions: QuizQuestion[];
 }) {
   const router = useRouter();
+  const reduce = useReducedMotion();
   const [answers, setAnswers] = useState<AnswerMap>({});
   const [cursor, setCursor] = useState(0);
+  const [direction, setDirection] = useState<1 | -1>(1);
   const [showInfo, setShowInfo] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -60,6 +63,8 @@ export function QuizEngine({
   const current = questions[cursor];
 
   useEffect(() => {
+    // Hydratie-flag voor write-effect gate. Niet derived state.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setHydrated(true);
     if (typeof window === "undefined") return;
     const raw = window.localStorage.getItem(STORAGE_KEY(tier));
@@ -98,19 +103,49 @@ export function QuizEngine({
     () => Object.values(answers).filter((v) => v !== undefined).length,
     [answers],
   );
+
+  const perDimensionTotal = useMemo(() => {
+    const m: Record<DimensionId, number> = {
+      economic: 0,
+      social: 0,
+      civil: 0,
+      governance: 0,
+      trust: 0,
+    };
+    for (const q of questions) m[q.dimension] += 1;
+    return m;
+  }, [questions]);
+
+  const perDimensionAnswered = useMemo(() => {
+    const m: Record<DimensionId, number> = {
+      economic: 0,
+      social: 0,
+      civil: 0,
+      governance: 0,
+      trust: 0,
+    };
+    for (const q of questions) {
+      if (answers[q.id] !== undefined) m[q.dimension] += 1;
+    }
+    return m;
+  }, [questions, answers]);
+
   const progressPct = Math.round((cursor / total) * 100);
 
   function setAnswer(value: AnswerValue | null) {
     if (!current) return;
     setAnswers((a) => ({ ...a, [current.id]: value }));
+    setDirection(1);
     setShowInfo(false);
-    setTimeout(() => {
-      setCursor((c) => Math.min(c + 1, total));
-    }, 80);
+    setTimeout(
+      () => setCursor((c) => Math.min(c + 1, total)),
+      reduce ? 0 : 220,
+    );
   }
 
   function goBack() {
     setShowInfo(false);
+    setDirection(-1);
     setCursor((c) => Math.max(c - 1, 0));
   }
 
@@ -132,7 +167,9 @@ export function QuizEngine({
       });
       if (!res.ok) {
         const json = (await res.json().catch(() => ({}))) as { error?: string };
-        throw new Error(json.error ?? `Aanmaken mislukt (status ${res.status}).`);
+        throw new Error(
+          json.error ?? `Aanmaken mislukt (status ${res.status}).`,
+        );
       }
       const json = (await res.json()) as { id: string };
       if (typeof window !== "undefined") {
@@ -145,20 +182,24 @@ export function QuizEngine({
     }
   }
 
+  // ─────────────────── RESUME PROMPT ───────────────────
   if (resumePrompt) {
     return (
-      <Container width="narrow" className="py-20">
-        <p className="kicker mb-3">Verder waar je was?</p>
-        <h1 className="serif mb-4">Je hebt een quiz openstaan</h1>
-        <p className="text-ink-soft mb-8">
+      <Container width="narrow" className="py-20 md:py-28">
+        <p className="kicker mb-4">Verder waar je was</p>
+        <h1 className="display mb-5">Je hebt een quiz openstaan.</h1>
+        <p className="text-ink-2 leading-relaxed mb-10 max-w-xl">
           Je was bezig met de {TIER_LABELS[tier].toLowerCase()} quiz en hebt{" "}
-          {Object.keys(resumePrompt.answers).length} vragen beantwoord. Wil je
-          verder gaan waar je bleef of opnieuw beginnen?
+          <span className="mono tabular-nums">
+            {Object.keys(resumePrompt.answers).length}
+          </span>{" "}
+          van <span className="mono tabular-nums">{total}</span> stellingen
+          beantwoord. Wil je verder gaan of opnieuw beginnen?
         </p>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
           <button
             type="button"
-            className="btn-primary"
+            className="btn btn-primary"
             onClick={() => {
               setAnswers(resumePrompt.answers ?? {});
               setCursor(resumePrompt.cursor ?? 0);
@@ -166,11 +207,11 @@ export function QuizEngine({
             }}
           >
             Verder waar ik was
-            <ArrowRight size={16} strokeWidth={1.7} />
+            <ArrowRight size={16} strokeWidth={1.8} />
           </button>
           <button
             type="button"
-            className="btn-secondary"
+            className="btn btn-secondary"
             onClick={() => {
               if (typeof window !== "undefined") {
                 window.localStorage.removeItem(STORAGE_KEY(tier));
@@ -187,45 +228,51 @@ export function QuizEngine({
     );
   }
 
+  // ─────────────────── DONE ───────────────────
   if (cursor >= total) {
     return (
-      <Container width="narrow" className="py-20">
-        <p className="kicker mb-3">Alle stellingen ingevuld</p>
-        <h1 className="serif mb-4">Klaar voor je profiel</h1>
-        <p className="text-ink-soft mb-8">
-          Je beantwoordde {answeredCount} van {total} stellingen
+      <Container width="narrow" className="py-20 md:py-28">
+        <p className="kicker mb-4">Alle stellingen ingevuld</p>
+        <h1 className="display mb-5">Klaar voor je profiel.</h1>
+        <p className="text-ink-2 leading-relaxed mb-10 max-w-xl">
+          Je beantwoordde{" "}
+          <span className="mono tabular-nums">{answeredCount}</span> van{" "}
+          <span className="mono tabular-nums">{total}</span> stellingen
           {answeredCount < total
             ? ` (${total - answeredCount} overgeslagen)`
             : ""}
           . Klik hieronder om je profiel te berekenen.
         </p>
         {error && (
-          <div className="mb-6 border border-warm/60 bg-warm-soft text-ink px-4 py-3 text-sm">
+          <div
+            role="alert"
+            className="mb-8 border border-terra bg-terra-soft text-ink px-4 py-3 text-sm"
+          >
             {error}
           </div>
         )}
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
           <button
             type="button"
-            className="btn-primary"
+            className="btn btn-primary"
             onClick={submit}
             disabled={submitting}
           >
             {submitting ? (
               <>
-                <Loader2 size={16} className="animate-spin" />
+                <Loader2 size={16} className="animate-spin" strokeWidth={1.8} />
                 Berekenen…
               </>
             ) : (
               <>
                 Bekijk mijn profiel
-                <ArrowRight size={16} strokeWidth={1.7} />
+                <ArrowRight size={16} strokeWidth={1.8} />
               </>
             )}
           </button>
           <button
             type="button"
-            className="btn-secondary"
+            className="btn btn-secondary"
             onClick={() => setCursor(total - 1)}
             disabled={submitting}
           >
@@ -236,192 +283,168 @@ export function QuizEngine({
     );
   }
 
+  const meta = dimensionMeta(current.dimension);
+  const hasInfo =
+    !!current.info?.context ||
+    (current.info?.argumentsFor?.length ?? 0) > 0 ||
+    (current.info?.argumentsAgainst?.length ?? 0) > 0 ||
+    (current.info?.sources?.length ?? 0) > 0;
+
   return (
-    <Container width="narrow" className="py-12 md:py-16">
-      {/* progress */}
-      <div className="flex items-center justify-between text-sm text-ink-muted mb-4">
-        <span className="kicker">
-          {TIER_LABELS[tier]} · vraag {cursor + 1} van {total}
-        </span>
-        <Link href="/" className="hover:text-ink underline-offset-4">
-          Stop &amp; bewaar
-        </Link>
-      </div>
-      <div className="h-px bg-rule mb-12 relative">
-        <div
-          className="absolute top-0 left-0 h-px bg-ink transition-all"
-          style={{ width: `${progressPct}%` }}
-        />
+    <div className="min-h-[calc(100vh-64px)] flex flex-col">
+      {/* Sticky quiz status bar */}
+      <div className="sticky top-16 md:top-[72px] z-20 bg-paper/90 backdrop-blur-md border-b border-rule">
+        <Container width="bleed" className="py-4 md:py-5">
+          <div className="flex items-baseline justify-between gap-4 mb-3">
+            <div className="flex items-baseline gap-3">
+              <span className="kicker">{TIER_LABELS[tier]}</span>
+              <span aria-hidden className="block w-4 h-px bg-rule-strong" />
+              <span className="mono text-[0.7rem] tabular-nums text-ink-muted">
+                Vraag {String(cursor + 1).padStart(2, "0")} / {total}
+              </span>
+            </div>
+            <div className="flex items-center gap-4">
+              <span className="mono text-[0.7rem] tabular-nums text-ink-muted hidden sm:inline">
+                {progressPct}%
+              </span>
+              <Link
+                href="/"
+                className="text-xs text-ink-muted hover:text-ink no-underline"
+              >
+                Stop &amp; bewaar
+              </Link>
+            </div>
+          </div>
+          <QuizProgressDots
+            perDimensionTotal={perDimensionTotal}
+            perDimensionAnswered={perDimensionAnswered}
+            currentDimension={current.dimension}
+          />
+        </Container>
       </div>
 
-      <article>
-        <h2 className="serif text-2xl md:text-3xl leading-snug mb-4">
-          {current.statement}
-        </h2>
-        <div className="flex items-center gap-3 text-xs text-ink-muted mb-10">
-          <span className="border border-rule px-2 py-0.5">
-            {dimensionLabel(current.dimension)}
-          </span>
-          {current.info?.context || current.info?.sources.length ? (
-            <button
-              type="button"
-              onClick={() => setShowInfo(true)}
-              className="inline-flex items-center gap-1.5 hover:text-ink"
+      {/* Question card */}
+      <div className="flex-1 flex items-center">
+        <Container width="default" className="py-12 md:py-16">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.article
+              key={current.id}
+              custom={direction}
+              initial={
+                reduce ? { opacity: 0 } : { opacity: 0, x: direction * 24 }
+              }
+              animate={reduce ? { opacity: 1 } : { opacity: 1, x: 0 }}
+              exit={
+                reduce ? { opacity: 0 } : { opacity: 0, x: direction * -24 }
+              }
+              transition={{ duration: 0.34, ease: [0.22, 0.61, 0.36, 1] }}
             >
-              <Info size={14} strokeWidth={1.7} />
-              Achtergrond
-            </button>
-          ) : null}
-        </div>
+              {/* Dimension tag + info */}
+              <div className="flex items-center justify-between mb-7 md:mb-10">
+                <div className="inline-flex items-center gap-3 border border-rule px-3 py-1.5">
+                  <span
+                    aria-hidden
+                    className="block w-1.5 h-1.5 bg-navy rounded-full"
+                  />
+                  <span className="kicker">{meta.label}</span>
+                </div>
+                {hasInfo && (
+                  <button
+                    type="button"
+                    onClick={() => setShowInfo(true)}
+                    className="inline-flex items-center gap-2 text-xs text-ink-muted hover:text-ink border-b border-transparent hover:border-ink transition-colors pb-0.5"
+                  >
+                    <Info size={14} strokeWidth={1.8} />
+                    Achtergrond &amp; bronnen
+                  </button>
+                )}
+              </div>
 
-        <ul className="space-y-2 mb-8">
-          {ANSWER_OPTIONS.map((opt) => {
-            const selected = answers[current.id] === opt.value;
-            return (
-              <li key={opt.value}>
+              {/* Statement */}
+              <h2
+                className={cx(
+                  "display text-ink leading-[1.08]",
+                  "text-[clamp(1.7rem,3.4vw,2.6rem)]",
+                )}
+                style={{ letterSpacing: "-0.018em" }}
+              >
+                <span
+                  aria-hidden
+                  className="display-italic text-ink-subtle font-light mr-2"
+                >
+                  &ldquo;
+                </span>
+                {current.statement}
+                <span
+                  aria-hidden
+                  className="display-italic text-ink-subtle font-light ml-1"
+                >
+                  &rdquo;
+                </span>
+              </h2>
+
+              {/* Pole hint */}
+              <p className="mt-6 mb-8 md:mb-12 text-xs text-ink-muted flex items-center flex-wrap gap-x-3 gap-y-1">
+                <span className="mono tracking-wider">
+                  ← {meta.poleNegative.label.toUpperCase()}
+                </span>
+                <span aria-hidden className="block w-6 h-px bg-rule" />
+                <span className="mono tracking-wider">
+                  {meta.polePositive.label.toUpperCase()} →
+                </span>
+              </p>
+
+              {/* Segment bar */}
+              <QuizSegmentBar
+                selected={answers[current.id] as AnswerValue | undefined | null}
+                onChange={(v) => setAnswer(v)}
+              />
+
+              {/* Foot controls */}
+              <div className="mt-8 flex items-center justify-between">
                 <button
                   type="button"
-                  onClick={() => setAnswer(opt.value)}
-                  className={`group w-full flex items-center justify-between border px-5 py-4 text-left transition-colors ${
-                    selected
-                      ? "border-ink bg-ink text-paper"
-                      : "border-rule bg-paper hover:border-ink"
-                  }`}
+                  onClick={goBack}
+                  disabled={cursor === 0}
+                  className="btn-ghost"
                 >
-                  <span className="text-base">{opt.label}</span>
-                  <span
-                    className={`text-xs ${
-                      selected ? "text-paper/80" : "text-ink-muted"
-                    }`}
-                  >
-                    {opt.value > 0 ? `+${opt.value}` : opt.value}
-                  </span>
+                  <ArrowLeft size={14} strokeWidth={1.8} />
+                  Vorige
                 </button>
-              </li>
-            );
-          })}
-        </ul>
-
-        <div className="flex items-center justify-between text-sm">
-          <button
-            type="button"
-            onClick={goBack}
-            disabled={cursor === 0}
-            className="btn-ghost disabled:opacity-30"
-          >
-            <ArrowLeft size={16} strokeWidth={1.7} />
-            Vorige
-          </button>
-          <button
-            type="button"
-            onClick={() => setAnswer(null)}
-            className="btn-ghost"
-          >
-            Overslaan
-            <ArrowRight size={16} strokeWidth={1.7} />
-          </button>
-        </div>
-      </article>
-
-      {showInfo && current && (
-        <InfoModal question={current} onClose={() => setShowInfo(false)} />
-      )}
-    </Container>
-  );
-}
-
-function dimensionLabel(id: string): string {
-  switch (id) {
-    case "economic":
-      return "Economisch";
-    case "social":
-      return "Sociaal-cultureel";
-    case "civil":
-      return "Burgerrechten";
-    case "governance":
-      return "Bestuur";
-    case "trust":
-      return "Systeemvertrouwen";
-    default:
-      return id;
-  }
-}
-
-function InfoModal({
-  question,
-  onClose,
-}: {
-  question: QuizQuestion;
-  onClose: () => void;
-}) {
-  return (
-    <div
-      className="fixed inset-0 z-40 flex items-end md:items-center justify-center bg-ink/40 p-4"
-      onClick={onClose}
-    >
-      <div
-        className="relative w-full max-w-2xl bg-paper border border-rule-strong p-8 max-h-[85vh] overflow-y-auto"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
-          type="button"
-          onClick={onClose}
-          className="absolute top-4 right-4 text-ink-muted hover:text-ink"
-          aria-label="Sluiten"
-        >
-          <X size={20} strokeWidth={1.6} />
-        </button>
-        <p className="kicker mb-3">Achtergrond bij de stelling</p>
-        <h3 className="serif text-xl mb-6">{question.statement}</h3>
-        {question.info?.context && (
-          <div className="mb-6">
-            <p className="kicker mb-2">Context</p>
-            <p className="text-ink-soft text-sm leading-relaxed">
-              {question.info.context}
-            </p>
-          </div>
-        )}
-        {(question.info?.argumentsFor?.length ?? 0) > 0 && (
-          <div className="mb-6">
-            <p className="kicker mb-2">Argumenten vóór</p>
-            <ul className="space-y-1.5 text-sm text-ink-soft list-disc pl-5">
-              {question.info!.argumentsFor.map((a, i) => (
-                <li key={i}>{a}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-        {(question.info?.argumentsAgainst?.length ?? 0) > 0 && (
-          <div className="mb-6">
-            <p className="kicker mb-2">Argumenten tegen</p>
-            <ul className="space-y-1.5 text-sm text-ink-soft list-disc pl-5">
-              {question.info!.argumentsAgainst.map((a, i) => (
-                <li key={i}>{a}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-        {(question.info?.sources?.length ?? 0) > 0 && (
-          <div>
-            <p className="kicker mb-2">Bronnen</p>
-            <ul className="space-y-1.5 text-sm">
-              {question.info!.sources.map((s, i) => (
-                <li key={i}>
-                  <a
-                    href={s.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5"
+                <div className="flex items-center gap-4">
+                  <span className="hidden md:inline mono text-[0.7rem] tracking-wider text-ink-subtle">
+                    GEEN VOORKEUR?
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setAnswer(null)}
+                    className="btn-ghost"
                   >
-                    {s.label}
-                    <ExternalLink size={12} strokeWidth={1.6} />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+                    <SkipForward size={14} strokeWidth={1.8} />
+                    Overslaan
+                  </button>
+                </div>
+              </div>
+            </motion.article>
+          </AnimatePresence>
+        </Container>
       </div>
+
+      {/* Info drawer */}
+      {current && (
+        <InfoDrawer
+          open={showInfo}
+          onOpenChange={setShowInfo}
+          content={{
+            statement: current.statement,
+            dimensionLabel: meta.label,
+            context: current.info?.context,
+            argumentsFor: current.info?.argumentsFor,
+            argumentsAgainst: current.info?.argumentsAgainst,
+            sources: current.info?.sources,
+          }}
+        />
+      )}
     </div>
   );
 }

@@ -50,6 +50,7 @@ export async function createResult(input: {
     createdAt,
   };
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   if (useFirestore()) {
     const db = firestore();
     await db
@@ -79,6 +80,7 @@ export async function createResult(input: {
 }
 
 export async function getResult(shareId: string): Promise<StoredResult | null> {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   if (useFirestore()) {
     const db = firestore();
     const snap = await db.collection(FIRESTORE_COLLECTION).doc(shareId).get();

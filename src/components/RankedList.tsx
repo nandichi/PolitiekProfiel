@@ -1,3 +1,8 @@
+"use client";
+
+import { motion, useInView, useReducedMotion } from "motion/react";
+import { useRef } from "react";
+import { cx } from "@/lib/cx";
 import { type RankedMatch, type VectorTarget } from "@/lib/scoring";
 
 interface ItemWithMeta extends VectorTarget {
@@ -16,39 +21,91 @@ export function RankedList<T extends ItemWithMeta>({
   highlightFirst?: boolean;
 }) {
   const shown = limit ? matches.slice(0, limit) : matches;
+  const ref = useRef<HTMLOListElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
+  const reduce = useReducedMotion();
+
   return (
-    <ol className="divide-y divide-rule border-y border-rule">
-      {shown.map((m, idx) => (
-        <li
-          key={m.item.id}
-          className={`flex items-center justify-between gap-4 py-3 ${
-            highlightFirst && idx === 0 ? "bg-accent-soft/40 px-3 -mx-3" : ""
-          }`}
-        >
-          <div className="flex items-baseline gap-3 min-w-0">
-            <span className="serif text-sm text-ink-muted tabular-nums w-6">
-              {idx + 1}.
+    <ol ref={ref} className="relative">
+      {shown.map((m, idx) => {
+        const isTop3 = highlightFirst && idx < 3;
+        return (
+          <li
+            key={m.item.id}
+            className={cx(
+              "relative flex items-center gap-4 py-3.5 border-b border-rule last:border-b-0 transition-colors",
+              isTop3 ? "pl-4" : "pl-0",
+            )}
+          >
+            {/* Top-3 accent */}
+            {isTop3 && (
+              <span
+                aria-hidden
+                className="absolute left-0 top-2 bottom-2 w-[2px] bg-terra"
+              />
+            )}
+
+            {/* Index */}
+            <span
+              className={cx(
+                "mono text-xs w-7 shrink-0 tabular-nums",
+                isTop3 ? "text-ink" : "text-ink-subtle",
+              )}
+            >
+              {String(idx + 1).padStart(2, "0")}
             </span>
-            <div className="min-w-0">
-              <p className="text-sm font-medium text-ink truncate">{m.item.primary}</p>
+
+            {/* Name */}
+            <div className="min-w-0 flex-1">
+              <p
+                className={cx(
+                  "display leading-tight text-[1.02rem] md:text-[1.08rem] truncate",
+                  isTop3 ? "text-ink" : "text-ink",
+                )}
+              >
+                {m.item.primary}
+              </p>
               {m.item.secondary && (
-                <p className="text-xs text-ink-muted truncate">{m.item.secondary}</p>
+                <p className="text-xs text-ink-muted truncate mt-0.5">
+                  {m.item.secondary}
+                </p>
               )}
             </div>
-          </div>
-          <div className="flex items-center gap-3 shrink-0">
-            <div className="hidden sm:block w-24 h-1.5 bg-paper-200">
-              <div
-                className="h-full bg-ink"
-                style={{ width: `${m.similarity}%` }}
-              />
+
+            {/* Similarity bar */}
+            <div className="hidden sm:flex items-center gap-3 shrink-0">
+              <div className="relative w-20 md:w-28 h-[3px] bg-paper-100">
+                <motion.div
+                  className="absolute inset-y-0 left-0 bg-navy"
+                  initial={{ width: 0 }}
+                  animate={
+                    inView
+                      ? { width: `${m.similarity}%` }
+                      : { width: 0 }
+                  }
+                  transition={
+                    reduce
+                      ? { duration: 0 }
+                      : {
+                          duration: 0.9,
+                          ease: [0.22, 0.61, 0.36, 1],
+                          delay: 0.05 * Math.min(idx, 8),
+                        }
+                  }
+                />
+              </div>
+              <span className="mono tabular-nums text-xs text-ink-muted w-10 text-right">
+                {m.similarity}%
+              </span>
             </div>
-            <span className="tabular-nums text-sm text-ink-muted w-12 text-right">
+
+            {/* Mobile: similarity inline */}
+            <span className="sm:hidden mono tabular-nums text-xs text-ink-muted shrink-0">
               {m.similarity}%
             </span>
-          </div>
-        </li>
-      ))}
+          </li>
+        );
+      })}
     </ol>
   );
 }

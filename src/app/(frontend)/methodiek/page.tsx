@@ -1,4 +1,10 @@
 import { Container } from "@/components/Container";
+import { Kicker } from "@/components/Kicker";
+import { StickyIndex } from "@/components/StickyIndex";
+import {
+  ScrollReveal,
+  ScrollRevealItem,
+} from "@/components/motion/ScrollReveal";
 import { DIMENSIONS } from "@/lib/dimensions";
 import type { Metadata } from "next";
 
@@ -8,124 +14,221 @@ export const metadata: Metadata = {
     "Hoe we politieke profielen meten: vijf dimensies, eerlijke balans, neutrale stellingen.",
 };
 
+const INDEX = [
+  { id: "intro", label: "Aanleiding" },
+  { id: "dimensies", label: "De vijf dimensies" },
+  { id: "vraagstelling", label: "Vraagstelling" },
+  { id: "scoring", label: "Scoring" },
+  { id: "beperkingen", label: "Beperkingen" },
+];
+
 export default function MethodiekPage() {
   return (
-    <>
-      <header className="border-b border-rule">
-        <Container className="py-16 md:py-20">
-          <p className="kicker mb-3">Onze methodiek</p>
-          <h1 className="serif">
-            Politiek meten zonder karikatuur.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-ink-soft">
-            We willen niet weten of je &lsquo;links&rsquo; of &lsquo;rechts&rsquo; bent. We
-            willen weten waar je staat op vijf onafhankelijke politieke vragen.
-            Dat geeft een rijker en eerlijker beeld dan een enkele as.
-          </p>
-        </Container>
-      </header>
+    <Container width="bleed" className="pt-12 md:pt-20">
+      <div className="grid gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
+        <StickyIndex items={INDEX} topOffset={96} />
 
-      <section className="border-b border-rule">
-        <Container className="py-16">
-          <p className="kicker mb-6">De vijf assen</p>
-          <div className="grid gap-6 md:grid-cols-2">
-            {DIMENSIONS.map((d) => (
-              <article
-                key={d.id}
-                className="border border-rule p-6"
-              >
-                <p className="kicker mb-2">{d.label}</p>
-                <h2 className="serif text-xl leading-tight mb-3">
-                  {d.poleNegative.label} ↔ {d.polePositive.label}
+        <div className="min-w-0 max-w-3xl">
+          {/* Intro */}
+          <section id="intro" className="scroll-mt-32">
+            <ScrollReveal variant="stagger" immediate>
+              <ScrollRevealItem>
+                <Kicker number={1}>Onze methodiek</Kicker>
+              </ScrollRevealItem>
+              <ScrollRevealItem>
+                <h1
+                  className="display mt-6"
+                  style={{ letterSpacing: "-0.025em" }}
+                >
+                  Politiek meten
+                  <span className="block">
+                    <em className="display-italic font-light text-navy">
+                      zonder karikatuur.
+                    </em>
+                  </span>
+                </h1>
+              </ScrollRevealItem>
+              <ScrollRevealItem>
+                <p className="mt-8 text-lg md:text-xl text-ink-2 leading-relaxed">
+                  We willen niet weten of je &lsquo;links&rsquo; of
+                  &lsquo;rechts&rsquo; bent. We willen weten waar je staat op
+                  vijf onafhankelijke politieke vragen. Dat geeft een rijker
+                  en eerlijker beeld dan een enkele as.
+                </p>
+              </ScrollRevealItem>
+            </ScrollReveal>
+          </section>
+
+          {/* Dimensies */}
+          <section
+            id="dimensies"
+            className="mt-20 md:mt-28 scroll-mt-32 border-t border-ink pt-12"
+          >
+            <ScrollReveal variant="stagger">
+              <ScrollRevealItem>
+                <Kicker number={2}>De vijf assen</Kicker>
+                <h2 className="display mt-5">
+                  Vijf onafhankelijke politieke houdingen.
                 </h2>
-                <p className="text-sm text-ink-soft mb-4">{d.description}</p>
-                <dl className="grid gap-3 text-sm">
-                  <div>
-                    <dt className="kicker text-xs">{d.poleNegative.label}</dt>
-                    <dd className="text-ink-soft">
-                      {d.poleNegative.description}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="kicker text-xs">{d.polePositive.label}</dt>
-                    <dd className="text-ink-soft">
-                      {d.polePositive.description}
-                    </dd>
-                  </div>
-                </dl>
-              </article>
-            ))}
-          </div>
-        </Container>
-      </section>
+              </ScrollRevealItem>
+              <ScrollRevealItem>
+                <div className="mt-10 space-y-8">
+                  {DIMENSIONS.map((d, i) => (
+                    <article
+                      key={d.id}
+                      className="grid gap-5 lg:grid-cols-[80px_1fr] border-b border-rule pb-8 last:border-b-0"
+                    >
+                      <div>
+                        <p className="index-num text-sm">
+                          {String(i + 1).padStart(2, "0")}
+                        </p>
+                        <p className="kicker mt-1.5">{d.shortLabel}</p>
+                      </div>
+                      <div>
+                        <h3 className="display text-2xl md:text-3xl leading-tight">
+                          {d.poleNegative.label}
+                          <span className="text-ink-subtle font-light mx-2">
+                            /
+                          </span>
+                          {d.polePositive.label}
+                        </h3>
+                        <p className="mt-3 text-ink-2 leading-relaxed">
+                          {d.description}
+                        </p>
+                        <dl className="mt-6 grid gap-4 sm:grid-cols-2">
+                          <div className="border-l-2 border-ink pl-4">
+                            <dt className="kicker mb-1.5">
+                              {d.poleNegative.label}
+                            </dt>
+                            <dd className="text-sm text-ink-2 leading-relaxed">
+                              {d.poleNegative.description}
+                            </dd>
+                          </div>
+                          <div className="border-l-2 border-navy pl-4">
+                            <dt className="kicker mb-1.5">
+                              {d.polePositive.label}
+                            </dt>
+                            <dd className="text-sm text-ink-2 leading-relaxed">
+                              {d.polePositive.description}
+                            </dd>
+                          </div>
+                        </dl>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </ScrollRevealItem>
+            </ScrollReveal>
+          </section>
 
-      <section className="border-b border-rule">
-        <Container width="narrow" className="py-16">
-          <p className="kicker mb-4">Vragen en balans</p>
-          <h2 className="serif mb-6">Hoe kiezen we stellingen?</h2>
-          <div className="editorial-prose">
-            <p>
-              Per dimensie staan acht stellingen die <strong>richting de
-              positieve pool</strong> wijzen en acht <strong>richting de
-              negatieve pool</strong>. Zo kan een &lsquo;mee eens&rsquo; nooit
-              eenzijdig één kant op wegen — de balans is wiskundig ingebouwd.
-            </p>
-            <p>
-              We kiezen <strong>concrete en actuele stellingen</strong>. Geen
-              vage platitudes (&lsquo;Iedereen verdient een eerlijke kans&rsquo;)
-              maar specifieke beleidskeuzes. Bij elke stelling kun je via het
-              info-icoon de achtergrond, argumenten <em>vóór</em> en <em>tegen</em>{" "}
-              en bronnen raadplegen.
-            </p>
-          </div>
-        </Container>
-      </section>
+          {/* Vraagstelling */}
+          <section
+            id="vraagstelling"
+            className="mt-20 md:mt-28 scroll-mt-32 border-t border-ink pt-12"
+          >
+            <ScrollReveal variant="stagger">
+              <ScrollRevealItem>
+                <Kicker number={3}>Vragen en balans</Kicker>
+                <h2 className="display mt-5">Hoe kiezen we stellingen?</h2>
+              </ScrollRevealItem>
+              <ScrollRevealItem>
+                <div className="mt-8 editorial-prose">
+                  <p>
+                    Per dimensie staan stellingen die{" "}
+                    <strong>richting de positieve pool</strong> wijzen, en even
+                    veel stellingen die{" "}
+                    <strong>richting de negatieve pool</strong> wijzen. Zo kan
+                    een &lsquo;mee eens&rsquo; nooit eenzijdig één kant op
+                    wegen — de balans is wiskundig ingebouwd.
+                  </p>
+                  <p>
+                    We kiezen <strong>concrete en actuele stellingen</strong>.
+                    Geen vage platitudes (&lsquo;Iedereen verdient een eerlijke
+                    kans&rsquo;) maar specifieke beleidskeuzes. Bij elke
+                    stelling kun je via het achtergrond-paneel de context,
+                    argumenten <em>vóór</em> en <em>tegen</em>, en bronnen
+                    raadplegen.
+                  </p>
+                </div>
+              </ScrollRevealItem>
+            </ScrollReveal>
+          </section>
 
-      <section className="border-b border-rule">
-        <Container width="narrow" className="py-16">
-          <p className="kicker mb-4">Scoring</p>
-          <h2 className="serif mb-6">Hoe komen de scores tot stand?</h2>
-          <div className="editorial-prose">
-            <p>
-              Elk antwoord krijgt een waarde van <strong>-2</strong> (volledig
-              mee oneens) tot <strong>+2</strong> (volledig mee eens). Neutraal
-              en overgeslagen tellen mee als 0 (overgeslagen wordt niet
-              genormaliseerd).
-            </p>
-            <p>
-              De ruwe score wordt vermenigvuldigd met de richting (+1 of -1) en
-              een gewicht. Vervolgens normaliseren we per dimensie naar een
-              schaal van <strong>-100 tot +100</strong>, op basis van het maximaal
-              haalbare gewicht van beantwoorde vragen.
-            </p>
-            <p>
-              Je profiel is dus een vector in een 5-dimensionale ruimte. De
-              dichtstbijzijnde ideologie wordt bepaald via Euclidische afstand.
-            </p>
-          </div>
-        </Container>
-      </section>
+          {/* Scoring */}
+          <section
+            id="scoring"
+            className="mt-20 md:mt-28 scroll-mt-32 border-t border-ink pt-12"
+          >
+            <ScrollReveal variant="stagger">
+              <ScrollRevealItem>
+                <Kicker number={4}>Scoring</Kicker>
+                <h2 className="display mt-5">
+                  Hoe komen de scores tot stand?
+                </h2>
+              </ScrollRevealItem>
+              <ScrollRevealItem>
+                <div className="mt-8 editorial-prose">
+                  <p>
+                    Elk antwoord krijgt een waarde van <strong>−2</strong>{" "}
+                    (volledig mee oneens) tot <strong>+2</strong> (volledig mee
+                    eens). Neutraal telt als 0; overgeslagen wordt niet
+                    meegenomen in de normalisatie.
+                  </p>
+                </div>
+              </ScrollRevealItem>
+              <ScrollRevealItem>
+                <div className="mt-8 border border-rule p-6 md:p-8 bg-paper-50/60">
+                  <p className="kicker mb-4">Formule per dimensie</p>
+                  <pre className="mono text-sm leading-relaxed text-ink overflow-x-auto whitespace-pre">
+{`raw    = Σ ( direction × antwoord × gewicht )
+maxW   = Σ ( |gewicht|  ) over beantwoorde vragen
+score  = ( raw / ( maxW × 2 ) ) × 100   →  [-100 … +100]`}
+                  </pre>
+                </div>
+              </ScrollRevealItem>
+              <ScrollRevealItem>
+                <div className="mt-8 editorial-prose">
+                  <p>
+                    Je profiel is een vector in een 5-dimensionale ruimte. De
+                    dichtstbijzijnde ideologie, politicus of land wordt bepaald
+                    via de <strong>Euclidische afstand</strong> in die ruimte.
+                  </p>
+                </div>
+              </ScrollRevealItem>
+            </ScrollReveal>
+          </section>
 
-      <section>
-        <Container width="narrow" className="py-16">
-          <p className="kicker mb-4">Beperkingen</p>
-          <h2 className="serif mb-6">Wat dit kompas niet is</h2>
-          <div className="editorial-prose">
-            <p>
-              Dit kompas is geen <strong>stemwijzer</strong> en geen
-              wetenschappelijke meting. Het is een instrument voor reflectie. We
-              werken met geschatte profielposities van politici en landen die we
-              afleiden uit publieke indices, programma's en debatten. Posities
-              zijn discutabel, en wij bouwen graag verder op feedback.
-            </p>
-            <p>
-              Politiek is bovendien meer dan een vragenlijst kan vangen. Zie
-              jouw resultaat als een gespreksopener met jezelf — niet als een
-              eindoordeel.
-            </p>
-          </div>
-        </Container>
-      </section>
-    </>
+          {/* Beperkingen */}
+          <section
+            id="beperkingen"
+            className="mt-20 md:mt-28 scroll-mt-32 border-t border-ink pt-12 pb-16"
+          >
+            <ScrollReveal variant="stagger">
+              <ScrollRevealItem>
+                <Kicker number={5}>Beperkingen</Kicker>
+                <h2 className="display mt-5">Wat dit kompas niet is.</h2>
+              </ScrollRevealItem>
+              <ScrollRevealItem>
+                <div className="mt-8 editorial-prose">
+                  <p>
+                    Dit kompas is geen <strong>stemwijzer</strong> en geen
+                    wetenschappelijke meting. Het is een instrument voor
+                    reflectie. We werken met geschatte profielposities van
+                    politici en landen die we afleiden uit publieke indices,
+                    programma&apos;s en debatten. Posities zijn discutabel, en
+                    wij bouwen graag verder op feedback.
+                  </p>
+                  <p>
+                    Politiek is bovendien meer dan een vragenlijst kan vangen.
+                    Zie jouw resultaat als een gespreksopener met jezelf — niet
+                    als een eindoordeel.
+                  </p>
+                </div>
+              </ScrollRevealItem>
+            </ScrollReveal>
+          </section>
+        </div>
+      </div>
+    </Container>
   );
 }

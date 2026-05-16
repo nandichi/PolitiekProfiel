@@ -1,11 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import {
-  DIMENSIONS,
-  dimensionMeta,
-  type DimensionId,
-} from "@/lib/dimensions";
+import { motion, AnimatePresence } from "motion/react";
+import { dimensionMeta, type DimensionId } from "@/lib/dimensions";
+import { AxisSelect } from "@/components/viz/AxisSelect";
+import { VizTooltip } from "@/components/viz/Tooltip";
 
 export interface ScatterPoint {
   id: string;
@@ -22,12 +21,13 @@ interface ScatterPlotProps {
   userLabel?: string;
 }
 
-const CHART_SIZE = 560;
-const PADDING = 32;
+const CHART_SIZE = 600;
+const PADDING = 44;
 const INNER = CHART_SIZE - PADDING * 2;
+const HALF = CHART_SIZE / 2;
 
-function toPx(value: number, axisLength: number): number {
-  return PADDING + ((value + 100) / 200) * axisLength;
+function toPx(value: number): number {
+  return PADDING + ((value + 100) / 200) * INNER;
 }
 
 export function ScatterPlot({
@@ -39,84 +39,110 @@ export function ScatterPlot({
 }: ScatterPlotProps) {
   const [xDim, setXDim] = useState<DimensionId>(initialX);
   const [yDim, setYDim] = useState<DimensionId>(initialY);
-  const [hovered, setHovered] = useState<string | null>(null);
 
   const xMeta = dimensionMeta(xDim);
   const yMeta = dimensionMeta(yDim);
 
-  const placed = useMemo(
-    () =>
-      points.map((p) => ({
-        ...p,
-        cx: toPx(p.vector[xDim], INNER),
-        cy: CHART_SIZE - toPx(p.vector[yDim], INNER),
-      })),
-    [points, xDim, yDim],
+  const userPos = useMemo(
+    () => ({
+      cx: toPx(user[xDim]),
+      cy: CHART_SIZE - toPx(user[yDim]),
+    }),
+    [user, xDim, yDim],
   );
 
-  const userPos = {
-    cx: toPx(user[xDim], INNER),
-    cy: CHART_SIZE - toPx(user[yDim], INNER),
-  };
+  const placed = useMemo(
+    () =>
+      points.map((p) => {
+        const cx = toPx(p.vector[xDim]);
+        const cy = CHART_SIZE - toPx(p.vector[yDim]);
+        const dx = cx - userPos.cx;
+        const dy = cy - userPos.cy;
+        const distance = Math.hypot(dx, dy);
+        return { ...p, cx, cy, distance };
+      }),
+    [points, xDim, yDim, userPos.cx, userPos.cy],
+  );
 
-  const hoveredPoint = placed.find((p) => p.id === hovered);
+  // Top 3 closest for leaderlines / highlights
+  const top3Ids = useMemo(() => {
+    return [...placed]
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, 3)
+      .map((p) => p.id);
+  }, [placed]);
 
   return (
-    <div className="space-y-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <label className="block text-sm">
-          <span className="kicker">Horizontale as</span>
-          <select
-            value={xDim}
-            onChange={(e) => setXDim(e.target.value as DimensionId)}
-            className="mt-1 w-full border border-ink-muted bg-paper px-3 py-2 text-ink"
-          >
-            {DIMENSIONS.map((d) => (
-              <option key={d.id} value={d.id}>
-                {d.label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="block text-sm">
-          <span className="kicker">Verticale as</span>
-          <select
-            value={yDim}
-            onChange={(e) => setYDim(e.target.value as DimensionId)}
-            className="mt-1 w-full border border-ink-muted bg-paper px-3 py-2 text-ink"
-          >
-            {DIMENSIONS.map((d) => (
-              <option key={d.id} value={d.id}>
-                {d.label}
-              </option>
-            ))}
-          </select>
-        </label>
+    <div className="space-y-5">
+      {/* Axis controls */}
+      <div className="grid gap-5 sm:grid-cols-2">
+        <AxisSelect
+          value={xDim}
+          onChange={setXDim}
+          label="Horizontale as"
+          disabledIds={[yDim]}
+        />
+        <AxisSelect
+          value={yDim}
+          onChange={setYDim}
+          label="Verticale as"
+          disabledIds={[xDim]}
+        />
       </div>
 
-      <div className="relative w-full overflow-x-auto">
+      {/* Chart */}
+      <div className="relative">
         <svg
           viewBox={`0 0 ${CHART_SIZE} ${CHART_SIZE}`}
-          className="w-full h-auto bg-paper-100 border border-rule"
+          className="w-full h-auto"
           role="img"
           aria-label={`Scatterplot van ${xMeta.label} en ${yMeta.label}`}
         >
-          {/* grid */}
-          <line
-            x1={PADDING}
-            y1={CHART_SIZE / 2}
-            x2={CHART_SIZE - PADDING}
-            y2={CHART_SIZE / 2}
-            stroke="var(--color-rule-strong)"
+          {/* Quadrant shading */}
+          <rect
+            x={PADDING}
+            y={PADDING}
+            width={INNER / 2}
+            height={INNER / 2}
+            fill="var(--color-paper-50)"
           />
-          <line
-            x1={CHART_SIZE / 2}
-            y1={PADDING}
-            x2={CHART_SIZE / 2}
-            y2={CHART_SIZE - PADDING}
-            stroke="var(--color-rule-strong)"
+          <rect
+            x={HALF}
+            y={PADDING}
+            width={INNER / 2}
+            height={INNER / 2}
+            fill="var(--color-paper-100)"
+            opacity={0.6}
           />
-          {[25, 50, 75].map((p) => (
+          <rect
+            x={PADDING}
+            y={HALF}
+            width={INNER / 2}
+            height={INNER / 2}
+            fill="var(--color-paper-100)"
+            opacity={0.6}
+          />
+          <rect
+            x={HALF}
+            y={HALF}
+            width={INNER / 2}
+            height={INNER / 2}
+            fill="var(--color-paper-50)"
+          />
+
+          {/* Outer border */}
+          <rect
+            x={PADDING}
+            y={PADDING}
+            width={INNER}
+            height={INNER}
+            fill="none"
+            stroke="var(--color-rule-strong)"
+            strokeWidth={1}
+          />
+
+          {/* Grid */}
+          {[25, 75].map((p) => (
             <line
               key={`vx${p}`}
               x1={PADDING + (INNER * p) / 100}
@@ -124,10 +150,10 @@ export function ScatterPlot({
               x2={PADDING + (INNER * p) / 100}
               y2={CHART_SIZE - PADDING}
               stroke="var(--color-rule)"
-              strokeDasharray="2 3"
+              strokeDasharray="2 4"
             />
           ))}
-          {[25, 50, 75].map((p) => (
+          {[25, 75].map((p) => (
             <line
               key={`vy${p}`}
               x1={PADDING}
@@ -135,109 +161,233 @@ export function ScatterPlot({
               x2={CHART_SIZE - PADDING}
               y2={PADDING + (INNER * p) / 100}
               stroke="var(--color-rule)"
-              strokeDasharray="2 3"
+              strokeDasharray="2 4"
             />
           ))}
-          {/* axis labels */}
+
+          {/* Center axes */}
+          <line
+            x1={PADDING}
+            y1={HALF}
+            x2={CHART_SIZE - PADDING}
+            y2={HALF}
+            stroke="var(--color-rule-strong)"
+            strokeWidth={1}
+          />
+          <line
+            x1={HALF}
+            y1={PADDING}
+            x2={HALF}
+            y2={CHART_SIZE - PADDING}
+            stroke="var(--color-rule-strong)"
+            strokeWidth={1}
+          />
+
+          {/* Axis labels — mono */}
           <text
-            x={PADDING + 4}
-            y={CHART_SIZE / 2 - 6}
+            x={PADDING + 6}
+            y={HALF - 8}
             fontSize="11"
             fill="var(--color-ink-muted)"
+            fontFamily="var(--font-plex)"
+            letterSpacing="0.04em"
           >
-            ← {xMeta.poleNegative.label}
+            ← {xMeta.poleNegative.label.toUpperCase()}
           </text>
           <text
-            x={CHART_SIZE - PADDING - 4}
-            y={CHART_SIZE / 2 - 6}
+            x={CHART_SIZE - PADDING - 6}
+            y={HALF - 8}
             fontSize="11"
             textAnchor="end"
             fill="var(--color-ink-muted)"
+            fontFamily="var(--font-plex)"
+            letterSpacing="0.04em"
           >
-            {xMeta.polePositive.label} →
+            {xMeta.polePositive.label.toUpperCase()} →
           </text>
           <text
-            x={CHART_SIZE / 2 + 6}
+            x={HALF + 8}
             y={PADDING + 14}
             fontSize="11"
             fill="var(--color-ink-muted)"
+            fontFamily="var(--font-plex)"
+            letterSpacing="0.04em"
           >
-            ↑ {yMeta.polePositive.label}
+            ↑ {yMeta.polePositive.label.toUpperCase()}
           </text>
           <text
-            x={CHART_SIZE / 2 + 6}
+            x={HALF + 8}
             y={CHART_SIZE - PADDING - 6}
             fontSize="11"
             fill="var(--color-ink-muted)"
+            fontFamily="var(--font-plex)"
+            letterSpacing="0.04em"
           >
-            ↓ {yMeta.poleNegative.label}
+            ↓ {yMeta.poleNegative.label.toUpperCase()}
           </text>
 
-          {/* politicians/countries */}
-          {placed.map((p) => (
-            <g key={p.id}>
-              <circle
-                cx={p.cx}
-                cy={p.cy}
-                r="6"
-                fill="var(--color-warm)"
-                opacity="0.85"
-                onMouseEnter={() => setHovered(p.id)}
-                onMouseLeave={() => setHovered((h) => (h === p.id ? null : h))}
-              />
-              {hovered === p.id && (
-                <g>
-                  <rect
-                    x={Math.min(p.cx + 8, CHART_SIZE - 180)}
-                    y={Math.max(p.cy - 32, 8)}
-                    width={170}
-                    height={28}
-                    fill="var(--color-paper)"
-                    stroke="var(--color-rule-strong)"
-                  />
-                  <text
-                    x={Math.min(p.cx + 16, CHART_SIZE - 172)}
-                    y={Math.max(p.cy - 14, 26)}
-                    fontSize="12"
-                    fill="var(--color-ink)"
-                  >
-                    {p.label}
-                  </text>
-                </g>
-              )}
-            </g>
+          {/* Corner coords */}
+          {(
+            [
+              { x: PADDING + 6, y: CHART_SIZE - PADDING - 8, t: "-100,-100" },
+              {
+                x: CHART_SIZE - PADDING - 6,
+                y: CHART_SIZE - PADDING - 8,
+                t: "+100,-100",
+                anchor: "end" as const,
+              },
+              { x: PADDING + 6, y: PADDING + 14, t: "-100,+100" },
+              {
+                x: CHART_SIZE - PADDING - 6,
+                y: PADDING + 14,
+                t: "+100,+100",
+                anchor: "end" as const,
+              },
+            ]
+          ).map((c, i) => (
+            <text
+              key={i}
+              x={c.x}
+              y={c.y}
+              fontSize="9"
+              fill="var(--color-ink-subtle)"
+              fontFamily="var(--font-plex)"
+              textAnchor={c.anchor ?? "start"}
+            >
+              ({c.t})
+            </text>
           ))}
 
-          {/* user marker */}
-          <g>
+          {/* Leaderlines top-3 */}
+          <AnimatePresence>
+            {placed
+              .filter((p) => top3Ids.includes(p.id))
+              .map((p) => (
+                <motion.line
+                  key={`line-${p.id}-${xDim}-${yDim}`}
+                  x1={userPos.cx}
+                  y1={userPos.cy}
+                  x2={p.cx}
+                  y2={p.cy}
+                  stroke="var(--color-navy)"
+                  strokeWidth={1}
+                  strokeDasharray="3 3"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 0.5 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.6, delay: 0.15 }}
+                />
+              ))}
+          </AnimatePresence>
+
+          {/* Points */}
+          {placed.map((p) => {
+            const isTop = top3Ids.includes(p.id);
+            return (
+              <VizTooltip
+                key={`${p.id}-${xDim}-${yDim}`}
+                content={
+                  <div>
+                    <div className="text-paper">{p.label}</div>
+                    {p.sublabel && (
+                      <div className="text-paper/70 text-[0.65rem] mt-0.5">
+                        {p.sublabel}
+                      </div>
+                    )}
+                    <div className="text-paper/70 text-[0.62rem] mt-1 tracking-wider">
+                      ({signed(p.vector[xDim])}, {signed(p.vector[yDim])})
+                    </div>
+                  </div>
+                }
+              >
+                <motion.g
+                  className="cursor-pointer"
+                  whileHover={{ scale: 1.3 }}
+                  transition={{ type: "spring", stiffness: 320, damping: 20 }}
+                  style={{ originX: `${p.cx}px`, originY: `${p.cy}px` }}
+                >
+                  <motion.circle
+                    layoutId={`pt-${p.id}`}
+                    cx={p.cx}
+                    cy={p.cy}
+                    r={isTop ? 7 : 5.5}
+                    fill={isTop ? "var(--color-navy)" : "var(--color-paper)"}
+                    stroke="var(--color-navy)"
+                    strokeWidth={1.5}
+                    transition={{
+                      type: "spring",
+                      stiffness: 220,
+                      damping: 26,
+                    }}
+                  />
+                </motion.g>
+              </VizTooltip>
+            );
+          })}
+
+          {/* User marker */}
+          <motion.g
+            layoutId="user-marker"
+            transition={{ type: "spring", stiffness: 220, damping: 26 }}
+          >
             <circle
               cx={userPos.cx}
               cy={userPos.cy}
-              r="12"
-              fill="none"
+              r={16}
+              fill="var(--color-paper)"
               stroke="var(--color-ink)"
-              strokeWidth="2"
+              strokeWidth={1.5}
             />
-            <circle cx={userPos.cx} cy={userPos.cy} r="4" fill="var(--color-ink)" />
-            <text
-              x={userPos.cx + 16}
-              y={userPos.cy + 4}
-              fontSize="12"
-              fontWeight="600"
+            <circle
+              cx={userPos.cx}
+              cy={userPos.cy}
+              r={5}
               fill="var(--color-ink)"
-            >
-              {userLabel}
-            </text>
-          </g>
+            />
+          </motion.g>
+          <text
+            x={userPos.cx + 22}
+            y={userPos.cy + 4}
+            fontSize="12"
+            fontWeight={600}
+            fill="var(--color-ink)"
+            fontFamily="var(--font-inter)"
+          >
+            {userLabel}
+          </text>
         </svg>
       </div>
 
-      {hoveredPoint && (
-        <p className="text-sm text-ink-muted">
-          {hoveredPoint.label}
-          {hoveredPoint.sublabel ? ` — ${hoveredPoint.sublabel}` : ""}
-        </p>
-      )}
+      {/* Legend */}
+      <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-ink-muted pt-2 border-t border-rule">
+        <span className="inline-flex items-center gap-2">
+          <span
+            aria-hidden
+            className="w-3 h-3 border border-ink rounded-full bg-paper relative"
+          >
+            <span className="absolute inset-[3px] bg-ink rounded-full" />
+          </span>
+          Jij
+        </span>
+        <span className="inline-flex items-center gap-2">
+          <span
+            aria-hidden
+            className="w-2.5 h-2.5 rounded-full bg-navy"
+          />
+          Top-3 dichtstbij
+        </span>
+        <span className="inline-flex items-center gap-2">
+          <span
+            aria-hidden
+            className="w-2.5 h-2.5 rounded-full bg-paper border border-navy"
+          />
+          Overige
+        </span>
+      </div>
     </div>
   );
+}
+
+function signed(n: number): string {
+  return n > 0 ? `+${n}` : `${n}`;
 }

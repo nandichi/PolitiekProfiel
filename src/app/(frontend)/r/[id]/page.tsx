@@ -1,13 +1,19 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowRight, Repeat, Share2 } from "lucide-react";
+import { ArrowRight, Repeat, BookOpen } from "lucide-react";
 import { Container } from "@/components/Container";
 import { DimensionBar } from "@/components/DimensionBar";
 import { ScatterPlot } from "@/components/ScatterPlot";
 import { RankedList } from "@/components/RankedList";
 import { LexicalRenderer } from "@/components/LexicalRenderer";
 import { ShareBlock } from "@/components/ShareBlock";
+import { StickyIndex } from "@/components/StickyIndex";
+import { Kicker } from "@/components/Kicker";
+import {
+  ScrollReveal,
+  ScrollRevealItem,
+} from "@/components/motion/ScrollReveal";
 import { getResult } from "@/lib/results-store";
 import {
   getAllCountries,
@@ -48,6 +54,14 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
   };
 }
 
+const INDEX_ITEMS = [
+  { id: "profiel", label: "Profiel" },
+  { id: "dimensies", label: "Dimensies" },
+  { id: "politici", label: "Politici" },
+  { id: "landen", label: "Landen" },
+  { id: "delen", label: "Delen" },
+];
+
 export default async function ResultPage({ params }: Args) {
   const { id } = await params;
   const result = await getResult(id);
@@ -80,162 +94,271 @@ export default async function ResultPage({ params }: Args) {
   );
 
   return (
-    <>
-      <header className="border-b border-rule">
-        <Container className="py-16 md:py-20">
-          <p className="kicker mb-3">Jouw politieke profiel</p>
-          <h1 className="serif font-medium leading-[1.05] max-w-4xl">
-            {ideo.name}
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-ink-soft leading-relaxed">
-            {ideo.shortDescription}
-          </p>
-          <div className="mt-6 flex flex-wrap gap-2 text-xs text-ink-muted">
-            <span className="border border-rule px-2 py-1">
-              Lengte: {tierLabel(result.tier)}
-            </span>
-            <span className="border border-rule px-2 py-1">
-              {result.answeredCount} beantwoord
-              {result.skippedCount > 0
-                ? ` · ${result.skippedCount} overgeslagen`
-                : ""}
-            </span>
-            <span className="border border-rule px-2 py-1 capitalize">
-              {ideo.spectrumPosition.replace("-", " ")}
-            </span>
-          </div>
-        </Container>
-      </header>
+    <div>
+      <Container width="bleed" className="pt-10 md:pt-16">
+        <div className="grid gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
+          {/* ─── Sticky Index ─── */}
+          <StickyIndex items={INDEX_ITEMS} topOffset={96} />
 
-      <section className="border-b border-rule">
-        <Container className="py-16">
-          <p className="kicker mb-6">Je scores op vijf assen</p>
-          <div>
-            {DIMENSIONS.map((d) => (
-              <DimensionBar
-                key={d.id}
-                dimension={d.id}
-                value={result.dimensions[d.id]}
-              />
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-b border-rule">
-        <Container className="py-16">
-          <p className="kicker mb-6">Wat houdt dit profiel in?</p>
-          <div className="editorial-prose max-w-2xl">
-            <LexicalRenderer value={ideo.description} />
-          </div>
-          {ideo.examplePeople?.length ? (
-            <div className="mt-10 border-t border-rule pt-6 max-w-2xl">
-              <p className="kicker mb-3">Bekende voorbeelden</p>
-              <ul className="flex flex-wrap gap-2 text-sm">
-                {ideo.examplePeople.map((ex, i) => (
-                  <li
-                    key={i}
-                    className="border border-rule px-3 py-1 text-ink-soft"
+          {/* ─── Main column ─── */}
+          <div className="min-w-0">
+            {/* PROFIEL */}
+            <section id="profiel" className="scroll-mt-32">
+              <ScrollReveal variant="stagger" immediate>
+                <ScrollRevealItem>
+                  <Kicker number={1}>Jouw politieke profiel</Kicker>
+                </ScrollRevealItem>
+                <ScrollRevealItem>
+                  <h1
+                    className="display mt-6 text-ink leading-[0.95]"
+                    style={{
+                      fontSize: "clamp(2.6rem, 7vw, 6rem)",
+                      letterSpacing: "-0.025em",
+                    }}
                   >
-                    {ex.text}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-        </Container>
-      </section>
+                    {ideo.name}
+                    <span className="text-terra">.</span>
+                  </h1>
+                </ScrollRevealItem>
+                <ScrollRevealItem>
+                  <p className="mt-8 max-w-2xl text-lg md:text-xl text-ink-2 leading-relaxed">
+                    {ideo.shortDescription}
+                  </p>
+                </ScrollRevealItem>
+                <ScrollRevealItem>
+                  <div className="mt-8 flex flex-wrap gap-2">
+                    <MetaPill label="Tier" value={tierLabel(result.tier)} />
+                    <MetaPill
+                      label="Beantwoord"
+                      value={`${result.answeredCount}/${result.totalQuestions}`}
+                    />
+                    {result.skippedCount > 0 && (
+                      <MetaPill
+                        label="Overgeslagen"
+                        value={String(result.skippedCount)}
+                      />
+                    )}
+                    <MetaPill
+                      label="Spectrum"
+                      value={ideo.spectrumPosition.replace("-", " ")}
+                      capitalize
+                    />
+                  </div>
+                </ScrollRevealItem>
+              </ScrollReveal>
+            </section>
 
-      <section className="border-b border-rule">
-        <Container width="wide" className="py-16">
-          <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-            <div>
-              <p className="kicker mb-3">Vergelijk met politici</p>
-              <h2 className="serif mb-6">
-                Welke politici staan dichtbij jouw posities?
-              </h2>
-              <ScatterPlot
-                user={result.dimensions}
-                points={politicians.map((p) => ({
-                  id: String(p.id),
-                  label: p.name,
-                  sublabel: `${p.party} · ${p.country}`,
-                  vector: p.positionVector,
-                }))}
-                initialX="economic"
-                initialY="social"
-              />
-            </div>
-            <div>
-              <p className="kicker mb-3">Op afstand</p>
-              <RankedList
-                matches={rankedPoliticians}
-                limit={20}
-                highlightFirst
-              />
-            </div>
-          </div>
-        </Container>
-      </section>
+            {/* Pull quote intro */}
+            <section className="mt-20 md:mt-28 max-w-3xl">
+              <ScrollReveal variant="stagger">
+                <ScrollRevealItem>
+                  <Kicker>Wat houdt dit profiel in?</Kicker>
+                </ScrollRevealItem>
+                <ScrollRevealItem>
+                  <div className="mt-5 editorial-prose">
+                    <LexicalRenderer value={ideo.description} />
+                  </div>
+                </ScrollRevealItem>
+                {ideo.examplePeople?.length ? (
+                  <ScrollRevealItem>
+                    <div className="mt-10 border-t border-rule pt-6">
+                      <p className="kicker mb-4">Bekende voorbeelden</p>
+                      <ul className="flex flex-wrap gap-2 text-sm">
+                        {ideo.examplePeople.map((ex, i) => (
+                          <li
+                            key={i}
+                            className="border border-rule px-3 py-1 text-ink-2"
+                          >
+                            {ex.text}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </ScrollRevealItem>
+                ) : null}
+              </ScrollReveal>
+            </section>
 
-      <section className="border-b border-rule">
-        <Container width="wide" className="py-16">
-          <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-            <div>
-              <p className="kicker mb-3">Vergelijk met landen</p>
-              <h2 className="serif mb-6">
-                Op welk land lijkt jouw profiel het meest?
-              </h2>
-              <ScatterPlot
-                user={result.dimensions}
-                points={countries.map((c) => ({
-                  id: String(c.id),
-                  label: c.name,
-                  sublabel: c.description,
-                  vector: c.positionVector,
-                }))}
-                initialX="economic"
-                initialY="governance"
-              />
-            </div>
-            <div>
-              <p className="kicker mb-3">Op afstand</p>
-              <RankedList matches={rankedCountries} highlightFirst />
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-b border-rule">
-        <Container className="py-16">
-          <p className="kicker mb-4">Deel of vergelijk</p>
-          <h2 className="serif mb-6">Bewaar je profiel of vergelijk met iemand anders</h2>
-          <ShareBlock shareId={result.shareId} ideologyName={ideo.name} />
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link
-              href={`/vergelijk?a=${result.shareId}`}
-              className="btn-secondary"
+            {/* DIMENSIES */}
+            <section
+              id="dimensies"
+              className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
             >
-              <Repeat size={16} strokeWidth={1.7} />
-              Vergelijk met een ander profiel
-            </Link>
-            <Link href="/quiz/standard" className="btn-ghost">
-              Doe de quiz opnieuw
-              <ArrowRight size={16} strokeWidth={1.7} />
-            </Link>
-            <Link href="/methodiek" className="btn-ghost">
-              <Share2 size={16} strokeWidth={1.7} />
-              Lees onze methodiek
-            </Link>
+              <ScrollReveal variant="stagger">
+                <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end mb-8">
+                  <ScrollRevealItem>
+                    <Kicker number={2}>Je scores op vijf assen</Kicker>
+                    <h2 className="display mt-5">Waar je staat, in cijfers.</h2>
+                  </ScrollRevealItem>
+                  <ScrollRevealItem>
+                    <p className="text-sm text-ink-muted max-w-xs">
+                      Iedere score loopt van −100 tot +100. Een score rond nul
+                      betekent geen sterke voorkeur op die as.
+                    </p>
+                  </ScrollRevealItem>
+                </div>
+                <ScrollRevealItem>
+                  <div className="border-t border-rule">
+                    {DIMENSIONS.map((d, i) => (
+                      <DimensionBar
+                        key={d.id}
+                        dimension={d.id}
+                        value={result.dimensions[d.id]}
+                        index={i}
+                      />
+                    ))}
+                  </div>
+                </ScrollRevealItem>
+              </ScrollReveal>
+            </section>
+
+            {/* POLITICI */}
+            <section
+              id="politici"
+              className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
+            >
+              <ScrollReveal variant="stagger">
+                <ScrollRevealItem>
+                  <Kicker number={3}>Vergelijk met politici</Kicker>
+                  <h2 className="display mt-5 max-w-3xl">
+                    Welke politici staan dichtbij jouw posities?
+                  </h2>
+                </ScrollRevealItem>
+                <ScrollRevealItem>
+                  <div className="mt-10 grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
+                    <div>
+                      <ScatterPlot
+                        user={result.dimensions}
+                        points={politicians.map((p) => ({
+                          id: String(p.id),
+                          label: p.name,
+                          sublabel: `${p.party} · ${p.country}`,
+                          vector: p.positionVector,
+                        }))}
+                        initialX="economic"
+                        initialY="social"
+                      />
+                    </div>
+                    <div>
+                      <p className="kicker mb-4">Rangschikking</p>
+                      <RankedList
+                        matches={rankedPoliticians}
+                        limit={20}
+                        highlightFirst
+                      />
+                    </div>
+                  </div>
+                </ScrollRevealItem>
+              </ScrollReveal>
+            </section>
+
+            {/* LANDEN */}
+            <section
+              id="landen"
+              className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
+            >
+              <ScrollReveal variant="stagger">
+                <ScrollRevealItem>
+                  <Kicker number={4}>Vergelijk met landen</Kicker>
+                  <h2 className="display mt-5 max-w-3xl">
+                    Op welk land lijkt jouw profiel het meest?
+                  </h2>
+                </ScrollRevealItem>
+                <ScrollRevealItem>
+                  <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-12">
+                    <div className="lg:order-2">
+                      <ScatterPlot
+                        user={result.dimensions}
+                        points={countries.map((c) => ({
+                          id: String(c.id),
+                          label: c.name,
+                          sublabel: c.description,
+                          vector: c.positionVector,
+                        }))}
+                        initialX="economic"
+                        initialY="governance"
+                      />
+                    </div>
+                    <div className="lg:order-1">
+                      <p className="kicker mb-4">Rangschikking</p>
+                      <RankedList matches={rankedCountries} highlightFirst />
+                    </div>
+                  </div>
+                </ScrollRevealItem>
+              </ScrollReveal>
+            </section>
+
+            {/* DELEN */}
+            <section
+              id="delen"
+              className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12 pb-8"
+            >
+              <ScrollReveal variant="stagger">
+                <ScrollRevealItem>
+                  <Kicker number={5}>Deel of vergelijk</Kicker>
+                  <h2 className="display mt-5 max-w-3xl">
+                    Bewaar je profiel, of leg het naast iemand anders.
+                  </h2>
+                </ScrollRevealItem>
+                <ScrollRevealItem>
+                  <div className="mt-10">
+                    <ShareBlock
+                      shareId={result.shareId}
+                      ideologyName={ideo.name}
+                    />
+                  </div>
+                </ScrollRevealItem>
+                <ScrollRevealItem>
+                  <div className="mt-10 flex flex-wrap gap-3">
+                    <Link
+                      href={`/vergelijk?a=${result.shareId}`}
+                      className="btn btn-secondary"
+                    >
+                      <Repeat size={16} strokeWidth={1.8} />
+                      Vergelijk met een ander profiel
+                    </Link>
+                    <Link href="/methodiek" className="btn-ghost">
+                      <BookOpen size={14} strokeWidth={1.8} />
+                      Lees de methodiek
+                    </Link>
+                    <Link href="/quiz/standard" className="btn-ghost">
+                      Doe de quiz opnieuw
+                      <ArrowRight size={14} strokeWidth={1.8} />
+                    </Link>
+                  </div>
+                </ScrollRevealItem>
+              </ScrollReveal>
+            </section>
           </div>
-        </Container>
-      </section>
-    </>
+        </div>
+      </Container>
+    </div>
+  );
+}
+
+function MetaPill({
+  label,
+  value,
+  capitalize,
+}: {
+  label: string;
+  value: string;
+  capitalize?: boolean;
+}) {
+  return (
+    <span className="inline-flex items-baseline gap-2 border border-rule px-3 py-1.5 text-xs">
+      <span className="mono text-[0.62rem] tracking-wider text-ink-muted">
+        {label.toUpperCase()}
+      </span>
+      <span className={capitalize ? "capitalize text-ink-2" : "text-ink-2"}>
+        {value}
+      </span>
+    </span>
   );
 }
 
 function tierLabel(tier: string): string {
-  if (tier === "quick") return "Quick (30 vragen)";
-  if (tier === "extended") return "Uitgebreid (80 vragen)";
-  return "Standaard (50 vragen)";
+  if (tier === "quick") return "Quick · 30 vragen";
+  if (tier === "extended") return "Uitgebreid · 80 vragen";
+  return "Standaard · 50 vragen";
 }

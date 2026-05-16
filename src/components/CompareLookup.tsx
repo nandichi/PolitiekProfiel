@@ -14,7 +14,7 @@ function extractId(input: string): string {
       const idx = parts.indexOf("r");
       if (idx >= 0 && parts[idx + 1]) return parts[idx + 1];
     } catch {
-      // negeer
+      /* negeer */
     }
   }
   return trimmed;
@@ -44,31 +44,43 @@ export function CompareLookup({
   return (
     <form
       onSubmit={submit}
-      className="grid gap-3 md:grid-cols-[1fr_1fr_auto] items-end"
+      className="grid gap-8 md:gap-12 md:grid-cols-[1fr_1fr_auto] md:items-end"
     >
-      <label className="block text-sm">
-        <span className="kicker">Profiel A</span>
+      <label className="block">
+        <span className="kicker">
+          <span className="display text-base text-ink mr-2 align-baseline">
+            A
+          </span>
+          Profiel A
+        </span>
         <input
           type="text"
           value={a}
           onChange={(e) => setA(e.target.value)}
-          placeholder="Plak een link of share-id"
-          className="mt-1 w-full border border-ink-muted bg-paper px-3 py-2"
+          placeholder="Plak link of share-id"
+          className="field-editorial mt-3"
+          autoComplete="off"
         />
       </label>
-      <label className="block text-sm">
-        <span className="kicker">Profiel B</span>
+      <label className="block">
+        <span className="kicker">
+          <span className="display text-base text-terra mr-2 align-baseline">
+            B
+          </span>
+          Profiel B
+        </span>
         <input
           type="text"
           value={b}
           onChange={(e) => setB(e.target.value)}
-          placeholder="Plak een link of share-id"
-          className="mt-1 w-full border border-ink-muted bg-paper px-3 py-2"
+          placeholder="Plak link of share-id"
+          className="field-editorial mt-3"
+          autoComplete="off"
         />
       </label>
-      <button type="submit" className="btn-primary">
+      <button type="submit" className="btn btn-primary md:self-end">
         Vergelijk
-        <ArrowRight size={16} strokeWidth={1.7} />
+        <ArrowRight size={16} strokeWidth={1.8} />
       </button>
     </form>
   );

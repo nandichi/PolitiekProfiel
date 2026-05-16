@@ -8,6 +8,62 @@ export const runtime = "nodejs";
 const WIDTH = 1200;
 const HEIGHT = 630;
 
+// Cached font buffers (per-process)
+const fontCache: {
+  fraunces?: ArrayBuffer;
+  fraunces600?: ArrayBuffer;
+  plex?: ArrayBuffer;
+  inter?: ArrayBuffer;
+} = {};
+
+async function fetchFont(url: string): Promise<ArrayBuffer | undefined> {
+  try {
+    const res = await fetch(url, { cache: "force-cache" });
+    if (!res.ok) return undefined;
+    return await res.arrayBuffer();
+  } catch {
+    return undefined;
+  }
+}
+
+async function loadFonts() {
+  if (!fontCache.fraunces) {
+    fontCache.fraunces = await fetchFont(
+      "https://cdn.jsdelivr.net/fontsource/fonts/fraunces:vf@latest/latin-wght-normal.woff2",
+    );
+  }
+  if (!fontCache.fraunces600) {
+    fontCache.fraunces600 = await fetchFont(
+      "https://cdn.jsdelivr.net/fontsource/fonts/fraunces:vf@latest/latin-wght-normal.woff2",
+    );
+  }
+  if (!fontCache.plex) {
+    fontCache.plex = await fetchFont(
+      "https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-mono@latest/latin-500-normal.woff2",
+    );
+  }
+  if (!fontCache.inter) {
+    fontCache.inter = await fetchFont(
+      "https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2",
+    );
+  }
+  return fontCache;
+}
+
+const COLORS = {
+  paper: "#fafaf7",
+  paper50: "#f4f3ed",
+  paper100: "#ecebe2",
+  paper200: "#ddd9c7",
+  ink: "#0e1014",
+  inkMuted: "#5a6071",
+  inkSubtle: "#8c93a3",
+  navy: "#142850",
+  terra: "#b34329",
+  rule: "#dcd8c9",
+  ruleStrong: "#b5ad95",
+};
+
 export async function GET(
   _req: Request,
   context: { params: Promise<{ id: string }> },
@@ -19,94 +75,270 @@ export async function GET(
   }
   const ideology = await getIdeologyBySlug(result.ideologySlug);
 
+  const fonts = await loadFonts();
+  const fontConfig: Array<{
+    name: string;
+    data: ArrayBuffer;
+    weight: 400 | 500 | 600 | 700;
+    style: "normal";
+  }> = [];
+
+  if (fonts.fraunces) {
+    fontConfig.push({
+      name: "Fraunces",
+      data: fonts.fraunces,
+      weight: 500,
+      style: "normal",
+    });
+    fontConfig.push({
+      name: "Fraunces",
+      data: fonts.fraunces,
+      weight: 600,
+      style: "normal",
+    });
+  }
+  if (fonts.inter) {
+    fontConfig.push({
+      name: "Inter",
+      data: fonts.inter,
+      weight: 400,
+      style: "normal",
+    });
+    fontConfig.push({
+      name: "Inter",
+      data: fonts.inter,
+      weight: 500,
+      style: "normal",
+    });
+  }
+  if (fonts.plex) {
+    fontConfig.push({
+      name: "Plex",
+      data: fonts.plex,
+      weight: 500,
+      style: "normal",
+    });
+  }
+
+  const displayFont = fonts.fraunces ? "Fraunces" : "Georgia, serif";
+  const sansFont = fonts.inter ? "Inter" : "Helvetica, Arial, sans-serif";
+  const monoFont = fonts.plex
+    ? "Plex"
+    : "Menlo, ui-monospace, monospace";
+
+  const ideoName = ideology?.name ?? result.ideologySlug;
+  const ideoShort = ideology?.shortDescription;
+
   return new ImageResponse(
     (
       <div
         style={{
           width: WIDTH,
           height: HEIGHT,
-          background: "#fbf9f4",
-          color: "#14161a",
-          fontFamily: "Georgia, serif",
+          background: COLORS.paper,
+          color: COLORS.ink,
           display: "flex",
           flexDirection: "column",
-          padding: 64,
+          padding: "64px 72px",
+          fontFamily: sansFont,
         }}
       >
+        {/* Top hairline */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 4,
+            background: COLORS.ink,
+          }}
+        />
+
+        {/* Header */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
+            alignItems: "flex-start",
           }}
         >
-          <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
-            <span style={{ fontSize: 28, fontWeight: 500 }}>Politiek</span>
-            <span style={{ fontSize: 28, fontWeight: 500, color: "#1e3a8a" }}>
-              Profiel
-            </span>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "baseline",
+              fontFamily: displayFont,
+              fontWeight: 500,
+              fontSize: 30,
+            }}
+          >
+            <span style={{ color: COLORS.ink }}>Politiek</span>
+            <span style={{ color: COLORS.navy }}>Profiel</span>
           </div>
           <div
             style={{
-              fontSize: 16,
-              letterSpacing: 3,
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              fontFamily: monoFont,
+              fontSize: 14,
+              letterSpacing: 2,
               textTransform: "uppercase",
-              color: "#5b6370",
+              color: COLORS.inkMuted,
             }}
           >
-            Jouw politieke profiel
+            <span
+              style={{
+                display: "block",
+                width: 8,
+                height: 8,
+                background: COLORS.terra,
+              }}
+            />
+            <span>JOUW POLITIEKE PROFIEL</span>
           </div>
         </div>
 
-        <div style={{ marginTop: 56, display: "flex", flexDirection: "column" }}>
+        {/* Main: ideology name */}
+        <div
+          style={{
+            marginTop: 60,
+            display: "flex",
+            flexDirection: "column",
+            flex: 1,
+          }}
+        >
           <div
             style={{
-              fontSize: 88,
+              display: "flex",
+              alignItems: "center",
+              gap: 14,
+              marginBottom: 18,
+            }}
+          >
+            <span
+              style={{
+                fontFamily: monoFont,
+                fontSize: 13,
+                letterSpacing: 2.4,
+                color: COLORS.inkMuted,
+              }}
+            >
+              01 — PROFIEL
+            </span>
+            <span
+              style={{
+                display: "block",
+                width: 50,
+                height: 1,
+                background: COLORS.ruleStrong,
+              }}
+            />
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              alignItems: "baseline",
+              fontFamily: displayFont,
               fontWeight: 500,
-              lineHeight: 1.02,
+              fontSize: 96,
+              lineHeight: 0.98,
+              letterSpacing: -2.4,
+              color: COLORS.ink,
               maxWidth: 1000,
             }}
           >
-            {ideology?.name ?? result.ideologySlug}
+            <span>{ideoName}</span>
+            <span style={{ color: COLORS.terra }}>.</span>
           </div>
-          {ideology?.shortDescription && (
+
+          {ideoShort && (
             <div
               style={{
-                marginTop: 18,
-                fontSize: 24,
-                color: "#2b2f36",
-                fontFamily: "Helvetica, sans-serif",
-                maxWidth: 980,
+                marginTop: 22,
+                fontSize: 22,
+                color: COLORS.ink,
+                fontFamily: sansFont,
+                fontWeight: 400,
+                maxWidth: 950,
                 lineHeight: 1.4,
               }}
             >
-              {ideology.shortDescription}
+              {ideoShort}
             </div>
           )}
         </div>
 
+        {/* Bottom: dimension voltmeters */}
         <div
           style={{
-            marginTop: "auto",
             display: "flex",
             flexDirection: "column",
-            gap: 10,
+            gap: 8,
+            paddingTop: 28,
+            borderTop: `1px solid ${COLORS.ruleStrong}`,
           }}
         >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 14,
+              marginBottom: 8,
+            }}
+          >
+            <span
+              style={{
+                fontFamily: monoFont,
+                fontSize: 12,
+                letterSpacing: 2.4,
+                color: COLORS.inkMuted,
+              }}
+            >
+              02 — DIMENSIES
+            </span>
+            <span
+              style={{
+                display: "block",
+                width: 50,
+                height: 1,
+                background: COLORS.ruleStrong,
+              }}
+            />
+            <span
+              style={{
+                fontFamily: monoFont,
+                fontSize: 12,
+                letterSpacing: 1.4,
+                color: COLORS.inkSubtle,
+                marginLeft: "auto",
+              }}
+            >
+              −100 · 0 · +100
+            </span>
+          </div>
+
           {DIMENSIONS.map((d) => {
             const value = result.dimensions[d.id];
             const left = ((value + 100) / 2).toFixed(2);
             return (
               <div
                 key={d.id}
-                style={{ display: "flex", alignItems: "center", gap: 18 }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 18,
+                  height: 30,
+                }}
               >
                 <div
                   style={{
-                    width: 200,
-                    fontSize: 18,
-                    color: "#5b6370",
-                    fontFamily: "Helvetica, sans-serif",
+                    width: 170,
+                    fontSize: 16,
+                    color: COLORS.ink,
+                    fontFamily: sansFont,
+                    fontWeight: 500,
                   }}
                 >
                   {d.shortLabel}
@@ -115,31 +347,44 @@ export async function GET(
                   style={{
                     position: "relative",
                     flex: 1,
-                    height: 12,
-                    background: "#e8e1d2",
+                    height: 6,
+                    background: COLORS.paper100,
+                    borderTop: `1px solid ${COLORS.rule}`,
+                    borderBottom: `1px solid ${COLORS.rule}`,
                     display: "flex",
                   }}
                 >
                   <div
                     style={{
                       position: "absolute",
+                      left: "50%",
                       top: -4,
                       bottom: -4,
-                      width: 4,
-                      background: "#14161a",
+                      width: 1,
+                      background: COLORS.ruleStrong,
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: -8,
+                      bottom: -8,
+                      width: 3,
+                      background: COLORS.ink,
                       left: `${left}%`,
                       transform: "translateX(-50%)",
+                      display: "flex",
                     }}
                   />
                 </div>
                 <div
                   style={{
-                    width: 60,
+                    width: 72,
                     textAlign: "right",
                     fontSize: 20,
-                    color: "#14161a",
-                    fontVariantNumeric: "tabular-nums",
-                    fontFamily: "Helvetica, sans-serif",
+                    color: COLORS.ink,
+                    fontFamily: monoFont,
+                    fontWeight: 500,
                   }}
                 >
                   {value > 0 ? "+" : ""}
@@ -149,8 +394,25 @@ export async function GET(
             );
           })}
         </div>
+
+        {/* Footer line */}
+        <div
+          style={{
+            marginTop: 24,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            fontFamily: monoFont,
+            fontSize: 13,
+            letterSpacing: 1.4,
+            color: COLORS.inkMuted,
+          }}
+        >
+          <span>politiekprofiel.nl/r/{result.shareId}</span>
+          <span>GEEN TRACKING · ANONIEM</span>
+        </div>
       </div>
     ),
-    { width: WIDTH, height: HEIGHT },
+    { width: WIDTH, height: HEIGHT, fonts: fontConfig },
   );
 }

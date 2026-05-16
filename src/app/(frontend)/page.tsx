@@ -1,153 +1,261 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  Clock3,
-  Scale,
-  Sparkles,
-  ShieldCheck,
-} from "lucide-react";
+import { ArrowRight, Clock3 } from "lucide-react";
 import { Container } from "@/components/Container";
+import { Kicker } from "@/components/Kicker";
+import { LiveAxes } from "@/components/LiveAxes";
+import {
+  ScrollReveal,
+  ScrollRevealItem,
+} from "@/components/motion/ScrollReveal";
 import { DIMENSIONS, TIER_QUESTION_COUNT } from "@/lib/dimensions";
+import { cx } from "@/lib/cx";
+
+const FEATURES: Array<{
+  kicker: string;
+  title: string;
+  body: string;
+}> = [
+  {
+    kicker: "Vraagstelling",
+    title: "Concreet, actueel, gebalanceerd",
+    body: "Stellingen die de redactie zorgvuldig opstelt. Voor en tegen krijgen evenveel ruimte; informeer jezelf vóór je antwoordt.",
+  },
+  {
+    kicker: "Methodiek",
+    title: "Vijf dimensies, geen karikatuur",
+    body: "Economisch, sociaal-cultureel, burgerrechten, bestuur en systeemvertrouwen. Vijf onafhankelijke scores, geen één-as label.",
+  },
+  {
+    kicker: "Privacy",
+    title: "Geen account, geen tracking",
+    body: "Resultaten worden anoniem opgeslagen voor een korte deellink. Geen IP-adres, geen analytics, geen marketing-cookies.",
+  },
+];
 
 export default function HomePage() {
   return (
     <>
-      <section className="border-b border-rule">
-        <Container className="py-20 md:py-28">
-          <p className="kicker mb-6">Een onafhankelijk kompas</p>
-          <h1 className="max-w-3xl serif font-medium leading-[1.02]">
-            Politiek is meer dan
-            <em className="font-light text-accent"> links</em> of
-            <em className="font-light text-accent"> rechts</em>.
-            <br />
-            Zie waar je écht staat.
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg text-ink-soft leading-relaxed">
-            Een rustig, doordacht profiel op <strong>vijf onafhankelijke
-            dimensies</strong>. Geen scorelijst voor partijen. Geen reclame. Wel
-            heldere uitleg, ruimte voor twijfel, en herkenbare vergelijking met
-            politici en landen.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link href="/quiz/standard" className="btn-primary">
-              Start de standaard quiz
-              <ArrowRight size={18} strokeWidth={1.8} />
-            </Link>
-            <Link href="/methodiek" className="btn-secondary">
-              Lees eerst de methodiek
-            </Link>
-          </div>
-        </Container>
-      </section>
+      {/* ─────────────────────── HERO ─────────────────────── */}
+      <section className="relative overflow-hidden">
+        <Container width="bleed" className="pt-12 md:pt-20 pb-16 md:pb-24">
+          <ScrollReveal variant="stagger" immediate>
+            <ScrollRevealItem>
+              <Kicker number={"NL · 2026"}>Een onafhankelijk kompas</Kicker>
+            </ScrollRevealItem>
 
-      <section className="border-b border-rule">
-        <Container className="py-20">
-          <div className="grid gap-10 md:grid-cols-3">
-            <Header
-              kicker="01 · Vraagstelling"
-              title="Concreet, actueel, gebalanceerd"
-              body="80 stellingen die de redactie zorgvuldig heeft opgesteld. Voor en tegen krijgen evenveel ruimte; informeer jezelf vóór je antwoordt."
-              Icon={Scale}
-            />
-            <Header
-              kicker="02 · Methodiek"
-              title="Vijf dimensies, geen karikatuur"
-              body="Economisch, sociaal-cultureel, burgerrechten, bestuur en systeemvertrouwen. Je krijgt vijf onafhankelijke scores, geen één-as label."
-              Icon={Sparkles}
-            />
-            <Header
-              kicker="03 · Privacy"
-              title="Geen account, geen tracking"
-              body="We slaan resultaten anoniem op zodat je ze kunt delen via een korte link. Geen IP-adres, geen analytics, geen cookies behalve een functioneel consent."
-              Icon={ShieldCheck}
-            />
-          </div>
-        </Container>
-      </section>
+            <div className="mt-8 md:mt-12 grid gap-12 lg:gap-20 lg:grid-cols-12 items-start">
+              {/* Manifesto headline */}
+              <ScrollRevealItem className="lg:col-span-7">
+                <h1
+                  className="display font-medium text-ink"
+                  style={{ letterSpacing: "-0.025em" }}
+                >
+                  <span className="block">Politiek is meer</span>
+                  <span className="block">
+                    dan <em className="display-italic font-light text-navy">links</em>
+                    {" "}of{" "}
+                    <em className="display-italic font-light text-navy">
+                      rechts
+                    </em>
+                    .
+                  </span>
+                  <span className="block text-ink-2 mt-3 md:mt-5">
+                    Zie waar je écht staat.
+                  </span>
+                </h1>
 
-      <section className="border-b border-rule">
-        <Container width="wide" className="py-20">
-          <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-end mb-12">
-            <div>
-              <p className="kicker mb-3">Kies een lengte</p>
-              <h2 className="serif max-w-2xl">
-                Een snelle indicatie of een grondig portret. Jij bepaalt.
-              </h2>
+                <p className="mt-8 md:mt-10 max-w-xl text-lg text-ink-2 leading-relaxed">
+                  Een rustig, doordacht profiel op{" "}
+                  <strong className="text-ink">vijf onafhankelijke
+                  dimensies</strong>. Geen scorelijst voor partijen. Geen
+                  reclame. Wel heldere uitleg, ruimte voor twijfel, en
+                  herkenbare vergelijking met politici en landen.
+                </p>
+
+                <div className="mt-10 flex flex-wrap gap-3">
+                  <Link href="/quiz/standard" className="btn btn-primary">
+                    Start de standaard quiz
+                    <ArrowRight size={16} strokeWidth={1.8} />
+                  </Link>
+                  <Link href="/methodiek" className="btn btn-secondary">
+                    Lees eerst de methodiek
+                  </Link>
+                </div>
+
+                <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs text-ink-muted">
+                  <span className="inline-flex items-center gap-2">
+                    <span className="block w-1.5 h-1.5 bg-success rounded-full" />
+                    <span className="mono tracking-wider">GEEN TRACKING</span>
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="block w-1.5 h-1.5 bg-success rounded-full" />
+                    <span className="mono tracking-wider">ANONIEM</span>
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="block w-1.5 h-1.5 bg-success rounded-full" />
+                    <span className="mono tracking-wider">5–20 MIN</span>
+                  </span>
+                </div>
+              </ScrollRevealItem>
+
+              {/* Live axes */}
+              <ScrollRevealItem className="lg:col-span-5 lg:pl-6 lg:border-l lg:border-rule">
+                <div className="relative bg-paper-50 border border-rule p-6 md:p-8 lg:bg-transparent lg:border-0 lg:p-0">
+                  <LiveAxes />
+                </div>
+              </ScrollRevealItem>
             </div>
-            <p className="text-sm text-ink-muted max-w-sm">
-              Je voortgang wordt automatisch in je browser bewaard, dus je kunt
-              altijd later doorgaan.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            <TierCard
-              tier="quick"
-              title="Quick"
-              minutes="5 min"
-              tagline="Korte indicatie van waar je staat."
-            />
-            <TierCard
-              tier="standard"
-              title="Standaard"
-              minutes="10 min"
-              tagline="Onze aanbevolen lengte voor een degelijk profiel."
-              recommended
-            />
-            <TierCard
-              tier="extended"
-              title="Uitgebreid"
-              minutes="20 min"
-              tagline="Diepgaande analyse met de meeste nuances."
-            />
-          </div>
+          </ScrollReveal>
+        </Container>
+
+        {/* Decorative thin baseline rule */}
+        <div className="border-t border-rule-strong" />
+      </section>
+
+      {/* ─────────────────────── PRINCIPES (3 KOL) ─────────────────────── */}
+      <section className="bg-paper-50/40 border-b border-rule">
+        <Container width="bleed" className="py-20 md:py-28">
+          <ScrollReveal variant="stagger">
+            <ScrollRevealItem>
+              <Kicker number={1}>Het instrument</Kicker>
+              <h2 className="display max-w-3xl mt-5">
+                Drie principes die het verschil maken.
+              </h2>
+            </ScrollRevealItem>
+
+            <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-x-12">
+              {FEATURES.map((f, i) => (
+                <ScrollRevealItem key={i}>
+                  <article className="relative pl-8 border-l border-rule">
+                    <span className="absolute -left-px top-0 h-10 w-px bg-ink" />
+                    <p className="index-num text-xs mb-3">
+                      {String(i + 1).padStart(2, "0")}
+                    </p>
+                    <p className="kicker mb-3">{f.kicker}</p>
+                    <h3 className="display text-2xl leading-tight mb-3">
+                      {f.title}
+                    </h3>
+                    <p className="text-sm text-ink-2 leading-relaxed">
+                      {f.body}
+                    </p>
+                  </article>
+                </ScrollRevealItem>
+              ))}
+            </div>
+          </ScrollReveal>
         </Container>
       </section>
 
+      {/* ─────────────────────── TIER-KEUZE (MONUMENTAAL) ─────────────────────── */}
+      <section className="border-b border-rule">
+        <Container width="bleed" className="py-20 md:py-28">
+          <ScrollReveal variant="stagger">
+            <div className="grid gap-10 md:grid-cols-[1fr_auto] md:items-end mb-12">
+              <ScrollRevealItem>
+                <Kicker number={2}>Kies een lengte</Kicker>
+                <h2 className="display max-w-2xl mt-5">
+                  Een snelle indicatie of een grondig portret.{" "}
+                  <span className="display-italic font-light text-ink-muted">
+                    Jij bepaalt.
+                  </span>
+                </h2>
+              </ScrollRevealItem>
+              <ScrollRevealItem>
+                <p className="text-sm text-ink-muted max-w-xs">
+                  Voortgang wordt lokaal in je browser bewaard.
+                  <br />
+                  Geen account, geen e-mail.
+                </p>
+              </ScrollRevealItem>
+            </div>
+
+            <div className="grid gap-px bg-rule border border-rule md:grid-cols-3">
+              <TierCard
+                tier="quick"
+                title="Quick"
+                minutes="5 min"
+                tagline="Korte indicatie van waar je staat."
+                description="Genoeg om een ruwe positie te zien op de vijf assen, ideaal als snelle introductie."
+              />
+              <TierCard
+                tier="standard"
+                title="Standaard"
+                minutes="10 min"
+                tagline="Onze aanbevolen lengte voor een degelijk profiel."
+                description="Een evenwichtige steekproef per dimensie, met genoeg nuance voor een serieus portret."
+                recommended
+              />
+              <TierCard
+                tier="extended"
+                title="Uitgebreid"
+                minutes="20 min"
+                tagline="Diepgaande analyse met de meeste nuances."
+                description="Alle stellingen, voor wie tijd wil nemen en zeker wil zijn van het resultaat."
+              />
+            </div>
+          </ScrollReveal>
+        </Container>
+      </section>
+
+      {/* ─────────────────────── DE VIJF DIMENSIES (INDEX) ─────────────────────── */}
       <section>
-        <Container className="py-20">
-          <p className="kicker mb-6">De vijf assen</p>
-          <h2 className="serif max-w-2xl mb-10">
-            Politiek laat zich niet samenpersen tot één lijn. Dit zijn de
-            vijf dimensies waarin wij meten.
-          </h2>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {DIMENSIONS.map((d) => (
-              <article key={d.id} className="border border-rule p-6">
-                <p className="kicker mb-2">{d.label}</p>
-                <h3 className="serif text-xl leading-tight mb-3">
-                  {d.poleNegative.label} ↔ {d.polePositive.label}
-                </h3>
-                <p className="text-sm text-ink-soft">{d.description}</p>
-              </article>
-            ))}
-          </div>
+        <Container width="bleed" className="py-20 md:py-28">
+          <ScrollReveal variant="stagger">
+            <div className="grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-20 mb-14">
+              <ScrollRevealItem>
+                <Kicker number={3}>De vijf assen</Kicker>
+                <h2 className="display mt-5">
+                  Politiek laat zich niet samenpersen tot één lijn.
+                </h2>
+              </ScrollRevealItem>
+              <ScrollRevealItem>
+                <p className="text-lg text-ink-2 leading-relaxed max-w-2xl">
+                  Iedere dimensie meet een onafhankelijke houding. Een
+                  conservatief op cultuur kan economisch links zijn. Een
+                  libertair kan EU-gezind zijn. De vijf scores samen tonen wat
+                  een enkele links–rechts schaal niet kan.
+                </p>
+              </ScrollRevealItem>
+            </div>
+
+            <ol className="border-t border-ink">
+              {DIMENSIONS.map((d, i) => (
+                <ScrollRevealItem
+                  key={d.id}
+                  as="li"
+                  className="border-b border-rule"
+                >
+                  <div className="grid gap-4 lg:grid-cols-[80px_1fr_2fr_auto] lg:gap-8 py-7 md:py-9 items-baseline group">
+                    <p className="index-num text-sm">
+                      {String(i + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="display text-2xl md:text-3xl leading-tight text-ink">
+                      {d.poleNegative.label}
+                      <span className="text-ink-subtle font-light mx-2">/</span>
+                      {d.polePositive.label}
+                    </h3>
+                    <p className="text-sm md:text-base text-ink-2 leading-relaxed lg:max-w-xl">
+                      {d.description}
+                    </p>
+                    <p className="kicker text-right">{d.shortLabel}</p>
+                  </div>
+                </ScrollRevealItem>
+              ))}
+            </ol>
+          </ScrollReveal>
         </Container>
       </section>
     </>
   );
 }
 
-function Header({
-  kicker,
-  title,
-  body,
-  Icon,
-}: {
-  kicker: string;
+interface TierCardProps {
+  tier: "quick" | "standard" | "extended";
   title: string;
-  body: string;
-  Icon: React.ComponentType<{ size?: number; strokeWidth?: number }>;
-}) {
-  return (
-    <div>
-      <div className="flex items-center gap-3 text-ink-muted mb-4">
-        <Icon size={20} strokeWidth={1.5} />
-        <p className="kicker">{kicker}</p>
-      </div>
-      <h3 className="serif text-xl leading-tight mb-3">{title}</h3>
-      <p className="text-sm text-ink-soft">{body}</p>
-    </div>
-  );
+  minutes: string;
+  tagline: string;
+  description: string;
+  recommended?: boolean;
 }
 
 function TierCard({
@@ -155,80 +263,113 @@ function TierCard({
   title,
   minutes,
   tagline,
+  description,
   recommended = false,
-}: {
-  tier: "quick" | "standard" | "extended";
-  title: string;
-  minutes: string;
-  tagline: string;
-  recommended?: boolean;
-}) {
+}: TierCardProps) {
   const count = TIER_QUESTION_COUNT[tier];
   return (
     <Link
       href={`/quiz/${tier}`}
-      className={`group relative block border ${
+      className={cx(
+        "group relative block p-8 md:p-10 transition-colors duration-200 no-underline",
         recommended
-          ? "border-ink bg-ink text-paper"
-          : "border-rule bg-paper hover:border-ink"
-      } transition-colors p-8`}
+          ? "bg-ink text-paper hover:bg-navy"
+          : "bg-paper hover:bg-paper-50",
+      )}
     >
       {recommended && (
-        <span className="absolute -top-3 left-6 bg-paper text-ink border border-ink px-2 py-0.5 text-xs uppercase tracking-widest">
-          Aanbevolen
+        <span
+          className={cx(
+            "absolute top-6 right-6 mono text-[0.62rem] tracking-widest border px-2 py-1",
+            "bg-paper text-ink border-paper",
+          )}
+        >
+          AANBEVOLEN
         </span>
       )}
-      <div className="flex items-baseline justify-between">
-        <h3
-          className={`serif text-2xl ${
-            recommended ? "text-paper" : "text-ink"
-          }`}
-        >
-          {title}
-        </h3>
-        <span
-          className={`tabular-nums text-sm ${
-            recommended ? "text-paper/70" : "text-ink-muted"
-          } inline-flex items-center gap-1.5`}
-        >
-          <Clock3 size={14} strokeWidth={1.6} />
-          {minutes}
-        </span>
-      </div>
+
       <p
-        className={`mt-3 text-sm ${
-          recommended ? "text-paper/80" : "text-ink-soft"
-        }`}
+        className={cx(
+          "mono text-[0.7rem] tracking-widest mb-6",
+          recommended ? "text-paper/70" : "text-ink-muted",
+        )}
+      >
+        {String((["quick", "standard", "extended"] as const).indexOf(tier) + 1).padStart(
+          2,
+          "0",
+        )}{" "}
+        / TIER
+      </p>
+
+      <h3
+        className={cx(
+          "display text-3xl md:text-4xl mb-1.5",
+          recommended ? "text-paper" : "text-ink",
+        )}
+      >
+        {title}
+      </h3>
+      <p
+        className={cx(
+          "text-sm mb-8",
+          recommended ? "text-paper/75" : "text-ink-muted",
+        )}
       >
         {tagline}
       </p>
+
       <div
-        className={`mt-8 flex items-end justify-between border-t ${
-          recommended ? "border-paper/30" : "border-rule"
-        } pt-4`}
+        className={cx(
+          "border-t pt-6 mb-8",
+          recommended ? "border-paper/25" : "border-rule",
+        )}
       >
-        <span
-          className={`serif text-4xl tabular-nums ${
-            recommended ? "text-paper" : "text-ink"
-          }`}
+        <div className="flex items-baseline justify-between mb-3">
+          <span
+            className={cx(
+              "display tabular-nums text-6xl md:text-7xl leading-none",
+              recommended ? "text-paper" : "text-ink",
+            )}
+          >
+            {count}
+          </span>
+          <span
+            className={cx(
+              "kicker",
+              recommended ? "text-paper/70" : "text-ink-muted",
+            )}
+          >
+            Stellingen
+          </span>
+        </div>
+        <p
+          className={cx(
+            "mono text-[0.7rem] tracking-widest inline-flex items-center gap-1.5",
+            recommended ? "text-paper/70" : "text-ink-muted",
+          )}
         >
-          {count}
-        </span>
-        <span
-          className={`text-xs uppercase tracking-widest ${
-            recommended ? "text-paper/70" : "text-ink-muted"
-          }`}
-        >
-          Stellingen
-        </span>
+          <Clock3 size={12} strokeWidth={1.8} />
+          {minutes.toUpperCase()}
+        </p>
       </div>
+
+      <p
+        className={cx(
+          "text-sm leading-relaxed mb-8 min-h-[3.5em]",
+          recommended ? "text-paper/80" : "text-ink-2",
+        )}
+      >
+        {description}
+      </p>
+
       <span
-        className={`mt-6 inline-flex items-center gap-2 text-sm ${
-          recommended ? "text-paper" : "text-ink"
-        } group-hover:underline`}
+        className={cx(
+          "inline-flex items-center gap-2 text-sm font-medium transition-transform group-hover:translate-x-0.5",
+          recommended ? "text-paper" : "text-ink",
+        )}
       >
         Begin
-        <ArrowRight size={16} strokeWidth={1.7} />
+        <ArrowRight size={16} strokeWidth={1.8} />
       </span>
     </Link>
   );
