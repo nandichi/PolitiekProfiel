@@ -31,7 +31,12 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     meta: {
-      titleSuffix: " · PolitiekProfiel",
+      titleSuffix: " · PolitiekProfiel CMS",
+      description:
+        "Redactionele content beheren voor PolitiekProfiel: stellingen, ideologieën, politici en landen.",
+    },
+    importMap: {
+      baseDir: path.resolve(dirname),
     },
   },
   collections: [Users, Questions, Ideologies, Politicians, Countries, Results],

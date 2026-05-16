@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local Payload sqlite
+payload-dev.db
+payload-dev.db-journal
+payload-dev.db-wal
+payload-dev.db-shm
+
+# firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# editor caches
+.cursorignore
