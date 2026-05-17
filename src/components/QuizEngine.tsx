@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
@@ -17,6 +17,7 @@ import {
   type Tier,
   type DimensionId,
   dimensionMeta,
+  TIER_QUESTION_COUNT,
 } from "@/lib/dimensions";
 import { Container } from "@/components/Container";
 import { InfoDrawer } from "@/components/quiz/InfoDrawer";
@@ -37,19 +38,23 @@ const TIER_LABELS: Record<Tier, string> = {
 interface PersistedState {
   answers: AnswerMap;
   cursor: number;
-  questionIds: number[];
+  questions: QuizQuestion[];
+  adaptive: boolean;
   savedAt: number;
 }
 
 export function QuizEngine({
   tier,
-  questions,
+  questions: initialQuestions,
+  adaptive = false,
 }: {
   tier: Tier;
   questions: QuizQuestion[];
+  adaptive?: boolean;
 }) {
   const router = useRouter();
   const reduce = useReducedMotion();
+  const [questions, setQuestions] = useState<QuizQuestion[]>(initialQuestions);
   const [answers, setAnswers] = useState<AnswerMap>({});
   const [cursor, setCursor] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
@@ -58,12 +63,15 @@ export function QuizEngine({
   const [error, setError] = useState<string | null>(null);
   const [hydrated, setHydrated] = useState(false);
   const [resumePrompt, setResumePrompt] = useState<PersistedState | null>(null);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [batchDone, setBatchDone] = useState(false);
+  const fetchInFlight = useRef(false);
 
-  const total = questions.length;
+  const adaptiveTarget = adaptive ? TIER_QUESTION_COUNT[tier] : questions.length;
+  const total = adaptive ? adaptiveTarget : questions.length;
   const current = questions[cursor];
 
   useEffect(() => {
-    // Hydratie-flag voor write-effect gate. Niet derived state.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setHydrated(true);
     if (typeof window === "undefined") return;
@@ -71,21 +79,20 @@ export function QuizEngine({
     if (!raw) return;
     try {
       const parsed = JSON.parse(raw) as PersistedState;
-      const sameSet =
-        Array.isArray(parsed.questionIds) &&
-        parsed.questionIds.length === questions.length &&
-        parsed.questionIds.every((id, i) => id === questions[i].id);
+      const hasQuestions =
+        Array.isArray(parsed.questions) && parsed.questions.length > 0;
+      const matchesMode = parsed.adaptive === adaptive;
       const hasProgress =
         Object.keys(parsed.answers ?? {}).length > 0 || parsed.cursor > 0;
-      if (sameSet && hasProgress) {
+      if (hasQuestions && matchesMode && hasProgress) {
         setResumePrompt(parsed);
-      } else if (!sameSet) {
+      } else if (!matchesMode || !hasQuestions) {
         window.localStorage.removeItem(STORAGE_KEY(tier));
       }
     } catch {
       window.localStorage.removeItem(STORAGE_KEY(tier));
     }
-  }, [tier, questions]);
+  }, [tier, adaptive]);
 
   useEffect(() => {
     if (!hydrated || resumePrompt) return;
@@ -93,16 +100,84 @@ export function QuizEngine({
     const state: PersistedState = {
       answers,
       cursor,
-      questionIds: questions.map((q) => q.id),
+      questions,
+      adaptive,
       savedAt: Date.now(),
     };
     window.localStorage.setItem(STORAGE_KEY(tier), JSON.stringify(state));
-  }, [answers, cursor, hydrated, resumePrompt, questions, tier]);
+  }, [answers, cursor, hydrated, resumePrompt, questions, tier, adaptive]);
 
   const answeredCount = useMemo(
     () => Object.values(answers).filter((v) => v !== undefined).length,
     [answers],
   );
+
+  const decisionsMade = useMemo(
+    () => Object.entries(answers).filter(([, v]) => v !== undefined).length,
+    [answers],
+  );
+
+  const fetchNextBatch = useCallback(async () => {
+    if (!adaptive || batchDone || fetchInFlight.current) return;
+    if (questions.length >= adaptiveTarget) return;
+    fetchInFlight.current = true;
+    setLoadingMore(true);
+    try {
+      const seenIds = questions.map((q) => q.id);
+      const answerList = seenIds.map((id) => ({
+        questionId: id,
+        value: answers[id] ?? null,
+      }));
+      const res = await fetch("/api/quiz/next", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ tier, seenIds, answers: answerList }),
+      });
+      if (!res.ok) {
+        setBatchDone(true);
+        return;
+      }
+      const data = (await res.json()) as {
+        done?: boolean;
+        questions?: QuizQuestion[];
+      };
+      const incoming = Array.isArray(data.questions) ? data.questions : [];
+      if (incoming.length === 0 || data.done) {
+        setBatchDone(true);
+      } else {
+        setQuestions((prev) => {
+          const existingIds = new Set(prev.map((q) => q.id));
+          const fresh = incoming.filter((q) => !existingIds.has(q.id));
+          return [...prev, ...fresh];
+        });
+      }
+    } catch {
+      setBatchDone(true);
+    } finally {
+      fetchInFlight.current = false;
+      setLoadingMore(false);
+    }
+  }, [adaptive, answers, adaptiveTarget, batchDone, questions, tier]);
+
+  useEffect(() => {
+    if (!adaptive || !hydrated || resumePrompt) return;
+    const remainingInBuffer = questions.length - cursor;
+    const reachedTier = answeredCount >= adaptiveTarget;
+    if (reachedTier) return;
+    if (remainingInBuffer <= 2 && questions.length < adaptiveTarget) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      void fetchNextBatch();
+    }
+  }, [
+    adaptive,
+    answeredCount,
+    cursor,
+    questions.length,
+    fetchNextBatch,
+    hydrated,
+    resumePrompt,
+    adaptiveTarget,
+  ]);
 
   const perDimensionTotal = useMemo(() => {
     const m: Record<DimensionId, number> = {
@@ -130,7 +205,11 @@ export function QuizEngine({
     return m;
   }, [questions, answers]);
 
-  const progressPct = Math.round((cursor / total) * 100);
+  const progressPct = Math.round(
+    (Math.min(cursor, total) / Math.max(1, total)) * 100,
+  );
+
+  void decisionsMade;
 
   function setAnswer(value: AnswerValue | null) {
     if (!current) return;
@@ -153,12 +232,21 @@ export function QuizEngine({
     setSubmitting(true);
     setError(null);
     try {
+      const answerEntries = Object.entries(answers)
+        .map(([id, value]) => ({
+          questionId: Number(id),
+          value,
+        }))
+        .filter((a) => Number.isFinite(a.questionId));
       const payload = {
         tier,
-        answers: questions.map((q) => ({
-          questionId: q.id,
-          value: answers[q.id] ?? null,
-        })),
+        answers:
+          answerEntries.length > 0
+            ? answerEntries
+            : questions.map((q) => ({
+                questionId: q.id,
+                value: answers[q.id] ?? null,
+              })),
       };
       const res = await fetch("/api/results", {
         method: "POST",
@@ -182,7 +270,6 @@ export function QuizEngine({
     }
   }
 
-  // ─────────────────── RESUME PROMPT ───────────────────
   if (resumePrompt) {
     return (
       <Container width="narrow" className="py-20 md:py-28">
@@ -193,7 +280,7 @@ export function QuizEngine({
           <span className="mono tabular-nums">
             {Object.keys(resumePrompt.answers).length}
           </span>{" "}
-          van <span className="mono tabular-nums">{total}</span> stellingen
+          van <span className="mono tabular-nums">{adaptiveTarget}</span> stellingen
           beantwoord. Wil je verder gaan of opnieuw beginnen?
         </p>
         <div className="flex flex-wrap gap-3">
@@ -201,6 +288,9 @@ export function QuizEngine({
             type="button"
             className="btn btn-primary"
             onClick={() => {
+              if (resumePrompt.questions && resumePrompt.questions.length > 0) {
+                setQuestions(resumePrompt.questions);
+              }
               setAnswers(resumePrompt.answers ?? {});
               setCursor(resumePrompt.cursor ?? 0);
               setResumePrompt(null);
@@ -216,6 +306,7 @@ export function QuizEngine({
               if (typeof window !== "undefined") {
                 window.localStorage.removeItem(STORAGE_KEY(tier));
               }
+              setQuestions(initialQuestions);
               setAnswers({});
               setCursor(0);
               setResumePrompt(null);
@@ -228,8 +319,12 @@ export function QuizEngine({
     );
   }
 
-  // ─────────────────── DONE ───────────────────
-  if (cursor >= total) {
+  const reachedTarget = adaptive
+    ? answeredCount >= adaptiveTarget ||
+      (cursor >= questions.length && (batchDone || questions.length >= adaptiveTarget))
+    : cursor >= questions.length;
+
+  if (reachedTarget) {
     return (
       <Container width="narrow" className="py-20 md:py-28">
         <p className="kicker mb-4">Alle stellingen ingevuld</p>
@@ -237,9 +332,9 @@ export function QuizEngine({
         <p className="text-ink-2 leading-relaxed mb-10 max-w-xl">
           Je beantwoordde{" "}
           <span className="mono tabular-nums">{answeredCount}</span> van{" "}
-          <span className="mono tabular-nums">{total}</span> stellingen
-          {answeredCount < total
-            ? ` (${total - answeredCount} overgeslagen)`
+          <span className="mono tabular-nums">{adaptiveTarget}</span> stellingen
+          {answeredCount < adaptiveTarget
+            ? ` (${adaptiveTarget - answeredCount} overgeslagen)`
             : ""}
           . Klik hieronder om je profiel te berekenen.
         </p>
@@ -270,15 +365,31 @@ export function QuizEngine({
               </>
             )}
           </button>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={() => setCursor(total - 1)}
-            disabled={submitting}
-          >
-            Terug naar laatste vraag
-          </button>
+          {questions.length > 0 && (
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => setCursor(Math.max(0, questions.length - 1))}
+              disabled={submitting}
+            >
+              Terug naar laatste vraag
+            </button>
+          )}
         </div>
+      </Container>
+    );
+  }
+
+  if (cursor >= questions.length && loadingMore) {
+    return (
+      <Container width="narrow" className="py-20 md:py-28">
+        <p className="kicker mb-4">Even kalibreren</p>
+        <h1 className="display mb-5">Volgende stellingen ophalen…</h1>
+        <p className="text-ink-2 leading-relaxed mb-10 max-w-xl">
+          Op basis van je antwoorden tot nu toe kiezen we de volgende set
+          stellingen.
+        </p>
+        <Loader2 size={20} className="animate-spin text-ink-muted" strokeWidth={1.8} />
       </Container>
     );
   }
@@ -300,8 +411,17 @@ export function QuizEngine({
               <span className="kicker">{TIER_LABELS[tier]}</span>
               <span aria-hidden className="block w-4 h-px bg-rule-strong" />
               <span className="mono text-[0.7rem] tabular-nums text-ink-muted">
-                Vraag {String(cursor + 1).padStart(2, "0")} / {total}
+                Vraag {String(Math.min(cursor + 1, total)).padStart(2, "0")} /{" "}
+                {total}
               </span>
+              {adaptive && (
+                <span
+                  className="mono text-[0.7rem] tracking-wider text-ink-subtle hidden md:inline"
+                  title="Vragen worden gekozen op basis van je eerdere antwoorden"
+                >
+                  ADAPTIEF
+                </span>
+              )}
             </div>
             <div className="flex items-center gap-4">
               <span className="mono text-[0.7rem] tabular-nums text-ink-muted hidden sm:inline">

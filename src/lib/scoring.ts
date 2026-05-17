@@ -3,12 +3,14 @@ import {
   type AnswerValue,
   type DimensionId,
 } from "@/lib/dimensions";
+import type { ThemeId } from "@/lib/themes";
 
 export interface QuestionScoringMeta {
   id: string | number;
   dimension: DimensionId;
   direction: 1 | -1;
   weight?: number;
+  themes?: ThemeId[];
 }
 
 export interface RawAnswer {

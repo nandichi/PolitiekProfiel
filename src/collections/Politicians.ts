@@ -48,6 +48,16 @@ export const Politicians: CollectionConfig = {
       required: true,
       label: "Korte beschrijving",
     },
+    {
+      name: "ideologySlugs",
+      type: "text",
+      hasMany: true,
+      label: "Verwante ideologieën (slugs)",
+      admin: {
+        description:
+          "Eén of meer ideologie-slugs (bv. 'sociaal-liberaal') waarop deze politicus politiek het meeste lijkt. Wordt gebruikt voor de 'politici van jouw ideologie'-toggle.",
+      },
+    },
     positionVectorField,
     sourcesField,
   ],

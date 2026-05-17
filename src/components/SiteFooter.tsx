@@ -24,6 +24,7 @@ const COLUMNS: Array<{
     title: "Juridisch",
     links: [
       { href: "/privacy", label: "Privacyverklaring" },
+      { href: "/ai-transparantie", label: "AI-transparantie" },
       { href: "mailto:privacy@politiekprofiel.nl", label: "Contact" },
     ],
   },

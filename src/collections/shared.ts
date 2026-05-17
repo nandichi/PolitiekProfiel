@@ -25,6 +25,43 @@ export const directionOptions = [
   },
 ] as const;
 
+export const depthOptions = [
+  { label: "Broad (kalibratie)", value: "broad" },
+  { label: "Deep (verdieping)", value: "deep" },
+] as const;
+
+export const themeOptions = [
+  { label: "Klimaat & milieu", value: "klimaat" },
+  { label: "Zorg & welzijn", value: "zorg" },
+  { label: "Migratie & integratie", value: "migratie" },
+  { label: "Economie & belastingen", value: "economie" },
+  { label: "EU & internationaal", value: "eu" },
+  { label: "Democratie & instituties", value: "democratie" },
+  { label: "Wonen & ruimte", value: "wonen" },
+] as const;
+
+export const regionOptions = [
+  { label: "Nederland", value: "NL" },
+  { label: "Europa (EU)", value: "EU" },
+  { label: "Verenigde Staten", value: "US" },
+] as const;
+
+export const regionTypeOptions = [
+  { label: "Nationale partij", value: "national" },
+  { label: "Europese partij-familie", value: "family" },
+  { label: "Stroming binnen partij", value: "faction" },
+] as const;
+
+export const aiContentKindOptions = [
+  { label: "Ideologie-essay", value: "ideology-essay" },
+  { label: "Ideologie - leesvoer", value: "ideology-reading" },
+  { label: "Ideologie - argumenten voor", value: "ideology-arguments-for" },
+  { label: "Ideologie - argumenten tegen", value: "ideology-arguments-against" },
+  { label: "Ideologie x thema", value: "ideology-theme" },
+  { label: "Dimensie x bucket", value: "dimension-bucket" },
+  { label: "Paradox uitleg", value: "paradox" },
+] as const;
+
 export function vectorField(name: string, label: string): Field {
   return {
     name,

@@ -23,7 +23,25 @@ export interface PoliticianDoc {
   bio: string;
   positionVector: DimensionScores;
   isInternational: boolean;
+  ideologySlugs?: string[];
   sources: { label: string; url: string }[];
+}
+
+export interface PartyDoc {
+  id: number;
+  name: string;
+  abbreviation: string;
+  slug: string;
+  region: "NL" | "EU" | "US";
+  regionType: "national" | "family" | "faction";
+  country?: string;
+  description: unknown;
+  ideologySlugs: string[];
+  positionVector: DimensionScores;
+  founded?: string;
+  leader?: string;
+  websiteUrl?: string;
+  lastReviewed?: string;
 }
 
 export interface CountryDoc {
@@ -80,4 +98,24 @@ export async function getAllCountries(): Promise<CountryDoc[]> {
     pagination: false,
   });
   return res.docs as unknown as CountryDoc[];
+}
+
+export async function getAllParties(): Promise<PartyDoc[]> {
+  const p = await payload();
+  const res = await p.find({
+    collection: "parties",
+    limit: 200,
+    depth: 0,
+    pagination: false,
+  });
+  return res.docs as unknown as PartyDoc[];
+}
+
+export async function getPartiesByIdeology(
+  ideologySlug: string,
+): Promise<PartyDoc[]> {
+  const all = await getAllParties();
+  return all.filter((p) =>
+    Array.isArray(p.ideologySlugs) && p.ideologySlugs.includes(ideologySlug),
+  );
 }

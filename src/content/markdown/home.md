@@ -2,11 +2,12 @@
 
 > Politiek is meer dan links of rechts. Zie waar je écht staat.
 
-PolitiekProfiel is een Nederlandstalig politiek kompas op **vijf onafhankelijke dimensies**. Geen scorelijst voor partijen. Geen reclame. Wel heldere uitleg, ruimte voor twijfel, en herkenbare vergelijking met politici en landen.
+PolitiekProfiel is een Nederlandstalig politiek kompas op **vijf onafhankelijke dimensies**, aangevuld met **zeven beleidsthema's**, paradox-detectie en educatieve partij-context voor Nederland, Europa en de Verenigde Staten. Geen scorelijst voor partijen. Geen reclame. Wel heldere uitleg, ruimte voor twijfel, en herkenbare vergelijking met politici en landen.
 
 - Geen tracking
 - Volledig anoniem
 - 5 tot 20 minuten
+- Vooraf gegenereerde duiding — nooit jouw antwoorden naar AI
 
 ## Drie principes
 
@@ -14,13 +15,13 @@ PolitiekProfiel is een Nederlandstalig politiek kompas op **vijf onafhankelijke 
 
 Stellingen die de redactie zorgvuldig opstelt. Voor en tegen krijgen evenveel ruimte; informeer jezelf vóór je antwoordt.
 
-### 2. Methodiek — vijf dimensies, geen karikatuur
+### 2. Methodiek — vijf dimensies, zeven thema's, geen karikatuur
 
-Economisch, sociaal-cultureel, burgerrechten, bestuur en systeemvertrouwen. Vijf onafhankelijke scores, geen één-as label.
+Economisch, sociaal-cultureel, burgerrechten, bestuur en systeemvertrouwen vormen vijf onafhankelijke scores. Daarbovenop zeven beleidsthema's — klimaat, zorg, migratie, economie, EU, democratie, wonen — en paradox-detectie wanneer je antwoorden elkaar onderling tegenspreken.
 
-### 3. Privacy — geen account, geen tracking
+### 3. Privacy — geen account, geen tracking, AI alleen vooraf
 
-Resultaten worden anoniem opgeslagen voor een korte deellink. Geen IP-adres, geen analytics, geen marketing-cookies.
+Resultaten worden anoniem opgeslagen voor een korte deellink. Geen IP-adres, geen analytics, geen marketing-cookies. AI-gegenereerde duiding is **vooraf** gemaakt en gecached; jouw antwoorden komen er nooit aan te pas. Lees details op [`/ai-transparantie`](/ai-transparantie).
 
 ## Kies een lengte
 
@@ -41,6 +42,18 @@ Iedere dimensie meet een onafhankelijke houding. Een conservatief op cultuur kan
 3. **Burgerrechten** — Autoritair / Libertair
 4. **Bestuur** — Nationaal-soeverein / Multilevel-EU
 5. **Systeemvertrouwen** — Wantrouwen / Vertrouwen
+
+## De zeven thema's
+
+Naast de vijf assen krijg je een score per beleidsthema, zodat je niet alleen abstract maar ook concreet ziet waar je staat.
+
+1. **Klimaat & milieu** — Behoudend / Ambitieus
+2. **Zorg & welzijn** — Markt & eigen kracht / Publieke zorg
+3. **Migratie & integratie** — Restrictief / Open
+4. **Economie & belastingen** — Lasten omlaag / Herverdelen
+5. **EU & internationaal** — Soeverein / Geïntegreerd
+6. **Democratie & instituties** — Vernieuwen / Versterken
+7. **Wonen & ruimte** — Markt & bouwen / Publiek sturen
 
 Lees meer over de werking op `/methodiek`.
 

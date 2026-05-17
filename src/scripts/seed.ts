@@ -2,44 +2,20 @@ import "dotenv/config";
 import { getPayload } from "payload";
 import config from "../payload.config";
 
-import { QUESTIONS } from "../data/questions";
+import { getAllSeedQuestions } from "../data/questions";
 import { IDEOLOGIES } from "../data/ideologies";
 import { POLITICIANS } from "../data/politicians";
 import { COUNTRIES } from "../data/countries";
+import { PARTIES } from "../data/parties";
+import { tagQuestion } from "../data/question-tagger";
+import { paragraphsToLexical } from "../lib/lexical";
 
-function paragraphsToLexical(text: string) {
-  const paragraphs = text.split(/\n+/).filter((p) => p.trim().length > 0);
-  return {
-    root: {
-      type: "root",
-      format: "" as const,
-      indent: 0,
-      version: 1,
-      direction: "ltr" as const,
-      children: paragraphs.map((paragraph) => ({
-        type: "paragraph",
-        format: "" as const,
-        indent: 0,
-        version: 1,
-        direction: "ltr" as const,
-        textFormat: 0,
-        children: [
-          {
-            type: "text",
-            format: 0,
-            style: "",
-            mode: "normal" as const,
-            text: paragraph,
-            detail: 0,
-            version: 1,
-          },
-        ],
-      })),
-    },
-  };
-}
-
-type SeedCollection = "questions" | "ideologies" | "politicians" | "countries";
+type SeedCollection =
+  | "questions"
+  | "ideologies"
+  | "politicians"
+  | "countries"
+  | "parties";
 
 async function upsert(
   payload: Awaited<ReturnType<typeof getPayload>>,
@@ -96,15 +72,21 @@ async function main() {
     console.log("[seed] admin user bestaat al, niet overschreven");
   }
 
+  const ALL_QUESTIONS = await getAllSeedQuestions();
   let qCreated = 0;
   let qUpdated = 0;
-  for (const q of QUESTIONS) {
+  for (const q of ALL_QUESTIONS) {
+    const tags = tagQuestion(q);
     const res = await upsert(payload, "questions", "statement", q.statement, {
       statement: q.statement,
       dimension: q.dimension,
       direction: q.direction,
       weight: q.weight ?? 1,
       tiers: q.tiers,
+      depth: tags.depth,
+      discriminator: tags.discriminator,
+      themes: tags.themes,
+      derivedStance: q.derivedStance,
       info: {
         context: q.info.context,
         argumentsFor: q.info.argumentsFor.map((text) => ({ text })),
@@ -115,7 +97,7 @@ async function main() {
     if (res === "created") qCreated++;
     else qUpdated++;
   }
-  console.log(`[seed] questions: +${qCreated} nieuwe, ~${qUpdated} ge-update`);
+  console.log(`[seed] questions: +${qCreated} nieuwe, ~${qUpdated} ge-update (${ALL_QUESTIONS.length} totaal)`);
 
   let iCreated = 0;
   let iUpdated = 0;
@@ -145,12 +127,37 @@ async function main() {
       bio: p.bio,
       positionVector: p.positionVector,
       isInternational: p.isInternational,
+      ideologySlugs: p.ideologySlugs,
       sources: p.sources.map((s) => ({ label: s.label, url: s.url })),
     });
     if (res === "created") pCreated++;
     else pUpdated++;
   }
   console.log(`[seed] politicians: +${pCreated} nieuwe, ~${pUpdated} ge-update`);
+
+  let prCreated = 0;
+  let prUpdated = 0;
+  for (const party of PARTIES) {
+    const res = await upsert(payload, "parties", "slug", party.slug, {
+      name: party.name,
+      abbreviation: party.abbreviation,
+      slug: party.slug,
+      region: party.region,
+      regionType: party.regionType,
+      country: party.country,
+      description: paragraphsToLexical(party.description),
+      ideologySlugs: party.ideologySlugs,
+      positionVector: party.positionVector,
+      founded: party.founded,
+      leader: party.leader,
+      websiteUrl: party.websiteUrl,
+      lastReviewed: party.lastReviewed,
+      sources: party.sources.map((s) => ({ label: s.label, url: s.url })),
+    });
+    if (res === "created") prCreated++;
+    else prUpdated++;
+  }
+  console.log(`[seed] parties: +${prCreated} nieuwe, ~${prUpdated} ge-update`);
 
   let cCreated = 0;
   let cUpdated = 0;

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 const MARKDOWN_DIR = path.join(process.cwd(), "src", "content", "markdown");
 
-const SLUGS = new Set(["home", "methodiek", "privacy"]);
+const SLUGS = new Set(["home", "methodiek", "privacy", "ai-transparantie"]);
 
 export const dynamic = "force-static";
 

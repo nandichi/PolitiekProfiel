@@ -9,6 +9,9 @@ import {
   type QuestionScoringMeta,
   type RawAnswer,
 } from "./scoring";
+import { calculateThemeScores } from "./themes";
+import { calculateConfidence } from "./confidence";
+import { detectParadoxes } from "./paradox";
 
 const baseQuestions: QuestionScoringMeta[] = [
   { id: 1, dimension: "economic", direction: 1 },
@@ -141,5 +144,56 @@ describe("rankByDistance", () => {
   it("bestMatch returns null on empty list", () => {
     const user = emptyScores();
     expect(bestMatch(user, [])).toBeNull();
+  });
+});
+
+describe("scoring v2 integration", () => {
+  const themedQuestions: QuestionScoringMeta[] = [
+    { id: 1, dimension: "economic", direction: 1, themes: ["economie"] },
+    { id: 2, dimension: "economic", direction: -1, themes: ["economie"] },
+    { id: 3, dimension: "social", direction: 1, themes: ["klimaat"] },
+    { id: 4, dimension: "civil", direction: 1 },
+  ];
+
+  it("retains backward-compatible dimension scoring even with themes present", () => {
+    const answers: RawAnswer[] = [
+      { questionId: 1, value: 2 },
+      { questionId: 2, value: -2 },
+    ];
+    const result = calculateScores(themedQuestions, answers);
+    expect(result.scores.economic).toBe(100);
+  });
+
+  it("computes theme scores in parallel without changing dim scores", () => {
+    const answers: RawAnswer[] = [{ questionId: 3, value: 2 }];
+    const dim = calculateScores(themedQuestions, answers);
+    const theme = calculateThemeScores(themedQuestions, answers);
+    expect(dim.scores.social).toBe(100);
+    expect(theme.scores.klimaat).toBe(100);
+  });
+
+  it("derives confidence from coverage + strength + variance", () => {
+    const answers: RawAnswer[] = [
+      { questionId: 1, value: 2 },
+      { questionId: 2, value: -2 },
+    ];
+    const dim = calculateScores(themedQuestions, answers);
+    const conf = calculateConfidence(themedQuestions, answers, dim.scores);
+    expect(conf.overall).toBeGreaterThan(0);
+  });
+
+  it("can detect a paradox in mixed economic answers", () => {
+    const conflicted: QuestionScoringMeta[] = [
+      { id: 11, dimension: "economic", direction: 1 },
+      { id: 12, dimension: "economic", direction: -1 },
+      { id: 13, dimension: "economic", direction: 1 },
+    ];
+    const answers: RawAnswer[] = [
+      { questionId: 11, value: 2 },
+      { questionId: 12, value: 2 },
+      { questionId: 13, value: -2 },
+    ];
+    const result = detectParadoxes(conflicted, answers);
+    expect(result.some((p) => p.type === "economic-mismatch")).toBe(true);
   });
 });

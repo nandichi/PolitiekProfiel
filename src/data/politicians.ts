@@ -9,6 +9,7 @@ export interface SeedPolitician {
   bio: string;
   positionVector: DimensionScores;
   isInternational: boolean;
+  ideologySlugs: string[];
   sources: SeedSource[];
 }
 
@@ -35,6 +36,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Oprichter en leider van de PVV sinds 2006. Combineert harde lijn op migratie en EU met sociale uitgaven voor de eigen kiezers en sterk wantrouwen jegens gevestigde instituties.",
     positionVector: { economic: 0, social: -90, civil: -40, governance: -85, trust: -75 },
     isInternational: false,
+    ideologySlugs: ["populistisch-rechts", "nationaal-conservatief"],
     sources: [programmaNL, stemwijzer],
   },
   {
@@ -45,6 +47,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Voormalig minister van Justitie en sinds 2023 lijsttrekker en fractievoorzitter van de VVD. Liberaal-conservatieve koers met nadruk op veiligheid en marktwerking.",
     positionVector: { economic: -55, social: -10, civil: -10, governance: 20, trust: 35 },
     isInternational: false,
+    ideologySlugs: ["conservatief-liberaal", "klassiek-liberaal"],
     sources: [programmaNL, stemwijzer],
   },
   {
@@ -55,6 +58,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Voormalig Eurocommissaris Klimaat en sinds 2023 lijsttrekker van de gefuseerde GroenLinks-PvdA. Sociaal-democratische koers met sterke klimaatambities en Europees engagement.",
     positionVector: { economic: 60, social: 70, civil: 30, governance: 75, trust: 55 },
     isInternational: false,
+    ideologySlugs: ["sociaal-democraat", "groen-progressief"],
     sources: [programmaNL, stemwijzer],
   },
   {
@@ -65,6 +69,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Oprichter van NSC in 2023. Bekend van het ontmaskeren van de toeslagenaffaire. Pleit voor bestuurlijke vernieuwing, bestaanszekerheid en een matig conservatieve koers.",
     positionVector: { economic: 15, social: -10, civil: -5, governance: 5, trust: -25 },
     isInternational: false,
+    ideologySlugs: ["communitarist", "christen-democraat"],
     sources: [programmaNL, stemwijzer],
   },
   {
@@ -75,6 +80,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Voormalig journalist en oprichter van de BBB. Vertegenwoordigt boeren en plattelandsbelangen, scepsis tegenover stikstofbeleid en EU-regelgeving.",
     positionVector: { economic: -10, social: -50, civil: -20, governance: -50, trust: -30 },
     isInternational: false,
+    ideologySlugs: ["klassiek-conservatief", "communitarist"],
     sources: [programmaNL, stemwijzer],
   },
   {
@@ -85,6 +91,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Lijsttrekker van het CDA sinds 2023. Christendemocratische koers met aandacht voor brede welvaart, klimaat en gespreide verantwoordelijkheid.",
     positionVector: { economic: 20, social: -25, civil: -10, governance: 10, trust: 30 },
     isInternational: false,
+    ideologySlugs: ["christen-democraat", "conservatief-liberaal"],
     sources: [programmaNL, stemwijzer],
   },
   {
@@ -95,6 +102,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Leider van de PvdD. Combineert ecologisch radicalisme met progressieve sociale agenda en stevige kritiek op marktwerking in landbouw en zorg.",
     positionVector: { economic: 60, social: 80, civil: 50, governance: 50, trust: 20 },
     isInternational: false,
+    ideologySlugs: ["eco-socialist", "groen-progressief"],
     sources: [programmaNL, stemwijzer],
   },
   {
@@ -105,6 +113,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Sinds 2023 fractievoorzitter van de SP. Klassiek links profiel: hoge belasting op vermogen, behoud sociale voorzieningen, kritisch op EU.",
     positionVector: { economic: 85, social: 30, civil: 25, governance: -20, trust: -25 },
     isInternational: false,
+    ideologySlugs: ["populistisch-links", "marxist"],
     sources: [programmaNL, stemwijzer],
   },
   {
@@ -115,6 +124,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Leidt de ChristenUnie sinds 2023. Sociaal-christelijke profiel: bestaanszekerheid, gezinsbeleid en aandacht voor schepping en gerechtigheid.",
     positionVector: { economic: 25, social: -45, civil: -10, governance: 20, trust: 35 },
     isInternational: false,
+    ideologySlugs: ["christen-democraat", "klassiek-conservatief"],
     sources: [programmaNL, stemwijzer],
   },
   {
@@ -125,6 +135,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Voormalig minister voor Klimaat en Energie en sinds 2025 fractievoorzitter van D66. Sociaal-liberale koers met sterke pro-EU houding.",
     positionVector: { economic: 10, social: 70, civil: 55, governance: 80, trust: 60 },
     isInternational: false,
+    ideologySlugs: ["sociaal-liberaal", "technocratisch-centrist"],
     sources: [programmaNL, stemwijzer],
   },
 
@@ -137,6 +148,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Democratisch-socialistische senator, bekend van campagnes voor Medicare for All, hoger minimumloon en stevige belasting op vermogen.",
     positionVector: { economic: 85, social: 60, civil: 40, governance: 25, trust: 0 },
     isInternational: true,
+    ideologySlugs: ["sociaal-democraat", "eco-socialist"],
     sources: [europeElects],
   },
   {
@@ -147,6 +159,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Sinds januari 2025 opnieuw president van de Verenigde Staten. Combineert nationaal-protectionisme, hardere migratielijn en wantrouwen jegens instituties.",
     positionVector: { economic: -35, social: -85, civil: -50, governance: -85, trust: -85 },
     isInternational: true,
+    ideologySlugs: ["populistisch-rechts", "nationaal-conservatief"],
     sources: [europeElects],
   },
   {
@@ -157,6 +170,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Progressief Congreslid uit New York en boegbeeld van de linkervleugel binnen de Democraten. Pleit voor Green New Deal en uitbreiding sociale voorzieningen.",
     positionVector: { economic: 80, social: 85, civil: 45, governance: 25, trust: 5 },
     isInternational: true,
+    ideologySlugs: ["eco-socialist", "groen-progressief"],
     sources: [europeElects],
   },
   {
@@ -167,6 +181,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "President van Frankrijk sinds 2017. Pro-Europese centristische koers; combineert markthervormingen met sterke pleidooien voor Europese soevereiniteit.",
     positionVector: { economic: -10, social: 30, civil: 10, governance: 85, trust: 55 },
     isInternational: true,
+    ideologySlugs: ["technocratisch-centrist", "sociaal-liberaal"],
     sources: [europeElects],
   },
   {
@@ -177,6 +192,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Leider van het Franse Rassemblement National in de Assemblée. Nationaal-conservatieve agenda met scherpe kritiek op EU en migratie.",
     positionVector: { economic: 15, social: -85, civil: -40, governance: -90, trust: -75 },
     isInternational: true,
+    ideologySlugs: ["populistisch-rechts", "nationaal-conservatief"],
     sources: [europeElects],
   },
   {
@@ -187,6 +203,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Sociaaldemocratisch bondskanselier (2021–2025). Behoedzame buitenlandse koers, sterk sociaal beleid en pro-Europese houding.",
     positionVector: { economic: 50, social: 50, civil: 30, governance: 75, trust: 50 },
     isInternational: true,
+    ideologySlugs: ["sociaal-democraat"],
     sources: [europeElects],
   },
   {
@@ -197,6 +214,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Christendemocratisch bondskanselier sinds mei 2025. Wat behoudendere koers op migratie en harde aanpak van staatsschuld, terwijl Europa centraal blijft.",
     positionVector: { economic: -45, social: -30, civil: -10, governance: 35, trust: 30 },
     isInternational: true,
+    ideologySlugs: ["conservatief-liberaal", "christen-democraat"],
     sources: [europeElects],
   },
   {
@@ -207,6 +225,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Premier sinds oktober 2022. Nationaal-conservatieve koers; harde lijn op migratie maar pragmatisch op EU-niveau.",
     positionVector: { economic: -10, social: -75, civil: -30, governance: -45, trust: -20 },
     isInternational: true,
+    ideologySlugs: ["nationaal-conservatief", "klassiek-conservatief"],
     sources: [europeElects],
   },
   {
@@ -217,6 +236,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Premier van het VK sinds 2024. Centrum-links profiel: pragmatische sociale agenda, herstel van banden met Europa en focus op publieke voorzieningen.",
     positionVector: { economic: 35, social: 40, civil: 20, governance: 25, trust: 50 },
     isInternational: true,
+    ideologySlugs: ["sociaal-democraat", "sociaal-liberaal"],
     sources: [europeElects],
   },
   {
@@ -227,6 +247,7 @@ export const POLITICIANS: SeedPolitician[] = [
     bio: "Voormalig centrale bankier; premier van Canada sinds maart 2025. Pragmatisch-liberaal profiel met focus op klimaat, economie en Atlantische samenwerking.",
     positionVector: { economic: 25, social: 60, civil: 45, governance: 55, trust: 65 },
     isInternational: true,
+    ideologySlugs: ["sociaal-liberaal", "technocratisch-centrist"],
     sources: [europeElects],
   },
 ];

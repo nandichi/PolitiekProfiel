@@ -1,8 +1,10 @@
 import type { CollectionConfig } from "payload";
 import {
+  depthOptions,
   dimensionOptions,
   directionOptions,
   sourcesField,
+  themeOptions,
   tierOptions,
 } from "./shared";
 
@@ -11,7 +13,7 @@ export const Questions: CollectionConfig = {
   labels: { singular: "Stelling", plural: "Stellingen" },
   admin: {
     useAsTitle: "statement",
-    defaultColumns: ["statement", "dimension", "direction", "tiers"],
+    defaultColumns: ["statement", "dimension", "direction", "depth", "tiers"],
     description:
       "Politieke stellingen die in de quiz worden voorgelegd. Per dimensie moet er een gelijke balans zijn tussen 'positive' en 'negative' direction.",
   },
@@ -64,6 +66,56 @@ export const Questions: CollectionConfig = {
           label: "Gewicht",
         },
       ],
+    },
+    {
+      type: "row",
+      fields: [
+        {
+          name: "depth",
+          type: "select",
+          required: true,
+          defaultValue: "broad",
+          label: "Diepte",
+          options: depthOptions as unknown as { label: string; value: string }[],
+          admin: {
+            description:
+              "Broad = kalibratievraag, breed onderscheidend; deep = verdiepingsvraag voor nuance.",
+          },
+        },
+        {
+          name: "discriminator",
+          type: "number",
+          required: false,
+          defaultValue: 50,
+          min: 0,
+          max: 100,
+          label: "Onderscheidend vermogen",
+          admin: {
+            description:
+              "0-100. Hoe sterk deze vraag tussen ideologie-clusters onderscheidt; gebruikt door de adaptieve engine.",
+          },
+        },
+      ],
+    },
+    {
+      name: "themes",
+      type: "select",
+      hasMany: true,
+      label: "Thema's",
+      options: themeOptions as unknown as { label: string; value: string }[],
+      admin: {
+        description:
+          "Eén of meer thema-tags. Stellingen zonder thema tellen alleen mee voor de hoofd-dimensies.",
+      },
+    },
+    {
+      name: "derivedStance",
+      type: "textarea",
+      label: "Afgeleid standpunt (eens-vorm)",
+      admin: {
+        description:
+          "Voorgeformuleerd standpunt dat we tonen op de resultaatpagina ALS de gebruiker (sterk) eens is met deze stelling. Bv. 'Jij vindt dat de hoogste inkomens zwaarder belast moeten worden.'",
+      },
     },
     {
       name: "tiers",

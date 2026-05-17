@@ -24,8 +24,8 @@
 <br />
 
 > Politieke profielen meten op één links-rechts-as is een karikatuur.
-> PolitiekProfiel meet op vijf onafhankelijke dimensies, met gebalanceerde stellingen en transparante scoring.
-> Geen scorelijst voor partijen, geen reclame, geen tracking. Wel rustige uitleg en herkenbare vergelijking met politici en landen.
+> PolitiekProfiel meet op vijf onafhankelijke dimensies, zeven beleidsthema's, paradox-detectie en confidence-scoring, met gebalanceerde stellingen en transparante scoring.
+> Geen scorelijst voor partijen, geen reclame, geen tracking, geen runtime AI. Wel rustige uitleg, AI-gegenereerde duiding vooraf, en herkenbare vergelijking met politici, landen en partijen in Nederland, Europa en de Verenigde Staten.
 
 <br />
 
@@ -38,7 +38,10 @@
 **Project**
 - [Over PolitiekProfiel](#over-politiekprofiel)
 - [Vijf dimensies](#vijf-dimensies)
+- [Zeven thema's](#zeven-themas)
+- [Adaptieve quiz](#adaptieve-quiz)
 - [Scoring](#scoring)
+- [AI-content pipeline](#ai-content-pipeline)
 - [Architectuur](#architectuur)
 - [Tech stack](#tech-stack)
 
@@ -190,6 +193,40 @@ Iedere dimensie is onafhankelijk gescoord op `−100` tot `+100`. Geen enkele di
 
 <br />
 
+<a id="zeven-themas"></a>
+## Zeven thema's
+
+Naast de vijf dimensies krijgen bezoekers vanaf v2 een score per **beleidsthema**, op dezelfde `−100..+100` schaal maar dan alleen over stellingen die het thema raken.
+
+| Thema | -100 | +100 |
+| --- | --- | --- |
+| Klimaat & milieu | Behoudend | Ambitieus |
+| Zorg & welzijn | Markt & eigen kracht | Publieke zorg |
+| Migratie & integratie | Restrictief | Open |
+| Economie & belastingen | Lasten omlaag | Herverdelen |
+| EU & internationaal | Soeverein | Geïntegreerd |
+| Democratie & instituties | Vernieuwen | Versterken |
+| Wonen & ruimte | Markt & bouwen | Publiek sturen |
+
+Bovenop de dimensie- en thema-scores worden ook **paradoxen** (interne tegenstrijdigheden) gedetecteerd en wordt per dimensie een **confidence-score** (0-100) berekend op basis van dekking, sterkte en consistentie van je antwoorden.
+
+<br />
+
+<a id="adaptieve-quiz"></a>
+## Adaptieve quiz
+
+Iedere quiz-sessie krijgt een eigen vragenset: niet iedereen ziet dezelfde stellingen. Het verloop:
+
+1. **Broad calibration** — eerste 10 vragen, 2 per dimensie, geseed-random uit een breed kalibratie-pool.
+2. **Refinement** — daarna kiest de engine vragen die dimensies aanscherpen waar je score nog rond nul ligt, en thema's afdekken die nog onderbelicht zijn.
+3. **Consistency checks** — laatste batches bevatten vragen die mogelijk een paradox onthullen.
+
+Per tier hard geplafonneerd op `quick=30`, `standard=50`, `extended=80`. Antwoorden worden lokaal in `localStorage` gepersisteerd, inclusief de tot dan toe getoonde vragenlijst, zodat een refresh de sessie precies voortzet. De oude (statische) flow blijft beschikbaar achter de feature-flag `NEXT_PUBLIC_ADAPTIVE_QUIZ`.
+
+Implementatie: [`src/lib/adaptive.ts`](src/lib/adaptive.ts), API: [`/api/quiz/next`](src/app/api/quiz/next/route.ts), client: [`src/components/QuizEngine.tsx`](src/components/QuizEngine.tsx).
+
+<br />
+
 ## Scoring
 
 De scoring-engine is bewust simpel en transparant. Per dimensie:
@@ -210,6 +247,39 @@ similarity(a, b)  = 1 − distance / maxDistance     // → 0..100 %
 ```
 
 Volledige implementatie: [`src/lib/scoring.ts`](src/lib/scoring.ts) — gedekt door [`src/lib/scoring.test.ts`](src/lib/scoring.test.ts) (Vitest).
+
+Aanvullende scoring-modules:
+
+- [`src/lib/themes.ts`](src/lib/themes.ts) — theme-scoring per beleidsthema (zelfde formule, alleen over thema-stellingen).
+- [`src/lib/paradox.ts`](src/lib/paradox.ts) — detectie van interne tegenstrijdigheden binnen of tussen dimensies en thema's.
+- [`src/lib/confidence.ts`](src/lib/confidence.ts) — vertrouwen per dimensie op basis van dekking (35%), sterkte (40%) en consistentie (25%).
+
+<br />
+
+<a id="ai-content-pipeline"></a>
+## AI-content pipeline
+
+PolitiekProfiel gebruikt AI **alleen build-time** voor het genereren van educatieve duiding. Geen runtime AI-calls, nooit met jouw data.
+
+Per slot wordt content gegenereerd en opgeslagen in de `aiContent` Payload-collectie:
+
+| Slot | Aantal | Inhoud |
+| --- | --- | --- |
+| `ideology:<slug>:essay` | 16 | 600-800 woorden over de stroming |
+| `ideology:<slug>:reading` | 16 | 5-8 leesvoer-aanbevelingen |
+| `ideology:<slug>:arguments-for` | 16 | 3-4 sterkste argumenten |
+| `ideology:<slug>:arguments-against` | 16 | 3-4 respectvolle tegen-argumenten |
+| `dimension:<id>:bucket:<bucket>` | 25 | wat een score op die as betekent |
+| `ideology:<slug>:theme:<theme>` | 112 | hoe deze ideologie over dit thema denkt |
+| `paradox:<type>` | 8 | uitleg over een interne spanning |
+
+Totaal ~210 slots. Volledig idempotent (slug-based upsert). Audit-trail per slot bewaart prompt, model, datum en `humanEdited`-flag.
+
+```bash
+OPENAI_API_KEY="sk-..." pnpm generate:ai-content
+```
+
+Implementatie: [`src/scripts/generate-ai-content.ts`](src/scripts/generate-ai-content.ts). Server-side helper voor de resultaatpagina: [`src/lib/ai-content.ts`](src/lib/ai-content.ts). Publieke transparantie: [`/ai-transparantie`](https://politiekprofiel.nl/ai-transparantie).
 
 <br />
 
@@ -341,9 +411,10 @@ Wachtwoord ChangeMe123!
 | `pnpm build` | Productie build (Turbopack) |
 | `pnpm start` | Productie server |
 | `pnpm lint` | ESLint over de hele codebase |
-| `pnpm test` | Vitest unit tests (scoring engine) |
+| `pnpm test` | Vitest unit tests (scoring, themes, paradox, confidence) |
 | `pnpm test:watch` | Vitest in watch mode |
-| `pnpm seed` | Seed alle content + admin user |
+| `pnpm seed` | Seed alle content + admin user (questions, ideologies, politicians, parties, countries) |
+| `pnpm generate:ai-content` | Genereer AI-content build-time (vereist `OPENAI_API_KEY`) |
 | `pnpm payload generate:types` | Regenereer `src/payload-types.ts` |
 | `pnpm payload generate:importmap` | Regenereer Payload import map |
 
@@ -410,16 +481,18 @@ src/
 | Pad | Type | Doel |
 | --- | --- | --- |
 | `/` | RSC | Homepage met manifesto + tier-picker |
-| `/quiz/[tier]` | Client | Quiz: `quick` (30) · `standard` (50) · `extended` (80) |
-| `/r/[id]` | RSC | Resultaatpagina met dimensies, ideologie, politici, landen |
+| `/quiz/[tier]` | Client | Adaptieve quiz: `quick` (30) · `standard` (50) · `extended` (80) |
+| `/r/[id]` | RSC | Resultaatpagina v2: 9 secties (profiel, dimensies, thema's, standpunten, paradoxen, partijen, politici, landen, delen) |
 | `/vergelijk?a=&b=` | RSC | Twee profielen naast elkaar |
-| `/methodiek` | RSC | Uitleg vijf dimensies, schaling, beperkingen |
+| `/methodiek` | RSC | Uitleg vijf dimensies, thema's, adaptief, scoring, beperkingen |
 | `/privacy` | RSC | AVG-verklaring |
+| `/ai-transparantie` | RSC | Wat AI doet, wat AI niet doet, audit-trail |
 | `/docs/api` | RSC | Publieke API & agent-discovery docs |
 | `/admin/**` | Payload | Editorial CMS |
 | `/api/results` | POST | Validatie · scoring · Firestore-write |
+| `/api/quiz/next` | POST | Volgende adaptieve vragen-batch |
 | `/api/og/[id]` | GET · `next/og` | Dynamische 1200×630 share-image per resultaat |
-| `/api/md/[slug]` | GET | Markdown voor `home`, `methodiek`, `privacy` |
+| `/api/md/[slug]` | GET | Markdown voor `home`, `methodiek`, `privacy`, `ai-transparantie` |
 | `/api/docs/openapi.json` | GET | OpenAPI 3.1 spec |
 | `/.well-known/api-catalog` | GET | `application/linkset+json` (RFC 9727) |
 | `/sitemap.xml` | GET | Genereerd via `app/sitemap.ts` |
@@ -435,12 +508,14 @@ src/
 
 <table>
 <tr><th>Collectie</th><th>Velden</th></tr>
-<tr><td><code>questions</code></td><td>stelling · dimensie · richting (+/−) · gewicht · tiers · info-blok (context, voor/tegen, bronnen)</td></tr>
+<tr><td><code>questions</code></td><td>stelling · dimensie · richting (+/−) · gewicht · tiers · <strong>themes · depth · discriminator · derivedStance</strong> · info-blok (context, voor/tegen, bronnen)</td></tr>
 <tr><td><code>ideologies</code></td><td>naam · slug · korte + volledige beschrijving · spectrum-positie · vector (5 dim) · voorbeelden</td></tr>
-<tr><td><code>politicians</code></td><td>naam · rol · land · partij · bio · vector · bronnen · internationaal-flag</td></tr>
+<tr><td><code>politicians</code></td><td>naam · rol · land · partij · bio · vector · <strong>ideologySlugs</strong> · bronnen · internationaal-flag</td></tr>
 <tr><td><code>countries</code></td><td>naam · ISO-2 · beschrijving · vector · bronnen</td></tr>
+<tr><td><code>parties</code></td><td><strong>nieuw</strong> · naam · afkorting · slug · regio (NL/EU/US) · regionType · beschrijving · ideologySlugs · vector · founded · leader · websiteUrl · lastReviewed · bronnen</td></tr>
+<tr><td><code>aiContent</code></td><td><strong>nieuw</strong> · slug · kind · title · body (Lexical) · items · model · generatedAt · prompt · humanEdited</td></tr>
 <tr><td><code>users</code></td><td>Payload auth-accounts (admins)</td></tr>
-<tr><td><code>results</code></td><td>fallback voor lokaal als Firestore niet beschikbaar is</td></tr>
+<tr><td><code>results</code></td><td>fallback voor lokaal als Firestore niet beschikbaar is · ondersteunt themeScores, confidence, paradoxes, answers</td></tr>
 </table>
 
 ### Firestore (productie)
@@ -448,15 +523,19 @@ src/
 ```ts
 results/{shareId}
   ├─ tier             "quick" | "standard" | "extended"
-  ├─ ideologySlug     string                    // best-match
-  ├─ dimensions       { economic, social, civil, governance, trust }   // -100..+100
+  ├─ ideologySlug     string                                            // best-match
+  ├─ dimensions       { economic, social, civil, governance, trust }    // -100..+100
+  ├─ themeScores      { klimaat, zorg, migratie, economie, eu, democratie, wonen }  // optioneel · -100..+100
+  ├─ confidence       { economic, social, civil, governance, trust }    // optioneel · 0..100
+  ├─ paradoxes        Array<{ dimension?, theme?, type, severity, description?, exampleQuestionIds }>
+  ├─ answers          Array<{ questionId, value }>                      // anoniem · voor stance-extractie
   ├─ answeredCount    number
   ├─ skippedCount     number
   ├─ totalQuestions   number
   └─ createdAt        FieldValue.serverTimestamp()
 ```
 
-> Public-read · geen client writes. Schrijven gebeurt server-side via `firebase-admin` in `/api/results`. Resultaten bevatten geen IP, geen user-agent, geen individuele antwoorden.
+> Public-read · geen client writes. Schrijven gebeurt server-side via `firebase-admin` in `/api/results`. Resultaten bevatten geen IP, geen user-agent, geen vrije tekst. `answers` is een anonieme lijst (vraag-ID + numerieke waarde) die uitsluitend dient om je standpunten op de resultaatpagina te kunnen tonen.
 
 <br />
 
@@ -652,6 +731,9 @@ DATABASE_URL="postgresql://..." pnpm seed
 | `FIREBASE_PROJECT_ID` | productie | `politiekprofiel-app` |
 | `FIREBASE_CLIENT_EMAIL` | productie | service-account email |
 | `FIREBASE_PRIVATE_KEY` | productie | met letterlijke `\n` voor newlines |
+| `OPENAI_API_KEY` | bij `generate:ai-content` | `sk-...` · alleen build-time, nooit runtime |
+| `OPENAI_MODEL` | optioneel | overschrijft default model voor AI-content |
+| `NEXT_PUBLIC_ADAPTIVE_QUIZ` | optioneel | `"true"` voor adaptief, `"false"` voor de oude statische flow |
 | `SEED_ADMIN_EMAIL` | optioneel | overschrijft default seed-admin |
 | `SEED_ADMIN_PASSWORD` | optioneel | overschrijft default seed-wachtwoord |
 

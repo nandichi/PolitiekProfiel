@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getQuestionsForTier } from "@/lib/quiz-data";
+import {
+  getInitialAdaptiveQuestions,
+  getQuestionsForTier,
+} from "@/lib/quiz-data";
 import { QuizEngine } from "@/components/QuizEngine";
 import type { Tier } from "@/lib/dimensions";
 import { TIER_QUESTION_COUNT } from "@/lib/dimensions";
@@ -65,17 +68,20 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
   };
 }
 
+const ADAPTIVE_ENABLED = process.env.NEXT_PUBLIC_ADAPTIVE_QUIZ !== "false";
+
 export default async function QuizPage({ params }: Args) {
   const { tier } = await params;
   if (!VALID_TIERS.includes(tier as Tier)) {
     notFound();
   }
-  const questions = await getQuestionsForTier(tier as Tier);
+  const tierKey = tier as Tier;
+  const questions = ADAPTIVE_ENABLED
+    ? await getInitialAdaptiveQuestions(tierKey)
+    : await getQuestionsForTier(tierKey);
   if (questions.length === 0) {
     notFound();
   }
-
-  const tierKey = tier as Tier;
   const meta = TIER_LABELS[tierKey];
   const count = TIER_QUESTION_COUNT[tierKey];
   const path = `/quiz/${tierKey}`;
@@ -100,7 +106,11 @@ export default async function QuizPage({ params }: Args) {
           __html: jsonLdString([quizLd, breadcrumbLd]),
         }}
       />
-      <QuizEngine tier={tierKey} questions={questions} />
+      <QuizEngine
+        tier={tierKey}
+        questions={questions}
+        adaptive={ADAPTIVE_ENABLED}
+      />
     </>
   );
 }

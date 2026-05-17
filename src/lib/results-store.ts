@@ -6,12 +6,32 @@ import { firestore } from "@/lib/firebase-admin";
 import { payload } from "@/lib/payload";
 import type { DimensionScores } from "@/lib/scoring";
 import type { Tier } from "@/lib/dimensions";
+import type { ThemeScores } from "@/lib/themes";
+import type { DimensionConfidence } from "@/lib/confidence";
+
+export interface StoredParadox {
+  dimension?: string;
+  theme?: string;
+  type: string;
+  severity: number;
+  description?: string;
+  exampleQuestionIds?: number[];
+}
+
+export interface StoredAnswer {
+  questionId: number;
+  value: number;
+}
 
 export interface StoredResult {
   shareId: string;
   tier: Tier;
   ideologySlug: string;
   dimensions: DimensionScores;
+  themeScores?: ThemeScores;
+  confidence?: DimensionConfidence;
+  paradoxes?: StoredParadox[];
+  answers?: StoredAnswer[];
   answeredCount: number;
   skippedCount: number;
   totalQuestions: number;
@@ -32,6 +52,10 @@ export async function createResult(input: {
   tier: Tier;
   ideologySlug: string;
   dimensions: DimensionScores;
+  themeScores?: ThemeScores;
+  confidence?: DimensionConfidence;
+  paradoxes?: StoredParadox[];
+  answers?: StoredAnswer[];
   answeredCount: number;
   skippedCount: number;
   totalQuestions: number;
@@ -44,6 +68,10 @@ export async function createResult(input: {
     tier: input.tier,
     ideologySlug: input.ideologySlug,
     dimensions: input.dimensions,
+    themeScores: input.themeScores,
+    confidence: input.confidence,
+    paradoxes: input.paradoxes,
+    answers: input.answers,
     answeredCount: input.answeredCount,
     skippedCount: input.skippedCount,
     totalQuestions: input.totalQuestions,
@@ -62,6 +90,16 @@ export async function createResult(input: {
       });
   } else {
     const p = await payload();
+    const paradoxesForPayload = (input.paradoxes ?? []).map((px) => ({
+      dimension: px.dimension,
+      theme: px.theme,
+      type: px.type,
+      severity: px.severity,
+      description: px.description,
+      exampleQuestionIds: (px.exampleQuestionIds ?? []).map((qid) => ({
+        questionId: qid,
+      })),
+    }));
     await p.create({
       collection: "results",
       data: {
@@ -69,6 +107,10 @@ export async function createResult(input: {
         lengthTier: input.tier,
         ideologySlug: input.ideologySlug,
         dimensions: input.dimensions,
+        themeScores: input.themeScores,
+        confidence: input.confidence,
+        paradoxes: paradoxesForPayload,
+        answers: input.answers,
         answeredCount: input.answeredCount,
         skippedCount: input.skippedCount,
         totalQuestions: input.totalQuestions,
@@ -94,6 +136,14 @@ export async function getResult(shareId: string): Promise<StoredResult | null> {
       tier: data.tier as Tier,
       ideologySlug: String(data.ideologySlug),
       dimensions: data.dimensions as DimensionScores,
+      themeScores: data.themeScores as ThemeScores | undefined,
+      confidence: data.confidence as DimensionConfidence | undefined,
+      paradoxes: Array.isArray(data.paradoxes)
+        ? (data.paradoxes as StoredParadox[])
+        : undefined,
+      answers: Array.isArray(data.answers)
+        ? (data.answers as StoredAnswer[])
+        : undefined,
       answeredCount: Number(data.answeredCount ?? 0),
       skippedCount: Number(data.skippedCount ?? 0),
       totalQuestions: Number(data.totalQuestions ?? 0),
@@ -114,6 +164,17 @@ export async function getResult(shareId: string): Promise<StoredResult | null> {
     lengthTier: Tier;
     ideologySlug: string;
     dimensions: DimensionScores;
+    themeScores?: Partial<ThemeScores>;
+    confidence?: Partial<DimensionConfidence>;
+    paradoxes?: Array<{
+      dimension?: string;
+      theme?: string;
+      type: string;
+      severity: number;
+      description?: string;
+      exampleQuestionIds?: Array<{ questionId: number }>;
+    }>;
+    answers?: StoredAnswer[];
     answeredCount: number;
     skippedCount: number;
     totalQuestions: number;
@@ -124,6 +185,21 @@ export async function getResult(shareId: string): Promise<StoredResult | null> {
     tier: doc.lengthTier,
     ideologySlug: doc.ideologySlug,
     dimensions: doc.dimensions,
+    themeScores: doc.themeScores
+      ? (doc.themeScores as ThemeScores)
+      : undefined,
+    confidence: doc.confidence
+      ? (doc.confidence as DimensionConfidence)
+      : undefined,
+    paradoxes: doc.paradoxes?.map((px) => ({
+      dimension: px.dimension,
+      theme: px.theme,
+      type: px.type,
+      severity: px.severity,
+      description: px.description,
+      exampleQuestionIds: (px.exampleQuestionIds ?? []).map((e) => e.questionId),
+    })),
+    answers: doc.answers,
     answeredCount: doc.answeredCount,
     skippedCount: doc.skippedCount,
     totalQuestions: doc.totalQuestions,

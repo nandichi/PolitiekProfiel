@@ -1,6 +1,6 @@
 # Methodiek — politiek meten zonder karikatuur
 
-We willen niet weten of je 'links' of 'rechts' bent. We willen weten waar je staat op vijf onafhankelijke politieke vragen. Dat geeft een rijker en eerlijker beeld dan een enkele as.
+We willen niet weten of je 'links' of 'rechts' bent. We willen weten waar je staat op vijf onafhankelijke politieke vragen, hoe je oordeelt op zeven concrete beleidsthema's, en waar je antwoorden elkaar mogelijk tegenspreken. Dat geeft een rijker en eerlijker beeld dan een enkele as.
 
 ## De vijf assen
 
@@ -58,6 +58,46 @@ score  = ( raw / ( maxW × 2 ) ) × 100   →  [-100 … +100]
 ```
 
 Je profiel is een vector in een 5-dimensionale ruimte. De dichtstbijzijnde ideologie, politicus of land wordt bepaald via de **Euclidische afstand** in die ruimte.
+
+## Adaptieve quiz
+
+De quiz is **adaptief**: niet iedereen krijgt dezelfde stellingen. Op basis van je antwoorden kiest de engine vervolgens vragen die:
+
+- **assen scherper afgrenzen** waar je score nog rond nul ligt of weinig signaal heeft;
+- **thema's afdekken** die nog onderbelicht zijn voor je gekozen tier;
+- **consistentie testen** door af en toe een stelling te kiezen die mogelijk een paradox onthult;
+- **niet eerder zijn voorgelegd** in dezelfde sessie.
+
+Iedere sessie krijgt een geseed-random pool, dus zelfs bij identieke antwoorden zien twee bezoekers deels andere stellingen.
+
+## Thema-scoring
+
+Per beleidsthema (klimaat, zorg, migratie, economie, EU, democratie, wonen) wordt dezelfde formule toegepast, maar dan alleen over stellingen die het thema raken. Output is een score van −100..+100 met een vaste richting per thema (bv. negatief = restrictief migratiebeleid, positief = open migratiebeleid).
+
+## Paradox-detectie
+
+Voor elke dimensie en voor enkele thema-paren detecteren we **interne spanning** wanneer:
+
+- minstens drie antwoorden binnen dezelfde dimensie zijn gegeven, en
+- er zowel sterk positieve als sterk negatieve antwoorden (waarde ≥ 2) tegenover elkaar staan.
+
+De **severity** weegt mee hoeveel sterke tegenstellingen er zijn en hoe groot het aandeel is van de beantwoorde vragen in die dimensie. Cross-thema paradoxen (zoals 'klimaat ambitieus + lasten laag') worden apart gedetecteerd.
+
+Paradoxen zijn nadrukkelijk **geen fout**. Ze tonen interessante spanningen om over door te denken.
+
+## Confidence per dimensie
+
+Hoeveel vertrouwen je in je dimensie-score kunt hebben hangt af van:
+
+- **dekking** (35%) — hoeveel stellingen je beantwoordde voor die dimensie;
+- **sterkte** (40%) — hoe ver je score van nul ligt;
+- **consistentie** (25%) — hoe weinig je antwoorden binnen die dimensie varieerden.
+
+De drie delen vormen samen een score van 0..100. Hoog vertrouwen begint bij 70, gemiddeld bij 40.
+
+## AI-content vooraf gegenereerd
+
+De duidende teksten op je resultaatpagina — essays per ideologie, betekenis per dimensie en thema, paradox-uitleg, leesvoer en argumenten — zijn **vooraf gegenereerd** met OpenAI en opgeslagen in de CMS. Bij het tonen van je resultaat wordt **nooit** een AI-call gedaan op jouw antwoorden. Audit-trail (model, prompt, datum) is per slot bewaard. Zie [`/ai-transparantie`](/ai-transparantie).
 
 ## Beperkingen
 

@@ -71,8 +71,10 @@ export interface Config {
     questions: Question;
     ideologies: Ideology;
     politicians: Politician;
+    parties: Party;
     countries: Country;
     results: Result;
+    aiContent: AiContent;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,8 +86,10 @@ export interface Config {
     questions: QuestionsSelect<false> | QuestionsSelect<true>;
     ideologies: IdeologiesSelect<false> | IdeologiesSelect<true>;
     politicians: PoliticiansSelect<false> | PoliticiansSelect<true>;
+    parties: PartiesSelect<false> | PartiesSelect<true>;
     countries: CountriesSelect<false> | CountriesSelect<true>;
     results: ResultsSelect<false> | ResultsSelect<true>;
+    aiContent: AiContentSelect<false> | AiContentSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -171,6 +175,22 @@ export interface Question {
    */
   direction: 'positive' | 'negative';
   weight: number;
+  /**
+   * Broad = kalibratievraag, breed onderscheidend; deep = verdiepingsvraag voor nuance.
+   */
+  depth: 'broad' | 'deep';
+  /**
+   * 0-100. Hoe sterk deze vraag tussen ideologie-clusters onderscheidt; gebruikt door de adaptieve engine.
+   */
+  discriminator?: number | null;
+  /**
+   * Eén of meer thema-tags. Stellingen zonder thema tellen alleen mee voor de hoofd-dimensies.
+   */
+  themes?: ('klimaat' | 'zorg' | 'migratie' | 'economie' | 'eu' | 'democratie' | 'wonen')[] | null;
+  /**
+   * Voorgeformuleerd standpunt dat we tonen op de resultaatpagina ALS de gebruiker (sterk) eens is met deze stelling. Bv. 'Jij vindt dat de hoogste inkomens zwaarder belast moeten worden.'
+   */
+  derivedStance?: string | null;
   /**
    * In welke quiz-lengtes verschijnt deze stelling? Quick is een subset van Standard, Standard van Extended.
    */
@@ -270,6 +290,10 @@ export interface Politician {
   isInternational?: boolean | null;
   bio: string;
   /**
+   * Eén of meer ideologie-slugs (bv. 'sociaal-liberaal') waarop deze politicus politiek het meeste lijkt. Wordt gebruikt voor de 'politici van jouw ideologie'-toggle.
+   */
+  ideologySlugs?: string[] | null;
+  /**
    * Score per dimensie tussen -100 en +100. -100 = volledig negatieve pool, +100 = volledig positieve pool.
    */
   positionVector: {
@@ -279,6 +303,72 @@ export interface Politician {
     governance: number;
     trust: number;
   };
+  /**
+   * Onderbouwende bronnen die de gekozen positie of stelling staven.
+   */
+  sources?:
+    | {
+        label: string;
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Politieke partijen en partij-families als educatieve context per ideologie. NIET als persoonlijke ranking voor de gebruiker.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "parties".
+ */
+export interface Party {
+  id: number;
+  name: string;
+  abbreviation: string;
+  /**
+   * Kebab-case identifier, bv. 'pvv' of 'epp'.
+   */
+  slug: string;
+  region: 'NL' | 'EU' | 'US';
+  regionType: 'national' | 'family' | 'faction';
+  country?: string | null;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * Eén of meer ideologie-slugs (bv. 'sociaal-democraat') waarop deze partij politiek het meeste lijkt. Wordt gebruikt om partijen in de resultaatpagina te koppelen aan de ideologie van de gebruiker.
+   */
+  ideologySlugs: string[];
+  /**
+   * Score per dimensie tussen -100 en +100. -100 = volledig negatieve pool, +100 = volledig positieve pool.
+   */
+  positionVector: {
+    economic: number;
+    social: number;
+    civil: number;
+    governance: number;
+    trust: number;
+  };
+  founded?: string | null;
+  leader?: string | null;
+  websiteUrl?: string | null;
+  /**
+   * Wanneer is deze partij-positie voor het laatst gecontroleerd? Eens per jaar herzien.
+   */
+  lastReviewed?: string | null;
   /**
    * Onderbouwende bronnen die de gekozen positie of stelling staven.
    */
@@ -347,9 +437,122 @@ export interface Result {
     governance: number;
     trust: number;
   };
+  /**
+   * Optioneel; pas gevuld vanaf v2 van de quiz. Score per thema -100..+100.
+   */
+  themeScores?: {
+    klimaat?: number | null;
+    zorg?: number | null;
+    migratie?: number | null;
+    economie?: number | null;
+    eu?: number | null;
+    democratie?: number | null;
+    wonen?: number | null;
+  };
+  /**
+   * Optioneel; pas gevuld vanaf v2. Hoe zeker het profiel is per dimensie, op basis van # antwoorden, sterkte en variance.
+   */
+  confidence?: {
+    economic?: number | null;
+    social?: number | null;
+    civil?: number | null;
+    governance?: number | null;
+    trust?: number | null;
+  };
+  /**
+   * Lijst van interne tegenstrijdigheden gedetecteerd in de antwoorden.
+   */
+  paradoxes?:
+    | {
+        dimension?: string | null;
+        theme?: string | null;
+        type: string;
+        severity: number;
+        description?: string | null;
+        exampleQuestionIds?:
+          | {
+              questionId: number;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Vraag-ID + waarde voor stance-extractie. Bevat geen PII.
+   */
+  answers?:
+    | {
+        questionId: number;
+        value: number;
+        id?: string | null;
+      }[]
+    | null;
   answeredCount: number;
   skippedCount: number;
   totalQuestions: number;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Vooraf gegenereerde teksten voor de resultaatpagina. Build-time gegenereerd, gebruiker-data raakt nooit OpenAI.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "aiContent".
+ */
+export interface AiContent {
+  id: number;
+  /**
+   * Unieke sleutel, bv. 'ideology:sociaal-liberaal:essay' of 'dimension:economic:bucket:strong-positive'.
+   */
+  slug: string;
+  kind:
+    | 'ideology-essay'
+    | 'ideology-reading'
+    | 'ideology-arguments-for'
+    | 'ideology-arguments-against'
+    | 'ideology-theme'
+    | 'dimension-bucket'
+    | 'paradox';
+  title?: string | null;
+  body: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * Optioneel: voor slots die uit een reeks korte items bestaan (bv. argumentsFor, reading).
+   */
+  items?:
+    | {
+        text: string;
+        meta?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Bv. 'gpt-4o-2024-08-06'.
+   */
+  model: string;
+  generatedAt: string;
+  /**
+   * Volledige prompt waarmee deze tekst is gegenereerd. Openbaar voor transparantie.
+   */
+  prompt?: string | null;
+  /**
+   * Aanvinken als een redacteur deze tekst heeft aangepast; voorkomt overschrijven bij regeneratie.
+   */
+  humanEdited?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -394,12 +597,20 @@ export interface PayloadLockedDocument {
         value: number | Politician;
       } | null)
     | ({
+        relationTo: 'parties';
+        value: number | Party;
+      } | null)
+    | ({
         relationTo: 'countries';
         value: number | Country;
       } | null)
     | ({
         relationTo: 'results';
         value: number | Result;
+      } | null)
+    | ({
+        relationTo: 'aiContent';
+        value: number | AiContent;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -475,6 +686,10 @@ export interface QuestionsSelect<T extends boolean = true> {
   dimension?: T;
   direction?: T;
   weight?: T;
+  depth?: T;
+  discriminator?: T;
+  themes?: T;
+  derivedStance?: T;
   tiers?: T;
   info?:
     | T
@@ -542,6 +757,7 @@ export interface PoliticiansSelect<T extends boolean = true> {
   party?: T;
   isInternational?: T;
   bio?: T;
+  ideologySlugs?: T;
   positionVector?:
     | T
     | {
@@ -551,6 +767,42 @@ export interface PoliticiansSelect<T extends boolean = true> {
         governance?: T;
         trust?: T;
       };
+  sources?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "parties_select".
+ */
+export interface PartiesSelect<T extends boolean = true> {
+  name?: T;
+  abbreviation?: T;
+  slug?: T;
+  region?: T;
+  regionType?: T;
+  country?: T;
+  description?: T;
+  ideologySlugs?: T;
+  positionVector?:
+    | T
+    | {
+        economic?: T;
+        social?: T;
+        civil?: T;
+        governance?: T;
+        trust?: T;
+      };
+  founded?: T;
+  leader?: T;
+  websiteUrl?: T;
+  lastReviewed?: T;
   sources?:
     | T
     | {
@@ -605,9 +857,75 @@ export interface ResultsSelect<T extends boolean = true> {
         governance?: T;
         trust?: T;
       };
+  themeScores?:
+    | T
+    | {
+        klimaat?: T;
+        zorg?: T;
+        migratie?: T;
+        economie?: T;
+        eu?: T;
+        democratie?: T;
+        wonen?: T;
+      };
+  confidence?:
+    | T
+    | {
+        economic?: T;
+        social?: T;
+        civil?: T;
+        governance?: T;
+        trust?: T;
+      };
+  paradoxes?:
+    | T
+    | {
+        dimension?: T;
+        theme?: T;
+        type?: T;
+        severity?: T;
+        description?: T;
+        exampleQuestionIds?:
+          | T
+          | {
+              questionId?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  answers?:
+    | T
+    | {
+        questionId?: T;
+        value?: T;
+        id?: T;
+      };
   answeredCount?: T;
   skippedCount?: T;
   totalQuestions?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "aiContent_select".
+ */
+export interface AiContentSelect<T extends boolean = true> {
+  slug?: T;
+  kind?: T;
+  title?: T;
+  body?: T;
+  items?:
+    | T
+    | {
+        text?: T;
+        meta?: T;
+        id?: T;
+      };
+  model?: T;
+  generatedAt?: T;
+  prompt?: T;
+  humanEdited?: T;
   updatedAt?: T;
   createdAt?: T;
 }

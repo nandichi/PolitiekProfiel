@@ -1,9 +1,12 @@
 import type { DimensionId, Tier } from "@/lib/dimensions";
+import type { ThemeId } from "@/lib/themes";
 
 export interface SeedSource {
   label: string;
   url: string;
 }
+
+export type QuestionDepth = "broad" | "deep";
 
 export interface SeedQuestion {
   statement: string;
@@ -11,6 +14,10 @@ export interface SeedQuestion {
   direction: "positive" | "negative";
   weight?: number;
   tiers: Tier[];
+  depth?: QuestionDepth;
+  discriminator?: number;
+  themes?: ThemeId[];
+  derivedStance?: string;
   info: {
     context: string;
     argumentsFor: string[];
@@ -22,6 +29,11 @@ export interface SeedQuestion {
 const allTiers: Tier[] = ["quick", "standard", "extended"];
 const standardExtended: Tier[] = ["standard", "extended"];
 const extendedOnly: Tier[] = ["extended"];
+
+export async function getAllSeedQuestions(): Promise<SeedQuestion[]> {
+  const themed = await import("./questions-themes");
+  return [...QUESTIONS, ...themed.THEMED_QUESTIONS];
+}
 
 const cpb: SeedSource = {
   label: "Centraal Planbureau – Keuzes in Kaart 2025",
