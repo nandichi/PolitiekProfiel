@@ -48,6 +48,22 @@ function useFirestore(): boolean {
   );
 }
 
+/**
+ * Bouwt een nieuw object dat alleen properties met een gedefinieerde waarde
+ * bevat. Firestore weigert `undefined` als waarde, dus elk veld dat optioneel
+ * is op TypeScript-niveau (bv. `paradox.dimension`, `paradox.theme`) moet hier
+ * langs voordat het naar Firestore gaat.
+ */
+function omitUndefined<T extends Record<string, unknown>>(obj: T): Partial<T> {
+  const out: Partial<T> = {};
+  for (const [key, value] of Object.entries(obj)) {
+    if (value !== undefined) {
+      (out as Record<string, unknown>)[key] = value;
+    }
+  }
+  return out;
+}
+
 export async function createResult(input: {
   tier: Tier;
   ideologySlug: string;
@@ -81,13 +97,29 @@ export async function createResult(input: {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   if (useFirestore()) {
     const db = firestore();
+    // Sanitiseer alle undefined velden weg vóór de write. Paradox-objecten
+    // kunnen optionele `dimension`/`theme`/`description` velden hebben die
+    // afhankelijk van het paradox-type leeg blijven; Firestore zou de hele
+    // write afwijzen als die als undefined binnenkomen.
+    const cleanedParadoxes = (input.paradoxes ?? []).map((px) =>
+      omitUndefined({
+        dimension: px.dimension,
+        theme: px.theme,
+        type: px.type,
+        severity: px.severity,
+        description: px.description,
+        exampleQuestionIds: px.exampleQuestionIds,
+      }) as StoredParadox,
+    );
+    const payloadForFirestore = omitUndefined({
+      ...record,
+      paradoxes: cleanedParadoxes.length > 0 ? cleanedParadoxes : undefined,
+      createdAt: Timestamp.fromDate(new Date(createdAt)),
+    });
     await db
       .collection(FIRESTORE_COLLECTION)
       .doc(shareId)
-      .set({
-        ...record,
-        createdAt: Timestamp.fromDate(new Date(createdAt)),
-      });
+      .set(payloadForFirestore);
   } else {
     const p = await payload();
     const paradoxesForPayload = (input.paradoxes ?? []).map((px) => ({

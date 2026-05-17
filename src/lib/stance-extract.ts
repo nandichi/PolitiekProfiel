@@ -51,6 +51,7 @@ export async function extractStances(
       derivedStance: doc.derivedStance,
       dimension: doc.dimension,
       signedValue,
+      value: a.value,
       weight,
       themes: doc.themes,
     });

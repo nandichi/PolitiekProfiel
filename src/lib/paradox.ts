@@ -174,11 +174,11 @@ export function paradoxDescription(type: ParadoxType): string {
     case "governance-mismatch":
       return "Op bestuur wil je tegelijk macht naar Europa/onafhankelijk én scherp behoud van nationale soevereiniteit.";
     case "trust-mismatch":
-      return "Je laat zowel sterk vertrouwen als sterk wantrouwen in instituties zien — afhankelijk van wélke instelling het betreft.";
+      return "Je laat zowel sterk vertrouwen als sterk wantrouwen in instituties zien, afhankelijk van wélke instelling het betreft.";
     case "klimaat-economie":
       return "Je hecht aan ambitieus klimaatbeleid, maar wil tegelijk lasten of regelgeving voor de economie zoveel mogelijk beperken.";
     case "migratie-economie":
-      return "Je houding op migratie wijst in twee verschillende richtingen — open op het ene aspect, restrictief op het andere.";
+      return "Je houding op migratie wijst in twee verschillende richtingen: open op het ene aspect, restrictief op het andere.";
     case "democratie-trust":
       return "Je wilt sterke democratische instituties, maar wantrouwt het huidige bestel tegelijk diep.";
   }

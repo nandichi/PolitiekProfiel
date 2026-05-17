@@ -8,7 +8,7 @@ const REGION_TITLES: Record<PartyDoc["region"], string> = {
 };
 
 const REGION_DESC: Record<PartyDoc["region"], string> = {
-  NL: "Welke Nederlandse partijen liggen het dichtst bij deze ideologie? Dit is educatieve context — geen stemadvies.",
+  NL: "Welke Nederlandse partijen liggen het dichtst bij deze ideologie? Dit is educatieve context, geen stemadvies.",
   EU: "Hoe vertaalt deze ideologie zich in het Europees Parlement?",
   US: "En in het Amerikaanse politieke landschap?",
 };

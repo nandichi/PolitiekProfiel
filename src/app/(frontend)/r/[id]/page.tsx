@@ -42,7 +42,7 @@ import {
   ideologyThemeSlug,
   paradoxSlug,
 } from "@/lib/ai-content";
-import type { ParadoxType } from "@/lib/paradox";
+import { paradoxDescription, type ParadoxType } from "@/lib/paradox";
 import { extractStances, getQuestionsByIds } from "@/lib/stance-extract";
 
 type Args = { params: Promise<{ id: string }> };
@@ -182,20 +182,29 @@ export default async function ResultPage({ params }: Args) {
     .flatMap((p) => p.exampleQuestionIds ?? []);
   const paradoxExampleMap = await getQuestionsByIds(paradoxExampleIds);
 
-  const paradoxItems: ParadoxItemContext[] = (result.paradoxes ?? []).map((p) => ({
-    signal: {
-      type: p.type as ParadoxType,
-      severity: p.severity,
-      dimension: p.dimension as Parameters<typeof dimensionMeta>[0] | undefined,
-      theme: p.theme as never,
-      description: p.description ?? "",
-      exampleQuestionIds: p.exampleQuestionIds ?? [],
-    },
-    aiContent: paradoxMap.get(paradoxSlug(p.type as ParadoxType)) ?? null,
-    examples: (p.exampleQuestionIds ?? [])
-      .map((qid) => paradoxExampleMap.get(qid))
-      .filter((q): q is { id: number; statement: string } => Boolean(q)),
-  }));
+  const paradoxItems: ParadoxItemContext[] = (result.paradoxes ?? []).map((p) => {
+    const type = p.type as ParadoxType;
+    // Render altijd de live `paradoxDescription(type)`. De waarde uit Firestore
+    // is een snapshot van het moment van submit en bevat dus voor oudere
+    // resultaten nog de oude formuleringen (incl. em-dashes). Door hier de
+    // huidige code-tekst te gebruiken, werken stijl- of inhoudelijke
+    // aanpassingen direct door in alle bestaande én nieuwe resultaten.
+    const description = paradoxDescription(type) || p.description || "";
+    return {
+      signal: {
+        type,
+        severity: p.severity,
+        dimension: p.dimension as Parameters<typeof dimensionMeta>[0] | undefined,
+        theme: p.theme as never,
+        description,
+        exampleQuestionIds: p.exampleQuestionIds ?? [],
+      },
+      aiContent: paradoxMap.get(paradoxSlug(type)) ?? null,
+      examples: (p.exampleQuestionIds ?? [])
+        .map((qid) => paradoxExampleMap.get(qid))
+        .filter((q): q is { id: number; statement: string } => Boolean(q)),
+    };
+  });
 
   return (
     <div>
@@ -423,7 +432,7 @@ export default async function ResultPage({ params }: Args) {
                 <ScrollRevealItem>
                   <p className="mt-4 max-w-2xl text-sm text-ink-muted">
                     Server-side afgeleid uit jouw sterkste antwoorden. Geen AI
-                    en geen externe analyse — pure regelgebaseerde extractie
+                    en geen externe analyse. Pure regelgebaseerde extractie
                     van je eigen keuzes.
                   </p>
                 </ScrollRevealItem>
@@ -480,7 +489,8 @@ export default async function ResultPage({ params }: Args) {
                     PolitiekProfiel rangschikt geen partijen voor jou
                     persoonlijk. We tonen wel welke partijen in hoofdlijnen
                     overeenkomen met de ideologie waar jouw profiel het
-                    sterkst op lijkt — Nederland, Europa, Verenigde Staten.
+                    sterkst op lijkt, voor Nederland, Europa en de Verenigde
+                    Staten.
                   </p>
                 </ScrollRevealItem>
                 <ScrollRevealItem>
@@ -677,10 +687,10 @@ function tierLabel(tier: string): string {
 function confidenceExplain(score: number): string {
   const band = confidenceBand(score);
   if (band === "hoog") {
-    return `${confidenceBandLabel(band)} — meerdere consistente antwoorden, sterk profiel op deze as.`;
+    return `${confidenceBandLabel(band)}. Meerdere consistente antwoorden, sterk profiel op deze as.`;
   }
   if (band === "gemiddeld") {
-    return `${confidenceBandLabel(band)} — redelijke maar nog niet uitgekristalliseerde positie.`;
+    return `${confidenceBandLabel(band)}. Redelijke maar nog niet uitgekristalliseerde positie.`;
   }
-  return `${confidenceBandLabel(band)} — weinig sterke antwoorden of veel variatie. Meer vragen geven hier scherper beeld.`;
+  return `${confidenceBandLabel(band)}. Weinig sterke antwoorden of veel variatie. Meer vragen geven hier scherper beeld.`;
 }

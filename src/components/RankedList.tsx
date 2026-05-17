@@ -59,22 +59,34 @@ export function RankedList<T extends ItemWithMeta>({
             <div className="min-w-0 flex-1">
               <p
                 className={cx(
-                  "display leading-tight text-[1.02rem] md:text-[1.08rem] truncate",
+                  // Sta tot twee regels toe voor lange namen
+                  // ("Dilan Yesilgöz-Zegerius", "Alexandria Ocasio-Cortez")
+                  // zodat ze niet afgekapt worden met "...". Single-line bij
+                  // korte namen blijft, dankzij `line-clamp-2`.
+                  "display leading-tight text-[1.02rem] md:text-[1.08rem] line-clamp-2 wrap-break-word",
                   isTop3 ? "text-ink" : "text-ink",
                 )}
               >
                 {m.item.primary}
               </p>
               {m.item.secondary && (
-                <p className="text-xs text-ink-muted truncate mt-0.5">
+                <p className="text-xs text-ink-muted line-clamp-2 mt-0.5">
                   {m.item.secondary}
                 </p>
               )}
             </div>
 
-            {/* Similarity bar */}
-            <div className="hidden sm:flex items-center gap-3 shrink-0">
-              <div className="relative w-20 md:w-28 h-[3px] bg-paper-100">
+            {/*
+              Similariteits-balk + percentage.
+              Verbergen onder `xl`: vanaf `lg` (1024px) wordt de pagina-grid
+              `1.5fr / 1fr`, waardoor de RankedList in een smalle kolom van
+              ~280-360px terechtkomt. Met de balk erbij houdt de naam slechts
+              ~70px over en wordt hij agressief afgekapt. Onder `xl` tonen we
+              daarom alleen het percentage inline; vanaf `xl` is er weer
+              voldoende ruimte voor de volledige horizontale layout.
+            */}
+            <div className="hidden xl:flex items-center gap-3 shrink-0">
+              <div className="relative w-20 xl:w-28 h-[3px] bg-paper-100">
                 <motion.div
                   className="absolute inset-y-0 left-0 bg-navy"
                   initial={{ width: 0 }}
@@ -99,8 +111,7 @@ export function RankedList<T extends ItemWithMeta>({
               </span>
             </div>
 
-            {/* Mobile: similarity inline */}
-            <span className="sm:hidden mono tabular-nums text-xs text-ink-muted shrink-0">
+            <span className="xl:hidden mono tabular-nums text-xs text-ink-muted shrink-0">
               {m.similarity}%
             </span>
           </li>

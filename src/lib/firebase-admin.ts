@@ -44,6 +44,19 @@ export function firebaseAdmin() {
   }
 
   const db = getFirestore(app);
+  // Sta toe dat optionele velden (zoals paradox.dimension of paradox.theme die
+  // alleen voor dimensie- of thema-paradoxen gevuld zijn) als undefined naar
+  // Firestore gaan zonder de hele write te laten falen. `settings()` mag maar
+  // één keer worden aangeroepen en alleen vóór de eerste read/write. Bij Next
+  // dev-mode kan de Firestore-instance via `firebase-admin` al elders gebruikt
+  // zijn (HMR/module cache), waardoor de call faalt. We vangen dat op: data
+  // wordt sowieso aan de schrijfkant gesanitiseerd (zie `results-store.ts`),
+  // dus deze instelling is een extra vangnet, niet de enige bescherming.
+  try {
+    db.settings({ ignoreUndefinedProperties: true });
+  } catch {
+    // already initialised — sanitisering aan de bron dekt deze case af.
+  }
   cached = { app, db };
   return cached;
 }
