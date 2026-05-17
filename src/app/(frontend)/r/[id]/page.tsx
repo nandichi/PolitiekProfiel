@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowRight, Repeat, BookOpen } from "lucide-react";
+import { ArrowRight, Repeat, BookOpen, Download } from "lucide-react";
 import { Container } from "@/components/Container";
 import { DimensionBar } from "@/components/DimensionBar";
 import { ScatterPlot } from "@/components/ScatterPlot";
@@ -44,6 +44,11 @@ import {
 } from "@/lib/ai-content";
 import { paradoxDescription, type ParadoxType } from "@/lib/paradox";
 import { extractStances, getQuestionsByIds } from "@/lib/stance-extract";
+import {
+  getCohortForVector,
+  getTotalProfileCount,
+  MIN_COHORT_SIZE,
+} from "@/lib/cohort";
 
 type Args = { params: Promise<{ id: string }> };
 
@@ -100,11 +105,12 @@ const INDEX_ITEMS = [
   { id: "dimensies", label: "Vijf dimensies" },
   { id: "themas", label: "Zeven thema's" },
   { id: "standpunten", label: "Standpunten" },
+  { id: "steelman", label: "Tegen-argumenten" },
   { id: "paradoxen", label: "Paradoxen" },
   { id: "partijen", label: "Partij-context" },
   { id: "politici", label: "Politici" },
   { id: "landen", label: "Landen" },
-  { id: "delen", label: "Delen" },
+  { id: "delen", label: "Delen & export" },
 ];
 
 export default async function ResultPage({ params }: Args) {
@@ -153,6 +159,20 @@ export default async function ResultPage({ params }: Args) {
   const dimensionSlugs = DIMENSIONS.map((d) =>
     dimensionBucketSlug(d.id, scoreToBucket(result.dimensions[d.id])),
   );
+  // Steelman: voor elke dimensie waar de gebruiker sterk uitslaat,
+  // halen we het AI-content blok van de tegenoverliggende bucket op.
+  // Score >= +60 → tegenargument uit "strong-negative" bucket; etc.
+  const steelmanCandidates = DIMENSIONS.map((d) => {
+    const value = result.dimensions[d.id];
+    if (Math.abs(value) < 40) return null;
+    const oppositeBucket = value > 0 ? "strong-negative" : "strong-positive";
+    return {
+      dimension: d,
+      yourScore: value,
+      slug: dimensionBucketSlug(d.id, oppositeBucket),
+    };
+  }).filter((x): x is NonNullable<typeof x> => Boolean(x));
+  const steelmanSlugs = steelmanCandidates.map((s) => s.slug);
   const themeSlugs = THEMES.map((t) => ideologyThemeSlug(ideo.slug, t.id));
   const paradoxSlugs = (result.paradoxes ?? []).map((p) =>
     paradoxSlug(p.type as ParadoxType),
@@ -166,6 +186,7 @@ export default async function ResultPage({ params }: Args) {
     dimensionBucketMap,
     themeMap,
     paradoxMap,
+    steelmanMap,
   ] = await Promise.all([
     getAiContentBySlug(ideologyEssaySlug(ideo.slug)),
     getAiContentBySlug(ideologyReadingSlug(ideo.slug)),
@@ -174,9 +195,15 @@ export default async function ResultPage({ params }: Args) {
     getAiContentBySlugs(dimensionSlugs),
     getAiContentBySlugs(themeSlugs),
     getAiContentBySlugs(paradoxSlugs),
+    getAiContentBySlugs(steelmanSlugs),
   ]);
 
   const stances = result.answers ? await extractStances(result.answers, 6) : [];
+
+  const [cohort, totalProfiles] = await Promise.all([
+    getCohortForVector(result.dimensions).catch(() => null),
+    getTotalProfileCount().catch(() => 0),
+  ]);
 
   const paradoxExampleIds = (result.paradoxes ?? [])
     .flatMap((p) => p.exampleQuestionIds ?? []);
@@ -444,6 +471,150 @@ export default async function ResultPage({ params }: Args) {
               </ScrollReveal>
             </section>
 
+            {/* SECTIE 4b — STEELMAN: BESTE TEGEN-ARGUMENT */}
+            {steelmanCandidates.length > 0 && (
+              <section
+                id="steelman"
+                className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
+              >
+                <ScrollReveal variant="stagger">
+                  <ScrollRevealItem>
+                    <Kicker number="4b">Wat zou de andere kant zeggen?</Kicker>
+                    <h2 className="display mt-5 max-w-3xl">
+                      Het sterkste argument tegen jouw eigen positie — per dimensie.
+                    </h2>
+                  </ScrollRevealItem>
+                  <ScrollRevealItem>
+                    <p className="mt-4 max-w-2xl text-sm text-ink-muted">
+                      Voor de dimensies waar je het sterkst uitslaat, tonen we
+                      de positie aan het andere uiterste. Niet om je van mening
+                      te doen veranderen, wel om je eigen argument scherp te
+                      houden.
+                    </p>
+                  </ScrollRevealItem>
+                  <ScrollRevealItem>
+                    <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-8 max-w-5xl">
+                      {steelmanCandidates.map((s) => {
+                        const content = steelmanMap.get(s.slug);
+                        return (
+                          <div
+                            key={s.dimension.id}
+                            className="border-t border-rule pt-5"
+                          >
+                            <div className="flex items-baseline justify-between gap-3">
+                              <p className="kicker">{s.dimension.label}</p>
+                              <p className="mono tabular-nums text-xs text-ink-muted">
+                                JOUW SCORE {s.yourScore > 0 ? "+" : ""}
+                                {Math.round(s.yourScore)}
+                              </p>
+                            </div>
+                            <p className="display text-lg mt-2 text-ink leading-snug">
+                              {s.yourScore > 0
+                                ? s.dimension.poleNegative.label
+                                : s.dimension.polePositive.label}
+                            </p>
+                            <p className="mt-2 text-sm text-ink-2 leading-relaxed">
+                              {s.yourScore > 0
+                                ? s.dimension.poleNegative.description
+                                : s.dimension.polePositive.description}
+                            </p>
+                            {content && (
+                              <div className="mt-4">
+                                <AiContentBlock
+                                  content={content}
+                                  variant="compact"
+                                />
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </ScrollRevealItem>
+                </ScrollReveal>
+              </section>
+            )}
+
+            {/* SECTIE 4c — COHORT (B3) */}
+            {cohort && (
+              <section
+                id="cohort"
+                className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
+              >
+                <ScrollReveal variant="stagger">
+                  <ScrollRevealItem>
+                    <Kicker number="4c">Mensen met een profiel als jouw</Kicker>
+                    <h2 className="display mt-5 max-w-3xl">
+                      {cohort.size.toLocaleString("nl-NL")} anderen scoren ongeveer als jij.
+                    </h2>
+                  </ScrollRevealItem>
+                  <ScrollRevealItem>
+                    <p className="mt-4 max-w-2xl text-sm text-ink-muted">
+                      Cohort van {cohort.size.toLocaleString("nl-NL")} profielen
+                      uit {totalProfiles.toLocaleString("nl-NL")} totaal. We
+                      tonen alleen cohorten met ≥{MIN_COHORT_SIZE} profielen,
+                      altijd geaggregeerd, nooit individueel — k-anonimiteit als
+                      privacy-floor. Verschil = gemiddelde van het cohort minus
+                      jouw score.
+                    </p>
+                  </ScrollRevealItem>
+                  <ScrollRevealItem>
+                    <table className="mt-8 w-full max-w-3xl border-collapse">
+                      <thead>
+                        <tr className="border-b border-ink">
+                          <th className="kicker text-left pb-3">Dimensie</th>
+                          <th className="kicker text-right pb-3">Jij</th>
+                          <th className="kicker text-right pb-3">Cohort</th>
+                          <th className="kicker text-right pb-3">Δ</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {DIMENSIONS.map((d) => {
+                          const yours = result.dimensions[d.id];
+                          const avg = cohort.averageDimensions[d.id];
+                          const delta = avg - yours;
+                          const sign = delta > 0 ? "+" : delta < 0 ? "" : "±";
+                          return (
+                            <tr key={d.id} className="border-b border-rule">
+                              <td className="py-3 text-sm text-ink">{d.label}</td>
+                              <td className="py-3 mono tabular-nums text-sm text-ink-2 text-right">
+                                {Math.round(yours)}
+                              </td>
+                              <td className="py-3 mono tabular-nums text-sm text-ink-2 text-right">
+                                {Math.round(avg)}
+                              </td>
+                              <td
+                                className={`py-3 mono tabular-nums text-sm text-right ${
+                                  Math.abs(delta) > 5
+                                    ? delta > 0
+                                      ? "text-navy"
+                                      : "text-terra"
+                                    : "text-ink-muted"
+                                }`}
+                              >
+                                {sign}
+                                {Math.round(delta)}
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </ScrollRevealItem>
+                  <ScrollRevealItem>
+                    <div className="mt-6">
+                      <Link
+                        href="/typology"
+                        className="text-sm text-ink-2 hover:text-navy"
+                      >
+                        Bekijk alle typology-clusters →
+                      </Link>
+                    </div>
+                  </ScrollRevealItem>
+                </ScrollReveal>
+              </section>
+            )}
+
             {/* SECTIE 5 — PARADOXEN */}
             <section
               id="paradoxen"
@@ -637,6 +808,40 @@ export default async function ResultPage({ params }: Args) {
                     >
                       <Repeat size={16} strokeWidth={1.8} />
                       Vergelijk met een ander profiel
+                    </Link>
+                    <a
+                      href={`/api/r/${result.shareId}/export.md`}
+                      className="btn-ghost"
+                      download={`politiekprofiel-${result.shareId}.md`}
+                    >
+                      <Download size={14} strokeWidth={1.8} />
+                      Download als Markdown
+                    </a>
+                    <a
+                      href={`/api/og/${result.shareId}`}
+                      className="btn-ghost"
+                      download={`politiekprofiel-${result.shareId}.png`}
+                    >
+                      <Download size={14} strokeWidth={1.8} />
+                      Typology-kaart (PNG)
+                    </a>
+                    <Link href={`/embed/${result.shareId}`} className="btn-ghost">
+                      Embed-code
+                      <ArrowRight size={14} strokeWidth={1.8} />
+                    </Link>
+                    <Link
+                      href={`/coalitie?r=${result.shareId}`}
+                      className="btn-ghost"
+                    >
+                      Coalitie-simulator
+                      <ArrowRight size={14} strokeWidth={1.8} />
+                    </Link>
+                    <Link
+                      href={`/evolutie?ids=${result.shareId}`}
+                      className="btn-ghost"
+                    >
+                      Voeg toe aan je evolutie
+                      <ArrowRight size={14} strokeWidth={1.8} />
                     </Link>
                     <Link href="/methodiek" className="btn-ghost">
                       <BookOpen size={14} strokeWidth={1.8} />

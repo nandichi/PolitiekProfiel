@@ -14,9 +14,9 @@ import type { Metadata } from "next";
 
 const PAGE_PATH = "/privacy";
 const PAGE_PUBLISHED = "2026-01-15";
-const PAGE_MODIFIED = "2026-05-16";
+const PAGE_MODIFIED = "2026-05-17";
 const PAGE_DESCRIPTION =
-  "Politieke voorkeur valt onder bijzondere persoonsgegevens (AVG). Wat we wel en niet opslaan, hoe we anonieme resultaten bewaren, en je recht op verwijdering.";
+  "Politieke voorkeur valt onder bijzondere persoonsgegevens (AVG). Wat we wel en niet opslaan, hoe we anonieme cohort-aggregaten gebruiken, en je recht op verwijdering.";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -38,6 +38,8 @@ const INDEX = [
   { id: "intro", label: "Inleiding" },
   { id: "wel", label: "Wat we wel opslaan" },
   { id: "niet", label: "Wat we niet opslaan" },
+  { id: "cohort", label: "Cohort-aggregaten" },
+  { id: "evolutie", label: "Politieke evolutie" },
   { id: "lokaal", label: "Lokale opslag" },
   { id: "verwijderen", label: "Verwijderen" },
   { id: "cookies", label: "Cookies" },
@@ -140,10 +142,52 @@ export default function PrivacyPage() {
             </ul>
           </Block>
 
+          {/* Cohort-aggregaten */}
+          <Block
+            id="cohort"
+            kicker="03 · Cohort-aggregaten"
+            title="Wat we afleiden uit alle resultaten samen."
+            accent="ink"
+          >
+            <p>
+              Voor pagina&apos;s als{" "}
+              <a href="/typology">typology-clusters</a> en de
+              &lsquo;mensen-zoals-jij&rsquo;-sectie op je resultaatpagina
+              berekenen we <strong>geaggregeerde gemiddelden</strong> over
+              groepen anonieme profielen. We hanteren hierbij{" "}
+              <strong>k-anonimiteit</strong>: een groep wordt pas getoond als er
+              minimaal <span className="mono tabular-nums">50</span> profielen
+              in vallen. Daaronder zien we niets.
+            </p>
+            <p>
+              We berekenen alleen gemiddelden per dimensie en per thema. We
+              kunnen niet — en willen niet kunnen — individuele profielen uit
+              een aggregaat terugleiden. Geen advertenties, geen
+              doorverkoop, geen overdracht aan derden.
+            </p>
+          </Block>
+
+          {/* Politieke evolutie */}
+          <Block
+            id="evolutie"
+            kicker="04 · Politieke evolutie"
+            title="Hoe we jouw tijdlijn bewaren."
+            accent="ink"
+          >
+            <p>
+              De &lsquo;<a href="/evolutie">politieke evolutie</a>&rsquo;-pagina
+              laat zien hoe je profiel verandert tussen meerdere quizes. We
+              koppelen deze ID&apos;s <strong>niet</strong> aan een account:
+              jouw lijst van share-ID&apos;s leeft alleen in jouw browser
+              (URL en localStorage) en in de link die je zelf bewaart. Wis je
+              browser-data of de link, dan is de koppeling weg.
+            </p>
+          </Block>
+
           {/* Lokale opslag */}
           <Block
             id="lokaal"
-            kicker="03 · Lokale opslag"
+            kicker="05 · Lokale opslag"
             title="Tussentijdse opslag in je browser."
             accent="ink"
           >
@@ -159,7 +203,7 @@ export default function PrivacyPage() {
           {/* Verwijderen */}
           <Block
             id="verwijderen"
-            kicker="04 · Recht op verwijdering"
+            kicker="06 · Recht op verwijdering"
             title="Een verwijderverzoek indienen."
             accent="ink"
           >
@@ -176,7 +220,7 @@ export default function PrivacyPage() {
           {/* Cookies */}
           <Block
             id="cookies"
-            kicker="05 · Cookies"
+            kicker="07 · Cookies"
             title="Cookies."
             accent="ink"
             last

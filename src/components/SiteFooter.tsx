@@ -1,28 +1,50 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
-const COLUMNS: Array<{
+interface FooterColumn {
+  index: string;
   title: string;
   links: Array<{ href: string; label: string }>;
-}> = [
+}
+
+const COLUMNS: FooterColumn[] = [
   {
-    title: "Verken",
+    index: "01",
+    title: "Start",
     links: [
-      { href: "/", label: "Start" },
       { href: "/quiz/standard", label: "Quiz" },
       { href: "/vergelijk", label: "Vergelijk" },
+      { href: "/verkennen", label: "Verkennen" },
     ],
   },
   {
-    title: "Methode",
+    index: "02",
+    title: "Bibliotheek",
+    links: [
+      { href: "/stellingen", label: "Stellingen" },
+      { href: "/ideologieen", label: "Ideologieën" },
+      { href: "/politici", label: "Politici" },
+      { href: "/partijen", label: "Partijen" },
+      { href: "/landen", label: "Landen" },
+      { href: "/woordenboek", label: "Woordenboek" },
+    ],
+  },
+  {
+    index: "03",
+    title: "Tools",
+    links: [
+      { href: "/coalitie", label: "Coalitie-simulator" },
+      { href: "/turing-test", label: "Turing test" },
+      { href: "/evolutie", label: "Politieke evolutie" },
+    ],
+  },
+  {
+    index: "04",
+    title: "Methode & juridisch",
     links: [
       { href: "/methodiek", label: "Methodiek" },
       { href: "/methodiek#dimensies", label: "De vijf dimensies" },
       { href: "/methodiek#scoring", label: "Scoring" },
-    ],
-  },
-  {
-    title: "Juridisch",
-    links: [
       { href: "/privacy", label: "Privacyverklaring" },
       { href: "/ai-transparantie", label: "AI-transparantie" },
       { href: "mailto:privacy@politiekprofiel.nl", label: "Contact" },
@@ -35,26 +57,37 @@ export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-rule bg-paper">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10 pt-16 lg:pt-24 pb-10">
-        {/* Top: meta + columns */}
-        <div className="grid grid-cols-1 gap-12 lg:gap-16 lg:grid-cols-[1.5fr_3fr]">
-          <div>
+        {/* Manifest + columns */}
+        <div className="grid grid-cols-1 gap-14 lg:gap-20 lg:grid-cols-12">
+          <div className="lg:col-span-4">
             <p className="kicker mb-5">Colofon</p>
-            <p className="display text-2xl leading-snug text-ink">
-              Een onafhankelijk politiek kompas, ontwikkeld als publiek
-              instrument voor reflectie.
+            <p className="display text-[1.6rem] md:text-[1.85rem] leading-[1.1] text-ink tracking-tight">
+              Een onafhankelijk politiek{" "}
+              <em className="display-italic font-light text-navy">kompas</em>,
+              ontwikkeld als publiek instrument voor reflectie.
             </p>
-            <p className="mt-5 text-sm text-ink-muted max-w-sm">
+            <p className="mt-5 text-sm text-ink-2 max-w-sm leading-relaxed">
               Geen reclame. Geen tracking. Geen account. Vijf dimensies, een
               eerlijke vergelijking.
             </p>
+            <Link
+              href="/quiz/standard"
+              className="mt-7 inline-flex items-center gap-2 text-sm text-ink no-underline border-b border-ink/40 hover:border-ink pb-0.5"
+            >
+              Start de quiz
+              <ArrowUpRight size={14} strokeWidth={1.8} />
+            </Link>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-10">
-            {COLUMNS.map((col, i) => (
+
+          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
+            {COLUMNS.map((col) => (
               <div key={col.title}>
-                <div className="flex items-baseline gap-2 mb-4">
-                  <span className="index-num text-xs">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                <div className="flex items-baseline gap-3 mb-4">
+                  <span className="index-num text-[0.7rem]">{col.index}</span>
+                  <span
+                    aria-hidden
+                    className="block h-px w-4 bg-rule-strong translate-y-[-2px]"
+                  />
                   <p className="kicker">{col.title}</p>
                 </div>
                 <ul className="space-y-2.5">
@@ -77,10 +110,13 @@ export function SiteFooter() {
         {/* Bottom line */}
         <div className="mt-14 lg:mt-20 pt-6 border-t border-rule flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-baseline gap-4">
-            <span className="display text-lg font-medium tracking-tight">
+            <Link
+              href="/"
+              className="display text-lg font-medium tracking-tight no-underline"
+            >
               <span className="text-ink">Politiek</span>
               <span className="text-navy">Profiel</span>
-            </span>
+            </Link>
             <span
               aria-hidden
               className="hidden sm:block w-8 h-px bg-rule-strong translate-y-[-3px]"

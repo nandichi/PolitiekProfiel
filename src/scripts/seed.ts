@@ -122,12 +122,20 @@ async function main() {
     const res = await upsert(payload, "politicians", "name", p.name, {
       name: p.name,
       role: p.role,
+      roleKind: p.roleKind,
       country: p.country,
       party: p.party,
+      partySlug: p.partySlug,
       bio: p.bio,
       positionVector: p.positionVector,
       isInternational: p.isInternational,
       ideologySlugs: p.ideologySlugs,
+      quotes: p.quotes?.map((q) => ({
+        text: q.text,
+        sourceLabel: q.sourceLabel,
+        sourceUrl: q.sourceUrl,
+      })),
+      lastReviewed: p.lastReviewed,
       sources: p.sources.map((s) => ({ label: s.label, url: s.url })),
     });
     if (res === "created") pCreated++;
@@ -150,7 +158,11 @@ async function main() {
       positionVector: party.positionVector,
       founded: party.founded,
       leader: party.leader,
+      factionLeader: party.factionLeader,
       websiteUrl: party.websiteUrl,
+      seatsTK2025: party.seatsTK2025,
+      coalitionStatus: party.coalitionStatus,
+      cpbReviewed2025: party.cpbReviewed2025 ?? false,
       lastReviewed: party.lastReviewed,
       sources: party.sources.map((s) => ({ label: s.label, url: s.url })),
     });

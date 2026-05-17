@@ -1,0 +1,10 @@
+import { neon } from '@neondatabase/serverless';
+const sql = neon(process.env.DATABASE_URL);
+console.log('parties:', (await sql`SELECT COUNT(*) FROM parties`)[0]);
+console.log('politicians:', (await sql`SELECT COUNT(*) FROM politicians`)[0]);
+console.log('ideologies:', (await sql`SELECT COUNT(*) FROM ideologies`)[0]);
+console.log('countries:', (await sql`SELECT COUNT(*) FROM countries`)[0]);
+console.log('questions:', (await sql`SELECT COUNT(*) FROM questions`)[0]);
+console.log('parties with seats_t_k2025:', (await sql`SELECT COUNT(*) FROM parties WHERE seats_t_k2025 IS NOT NULL`)[0]);
+console.log('politicians with role_kind:', (await sql`SELECT COUNT(*) FROM politicians WHERE role_kind IS NOT NULL`)[0]);
+console.log('politicians_quotes:', (await sql`SELECT COUNT(*) FROM politicians_quotes`)[0]);

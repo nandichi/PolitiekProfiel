@@ -1,0 +1,11 @@
+import "dotenv/config";
+import { getPayload } from "payload";
+console.log("loaded payload module");
+console.log("DB:", process.env.DATABASE_URL?.slice(0, 30));
+const cfg = await import("../src/payload.config.ts");
+console.log("loaded config");
+const p = await getPayload({ config: cfg.default });
+console.log("inited payload");
+const r = await p.find({ collection: "parties", limit: 1 });
+console.log("first party:", r.docs[0]?.slug);
+process.exit(0);

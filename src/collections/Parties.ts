@@ -91,8 +91,49 @@ export const Parties: CollectionConfig = {
       type: "row",
       fields: [
         { name: "founded", type: "text", required: false, label: "Opgericht" },
-        { name: "leader", type: "text", required: false, label: "Huidige leider" },
+        { name: "leader", type: "text", required: false, label: "Politiek leider / lijsttrekker" },
+        {
+          name: "factionLeader",
+          type: "text",
+          required: false,
+          label: "Fractievoorzitter TK",
+        },
         { name: "websiteUrl", type: "text", required: false, label: "Website" },
+      ],
+    },
+    {
+      type: "row",
+      fields: [
+        {
+          name: "seatsTK2025",
+          type: "number",
+          required: false,
+          min: 0,
+          max: 150,
+          label: "Zetels TK 2025 (per peildatum)",
+          admin: {
+            description:
+              "Aantal Tweede Kamer-zetels na verkiezingen 29 oktober 2025, inclusief eventuele afsplitsingen per peildatum.",
+          },
+        },
+        {
+          name: "coalitionStatus",
+          type: "select",
+          required: false,
+          label: "Coalitie-status t.o.v. zittend kabinet",
+          options: [
+            { label: "Regering", value: "governing" },
+            { label: "Oppositie", value: "opposition" },
+            { label: "Afsplitsing", value: "splinter" },
+            { label: "Niet van toepassing", value: "none" },
+          ],
+        },
+        {
+          name: "cpbReviewed2025",
+          type: "checkbox",
+          defaultValue: false,
+          label: "CPB-doorrekening 2025-2028?",
+        },
       ],
     },
     {

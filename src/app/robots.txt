@@ -10,6 +10,7 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
+Disallow: /widget/
 
 # AI / LLM crawlers (expliciet, om te voorkomen dat strengere defaults ergens worden afgedwongen)
 

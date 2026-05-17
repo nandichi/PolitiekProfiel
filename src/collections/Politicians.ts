@@ -28,12 +28,48 @@ export const Politicians: CollectionConfig = {
       type: "row",
       fields: [
         {
+          name: "roleKind",
+          type: "select",
+          required: false,
+          label: "Type rol",
+          options: [
+            { label: "Minister-president", value: "minister-president" },
+            { label: "Vice-premier", value: "vice-premier" },
+            { label: "Minister", value: "minister" },
+            { label: "Fractievoorzitter", value: "fractievoorzitter" },
+            { label: "Kamerlid", value: "kamerlid" },
+            { label: "Partijleider", value: "partijleider" },
+            { label: "Europarlementariër", value: "europarlementarier" },
+            { label: "President", value: "president" },
+            { label: "Premier", value: "premier" },
+            { label: "Bondskanselier", value: "bondskanselier" },
+            { label: "Senator", value: "senator" },
+            { label: "Congreslid", value: "congreslid" },
+            { label: "Voormalig", value: "voormalig" },
+          ],
+        },
+        {
           name: "country",
           type: "text",
           required: true,
           label: "Land (Nederlands)",
         },
         { name: "party", type: "text", required: true, label: "Partij" },
+      ],
+    },
+    {
+      type: "row",
+      fields: [
+        {
+          name: "partySlug",
+          type: "text",
+          required: false,
+          label: "Partij-slug (voor cross-link)",
+          admin: {
+            description:
+              "Kebab-case slug van de gerelateerde partij in `parties` (bv. 'd66').",
+          },
+        },
         {
           name: "isInternational",
           type: "checkbox",
@@ -59,6 +95,29 @@ export const Politicians: CollectionConfig = {
       },
     },
     positionVectorField,
+    {
+      name: "quotes",
+      type: "array",
+      label: "Citaten",
+      admin: {
+        description:
+          "Pakkende quotes voor onder andere de Turing-test en politicus-detailpagina.",
+      },
+      fields: [
+        { name: "text", type: "textarea", required: true, label: "Citaat" },
+        { name: "sourceLabel", type: "text", required: true, label: "Bron" },
+        { name: "sourceUrl", type: "text", required: false, label: "Bron-URL" },
+      ],
+    },
+    {
+      name: "lastReviewed",
+      type: "date",
+      label: "Laatst herzien",
+      admin: {
+        description:
+          "Datum van laatste verificatie van rol en positie. Politici wisselen partij/rol — peil per build.",
+      },
+    },
     sourcesField,
   ],
 };

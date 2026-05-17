@@ -10,11 +10,12 @@
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "seed": "cross-env NODE_OPTIONS=--no-deprecation tsx src/scripts/seed.ts",
+    "seed": "cross-env NODE_OPTIONS=--no-deprecation tsx --env-file=.env.local src/scripts/seed.ts",
     "generate:ai-content": "cross-env NODE_OPTIONS=--no-deprecation tsx src/scripts/generate-ai-content.ts",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "@payloadcms/db-postgres": "^3.84.1",
     "@payloadcms/db-sqlite": "^3.84.1",
     "@payloadcms/next": "^3.84.1",

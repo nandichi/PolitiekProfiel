@@ -285,8 +285,29 @@ export interface Politician {
   id: number;
   name: string;
   role: string;
+  roleKind?:
+    | (
+        | 'minister-president'
+        | 'vice-premier'
+        | 'minister'
+        | 'fractievoorzitter'
+        | 'kamerlid'
+        | 'partijleider'
+        | 'europarlementarier'
+        | 'president'
+        | 'premier'
+        | 'bondskanselier'
+        | 'senator'
+        | 'congreslid'
+        | 'voormalig'
+      )
+    | null;
   country: string;
   party: string;
+  /**
+   * Kebab-case slug van de gerelateerde partij in `parties` (bv. 'd66').
+   */
+  partySlug?: string | null;
   isInternational?: boolean | null;
   bio: string;
   /**
@@ -303,6 +324,21 @@ export interface Politician {
     governance: number;
     trust: number;
   };
+  /**
+   * Pakkende quotes voor onder andere de Turing-test en politicus-detailpagina.
+   */
+  quotes?:
+    | {
+        text: string;
+        sourceLabel: string;
+        sourceUrl?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Datum van laatste verificatie van rol en positie. Politici wisselen partij/rol — peil per build.
+   */
+  lastReviewed?: string | null;
   /**
    * Onderbouwende bronnen die de gekozen positie of stelling staven.
    */
@@ -364,7 +400,14 @@ export interface Party {
   };
   founded?: string | null;
   leader?: string | null;
+  factionLeader?: string | null;
   websiteUrl?: string | null;
+  /**
+   * Aantal Tweede Kamer-zetels na verkiezingen 29 oktober 2025, inclusief eventuele afsplitsingen per peildatum.
+   */
+  seatsTK2025?: number | null;
+  coalitionStatus?: ('governing' | 'opposition' | 'splinter' | 'none') | null;
+  cpbReviewed2025?: boolean | null;
   /**
    * Wanneer is deze partij-positie voor het laatst gecontroleerd? Eens per jaar herzien.
    */
@@ -753,8 +796,10 @@ export interface IdeologiesSelect<T extends boolean = true> {
 export interface PoliticiansSelect<T extends boolean = true> {
   name?: T;
   role?: T;
+  roleKind?: T;
   country?: T;
   party?: T;
+  partySlug?: T;
   isInternational?: T;
   bio?: T;
   ideologySlugs?: T;
@@ -767,6 +812,15 @@ export interface PoliticiansSelect<T extends boolean = true> {
         governance?: T;
         trust?: T;
       };
+  quotes?:
+    | T
+    | {
+        text?: T;
+        sourceLabel?: T;
+        sourceUrl?: T;
+        id?: T;
+      };
+  lastReviewed?: T;
   sources?:
     | T
     | {
@@ -801,7 +855,11 @@ export interface PartiesSelect<T extends boolean = true> {
       };
   founded?: T;
   leader?: T;
+  factionLeader?: T;
   websiteUrl?: T;
+  seatsTK2025?: T;
+  coalitionStatus?: T;
+  cpbReviewed2025?: T;
   lastReviewed?: T;
   sources?:
     | T

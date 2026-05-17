@@ -1,4 +1,12 @@
 import type { MetadataRoute } from "next";
+import {
+  getAllCountriesSeed,
+  getAllIdeologiesSeed,
+  getAllPartiesSeed,
+  getAllPoliticiansSeed,
+  getAllQuestionsSeed,
+} from "@/lib/seed-readers";
+import { GLOSSARY } from "@/data/woordenboek";
 
 const BASE_URL = "https://politiekprofiel.nl";
 
@@ -9,17 +17,87 @@ const BASE_URL = "https://politiekprofiel.nl";
 // Format: ISO-8601. Update deze waarden wanneer de content op de pagina
 // wezenlijk verandert (niet voor styling/refactor changes).
 const LAST_MODIFIED = {
-  home: "2026-05-16",
-  quizQuick: "2026-05-16",
-  quizStandard: "2026-05-16",
-  quizExtended: "2026-05-16",
-  vergelijk: "2026-05-16",
-  methodiek: "2026-05-16",
-  privacy: "2026-05-16",
-  docsApi: "2026-05-16",
+  home: "2026-05-17",
+  quizQuick: "2026-05-17",
+  quizStandard: "2026-05-17",
+  quizExtended: "2026-05-17",
+  vergelijk: "2026-05-17",
+  methodiek: "2026-05-17",
+  privacy: "2026-05-17",
+  docsApi: "2026-05-17",
+  verkennen: "2026-05-17",
+  hubs: "2026-05-17",
+  details: "2026-05-17",
 } as const;
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [questions, politicians] = await Promise.all([
+    getAllQuestionsSeed(),
+    Promise.resolve(getAllPoliticiansSeed()),
+  ]);
+  const ideologies = getAllIdeologiesSeed();
+  const parties = getAllPartiesSeed();
+  const countries = getAllCountriesSeed();
+
+  const hubs: MetadataRoute.Sitemap = [
+    "/verkennen",
+    "/stellingen",
+    "/ideologieen",
+    "/politici",
+    "/partijen",
+    "/landen",
+    "/woordenboek",
+    "/coalitie",
+    "/turing-test",
+    "/evolutie",
+    "/typology",
+    "/citaten",
+  ].map((path) => ({
+    url: `${BASE_URL}${path}`,
+    lastModified: LAST_MODIFIED.hubs,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  const details: MetadataRoute.Sitemap = [
+    ...questions.map((q) => ({
+      url: `${BASE_URL}/stelling/${q.id}`,
+      lastModified: LAST_MODIFIED.details,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    })),
+    ...ideologies.map((i) => ({
+      url: `${BASE_URL}/ideologie/${i.slug}`,
+      lastModified: LAST_MODIFIED.details,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+    ...politicians.map((p) => ({
+      url: `${BASE_URL}/politici/${p.slug}`,
+      lastModified: LAST_MODIFIED.details,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    })),
+    ...parties.map((p) => ({
+      url: `${BASE_URL}/partij/${p.slug}`,
+      lastModified: LAST_MODIFIED.details,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+    ...countries.map((c) => ({
+      url: `${BASE_URL}/land/${c.countryCode.toLowerCase()}`,
+      lastModified: LAST_MODIFIED.details,
+      changeFrequency: "monthly" as const,
+      priority: 0.4,
+    })),
+    ...GLOSSARY.map((g) => ({
+      url: `${BASE_URL}/woordenboek/${g.slug}`,
+      lastModified: LAST_MODIFIED.details,
+      changeFrequency: "monthly" as const,
+      priority: 0.4,
+    })),
+  ];
+
   return [
     {
       url: `${BASE_URL}/`,
@@ -107,5 +185,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    ...hubs,
+    ...details,
   ];
 }
