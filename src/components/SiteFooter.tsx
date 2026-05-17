@@ -55,10 +55,10 @@ const COLUMNS: FooterColumn[] = [
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-24 border-t border-rule bg-paper">
-      <div className="mx-auto max-w-[1500px] px-6 lg:px-10 pt-16 lg:pt-24 pb-10">
+    <footer className="mt-16 sm:mt-24 border-t border-rule bg-paper">
+      <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-10 pt-12 sm:pt-16 lg:pt-24 pb-8 sm:pb-10">
         {/* Manifest + columns */}
-        <div className="grid grid-cols-1 gap-14 lg:gap-20 lg:grid-cols-12">
+        <div className="grid grid-cols-1 gap-10 sm:gap-14 lg:gap-20 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="kicker mb-5">Colofon</p>
             <p className="display text-[1.6rem] md:text-[1.85rem] leading-[1.1] text-ink tracking-tight">
@@ -79,7 +79,7 @@ export function SiteFooter() {
             </Link>
           </div>
 
-          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 sm:gap-x-8 gap-y-8 sm:gap-y-10">
             {COLUMNS.map((col) => (
               <div key={col.title}>
                 <div className="flex items-baseline gap-3 mb-4">
@@ -108,50 +108,45 @@ export function SiteFooter() {
         </div>
 
         {/* Bottom line */}
-        <div className="mt-14 lg:mt-20 pt-6 border-t border-rule flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-baseline gap-4">
+        <div className="mt-10 sm:mt-14 lg:mt-20 pt-6 border-t border-rule flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:gap-4 min-w-0">
             <Link
               href="/"
-              className="display text-lg font-medium tracking-tight no-underline"
+              className="display text-lg font-medium tracking-tight no-underline shrink-0"
             >
               <span className="text-ink">Politiek</span>
               <span className="text-navy">Profiel</span>
             </Link>
             <span
               aria-hidden
-              className="hidden sm:block w-8 h-px bg-rule-strong translate-y-[-3px]"
+              className="hidden sm:block w-8 h-px bg-rule-strong translate-y-[-3px] shrink-0"
             />
             <span className="mono text-xs text-ink-muted tracking-wide">
-              © {year} · Geen tracking · Geen reclame
+              © {year}
             </span>
           </div>
-          <div className="flex flex-col gap-1 sm:items-end">
-            <p className="mono text-xs text-ink-muted tracking-wide">
-              Gebouwd door{" "}
-              <a
-                href="https://naoufalandichi.nl/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-ink-2 underline-offset-2 hover:text-navy hover:underline"
-              >
-                Naoufal Andichi
-              </a>
-              <span aria-hidden className="mx-1.5 text-ink-muted">
-                ·
-              </span>
-              <a
-                href="https://www.linkedin.com/in/naoufalandichi/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-ink-2 underline-offset-2 hover:text-navy hover:underline"
-              >
-                LinkedIn
-              </a>
-            </p>
-            <p className="mono text-xs text-ink-muted tracking-wide">
-              v1.0 · Gemaakt in Nederland
-            </p>
-          </div>
+          <p className="mono text-xs text-ink-muted tracking-wide sm:text-right max-sm:leading-relaxed">
+            Gebouwd door{" "}
+            <a
+              href="https://naoufalandichi.nl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink-2 underline-offset-2 hover:text-navy hover:underline"
+            >
+              Naoufal Andichi
+            </a>
+            <span aria-hidden className="mx-1.5 text-ink-muted">
+              ·
+            </span>
+            <a
+              href="https://www.linkedin.com/in/naoufalandichi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink-2 underline-offset-2 hover:text-navy hover:underline"
+            >
+              LinkedIn
+            </a>
+          </p>
         </div>
       </div>
     </footer>
