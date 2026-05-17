@@ -39,7 +39,7 @@ export async function generateMetadata({
   if (!c) return {};
   const path = `/land/${iso2.toLowerCase()}`;
   return {
-    title: `${c.name} — politieke positie`,
+    title: `${c.name}: politieke positie`,
     description: c.description,
     alternates: { canonical: path },
     openGraph: {

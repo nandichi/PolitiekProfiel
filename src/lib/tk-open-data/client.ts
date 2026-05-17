@@ -1,5 +1,5 @@
 /**
- * Tweede Kamer Open Data — OData v4 client.
+ * Tweede Kamer Open Data: OData v4 client.
  *
  * Docs: https://opendata.tweedekamer.nl/documentatie
  * Endpoint: https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/

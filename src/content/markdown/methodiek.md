@@ -1,38 +1,38 @@
-# Methodiek — politiek meten zonder karikatuur
+# Methodiek: politiek meten zonder karikatuur
 
 We willen niet weten of je 'links' of 'rechts' bent. We willen weten waar je staat op vijf onafhankelijke politieke vragen, hoe je oordeelt op zeven concrete beleidsthema's, en waar je antwoorden elkaar mogelijk tegenspreken. Dat geeft een rijker en eerlijker beeld dan een enkele as.
 
 ## De vijf assen
 
-### 1. Economisch — Vrije markt / Sterke staat
+### 1. Economisch: vrije markt / sterke staat
 
 Hoe sterk moet de overheid ingrijpen in de economie via belasting, regulering en sociale zekerheid?
 
 - **Vrije markt:** Lage belastingen, weinig regulering, terughoudende overheid, eigen verantwoordelijkheid.
 - **Sterke staat:** Herverdeling, publieke voorzieningen, regulering van markten, sociale zekerheid.
 
-### 2. Sociaal-cultureel — Conservatief / Progressief
+### 2. Sociaal-cultureel: conservatief / progressief
 
 Hoe verhouden traditie, identiteit en gelijkheid zich tot openheid, diversiteit en culturele verandering?
 
 - **Conservatief:** Behoud van tradities, nationale identiteit, terughoudendheid t.o.v. snelle culturele verandering.
 - **Progressief:** Gelijke rechten, openheid voor diversiteit, ruimte voor culturele en maatschappelijke vernieuwing.
 
-### 3. Burgerrechten — Autoritair / Libertair
+### 3. Burgerrechten: autoritair / libertair
 
 Hoeveel ruimte krijgt het individu tegenover de behoefte aan veiligheid en orde?
 
 - **Autoritair:** Sterke overheidsbevoegdheden voor veiligheid, surveillance en ordehandhaving.
 - **Libertair:** Maximale individuele vrijheid, privacy en bescherming tegen overheidsingrijpen.
 
-### 4. Bestuur — Nationaal-soeverein / Multilevel-EU
+### 4. Bestuur: nationaal-soeverein / multilevel-EU
 
 Waar moet macht liggen: bij de natiestaat, bij Europa, of juist bij gemeentes en burgers?
 
 - **Nationaal-soeverein:** Macht bij de natiestaat, terughoudend t.o.v. supranationale instituties zoals de EU.
 - **Multilevel/EU:** Sterkere Europese samenwerking, of juist meer macht naar regio's, gemeentes en burgers.
 
-### 5. Systeemvertrouwen — Wantrouwen / Vertrouwen
+### 5. Systeemvertrouwen: wantrouwen / vertrouwen
 
 In hoeverre vertrouw je publieke instituties zoals media, rechtspraak, wetenschap en overheid?
 
@@ -89,15 +89,15 @@ Paradoxen zijn nadrukkelijk **geen fout**. Ze tonen interessante spanningen om o
 
 Hoeveel vertrouwen je in je dimensie-score kunt hebben hangt af van:
 
-- **dekking** (35%) — hoeveel stellingen je beantwoordde voor die dimensie;
-- **sterkte** (40%) — hoe ver je score van nul ligt;
-- **consistentie** (25%) — hoe weinig je antwoorden binnen die dimensie varieerden.
+- **dekking** (35%): hoeveel stellingen je beantwoordde voor die dimensie;
+- **sterkte** (40%): hoe ver je score van nul ligt;
+- **consistentie** (25%): hoe weinig je antwoorden binnen die dimensie varieerden.
 
 De drie delen vormen samen een score van 0..100. Hoog vertrouwen begint bij 70, gemiddeld bij 40.
 
 ## AI-content vooraf gegenereerd
 
-De duidende teksten op je resultaatpagina — essays per ideologie, betekenis per dimensie en thema, paradox-uitleg, leesvoer en argumenten — zijn **vooraf gegenereerd** met OpenAI en opgeslagen in de CMS. Bij het tonen van je resultaat wordt **nooit** een AI-call gedaan op jouw antwoorden. Audit-trail (model, prompt, datum) is per slot bewaard. Zie [`/ai-transparantie`](/ai-transparantie).
+De duidende teksten op je resultaatpagina (essays per ideologie, betekenis per dimensie en thema, paradox-uitleg, leesvoer en argumenten) zijn **vooraf gegenereerd** met OpenAI en opgeslagen in de CMS. Bij het tonen van je resultaat wordt **nooit** een AI-call gedaan op jouw antwoorden. Audit-trail (model, prompt, datum) is per slot bewaard. Zie [`/ai-transparantie`](/ai-transparantie).
 
 ## Beperkingen
 

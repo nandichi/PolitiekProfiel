@@ -13,13 +13,13 @@ import { cx } from "@/lib/cx";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "PolitiekProfiel — een onafhankelijk politiek kompas",
+    absolute: "PolitiekProfiel: een onafhankelijk politiek kompas",
   },
   description:
     "Politiek is meer dan links of rechts. Een rustig, doordacht profiel op vijf onafhankelijke dimensies. Geen scorelijst voor partijen, geen tracking, anonieme deelbare resultaten.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "PolitiekProfiel — een onafhankelijk politiek kompas",
+    title: "PolitiekProfiel: een onafhankelijk politiek kompas",
     description:
       "Politiek is meer dan links of rechts. Een rustig, doordacht profiel op vijf onafhankelijke dimensies.",
     url: "/",

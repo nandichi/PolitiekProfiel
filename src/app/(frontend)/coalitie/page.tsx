@@ -112,7 +112,7 @@ export default async function CoalitiePage({ searchParams }: PageProps) {
             Met de huidige zetelverdeling (TK 2025) zoeken we combinaties van
             partijen die samen minimaal 76 zetels halen. Doe de quiz om de
             beste match te zien op basis van jouw vector op de vijf dimensies.
-            Geen stemadvies — een gedachte-experiment.
+            Geen stemadvies, wel een gedachte-experiment.
           </p>
         </ScrollRevealItem>
         <ScrollRevealItem>
@@ -136,7 +136,7 @@ export default async function CoalitiePage({ searchParams }: PageProps) {
           <ScrollRevealItem>
             <p className="mt-4 max-w-2xl text-sm text-ink-muted">
               Plak je share-link of share-ID (te vinden onderaan jouw
-              resultaatpagina). We rekenen lokaal — geen tracking, geen opslag.
+              resultaatpagina). We rekenen lokaal, zonder tracking en zonder opslag.
             </p>
           </ScrollRevealItem>
           <ScrollRevealItem>
@@ -298,7 +298,7 @@ export default async function CoalitiePage({ searchParams }: PageProps) {
               Zonder personalisatie sorteren we op &quot;spread&quot;: hoe ver
               de partijen op de vijf assen uit elkaar liggen. Een kleine
               spread voorspelt makkelijker akkoord. Geen rekening gehouden met
-              uitsluitingen of politieke voorkeuren — puur arithmetisch.
+              uitsluitingen of politieke voorkeuren. Puur arithmetisch.
             </p>
           </ScrollRevealItem>
           <ScrollRevealItem>

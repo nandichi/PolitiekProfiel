@@ -56,7 +56,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const ideology = getIdeologyBySlugSeed(slug);
   if (!ideology) return {};
-  const title = `${ideology.name} — ideologie`;
+  const title = `${ideology.name}: ideologie`;
   const desc = ideology.shortDescription;
   const path = `/ideologie/${slug}`;
   return {
@@ -77,7 +77,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
   const ideology = getIdeologyBySlugSeed(slug);
   if (!ideology) notFound();
 
-  // AI-content slots ophalen (kan ontbreken — afhankelijk van of de generator
+  // AI-content slots ophalen (kan ontbreken, afhankelijk van of de generator
   // gedraaid is). Page rendert ook gracieus zonder.
   const slots = await getAiContentBySlugs([
     ideologyEssaySlug(slug),
@@ -100,7 +100,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
   const path = `/ideologie/${slug}`;
   const articleLd = buildArticleSchema({
     path,
-    headline: `${ideology.name} — een politieke deepdive`,
+    headline: `${ideology.name}: een politieke deepdive`,
     description: ideology.shortDescription,
     datePublished: "2026-05-01",
     dateModified: "2026-05-17",
@@ -239,7 +239,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
               <ScrollRevealItem>
                 <Kicker number={4}>Argumenten</Kicker>
                 <h2 className="display mt-5 max-w-3xl">
-                  De sterkste argumenten — voor én tegen.
+                  De sterkste argumenten voor én tegen.
                 </h2>
               </ScrollRevealItem>
               <ScrollRevealItem>

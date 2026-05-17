@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 /**
- * /llms.txt — emerging standard om AI-crawlers en LLM-grounding pipelines
+ * /llms.txt: emerging standard om AI-crawlers en LLM-grounding pipelines
  * een gestructureerde overview te geven van de site. Geen vervanger voor
  * robots.txt of sitemap, maar een aanvulling voor AI-search.
  *
@@ -14,7 +14,7 @@ const BASE_URL = "https://politiekprofiel.nl";
 
 const CONTENT = `# PolitiekProfiel
 
-> Een onafhankelijk Nederlands politiek kompas op vijf onafhankelijke dimensies — economisch, sociaal-cultureel, burgerrechten, bestuur en systeemvertrouwen. Geen tracking, geen account, anonieme deelbare resultaten.
+> Een onafhankelijk Nederlands politiek kompas op vijf onafhankelijke dimensies: economisch, sociaal-cultureel, burgerrechten, bestuur en systeemvertrouwen. Geen tracking, geen account, anonieme deelbare resultaten.
 
 PolitiekProfiel is een Nederlandstalig instrument voor reflectie op politieke houding. Het meet niet links of rechts, maar waar je staat op vijf onafhankelijke politieke vragen. Het is geen stemwijzer en geen wetenschappelijke meting.
 
@@ -35,11 +35,11 @@ PolitiekProfiel is een Nederlandstalig instrument voor reflectie op politieke ho
 
 Elke dimensie meet onafhankelijk; scores lopen van −100 tot +100.
 
-1. **Economie** — vrije markt versus sterke staat; rol van de overheid in belasting, regulering en sociale zekerheid.
-2. **Cultureel** — conservatief versus progressief; verhouding van traditie, identiteit en gelijkheid tot openheid en culturele verandering.
-3. **Vrijheid** — autoritair versus libertair; ruimte voor het individu tegenover behoefte aan veiligheid en orde.
-4. **Bestuur** — nationaal-soeverein versus multilevel/EU; waar moet macht liggen — natiestaat, Europa, of gemeentes en burgers.
-5. **Vertrouwen** — wantrouwen versus vertrouwen in publieke instituties (media, rechtspraak, wetenschap, overheid).
+1. **Economie**: vrije markt versus sterke staat; rol van de overheid in belasting, regulering en sociale zekerheid.
+2. **Cultureel**: conservatief versus progressief; verhouding van traditie, identiteit en gelijkheid tot openheid en culturele verandering.
+3. **Vrijheid**: autoritair versus libertair; ruimte voor het individu tegenover behoefte aan veiligheid en orde.
+4. **Bestuur**: nationaal-soeverein versus multilevel/EU; waar moet macht liggen (natiestaat, Europa, of gemeentes en burgers).
+5. **Vertrouwen**: wantrouwen versus vertrouwen in publieke instituties (media, rechtspraak, wetenschap, overheid).
 
 ## Voor agents en developers
 
@@ -47,7 +47,7 @@ Elke dimensie meet onafhankelijk; scores lopen van −100 tot +100.
 - [OpenAPI 3.1 spec](${BASE_URL}/api/docs/openapi.json)
 - [Linkset (RFC 9727)](${BASE_URL}/.well-known/api-catalog)
 - [Sitemap](${BASE_URL}/sitemap.xml)
-- [robots.txt](${BASE_URL}/robots.txt) — open opt-in (Allow: /) voor zowel zoekcrawlers als AI/LLM-crawlers; alleen \`/admin/\` en \`/api/\` zijn afgeschermd.
+- [robots.txt](${BASE_URL}/robots.txt): open opt-in (Allow: /) voor zowel zoekcrawlers als AI/LLM-crawlers; alleen \`/admin/\` en \`/api/\` zijn afgeschermd.
 
 Editorial pagina's ondersteunen content negotiation: stuur \`Accept: text/markdown\` en je krijgt een markdown-versie terug die direct als grounding context bruikbaar is.
 

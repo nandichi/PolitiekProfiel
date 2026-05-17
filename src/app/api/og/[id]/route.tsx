@@ -121,7 +121,7 @@ export async function GET(
                 color: COLORS.inkMuted,
               }}
             >
-              01 - PROFIEL
+              01 · PROFIEL
             </span>
             <span
               style={{
@@ -193,7 +193,7 @@ export async function GET(
                 color: COLORS.inkMuted,
               }}
             >
-              02 - DIMENSIES
+              02 · DIMENSIES
             </span>
             <span
               style={{

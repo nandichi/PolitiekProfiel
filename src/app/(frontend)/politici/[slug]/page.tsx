@@ -38,7 +38,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const p = getPoliticianBySlugSeed(slug);
   if (!p) return {};
-  const title = `${p.name} — ${p.role}`;
+  const title = `${p.name}, ${p.role}`;
   const path = `/politici/${slug}`;
   return {
     title,
@@ -243,8 +243,8 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
               <ScrollRevealItem>
                 <p className="mt-6 mono text-[0.65rem] tracking-wider text-ink-subtle max-w-3xl">
                   PROJECTIE VIA THEMA→DIMENSIE-MATRIX OP BASIS VAN DE
-                  STELLINGEN-DATABASE. RUWE BENADERING — DIRECTIONALITY PER MOTIE
-                  IS NIET MEEGENOMEN.
+                  STELLINGEN-DATABASE. RUWE BENADERING; STEMRICHTING PER MOTIE
+                  WORDT NIET MEEGENOMEN.
                 </p>
               </ScrollRevealItem>
             </ScrollReveal>

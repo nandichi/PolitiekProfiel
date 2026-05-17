@@ -1,4 +1,4 @@
-# PolitiekProfiel — robots.txt
+# PolitiekProfiel: robots.txt
 #
 # Beleid: open. Alle (zoek- en AI-)crawlers mogen de site indexeren en gebruiken
 # voor zoekresultaten, AI-search (real-time grounding) en training.

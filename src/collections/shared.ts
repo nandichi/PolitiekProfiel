@@ -54,9 +54,9 @@ export const regionTypeOptions = [
 
 export const aiContentKindOptions = [
   { label: "Ideologie-essay", value: "ideology-essay" },
-  { label: "Ideologie - leesvoer", value: "ideology-reading" },
-  { label: "Ideologie - argumenten voor", value: "ideology-arguments-for" },
-  { label: "Ideologie - argumenten tegen", value: "ideology-arguments-against" },
+  { label: "Ideologie: leesvoer", value: "ideology-reading" },
+  { label: "Ideologie: argumenten voor", value: "ideology-arguments-for" },
+  { label: "Ideologie: argumenten tegen", value: "ideology-arguments-against" },
   { label: "Ideologie x thema", value: "ideology-theme" },
   { label: "Dimensie x bucket", value: "dimension-bucket" },
   { label: "Paradox uitleg", value: "paradox" },

@@ -236,7 +236,7 @@ export const PARTIES: SeedParty[] = [
     regionType: "national",
     country: "Nederland",
     description:
-      "Nieuwe rechts-conservatieve partij, opgericht 17 april 2026 na de afsplitsing van zeven PVV-Kamerleden onder leiding van Gidi Markuszower op 20 januari 2026 (eerst als Groep Markuszower). Pleit voor strenge grenscontrole, soevereiniteit, joods-christelijke waarden en wil — anders dan de PVV — een open ledenpartij zijn. Voormalig VVD-minister Rita Verdonk treedt op als politieke coach.",
+      "Nieuwe rechts-conservatieve partij, opgericht 17 april 2026 na de afsplitsing van zeven PVV-Kamerleden onder leiding van Gidi Markuszower op 20 januari 2026 (eerst als Groep Markuszower). Pleit voor strenge grenscontrole, soevereiniteit, joods-christelijke waarden en wil, anders dan de PVV, een open ledenpartij zijn. Voormalig VVD-minister Rita Verdonk treedt op als politieke coach.",
     positionVector: { economic: -10, social: -80, civil: -30, governance: -75, trust: -55 },
     ideologySlugs: ["nationaal-conservatief", "populistisch-rechts"],
     founded: "2026",

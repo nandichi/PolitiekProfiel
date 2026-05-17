@@ -9,7 +9,7 @@ import "./globals.css";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://politiekprofiel.nl";
 const SITE_NAME = "PolitiekProfiel";
 const SITE_DESCRIPTION =
-  "Een onafhankelijk Nederlands politiek kompas op vijf onafhankelijke dimensies — economisch, sociaal-cultureel, burgerrechten, bestuur en systeemvertrouwen. Geen tracking, geen account, anonieme deelbare resultaten.";
+  "Een onafhankelijk Nederlands politiek kompas op vijf onafhankelijke dimensies: economisch, sociaal-cultureel, burgerrechten, bestuur en systeemvertrouwen. Geen tracking, geen account, anonieme deelbare resultaten.";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -35,7 +35,7 @@ const plex = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "PolitiekProfiel — een serieus politiek kompas",
+    default: "PolitiekProfiel: een serieus politiek kompas",
     template: "%s · PolitiekProfiel",
   },
   description: SITE_DESCRIPTION,
@@ -56,14 +56,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
-    title: "PolitiekProfiel — een onafhankelijk politiek kompas",
+    title: "PolitiekProfiel: een onafhankelijk politiek kompas",
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     locale: "nl_NL",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PolitiekProfiel — een onafhankelijk politiek kompas",
+    title: "PolitiekProfiel: een onafhankelijk politiek kompas",
     description:
       "Een rustig, doordacht politiek profiel op vijf onafhankelijke dimensies. Geen scorelijst voor partijen.",
   },

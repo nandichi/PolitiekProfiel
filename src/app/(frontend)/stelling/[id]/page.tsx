@@ -157,7 +157,7 @@ export default async function StellingDetailPage({ params }: PageProps) {
             <ScrollRevealItem>
               <Kicker number={2}>Argumenten</Kicker>
               <h2 className="display mt-5 max-w-3xl">
-                De sterkste argumenten — voor én tegen.
+                De sterkste argumenten voor én tegen.
               </h2>
             </ScrollRevealItem>
             <ScrollRevealItem>

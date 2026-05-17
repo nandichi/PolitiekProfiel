@@ -142,7 +142,7 @@ export function DimensionBar({
         </motion.div>
       </div>
 
-      {/* Tick labels — eerste/laatste anchoren aan rand om overhang/overflow
+      {/* Tick labels: eerste/laatste anchoren aan rand om overhang/overflow
           op smalle viewports te voorkomen. */}
       <div
         className="relative mt-2 h-4 mono text-[0.7rem] text-ink-muted tabular-nums"
@@ -165,7 +165,7 @@ export function DimensionBar({
         })}
       </div>
 
-      {/* Pole labels — gap zorgt dat ze niet overlappen op smalle schermen */}
+      {/* Pole labels: gap zorgt dat ze niet overlappen op smalle schermen */}
       <div className="flex justify-between gap-3 mt-7 text-xs">
         <span className="text-ink-muted min-w-0 wrap-break-word">
           <span className="mono mr-1.5 text-[0.65rem]">←</span>

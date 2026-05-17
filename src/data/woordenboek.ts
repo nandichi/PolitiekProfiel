@@ -133,7 +133,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
     short:
       "Korte verklaring of verzoek van Kamerleden aan de regering; varianten zoals motie van afkeuring of motie van wantrouwen kunnen politiek zwaar wegen.",
     long:
-      "Met een motie spreekt de Kamer een wens of oordeel uit. Een aangenomen motie verplicht het kabinet juridisch niet, maar politiek vrijwel altijd. Een motie van wantrouwen tegen een minister of het hele kabinet leidt doorgaans tot aftreden — anders is de politieke legitimiteit weg.",
+      "Met een motie spreekt de Kamer een wens of oordeel uit. Een aangenomen motie verplicht het kabinet juridisch niet, maar politiek vrijwel altijd. Een motie van wantrouwen tegen een minister of het hele kabinet leidt doorgaans tot aftreden; anders is de politieke legitimiteit weg.",
     related: ["amendement", "interpellatie"],
   },
   {
@@ -196,7 +196,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
     term: "Subsidiariteit",
     category: "ideologie",
     short:
-      "Principe dat beleid op het laagst mogelijke bestuursniveau moet worden gemaakt — Europees, nationaal, lokaal of bij burgers zelf.",
+      "Principe dat beleid op het laagst mogelijke bestuursniveau moet worden gemaakt: Europees, nationaal, lokaal of bij burgers zelf.",
     long:
       "Subsidiariteit komt uit de katholieke sociale leer en is verankerd in het EU-verdrag. Het wordt door uiteenlopende stromingen omarmd: christen-democraten leggen het bij gezin en gemeenschap, EU-sceptici bij de natiestaat, anarchisten bij vrijwillige verbanden.",
     related: ["soevereiniteit", "europese-unie"],
@@ -261,7 +261,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
     short:
       "Politieke filosofie die de gemeenschap (familie, buurt, geloof, natie) als bron van waarden en plichten boven het individu plaatst.",
     long:
-      "Communitarisme verzet zich tegen extreem liberalisme dat het individu losweekt van zijn gemeenschap. In Nederlandse politiek herkenbaar bij CDA en — soms expliciet (Pieter Omtzigt's 'gemeenschap centraal') — bij Nieuw Sociaal Contract dat eind 2025 zijn parlementaire vertegenwoordiging verloor.",
+      "Communitarisme verzet zich tegen extreem liberalisme dat het individu losweekt van zijn gemeenschap. In de Nederlandse politiek herkenbaar bij CDA en, soms expliciet (Pieter Omtzigt's 'gemeenschap centraal'), bij Nieuw Sociaal Contract dat eind 2025 zijn parlementaire vertegenwoordiging verloor.",
     related: ["liberalisme", "christen-democratie"],
   },
 
@@ -272,7 +272,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
     short:
       "Kiesstelsel waarin het percentage zetels gelijk is aan het percentage stemmen, met landelijke kiesdeler en geen kiesdrempel.",
     long:
-      "Nederland heeft sinds 1917 een nationaal kiesdistrict met volledige evenredigheid. De kiesdeler is 1/150e van het totaal aantal stemmen; geen kiesdrempel (anders dan bv. Duitsland 5%). Dat verklaart de hoge politieke fragmentatie — in 2025 haalden 15 partijen een zetel.",
+      "Nederland heeft sinds 1917 een nationaal kiesdistrict met volledige evenredigheid. De kiesdeler is 1/150e van het totaal aantal stemmen; geen kiesdrempel (anders dan bv. Duitsland 5%). Dat verklaart de hoge politieke fragmentatie; in 2025 haalden 15 partijen een zetel.",
     related: ["kiesdeler", "restzetels"],
   },
   {
@@ -326,7 +326,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
     short:
       "Online tool die stellingen vergelijkt met partij-standpunten en aangeeft welke partij het dichtst bij de gebruiker staat.",
     long:
-      "De bekendste tools in Nederland zijn StemWijzer (ProDemos, sinds 1989) en Kieskompas (sinds 2006). Academisch onderzoek wijst uit dat stellingkeuze en weging de uitslag sterk beïnvloeden — een belangrijke reden om meerdere tools naast elkaar te raadplegen, of een bredere quiz zoals PolitiekProfiel.",
+      "De bekendste tools in Nederland zijn StemWijzer (ProDemos, sinds 1989) en Kieskompas (sinds 2006). Academisch onderzoek wijst uit dat stellingkeuze en weging de uitslag sterk beïnvloeden; een belangrijke reden om meerdere tools naast elkaar te raadplegen, of een bredere quiz zoals PolitiekProfiel.",
     related: ["politiek-kompas", "voorkeurstem"],
   },
 
@@ -409,7 +409,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
     term: "Europese Unie",
     category: "europa",
     short:
-      "Politiek-economische unie van 27 lidstaten, met gedeeltelijk gepoolde soevereiniteit, één markt en — voor 20 leden — één munt.",
+      "Politiek-economische unie van 27 lidstaten, met gedeeltelijk gepoolde soevereiniteit, één markt en, voor 20 leden, één munt.",
     long:
       "De EU ontstond uit de Europese Gemeenschap voor Kolen en Staal (1951) als project van vrede en handel. Belangrijkste instellingen: Europees Parlement (direct gekozen), Raad van de EU (lidstaten), Europese Commissie (uitvoerend) en Europees Hof van Justitie. Nederland is netto-betaler en kernlid.",
     aliases: ["EU", "Unie"],

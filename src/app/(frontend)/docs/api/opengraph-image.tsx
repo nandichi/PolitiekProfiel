@@ -9,7 +9,7 @@ import {
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 export const alt =
-  "API & Agent Discovery — OpenAPI spec, robots.txt, sitemap, api-catalog, markdown for agents en WebMCP voor PolitiekProfiel.";
+  "API & Agent Discovery: OpenAPI spec, robots.txt, sitemap, api-catalog, markdown for agents en WebMCP voor PolitiekProfiel.";
 
 export default async function ApiDocsOg() {
   const { fonts, display, sans, mono } = await getOgFontConfig();
@@ -18,7 +18,7 @@ export default async function ApiDocsOg() {
     (
       <OgTemplate
         kicker="API · AGENT DISCOVERY"
-        number="03 — VOOR DEVELOPERS & AGENTS"
+        number="03 · VOOR DEVELOPERS & AGENTS"
         titleParts={[
           { text: "Een site die" },
           { text: "agents", italic: true, navy: true },

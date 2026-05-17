@@ -38,7 +38,7 @@ const COALITION_LABEL = {
   governing: "Coalitie",
   opposition: "Oppositie",
   splinter: "Afgesplitst",
-  none: "—",
+  none: "n.v.t.",
 } as const;
 
 export default function PartijenOverviewPage() {
@@ -78,7 +78,7 @@ export default function PartijenOverviewPage() {
         <ScrollRevealItem>
           <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
             Per partij: positie op de vijf dimensies, fractieleider, zetels TK
-            2025, coalitiestatus en — voor de grootste partijen — een
+            2025, coalitiestatus en, voor de grootste partijen, een
             redactionele samenvatting van het verkiezingsprogramma per thema.
           </p>
         </ScrollRevealItem>
@@ -88,7 +88,7 @@ export default function PartijenOverviewPage() {
       <section className="mt-16 md:mt-20 border-t border-ink pt-10">
         <ScrollReveal variant="stagger">
           <ScrollRevealItem>
-            <Kicker number={1}>Tweede Kamer — peildatum 17 mei 2026</Kicker>
+            <Kicker number={1}>Tweede Kamer, peildatum 17 mei 2026</Kicker>
             <h2 className="display mt-5 max-w-3xl">
               {nl.length} partijen met zetels in de Kamer.
             </h2>
@@ -121,7 +121,7 @@ export default function PartijenOverviewPage() {
                         </p>
                       </div>
                       <p className="text-sm text-ink-2 leading-snug">
-                        {p.factionLeader ?? p.leader ?? "—"}
+                        {p.factionLeader ?? p.leader ?? "Onbekend"}
                         {p.coalitionStatus && (
                           <span className="ml-2 mono text-[0.6rem] tracking-wider text-ink-muted">
                             {COALITION_LABEL[p.coalitionStatus].toUpperCase()}

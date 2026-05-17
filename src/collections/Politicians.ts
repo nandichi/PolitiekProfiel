@@ -115,7 +115,7 @@ export const Politicians: CollectionConfig = {
       label: "Laatst herzien",
       admin: {
         description:
-          "Datum van laatste verificatie van rol en positie. Politici wisselen partij/rol — peil per build.",
+          "Datum van laatste verificatie van rol en positie. Politici wisselen partij of rol; dit is de peildatum per build.",
       },
     },
     sourcesField,

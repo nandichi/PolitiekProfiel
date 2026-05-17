@@ -87,7 +87,7 @@ export default async function QuizPage({ params }: Args) {
   const path = `/quiz/${tierKey}`;
   const quizLd = buildQuizSchema({
     path,
-    name: `PolitiekProfiel — ${meta.title}`,
+    name: `PolitiekProfiel: ${meta.title}`,
     description: `${meta.tagline} ${count} stellingen, ongeveer ${meta.minutes}.`,
     numberOfQuestions: count,
     timeRequired: meta.duration,

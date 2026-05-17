@@ -62,7 +62,7 @@ export default function CitatenPage() {
         <ScrollRevealItem>
           <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
             Voor elke ideologie genereren we een citaat-kaart op basis van de
-            kernbeschrijving — bedoeld om te delen op sociale media of in een
+            kernbeschrijving, bedoeld om te delen op sociale media of in een
             essay. Geen partijpropaganda, wel de stroming in haar eigen taal.
           </p>
         </ScrollRevealItem>
@@ -127,7 +127,7 @@ export default function CitatenPage() {
           <code className="mono text-xs">politiekprofiel.nl</code>. Klik op een
           kaart om de PNG (1200×630, ideaal voor X/LinkedIn/Facebook) te
           downloaden. De citaten zijn afgeleid uit de eigen
-          ideologie-beschrijvingen op deze site — géén toegeschreven uitspraken
+          ideologie-beschrijvingen op deze site; géén toegeschreven uitspraken
           van politici.
         </p>
       </section>

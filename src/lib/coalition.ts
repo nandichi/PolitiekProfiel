@@ -168,13 +168,13 @@ export function presetCoalitions(
     {
       name: "Progressief blok",
       description:
-        "GL-PvdA, D66, Volt, PvdD, DENK — progressief, klimaatambitieus, pro-EU.",
+        "GL-PvdA, D66, Volt, PvdD, DENK: progressief, klimaatambitieus, pro-EU.",
       slugs: ["groenlinks-pvda", "d66", "volt", "pvdd", "denk"],
     },
     {
       name: "Brede middenkoers",
       description:
-        "D66, VVD, CDA, GL-PvdA, NSC-opvolgers — brede meerderheid in het midden.",
+        "D66, VVD, CDA, GL-PvdA, NSC-opvolgers: brede meerderheid in het midden.",
       slugs: ["d66", "vvd", "cda", "groenlinks-pvda"],
     },
   ]

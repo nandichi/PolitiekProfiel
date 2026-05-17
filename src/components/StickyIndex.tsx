@@ -151,7 +151,7 @@ export function StickyIndex({
         </ol>
       </nav>
 
-      {/* Mobile horizontal strip — fixed buiten de grid */}
+      {/* Mobile horizontal strip: fixed buiten de grid */}
       <nav
         aria-label="Pagina-index"
         className="lg:hidden fixed inset-x-0 top-16 md:top-[72px] z-30 border-b border-rule bg-paper/90 backdrop-blur-md"

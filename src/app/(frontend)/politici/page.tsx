@@ -76,7 +76,7 @@ export default function PoliticiOverviewPage() {
       </ScrollReveal>
 
       <Section
-        title="Nederland — Kabinet en Kamer"
+        title="Nederland: kabinet en Kamer"
         kickerNum={1}
         subtitle={`${nl.length} politici. Inclusief premier Rob Jetten, vicepremier Yeşilgöz, fractievoorzitters en nieuwe partijleider DNA.`}
       >
@@ -86,7 +86,7 @@ export default function PoliticiOverviewPage() {
       <Section
         title="Internationaal"
         kickerNum={2}
-        subtitle={`${intl.length} politici uit VS, EU-kernlanden en Canada — als referentiepunt op de vijf dimensies.`}
+        subtitle={`${intl.length} politici uit VS, EU-kernlanden en Canada, als referentiepunt op de vijf dimensies.`}
       >
         <PoliticianGrid items={intl} />
       </Section>

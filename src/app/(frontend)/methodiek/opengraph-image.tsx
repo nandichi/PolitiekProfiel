@@ -9,7 +9,7 @@ import {
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 export const alt =
-  "Methodiek — hoe PolitiekProfiel politieke houding meet op vijf onafhankelijke dimensies, zonder karikatuur.";
+  "Methodiek: hoe PolitiekProfiel politieke houding meet op vijf onafhankelijke dimensies, zonder karikatuur.";
 
 export default async function MethodiekOg() {
   const { fonts, display, sans, mono } = await getOgFontConfig();
@@ -18,7 +18,7 @@ export default async function MethodiekOg() {
     (
       <OgTemplate
         kicker="METHODIEK"
-        number="01 — HOE WE METEN"
+        number="01 · HOE WE METEN"
         titleParts={[
           { text: "Politiek meten" },
           { text: "zonder", italic: true, navy: true },

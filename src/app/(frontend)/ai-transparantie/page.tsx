@@ -46,7 +46,7 @@ const INDEX = [
 export default function AiTransparantiePage() {
   const articleLd = buildArticleSchema({
     path: PAGE_PATH,
-    headline: "AI-transparantie — hoe PolitiekProfiel AI inzet",
+    headline: "AI-transparantie: hoe PolitiekProfiel AI inzet",
     description: PAGE_DESCRIPTION,
     datePublished: PAGE_PUBLISHED,
     dateModified: PAGE_MODIFIED,
@@ -106,29 +106,29 @@ export default function AiTransparantiePage() {
               <ScrollRevealItem>
                 <Kicker number={2}>Wat we genereren</Kicker>
                 <h2 className="display mt-5">
-                  Vooraf, eenmalig, gecached — ongeveer 210 stukjes content.
+                  Vooraf, eenmalig, gecached: ongeveer 210 stukjes content.
                 </h2>
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <div className="mt-8 editorial-prose">
                   <ul>
                     <li>
-                      <strong>Per ideologie</strong> — een uitgebreid essay
+                      <strong>Per ideologie</strong>: een uitgebreid essay
                       van 600-800 woorden, een leeslijst, sterkste argumenten
                       vóór en respectvolle tegenargumenten.
                     </li>
                     <li>
-                      <strong>Per dimensie × score-bucket</strong> — uitleg
+                      <strong>Per dimensie × score-bucket</strong>: uitleg
                       over wat een sterk negatieve tot sterk positieve score
                       op die as betekent.
                     </li>
                     <li>
-                      <strong>Per ideologie × thema</strong> — hoe denkt deze
+                      <strong>Per ideologie × thema</strong>: hoe denkt deze
                       stroming doorgaans over klimaat, zorg, migratie,
                       economie, EU, democratie en wonen.
                     </li>
                     <li>
-                      <strong>Per paradox-type</strong> — wat het betekent als
+                      <strong>Per paradox-type</strong>: wat het betekent als
                       je antwoorden binnen of tussen dimensies elkaar
                       tegenspreken, en waarom dat geen probleem hoeft te zijn.
                     </li>

@@ -30,7 +30,7 @@ export function QuizSegmentBar({
     >
       <legend className="sr-only">Antwoordkeuze</legend>
 
-      {/* Pole labels — altijd zichtbaar zodat op mobiel zonder lange button-
+      {/* Pole labels: altijd zichtbaar zodat op mobiel zonder lange button-
           labels nog duidelijk is welke pool waar zit. */}
       <div className="flex items-baseline justify-between px-3 sm:px-5 pt-3 sm:pt-4 pb-1 sm:pb-2">
         <span className="kicker">← Oneens</span>
@@ -76,7 +76,7 @@ export function QuizSegmentBar({
                 >
                   {opt.short}
                 </span>
-                {/* Volledige label vanaf sm — daaronder is te krap voor 5 kolommen */}
+                {/* Volledige label vanaf sm; daaronder is te krap voor 5 kolommen */}
                 <span
                   className={cx(
                     "hidden sm:block text-[0.78rem] sm:text-[0.85rem] leading-tight font-medium",

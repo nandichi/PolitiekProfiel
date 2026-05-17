@@ -54,7 +54,7 @@ export function buildResultMarkdown(input: ExportInput): string {
     const value = result.dimensions[d.id];
     const bucket = scoreToBucket(value);
     lines.push(
-      `- **${d.label}** — ${formatScore(value)} (${bucketLabel(bucket)})`,
+      `- **${d.label}**: ${formatScore(value)} (${bucketLabel(bucket)})`,
     );
     lines.push(`  - Pool ${formatScore(-100)}: ${d.poleNegative.label}`);
     lines.push(`  - Pool ${formatScore(100)}: ${d.polePositive.label}`);
@@ -67,7 +67,7 @@ export function buildResultMarkdown(input: ExportInput): string {
     lines.push("");
     for (const t of THEMES) {
       const value = result.themeScores[t.id];
-      lines.push(`- **${t.label}** — ${formatScore(value)}`);
+      lines.push(`- **${t.label}**: ${formatScore(value)}`);
     }
     lines.push("");
   }

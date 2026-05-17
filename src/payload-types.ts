@@ -336,7 +336,7 @@ export interface Politician {
       }[]
     | null;
   /**
-   * Datum van laatste verificatie van rol en positie. Politici wisselen partij/rol — peil per build.
+   * Datum van laatste verificatie van rol en positie. Politici wisselen partij of rol; dit is de peildatum per build.
    */
   lastReviewed?: string | null;
   /**

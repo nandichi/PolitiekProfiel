@@ -71,7 +71,7 @@ function ideologyReadingSlots(): SlotPayload[] {
       `Vermeld kort waarom dit werk relevant is voor deze stroming.`,
       `Geef per item: titel, auteur, type (boek/essay/rapport), 1-zinnige reden.`,
       `Lever JSON terug: { "body": string (1 zin intro), "items": [{ "text": string, "meta": string }] }.`,
-      `Velden text en meta zijn in het Nederlands. text = "Titel — Auteur (jaar)" plus 1 zin uitleg. meta = type werk.`,
+      `Velden text en meta zijn in het Nederlands. text = "Titel: Auteur (jaar)" plus 1 zin uitleg. meta = type werk.`,
     ].join("\n"),
   }));
 }
@@ -117,7 +117,7 @@ function dimensionBucketSlots(): SlotPayload[] {
       slots.push({
         slug: `dimension:${dim.id}:bucket:${bucket}`,
         kind: "dimension-bucket",
-        title: `${dim.label} — ${bucketLabel(bucket)}`,
+        title: `${dim.label}, ${bucketLabel(bucket)}`,
         outputType: "paragraph",
         systemPrompt: SYSTEM_BASE,
         prompt: dimensionBucketPrompt(dim.id, dim.label, bucket),
@@ -136,8 +136,8 @@ function dimensionBucketPrompt(
   return [
     `Schrijf een paragraaf van 150 tot 200 woorden voor iemand met score "${bucketLabel(bucket).toLowerCase()}" op de dimensie "${label}".`,
     `Korte uitleg van wat deze dimensie meet: ${dim.description}`,
-    `Negatieve pool: ${dim.poleNegative.label} — ${dim.poleNegative.description}`,
-    `Positieve pool: ${dim.polePositive.label} — ${dim.polePositive.description}`,
+    `Negatieve pool: ${dim.poleNegative.label}, ${dim.poleNegative.description}`,
+    `Positieve pool: ${dim.polePositive.label}, ${dim.polePositive.description}`,
     `Verklaar wat een score in deze bucket waarschijnlijk betekent: welke houdingen, welke politici en stromingen passen daarbij in Nederland en West-Europa.`,
     `Schrijf in de tweede persoon ('je'). Hou het gebalanceerd, nuchter, geen marketingtaal.`,
     `Lever JSON terug: { "body": string }.`,

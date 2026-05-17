@@ -420,7 +420,7 @@ function DesktopMegaMenu({
               voedt.
             </p>
             <p className="mt-4 text-sm text-ink-2 max-w-xs leading-relaxed">
-              Stellingen, ideologieën, mensen, partijen, landen en tools —
+              Stellingen, ideologieën, mensen, partijen, landen en tools:
               doorbladerbaar en uitlegbaar.
             </p>
             <Link

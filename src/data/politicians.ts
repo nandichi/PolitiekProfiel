@@ -66,7 +66,7 @@ const REVIEW_DATE = "2026-05-17";
 
 export const POLITICIANS: SeedPolitician[] = [
   // ============== NEDERLAND (16) ==============
-  // Stand 17 mei 2026 — na kabinet-Jetten (beëdigd 23 februari 2026) en
+  // Stand 17 mei 2026, na kabinet-Jetten (beëdigd 23 februari 2026) en
   // afsplitsing van Groep Markuszower uit de PVV (20 januari 2026,
   // partij DNA opgericht 17 april 2026).
   {
@@ -202,7 +202,7 @@ export const POLITICIANS: SeedPolitician[] = [
     country: "Nederland",
     party: "DNA",
     partySlug: "dna",
-    bio: "Voormalig PVV-Kamerlid en woordvoerder Justitie/Migratie. Leidde op 20 januari 2026 een afsplitsing van zeven PVV-Kamerleden (eerst als Groep Markuszower) en richtte op 17 april 2026 De Nederlandse Alliantie op — een open ledenpartij met focus op grenscontrole, soevereiniteit en joods-christelijke waarden.",
+    bio: "Voormalig PVV-Kamerlid en woordvoerder Justitie/Migratie. Leidde op 20 januari 2026 een afsplitsing van zeven PVV-Kamerleden (eerst als Groep Markuszower) en richtte op 17 april 2026 De Nederlandse Alliantie op, een open ledenpartij met focus op grenscontrole, soevereiniteit en joods-christelijke waarden.",
     positionVector: { economic: -10, social: -80, civil: -30, governance: -75, trust: -55 },
     isInternational: false,
     ideologySlugs: ["nationaal-conservatief", "populistisch-rechts"],

@@ -55,7 +55,7 @@ export function firebaseAdmin() {
   try {
     db.settings({ ignoreUndefinedProperties: true });
   } catch {
-    // already initialised — sanitisering aan de bron dekt deze case af.
+    // already initialised; sanitisering aan de bron dekt deze case af.
   }
   cached = { app, db };
   return cached;

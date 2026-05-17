@@ -81,7 +81,7 @@ const FAQ_ENTRIES = [
 export default function MethodiekPage() {
   const articleLd = buildArticleSchema({
     path: PAGE_PATH,
-    headline: "Methodiek — hoe PolitiekProfiel politieke houding meet",
+    headline: "Methodiek: hoe PolitiekProfiel politieke houding meet",
     description: PAGE_DESCRIPTION,
     datePublished: PAGE_PUBLISHED,
     dateModified: PAGE_MODIFIED,

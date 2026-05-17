@@ -34,7 +34,7 @@ export async function generateMetadata({
   if (!t) return {};
   const path = `/woordenboek/${slug}`;
   return {
-    title: `${t.term} — definitie`,
+    title: `${t.term}: definitie`,
     description: t.short,
     alternates: { canonical: path },
     openGraph: {

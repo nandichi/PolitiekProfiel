@@ -16,7 +16,7 @@ import {
 const PAGE_PATH = "/turing-test";
 const PAGE_TITLE = "Ideological Turing Test";
 const PAGE_DESCRIPTION =
-  "Acht citaten uit het Nederlandse debat — kun jij raden welk kamp ze uitspreekt? Geen partij-quiz, maar een retoriek-test.";
+  "Acht citaten uit het Nederlandse debat. Kun jij raden welk kamp ze uitspreekt? Geen partij-quiz, maar een retoriek-test.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -74,7 +74,7 @@ export default async function TuringTestPage({ searchParams }: PageProps) {
           <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
             {n} willekeurige citaten uit het Nederlandse politieke debat (2024-2026).
             Voor elk citaat: zou een linkse politicus, een midden-politicus
-            of een rechtse politicus dit gezegd hebben? Geen valstrik —
+            of een rechtse politicus dit gezegd hebben? Geen valstrik,
             wel een spiegel voor hoe goed je politieke retoriek leest.
           </p>
         </ScrollRevealItem>
@@ -94,7 +94,7 @@ export default async function TuringTestPage({ searchParams }: PageProps) {
               Citaten komen uit Kamerdebatten, verkiezingsprogramma's of openbare
               interviews uit 2024-2026. Sommige zijn geparafraseerd voor
               leesbaarheid (gemarkeerd). De bibliotheek bevat {TURING_QUOTES.length}{" "}
-              citaten verdeeld over drie kampen — links, midden, rechts. We
+              citaten verdeeld over drie kampen: links, midden en rechts. We
               gokken niet op partij omdat partijen overlappen; we gokken op
               kamp omdat retoriek meestal wel verraadt waar iemand staat.
             </p>

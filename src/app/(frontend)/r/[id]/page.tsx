@@ -240,7 +240,7 @@ export default async function ResultPage({ params }: Args) {
           <StickyIndex items={INDEX_ITEMS} topOffset={96} />
 
           <div className="min-w-0">
-            {/* SECTIE 1 — PROFIEL */}
+            {/* SECTIE 1 · PROFIEL */}
             <section id="profiel" className="scroll-mt-32">
               <ScrollReveal variant="stagger" immediate>
                 <ScrollRevealItem>
@@ -321,7 +321,7 @@ export default async function ResultPage({ params }: Args) {
               </div>
             </section>
 
-            {/* SECTIE 2 — DIMENSIES */}
+            {/* SECTIE 2 · DIMENSIES */}
             <section
               id="dimensies"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
@@ -385,7 +385,7 @@ export default async function ResultPage({ params }: Args) {
               </ScrollReveal>
             </section>
 
-            {/* SECTIE 3 — THEMA'S */}
+            {/* SECTIE 3 · THEMA'S */}
             <section
               id="themas"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
@@ -444,7 +444,7 @@ export default async function ResultPage({ params }: Args) {
               </ScrollReveal>
             </section>
 
-            {/* SECTIE 4 — STANDPUNTEN */}
+            {/* SECTIE 4 · STANDPUNTEN */}
             <section
               id="standpunten"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
@@ -471,7 +471,7 @@ export default async function ResultPage({ params }: Args) {
               </ScrollReveal>
             </section>
 
-            {/* SECTIE 4b — STEELMAN: BESTE TEGEN-ARGUMENT */}
+            {/* SECTIE 4b · STEELMAN: BESTE TEGEN-ARGUMENT */}
             {steelmanCandidates.length > 0 && (
               <section
                 id="steelman"
@@ -481,7 +481,7 @@ export default async function ResultPage({ params }: Args) {
                   <ScrollRevealItem>
                     <Kicker number="4b">Wat zou de andere kant zeggen?</Kicker>
                     <h2 className="display mt-5 max-w-3xl">
-                      Het sterkste argument tegen jouw eigen positie — per dimensie.
+                      Het sterkste argument tegen jouw eigen positie, per dimensie.
                     </h2>
                   </ScrollRevealItem>
                   <ScrollRevealItem>
@@ -535,7 +535,7 @@ export default async function ResultPage({ params }: Args) {
               </section>
             )}
 
-            {/* SECTIE 4c — COHORT (B3) */}
+            {/* SECTIE 4c · COHORT (B3) */}
             {cohort && (
               <section
                 id="cohort"
@@ -553,7 +553,7 @@ export default async function ResultPage({ params }: Args) {
                       Cohort van {cohort.size.toLocaleString("nl-NL")} profielen
                       uit {totalProfiles.toLocaleString("nl-NL")} totaal. We
                       tonen alleen cohorten met ≥{MIN_COHORT_SIZE} profielen,
-                      altijd geaggregeerd, nooit individueel — k-anonimiteit als
+                      altijd geaggregeerd, nooit individueel. K-anonimiteit als
                       privacy-floor. Verschil = gemiddelde van het cohort minus
                       jouw score.
                     </p>
@@ -615,7 +615,7 @@ export default async function ResultPage({ params }: Args) {
               </section>
             )}
 
-            {/* SECTIE 5 — PARADOXEN */}
+            {/* SECTIE 5 · PARADOXEN */}
             <section
               id="paradoxen"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
@@ -643,7 +643,7 @@ export default async function ResultPage({ params }: Args) {
               </ScrollReveal>
             </section>
 
-            {/* SECTIE 6 — PARTIJ-CONTEXT */}
+            {/* SECTIE 6 · PARTIJ-CONTEXT */}
             <section
               id="partijen"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
@@ -672,7 +672,7 @@ export default async function ResultPage({ params }: Args) {
               </ScrollReveal>
             </section>
 
-            {/* SECTIE 7 — POLITICI */}
+            {/* SECTIE 7 · POLITICI */}
             <section
               id="politici"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
@@ -712,7 +712,7 @@ export default async function ResultPage({ params }: Args) {
               </ScrollReveal>
             </section>
 
-            {/* SECTIE 8 — LANDEN */}
+            {/* SECTIE 8 · LANDEN */}
             <section
               id="landen"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
@@ -748,7 +748,7 @@ export default async function ResultPage({ params }: Args) {
               </ScrollReveal>
             </section>
 
-            {/* SECTIE 9 — DELEN */}
+            {/* SECTIE 9 · DELEN */}
             <section
               id="delen"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12 pb-8"

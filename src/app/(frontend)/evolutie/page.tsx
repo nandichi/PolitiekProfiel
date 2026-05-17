@@ -20,7 +20,7 @@ import { EvolutionPicker } from "@/components/evolution/EvolutionPicker";
 const PAGE_PATH = "/evolutie";
 const PAGE_TITLE = "Politieke evolutie";
 const PAGE_DESCRIPTION =
-  "Plak meerdere share-IDs en zie hoe je politieke vector zich over de tijd ontwikkelt. Geen account, geen server-opslag van keten — jij beheert de ID-lijst lokaal.";
+  "Plak meerdere share-IDs en zie hoe je politieke vector zich over de tijd ontwikkelt. Geen account en geen server-opslag van de keten; jij beheert de ID-lijst lokaal.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -112,7 +112,7 @@ export default async function EvolutiePage({ searchParams }: PageProps) {
             We bewaren niet wie wat heeft ingevuld. Daarom werk je hier met
             share-IDs: korte codes die je vindt onderaan jouw resultaatpagina.
             Plak er meerdere achter elkaar en je ziet hoe je vector evolueert.
-            De lijst staat in de URL — bookmark hem of stuur hem aan jezelf
+            De lijst staat in de URL; bookmark hem of stuur hem aan jezelf
             via een notitie-app.
           </p>
         </ScrollRevealItem>

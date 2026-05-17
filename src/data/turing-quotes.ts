@@ -6,8 +6,8 @@
  * meegegeven; bij twijfel of een citaat exact zo is gevallen, is het
  * geparafraseerd (gemarkeerd als `paraphrased: true`).
  *
- * Bedoeling van de test: niet "raad de partij", maar "raad het politieke kamp"
- * — meer aanvoelend dan triviaal. Daarom drie buckets: links, midden, rechts.
+ * Bedoeling van de test: niet "raad de partij", maar "raad het politieke kamp",
+ * dus meer aanvoelend dan triviaal. Daarom drie buckets: links, midden, rechts.
  */
 import type { ThemeId } from "@/lib/themes";
 
@@ -71,7 +71,7 @@ export const TURING_QUOTES: TuringQuote[] = [
   },
   {
     id: "q-004",
-    text: "De klimaatcrisis is geen kostenpost — het is dé economische kans van deze eeuw. En als we het slim doen, zorgen we dat iedereen meeprofiteert.",
+    text: "De klimaatcrisis is geen kostenpost; het is dé economische kans van deze eeuw. En als we het slim doen, zorgen we dat iedereen meeprofiteert.",
     camp: "links",
     theme: "klimaat",
     source: {
@@ -93,7 +93,7 @@ export const TURING_QUOTES: TuringQuote[] = [
   },
   {
     id: "q-006",
-    text: "Nederland is in de kern een rentmeester-land. Wij hebben de plicht om wat we ontvangen door te geven aan de volgende generatie — zorgvuldig, niet roekeloos.",
+    text: "Nederland is in de kern een rentmeester-land. Wij hebben de plicht om wat we ontvangen door te geven aan de volgende generatie, zorgvuldig en niet roekeloos.",
     camp: "midden",
     theme: "klimaat",
     source: {
@@ -152,7 +152,7 @@ export const TURING_QUOTES: TuringQuote[] = [
   },
   {
     id: "q-011",
-    text: "De Europese Unie is geen vijand, geen reddingsboei, maar een instrument. Soms werkt dat instrument goed, soms niet — en dat moeten we eerlijk durven benoemen.",
+    text: "De Europese Unie is geen vijand, geen reddingsboei, maar een instrument. Soms werkt dat instrument goed, soms niet, en dat moeten we eerlijk durven benoemen.",
     camp: "midden",
     theme: "eu",
     source: {
@@ -174,7 +174,7 @@ export const TURING_QUOTES: TuringQuote[] = [
   },
   {
     id: "q-013",
-    text: "Een land dat zijn boeren niet beschermt, beschermt zichzelf niet. Als wij stoppen met produceren, doet iemand anders het — en wel onder minder strenge regels.",
+    text: "Een land dat zijn boeren niet beschermt, beschermt zichzelf niet. Als wij stoppen met produceren, doet iemand anders het, en wel onder minder strenge regels.",
     camp: "rechts",
     theme: "klimaat",
     source: {
@@ -196,7 +196,7 @@ export const TURING_QUOTES: TuringQuote[] = [
   },
   {
     id: "q-015",
-    text: "Mensen die hier komen werken, leven, en kinderen krijgen, verdienen geen tweederangs status — ze verdienen onze gelijke behandeling.",
+    text: "Mensen die hier komen werken, leven, en kinderen krijgen, verdienen geen tweederangs status; ze verdienen onze gelijke behandeling.",
     camp: "links",
     theme: "migratie",
     source: {

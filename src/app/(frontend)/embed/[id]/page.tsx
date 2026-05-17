@@ -43,7 +43,7 @@ export default async function EmbedConfigPage({ params }: PageProps) {
   style="border:1px solid #dcd8c9;background:#fafaf7;max-width:520px"
   loading="lazy"
   referrerpolicy="no-referrer"
-  title="PolitiekProfiel — ${ideoName}"
+  title="PolitiekProfiel: ${ideoName}"
 ></iframe>`;
 
   const ogImage = `${SITE}/api/og/${id}`;
@@ -51,7 +51,7 @@ export default async function EmbedConfigPage({ params }: PageProps) {
   <img
     src="${ogImage}"
     width="600"
-    alt="PolitiekProfiel — ${ideoName}"
+    alt="PolitiekProfiel: ${ideoName}"
     loading="lazy"
   />
 </a>`;
@@ -74,7 +74,7 @@ export default async function EmbedConfigPage({ params }: PageProps) {
         <ScrollRevealItem>
           <p className="mt-8 max-w-2xl text-base text-ink-2 leading-relaxed">
             Plak één van onderstaande snippets in je blog, essay of website. Geen
-            tracking, geen externe scripts — alleen een iframe of statische
+            tracking, geen externe scripts: alleen een iframe of statische
             afbeelding. Niet bedoeld voor commercieel her-gebruik.
           </p>
         </ScrollRevealItem>
@@ -109,7 +109,7 @@ export default async function EmbedConfigPage({ params }: PageProps) {
                     maxWidth: 520,
                   }}
                   loading="lazy"
-                  title={`PolitiekProfiel — ${ideoName}`}
+                  title={`PolitiekProfiel: ${ideoName}`}
                 />
               </div>
               <div>
@@ -136,7 +136,7 @@ export default async function EmbedConfigPage({ params }: PageProps) {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`/api/og/${id}`}
-                  alt={`PolitiekProfiel — ${ideoName}`}
+                  alt={`PolitiekProfiel: ${ideoName}`}
                   width={600}
                   className="border border-rule"
                 />
@@ -164,7 +164,7 @@ export default async function EmbedConfigPage({ params }: PageProps) {
           </li>
           <li>
             We zetten geen cookies in het iframe. Mocht je toch consent vragen,
-            is dat niet nodig — er is geen tracking.
+            is dat niet nodig; er is geen tracking.
           </li>
           <li>
             Het profiel-ID staat ongewijzigd; iedereen die de embed ziet kan

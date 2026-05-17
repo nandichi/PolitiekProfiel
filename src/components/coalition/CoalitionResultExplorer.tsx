@@ -19,7 +19,7 @@ function extractShareId(input: string): string | null {
     const qa = url.searchParams.get("a") ?? url.searchParams.get("r");
     if (qa) return qa;
   } catch {
-    // Not a URL — try treating as raw id
+    // Not a URL; try treating as raw id
   }
   if (/^[A-Za-z0-9_-]{6,32}$/.test(trimmed)) return trimmed;
   return null;
@@ -84,9 +84,9 @@ export function CoalitionResultExplorer({ pool }: CoalitionResultExplorerProps) 
       )}
 
       <p className="mt-4 text-xs text-ink-muted">
-        We lezen de quiz-uitslag eenmalig server-side om jouw vector te
-        combineren met de {pool.length} partijen. Geen tracking — nothing
-        leaves your browser cache.
+        We lezen je quiz-uitslag eenmalig server-side om jouw vector te
+        combineren met de {pool.length} partijen. Geen analytics of
+        advertentie-tracking.
       </p>
     </div>
   );

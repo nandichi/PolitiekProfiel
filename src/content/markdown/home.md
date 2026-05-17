@@ -1,4 +1,4 @@
-# PolitiekProfiel — een onafhankelijk kompas
+# PolitiekProfiel: een onafhankelijk kompas
 
 > Politiek is meer dan links of rechts. Zie waar je écht staat.
 
@@ -7,19 +7,19 @@ PolitiekProfiel is een Nederlandstalig politiek kompas op **vijf onafhankelijke 
 - Geen tracking
 - Volledig anoniem
 - 5 tot 20 minuten
-- Vooraf gegenereerde duiding — nooit jouw antwoorden naar AI
+- Vooraf gegenereerde duiding; jouw antwoorden gaan nooit naar een AI-model
 
 ## Drie principes
 
-### 1. Vraagstelling — concreet, actueel, gebalanceerd
+### 1. Vraagstelling: concreet, actueel, gebalanceerd
 
 Stellingen die de redactie zorgvuldig opstelt. Voor en tegen krijgen evenveel ruimte; informeer jezelf vóór je antwoordt.
 
-### 2. Methodiek — vijf dimensies, zeven thema's, geen karikatuur
+### 2. Methodiek: vijf dimensies, zeven thema's, geen karikatuur
 
-Economisch, sociaal-cultureel, burgerrechten, bestuur en systeemvertrouwen vormen vijf onafhankelijke scores. Daarbovenop zeven beleidsthema's — klimaat, zorg, migratie, economie, EU, democratie, wonen — en paradox-detectie wanneer je antwoorden elkaar onderling tegenspreken.
+Economisch, sociaal-cultureel, burgerrechten, bestuur en systeemvertrouwen vormen vijf onafhankelijke scores. Daarbovenop zeven beleidsthema's (klimaat, zorg, migratie, economie, EU, democratie, wonen) en paradox-detectie wanneer je antwoorden elkaar onderling tegenspreken.
 
-### 3. Privacy — geen account, geen tracking, AI alleen vooraf
+### 3. Privacy: geen account, geen tracking, AI alleen vooraf
 
 Resultaten worden anoniem opgeslagen voor een korte deellink. Geen IP-adres, geen analytics, geen marketing-cookies. AI-gegenereerde duiding is **vooraf** gemaakt en gecached; jouw antwoorden komen er nooit aan te pas. Lees details op [`/ai-transparantie`](/ai-transparantie).
 
@@ -37,23 +37,23 @@ Begin op `https://politiekprofiel.nl/quiz/quick`, `/quiz/standard` of `/quiz/ext
 
 Iedere dimensie meet een onafhankelijke houding. Een conservatief op cultuur kan economisch links zijn. Een libertair kan EU-gezind zijn. De vijf scores samen tonen wat een enkele links–rechts schaal niet kan.
 
-1. **Economisch** — Vrije markt / Sterke staat
-2. **Sociaal-cultureel** — Conservatief / Progressief
-3. **Burgerrechten** — Autoritair / Libertair
-4. **Bestuur** — Nationaal-soeverein / Multilevel-EU
-5. **Systeemvertrouwen** — Wantrouwen / Vertrouwen
+1. **Economisch**: vrije markt / sterke staat
+2. **Sociaal-cultureel**: conservatief / progressief
+3. **Burgerrechten**: autoritair / libertair
+4. **Bestuur**: nationaal-soeverein / multilevel-EU
+5. **Systeemvertrouwen**: wantrouwen / vertrouwen
 
 ## De zeven thema's
 
 Naast de vijf assen krijg je een score per beleidsthema, zodat je niet alleen abstract maar ook concreet ziet waar je staat.
 
-1. **Klimaat & milieu** — Behoudend / Ambitieus
-2. **Zorg & welzijn** — Markt & eigen kracht / Publieke zorg
-3. **Migratie & integratie** — Restrictief / Open
-4. **Economie & belastingen** — Lasten omlaag / Herverdelen
-5. **EU & internationaal** — Soeverein / Geïntegreerd
-6. **Democratie & instituties** — Vernieuwen / Versterken
-7. **Wonen & ruimte** — Markt & bouwen / Publiek sturen
+1. **Klimaat & milieu**: behoudend / ambitieus
+2. **Zorg & welzijn**: markt & eigen kracht / publieke zorg
+3. **Migratie & integratie**: restrictief / open
+4. **Economie & belastingen**: lasten omlaag / herverdelen
+5. **EU & internationaal**: soeverein / geïntegreerd
+6. **Democratie & instituties**: vernieuwen / versterken
+7. **Wonen & ruimte**: markt & bouwen / publiek sturen
 
 Lees meer over de werking op `/methodiek`.
 

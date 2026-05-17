@@ -94,7 +94,7 @@ export function TuringGame({ quotes }: TuringGameProps) {
                       <p className="mt-2 text-xs text-ink-muted">
                         Jouw gok:{" "}
                         <span className="text-ink-2">
-                          {guess ? CAMP_LABEL[guess] : "—"}
+                          {guess ? CAMP_LABEL[guess] : "n.v.t."}
                         </span>
                         <span className="mx-2 text-ink-subtle">·</span>
                         Juist:{" "}

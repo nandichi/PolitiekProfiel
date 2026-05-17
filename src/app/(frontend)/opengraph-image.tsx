@@ -9,7 +9,7 @@ import {
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 export const alt =
-  "PolitiekProfiel — een onafhankelijk Nederlands politiek kompas op vijf onafhankelijke dimensies.";
+  "PolitiekProfiel: een onafhankelijk Nederlands politiek kompas op vijf onafhankelijke dimensies.";
 
 export default async function OpenGraphImage() {
   const { fonts, display, sans, mono } = await getOgFontConfig();
@@ -18,7 +18,7 @@ export default async function OpenGraphImage() {
     (
       <OgTemplate
         kicker="EEN ONAFHANKELIJK KOMPAS"
-        number="00 — MANIFESTO"
+        number="00 · MANIFESTO"
         titleParts={[
           { text: "Politiek is meer" },
           { text: "dan" },

@@ -92,7 +92,7 @@ async function buildMatrix(): Promise<ThemeDimensionMatrix> {
  *
  * In de praktijk werkt dit als een ruwe proxy: een partij die op klimaat
  * vaak 'voor' stemt op moties komt op de klimaat-as als 'ambitieus' uit.
- * Voor 'soeverein vs geïntegreerd' werkt dit aanmerkelijk slechter — dat
+ * Voor 'soeverein vs geïntegreerd' werkt dit aanmerkelijk slechter; dat
  * vraagt directionality-labels per motie (toekomstig werk).
  */
 export async function projectVotingToDimensions(

@@ -97,7 +97,7 @@ export default async function TypologyPage() {
           <Kicker number={1}>Nog geen voldoende-grote clusters</Kicker>
           <p className="mt-4 text-sm text-ink-2 leading-relaxed">
             Er zijn op dit moment nog geen typology-clusters waar voldoende
-            deelnemers in vallen om geaggregeerd te tonen. Doe zelf de quiz —
+            deelnemers in vallen om geaggregeerd te tonen. Doe zelf de quiz -
             jouw bijdrage helpt mee om dit landschap zichtbaar te maken.
           </p>
           <p className="mt-2 text-xs text-ink-muted">
@@ -150,7 +150,7 @@ export default async function TypologyPage() {
           Daarna zoeken we in de geanonimiseerde resultaten-database het cohort
           (op basis van afgeronde bucket-positie) dat het dichtst bij die
           doel-vector ligt en ≥{MIN_COHORT_SIZE} deelnemers heeft. We tonen
-          het gemiddelde van dat cohort, niet de doel-vector zelf — zo verschilt
+          het gemiddelde van dat cohort, niet de doel-vector zelf. Zo verschilt
           de getoonde positie van wat we &lsquo;verwachtten&rsquo;. Een ruwe
           Pew-stijl k-means clustering zit op de roadmap.
         </p>

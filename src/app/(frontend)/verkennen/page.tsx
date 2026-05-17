@@ -23,7 +23,7 @@ import { GLOSSARY } from "@/data/woordenboek";
 const PAGE_PATH = "/verkennen";
 const PAGE_TITLE = "Verken het kompas";
 const PAGE_DESCRIPTION =
-  "Politici, partijen, ideologieën, landen, stellingen en een politiek woordenboek — alles wat het kompas voedt, doorbladerbaar en uitlegbaar.";
+  "Politici, partijen, ideologieën, landen, stellingen en een politiek woordenboek: alles wat het kompas voedt, doorbladerbaar en uitlegbaar.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -101,7 +101,7 @@ export default async function VerkennenPage() {
       href: "/woordenboek",
       title: "Woordenboek",
       description:
-        "Nederlandse politieke termen helder uitgelegd — van AOW en kabinetsformatie tot subsidiariteit en trias politica.",
+        "Nederlandse politieke termen helder uitgelegd, van AOW en kabinetsformatie tot subsidiariteit en trias politica.",
       meta: `${GLOSSARY.length} TERMEN`,
     },
     {
@@ -141,7 +141,7 @@ export default async function VerkennenPage() {
       href: "/citaten",
       title: "Citaten-bibliotheek",
       description:
-        "Eén-zin samenvattingen per ideologie als shareable PNG-kaart — voor essays, blogs en sociale media.",
+        "Eén-zin samenvattingen per ideologie als shareable PNG-kaart, geschikt voor essays, blogs en sociale media.",
       meta: `${ideologies.length} CITAAT-KAARTEN`,
     },
   ];
@@ -178,7 +178,7 @@ export default async function VerkennenPage() {
           <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
             De vragenlijst is niet het einde. Hier vind je de stellingen,
             ideologieën, politici, partijen, landen en termen die het profiel
-            opbouwen — zonder ranking, zonder oordeel.
+            opbouwen, zonder ranking en zonder oordeel.
           </p>
         </ScrollRevealItem>
       </ScrollReveal>

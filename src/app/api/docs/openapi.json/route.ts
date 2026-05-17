@@ -50,7 +50,7 @@ export function GET() {
                 schema: { $ref: "#/components/schemas/SubmitRequest" },
                 examples: {
                   quick: {
-                    summary: "Quick tier — 5 antwoorden",
+                    summary: "Quick tier (5 antwoorden)",
                     value: {
                       tier: "quick",
                       answers: [

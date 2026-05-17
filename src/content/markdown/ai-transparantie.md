@@ -6,10 +6,10 @@ PolitiekProfiel gebruikt AI om bezoekers te helpen hun profiel beter te begrijpe
 
 Vooraf, eenmalig, en gecached in onze database:
 
-- **Per ideologie** — een uitgebreide essay van 600-800 woorden over de stroming, een leeslijst, sterkste argumenten vóór, en respectvolle tegenargumenten.
-- **Per dimensie x score-bucket** — uitleg over wat een sterk negatieve, negatieve, neutrale, positieve of sterk positieve score op die as betekent.
-- **Per ideologie x thema** — hoe denkt deze ideologie doorgaans over klimaat, zorg, migratie, economie, EU, democratie en wonen.
-- **Per paradox-type** — wat het betekent als je antwoorden binnen of tussen dimensies elkaar tegenspreken, en waarom dat geen probleem hoeft te zijn.
+- **Per ideologie**: een uitgebreide essay van 600-800 woorden over de stroming, een leeslijst, sterkste argumenten vóór, en respectvolle tegenargumenten.
+- **Per dimensie x score-bucket**: uitleg over wat een sterk negatieve, negatieve, neutrale, positieve of sterk positieve score op die as betekent.
+- **Per ideologie x thema**: hoe denkt deze ideologie doorgaans over klimaat, zorg, migratie, economie, EU, democratie en wonen.
+- **Per paradox-type**: wat het betekent als je antwoorden binnen of tussen dimensies elkaar tegenspreken, en waarom dat geen probleem hoeft te zijn.
 
 In totaal ongeveer **210 stukjes content**, eenmalig gegenereerd. Geen runtime-aanroep.
 
@@ -48,4 +48,4 @@ Op je resultaatpagina is **geen** AI-call actief. Alles wat je leest is gecached
 
 ## Waarom we hier transparant over zijn
 
-We willen dat je vertrouwt dat AI hier slechts een redactioneel hulpmiddel is — geen invloed op de scoring, geen invloed op de aanbevelingen, en zeker geen verwerking van persoonlijke gegevens.
+We willen dat je vertrouwt dat AI hier slechts een redactioneel hulpmiddel is: geen invloed op de scoring, geen invloed op de aanbevelingen, en zeker geen verwerking van persoonlijke gegevens.

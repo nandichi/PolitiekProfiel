@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "PolitiekProfiel — een onafhankelijk politiek kompas",
+    name: "PolitiekProfiel: een onafhankelijk politiek kompas",
     short_name: "PolitiekProfiel",
     description:
       "Een Nederlandstalig politiek kompas op vijf onafhankelijke dimensies. Geen tracking, geen account, anonieme deelbare resultaten.",

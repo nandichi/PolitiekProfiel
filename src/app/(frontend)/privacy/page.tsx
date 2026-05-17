@@ -48,7 +48,7 @@ const INDEX = [
 export default function PrivacyPage() {
   const articleLd = buildArticleSchema({
     path: PAGE_PATH,
-    headline: "Privacyverklaring — hoe we omgaan met jouw gegevens",
+    headline: "Privacyverklaring: hoe we omgaan met jouw gegevens",
     description: PAGE_DESCRIPTION,
     datePublished: PAGE_PUBLISHED,
     dateModified: PAGE_MODIFIED,
@@ -161,7 +161,7 @@ export default function PrivacyPage() {
             </p>
             <p>
               We berekenen alleen gemiddelden per dimensie en per thema. We
-              kunnen niet — en willen niet kunnen — individuele profielen uit
+              kunnen niet, en willen niet kunnen, individuele profielen uit
               een aggregaat terugleiden. Geen advertenties, geen
               doorverkoop, geen overdracht aan derden.
             </p>

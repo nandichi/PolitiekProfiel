@@ -183,7 +183,7 @@ export function ScatterPlot({
             strokeWidth={1}
           />
 
-          {/* Axis labels - mono. fontSize via inline style (px) zodat de tekst
+          {/* Axis labels: mono. fontSize via inline style (px) zodat de tekst
               NIET meeschaalt met de viewBox; op smalle viewports blijft hij
               leesbaar in plaats van te krimpen tot 5px. */}
           <text
@@ -228,7 +228,7 @@ export function ScatterPlot({
             ↓ {yMeta.poleNegative.label.toUpperCase()}
           </text>
 
-          {/* Corner coords — alleen op grotere viewports zichtbaar via een
+          {/* Corner coords: alleen op grotere viewports zichtbaar via een
               wrapper-group, omdat ze op mobiel onleesbaar zouden zijn. */}
           <g className="hidden sm:inline">
             {[

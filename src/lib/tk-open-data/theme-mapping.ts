@@ -2,7 +2,7 @@
  * Heuristische mapping van TK-zaaktekst naar onze 7 beleidsthema's.
  *
  * Doel: een snelle 0/1-classificatie op basis van keywords in titel +
- * onderwerp. Niet bedoeld als wetenschappelijke classificatie — bedoeld om
+ * onderwerp. Niet bedoeld als wetenschappelijke classificatie, maar om
  * stemgedrag per thema agregeren op de partijpagina (B2) en politicipagina
  * (C5).
  *

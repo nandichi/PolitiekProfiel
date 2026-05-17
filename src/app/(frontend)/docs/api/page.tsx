@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "API & Agent Discovery · PolitiekProfiel",
     description:
-      "OpenAPI 3.1, linkset, markdown for agents, WebMCP-tools — een site die agents begrijpen.",
+      "OpenAPI 3.1, linkset, markdown for agents en WebMCP-tools: een site die agents begrijpen.",
     url: "/docs/api",
     type: "article",
   },
@@ -123,7 +123,7 @@ export default function ApiDocsPage() {
                     {e.contentType}
                   </td>
                   <td className="px-4 py-3 font-mono text-xs text-ink/70">
-                    {e.rel ?? "—"}
+                    {e.rel ?? "n.v.t."}
                   </td>
                   <td className="px-4 py-3 text-ink/80">{e.description}</td>
                 </tr>

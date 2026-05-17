@@ -89,7 +89,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
     party.ideologySlugs.includes(i.slug),
   );
 
-  // TK stemgedrag (B2) — kan leeg zijn als cron nog niet heeft gedraaid of
+  // TK stemgedrag (B2): kan leeg zijn als cron nog niet heeft gedraaid of
   // partij geen Kamerzetels heeft.
   const votingRecords = party.region === "NL"
     ? await loadPartyVotingByTheme(party.slug).catch(() => [])
@@ -161,11 +161,11 @@ export default async function PartijDetailPage({ params }: PageProps) {
           {/* Meta-strip */}
           <ScrollRevealItem>
             <dl className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-px bg-rule border border-rule max-w-4xl">
-              <Meta term="Opgericht" value={party.founded ?? "—"} />
-              <Meta term="Lijsttrekker" value={party.leader ?? "—"} />
+              <Meta term="Opgericht" value={party.founded ?? "Onbekend"} />
+              <Meta term="Lijsttrekker" value={party.leader ?? "Onbekend"} />
               <Meta
                 term="Fractievoorzitter"
-                value={party.factionLeader ?? party.leader ?? "—"}
+                value={party.factionLeader ?? party.leader ?? "Onbekend"}
               />
               <Meta
                 term="Zetels TK 2025"
@@ -343,7 +343,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
                             {t.label}
                           </p>
                           <p className="mono tabular-nums text-sm text-ink">
-                            {v ? `${v.voorPct}%` : "—"}
+                            {v ? `${v.voorPct}%` : "n.v.t."}
                           </p>
                         </div>
                         <VotingBar v={v} />
