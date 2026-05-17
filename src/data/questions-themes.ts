@@ -56,6 +56,58 @@ const aedes: SeedSource = {
   label: "Aedes – Woningmarktmonitor",
   url: "https://aedes.nl/woningmarkt",
 };
+const aiOffice: SeedSource = {
+  label: "Europese Commissie – AI Act fasering",
+  url: "https://digital-strategy.ec.europa.eu/nl/policies/regulatory-framework-ai",
+};
+const aiPact: SeedSource = {
+  label: "AI Pact – Europese Commissie",
+  url: "https://digital-strategy.ec.europa.eu/en/policies/ai-pact",
+};
+const nato: SeedSource = {
+  label: "NAVO – Den Haag-top 2025 verklaring",
+  url: "https://www.nato.int/cps/en/natohq/news_236705.htm",
+};
+const rearm: SeedSource = {
+  label: "Europese Commissie – ReArm Europe Plan / Readiness 2030",
+  url: "https://commission.europa.eu/topics/defence/future-european-defence_nl",
+};
+const minDef: SeedSource = {
+  label: "Ministerie van Defensie – Defensienota",
+  url: "https://www.defensie.nl/onderwerpen/defensienota",
+};
+const icc: SeedSource = {
+  label: "International Criminal Court – Situation in the State of Palestine",
+  url: "https://www.icc-cpi.int/palestine",
+};
+const igh: SeedSource = {
+  label: "International Court of Justice – Zuid-Afrika tegen Israël",
+  url: "https://www.icj-cij.org/case/192",
+};
+const buza: SeedSource = {
+  label: "Ministerie van Buitenlandse Zaken – Midden-Oosten",
+  url: "https://www.rijksoverheid.nl/onderwerpen/midden-oosten",
+};
+const acm: SeedSource = {
+  label: "Autoriteit Consument & Markt – Digitale economie",
+  url: "https://www.acm.nl/nl/onderwerpen/digitale-economie",
+};
+const rivmJeugd: SeedSource = {
+  label: "RIVM – Mentale gezondheid jongeren",
+  url: "https://www.rivm.nl/mentale-gezondheid",
+};
+const ocw: SeedSource = {
+  label: "Ministerie van OCW – Mobiele telefoons in de klas",
+  url: "https://www.rijksoverheid.nl/onderwerpen/voortgezet-onderwijs/mobiele-telefoons-en-andere-apparaten-in-de-les",
+};
+const cbsArbeid: SeedSource = {
+  label: "CBS – Arbeidsmarkt en automatisering",
+  url: "https://www.cbs.nl/nl-nl/visualisaties/dashboard-arbeidsmarkt",
+};
+const wrrAi: SeedSource = {
+  label: "WRR – Opgave AI: De nieuwe systeemtechnologie",
+  url: "https://www.wrr.nl/publicaties/rapporten/2021/11/11/opgave-ai-de-nieuwe-systeemtechnologie",
+};
 
 const allTiers = ["quick", "standard", "extended"] as const;
 const standardExtended = ["standard", "extended"] as const;
@@ -127,7 +179,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat kernenergie een belangrijke pijler moet zijn van de Nederlandse energievoorziening.",
     info: {
       context:
-        "Het kabinet wil 2-4 nieuwe kerncentrales bouwen, naast Borssele. Bouwkosten en afvalverwerking blijven hete hangijzers.",
+        "Het Rijk onderzoekt zeven locaties in vier gebieden (Sloegebied/Borssele, Terneuzen, Maasvlakte II en Eemshaven) voor twee nieuwe kerncentrales. De definitieve Notitie Reikwijdte en Detailniveau werd 26 januari 2026 vastgesteld; bouwkosten en afvalverwerking blijven hete hangijzers.",
       argumentsFor: [
         "Kernenergie levert CO2-arme basislast, los van weer.",
         "Maakt het net robuuster naast wind en zon.",
@@ -326,7 +378,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat het eigen risico in de zorgverzekering moet verdwijnen.",
     info: {
       context:
-        "Het eigen risico staat in 2025 op €385. SP en PvdA willen het schrappen; VVD en CDA willen het behouden als rem op overconsumptie.",
+        "Het eigen risico staat in 2026 op €385 en is bevroren. De geplande verlaging naar €165 in 2027 is na de val van het kabinet-Schoof voorlopig van de baan; sommige partijen kijken zelfs naar verhoging richting €440. SP en GL-PvdA willen het volledig schrappen; VVD wil het behouden als rem op overconsumptie.",
       argumentsFor: [
         "Mensen mijden noodzakelijke zorg vanwege de kosten.",
         "Eigen risico raakt vooral chronisch zieken en lage inkomens.",
@@ -577,7 +629,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat Nederland een hard maximum moet stellen op het aantal asielzoekers per jaar.",
     info: {
       context:
-        "Het kabinet-Schoof voerde een asielnoodmaatregelenwet in. Een quotumwet werd in 2024 in de Tweede Kamer aangenomen.",
+        "De Asielnoodmaatregelenwet werd in juli 2025 in de Tweede Kamer aangenomen, maar op 21 april 2026 door de Eerste Kamer verworpen. De Wet invoering tweestatusstelsel (strengere nareis) werd dezelfde dag wél aangenomen. Discussie over harde quota blijft.",
       argumentsFor: [
         "Opvangcapaciteit, woningmarkt en zorg zijn overbelast.",
         "Een maximum biedt duidelijkheid en draagvlak.",
@@ -675,7 +727,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
     themes: ["migratie", "economie"],
     info: {
       context:
-        "De 30%-regeling voor kennismigranten wordt versoberd. Werkgevers waarschuwen voor talentvlucht; critici noemen het oneerlijk.",
+        "De 30%-regeling blijft in 2026 op 30% staan (de eerder voorgestelde afbouw 30-20-10% is geschrapt), maar daalt per 2027 naar 27%. De partiële buitenlandse belastingplicht is per 2025 afgeschaft voor nieuwe aanvragers. Werkgevers waarschuwen voor talentvlucht; critici noemen het oneerlijk.",
       argumentsFor: [
         "Internationaal talent is essentieel voor de Nederlandse kenniseconomie.",
         "Concurrentie met andere EU-landen om talent is hard.",
@@ -899,7 +951,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat de pensioenleeftijd voor jongere generaties verder omhoog mag.",
     info: {
       context:
-        "AOW-leeftijd stijgt naar 67 jaar (2024+). Vergrijzing zet druk op de financierbaarheid. ABP en pensioenfederatie waarschuwen.",
+        "AOW-leeftijd ligt in 2026 op 67 jaar en 3 maanden en stijgt mee met levensverwachting. De Wet toekomst pensioenen (juli 2023) is in volle uitvoering; ABP vaart per 1 januari 2027 het collectieve vermogen in. Vergrijzing zet de financierbaarheid onder druk.",
       argumentsFor: [
         "Levensverwachting stijgt; pensioenduur moet daarmee meebewegen.",
         "Behoud werknemers in productieve sectoren langer.",
@@ -972,7 +1024,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat het terugdringen van de staatsschuld een hogere prioriteit moet zijn dan publieke uitgaven.",
     info: {
       context:
-        "De Nederlandse staatsschuld lag rond 43% bbp in 2024 (EU-norm 60%). Critici willen toch behoudender, zeker met vergrijzing voor de deur.",
+        "De Nederlandse staatsschuld stijgt richting 47-48% bbp in 2026, onder druk van defensie-investeringen en zorgkosten (EU-norm 60%). Critici willen behoudender beleid, zeker met vergrijzing en de NAVO-norm van 5% bbp voor de deur.",
       argumentsFor: [
         "Schuld nu drukt toekomstige generaties.",
         "Buffer is nodig voor toekomstige crises (klimaat, demografie).",
@@ -1069,7 +1121,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat de EU sterker moet worden in defensie en buitenlands beleid.",
     info: {
       context:
-        "De oorlog in Oekraïne en de geopolitieke schok van de tweede Trump-presidentschap hebben het debat over EU-defensie aangewakkerd.",
+        "Sinds Trump 2.0 (januari 2025) en de oorlog in Oekraïne is de discussie over Europese strategische autonomie geëscaleerd. De NAVO-top in Den Haag (juni 2025) sprak een norm van 5% bbp af; de EU-Commissie lanceerde ReArm Europe (800 miljard).",
       argumentsFor: [
         "Geopolitiek alleen kunnen we ons als klein land niet redden.",
         "Schaalvoordeel maakt EU-defensie effectiever en goedkoper.",
@@ -1586,7 +1638,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat huurprijsregulering verder uitgebreid moet worden.",
     info: {
       context:
-        "De Wet betaalbare huur (2024) reguleert ook middenhuur tot circa €1.157. Uitbreiden naar duurder segment is een terugkerend voorstel.",
+        "De Wet betaalbare huur (juli 2024) reguleert middenhuur (geïndexeerd richting €1.180 in 2026). In april 2026 kondigde minister Boekholt-O'Sullivan vijf versoepelingen aan om nieuwbouw te stimuleren. Een evaluatie volgt in Q2 2027. Uitbreiden naar duurdere segmenten is een terugkerend linkse wens.",
       argumentsFor: [
         "Middenhuur is voor veel jonge huishoudens onbetaalbaar.",
         "Voorkomt dat huurders 50%+ van hun inkomen kwijt zijn.",
@@ -1709,7 +1761,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat statushouders geen voorrang meer moeten krijgen op sociale huurwoningen.",
     info: {
       context:
-        "Sinds 2017 kunnen gemeenten zelf bepalen of ze voorrang geven aan statushouders. Sinds 2025 wijst kabinet dit landelijk af.",
+        "Sinds 2017 kunnen gemeenten zelf bepalen of ze voorrang geven aan statushouders. Het kabinet-Schoof wilde dit landelijk verbieden via de Spreidingswet-aanpassing; na de kabinetsval bleef die status onzeker. Het kabinet-Jetten heroverweegt het beleid in 2026.",
       argumentsFor: [
         "Voorrang voelt onrechtvaardig voor mensen die lang wachten.",
         "Druk op andere wachtenden neemt toe.",
@@ -1790,6 +1842,341 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
         "Doelgroepenbeleid is moeilijk uit te voeren zonder rechtsongelijkheid.",
       ],
       sources: [bouwen, aedes],
+    },
+  },
+
+  // ============ AI & TECHNOLOGIE (3) ============
+  {
+    statement:
+      "De Europese AI-verordening (AI Act) is een goede zaak, ook als dat innovatie kan vertragen.",
+    dimension: "governance",
+    direction: "positive",
+    weight: 1.2,
+    tiers: [...allTiers],
+    depth: "broad",
+    discriminator: 75,
+    themes: ["eu", "democratie"],
+    derivedStance:
+      "Je vindt dat Europese AI-regulering belangrijker is dan een onbeperkt tempo van innovatie.",
+    info: {
+      context:
+        "De EU AI Act is sinds augustus 2024 van kracht; sinds 2 augustus 2025 gelden verplichtingen voor algemene AI-modellen (GPAI) en vanaf augustus 2026 kan de Commissie boetes opleggen. De wet verbiedt bepaalde toepassingen (sociale scoring, ongerichte biometrische surveillance) en stelt extra eisen aan hoog-risico-AI.",
+      argumentsFor: [
+        "Heldere regels beschermen burgers tegen ondoorzichtige algoritmes en discriminatie.",
+        "Europa zet een wereldstandaard, vergelijkbaar met de invloed van de AVG.",
+      ],
+      argumentsAgainst: [
+        "Te strenge regels jagen AI-bedrijven naar de VS of China.",
+        "Handhaving wordt complex en oneerlijk voor het mkb.",
+      ],
+      sources: [aiOffice, aiPact],
+    },
+  },
+  {
+    statement:
+      "De overheid moet werkenden actief beschermen tegen banenverlies door AI, ook als dat extra belastinggeld kost.",
+    dimension: "economic",
+    direction: "positive",
+    tiers: [...standardExtended],
+    depth: "deep",
+    discriminator: 70,
+    themes: ["economie", "democratie"],
+    derivedStance:
+      "Je vindt dat de overheid mensen die hun baan dreigen te verliezen door AI ruimhartig moet beschermen.",
+    info: {
+      context:
+        "WRR (2021) en OESO waarschuwen dat AI grote delen van administratief en creatief werk raakt. Vakbonden pleiten voor omscholingsbudgetten, AI-clausules in cao's en eventueel een digitale dividend-belasting; werkgevers zien vooral kansen.",
+      argumentsFor: [
+        "Zonder ingrijpen dragen werknemers de transitiekosten alleen.",
+        "Omscholing en bestaanszekerheid voorkomen sociale schade en wantrouwen.",
+      ],
+      argumentsAgainst: [
+        "Subsidies dreigen oude banen kunstmatig in leven te houden.",
+        "Markt past zich vanzelf aan; te veel sturing remt productiviteit.",
+      ],
+      sources: [wrrAi, cbsArbeid],
+    },
+  },
+  {
+    statement:
+      "AI-bedrijven moeten verplicht hun trainingsdata openbaar maken zodat makers van content kunnen controleren of hun werk is gebruikt.",
+    dimension: "civil",
+    direction: "positive",
+    tiers: [...extendedOnly],
+    depth: "deep",
+    discriminator: 60,
+    themes: ["democratie", "eu"],
+    info: {
+      context:
+        "Onder de AI Act moeten aanbieders van GPAI sinds 2025 een samenvatting van trainingsdata publiceren en een copyright-beleid voeren. Makers, kranten en uitgevers klagen dat dit te beperkt is om misbruik te bewijzen.",
+      argumentsFor: [
+        "Auteursrechten verdienen ook in het AI-tijdperk reële bescherming.",
+        "Transparantie maakt bias en discriminatie in modellen toetsbaar.",
+      ],
+      argumentsAgainst: [
+        "Volledige openbaarheid maakt bedrijfsgeheimen kopieerbaar.",
+        "Concurrenten buiten de EU hebben deze verplichting niet.",
+      ],
+      sources: [aiOffice, acm],
+    },
+  },
+
+  // ============ DEFENSIE & VEILIGHEID (4) ============
+  {
+    statement:
+      "Nederland moet de NAVO-norm van 5% bbp voor defensie volledig overnemen, ook als dat ten koste gaat van zorg of onderwijs.",
+    dimension: "economic",
+    direction: "negative",
+    weight: 1.3,
+    tiers: [...allTiers],
+    depth: "broad",
+    discriminator: 90,
+    themes: ["economie", "eu"],
+    derivedStance:
+      "Je vindt dat de NAVO-norm van 5% bbp voor defensie hard moet worden ingevoerd, ook ten koste van zorg of onderwijs.",
+    info: {
+      context:
+        "Op de NAVO-top in Den Haag (juni 2025) spraken bondgenoten af om 5% van het bbp aan defensie te besteden tegen 2032 (3,5% direct + 1,5% defensie-gerelateerd). Voor Nederland betekent dit 16-19 miljard extra per jaar bovenop het huidige defensiebudget.",
+      argumentsFor: [
+        "Russische dreiging en wegvallende Amerikaanse garantie maken dit noodzakelijk.",
+        "Vrede en welvaart op lange termijn vragen sterke afschrikking nu.",
+      ],
+      argumentsAgainst: [
+        "Een dubbel zo groot defensiebudget verdringt cruciale publieke uitgaven.",
+        "Geld alleen lost capaciteits- en personeelstekorten niet op.",
+      ],
+      sources: [nato, minDef],
+    },
+  },
+  {
+    statement:
+      "Europa moet zo snel mogelijk een eigen defensie opbouwen die niet afhankelijk is van de Verenigde Staten.",
+    dimension: "governance",
+    direction: "positive",
+    weight: 1.2,
+    tiers: [...allTiers],
+    depth: "broad",
+    discriminator: 80,
+    themes: ["eu"],
+    derivedStance:
+      "Je vindt dat Europa zich strategisch moet losmaken van Amerikaanse veiligheidsgaranties.",
+    info: {
+      context:
+        "Onder Trump 2.0 (sinds januari 2025) is de Amerikaanse betrouwbaarheid binnen de NAVO minder vanzelfsprekend. De EU-Commissie lanceerde maart 2025 ReArm Europe (800 miljard), met onder andere het SAFE-leeninstrument van 150 miljard voor gezamenlijke wapenaankopen.",
+      argumentsFor: [
+        "Een Europa dat strategisch afhankelijk is van Washington is kwetsbaar.",
+        "Gezamenlijke EU-defensie is goedkoper en wendbaarder dan 27 losse legers.",
+      ],
+      argumentsAgainst: [
+        "De NAVO blijft de meest effectieve veiligheidsorganisatie ter wereld.",
+        "Een Europees leger raakt de kern van nationale soevereiniteit.",
+      ],
+      sources: [rearm, nato, clingendael],
+    },
+  },
+  {
+    statement:
+      "De dienstplicht moet weer geactiveerd worden om de Nederlandse krijgsmacht op sterkte te brengen.",
+    dimension: "civil",
+    direction: "negative",
+    tiers: [...standardExtended],
+    depth: "deep",
+    discriminator: 70,
+    themes: ["democratie"],
+    derivedStance:
+      "Je vindt dat de dienstplicht weer geactiveerd moet worden om Defensie te versterken.",
+    info: {
+      context:
+        "De opkomstplicht is in 1997 opgeschort, niet afgeschaft. Defensie kampt met fors personeelstekort. Het kabinet experimenteert sinds 2024 met een 'dienjaar' op vrijwillige basis; in Europa keren Letland en Litouwen al terug naar dienstplicht.",
+      argumentsFor: [
+        "Vrijwillige werving haalt al jaren de doelen niet.",
+        "Dienstplicht versterkt burgerschap en bewustzijn van veiligheid.",
+      ],
+      argumentsAgainst: [
+        "Gedwongen militaire dienst raakt persoonlijke vrijheid in de kern.",
+        "Een gemotiveerd vrijwilligersleger is professioneler dan dienstplichtigen.",
+      ],
+      sources: [minDef, clingendael],
+    },
+  },
+  {
+    statement:
+      "Nederland moet doorgaan met militaire en financiële steun aan Oekraïne, ook als dat onze eigen begroting onder druk zet.",
+    dimension: "governance",
+    direction: "positive",
+    tiers: [...allTiers],
+    depth: "broad",
+    discriminator: 75,
+    themes: ["eu", "economie"],
+    derivedStance:
+      "Je vindt dat Nederlandse steun aan Oekraïne onverminderd door moet, ook bij budgettaire druk.",
+    info: {
+      context:
+        "Nederland heeft sinds 2022 ruim 10 miljard euro aan militaire en humanitaire steun toegezegd, waaronder F-16's. Sinds Trump 2.0 dragen Europese landen een groter deel; de EU committeerde zich in 2025 aan langetermijnsteun.",
+      argumentsFor: [
+        "Een Russische overwinning zou de Europese veiligheid fundamenteel ondermijnen.",
+        "Verlaten van Oekraïne ondermijnt geloofwaardigheid van het Westen.",
+      ],
+      argumentsAgainst: [
+        "Oorlog zonder duidelijk eindperspectief is een bodemloze put.",
+        "Geld is beter besteed aan de eigen krijgsmacht en burgers.",
+      ],
+      sources: [clingendael, minDef],
+    },
+  },
+
+  // ============ SOCIALE MEDIA & JEUGD (2) ============
+  {
+    statement:
+      "Sociale media zoals TikTok en Instagram moeten verboden worden voor kinderen onder de 15 jaar.",
+    dimension: "civil",
+    direction: "negative",
+    weight: 1.2,
+    tiers: [...allTiers],
+    depth: "broad",
+    discriminator: 80,
+    themes: ["democratie", "zorg"],
+    derivedStance:
+      "Je vindt dat sociale media voor kinderen onder de 15 jaar verboden moeten worden.",
+    info: {
+      context:
+        "Australië voerde eind 2024 een verbod in voor kinderen onder de 16 jaar; circa 4,7 miljoen accounts werden gedeactiveerd. In Nederland steunt een Kamermeerderheid (VVD, GL-PvdA, NSC, CDA, SP, D66) een minimumleeftijd van 15 jaar; Frankrijk, Spanje en Griekenland werken aan een EU-breed voorstel.",
+      argumentsFor: [
+        "Onderzoek (RIVM, Trimbos) verbindt intensief gebruik aan slaapproblemen en somberheid.",
+        "Platforms ontwerpen verslavend; een wettelijke grens neemt druk weg van ouders.",
+      ],
+      argumentsAgainst: [
+        "Een verbod is moeilijk te handhaven en jaagt jongeren naar onveiliger alternatieven.",
+        "Vrijheid van informatie geldt ook voor minderjarigen.",
+      ],
+      sources: [rivmJeugd, ocw],
+    },
+  },
+  {
+    statement:
+      "Smartphones en tablets horen tijdens schooluren volledig de klas uit, op alle niveaus.",
+    dimension: "social",
+    direction: "negative",
+    tiers: [...standardExtended],
+    depth: "broad",
+    discriminator: 65,
+    themes: ["democratie"],
+    derivedStance:
+      "Je vindt dat smartphones en tablets tijdens schooluren volledig uit de klas moeten.",
+    info: {
+      context:
+        "Sinds januari 2024 is er een landelijke richtlijn voor de middelbare school (geen telefoon in de klas, tenzij educatief). Sinds september 2024 geldt dit ook in het basisonderwijs. Een wettelijke verankering ligt op tafel.",
+      argumentsFor: [
+        "Concentratie en sociale interactie nemen aantoonbaar toe.",
+        "Scholen melden minder pestincidenten en betere prestaties.",
+      ],
+      argumentsAgainst: [
+        "Digitale geletterdheid vraagt juist begeleid gebruik op school.",
+        "Een totaalverbod miskent leerlingen die hun telefoon medisch nodig hebben.",
+      ],
+      sources: [ocw, rivmJeugd],
+    },
+  },
+
+  // ============ INTERNATIONAAL RECHT & GAZA (4) ============
+  {
+    statement:
+      "Nederland moet de Palestijnse staat erkennen, ook als dat de relatie met Israël onder druk zet.",
+    dimension: "governance",
+    direction: "positive",
+    weight: 1.2,
+    tiers: [...allTiers],
+    depth: "broad",
+    discriminator: 80,
+    themes: ["eu"],
+    derivedStance:
+      "Je vindt dat Nederland Palestina als staat moet erkennen, ook bij Israëlische bezwaren.",
+    info: {
+      context:
+        "Sinds 2024 hebben onder meer Spanje, Ierland en Noorwegen Palestina erkend. Inmiddels erkent een ruime meerderheid van VN-lidstaten Palestina; in Nederland steunen GL-PvdA, D66, SP, BIJ1 en VOLT erkenning. Het staakt-het-vuren tussen Israël en Hamas (januari 2025) heeft de diplomatie deels heropend.",
+      argumentsFor: [
+        "Erkenning houdt het perspectief van een twee-statenoplossing levend.",
+        "Nederland verliest geloofwaardigheid door wel Israël maar niet Palestina te erkennen.",
+      ],
+      argumentsAgainst: [
+        "Erkenning zonder grenzen, regering en monopolie op geweld is symboolpolitiek.",
+        "Het beloont eenzijdig handelen in plaats van directe onderhandelingen.",
+      ],
+      sources: [buza, clingendael],
+    },
+  },
+  {
+    statement:
+      "Nederland is verplicht het ICC-arrestatiebevel tegen Netanyahu uit te voeren als hij Nederlands grondgebied zou betreden.",
+    dimension: "trust",
+    direction: "positive",
+    weight: 1.2,
+    tiers: [...standardExtended],
+    depth: "deep",
+    discriminator: 80,
+    themes: ["democratie", "eu"],
+    derivedStance:
+      "Je vindt dat Nederland het ICC-arrestatiebevel tegen Netanyahu zonder uitzondering moet uitvoeren.",
+    info: {
+      context:
+        "Het Internationaal Strafhof (ICC, Den Haag) gaf in november 2024 arrestatiebevelen uit tegen Netanyahu en oud-minister Gallant. In december 2025 verwierp het ICC een Israëlisch verzoek het onderzoek te stoppen; de bevelen blijven van kracht. Nederland is partij bij het ICC-statuut en zou een arrestatie moeten uitvoeren.",
+      argumentsFor: [
+        "Een internationale rechtsorde geldt voor iedereen of voor niemand.",
+        "Als gastland van het ICC heeft Nederland een bijzondere verantwoordelijkheid.",
+      ],
+      argumentsAgainst: [
+        "Politieke en veiligheidsbelangen kunnen botsen met juridische plicht.",
+        "Toepassing kan diplomatieke crisissen veroorzaken.",
+      ],
+      sources: [icc, igh],
+    },
+  },
+  {
+    statement:
+      "Nederland moet wapenleveranties en militaire samenwerking met Israël opschorten zolang de situatie in Gaza niet structureel is opgelost.",
+    dimension: "social",
+    direction: "positive",
+    tiers: [...standardExtended],
+    depth: "deep",
+    discriminator: 80,
+    themes: ["eu", "democratie"],
+    derivedStance:
+      "Je vindt dat Nederland militaire samenwerking met Israël moet opschorten tot er een duurzame oplossing voor Gaza is.",
+    info: {
+      context:
+        "Het Gerechtshof Den Haag verbood in 2024 export van F-35-onderdelen aan Israël. Het ICC houdt arrestatiebevelen overeind; het IGH (zaak Zuid-Afrika tegen Israël) beoordeelt of er sprake is van genocide. Een VN-commissie onder Pillay sprak in september 2025 over 'gezaghebbende aanwijzingen' voor genocide.",
+      argumentsFor: [
+        "Volkenrechtelijke verplichtingen verbieden bijdragen aan ernstige schendingen.",
+        "Wapenstops vergroten de druk om naar een duurzame oplossing toe te werken.",
+      ],
+      argumentsAgainst: [
+        "Israël heeft recht op zelfverdediging en strategische partners.",
+        "Opschorten verzwakt onze positie in toekomstige bemiddeling.",
+      ],
+      sources: [icc, igh, buza],
+    },
+  },
+  {
+    statement:
+      "Internationale rechtbanken zoals het ICC en IGH verdienen ons vertrouwen, ook als hun uitspraken Nederlandse bondgenoten ongelegen komen.",
+    dimension: "trust",
+    direction: "positive",
+    tiers: [...extendedOnly],
+    depth: "deep",
+    discriminator: 70,
+    themes: ["democratie", "eu"],
+    info: {
+      context:
+        "Zowel ICC als IGH zetelen in Den Haag. Trump 2.0 zette in 2025 sancties tegen ICC-aanklagers in. Voor Nederland is internationale rechtsorde een grondwettelijke doelstelling (artikel 90 Grondwet).",
+      argumentsFor: [
+        "Onafhankelijke rechters bieden tegenwicht aan macht en oorlog.",
+        "Als gastland heeft Nederland een bijzonder belang bij hun gezag.",
+      ],
+      argumentsAgainst: [
+        "Politiek selectieve aandacht ondermijnt hun geloofwaardigheid.",
+        "Internationale rechters missen democratische verantwoording.",
+      ],
+      sources: [icc, igh, vdem2],
     },
   },
 ];

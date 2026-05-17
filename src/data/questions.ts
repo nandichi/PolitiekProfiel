@@ -66,7 +66,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: allTiers,
     info: {
       context:
-        "In Nederland geldt sinds 2024 een toptarief van 49,5% boven circa €75.000. Voorstanders willen een extra schijf voor topinkomens; tegenstanders waarschuwen voor weglek van talent en investeringen.",
+        "In Nederland geldt in 2026 een toptarief van 49,5% boven €78.426. Voorstanders willen een extra schijf voor topinkomens; tegenstanders waarschuwen voor weglek van talent en investeringen.",
       argumentsFor: [
         "Vermindert ongelijkheid en versterkt de publieke kas voor zorg en onderwijs.",
         "Topinkomens stegen sneller dan modale lonen; meedragen lijkt rechtvaardig.",
@@ -86,10 +86,10 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: allTiers,
     info: {
       context:
-        "De vennootschapsbelasting in Nederland kent een toptarief van 25,8% (2025). Multinationals maken gebruik van internationale constructies om effectief minder te betalen.",
+        "De vennootschapsbelasting in Nederland kent in 2026 een tarief van 19% tot €200.000 winst en 25,8% daarboven. De OESO Pijler 2 minimumheffing van 15% voor multinationals is sinds 1 januari 2024 van kracht, maar internationale constructies blijven het effectieve tarief drukken.",
       argumentsFor: [
         "Een eerlijker bijdrage van grote bedrijven verlicht de last voor mkb en burgers.",
-        "Internationale afspraken (OESO Pijler 2) bevestigen dat aanpassing nodig is.",
+        "OESO Pijler 2 is een eerste stap; nationale aanvulling kan verder gaan.",
       ],
       argumentsAgainst: [
         "Hogere lasten kunnen hoofdkantoren naar het buitenland verjagen.",
@@ -137,7 +137,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: standardExtended,
     info: {
       context:
-        "Per 2025 is het wettelijk minimumloon in Nederland €14,06 per uur. De FNV en linkse partijen pleiten voor verdere verhoging.",
+        "Per 1 januari 2026 is het wettelijk minimumloon in Nederland €14,71 per uur (€2.294 bruto per maand bij voltijd). De FNV en linkse partijen pleiten voor verdere verhoging richting €16.",
       argumentsFor: [
         "Werken moet lonen; te lage lonen leiden tot armoede ondanks fulltime werk.",
         "Hogere lonen verkleinen het inkomensverschil zonder uitkeringen te verhogen.",
@@ -162,7 +162,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: standardExtended,
     info: {
       context:
-        "Nederland kent al jaren een tekort aan betaalbare woningen. Tegelijk wordt het aandeel sociale huur sinds 2010 gedrukt door verhuurderheffing en verkoop.",
+        "Nederland kent al jaren een tekort aan betaalbare woningen. De verhuurderheffing op corporaties is per 2023 afgeschaft, maar de bouwopgave blijft groot en corporaties klagen over capaciteit, grond en stikstof.",
       argumentsFor: [
         "Een sterk sociaal segment houdt huren betaalbaar voor lage middeninkomens.",
         "Markt alleen heeft het tekort niet kunnen oplossen.",
@@ -187,7 +187,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: extendedOnly,
     info: {
       context:
-        "Box 3 belast in Nederland vermogen, niet inkomen uit vermogen. Een echte progressieve vermogensbelasting bestaat niet, maar wordt door SP, PvdA en GroenLinks bepleit.",
+        "De Hoge Raad oordeelde in december 2024 dat het oude box 3-stelsel het werkelijke rendement moet volgen. De Tweede Kamer stemde op 12 februari 2026 in met de Wet werkelijk rendement box 3, die per 1 januari 2028 ingaat. Een aanvullende progressieve vermogensbelasting wordt door SP, GL-PvdA en BIJ1 bepleit.",
       argumentsFor: [
         "De rijkste 1% bezit een snel groeiend deel van het vermogen.",
         "Vermogensongelijkheid is hardnekkiger dan inkomensongelijkheid.",
@@ -454,7 +454,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: allTiers,
     info: {
       context:
-        "In 2024 vroegen circa 32.000 mensen asiel aan in Nederland. Het kabinet maakt opvang nu strenger met de asielnoodmaatregelenwet.",
+        "In 2024 vroegen circa 32.000 mensen asiel aan in Nederland; in 2025 lag dat aantal iets lager. De Asielnoodmaatregelenwet werd in juli 2025 in de Tweede Kamer aangenomen, maar op 21 april 2026 in de Eerste Kamer verworpen. Wel aangenomen werd de Wet invoering tweestatusstelsel, die nareis voor subsidiair beschermden inperkt.",
       argumentsFor: [
         "Bescherming van vluchtelingen is een internationale verplichting.",
         "Andere EU-landen vangen relatief meer mensen op.",
@@ -574,7 +574,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: extendedOnly,
     info: {
       context:
-        "De Staatscommissie MDMA adviseerde in 2024 een gecontroleerde regulering van MDMA voor volwassenen, mits omkleed met waarborgen.",
+        "De Staatscommissie MDMA adviseerde in 2024 een gecontroleerde regulering van MDMA voor volwassenen, mits omkleed met waarborgen. Het kabinet legde dit advies grotendeels naast zich neer; partijen als D66, VOLT en GL-PvdA blijven aandringen op een experiment.",
       argumentsFor: [
         "Reguleren snijdt criminaliteit en maakt gebruik veiliger.",
         "Onderzoek wijst op relatief lage gezondheidsrisico’s bij begeleid gebruik.",
@@ -644,7 +644,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: allTiers,
     info: {
       context:
-        "Het kabinet-Schoof heeft in 2024 strengere asielmaatregelen aangekondigd via een Asielnoodmaatregelenwet.",
+        "Het kabinet-Schoof viel in juni 2025 over het asielbeleid. Het kabinet-Jetten (sinds 23 februari 2026) erfde een verworpen Asielnoodmaatregelenwet (Eerste Kamer, 21 april 2026) en een wel aangenomen Wet tweestatusstelsel.",
       argumentsFor: [
         "De huidige instroom legt te veel druk op huisvesting, zorg en onderwijs.",
         "Strengere kaders kunnen draagvlak voor échte vluchtelingen behouden.",
@@ -1243,7 +1243,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: allTiers,
     info: {
       context:
-        "De EU verdiept zich onder andere op gebied van defensie, klimaat en industriebeleid.",
+        "De EU verdiept zich onder andere op gebied van defensie (ReArm Europe, 800 miljard, maart 2025), klimaat (Green Deal) en industriebeleid (Chips Act, AI Act). Onder druk van Trump 2.0 spraken NAVO-landen in juni 2025 in Den Haag af 5% van het bbp aan defensie te besteden tegen 2032.",
       argumentsFor: [
         "Op het wereldtoneel telt Europa alleen samen mee.",
         "Gezamenlijke aanpak is efficiënter voor klimaat, migratie en veiligheid.",
@@ -1313,7 +1313,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: standardExtended,
     info: {
       context:
-        "Met een veranderende rol van de VS en oorlog in Oekraïne staat Europese defensiesamenwerking hoog op de agenda.",
+        "Onder Trump 2.0 is de Amerikaanse veiligheidsgarantie minder vanzelfsprekend. EU-Commissie lanceerde maart 2025 ReArm Europe (800 miljard). NAVO sprak in juni 2025 een norm van 5% bbp af (3,5% direct + 1,5% defensie-gerelateerd) tegen 2032.",
       argumentsFor: [
         "Versnipperde nationale legers zijn duur en inefficiënt.",
         "Europa moet zichzelf kunnen verdedigen, los van Amerikaanse politiek.",
@@ -1630,7 +1630,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: allTiers,
     info: {
       context:
-        "Volgens het EU Justice Scoreboard 2024 vertrouwt circa 70% van de Nederlanders de rechtspraak.",
+        "Volgens het EU Justice Scoreboard 2025 vertrouwt circa 70% van de Nederlanders de rechtspraak. Internationale ranglijsten plaatsen NL hoog op onafhankelijkheid, maar de toeslagenaffaire en juridificering van klimaatbeleid drukken het oordeel.",
       argumentsFor: [
         "De rechtspraak heeft sterke waarborgen tegen politieke beïnvloeding.",
         "Internationale ranglijsten plaatsen NL hoog qua onafhankelijkheid.",
@@ -1705,7 +1705,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: standardExtended,
     info: {
       context:
-        "Nederland staat in 2025 op #4 in de Reporters Without Borders Press Freedom Index.",
+        "Nederland staat in 2025 op de #4 plek in de Reporters Without Borders Press Freedom Index, met sterke wettelijke bescherming maar zorgen over bedreiging van journalisten en mediaconcentratie.",
       argumentsFor: [
         "Hoge journalistieke standaarden en interne kwaliteitscontrole.",
         "Pluriform medialandschap met onafhankelijke titels.",
@@ -1886,7 +1886,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: standardExtended,
     info: {
       context:
-        "De EU heeft met de DMA en DSA grote tech-bedrijven aangepakt; uitvoering blijft een politiek strijdpunt.",
+        "De EU heeft met de DMA, DSA en sinds augustus 2025 de AI Act grote tech-bedrijven aangepakt. Vanaf augustus 2026 kan de Commissie ook AI-boetes opleggen. Uitvoering en handhaving blijven een politiek strijdpunt.",
       argumentsFor: [
         "Algoritmes en netwerkmacht beïnvloeden samenlevingen ingrijpend.",
         "Belastingontwijking en lobby vergroten machtsongelijkheid.",
