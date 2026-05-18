@@ -1,0 +1,26 @@
+{
+  "dates": [
+    {
+      "slug": "ideology:populistisch-rechts:essay",
+      "kind": "ideology-essay",
+      "dates": [
+        "2008"
+      ]
+    }
+  ],
+  "politici": [
+    {
+      "slug": "dimension:civil:bucket:neutral",
+      "politicus": "Trump"
+    },
+    {
+      "slug": "dimension:social:bucket:neutral",
+      "politicus": "Trump"
+    },
+    {
+      "slug": "dimension:trust:bucket:neutral",
+      "politicus": "Trump"
+    }
+  ],
+  "elections": []
+}

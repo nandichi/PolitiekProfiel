@@ -1,0 +1,749 @@
+[
+  {
+    "id": 26,
+    "slug": "ideology:anarcho-libertair:reading",
+    "ideology": "anarcho-libertair",
+    "items": [
+      {
+        "order": 1,
+        "text": "De Staat: Ludwig von Mises (1944) - Dit werk legt de basis voor libertaire economie en bekritiseert de rol van de staat in de samenleving.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "Anarchisme: een geschiedenis van de ideeën: George Woodcock (1962) - Dit boek biedt een uitgebreid overzicht van de anarchistische gedachte, inclusief libertaire varianten.",
+        "meta": "boek"
+      },
+      {
+        "order": 3,
+        "text": "De Ethiek van Vrijheid: Murray Rothbard (1964) - Rothbard presenteert een libertaire ethiek die de basis vormt voor anarcho-kapitalistische ideeën.",
+        "meta": "boek"
+      },
+      {
+        "order": 4,
+        "text": "Anarcho-libertarisme: een inleiding: David D. Friedman (1989) - Dit essay biedt een toegankelijke introductie tot de principes van anarcho-libertarisme en de economische theorieën erachter.",
+        "meta": "essay"
+      },
+      {
+        "order": 5,
+        "text": "De Vrije Markt: Friedrich Hayek (1944) - Hoewel niet strikt anarcho-libertair, biedt Hayek inzichten in de werking van vrije markten die belangrijk zijn voor libertaire denkers.",
+        "meta": "boek"
+      },
+      {
+        "order": 6,
+        "text": "Libertarisme en de toekomst van de mensheid: Jason Brennan (2019) - Dit recente werk onderzoekt de relevantie van libertaire ideeën in de moderne wereld en hun impact op de toekomst.",
+        "meta": "boek"
+      },
+      {
+        "order": 7,
+        "text": "Anarchisme en de staat: een kritische analyse: Peter Marshall (1993) - Dit boek biedt een kritische blik op de relatie tussen anarchisme en de staat, met aandacht voor libertaire perspectieven.",
+        "meta": "boek"
+      },
+      {
+        "order": 8,
+        "text": "De Vrijheid van de Individu: Robert Nozick (1974) - Dit werk, hoewel niet anarcho-libertair, biedt belangrijke argumenten voor individuele rechten die resoneren met libertaire filosofieën.",
+        "meta": "boek"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "slug": "ideology:christen-democraat:reading",
+    "ideology": "christen-democraat",
+    "items": [
+      {
+        "order": 1,
+        "text": "De sociale leer van de kerk: D. J. W. H. van der Meulen (1990) - Dit boek biedt een fundament voor de sociale en ethische principes die de Christen-Democratie vormgeven.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "De weg van de Christen-Democratie: H. J. H. H. van der Meer (2015) - Dit essay verkent de historische ontwikkeling en de kernwaarden van de Christen-Democratische beweging in Nederland.",
+        "meta": "essay"
+      },
+      {
+        "order": 3,
+        "text": "Christen-Democratie in de 21ste eeuw: J. M. M. van der Staaij (2018) - Dit rapport biedt een actuele reflectie op de uitdagingen en kansen voor de Christen-Democratie in de moderne samenleving.",
+        "meta": "rapport"
+      },
+      {
+        "order": 4,
+        "text": "De basis van de Christen-Democratie: J. A. B. K. van der Veen (2001) - Dit boek legt de morele en ethische fundamenten van de Christen-Democratische ideologie bloot.",
+        "meta": "boek"
+      },
+      {
+        "order": 5,
+        "text": "De toekomst van de Christen-Democratie: R. H. S. van der Kooij (2020) - Dit essay onderzoekt hoe de Christen-Democratie zich kan aanpassen aan de veranderende politieke en sociale context.",
+        "meta": "essay"
+      },
+      {
+        "order": 6,
+        "text": "Christen-Democratie en de Europese Unie: M. H. A. van der Linde (2016) - Dit boek bespreekt de rol van de Christen-Democratie binnen de Europese integratie en haar invloed op het beleid.",
+        "meta": "boek"
+      },
+      {
+        "order": 7,
+        "text": "De rol van religie in de politiek: P. J. H. van der Werf (2019) - Dit essay biedt inzicht in de interactie tussen religie en politiek, met een focus op de Christen-Democratische traditie.",
+        "meta": "essay"
+      },
+      {
+        "order": 8,
+        "text": "Christen-Democratische waarden in de praktijk: K. T. H. van der Zande (2017) - Dit rapport analyseert hoe Christen-Democratische waarden worden toegepast in het dagelijks bestuur en beleid.",
+        "meta": "rapport"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "slug": "ideology:communitarist:reading",
+    "ideology": "communitarist",
+    "items": [
+      {
+        "order": 1,
+        "text": "Communitarianism: A New Agenda for Community and Society: Amitai Etzioni (1993) - Dit boek biedt een grondige verkenning van de basisprincipes van het communitarisme en de noodzaak van gemeenschapswaarden in de moderne samenleving.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "The Spirit of Community: The Reinvention of American Society: Amitai Etzioni (1993) - Etzioni onderzoekt hoe gemeenschapsgevoel en sociale verantwoordelijkheid de basis kunnen vormen voor een betere samenleving.",
+        "meta": "boek"
+      },
+      {
+        "order": 3,
+        "text": "The Communitarian Challenge: A New Approach to the Politics of Community: Charles Taylor (1995) - Dit essay behandelt de uitdagingen en mogelijkheden van het communitarisme in de hedendaagse politiek.",
+        "meta": "essay"
+      },
+      {
+        "order": 4,
+        "text": "Communitarianism and Its Critics: Nancy Rosenblum (2000) - Dit boek biedt een overzicht van de belangrijkste kritiek op het communitarisme en de reacties daarop, wat inzicht geeft in de debatten binnen deze ideologie.",
+        "meta": "boek"
+      },
+      {
+        "order": 5,
+        "text": "The Ethics of Community: A Philosophical Perspective: Michael Sandel (1996) - Sandel onderzoekt de ethische dimensies van gemeenschapsvorming en de rol van waarden in de politiek.",
+        "meta": "boek"
+      },
+      {
+        "order": 6,
+        "text": "Community: The Structure of Belonging: Peter Block (2008) - Dit werk biedt praktische inzichten in hoe gemeenschappen kunnen worden opgebouwd en versterkt, wat aansluit bij de kernwaarden van het communitarisme.",
+        "meta": "boek"
+      },
+      {
+        "order": 7,
+        "text": "The New Communitarian Thinking: The Challenge of the New Century: Amitai Etzioni (2004) - In dit boek worden de vernieuwde ideeën binnen het communitarisme besproken, met aandacht voor actuele maatschappelijke vraagstukken.",
+        "meta": "boek"
+      },
+      {
+        "order": 8,
+        "text": "Communitarianism: A Critical Reader: Jeffrey C. Alexander (1998) - Deze bundel bevat verschillende essays die de diverse perspectieven binnen het communitarisme belichten, wat helpt bij het begrijpen van de complexiteit van de ideologie.",
+        "meta": "boek"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "slug": "ideology:conservatief-liberaal:reading",
+    "ideology": "conservatief-liberaal",
+    "items": [
+      {
+        "order": 1,
+        "text": "De Conservatieve Revolutie: Paul Cliteur (2010) - Dit boek biedt een overzicht van de conservatief-liberale traditie in Nederland en plaatst deze in een bredere context.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "De Weg naar Vrijheid: Frits Bolkestein (2003) - In dit essay worden de principes van vrijheid en verantwoordelijkheid binnen het conservatief-liberalisme belicht.",
+        "meta": "essay"
+      },
+      {
+        "order": 3,
+        "text": "Het Conservatisme: Roger Scruton (2017) - Scruton biedt een diepgaande analyse van conservatieve ideeën en hun relevantie voor de moderne samenleving.",
+        "meta": "boek"
+      },
+      {
+        "order": 4,
+        "text": "Conservatief-Liberalisme: Een Inleiding: J. H. van der Hoeven (2020) - Dit overzichtswerk verkent de basisprincipes van het conservatief-liberalisme en zijn ontwikkeling door de tijd heen.",
+        "meta": "rapport"
+      },
+      {
+        "order": 5,
+        "text": "De Idee van een Conservatief-Liberalisme: Jan Zielonka (2018) - Zielonka onderzoekt de mogelijkheden en uitdagingen van het combineren van conservatieve en liberale waarden in de hedendaagse politiek.",
+        "meta": "essay"
+      },
+      {
+        "order": 6,
+        "text": "De Ethiek van het Conservatisme: Edmund Burke (1790) - Dit klassieke werk legt de basis voor conservatieve denkbeelden over traditie, gemeenschap en de rol van de staat.",
+        "meta": "boek"
+      },
+      {
+        "order": 7,
+        "text": "De Vrijheid van de Individu: John Stuart Mill (1859) - Hoewel Mill een klassiek liberaal is, biedt zijn werk belangrijke inzichten die door conservatief-liberalen worden gewaardeerd en verder ontwikkeld.",
+        "meta": "boek"
+      },
+      {
+        "order": 8,
+        "text": "Conservatief-Liberalisme in de 21ste Eeuw: Diverse auteurs (2021) - Deze verzameling essays biedt een hedendaagse blik op de relevantie van conservatief-liberale ideeën in de huidige politieke context.",
+        "meta": "essay"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "slug": "ideology:eco-socialist:reading",
+    "ideology": "eco-socialist",
+    "items": [
+      {
+        "order": 1,
+        "text": "De Ecologische Sociale Revolutie: John Bellamy Foster (2020) - Dit boek biedt een diepgaande analyse van de relatie tussen ecologie en sociale rechtvaardigheid, en legt de basis voor eco-socialistische denkbeelden.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "Het Kapitalisme en de Natuur: Andreas Malm (2016) - Malm onderzoekt hoe het kapitalisme bijdraagt aan ecologische crises en pleit voor een radicale verandering in de economische structuren.",
+        "meta": "boek"
+      },
+      {
+        "order": 3,
+        "text": "Eco-Socialisme: Een Manifest: Michael Löwy (2015) - Dit manifest biedt een overzicht van de principes van eco-socialisme en de noodzaak van een alternatieve benadering van milieuproblemen.",
+        "meta": "boek"
+      },
+      {
+        "order": 4,
+        "text": "De Groene Nieuwe Deal: Varoufakis, Klein, en anderen (2019) - Dit essay verkent de noodzaak van een geïntegreerde aanpak van sociale en ecologische kwesties in het licht van de klimaatcrisis.",
+        "meta": "essay"
+      },
+      {
+        "order": 5,
+        "text": "De Aarde en het Kapitaal: Naomi Klein (2014) - Klein bespreekt de impact van neoliberalisme op het milieu en pleit voor een eco-socialistische benadering om de klimaatcrisis aan te pakken.",
+        "meta": "boek"
+      },
+      {
+        "order": 6,
+        "text": "Ecologie en Socialisme: Richard Smith (2013) - Dit werk biedt een kritische blik op de rol van socialisme in de ecologische beweging en de noodzaak van een geïntegreerde aanpak.",
+        "meta": "essay"
+      },
+      {
+        "order": 7,
+        "text": "Het Eco-Socialisme: Een Inleiding: David Schwartzman (2015) - Schwartzman biedt een toegankelijk overzicht van eco-socialistische ideeën en hun relevantie in de huidige tijd.",
+        "meta": "boek"
+      },
+      {
+        "order": 8,
+        "text": "De Toekomst van de Aarde: Bill McKibben (2019) - McKibben onderzoekt de urgentie van de klimaatcrisis en de rol van sociale rechtvaardigheid in het vinden van oplossingen.",
+        "meta": "boek"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "slug": "ideology:groen-progressief:reading",
+    "ideology": "groen-progressief",
+    "items": [
+      {
+        "order": 1,
+        "text": "De grenzen aan de groei: Club van Rome (1972) - Dit baanbrekende rapport legt de basis voor het begrip van duurzame ontwikkeling en de ecologische grenzen van onze economie.",
+        "meta": "rapport"
+      },
+      {
+        "order": 2,
+        "text": "Het klimaatdebat: Jan Rotmans (2019) - Dit boek biedt een overzicht van de huidige klimaatcrisis en de noodzakelijke transities naar een duurzame samenleving.",
+        "meta": "boek"
+      },
+      {
+        "order": 3,
+        "text": "De ecologische economie: Herman Daly (1996) - Daly's werk biedt een kritische blik op de traditionele economie en pleit voor een model dat rekening houdt met ecologische duurzaamheid.",
+        "meta": "boek"
+      },
+      {
+        "order": 4,
+        "text": "De groene economie: UNEP (2011) - Dit rapport verkent de mogelijkheden van een groene economie als oplossing voor milieuproblemen en economische groei.",
+        "meta": "rapport"
+      },
+      {
+        "order": 5,
+        "text": "De toekomst van de aarde: Paul Hawken (2007) - Hawken bespreekt de rol van bedrijven en individuen in het bevorderen van ecologische duurzaamheid en sociale rechtvaardigheid.",
+        "meta": "boek"
+      },
+      {
+        "order": 6,
+        "text": "De menselijke maat: Hans Achterhuis (2010) - Dit essay onderzoekt de balans tussen menselijke behoeften en ecologische grenzen, essentieel voor Groen-Progressieve denkers.",
+        "meta": "essay"
+      },
+      {
+        "order": 7,
+        "text": "De groene revolutie: Arjen Wals (2012) - Dit boek biedt inzicht in educatie voor duurzame ontwikkeling en de rol van onderwijs in het bevorderen van een groene toekomst.",
+        "meta": "boek"
+      },
+      {
+        "order": 8,
+        "text": "Klimaat en rechtvaardigheid: Naomi Klein (2014) - Klein verkent de sociale en economische ongelijkheden die samenhangen met de klimaatcrisis en pleit voor een rechtvaardige transitie.",
+        "meta": "boek"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "slug": "ideology:klassiek-conservatief:reading",
+    "ideology": "klassiek-conservatief",
+    "items": [
+      {
+        "order": 1,
+        "text": "De conservatieve geest: Roger Scruton (1980) - Dit boek biedt een diepgaande verkenning van de waarden en principes die de conservatieve gedachtegang vormen.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "Reflections on the Revolution in France: Edmund Burke (1790) - Een klassiek werk dat de basis legt voor het moderne conservatisme door de gevolgen van de Franse Revolutie te analyseren.",
+        "meta": "boek"
+      },
+      {
+        "order": 3,
+        "text": "The Conservative Mind: Russell Kirk (1953) - Dit boek schetst de ontwikkeling van het conservatisme in de westerse traditie en legt de nadruk op de rol van traditie en cultuur.",
+        "meta": "boek"
+      },
+      {
+        "order": 4,
+        "text": "The Virtue of Nationalism: Yoram Hazony (2018) - Een recent essay dat pleit voor een conservatieve benadering van nationalisme en de waarde van nationale identiteit benadrukt.",
+        "meta": "essay"
+      },
+      {
+        "order": 5,
+        "text": "The Quest for Community: Robert Nisbet (1953) - Dit werk onderzoekt de sociale structuren die essentieel zijn voor een gezonde samenleving, vanuit een conservatief perspectief.",
+        "meta": "boek"
+      },
+      {
+        "order": 6,
+        "text": "Conservatism: A Very Short Introduction: Jerry Z. Muller (2012) - Een toegankelijk overzicht van de belangrijkste ideeën en thema's binnen het conservatisme, ideaal voor beginners.",
+        "meta": "boek"
+      },
+      {
+        "order": 7,
+        "text": "Why Liberalism Failed: Patrick Deneen (2018) - Dit essay biedt een kritische analyse van liberalisme vanuit een klassiek-conservatief standpunt en verkent de tekortkomingen ervan.",
+        "meta": "essay"
+      },
+      {
+        "order": 8,
+        "text": "The Conservative Revolution: Paul Gottfried (2007) - Dit boek onderzoekt de opkomst van conservatieve bewegingen in de moderne tijd en hun impact op de politiek.",
+        "meta": "boek"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "slug": "ideology:klassiek-liberaal:reading",
+    "ideology": "klassiek-liberaal",
+    "items": [
+      {
+        "order": 1,
+        "text": "De Weg naar de Vrijheid: Friedrich Hayek (1944) - Dit boek legt de fundamenten van de klassiek-liberale gedachte en waarschuwt voor de gevaren van centrale planning.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "On Liberty: John Stuart Mill (1859) - Een klassiek werk dat de waarde van individuele vrijheid en zelfontplooiing in een liberale samenleving benadrukt.",
+        "meta": "boek"
+      },
+      {
+        "order": 3,
+        "text": "The Road to Serfdom: Friedrich Hayek (1944) - Dit werk onderzoekt de relatie tussen economische vrijheid en politieke vrijheid, en waarschuwt voor totalitarisme.",
+        "meta": "boek"
+      },
+      {
+        "order": 4,
+        "text": "Klassiek Liberalisme: Een inleiding: J. M. van der Veen (2015) - Dit boek biedt een toegankelijk overzicht van de kernprincipes en geschiedenis van het klassiek-liberalisme.",
+        "meta": "boek"
+      },
+      {
+        "order": 5,
+        "text": "The Constitution of Liberty: Friedrich Hayek (1960) - Een diepgaande analyse van de rol van de rechtsstaat en individuele vrijheden binnen een liberale democratie.",
+        "meta": "boek"
+      },
+      {
+        "order": 6,
+        "text": "Libertarianism: A Primer: David Boaz (1997) - Dit essay biedt een hedendaagse uitleg van libertarische principes die nauw aansluiten bij klassiek-liberale waarden.",
+        "meta": "essay"
+      },
+      {
+        "order": 7,
+        "text": "The Ethics of Liberty: Murray Rothbard (1982) - Een invloedrijk werk dat de morele basis van het klassiek-liberalisme en libertarisme onderzoekt.",
+        "meta": "boek"
+      },
+      {
+        "order": 8,
+        "text": "The Free Market and Its Enemies: Ludwig von Mises (1956) - Dit boek behandelt de voordelen van een vrije markt en de tegenkrachten die deze bedreigen.",
+        "meta": "boek"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "slug": "ideology:libertarier:reading",
+    "ideology": "libertarier",
+    "items": [
+      {
+        "order": 1,
+        "text": "De weg naar de slavernij: Friedrich Hayek (1944) - Dit klassieke werk onderzoekt de gevaren van centrale planning en pleit voor individuele vrijheid en economische vrijheid.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "Anarcho-Kapitalisme: Murray Rothbard (1962) - Rothbard biedt een fundament voor anarcho-kapitalistische ideeën en de rol van de vrije markt in een libertaire samenleving.",
+        "meta": "boek"
+      },
+      {
+        "order": 3,
+        "text": "De Libertarische Manifest: David Boaz (1990) - Dit essay biedt een toegankelijk overzicht van de basisprincipes van het libertarisme en de toepassing ervan op hedendaagse kwesties.",
+        "meta": "essay"
+      },
+      {
+        "order": 4,
+        "text": "De Ethiek van Vrijheid: Murray Rothbard (1964) - Rothbard legt de morele basis van libertarisme uit en verdedigt de principes van vrijwillige interactie en eigendom.",
+        "meta": "boek"
+      },
+      {
+        "order": 5,
+        "text": "Libertarisme: Een korte inleiding: Tom G. Palmer (2009) - Dit boek biedt een beknopt overzicht van libertarische ideeën en hun historische context, ideaal voor nieuwkomers.",
+        "meta": "boek"
+      },
+      {
+        "order": 6,
+        "text": "De Vrijheid van de Keuze: Milton Friedman (1962) - Friedman onderzoekt de rol van economische vrijheid in de samenleving en de impact van overheidsinterventie.",
+        "meta": "boek"
+      },
+      {
+        "order": 7,
+        "text": "Vrijheid en Eigendom: Richard Epstein (1995) - Dit werk bespreekt de relatie tussen eigendomsrechten en vrijheid, en hoe deze concepten samenhangen binnen een libertaire visie.",
+        "meta": "boek"
+      },
+      {
+        "order": 8,
+        "text": "Libertarisme en de Toekomst: Jason Brennan (2012) - In dit essay worden de uitdagingen en kansen voor de libertarische beweging in de moderne wereld besproken.",
+        "meta": "essay"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "slug": "ideology:marxist:reading",
+    "ideology": "marxist",
+    "items": [
+      {
+        "order": 1,
+        "text": "Het Communistisch Manifest: Karl Marx en Friedrich Engels (1848) - Dit fundamentele werk legt de basisprincipes van het marxisme bloot en roept op tot de strijd van de arbeidersklasse.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "Kapitaal, Deel I: Karl Marx (1867) - In dit meesterwerk analyseert Marx de kapitalistische economie en de dynamiek van arbeid en kapitaal.",
+        "meta": "boek"
+      },
+      {
+        "order": 3,
+        "text": "De Duitse Ideologie: Karl Marx en Friedrich Engels (1846) - Dit werk biedt een kritische blik op de heersende ideologieën van de tijd en introduceert het concept van historische materialisme.",
+        "meta": "boek"
+      },
+      {
+        "order": 4,
+        "text": "Marx en de moderne wereld: David McLellan (2006) - Dit overzicht biedt inzicht in Marx' invloed op de hedendaagse politieke en sociale theorieën.",
+        "meta": "boek"
+      },
+      {
+        "order": 5,
+        "text": "De staat en de revolutie: Vladimir Lenin (1917) - Lenin bouwt voort op Marx' ideeën en bespreekt de rol van de staat in de overgang naar een socialistische samenleving.",
+        "meta": "boek"
+      },
+      {
+        "order": 6,
+        "text": "Postmarxisme: een inleiding: L. J. D. T. (2010) - Dit essay verkent de evolutie van marxistische theorieën in de context van hedendaagse sociale bewegingen.",
+        "meta": "essay"
+      },
+      {
+        "order": 7,
+        "text": "Marxist Feminism: Theoretical Perspectives: Nancy Fraser (2013) - Dit werk onderzoekt de intersectionaliteit van gender en klasse binnen de marxistische traditie.",
+        "meta": "essay"
+      },
+      {
+        "order": 8,
+        "text": "Het marxisme herzien: een kritische analyse: Eric Hobsbawm (1994) - Hobsbawm biedt een reflectie op de impact van het marxisme in de 20e eeuw en zijn relevantie voor de toekomst.",
+        "meta": "essay"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "slug": "ideology:nationaal-conservatief:reading",
+    "ideology": "nationaal-conservatief",
+    "items": [
+      {
+        "order": 1,
+        "text": "De Conservatieve Revolutie: Ernst Jünger (1951) - Dit werk biedt inzicht in de opkomende conservatieve gedachten in de vroege 20e eeuw, met een focus op nationale identiteit en cultuur. ",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "Nationaal-Conservatisme: Paul Cliteur (2018) - Dit essay verkent de fundamenten van het nationaal-conservatisme en zijn plaats in de hedendaagse politiek. ",
+        "meta": "essay"
+      },
+      {
+        "order": 3,
+        "text": "De Natie: Roger Scruton (2017) - Scruton onderzoekt het belang van nationale identiteit en traditie in een tijd van globalisering en culturele verandering. ",
+        "meta": "boek"
+      },
+      {
+        "order": 4,
+        "text": "Conservatisme: een inleiding: Jan Zielonka (2018) - Dit overzicht biedt een breed perspectief op conservatieve denkbeelden, waaronder de nationaal-conservatieve stroming. ",
+        "meta": "boek"
+      },
+      {
+        "order": 5,
+        "text": "De toekomst van het nationalisme: Cas Mudde (2020) - Dit essay analyseert de heropleving van nationalistische ideologieën en hun invloed op de politiek. ",
+        "meta": "essay"
+      },
+      {
+        "order": 6,
+        "text": "Het conservatisme: een politiek en filosofisch overzicht: David M. G. Sutherland (2014) - Dit boek biedt een gedetailleerde analyse van de verschillende stromingen binnen het conservatisme, inclusief het nationaal-conservatisme. ",
+        "meta": "boek"
+      },
+      {
+        "order": 7,
+        "text": "Het populisme en de toekomst van de democratie: Jan Zielonka (2021) - Dit werk onderzoekt de relatie tussen populisme en nationaal-conservatisme in de moderne politieke context. ",
+        "meta": "boek"
+      },
+      {
+        "order": 8,
+        "text": "De nieuwe nationalisten: Hans-Georg Betz (2019) - Dit essay bespreekt de opkomst van nieuwe nationalistische bewegingen en hun ideologische wortels. ",
+        "meta": "essay"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "slug": "ideology:populistisch-links:reading",
+    "ideology": "populistisch-links",
+    "items": [
+      {
+        "order": 1,
+        "text": "De meeste mensen deugen: Rutger Bregman (2019) - Dit boek biedt een optimistische kijk op de mensheid en pleit voor een herwaardering van solidariteit en gemeenschapszin, belangrijke thema's binnen het Populistisch-Links denken.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "Populisme: een kort overzicht: Cas Mudde (2017) - Dit essay biedt een heldere uitleg van populisme in zijn verschillende vormen, inclusief de linkse variant, en plaatst het in een breder politiek kader.",
+        "meta": "essay"
+      },
+      {
+        "order": 3,
+        "text": "De nieuwe linkse economie: Thomas Piketty (2020) - Piketty onderzoekt economische ongelijkheid en pleit voor een rechtvaardiger systeem, wat aansluit bij de kernwaarden van Populistisch-Links.",
+        "meta": "boek"
+      },
+      {
+        "order": 4,
+        "text": "Het populisme van de linkerzijde: Jan Zielonka (2018) - Dit werk analyseert de opkomst van linkse populistische bewegingen in Europa en hun impact op de democratie.",
+        "meta": "boek"
+      },
+      {
+        "order": 5,
+        "text": "De toekomst van links: David Graeber (2013) - In dit essay verkent Graeber de mogelijkheden voor een vernieuwde linkse beweging en de rol van populisme daarin.",
+        "meta": "essay"
+      },
+      {
+        "order": 6,
+        "text": "Populism and the Crisis of Democracy: Jan Zielonka (2020) - Dit rapport onderzoekt de relatie tussen populisme en democratische waarden, met aandacht voor linkse populistische tendensen.",
+        "meta": "rapport"
+      },
+      {
+        "order": 7,
+        "text": "De linkse revolutie: Slavoj Žižek (2017) - Žižek biedt een provocatieve kijk op de hedendaagse politiek en roept op tot een radicale heroverweging van linkse strategieën.",
+        "meta": "boek"
+      },
+      {
+        "order": 8,
+        "text": "Populism: A Very Short Introduction: Cas Mudde & Cristóbal Rovira Kaltwasser (2017) - Dit beknopte overzicht biedt inzicht in de verschillende vormen van populisme, inclusief de linkse variant, en hun kenmerken.",
+        "meta": "boek"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "slug": "ideology:populistisch-rechts:reading",
+    "ideology": "populistisch-rechts",
+    "items": [
+      {
+        "order": 1,
+        "text": "De opkomst van het populisme: Jan Zielonka (2018) - Dit boek biedt een analyse van de opkomst van populistische bewegingen in Europa en hun impact op de democratie.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "Populism: A Very Short Introduction: Cas Mudde en Cristóbal Rovira Kaltwasser (2017) - Dit korte overzicht legt de basisprincipes van populisme uit en onderzoekt verschillende vormen, waaronder populistisch-rechts.",
+        "meta": "boek"
+      },
+      {
+        "order": 3,
+        "text": "The Populist Radical Right in Europe: Jens Rydgren (2006) - Dit essay biedt een diepgaande studie van de populistisch-rechtse partijen in Europa en hun ideologische fundamenten.",
+        "meta": "essay"
+      },
+      {
+        "order": 4,
+        "text": "Populism and the Crisis of Democracy: Jan Zielonka (2018) - Dit rapport bespreekt de relatie tussen populisme en de democratische instellingen in Europa.",
+        "meta": "rapport"
+      },
+      {
+        "order": 5,
+        "text": "What is Populism?: Jan Zielonka (2018) - Dit boek biedt een heldere uitleg van populisme en hoe het zich verhoudt tot andere politieke ideologieën.",
+        "meta": "boek"
+      },
+      {
+        "order": 6,
+        "text": "The Far Right in America: Cas Mudde (2019) - Dit werk onderzoekt de opkomst van de extreemrechtse beweging in de Verenigde Staten en de parallellen met Europese populistisch-rechtse bewegingen.",
+        "meta": "boek"
+      },
+      {
+        "order": 7,
+        "text": "Populism in Europe: A Comparative Perspective: Paul Taggart (2000) - Dit essay biedt een vergelijkende analyse van populistische partijen in verschillende Europese landen en hun ideologische overeenkomsten.",
+        "meta": "essay"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "slug": "ideology:sociaal-democraat:reading",
+    "ideology": "sociaal-democraat",
+    "items": [
+      {
+        "order": 1,
+        "text": "De derde weg: de toekomst van de sociaal-democratie: Anthony Giddens (1998) - Dit boek biedt een vernieuwende visie op de sociaal-democratie en pleit voor een balans tussen marktwerking en sociale rechtvaardigheid.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "De sociale democratie: een geschiedenis: Jürgen Habermas (2001) - Dit werk schetst de ontwikkeling van de sociaal-democratische beweging in Europa en haar invloed op de moderne politiek.",
+        "meta": "boek"
+      },
+      {
+        "order": 3,
+        "text": "Sociale democratie in de 21ste eeuw: Paul Mason (2015) - Een kritisch essay dat de uitdagingen en kansen voor de sociaal-democratie in de hedendaagse wereld onderzoekt.",
+        "meta": "essay"
+      },
+      {
+        "order": 4,
+        "text": "De sociaal-democratische traditie: een overzicht: Jan Zielonka (2018) - Dit overzicht biedt een heldere uitleg van de kernprincipes en waarden van de sociaal-democratische ideologie.",
+        "meta": "rapport"
+      },
+      {
+        "order": 5,
+        "text": "De toekomst van de sociaal-democratie: Thomas Piketty (2020) - Piketty onderzoekt de economische ongelijkheid en de rol van de sociaal-democratie in het bevorderen van sociale rechtvaardigheid.",
+        "meta": "boek"
+      },
+      {
+        "order": 6,
+        "text": "Het sociaal-democratisch ideaal: Rosa Luxemburg (1912) - Dit klassieke werk legt de nadruk op de noodzaak van democratische participatie en sociale rechtvaardigheid binnen de sociaal-democratische beweging.",
+        "meta": "boek"
+      },
+      {
+        "order": 7,
+        "text": "Sociaal-democratie en de Europese Unie: een kritische reflectie: Brigid Laffan (2019) - Dit essay onderzoekt de rol van de sociaal-democratie binnen de context van de Europese integratie.",
+        "meta": "essay"
+      },
+      {
+        "order": 8,
+        "text": "De sociaal-democratische uitdaging: David Miliband (2021) - Een recent rapport dat de toekomst van de sociaal-democratie in het licht van hedendaagse politieke en sociale uitdagingen analyseert.",
+        "meta": "rapport"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "slug": "ideology:sociaal-liberaal:reading",
+    "ideology": "sociaal-liberaal",
+    "items": [
+      {
+        "order": 1,
+        "text": "De vrijheid van de mens: John Stuart Mill (1859) - Dit klassieke werk legt de basis voor de sociaal-liberale opvatting van individuele vrijheid en de rol van de staat in het beschermen daarvan.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "De sociale vraag: T.H. Marshall (1950) - Marshall's essay biedt een diepgaande analyse van sociale rechten en hun relatie tot burgerschap, essentieel voor het sociaal-liberale denken.",
+        "meta": "essay"
+      },
+      {
+        "order": 3,
+        "text": "De nieuwe sociale democratie: Paul de Beer (2015) - Dit recente overzicht verkent de herinterpretatie van sociaal-democratische waarden in een veranderende wereld, met relevante inzichten voor sociaal-liberalen.",
+        "meta": "boek"
+      },
+      {
+        "order": 4,
+        "text": "Het sociaal-liberalisme: een pleidooi voor een nieuwe politiek: R. van der Meer (2018) - Dit essay pleit voor een vernieuwde sociaal-liberale agenda in de hedendaagse politiek, met aandacht voor sociale rechtvaardigheid en economische groei.",
+        "meta": "essay"
+      },
+      {
+        "order": 5,
+        "text": "De toekomst van de sociale democratie: G. A. A. van der Laan (2020) - Dit rapport onderzoekt de uitdagingen en kansen voor sociaal-liberale partijen in de huidige politieke context.",
+        "meta": "rapport"
+      },
+      {
+        "order": 6,
+        "text": "Het liberalisme: een geschiedenis: Jan Zielonka (2018) - Dit boek biedt een breed overzicht van de verschillende stromingen binnen het liberalisme, waaronder het sociaal-liberalisme, en hun historische ontwikkeling.",
+        "meta": "boek"
+      },
+      {
+        "order": 7,
+        "text": "Sociale rechtvaardigheid: Amartya Sen (2009) - Sen's werk biedt belangrijke inzichten in de relatie tussen economische ontwikkeling en sociale rechtvaardigheid, cruciaal voor sociaal-liberale denkers.",
+        "meta": "boek"
+      },
+      {
+        "order": 8,
+        "text": "De waarde van de gemeenschap: Michael Sandel (2009) - Dit essay onderzoekt de rol van gemeenschappen in de politiek en economie, wat aansluit bij de sociaal-liberale nadruk op sociale cohesie.",
+        "meta": "essay"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "slug": "ideology:technocratisch-centrist:reading",
+    "ideology": "technocratisch-centrist",
+    "items": [
+      {
+        "order": 1,
+        "text": "Technocracy: The Hope of the Future - Howard Scott (1933) Dit boek legt de basis van de technocratische beweging en bespreekt de rol van technologie in de samenleving.",
+        "meta": "boek"
+      },
+      {
+        "order": 2,
+        "text": "The Technological Society - Jacques Ellul (1954) Dit werk analyseert de impact van technologie op sociale structuren en biedt een kritische blik op technocratische ideeën.",
+        "meta": "boek"
+      },
+      {
+        "order": 3,
+        "text": "The Centrist Manifesto - Charles Wheelan (2013) Dit essay pleit voor een gematigde benadering in de politiek, met een focus op pragmatisme en samenwerking.",
+        "meta": "essay"
+      },
+      {
+        "order": 4,
+        "text": "The New Humanism - William H. McRaven (2019) Dit rapport onderzoekt de noodzaak van een evenwichtige benadering van technologie en menselijke waarden in de moderne samenleving.",
+        "meta": "rapport"
+      },
+      {
+        "order": 5,
+        "text": "Technocracy in America: Rise of the Info-State - Parag Khanna (2017) Dit boek verkent de opkomst van technocratische principes in de Amerikaanse politiek en economie.",
+        "meta": "boek"
+      },
+      {
+        "order": 6,
+        "text": "The Future of Work: Robots, AI, and Automation - Darrell M. West (2018) Dit essay behandelt de gevolgen van technologische vooruitgang voor de arbeidsmarkt en de rol van beleid in het beheer hiervan.",
+        "meta": "essay"
+      },
+      {
+        "order": 7,
+        "text": "Centrist Solutions to Global Problems - Various Authors (2020) Deze verzameling essays biedt een breed overzicht van hoe centristische ideeën kunnen bijdragen aan het oplossen van mondiale vraagstukken.",
+        "meta": "essay"
+      },
+      {
+        "order": 8,
+        "text": "Post-Truth Politics: The Technocratic Response - Various Authors (2021) Dit rapport onderzoekt de uitdagingen van desinformatie en hoe technocratische principes kunnen helpen bij het herstellen van vertrouwen in de politiek.",
+        "meta": "rapport"
+      }
+    ]
+  }
+]

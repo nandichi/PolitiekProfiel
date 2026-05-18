@@ -1,0 +1,194 @@
+{
+  "sociaal-democraat": {
+    "intro": "Klassieke en hedendaagse werken die de sociaal-democratische traditie en haar uitdagingen in kaart brengen.",
+    "items": [
+      { "title": "The Third Way: The Renewal of Social Democracy", "author": "Anthony Giddens", "year": "1998", "type": "boek", "why": "Het invloedrijke pleidooi voor de modernisering van de sociaal-democratie tussen klassiek-links en neoliberalisme." },
+      { "title": "Capital in the Twenty-First Century", "author": "Thomas Piketty", "year": "2013", "type": "boek", "why": "Empirisch fundament voor het hedendaagse sociaal-democratische ongelijkheidsdebat." },
+      { "title": "The Future of Capitalism: Facing the New Anxieties", "author": "Paul Collier", "year": "2018", "type": "boek", "why": "Pleidooi voor een herziene sociaal-democratische agenda die polarisatie en regionale ongelijkheid adresseert." },
+      { "title": "Globalization and Its Discontents", "author": "Joseph Stiglitz", "year": "2002", "type": "boek", "why": "Kritiek op marktfundamentalisme en pleidooi voor sociale randvoorwaarden in de wereldeconomie." },
+      { "title": "Inequality: What Can Be Done?", "author": "Anthony B. Atkinson", "year": "2015", "type": "boek", "why": "Concreet beleidsboek over hoe een verzorgingsstaat ongelijkheid kan terugdringen." },
+      { "title": "The Crisis of the European Union: A Response", "author": "Jürgen Habermas", "year": "2012", "type": "essay", "why": "Filosofische reflectie op een sociaal Europa en de democratische legitimiteit van de EU." },
+      { "title": "Why We're Polarized", "author": "Ezra Klein", "year": "2020", "type": "boek", "why": "Analyse van hoe partijenstelsels uit elkaar trekken, relevant voor sociaal-democratische coalitievorming." }
+    ]
+  },
+  "klassiek-liberaal": {
+    "intro": "Fundamentele en hedendaagse werken over individuele vrijheid, rechtsstaat en markt.",
+    "items": [
+      { "title": "On Liberty", "author": "John Stuart Mill", "year": "1859", "type": "boek", "why": "De canonieke verdediging van individuele vrijheid en het schadebeginsel." },
+      { "title": "Two Treatises of Government", "author": "John Locke", "year": "1689", "type": "boek", "why": "Filosofisch fundament voor natuurlijke rechten, eigendom en beperkte regering." },
+      { "title": "The Wealth of Nations", "author": "Adam Smith", "year": "1776", "type": "boek", "why": "De grondtekst van de markteconomie en de werking van arbeidsverdeling." },
+      { "title": "The Constitution of Liberty", "author": "Friedrich Hayek", "year": "1960", "type": "boek", "why": "Systematische uitwerking van een vrije, regelgebaseerde samenleving." },
+      { "title": "Capitalism and Freedom", "author": "Milton Friedman", "year": "1962", "type": "boek", "why": "Toegankelijke verbinding van economische en politieke vrijheid." },
+      { "title": "Free to Choose: A Personal Statement", "author": "Milton Friedman & Rose Friedman", "year": "1980", "type": "boek", "why": "Populaire uitwerking van marktdenken met concrete beleidsvoorstellen." },
+      { "title": "Why Liberalism Failed", "author": "Patrick Deneen", "year": "2018", "type": "boek", "why": "Recente kritiek op het liberalisme van binnenuit, scherpt het denken." }
+    ]
+  },
+  "libertarier": {
+    "intro": "Werken die maximale individuele vrijheid en minimale staatsmacht systematisch verdedigen.",
+    "items": [
+      { "title": "Anarchy, State, and Utopia", "author": "Robert Nozick", "year": "1974", "type": "boek", "why": "Het filosofische standaardwerk voor een minimale staat en zelfeigendom." },
+      { "title": "The Road to Serfdom", "author": "Friedrich Hayek", "year": "1944", "type": "boek", "why": "Klassieke waarschuwing tegen centrale planning en het verlies van vrijheid." },
+      { "title": "For a New Liberty: The Libertarian Manifesto", "author": "Murray Rothbard", "year": "1973", "type": "boek", "why": "Programmatische uitwerking van het libertarisme door een van zijn invloedrijkste auteurs." },
+      { "title": "The Machinery of Freedom", "author": "David D. Friedman", "year": "1973", "type": "boek", "why": "Anarcho-kapitalistisch perspectief: hoe markten klassieke staatstaken kunnen overnemen." },
+      { "title": "The Ethics of Liberty", "author": "Murray Rothbard", "year": "1982", "type": "boek", "why": "Ethische onderbouwing van het non-aggressie-principe en eigendomsrechten." },
+      { "title": "Libertarianism: A Primer", "author": "David Boaz", "year": "1997", "type": "boek", "why": "Heldere introductie voor wie de stroming voor het eerst grondig wil leren kennen." },
+      { "title": "Bourgeois Dignity: Why Economics Can't Explain the Modern World", "author": "Deirdre McCloskey", "year": "2010", "type": "boek", "why": "Cultureel-economische verdediging van burgerlijke waarden en marktwerking." }
+    ]
+  },
+  "groen-progressief": {
+    "intro": "Hedendaagse werken die klimaat, sociale rechtvaardigheid en culturele openheid verbinden.",
+    "items": [
+      { "title": "This Changes Everything: Capitalism vs. The Climate", "author": "Naomi Klein", "year": "2014", "type": "boek", "why": "Pleidooi voor structurele transformatie van economie en samenleving voor klimaatactie." },
+      { "title": "Doughnut Economics: Seven Ways to Think Like a 21st-Century Economist", "author": "Kate Raworth", "year": "2017", "type": "boek", "why": "Economisch raamwerk dat ecologische plafonds en sociale fundamenten combineert." },
+      { "title": "Silent Spring", "author": "Rachel Carson", "year": "1962", "type": "boek", "why": "Het boek dat de moderne milieubeweging mede heeft gestart." },
+      { "title": "The Sixth Extinction: An Unnatural History", "author": "Elizabeth Kolbert", "year": "2014", "type": "boek", "why": "Wetenschapsjournalistiek over biodiversiteitsverlies in het Antropoceen." },
+      { "title": "Less Is More: How Degrowth Will Save the World", "author": "Jason Hickel", "year": "2020", "type": "boek", "why": "Onderbouwing voor de degrowth-stroming binnen groen-progressief denken." },
+      { "title": "The Future We Choose: Surviving the Climate Crisis", "author": "Christiana Figueres & Tom Rivett-Carnac", "year": "2020", "type": "boek", "why": "Pleidooi voor optimistische klimaatactie door twee hoofdarchitecten van het Parijs-akkoord." },
+      { "title": "How to Avoid a Climate Disaster", "author": "Bill Gates", "year": "2021", "type": "boek", "why": "Technologisch-pragmatische routekaart voor het halen van net zero." }
+    ]
+  },
+  "christen-democraat": {
+    "intro": "Centrale teksten van katholiek sociaal denken, gereformeerde politieke filosofie en hedendaagse christen-democratie.",
+    "items": [
+      { "title": "Rerum Novarum", "author": "Paus Leo XIII", "year": "1891", "type": "encycliek", "why": "De grondsteen van de katholieke sociale leer, basis voor de christen-democratie." },
+      { "title": "Quadragesimo Anno", "author": "Paus Pius XI", "year": "1931", "type": "encycliek", "why": "Introduceert het subsidiariteitsbeginsel, kernidee voor gespreide verantwoordelijkheid." },
+      { "title": "Lectures on Calvinism", "author": "Abraham Kuyper", "year": "1898", "type": "boek", "why": "Klassiek werk over soevereiniteit in eigen kring, een Nederlandse christen-democratische pijler." },
+      { "title": "Centesimus Annus", "author": "Paus Johannes Paulus II", "year": "1991", "type": "encycliek", "why": "Hedendaagse herijking van katholiek sociaal denken na de val van het communisme." },
+      { "title": "Christian Democracy and the Origins of European Union", "author": "Wolfram Kaiser", "year": "2007", "type": "boek", "why": "Historisch overzicht van de christen-democratische rol in de Europese integratie." },
+      { "title": "Caritas in Veritate", "author": "Paus Benedictus XVI", "year": "2009", "type": "encycliek", "why": "Encycliek over globalisering, ethiek en menselijke ontwikkeling." },
+      { "title": "Fratelli Tutti", "author": "Paus Franciscus", "year": "2020", "type": "encycliek", "why": "Recente encycliek over broederschap, sociale vriendschap en politieke verantwoordelijkheid." }
+    ]
+  },
+  "nationaal-conservatief": {
+    "intro": "Centrale teksten over natiestaat, traditie en de spanning met liberale globalisering.",
+    "items": [
+      { "title": "Reflections on the Revolution in France", "author": "Edmund Burke", "year": "1790", "type": "boek", "why": "Klassieke conservatieve waarschuwing tegen abstracte rationalistische politiek." },
+      { "title": "The Virtue of Nationalism", "author": "Yoram Hazony", "year": "2018", "type": "boek", "why": "Hedendaagse intellectuele verdediging van de soevereine natiestaat." },
+      { "title": "The Clash of Civilizations and the Remaking of World Order", "author": "Samuel Huntington", "year": "1996", "type": "boek", "why": "Invloedrijk werk over culturele identiteit als geopolitieke breuklijn." },
+      { "title": "How to Be a Conservative", "author": "Roger Scruton", "year": "2014", "type": "boek", "why": "Toegankelijke filosofische verdediging van traditie en gehechtheid." },
+      { "title": "The Strange Death of Europe: Immigration, Identity, Islam", "author": "Douglas Murray", "year": "2017", "type": "boek", "why": "Controversieel maar veelbesproken essay over migratie en Europese identiteit." },
+      { "title": "Conservatism: A Rediscovery", "author": "Yoram Hazony", "year": "2022", "type": "boek", "why": "Recente synthese van religie, traditie en gemeenschap in een hedendaagse conservatieve politiek." },
+      { "title": "Politics Among Nations: The Struggle for Power and Peace", "author": "Hans Morgenthau", "year": "1948", "type": "boek", "why": "Klassiek werk over realistisch buitenlands beleid en nationale belangen." }
+    ]
+  },
+  "technocratisch-centrist": {
+    "intro": "Werken over evidence-based beleid, expertise, instituties en pragmatisch midden.",
+    "items": [
+      { "title": "Thinking, Fast and Slow", "author": "Daniel Kahneman", "year": "2011", "type": "boek", "why": "Gedragseconomie als fundament voor doordacht beleid." },
+      { "title": "Good Economics for Hard Times", "author": "Abhijit Banerjee & Esther Duflo", "year": "2019", "type": "boek", "why": "Nobelprijswinnaars over welke economische beleidsmaatregelen empirisch werken." },
+      { "title": "Why Nations Fail: The Origins of Power, Prosperity, and Poverty", "author": "Daron Acemoglu & James A. Robinson", "year": "2012", "type": "boek", "why": "Institutionele analyse van waarom sommige landen slagen en andere falen." },
+      { "title": "The Fifth Risk", "author": "Michael Lewis", "year": "2018", "type": "boek", "why": "Verhalend onderzoek naar waarom competent ambtelijk bestuur ertoe doet." },
+      { "title": "Identity and Violence: The Illusion of Destiny", "author": "Amartya Sen", "year": "2006", "type": "boek", "why": "Nobelprijswinnaar over hoe simplistische identiteitsdenken bestuur ondermijnt." },
+      { "title": "The Square and the Tower: Networks and Power", "author": "Niall Ferguson", "year": "2017", "type": "boek", "why": "Historisch perspectief op hoe netwerken en hiërarchieën samen bestuur vormen." },
+      { "title": "Nudge: Improving Decisions About Health, Wealth, and Happiness", "author": "Richard Thaler & Cass Sunstein", "year": "2008", "type": "boek", "why": "Gedragsinzichten als instrument voor zachte sturing in publiek beleid." }
+    ]
+  },
+  "marxist": {
+    "intro": "Klassieke en hedendaagse werken in de marxistische traditie.",
+    "items": [
+      { "title": "Manifest der Kommunistischen Partei", "author": "Karl Marx & Friedrich Engels", "year": "1848", "type": "pamflet", "why": "De korte, programmatische klassieker van het wetenschappelijk socialisme." },
+      { "title": "Das Kapital, Band I", "author": "Karl Marx", "year": "1867", "type": "boek", "why": "Marx' systematische analyse van de kapitalistische productiewijze." },
+      { "title": "State and Revolution", "author": "Vladimir Lenin", "year": "1917", "type": "boek", "why": "Lenin over de marxistische staatstheorie en revolutionaire transitie." },
+      { "title": "Prison Notebooks", "author": "Antonio Gramsci", "year": "1948", "type": "boek", "why": "Postume publicatie waaruit het invloedrijke concept van culturele hegemonie komt." },
+      { "title": "A People's History of the United States", "author": "Howard Zinn", "year": "1980", "type": "boek", "why": "Marxistisch geinspireerd tegenverhaal van de Amerikaanse geschiedenis." },
+      { "title": "Capitalist Realism: Is There No Alternative?", "author": "Mark Fisher", "year": "2009", "type": "boek", "why": "Hedendaags essay over hoe het kapitalisme alle alternatieve verbeelding heeft uitgewist." },
+      { "title": "The Wretched of the Earth", "author": "Frantz Fanon", "year": "1961", "type": "boek", "why": "Klassiek werk dat marxisme en dekolonisatiestrijd verbindt." }
+    ]
+  },
+  "anarcho-libertair": {
+    "intro": "Centrale teksten over zelfbestuur, wederzijdse hulp en wantrouwen tegen alle geconcentreerde macht.",
+    "items": [
+      { "title": "Mutual Aid: A Factor of Evolution", "author": "Peter Kropotkin", "year": "1902", "type": "boek", "why": "Klassiek werk dat samenwerking, niet competitie, als motor van evolutie en samenleving aanwijst." },
+      { "title": "The Conquest of Bread", "author": "Peter Kropotkin", "year": "1892", "type": "boek", "why": "Programmatisch werk voor anarcho-communistische zelforganisatie." },
+      { "title": "Anarchism: A History of Libertarian Ideas and Movements", "author": "George Woodcock", "year": "1962", "type": "boek", "why": "Standaardwerk voor de geschiedenis van het anarchisme." },
+      { "title": "Demanding the Impossible: A History of Anarchism", "author": "Peter Marshall", "year": "1992", "type": "boek", "why": "Brede historische introductie tot anarchistisch denken." },
+      { "title": "What Is Property?", "author": "Pierre-Joseph Proudhon", "year": "1840", "type": "boek", "why": "Klassieker waarin Proudhon eigendom als diefstal omschrijft en wederkerigheid bepleit." },
+      { "title": "Debt: The First 5,000 Years", "author": "David Graeber", "year": "2011", "type": "boek", "why": "Antropoloog en anarchist herschrijft de geschiedenis van geld, schuld en macht." },
+      { "title": "The Dispossessed", "author": "Ursula K. Le Guin", "year": "1974", "type": "roman", "why": "Romaneske verkenning van een anarchistische samenleving in de praktijk." }
+    ]
+  },
+  "conservatief-liberaal": {
+    "intro": "Werken die marktwerking en behoud van traditie en rechtsstaat verbinden.",
+    "items": [
+      { "title": "Reflections on the Revolution in France", "author": "Edmund Burke", "year": "1790", "type": "boek", "why": "Burke koppelt voorzichtige hervorming aan vrijheid en gevestigde orde." },
+      { "title": "The Conservative Mind: From Burke to Eliot", "author": "Russell Kirk", "year": "1953", "type": "boek", "why": "De canonieke geschiedenis van het Angelsaksisch conservatisme." },
+      { "title": "The Constitution of Liberty", "author": "Friedrich Hayek", "year": "1960", "type": "boek", "why": "Hayek over hoe een vrije markt en rechtsstaat elkaar versterken." },
+      { "title": "Capitalism and Freedom", "author": "Milton Friedman", "year": "1962", "type": "boek", "why": "Vrije markt en politieke vrijheid als onlosmakelijk paar." },
+      { "title": "How to Be a Conservative", "author": "Roger Scruton", "year": "2014", "type": "boek", "why": "Scruton verbindt traditie, gemeenschap en marktwerking in een hedendaagse synthese." },
+      { "title": "Rationalism in Politics and Other Essays", "author": "Michael Oakeshott", "year": "1962", "type": "essay", "why": "Klassiek werk over het belang van praktische wijsheid boven abstracte plannen." },
+      { "title": "The Road to Serfdom", "author": "Friedrich Hayek", "year": "1944", "type": "boek", "why": "Waarschuwing waarom planeconomie en centrale sturing tot onvrijheid leiden." }
+    ]
+  },
+  "sociaal-liberaal": {
+    "intro": "Werken die individuele vrijheid en sociale randvoorwaarden voor reele vrijheid verbinden.",
+    "items": [
+      { "title": "On Liberty", "author": "John Stuart Mill", "year": "1859", "type": "boek", "why": "Mill verdedigt vrijheid van denken en doen binnen de grenzen van het schadebeginsel." },
+      { "title": "A Theory of Justice", "author": "John Rawls", "year": "1971", "type": "boek", "why": "Klassiek werk dat gelijkheid en vrijheid via de sluier van onwetendheid combineert." },
+      { "title": "Political Liberalism", "author": "John Rawls", "year": "1993", "type": "boek", "why": "Vervolg waarin Rawls liberalisme aanpast aan diepe pluralisme." },
+      { "title": "Development as Freedom", "author": "Amartya Sen", "year": "1999", "type": "boek", "why": "Sen omschrijft ontwikkeling als vergroting van werkelijke vrijheden, niet alleen welvaart." },
+      { "title": "The Idea of Justice", "author": "Amartya Sen", "year": "2009", "type": "boek", "why": "Sen pleit voor vergelijkende rechtvaardigheid in plaats van ideale theorie." },
+      { "title": "Liberalism", "author": "L.T. Hobhouse", "year": "1911", "type": "boek", "why": "Pionierswerk van het sociaal-liberalisme dat staatsinterventie verzoent met vrijheid." },
+      { "title": "The Open Society and Its Enemies", "author": "Karl Popper", "year": "1945", "type": "boek", "why": "Popper verdedigt de liberale democratie tegen totalitaire verleidingen." }
+    ]
+  },
+  "eco-socialist": {
+    "intro": "Werken die klimaatcrisis en kapitalismekritiek expliciet verbinden.",
+    "items": [
+      { "title": "This Changes Everything: Capitalism vs. The Climate", "author": "Naomi Klein", "year": "2014", "type": "boek", "why": "Klein verbindt klimaatactie aan systeemverandering van het kapitalisme." },
+      { "title": "Fossil Capital: The Rise of Steam Power and the Roots of Global Warming", "author": "Andreas Malm", "year": "2016", "type": "boek", "why": "Historische analyse van hoe fossiel kapitaal de moderne economie heeft gevormd." },
+      { "title": "How to Blow Up a Pipeline", "author": "Andreas Malm", "year": "2021", "type": "boek", "why": "Provocatief essay over klimaatactivisme en de grenzen van geweldloosheid." },
+      { "title": "Less Is More: How Degrowth Will Save the World", "author": "Jason Hickel", "year": "2020", "type": "boek", "why": "Pleidooi voor ontkoppeling van welzijn en groei in rijke landen." },
+      { "title": "Climate Leviathan: A Political Theory of Our Planetary Future", "author": "Joel Wainwright & Geoff Mann", "year": "2018", "type": "boek", "why": "Politiek-theoretische analyse van klimaat en wereldorde." },
+      { "title": "The Shock Doctrine: The Rise of Disaster Capitalism", "author": "Naomi Klein", "year": "2007", "type": "boek", "why": "Klassiek werk over hoe crises worden gebruikt om marktradicaal beleid door te drukken." },
+      { "title": "The Ministry for the Future", "author": "Kim Stanley Robinson", "year": "2020", "type": "roman", "why": "Speculatieve roman over een mondiale klimaatpolitiek in de komende decennia." }
+    ]
+  },
+  "populistisch-rechts": {
+    "intro": "Analytische werken over rechts-populisme en zelfverklaarde rechts-populistische manifesten.",
+    "items": [
+      { "title": "What Is Populism?", "author": "Jan-Werner Müller", "year": "2016", "type": "boek", "why": "Heldere analyse van wat populisme onderscheidt van andere politieke stromingen." },
+      { "title": "National Populism: The Revolt Against Liberal Democracy", "author": "Roger Eatwell & Matthew Goodwin", "year": "2018", "type": "boek", "why": "Empirische analyse van de drijfveren achter de rechts-populistische opmars in Europa en de VS." },
+      { "title": "The Populist Explosion: How the Great Recession Transformed American and European Politics", "author": "John B. Judis", "year": "2016", "type": "boek", "why": "Historisch perspectief op de hedendaagse populistische golf." },
+      { "title": "Hillbilly Elegy: A Memoir of a Family and Culture in Crisis", "author": "J.D. Vance", "year": "2016", "type": "memoir", "why": "Persoonlijk verhaal dat de culturele bedding van rechts-populistische kiezers verbeeldt." },
+      { "title": "Strangers in Their Own Land: Anger and Mourning on the American Right", "author": "Arlie Russell Hochschild", "year": "2016", "type": "boek", "why": "Sociologisch veldwerk dat de emotionele logica van Trump-stemmers in kaart brengt." },
+      { "title": "The Strange Death of Europe: Immigration, Identity, Islam", "author": "Douglas Murray", "year": "2017", "type": "boek", "why": "Veelbesproken essay vanuit het rechts-populistische perspectief op migratie." },
+      { "title": "How Democracies Die", "author": "Steven Levitsky & Daniel Ziblatt", "year": "2018", "type": "boek", "why": "Tegenwicht: hoe rechts-populistische bewegingen democratische instituties uithollen." }
+    ]
+  },
+  "populistisch-links": {
+    "intro": "Centrale teksten over links-populisme als strategie en analyse.",
+    "items": [
+      { "title": "On Populist Reason", "author": "Ernesto Laclau", "year": "2005", "type": "boek", "why": "Theoretisch fundament voor het hedendaagse links-populisme." },
+      { "title": "For a Left Populism", "author": "Chantal Mouffe", "year": "2018", "type": "boek", "why": "Pleidooi voor een progressief volkspopulisme tegen de neoliberale consensus." },
+      { "title": "Hegemony and Socialist Strategy: Towards a Radical Democratic Politics", "author": "Ernesto Laclau & Chantal Mouffe", "year": "1985", "type": "boek", "why": "Postmarxistisch werk dat hegemonie en politieke verbeelding centraal stelt." },
+      { "title": "The Populist Explosion", "author": "John B. Judis", "year": "2016", "type": "boek", "why": "Historisch overzicht inclusief de links-populistische varianten Podemos en Syriza." },
+      { "title": "Listen, Liberal: Or, What Ever Happened to the Party of the People?", "author": "Thomas Frank", "year": "2016", "type": "boek", "why": "Scherpe linkse kritiek op de Democratische Partij als verlater van haar arbeidersbasis." },
+      { "title": "The Power of the Powerless", "author": "Vaclav Havel", "year": "1978", "type": "essay", "why": "Klassiek essay over de kracht van onderaf, relevant voor democratisch links." },
+      { "title": "Capitalism, Socialism and Democracy", "author": "Joseph Schumpeter", "year": "1942", "type": "boek", "why": "Klassieker over de spanning tussen kapitalisme en democratische politiek." }
+    ]
+  },
+  "communitarist": {
+    "intro": "Werken over gemeenschap, deugd en de grenzen van het pure individualisme.",
+    "items": [
+      { "title": "After Virtue: A Study in Moral Theory", "author": "Alasdair MacIntyre", "year": "1981", "type": "boek", "why": "Invloedrijke kritiek op het moderne morele individualisme en pleidooi voor deugdethiek." },
+      { "title": "Spheres of Justice: A Defense of Pluralism and Equality", "author": "Michael Walzer", "year": "1983", "type": "boek", "why": "Walzer betoogt dat rechtvaardigheid per sociale sfeer verschilt." },
+      { "title": "Liberalism and the Limits of Justice", "author": "Michael Sandel", "year": "1982", "type": "boek", "why": "Communitaristische kritiek op Rawls en het abstract gedachte zelf." },
+      { "title": "The Spirit of Community: The Reinvention of American Society", "author": "Amitai Etzioni", "year": "1993", "type": "boek", "why": "Programmatisch werk voor de hedendaagse communitaristische beweging." },
+      { "title": "Bowling Alone: The Collapse and Revival of American Community", "author": "Robert Putnam", "year": "2000", "type": "boek", "why": "Empirische analyse van de erosie van sociaal kapitaal." },
+      { "title": "The Tyranny of Merit: What's Become of the Common Good?", "author": "Michael Sandel", "year": "2020", "type": "boek", "why": "Kritiek op meritocratie en pleidooi voor het gemeenschappelijk goed." },
+      { "title": "Democracy's Discontent: America in Search of a Public Philosophy", "author": "Michael Sandel", "year": "1996", "type": "boek", "why": "Sandel over hoe republikeinse zelfbestuurstradities zijn weggekwijnd." }
+    ]
+  },
+  "klassiek-conservatief": {
+    "intro": "Klassieke en hedendaagse werken in de behoedzame conservatieve traditie.",
+    "items": [
+      { "title": "Reflections on the Revolution in France", "author": "Edmund Burke", "year": "1790", "type": "boek", "why": "De grondtekst van het moderne conservatisme." },
+      { "title": "The Conservative Mind: From Burke to Eliot", "author": "Russell Kirk", "year": "1953", "type": "boek", "why": "Canon-bepalende geschiedenis van het Angelsaksisch conservatisme." },
+      { "title": "Rationalism in Politics and Other Essays", "author": "Michael Oakeshott", "year": "1962", "type": "essay", "why": "Oakeshott over de waarde van traditie en praktische wijsheid." },
+      { "title": "Conservatism: An Invitation to the Great Tradition", "author": "Roger Scruton", "year": "2017", "type": "boek", "why": "Scruton geeft een hedendaagse toegang tot de conservatieve denktraditie." },
+      { "title": "How to Be a Conservative", "author": "Roger Scruton", "year": "2014", "type": "boek", "why": "Persoonlijke en filosofische verdediging van behoud en gehechtheid." },
+      { "title": "Ideas Have Consequences", "author": "Richard M. Weaver", "year": "1948", "type": "boek", "why": "Klassiek Amerikaans-conservatief werk over de gevolgen van het verlies van universalia." },
+      { "title": "The Servile State", "author": "Hilaire Belloc", "year": "1912", "type": "boek", "why": "Klassiek werk over de spanning tussen kapitalisme, staat en menselijke vrijheid." }
+    ]
+  }
+}

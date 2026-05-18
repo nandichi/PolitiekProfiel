@@ -69,8 +69,11 @@ export default function HomePage() {
                 >
                   <span className="block">Politiek is meer</span>
                   <span className="block">
-                    dan <em className="display-italic font-light text-navy">links</em>
-                    {" "}of{" "}
+                    dan{" "}
+                    <em className="display-italic font-light text-navy">
+                      links
+                    </em>{" "}
+                    of{" "}
                     <em className="display-italic font-light text-navy">
                       rechts
                     </em>
@@ -293,14 +296,14 @@ function TierCard({
         "group relative block p-8 md:p-10 transition-colors duration-200 no-underline",
         recommended
           ? "bg-ink text-paper hover:bg-navy"
-          : "bg-paper hover:bg-paper-50",
+          : "bg-paper hover:bg-paper-50"
       )}
     >
       {recommended && (
         <span
           className={cx(
             "absolute top-6 right-6 mono text-[0.62rem] tracking-widest border px-2 py-1",
-            "bg-paper text-ink border-paper",
+            "bg-paper text-ink border-paper"
           )}
         >
           AANBEVOLEN
@@ -310,20 +313,19 @@ function TierCard({
       <p
         className={cx(
           "mono text-[0.7rem] tracking-widest mb-6",
-          recommended ? "text-paper/70" : "text-ink-muted",
+          recommended ? "text-paper/70" : "text-ink-muted"
         )}
       >
-        {String((["quick", "standard", "extended"] as const).indexOf(tier) + 1).padStart(
-          2,
-          "0",
-        )}{" "}
+        {String(
+          (["quick", "standard", "extended"] as const).indexOf(tier) + 1
+        ).padStart(2, "0")}{" "}
         / TIER
       </p>
 
       <h3
         className={cx(
           "display text-3xl md:text-4xl mb-1.5",
-          recommended ? "text-paper" : "text-ink",
+          recommended ? "text-paper" : "text-ink"
         )}
       >
         {title}
@@ -331,7 +333,7 @@ function TierCard({
       <p
         className={cx(
           "text-sm mb-8",
-          recommended ? "text-paper/75" : "text-ink-muted",
+          recommended ? "text-paper/75" : "text-ink-muted"
         )}
       >
         {tagline}
@@ -340,14 +342,14 @@ function TierCard({
       <div
         className={cx(
           "border-t pt-6 mb-8",
-          recommended ? "border-paper/25" : "border-rule",
+          recommended ? "border-paper/25" : "border-rule"
         )}
       >
         <div className="flex items-baseline justify-between mb-3">
           <span
             className={cx(
               "display tabular-nums text-6xl md:text-7xl leading-none",
-              recommended ? "text-paper" : "text-ink",
+              recommended ? "text-paper" : "text-ink"
             )}
           >
             {count}
@@ -355,7 +357,7 @@ function TierCard({
           <span
             className={cx(
               "kicker",
-              recommended ? "text-paper/70" : "text-ink-muted",
+              recommended ? "text-paper/70" : "text-ink-muted"
             )}
           >
             Stellingen
@@ -364,7 +366,7 @@ function TierCard({
         <p
           className={cx(
             "mono text-[0.7rem] tracking-widest inline-flex items-center gap-1.5",
-            recommended ? "text-paper/70" : "text-ink-muted",
+            recommended ? "text-paper/70" : "text-ink-muted"
           )}
         >
           <Clock3 size={12} strokeWidth={1.8} />
@@ -375,7 +377,7 @@ function TierCard({
       <p
         className={cx(
           "text-sm leading-relaxed mb-8 min-h-[3.5em]",
-          recommended ? "text-paper/80" : "text-ink-2",
+          recommended ? "text-paper/80" : "text-ink-2"
         )}
       >
         {description}
@@ -384,7 +386,7 @@ function TierCard({
       <span
         className={cx(
           "inline-flex items-center gap-2 text-sm font-medium transition-transform group-hover:translate-x-0.5",
-          recommended ? "text-paper" : "text-ink",
+          recommended ? "text-paper" : "text-ink"
         )}
       >
         Begin
