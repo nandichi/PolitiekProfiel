@@ -5,6 +5,8 @@ type Node = {
   text?: string;
   children?: Node[];
   format?: number;
+  tag?: string;
+  listType?: "bullet" | "number";
 };
 
 /** Alle platte tekst in een Lexical-subboom (volgorde behouden). */
@@ -64,18 +66,22 @@ function renderNode(node: Node, key: number): ReactNode {
   }
   if (node.type === "heading") {
     const children = node.children ?? [];
-    return (
-      <h3 key={key}>
-        {children.length ? renderChildList(children) : null}
-      </h3>
-    );
+    const allowed = ["h1", "h2", "h3", "h4", "h5", "h6"] as const;
+    const tag = (allowed as readonly string[]).includes(node.tag ?? "")
+      ? (node.tag as (typeof allowed)[number])
+      : "h3";
+    const inner = children.length ? renderChildList(children) : null;
+    if (tag === "h1") return <h1 key={key}>{inner}</h1>;
+    if (tag === "h2") return <h2 key={key}>{inner}</h2>;
+    if (tag === "h3") return <h3 key={key}>{inner}</h3>;
+    if (tag === "h4") return <h4 key={key}>{inner}</h4>;
+    if (tag === "h5") return <h5 key={key}>{inner}</h5>;
+    return <h6 key={key}>{inner}</h6>;
   }
   if (node.type === "list") {
-    return (
-      <ul key={key}>
-        {node.children?.map((child, i) => renderNode(child, i)) ?? null}
-      </ul>
-    );
+    const ordered = node.listType === "number" || node.tag === "ol";
+    const inner = node.children?.map((child, i) => renderNode(child, i)) ?? null;
+    return ordered ? <ol key={key}>{inner}</ol> : <ul key={key}>{inner}</ul>;
   }
   if (node.type === "listitem") {
     const children = node.children ?? [];

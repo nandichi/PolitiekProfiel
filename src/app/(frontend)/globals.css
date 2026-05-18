@@ -172,12 +172,16 @@
   .editorial-prose {
     font-family: var(--font-sans);
     font-size: 1.05rem;
-    line-height: 1.7;
+    line-height: 1.75;
     color: var(--color-ink-2);
   }
 
-  .editorial-prose p + p {
+  .editorial-prose > * + * {
     margin-top: 1em;
+  }
+
+  .editorial-prose p + p {
+    margin-top: 1.1em;
   }
 
   .editorial-prose strong {
@@ -192,7 +196,32 @@
   }
 
   .editorial-prose h2 {
-    margin-bottom: 0.6em;
+    font-size: clamp(1.45rem, 1.9vw, 1.75rem);
+    line-height: 1.18;
+    margin-top: 2.4em;
+    margin-bottom: 0.55em;
+  }
+
+  .editorial-prose h3 {
+    font-size: clamp(1.18rem, 1.45vw, 1.32rem);
+    line-height: 1.25;
+    margin-top: 1.85em;
+    margin-bottom: 0.4em;
+    color: var(--color-ink);
+  }
+
+  .editorial-prose > h2:first-child,
+  .editorial-prose > h3:first-child {
+    margin-top: 0;
+  }
+
+  .editorial-prose h2 + p,
+  .editorial-prose h3 + p,
+  .editorial-prose h2 + ul,
+  .editorial-prose h2 + ol,
+  .editorial-prose h3 + ul,
+  .editorial-prose h3 + ol {
+    margin-top: 0;
   }
 
   .editorial-prose ul,
@@ -202,6 +231,11 @@
 
   .editorial-prose ul {
     list-style-type: square;
+  }
+
+  .editorial-prose ul li + li,
+  .editorial-prose ol li + li {
+    margin-top: 0.4em;
   }
 
   .editorial-prose ul li::marker {
