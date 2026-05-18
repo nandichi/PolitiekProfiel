@@ -1,5 +1,6 @@
 import type { AiContentRecord } from "@/lib/ai-content";
 import { LexicalRenderer } from "@/components/LexicalRenderer";
+import { ArrowUpRight } from "lucide-react";
 
 interface AiContentBlockProps {
   content?: AiContentRecord | null;
@@ -61,7 +62,24 @@ export function AiContentItemList({
           key={i}
           className="border-l-2 border-rule pl-4 text-sm md:text-base text-ink-2 leading-relaxed"
         >
-          <p>{item.text}</p>
+          {item.link ? (
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="group inline-flex items-start gap-1.5 text-ink hover:text-navy underline decoration-rule-strong underline-offset-4 decoration-1 hover:decoration-navy transition-colors"
+            >
+              <span>{item.text}</span>
+              <ArrowUpRight
+                size={14}
+                strokeWidth={1.6}
+                className="mt-1 shrink-0 text-ink-subtle group-hover:text-navy transition-colors"
+                aria-hidden
+              />
+            </a>
+          ) : (
+            <p>{item.text}</p>
+          )}
           {item.meta && (
             <p className="mono text-[0.62rem] tracking-wider text-ink-subtle mt-1">
               {item.meta.toUpperCase()}

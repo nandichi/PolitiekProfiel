@@ -14,6 +14,7 @@ import {
   ScrollRevealItem,
 } from "@/components/motion/ScrollReveal";
 import { AiContentBlock, AiContentItemList } from "@/components/result/AiContentBlock";
+import { AiContentReveal } from "@/components/result/AiContentReveal";
 import { ConfidenceIndicator } from "@/components/result/ConfidenceIndicator";
 import { ThemeBars } from "@/components/result/ThemeBars";
 import { ParadoxList, type ParadoxItemContext } from "@/components/result/ParadoxList";
@@ -295,12 +296,14 @@ export default async function ResultPage({ params }: Args) {
               <div className="mt-16 md:mt-20 max-w-3xl">
                 <Kicker>Wat houdt dit profiel in?</Kicker>
                 <div className="mt-5">
-                  <AiContentBlock
-                    content={essayContent}
-                    fallback={undefined}
-                    variant="prose"
-                    showSourceNote
-                  />
+                  <AiContentReveal previewHeight={420} minOverflow={120}>
+                    <AiContentBlock
+                      content={essayContent}
+                      fallback={undefined}
+                      variant="prose"
+                      showSourceNote
+                    />
+                  </AiContentReveal>
                 </div>
 
                 {ideo.examplePeople?.length ? (
@@ -357,12 +360,14 @@ export default async function ResultPage({ params }: Args) {
                             index={i}
                           />
                           {(bucketContent || dimConfidence !== undefined) && (
-                            <div className="pb-7 -mt-1 grid grid-cols-1 md:grid-cols-[1fr_auto] md:gap-8 md:items-start">
+                            <div className="pb-7 mt-5 md:mt-6 grid grid-cols-1 md:grid-cols-[1fr_auto] md:gap-8 md:items-start">
                               <div className="max-w-2xl">
-                                <AiContentBlock
-                                  content={bucketContent}
-                                  variant="compact"
-                                />
+                                <AiContentReveal previewHeight={180} minOverflow={80}>
+                                  <AiContentBlock
+                                    content={bucketContent}
+                                    variant="compact"
+                                  />
+                                </AiContentReveal>
                               </div>
                               {dimConfidence !== undefined && (
                                 <div className="mt-4 md:mt-1">
@@ -425,10 +430,12 @@ export default async function ResultPage({ params }: Args) {
                               className="border-t border-rule pt-5"
                             >
                               <p className="kicker mb-2">{t.label}</p>
-                              <AiContentBlock
-                                content={themeContent}
-                                variant="compact"
-                              />
+                              <AiContentReveal previewHeight={220} minOverflow={80}>
+                                <AiContentBlock
+                                  content={themeContent}
+                                  variant="compact"
+                                />
+                              </AiContentReveal>
                             </div>
                           );
                         })}
@@ -520,10 +527,12 @@ export default async function ResultPage({ params }: Args) {
                             </p>
                             {content && (
                               <div className="mt-4">
-                                <AiContentBlock
-                                  content={content}
-                                  variant="compact"
-                                />
+                                <AiContentReveal previewHeight={200} minOverflow={80}>
+                                  <AiContentBlock
+                                    content={content}
+                                    variant="compact"
+                                  />
+                                </AiContentReveal>
                               </div>
                             )}
                           </div>

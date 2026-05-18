@@ -69,6 +69,16 @@ export const AiContent: CollectionConfig = {
       fields: [
         { name: "text", type: "textarea", required: true, label: "Tekst" },
         { name: "meta", type: "text", required: false, label: "Bron/auteur (optioneel)" },
+        {
+          name: "link",
+          type: "text",
+          required: false,
+          label: "Link (optioneel)",
+          admin: {
+            description:
+              "Externe URL naar boek/artikel (bv. bol.com product-pagina of bibliotheek-record).",
+          },
+        },
       ],
     },
     {

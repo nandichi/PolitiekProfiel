@@ -10,6 +10,7 @@ import type { ParadoxType } from "@/lib/paradox";
 export interface AiContentItem {
   text: string;
   meta?: string;
+  link?: string;
 }
 
 export interface AiContentRecord {
