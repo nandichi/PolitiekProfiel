@@ -11,7 +11,10 @@ import type { ThemeId } from "@/lib/themes";
 interface Body {
   tier?: Tier;
   answers?: Array<{ questionId: number; value: AnswerValue | null }>;
+  attemptId?: string;
 }
+
+const ATTEMPT_ID_PATTERN = /^[A-Za-z0-9_-]{6,32}$/;
 
 const VALID_TIERS: Tier[] = ["quick", "standard", "extended"];
 
@@ -116,6 +119,11 @@ export async function POST(request: Request) {
       value: a.value as number,
     }));
 
+  const attemptId =
+    typeof body.attemptId === "string" && ATTEMPT_ID_PATTERN.test(body.attemptId)
+      ? body.attemptId
+      : undefined;
+
   const stored = await createResult({
     tier: body.tier,
     ideologySlug: best.item.slug,
@@ -136,6 +144,7 @@ export async function POST(request: Request) {
     answeredCount: breakdown.answeredCount,
     skippedCount: breakdown.skippedCount,
     totalQuestions: questionsRes.docs.length,
+    attemptId,
   });
 
   return NextResponse.json({ id: stored.shareId });

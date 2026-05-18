@@ -26,6 +26,17 @@ export const Results: CollectionConfig = {
       admin: { description: "Korte unieke string in de URL." },
     },
     {
+      name: "attemptId",
+      type: "text",
+      required: false,
+      index: true,
+      label: "Attempt-ID",
+      admin: {
+        description:
+          "Koppelt dit resultaat aan een quiz-attempts row. Leeg voor historische resultaten van vóór de tracking-integratie.",
+      },
+    },
+    {
       name: "lengthTier",
       type: "select",
       required: true,

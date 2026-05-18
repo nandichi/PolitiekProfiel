@@ -1,9 +1,20 @@
 import type { ReactElement } from "react";
-import { DIMENSIONS } from "@/lib/dimensions";
+import { DIMENSIONS, type DimensionId } from "@/lib/dimensions";
 import { THEMES, type ThemeId, type ThemeScores } from "@/lib/themes";
 import type { StoredResult } from "@/lib/results-store";
 import type { IdeologyDoc } from "@/lib/result-data";
 import { OG_COLORS as C } from "@/lib/og-template";
+
+/**
+ * OG-specifieke accent-kleuren. De site navy (#142850) is zó donker dat hij
+ * op een PNG tegen #fafaf7 paper als "donkergrijs" oogt in plaats van blauw.
+ * Voor de OG-renderer gebruiken we daarom iets fellere varianten met meer
+ * chroma; ze worden alleen toegepast op data-accenten (leaning pool labels,
+ * bar fills, highlight strepen, scores). De brand-elementen (PolitiekProfiel
+ * logo, dots) houden de officiële site-navy.
+ */
+const ACCENT_NAVY = "#1f3d8c";
+const ACCENT_TERRA = "#c44a2c";
 
 /**
  * Renderer voor de drie download-PNG formaten van een resultaatpagina:
@@ -14,6 +25,14 @@ import { OG_COLORS as C } from "@/lib/og-template";
  * Het design volgt de site (paper/ink/navy/terra) en hergebruikt het
  * editoriale stramien: monospaced kicker met dot, display-serif titel met
  * terra-punt, mono labels.
+ *
+ * Inhoudelijke principes (zodat de afbeelding ook iets vertelt):
+ * - Elke dimensiebar krijgt links/rechts een pool-label in woorden, zodat
+ *   "+39" niet meer een raadsel is maar "Sterke staat" laat zien.
+ * - Pool waar de score naartoe leunt wordt in accentkleur gezet.
+ * - Thema-chips bevatten naast de score ook het pool-woord (OPEN, RESTRICTIEF, …).
+ * - Boven de fold staan drie korte "highlights": de sterkste posities van
+ *   deze respondent, geformuleerd als pool-label + score.
  */
 
 export type OgFormat = "wide" | "square" | "story";
@@ -38,6 +57,125 @@ export function renderResultOg(args: RenderArgs): ReactElement {
   return renderWide(args);
 }
 
+/* ============================================================== */
+/*  Pool-label helpers — kortere, "punchier" labels voor de OG.    */
+/*  De originele labels in dimensions.ts/themes.ts zijn soms te    */
+/*  lang voor een PNG (bv. "Multilevel/EU", "Markt & eigen kracht"). */
+/* ============================================================== */
+
+const SHORT_POLE_OVERRIDES: Record<string, string> = {
+  "Multilevel/EU": "Pro-EU",
+  "Nationaal-soeverein": "Nationaal",
+  "Markt & eigen kracht": "Markt",
+  "Publieke zorg": "Publiek",
+  "Lasten omlaag": "Lasten omlaag",
+  "Markt & bouwen": "Markt",
+  "Publiek sturen": "Publiek",
+};
+
+function shortPoleLabel(label: string): string {
+  return SHORT_POLE_OVERRIDES[label] ?? label;
+}
+
+interface PoleInfo {
+  shortNeg: string;
+  shortPos: string;
+  leaningLabel: string;
+  leaningDir: -1 | 0 | 1;
+}
+
+function dimensionPoles(d: (typeof DIMENSIONS)[number], value: number): PoleInfo {
+  const shortNeg = shortPoleLabel(d.poleNegative.label);
+  const shortPos = shortPoleLabel(d.polePositive.label);
+  const dir = Math.abs(value) < 5 ? 0 : value > 0 ? 1 : -1;
+  return {
+    shortNeg,
+    shortPos,
+    leaningLabel: dir === 1 ? shortPos : dir === -1 ? shortNeg : "Neutraal",
+    leaningDir: dir,
+  };
+}
+
+function themePoles(t: (typeof THEMES)[number], value: number) {
+  const shortNeg = shortPoleLabel(t.poleNegative.label);
+  const shortPos = shortPoleLabel(t.polePositive.label);
+  const dir = Math.abs(value) < 5 ? 0 : value > 0 ? 1 : -1;
+  return {
+    shortNeg,
+    shortPos,
+    leaningLabel: dir === 1 ? shortPos : dir === -1 ? shortNeg : "Neutraal",
+    leaningDir: dir,
+  };
+}
+
+interface Highlight {
+  /** Korte label voor in een chip/zin, bv. "Progressief". */
+  poleLabel: string;
+  /** Context-label, bv. "Cultureel" of "Migratie". */
+  context: string;
+  /** Originele score (-100..+100). */
+  value: number;
+  /** Intensiteit-adjectief op basis van abs(score). */
+  intensifier: "Sterk" | "Duidelijk" | "Licht" | "";
+}
+
+function intensityWord(abs: number): Highlight["intensifier"] {
+  if (abs >= 70) return "Sterk";
+  if (abs >= 45) return "Duidelijk";
+  if (abs >= 25) return "Licht";
+  return "";
+}
+
+/**
+ * Top 3 sterkste posities van de respondent, samengesteld uit alle vijf
+ * dimensies plus de zeven thema's. Gesorteerd op absolute score, alleen
+ * waarden ≥ 25 worden meegenomen. Geeft de gebruiker een directe
+ * "wie ben ik politiek?" samenvatting in drie regels.
+ */
+function topHighlights(result: StoredResult, limit = 3): Highlight[] {
+  const items: Highlight[] = [];
+
+  for (const d of DIMENSIONS) {
+    const value = result.dimensions[d.id as DimensionId];
+    if (Math.abs(value) < 25) continue;
+    const { leaningLabel } = dimensionPoles(d, value);
+    items.push({
+      poleLabel: leaningLabel,
+      context: d.shortLabel,
+      value,
+      intensifier: intensityWord(Math.abs(value)),
+    });
+  }
+
+  if (result.themeScores) {
+    for (const t of THEMES) {
+      const value = result.themeScores[t.id as ThemeId] ?? 0;
+      if (Math.abs(value) < 35) continue;
+      const { leaningLabel } = themePoles(t, value);
+      items.push({
+        poleLabel: leaningLabel,
+        context: t.shortLabel,
+        value,
+        intensifier: intensityWord(Math.abs(value)),
+      });
+    }
+  }
+
+  items.sort((a, b) => Math.abs(b.value) - Math.abs(a.value));
+  // Voorkom duplicaten op pool-label (bv. dimensie "Progressief" + thema "Open"
+  // dat ook overeenkomt). Eerste hit wint.
+  const seen = new Set<string>();
+  const out: Highlight[] = [];
+  for (const it of items) {
+    const key = `${it.poleLabel}|${it.context}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(it);
+    if (out.length >= limit) break;
+  }
+  return out;
+}
+
 function topThemes(scores: ThemeScores | undefined, limit = 3) {
   if (!scores) return [];
   return [...THEMES]
@@ -48,34 +186,58 @@ function topThemes(scores: ThemeScores | undefined, limit = 3) {
 }
 
 interface DimensionBarProps {
-  shortLabel: string;
+  contextLabel: string;
+  poleNegLabel: string;
+  polePosLabel: string;
   value: number;
   fontFamilies: { display: string; sans: string; mono: string };
   scale: number;
+  /** Breedte van de pool-label kolommen aan beide kanten van de bar. */
+  poleColWidth?: number;
 }
 
 /**
- * Voltmeter-bar in editoriale stijl. Gevulde balk vanaf het midden naar
- * de score-positie, met een eindstreep als marker. Negatieve waardes
- * gebruiken terra, positieve waardes navy, neutraal blijft ink-muted.
+ * Voltmeter-bar met pool-labels. Anatomie:
+ *
+ * [Economie 130px] [Vrije markt] ───●───────── [Sterke staat]   [+39 mono]
+ *      context        pool-neg          bar         pole-pos       score
+ *
+ * - De fill loopt van center naar de score-positie in accentkleur (terra
+ *   bij negatief, navy bij positief).
+ * - De pool waar de score naartoe leunt staat in dezelfde accentkleur en
+ *   in gewicht 500; de tegenoverliggende pool blijft muted.
  */
-function DimensionBar({ shortLabel, value, fontFamilies, scale }: DimensionBarProps) {
+function DimensionBar({
+  contextLabel,
+  poleNegLabel,
+  polePosLabel,
+  value,
+  fontFamilies,
+  scale,
+  poleColWidth = 132,
+}: DimensionBarProps) {
   const clamped = Math.max(-100, Math.min(100, value));
   const isPositive = clamped > 0;
   const isNeutral = Math.abs(clamped) < 5;
-  const fillColor = isNeutral ? C.inkSubtle : isPositive ? C.navy : C.terra;
+  const accentColor = isNeutral ? C.inkSubtle : isPositive ? ACCENT_NAVY : ACCENT_TERRA;
   const half = Math.abs(clamped) / 2;
   const fillLeft = isPositive ? 50 : 50 - half;
   const fillWidth = half;
   const markerLeft = (clamped + 100) / 2;
 
-  const labelWidth = Math.round(170 * scale);
+  const contextWidth = Math.round(130 * scale);
   const valueWidth = Math.round(78 * scale);
-  const labelSize = Math.round(17 * scale);
+  const contextSize = Math.round(16 * scale);
+  const poleSize = Math.round(13 * scale);
   const valueSize = Math.round(22 * scale);
-  const gap = Math.round(18 * scale);
+  const gap = Math.round(14 * scale);
   const trackHeight = Math.max(6, Math.round(8 * scale));
-  const rowHeight = Math.max(28, Math.round(32 * scale));
+  const rowHeight = Math.max(28, Math.round(34 * scale));
+
+  const colWidth = Math.round(poleColWidth * scale);
+
+  const negActive = clamped < -5;
+  const posActive = clamped > 5;
 
   return (
     <div
@@ -86,18 +248,37 @@ function DimensionBar({ shortLabel, value, fontFamilies, scale }: DimensionBarPr
         height: rowHeight,
       }}
     >
+      {/* Dimensie label (context) */}
       <div
         style={{
-          width: labelWidth,
-          fontSize: labelSize,
+          width: contextWidth,
+          fontSize: contextSize,
           color: C.ink,
           fontFamily: fontFamilies.sans,
           fontWeight: 500,
           display: "flex",
         }}
       >
-        {shortLabel}
+        {contextLabel}
       </div>
+
+      {/* Negative pool label */}
+      <div
+        style={{
+          width: colWidth,
+          fontSize: poleSize,
+          color: negActive ? accentColor : C.inkMuted,
+          fontFamily: fontFamilies.sans,
+          fontWeight: negActive ? 600 : 400,
+          textAlign: "right",
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      >
+        {poleNegLabel}
+      </div>
+
+      {/* Bar */}
       <div
         style={{
           position: "relative",
@@ -129,8 +310,8 @@ function DimensionBar({ shortLabel, value, fontFamilies, scale }: DimensionBarPr
             top: 0,
             bottom: 0,
             width: `${fillWidth}%`,
-            background: fillColor,
-            opacity: 0.18,
+            background: accentColor,
+            opacity: 0.55,
             display: "flex",
           }}
         />
@@ -141,19 +322,35 @@ function DimensionBar({ shortLabel, value, fontFamilies, scale }: DimensionBarPr
             top: -Math.round(8 * scale),
             bottom: -Math.round(8 * scale),
             width: Math.max(3, Math.round(4 * scale)),
-            background: fillColor,
+            background: accentColor,
             left: `${markerLeft}%`,
             transform: "translateX(-50%)",
             display: "flex",
           }}
         />
       </div>
+
+      {/* Positive pool label */}
+      <div
+        style={{
+          width: colWidth,
+          fontSize: poleSize,
+          color: posActive ? accentColor : C.inkMuted,
+          fontFamily: fontFamilies.sans,
+          fontWeight: posActive ? 600 : 400,
+          display: "flex",
+        }}
+      >
+        {polePosLabel}
+      </div>
+
+      {/* Score */}
       <div
         style={{
           width: valueWidth,
           textAlign: "right",
           fontSize: valueSize,
-          color: C.ink,
+          color: isNeutral ? C.inkMuted : C.ink,
           fontFamily: fontFamilies.mono,
           fontWeight: 500,
           display: "flex",
@@ -163,6 +360,265 @@ function DimensionBar({ shortLabel, value, fontFamilies, scale }: DimensionBarPr
         {clamped > 0 ? "+" : ""}
         {clamped}
       </div>
+    </div>
+  );
+}
+
+interface HighlightsBlockProps {
+  highlights: Highlight[];
+  fontFamilies: { display: string; sans: string; mono: string };
+  variant: "wide" | "stack";
+  scale?: number;
+}
+
+/**
+ * Drie sterkste posities, getoond als pool-label + score. Twee varianten:
+ *
+ * - "wide": horizontale rij (voor het wide-format, om verticale ruimte te sparen).
+ * - "stack": stack van regels (square/story), per regel context + leaning + score.
+ */
+function HighlightsBlock({
+  highlights,
+  fontFamilies,
+  variant,
+  scale = 1,
+}: HighlightsBlockProps) {
+  if (highlights.length === 0) return null;
+  const f = fontFamilies;
+
+  if (variant === "wide") {
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: 24,
+          flexWrap: "wrap",
+        }}
+      >
+        {highlights.map((h, i) => {
+          const color = h.value > 0 ? ACCENT_NAVY : ACCENT_TERRA;
+          return (
+            <div
+              key={i}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 4,
+                paddingLeft: 14,
+                borderLeft: `2px solid ${color}`,
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: f.mono,
+                  fontSize: 11,
+                  letterSpacing: 1.6,
+                  color: C.inkSubtle,
+                  textTransform: "uppercase",
+                }}
+              >
+                {h.context}
+              </span>
+              <span
+                style={{
+                  fontFamily: f.display,
+                  fontSize: 24,
+                  fontWeight: 500,
+                  color: C.ink,
+                  letterSpacing: -0.4,
+                  display: "flex",
+                  alignItems: "baseline",
+                  gap: 8,
+                }}
+              >
+                <span>{h.poleLabel}</span>
+                <span
+                  style={{
+                    fontFamily: f.mono,
+                    fontSize: 15,
+                    color,
+                    fontWeight: 500,
+                    letterSpacing: 0,
+                  }}
+                >
+                  {h.value > 0 ? "+" : ""}
+                  {h.value}
+                </span>
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+
+  // stacked variant (square/story)
+  const titleSize = Math.round(30 * scale);
+  const contextSize = Math.round(12 * scale);
+  const scoreSize = Math.round(17 * scale);
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: Math.round(16 * scale),
+      }}
+    >
+      {highlights.map((h, i) => {
+        const color = h.value > 0 ? ACCENT_NAVY : ACCENT_TERRA;
+        return (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: Math.round(18 * scale),
+              paddingLeft: Math.round(16 * scale),
+              borderLeft: `3px solid ${color}`,
+              paddingTop: Math.round(4 * scale),
+              paddingBottom: Math.round(4 * scale),
+            }}
+          >
+            {/* Kicker column: context + intensiteit */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: Math.round(2 * scale),
+                width: Math.round(120 * scale),
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: f.mono,
+                  fontSize: contextSize,
+                  letterSpacing: 1.8,
+                  color: C.inkSubtle,
+                  textTransform: "uppercase",
+                  display: "flex",
+                }}
+              >
+                {h.context}
+              </span>
+              {h.intensifier && (
+                <span
+                  style={{
+                    fontFamily: f.mono,
+                    fontSize: contextSize,
+                    letterSpacing: 1.8,
+                    color,
+                    textTransform: "uppercase",
+                    fontWeight: 500,
+                    display: "flex",
+                  }}
+                >
+                  {h.intensifier}
+                </span>
+              )}
+            </div>
+
+            {/* Pool label (display) */}
+            <span
+              style={{
+                fontFamily: f.display,
+                fontSize: titleSize,
+                fontWeight: 500,
+                color: C.ink,
+                letterSpacing: -0.5,
+                display: "flex",
+                flex: 1,
+                lineHeight: 1,
+              }}
+            >
+              {h.poleLabel}
+            </span>
+
+            {/* Score */}
+            <span
+              style={{
+                fontFamily: f.mono,
+                fontSize: scoreSize,
+                color,
+                fontWeight: 500,
+                display: "flex",
+              }}
+            >
+              {h.value > 0 ? "+" : ""}
+              {h.value}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+interface ThemeChipProps {
+  theme: (typeof THEMES)[number];
+  value: number;
+  fontFamilies: { display: string; sans: string; mono: string };
+  size?: "sm" | "md" | "lg";
+}
+
+function ThemeChip({ theme, value, fontFamilies, size = "md" }: ThemeChipProps) {
+  const { leaningLabel, leaningDir } = themePoles(theme, value);
+  const color = leaningDir > 0 ? ACCENT_NAVY : leaningDir < 0 ? ACCENT_TERRA : C.inkMuted;
+  const f = fontFamilies;
+
+  const padding =
+    size === "sm" ? "6px 10px" : size === "lg" ? "12px 20px" : "8px 14px";
+  const themeFs = size === "sm" ? 13 : size === "lg" ? 18 : 15;
+  const poleFs = size === "sm" ? 10 : size === "lg" ? 12 : 11;
+  const scoreFs = size === "sm" ? 12 : size === "lg" ? 16 : 14;
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: size === "lg" ? 12 : 10,
+        padding,
+        border: `1px solid ${C.rule}`,
+        background: C.paper50,
+      }}
+    >
+      <span
+        style={{
+          fontFamily: f.sans,
+          fontSize: themeFs,
+          fontWeight: 500,
+          color: C.ink,
+        }}
+      >
+        {theme.shortLabel}
+      </span>
+      {leaningLabel !== "Neutraal" && (
+        <span
+          style={{
+            fontFamily: f.mono,
+            fontSize: poleFs,
+            letterSpacing: 1.6,
+            color,
+            textTransform: "uppercase",
+          }}
+        >
+          {leaningLabel}
+        </span>
+      )}
+      <span
+        style={{
+          fontFamily: f.mono,
+          fontSize: scoreFs,
+          color,
+          fontWeight: 500,
+        }}
+      >
+        {value > 0 ? "+" : ""}
+        {value}
+      </span>
     </div>
   );
 }
@@ -309,8 +765,8 @@ function MetaPill({ label, value, fontFamilies }: MetaPillProps) {
 function renderWide({ result, ideology, fontFamilies }: RenderArgs): ReactElement {
   const { width, height } = OG_DIMENSIONS.wide;
   const ideoName = ideology?.name ?? result.ideologySlug;
-  const ideoShort = ideology?.shortDescription;
   const f = fontFamilies;
+  const highlights = topHighlights(result, 3);
 
   return (
     <div
@@ -321,7 +777,7 @@ function renderWide({ result, ideology, fontFamilies }: RenderArgs): ReactElemen
         color: C.ink,
         display: "flex",
         flexDirection: "column",
-        padding: "56px 72px",
+        padding: "44px 64px 36px 64px",
         fontFamily: f.sans,
         position: "relative",
       }}
@@ -351,51 +807,132 @@ function renderWide({ result, ideology, fontFamilies }: RenderArgs): ReactElemen
         <Badge text="Jouw politieke profiel" fontFamilies={f} />
       </div>
 
-      {/* Hero */}
+      {/* Two-column hero */}
       <div
         style={{
-          marginTop: 36,
+          marginTop: 24,
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
+          gap: 40,
           flex: 1,
         }}
       >
-        <Kicker number="01" label="Profiel" fontFamilies={f} />
-
+        {/* Left: ideology name */}
         <div
           style={{
-            marginTop: 18,
             display: "flex",
-            alignItems: "baseline",
-            fontFamily: f.display,
-            fontWeight: 500,
-            fontSize: 88,
-            lineHeight: 0.98,
-            letterSpacing: -2.2,
-            color: C.ink,
-            maxWidth: 1000,
+            flexDirection: "column",
+            width: 520,
           }}
         >
-          <span>{ideoName}</span>
-          <span style={{ color: C.terra }}>.</span>
-        </div>
-
-        {ideoShort && (
+          <Kicker number="01" label="Ideologie" fontFamilies={f} />
           <div
             style={{
-              marginTop: 18,
-              fontSize: 20,
-              color: C.ink,
-              fontFamily: f.sans,
-              fontWeight: 400,
-              maxWidth: 950,
-              lineHeight: 1.4,
+              marginTop: 16,
               display: "flex",
+              flexWrap: "wrap",
+              alignItems: "baseline",
+              fontFamily: f.display,
+              fontWeight: 500,
+              fontSize: 64,
+              lineHeight: 0.98,
+              letterSpacing: -1.6,
+              color: C.ink,
             }}
           >
-            {ideoShort.length > 180 ? `${ideoShort.slice(0, 177)}…` : ideoShort}
+            <span>{ideoName}</span>
+            <span style={{ color: C.terra }}>.</span>
           </div>
-        )}
+          {ideology?.shortDescription && (
+            <div
+              style={{
+                marginTop: 14,
+                fontSize: 16,
+                color: C.ink,
+                fontFamily: f.sans,
+                fontWeight: 400,
+                lineHeight: 1.4,
+                display: "flex",
+              }}
+            >
+              {ideology.shortDescription.length > 140
+                ? `${ideology.shortDescription.slice(0, 137)}…`
+                : ideology.shortDescription}
+            </div>
+          )}
+        </div>
+
+        {/* Right: highlights */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            flex: 1,
+            paddingLeft: 28,
+            borderLeft: `1px solid ${C.rule}`,
+          }}
+        >
+          <Kicker number="02" label="Sterkste posities" fontFamilies={f} size={11} />
+          <div style={{ marginTop: 18, display: "flex", flexDirection: "column", gap: 14 }}>
+            {highlights.map((h, i) => {
+              const color = h.value > 0 ? ACCENT_NAVY : ACCENT_TERRA;
+              return (
+                <div
+                  key={i}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 2,
+                    paddingLeft: 12,
+                    borderLeft: `2px solid ${color}`,
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: f.mono,
+                      fontSize: 10,
+                      letterSpacing: 1.6,
+                      color: C.inkSubtle,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {h.context}
+                  </span>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "baseline",
+                      gap: 10,
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: f.display,
+                        fontSize: 22,
+                        fontWeight: 500,
+                        color: C.ink,
+                        letterSpacing: -0.4,
+                      }}
+                    >
+                      {h.poleLabel}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: f.mono,
+                        fontSize: 14,
+                        color,
+                        fontWeight: 500,
+                      }}
+                    >
+                      {h.value > 0 ? "+" : ""}
+                      {h.value}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {/* Dimensions */}
@@ -403,8 +940,8 @@ function renderWide({ result, ideology, fontFamilies }: RenderArgs): ReactElemen
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: 6,
-          paddingTop: 22,
+          gap: 4,
+          paddingTop: 18,
           borderTop: `1px solid ${C.ruleStrong}`,
         }}
       >
@@ -416,7 +953,7 @@ function renderWide({ result, ideology, fontFamilies }: RenderArgs): ReactElemen
             marginBottom: 6,
           }}
         >
-          <Kicker number="02" label="Dimensies" fontFamilies={f} size={11} />
+          <Kicker number="03" label="Dimensies" fontFamilies={f} size={11} />
           <span
             style={{
               fontFamily: f.mono,
@@ -430,26 +967,33 @@ function renderWide({ result, ideology, fontFamilies }: RenderArgs): ReactElemen
           </span>
         </div>
 
-        {DIMENSIONS.map((d) => (
-          <DimensionBar
-            key={d.id}
-            shortLabel={d.shortLabel}
-            value={result.dimensions[d.id]}
-            fontFamilies={f}
-            scale={0.9}
-          />
-        ))}
+        {DIMENSIONS.map((d) => {
+          const value = result.dimensions[d.id];
+          const { shortNeg, shortPos } = dimensionPoles(d, value);
+          return (
+            <DimensionBar
+              key={d.id}
+              contextLabel={d.shortLabel}
+              poleNegLabel={shortNeg}
+              polePosLabel={shortPos}
+              value={value}
+              fontFamilies={f}
+              scale={0.78}
+              poleColWidth={120}
+            />
+          );
+        })}
       </div>
 
       {/* Footer */}
       <div
         style={{
-          marginTop: 18,
+          marginTop: 14,
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
           fontFamily: f.mono,
-          fontSize: 12,
+          fontSize: 11,
           letterSpacing: 1.4,
           color: C.inkMuted,
         }}
@@ -472,6 +1016,7 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
   const spectrum = ideology?.spectrumPosition;
   const f = fontFamilies;
   const themes = topThemes(result.themeScores, 3);
+  const highlights = topHighlights(result, 3);
 
   return (
     <div
@@ -515,7 +1060,7 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
       {/* Hero */}
       <div
         style={{
-          marginTop: 60,
+          marginTop: 40,
           display: "flex",
           flexDirection: "column",
         }}
@@ -524,14 +1069,14 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
 
         <div
           style={{
-            marginTop: 28,
+            marginTop: 22,
             display: "flex",
             flexWrap: "wrap",
             fontFamily: f.display,
             fontWeight: 500,
-            fontSize: 110,
+            fontSize: 92,
             lineHeight: 0.96,
-            letterSpacing: -2.8,
+            letterSpacing: -2.4,
             color: C.ink,
           }}
         >
@@ -542,8 +1087,8 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
         {ideoShort && (
           <div
             style={{
-              marginTop: 26,
-              fontSize: 24,
+              marginTop: 18,
+              fontSize: 21,
               color: C.ink,
               fontFamily: f.sans,
               fontWeight: 400,
@@ -552,7 +1097,7 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
               maxWidth: 920,
             }}
           >
-            {ideoShort.length > 200 ? `${ideoShort.slice(0, 197)}…` : ideoShort}
+            {ideoShort.length > 180 ? `${ideoShort.slice(0, 177)}…` : ideoShort}
           </div>
         )}
 
@@ -560,7 +1105,7 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
         {spectrum && (
           <div
             style={{
-              marginTop: 28,
+              marginTop: 20,
               display: "flex",
               alignItems: "center",
               gap: 12,
@@ -571,10 +1116,10 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
                 display: "flex",
                 alignItems: "center",
                 gap: 8,
-                padding: "10px 18px",
+                padding: "8px 14px",
                 border: `1px solid ${C.ink}`,
                 fontFamily: f.mono,
-                fontSize: 13,
+                fontSize: 12,
                 letterSpacing: 1.6,
                 color: C.ink,
                 textTransform: "uppercase",
@@ -583,8 +1128,8 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
               <span
                 style={{
                   display: "block",
-                  width: 7,
-                  height: 7,
+                  width: 6,
+                  height: 6,
                   background: C.navy,
                   borderRadius: 999,
                 }}
@@ -594,7 +1139,7 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
             <span
               style={{
                 fontFamily: f.mono,
-                fontSize: 12,
+                fontSize: 11,
                 letterSpacing: 1.6,
                 color: C.inkMuted,
                 textTransform: "uppercase",
@@ -606,16 +1151,38 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
         )}
       </div>
 
+      {/* Highlights */}
+      {highlights.length > 0 && (
+        <div
+          style={{
+            marginTop: 28,
+            paddingTop: 22,
+            borderTop: `1px solid ${C.rule}`,
+            display: "flex",
+            flexDirection: "column",
+            gap: 12,
+          }}
+        >
+          <Kicker number="02" label="Wie je politiek bent" fontFamilies={f} size={12} />
+          <HighlightsBlock
+            highlights={highlights}
+            fontFamilies={f}
+            variant="stack"
+            scale={0.9}
+          />
+        </div>
+      )}
+
       {/* Spacer */}
-      <div style={{ flex: 1, display: "flex" }} />
+      <div style={{ flex: 1, display: "flex", minHeight: 12 }} />
 
       {/* Dimensions */}
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: 8,
-          paddingTop: 28,
+          gap: 4,
+          paddingTop: 22,
           borderTop: `1px solid ${C.ruleStrong}`,
         }}
       >
@@ -624,10 +1191,10 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
             display: "flex",
             alignItems: "center",
             gap: 14,
-            marginBottom: 10,
+            marginBottom: 8,
           }}
         >
-          <Kicker number="02" label="Dimensies" fontFamilies={f} />
+          <Kicker number="03" label="Dimensies" fontFamilies={f} size={12} />
           <span
             style={{
               fontFamily: f.mono,
@@ -641,15 +1208,22 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
           </span>
         </div>
 
-        {DIMENSIONS.map((d) => (
-          <DimensionBar
-            key={d.id}
-            shortLabel={d.shortLabel}
-            value={result.dimensions[d.id]}
-            fontFamilies={f}
-            scale={1}
-          />
-        ))}
+        {DIMENSIONS.map((d) => {
+          const value = result.dimensions[d.id];
+          const { shortNeg, shortPos } = dimensionPoles(d, value);
+          return (
+            <DimensionBar
+              key={d.id}
+              contextLabel={d.shortLabel}
+              poleNegLabel={shortNeg}
+              polePosLabel={shortPos}
+              value={value}
+              fontFamilies={f}
+              scale={0.78}
+              poleColWidth={120}
+            />
+          );
+        })}
       </div>
 
       {/* Top themes */}
@@ -658,54 +1232,28 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: 14,
-            marginTop: 26,
-            paddingTop: 22,
+            gap: 12,
+            marginTop: 18,
+            paddingTop: 18,
             borderTop: `1px solid ${C.rule}`,
           }}
         >
-          <Kicker number="03" label="Sterkste thema's" fontFamilies={f} size={12} />
+          <Kicker number="04" label="Sterkste thema's" fontFamilies={f} size={11} />
           <div
             style={{
               display: "flex",
               flexWrap: "wrap",
-              gap: 10,
+              gap: 8,
             }}
           >
             {themes.map((t) => (
-              <div
+              <ThemeChip
                 key={t.theme.id}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  padding: "8px 14px",
-                  border: `1px solid ${C.rule}`,
-                  background: C.paper50,
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: f.sans,
-                    fontSize: 16,
-                    fontWeight: 500,
-                    color: C.ink,
-                  }}
-                >
-                  {t.theme.shortLabel}
-                </span>
-                <span
-                  style={{
-                    fontFamily: f.mono,
-                    fontSize: 14,
-                    color: t.value > 0 ? C.navy : C.terra,
-                    fontWeight: 500,
-                  }}
-                >
-                  {t.value > 0 ? "+" : ""}
-                  {t.value}
-                </span>
-              </div>
+                theme={t.theme}
+                value={t.value}
+                fontFamilies={f}
+                size="sm"
+              />
             ))}
           </div>
         </div>
@@ -714,12 +1262,12 @@ function renderSquare({ result, ideology, fontFamilies }: RenderArgs): ReactElem
       {/* Footer */}
       <div
         style={{
-          marginTop: 24,
+          marginTop: 20,
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
           fontFamily: f.mono,
-          fontSize: 13,
+          fontSize: 12,
           letterSpacing: 1.4,
           color: C.inkMuted,
         }}
@@ -742,6 +1290,7 @@ function renderStory({ result, ideology, fontFamilies }: RenderArgs): ReactEleme
   const spectrum = ideology?.spectrumPosition;
   const f = fontFamilies;
   const themes = topThemes(result.themeScores, 3);
+  const highlights = topHighlights(result, 3);
 
   return (
     <div
@@ -823,7 +1372,7 @@ function renderStory({ result, ideology, fontFamilies }: RenderArgs): ReactEleme
       {/* Hero */}
       <div
         style={{
-          marginTop: 80,
+          marginTop: 60,
           display: "flex",
           flexDirection: "column",
         }}
@@ -832,14 +1381,14 @@ function renderStory({ result, ideology, fontFamilies }: RenderArgs): ReactEleme
 
         <div
           style={{
-            marginTop: 36,
+            marginTop: 28,
             display: "flex",
             flexWrap: "wrap",
             fontFamily: f.display,
             fontWeight: 500,
-            fontSize: 132,
+            fontSize: 108,
             lineHeight: 0.95,
-            letterSpacing: -3.2,
+            letterSpacing: -2.6,
             color: C.ink,
           }}
         >
@@ -850,8 +1399,8 @@ function renderStory({ result, ideology, fontFamilies }: RenderArgs): ReactEleme
         {ideoShort && (
           <div
             style={{
-              marginTop: 36,
-              fontSize: 28,
+              marginTop: 24,
+              fontSize: 24,
               color: C.ink,
               fontFamily: f.sans,
               fontWeight: 400,
@@ -860,14 +1409,14 @@ function renderStory({ result, ideology, fontFamilies }: RenderArgs): ReactEleme
               maxWidth: 880,
             }}
           >
-            {ideoShort.length > 220 ? `${ideoShort.slice(0, 217)}…` : ideoShort}
+            {ideoShort.length > 200 ? `${ideoShort.slice(0, 197)}…` : ideoShort}
           </div>
         )}
 
         {spectrum && (
           <div
             style={{
-              marginTop: 36,
+              marginTop: 24,
               display: "flex",
               alignItems: "center",
               gap: 14,
@@ -878,10 +1427,10 @@ function renderStory({ result, ideology, fontFamilies }: RenderArgs): ReactEleme
                 display: "flex",
                 alignItems: "center",
                 gap: 10,
-                padding: "14px 24px",
+                padding: "12px 20px",
                 border: `1.5px solid ${C.ink}`,
                 fontFamily: f.mono,
-                fontSize: 15,
+                fontSize: 14,
                 letterSpacing: 1.8,
                 color: C.ink,
                 textTransform: "uppercase",
@@ -890,8 +1439,8 @@ function renderStory({ result, ideology, fontFamilies }: RenderArgs): ReactEleme
               <span
                 style={{
                   display: "block",
-                  width: 9,
-                  height: 9,
+                  width: 8,
+                  height: 8,
                   background: C.navy,
                   borderRadius: 999,
                 }}
@@ -902,15 +1451,37 @@ function renderStory({ result, ideology, fontFamilies }: RenderArgs): ReactEleme
         )}
       </div>
 
-      <div style={{ flex: 1, display: "flex" }} />
+      {/* Highlights */}
+      {highlights.length > 0 && (
+        <div
+          style={{
+            marginTop: 36,
+            paddingTop: 28,
+            borderTop: `1px solid ${C.rule}`,
+            display: "flex",
+            flexDirection: "column",
+            gap: 16,
+          }}
+        >
+          <Kicker number="02" label="Wie je politiek bent" fontFamilies={f} size={13} />
+          <HighlightsBlock
+            highlights={highlights}
+            fontFamilies={f}
+            variant="stack"
+            scale={1.05}
+          />
+        </div>
+      )}
+
+      <div style={{ flex: 1, display: "flex", minHeight: 18 }} />
 
       {/* Dimensions */}
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: 14,
-          paddingTop: 36,
+          gap: 6,
+          paddingTop: 28,
           borderTop: `1px solid ${C.ruleStrong}`,
         }}
       >
@@ -919,10 +1490,10 @@ function renderStory({ result, ideology, fontFamilies }: RenderArgs): ReactEleme
             display: "flex",
             alignItems: "center",
             gap: 14,
-            marginBottom: 12,
+            marginBottom: 10,
           }}
         >
-          <Kicker number="02" label="Dimensies" fontFamilies={f} size={14} />
+          <Kicker number="03" label="Dimensies" fontFamilies={f} size={13} />
           <span
             style={{
               fontFamily: f.mono,
@@ -936,15 +1507,22 @@ function renderStory({ result, ideology, fontFamilies }: RenderArgs): ReactEleme
           </span>
         </div>
 
-        {DIMENSIONS.map((d) => (
-          <DimensionBar
-            key={d.id}
-            shortLabel={d.shortLabel}
-            value={result.dimensions[d.id]}
-            fontFamilies={f}
-            scale={1.4}
-          />
-        ))}
+        {DIMENSIONS.map((d) => {
+          const value = result.dimensions[d.id];
+          const { shortNeg, shortPos } = dimensionPoles(d, value);
+          return (
+            <DimensionBar
+              key={d.id}
+              contextLabel={d.shortLabel}
+              poleNegLabel={shortNeg}
+              polePosLabel={shortPos}
+              value={value}
+              fontFamilies={f}
+              scale={0.92}
+              poleColWidth={132}
+            />
+          );
+        })}
       </div>
 
       {/* Top themes */}
@@ -953,54 +1531,28 @@ function renderStory({ result, ideology, fontFamilies }: RenderArgs): ReactEleme
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: 18,
-            marginTop: 40,
-            paddingTop: 28,
+            gap: 14,
+            marginTop: 26,
+            paddingTop: 22,
             borderTop: `1px solid ${C.rule}`,
           }}
         >
-          <Kicker number="03" label="Sterkste thema's" fontFamilies={f} size={14} />
+          <Kicker number="04" label="Sterkste thema's" fontFamilies={f} size={13} />
           <div
             style={{
               display: "flex",
               flexWrap: "wrap",
-              gap: 12,
+              gap: 10,
             }}
           >
             {themes.map((t) => (
-              <div
+              <ThemeChip
                 key={t.theme.id}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 12,
-                  padding: "12px 20px",
-                  border: `1px solid ${C.rule}`,
-                  background: C.paper50,
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: f.sans,
-                    fontSize: 20,
-                    fontWeight: 500,
-                    color: C.ink,
-                  }}
-                >
-                  {t.theme.shortLabel}
-                </span>
-                <span
-                  style={{
-                    fontFamily: f.mono,
-                    fontSize: 17,
-                    color: t.value > 0 ? C.navy : C.terra,
-                    fontWeight: 500,
-                  }}
-                >
-                  {t.value > 0 ? "+" : ""}
-                  {t.value}
-                </span>
-              </div>
+                theme={t.theme}
+                value={t.value}
+                fontFamilies={f}
+                size="md"
+              />
             ))}
           </div>
         </div>

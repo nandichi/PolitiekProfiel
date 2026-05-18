@@ -14,6 +14,8 @@ import { Parties } from "./collections/Parties";
 import { Countries } from "./collections/Countries";
 import { Results } from "./collections/Results";
 import { AiContent } from "./collections/AiContent";
+import { QuizAttempts } from "./collections/QuizAttempts";
+import { QuizEvents } from "./collections/QuizEvents";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -52,6 +54,25 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      views: {
+        dashboard: {
+          Component: "@/admin-tracking/TrackingDashboardView",
+        },
+        trackingAttempt: {
+          Component: "@/admin-tracking/AttemptDetailView",
+          path: "/tracking/attempt/:attemptId",
+        },
+        trackingVisitor: {
+          Component: "@/admin-tracking/VisitorDetailView",
+          path: "/tracking/visitor/:trackingId",
+        },
+        trackingQuestion: {
+          Component: "@/admin-tracking/QuestionDetailView",
+          path: "/tracking/question/:questionId",
+        },
+      },
+    },
   },
   collections: [
     Users,
@@ -62,6 +83,8 @@ export default buildConfig({
     Countries,
     Results,
     AiContent,
+    QuizAttempts,
+    QuizEvents,
   ],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || "dev-secret-replace-me",

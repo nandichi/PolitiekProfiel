@@ -24,10 +24,13 @@ import { InfoDrawer } from "@/components/quiz/InfoDrawer";
 import { QuizSegmentBar } from "@/components/quiz/QuizSegmentBar";
 import { QuizProgressDots } from "@/components/quiz/QuizProgressDots";
 import { cx } from "@/lib/cx";
+import { newAttemptId, useTracking } from "@/lib/use-tracking";
 
 type AnswerMap = Record<number, AnswerValue | null>;
 
 const STORAGE_KEY = (tier: Tier) => `politiekprofiel-quiz-${tier}`;
+const ATTEMPT_STORAGE_KEY = (tier: Tier) =>
+  `politiekprofiel-attempt-${tier}`;
 
 const TIER_LABELS: Record<Tier, string> = {
   quick: "Quick",
@@ -41,6 +44,7 @@ interface PersistedState {
   questions: QuizQuestion[];
   adaptive: boolean;
   savedAt: number;
+  attemptId?: string;
 }
 
 export function QuizEngine({
@@ -67,6 +71,16 @@ export function QuizEngine({
   const [batchDone, setBatchDone] = useState(false);
   const fetchInFlight = useRef(false);
 
+  const initialAttemptIdRef = useRef<string>("");
+  if (initialAttemptIdRef.current === "") {
+    initialAttemptIdRef.current = newAttemptId();
+  }
+  const tracking = useTracking(initialAttemptIdRef.current);
+  const questionStartedAtRef = useRef<number | null>(null);
+  const lastViewedQuestionIdRef = useRef<number | null>(null);
+  const quizStartedEmittedRef = useRef(false);
+  const submittedRef = useRef(false);
+
   const adaptiveTarget = adaptive ? TIER_QUESTION_COUNT[tier] : questions.length;
   const total = adaptive ? adaptiveTarget : questions.length;
   const current = questions[cursor];
@@ -85,6 +99,11 @@ export function QuizEngine({
       const hasProgress =
         Object.keys(parsed.answers ?? {}).length > 0 || parsed.cursor > 0;
       if (hasQuestions && matchesMode && hasProgress) {
+        if (parsed.attemptId && /^[A-Za-z0-9_-]{6,32}$/.test(parsed.attemptId)) {
+          initialAttemptIdRef.current = parsed.attemptId;
+          tracking.resetAttempt(parsed.attemptId);
+          quizStartedEmittedRef.current = true;
+        }
         setResumePrompt(parsed);
       } else if (!matchesMode || !hasQuestions) {
         window.localStorage.removeItem(STORAGE_KEY(tier));
@@ -92,7 +111,18 @@ export function QuizEngine({
     } catch {
       window.localStorage.removeItem(STORAGE_KEY(tier));
     }
-  }, [tier, adaptive]);
+  }, [tier, adaptive, tracking]);
+
+  useEffect(() => {
+    if (!hydrated || resumePrompt) return;
+    if (quizStartedEmittedRef.current) return;
+    quizStartedEmittedRef.current = true;
+    tracking.track({
+      type: "quiz-started",
+      tier,
+      adaptive,
+    });
+  }, [hydrated, resumePrompt, tracking, tier, adaptive]);
 
   useEffect(() => {
     if (!hydrated || resumePrompt) return;
@@ -103,9 +133,46 @@ export function QuizEngine({
       questions,
       adaptive,
       savedAt: Date.now(),
+      attemptId: initialAttemptIdRef.current,
     };
     window.localStorage.setItem(STORAGE_KEY(tier), JSON.stringify(state));
   }, [answers, cursor, hydrated, resumePrompt, questions, tier, adaptive]);
+
+  useEffect(() => {
+    if (!hydrated || resumePrompt) return;
+    if (!current) return;
+    if (lastViewedQuestionIdRef.current === current.id) return;
+    lastViewedQuestionIdRef.current = current.id;
+    questionStartedAtRef.current = Date.now();
+    tracking.track({
+      type: "question-viewed",
+      tier,
+      adaptive,
+      questionId: current.id,
+      cursor,
+    });
+  }, [current, cursor, hydrated, resumePrompt, tracking, tier, adaptive]);
+
+  useEffect(() => {
+    if (!hydrated || resumePrompt) return;
+    if (typeof window === "undefined") return;
+
+    const onPageHide = () => {
+      if (submittedRef.current) return;
+      tracking.track({
+        type: "quiz-abandoned",
+        tier,
+        adaptive,
+        cursor,
+        meta: { reason: "pagehide" },
+      });
+    };
+
+    window.addEventListener("pagehide", onPageHide);
+    return () => {
+      window.removeEventListener("pagehide", onPageHide);
+    };
+  }, [hydrated, resumePrompt, tracking, tier, adaptive, cursor]);
 
   const answeredCount = useMemo(
     () => Object.values(answers).filter((v) => v !== undefined).length,
@@ -150,6 +217,12 @@ export function QuizEngine({
           const fresh = incoming.filter((q) => !existingIds.has(q.id));
           return [...prev, ...fresh];
         });
+        tracking.track({
+          type: "adaptive-batch",
+          tier,
+          adaptive,
+          meta: { received: incoming.length, totalSeen: seenIds.length },
+        });
       }
     } catch {
       setBatchDone(true);
@@ -157,7 +230,7 @@ export function QuizEngine({
       fetchInFlight.current = false;
       setLoadingMore(false);
     }
-  }, [adaptive, answers, adaptiveTarget, batchDone, questions, tier]);
+  }, [adaptive, answers, adaptiveTarget, batchDone, questions, tier, tracking]);
 
   useEffect(() => {
     if (!adaptive || !hydrated || resumePrompt) return;
@@ -213,6 +286,29 @@ export function QuizEngine({
 
   function setAnswer(value: AnswerValue | null) {
     if (!current) return;
+    const startedAt = questionStartedAtRef.current;
+    const timeOnQuestionMs =
+      startedAt !== null ? Math.max(0, Date.now() - startedAt) : undefined;
+    if (value === null) {
+      tracking.track({
+        type: "question-skipped",
+        tier,
+        adaptive,
+        questionId: current.id,
+        cursor,
+        timeOnQuestionMs,
+      });
+    } else {
+      tracking.track({
+        type: "question-answered",
+        tier,
+        adaptive,
+        questionId: current.id,
+        value,
+        cursor,
+        timeOnQuestionMs,
+      });
+    }
     setAnswers((a) => ({ ...a, [current.id]: value }));
     setDirection(1);
     setShowInfo(false);
@@ -223,9 +319,31 @@ export function QuizEngine({
   }
 
   function goBack() {
+    if (current) {
+      tracking.track({
+        type: "question-back",
+        tier,
+        adaptive,
+        questionId: current.id,
+        cursor,
+      });
+    }
     setShowInfo(false);
     setDirection(-1);
     setCursor((c) => Math.max(c - 1, 0));
+  }
+
+  function openInfoDrawer() {
+    if (current) {
+      tracking.track({
+        type: "info-opened",
+        tier,
+        adaptive,
+        questionId: current.id,
+        cursor,
+      });
+    }
+    setShowInfo(true);
   }
 
   async function submit() {
@@ -240,6 +358,7 @@ export function QuizEngine({
         .filter((a) => Number.isFinite(a.questionId));
       const payload = {
         tier,
+        attemptId: initialAttemptIdRef.current,
         answers:
           answerEntries.length > 0
             ? answerEntries
@@ -260,6 +379,14 @@ export function QuizEngine({
         );
       }
       const json = (await res.json()) as { id: string };
+      submittedRef.current = true;
+      tracking.track({
+        type: "quiz-completed",
+        tier,
+        adaptive,
+        meta: { shareId: json.id },
+      });
+      tracking.flushNow();
       if (typeof window !== "undefined") {
         window.localStorage.removeItem(STORAGE_KEY(tier));
       }
@@ -288,6 +415,12 @@ export function QuizEngine({
             type="button"
             className="btn btn-primary"
             onClick={() => {
+              tracking.track({
+                type: "resume-prompt",
+                tier,
+                adaptive,
+                meta: { choice: "continue" },
+              });
               if (resumePrompt.questions && resumePrompt.questions.length > 0) {
                 setQuestions(resumePrompt.questions);
               }
@@ -303,9 +436,21 @@ export function QuizEngine({
             type="button"
             className="btn btn-secondary"
             onClick={() => {
+              tracking.track({
+                type: "resume-prompt",
+                tier,
+                adaptive,
+                meta: { choice: "restart" },
+              });
               if (typeof window !== "undefined") {
                 window.localStorage.removeItem(STORAGE_KEY(tier));
               }
+              const freshAttemptId = newAttemptId();
+              initialAttemptIdRef.current = freshAttemptId;
+              tracking.resetAttempt(freshAttemptId);
+              quizStartedEmittedRef.current = false;
+              lastViewedQuestionIdRef.current = null;
+              questionStartedAtRef.current = null;
               setQuestions(initialQuestions);
               setAnswers({});
               setCursor(0);
@@ -471,7 +616,7 @@ export function QuizEngine({
                 {hasInfo && (
                   <button
                     type="button"
-                    onClick={() => setShowInfo(true)}
+                    onClick={openInfoDrawer}
                     className="inline-flex items-center gap-2 text-xs text-ink-muted hover:text-ink border-b border-transparent hover:border-ink transition-colors pb-0.5"
                   >
                     <Info size={14} strokeWidth={1.8} />
