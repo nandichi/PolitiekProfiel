@@ -503,17 +503,6 @@ export function QuizEngine({
                 </span>
               </h2>
 
-              {/* Pole hint */}
-              <p className="mt-6 mb-8 md:mb-12 text-xs text-ink-muted flex items-center flex-wrap gap-x-3 gap-y-1">
-                <span className="mono tracking-wider">
-                  ← {meta.poleNegative.label.toUpperCase()}
-                </span>
-                <span aria-hidden className="block w-6 h-px bg-rule" />
-                <span className="mono tracking-wider">
-                  {meta.polePositive.label.toUpperCase()} →
-                </span>
-              </p>
-
               {/* Segment bar */}
               <QuizSegmentBar
                 selected={answers[current.id] as AnswerValue | undefined | null}

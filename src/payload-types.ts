@@ -580,6 +580,10 @@ export interface AiContent {
     | {
         text: string;
         meta?: string | null;
+        /**
+         * Externe URL naar boek/artikel (bv. bol.com product-pagina of bibliotheek-record).
+         */
+        link?: string | null;
         id?: string | null;
       }[]
     | null;
@@ -978,6 +982,7 @@ export interface AiContentSelect<T extends boolean = true> {
     | {
         text?: T;
         meta?: T;
+        link?: T;
         id?: T;
       };
   model?: T;
