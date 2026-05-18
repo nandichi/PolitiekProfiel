@@ -1,12 +1,14 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowRight, Repeat, BookOpen, Download } from "lucide-react";
+import { ArrowRight, Repeat, BookOpen } from "lucide-react";
 import { Container } from "@/components/Container";
 import { DimensionBar } from "@/components/DimensionBar";
 import { ScatterPlot } from "@/components/ScatterPlot";
 import { RankedList } from "@/components/RankedList";
 import { ShareBlock } from "@/components/ShareBlock";
+import { SocialShareGrid } from "@/components/result/SocialShareGrid";
+import { ImageDownloads } from "@/components/result/ImageDownloads";
 import { StickyIndex } from "@/components/StickyIndex";
 import { Kicker } from "@/components/Kicker";
 import {
@@ -853,6 +855,40 @@ export default async function ResultPage({ params }: Args) {
                   </div>
                 </ScrollRevealItem>
 
+                {/* Social media delen */}
+                <ScrollRevealItem>
+                  <div className="mt-14 border-t border-rule pt-6">
+                    <div className="flex flex-wrap items-baseline justify-between gap-3 mb-5">
+                      <p className="kicker">Deel op social media</p>
+                      <p className="text-xs text-ink-muted max-w-md">
+                        Eén klik. Geen redirect via een derde-partij, geen
+                        tracking-pixel.
+                      </p>
+                    </div>
+                    <SocialShareGrid
+                      shareId={result.shareId}
+                      ideologyName={ideo.name}
+                    />
+                  </div>
+                </ScrollRevealItem>
+
+                {/* Downloadable images */}
+                <ScrollRevealItem>
+                  <div className="mt-14 border-t border-rule pt-6">
+                    <div className="flex flex-wrap items-baseline justify-between gap-3 mb-5">
+                      <p className="kicker">Download als afbeelding</p>
+                      <p className="text-xs text-ink-muted max-w-md">
+                        Drie formaten, klaar voor verhaal, post of
+                        link-preview.
+                      </p>
+                    </div>
+                    <ImageDownloads
+                      shareId={result.shareId}
+                      ideologyName={ideo.name}
+                    />
+                  </div>
+                </ScrollRevealItem>
+
                 {(argumentsForContent || argumentsAgainstContent) && (
                   <ScrollRevealItem>
                     <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -891,33 +927,6 @@ export default async function ResultPage({ params }: Args) {
                     >
                       <Repeat size={16} strokeWidth={1.8} />
                       Vergelijk met een ander profiel
-                    </Link>
-                    <a
-                      href={`/api/r/${result.shareId}/export.md`}
-                      className="btn-ghost"
-                      download={`politiekprofiel-${result.shareId}.md`}
-                    >
-                      <Download size={14} strokeWidth={1.8} />
-                      Download als Markdown
-                    </a>
-                    <a
-                      href={`/api/og/${result.shareId}`}
-                      className="btn-ghost"
-                      download={`politiekprofiel-${result.shareId}.png`}
-                    >
-                      <Download size={14} strokeWidth={1.8} />
-                      Typology-kaart (PNG)
-                    </a>
-                    <Link href={`/embed/${result.shareId}`} className="btn-ghost">
-                      Embed-code
-                      <ArrowRight size={14} strokeWidth={1.8} />
-                    </Link>
-                    <Link
-                      href={`/coalitie?r=${result.shareId}`}
-                      className="btn-ghost"
-                    >
-                      Coalitie-simulator
-                      <ArrowRight size={14} strokeWidth={1.8} />
                     </Link>
                     <Link
                       href={`/evolutie?ids=${result.shareId}`}
