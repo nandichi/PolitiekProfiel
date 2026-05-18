@@ -30,13 +30,24 @@ export function AiContentReveal({
   const [expanded, setExpanded] = useState(false);
   const [overflows, setOverflows] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [contentHeight, setContentHeight] = useState<number>(0);
+  // Na de expand-transitie zetten we de maxHeight op "none" zodat layout-
+  // shifts in geneste content (image-load, lazy-rendering, etc.) niet meer
+  // door een vaste pixelwaarde worden afgekapt. Bij inklappen schakelen we
+  // eerst terug naar de gemeten scrollHeight zodat CSS daadwerkelijk kan
+  // transitionen.
+  const [allowOverflow, setAllowOverflow] = useState(false);
 
   useEffect(() => {
+    // Mount-flag + initiële meting. Externe sync (DOM-grootte → React-state),
+    // bewust eenmalig in effect-body.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     if (!ref.current) return;
     const el = ref.current;
     const measure = () => {
       const full = el.scrollHeight;
+      setContentHeight(full);
       setOverflows(full - previewHeight > minOverflow);
     };
     measure();
@@ -45,17 +56,44 @@ export function AiContentReveal({
     return () => ro.disconnect();
   }, [previewHeight, minOverflow]);
 
+  // Bij wissel naar collapsed direct allowOverflow uit; bij expanded pas na
+  // het einde van de transitie. Zo blijft de animatie soepel én is de
+  // ingeklapte staat hard-cut.
+  useEffect(() => {
+    if (!expanded) {
+      // Externe sync (collapse-event → reset overflow-allow).
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setAllowOverflow(false);
+    }
+  }, [expanded]);
+
   const shouldClip = mounted && overflows && !expanded;
+
+  // Effectieve maxHeight:
+  // - Niet gemount of geen overflow → "none" (full layout).
+  // - Ingeklapt → previewHeight.
+  // - Uitgeklapt mid-transition → gemeten contentHeight (zodat CSS kan
+  //   animeren van previewHeight → contentHeight in px).
+  // - Uitgeklapt na transitie → "none".
+  const maxHeight = !mounted || !overflows
+    ? "none"
+    : shouldClip
+      ? previewHeight
+      : allowOverflow
+        ? "none"
+        : contentHeight || "none";
 
   return (
     <div>
       <div
         ref={ref}
         className="relative overflow-hidden transition-[max-height] duration-500 ease-out"
-        style={{
-          maxHeight: shouldClip ? previewHeight : "none",
-        }}
+        style={{ maxHeight }}
         aria-expanded={expanded}
+        onTransitionEnd={(e) => {
+          if (e.propertyName !== "max-height") return;
+          if (expanded) setAllowOverflow(true);
+        }}
       >
         {children}
         {shouldClip && (
@@ -71,7 +109,6 @@ export function AiContentReveal({
             type="button"
             onClick={() => setExpanded((v) => !v)}
             className="group inline-flex items-center gap-2 mono text-[0.72rem] tracking-[0.18em] uppercase text-ink hover:text-navy transition-colors border-b border-ink hover:border-navy pb-1"
-            aria-controls={undefined}
           >
             <span>{expanded ? collapseLabel : expandLabel}</span>
             <ChevronDown

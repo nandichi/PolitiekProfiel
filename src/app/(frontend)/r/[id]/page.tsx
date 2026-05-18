@@ -15,6 +15,10 @@ import {
 } from "@/components/motion/ScrollReveal";
 import { AiContentBlock, AiContentItemList } from "@/components/result/AiContentBlock";
 import { AiContentReveal } from "@/components/result/AiContentReveal";
+import { BackToTop } from "@/components/result/BackToTop";
+import { TldrCallout } from "@/components/result/TldrCallout";
+import { readingMinutesFor } from "@/lib/reading-time";
+import { lexicalFirstSentence, lexicalToPlainText } from "@/lib/lexical";
 import { ConfidenceIndicator } from "@/components/result/ConfidenceIndicator";
 import { ThemeBars } from "@/components/result/ThemeBars";
 import { ParadoxList, type ParadoxItemContext } from "@/components/result/ParadoxList";
@@ -234,11 +238,69 @@ export default async function ResultPage({ params }: Args) {
     };
   });
 
+  // Leestijden per sectie: berekend uit de tekstinhoud die de gebruiker
+  // daadwerkelijk in beeld krijgt (inclusief AI-content, korte beschrijvingen
+  // en lijsten). Wordt onder elke index-label getoond zodat de lezer vooraf
+  // een idee heeft van de scope per sectie.
+  const sectionMinutes: Record<string, number> = {
+    profiel: readingMinutesFor(ideo.shortDescription, essayContent?.body),
+    dimensies: readingMinutesFor(
+      ...Array.from(dimensionBucketMap.values()).map((c) => c.body),
+      ...DIMENSIONS.flatMap((d) => [
+        d.poleNegative.description,
+        d.polePositive.description,
+      ]),
+    ),
+    themas: readingMinutesFor(
+      ...Array.from(themeMap.values()).map((c) => c.body),
+    ),
+    standpunten: readingMinutesFor(
+      ...stances.map((s) => s.derivedStance ?? s.statement),
+    ),
+    steelman: readingMinutesFor(
+      ...Array.from(steelmanMap.values()).map((c) => c.body),
+      ...steelmanCandidates.map((s) =>
+        s.yourScore > 0
+          ? s.dimension.poleNegative.description
+          : s.dimension.polePositive.description,
+      ),
+    ),
+    paradoxen: readingMinutesFor(
+      ...paradoxItems.flatMap((p) => [
+        p.aiContent?.body ?? "",
+        p.signal.description,
+      ]),
+    ),
+    partijen: readingMinutesFor(
+      ...parties.flatMap((p) => [p.name, lexicalToPlainText(p.description)]),
+    ),
+    politici: readingMinutesFor(
+      ...rankedPoliticians
+        .slice(0, 20)
+        .map((p) => `${p.item.primary} ${p.item.secondary}`),
+    ),
+    landen: readingMinutesFor(
+      ...rankedCountries
+        .slice(0, 15)
+        .map((c) => `${c.item.primary} ${c.item.secondary}`),
+    ),
+    delen: readingMinutesFor(
+      ...(argumentsForContent?.items ?? []).map((i) => i.text),
+      ...(argumentsAgainstContent?.items ?? []).map((i) => i.text),
+      ...(readingContent?.items ?? []).map((i) => i.text),
+    ),
+  };
+
+  const indexItems = INDEX_ITEMS.map((it) => ({
+    ...it,
+    readingMinutes: sectionMinutes[it.id],
+  }));
+
   return (
     <div>
       <Container width="bleed" className="pt-10 md:pt-16">
         <div className="grid grid-cols-1 gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
-          <StickyIndex items={INDEX_ITEMS} topOffset={96} />
+          <StickyIndex items={indexItems} topOffset={96} />
 
           <div className="min-w-0">
             {/* SECTIE 1 · PROFIEL */}
@@ -295,6 +357,11 @@ export default async function ResultPage({ params }: Args) {
 
               <div className="mt-16 md:mt-20 max-w-3xl">
                 <Kicker>Wat houdt dit profiel in?</Kicker>
+                {essayContent && (
+                  <TldrCallout
+                    text={lexicalFirstSentence(essayContent.bodyLexical)}
+                  />
+                )}
                 <div className="mt-5">
                   <AiContentReveal previewHeight={420} minOverflow={120}>
                     <AiContentBlock
@@ -430,6 +497,13 @@ export default async function ResultPage({ params }: Args) {
                               className="border-t border-rule pt-5"
                             >
                               <p className="kicker mb-2">{t.label}</p>
+                              <TldrCallout
+                                text={lexicalFirstSentence(
+                                  themeContent.bodyLexical,
+                                  180,
+                                )}
+                                variant="compact"
+                              />
                               <AiContentReveal previewHeight={220} minOverflow={80}>
                                 <AiContentBlock
                                   content={themeContent}
@@ -867,6 +941,7 @@ export default async function ResultPage({ params }: Args) {
           </div>
         </div>
       </Container>
+      <BackToTop threshold={0.5} />
     </div>
   );
 }
