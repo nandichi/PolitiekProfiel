@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Fraunces, IBM_Plex_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { ConsentBanner } from "@/components/ConsentBanner";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -210,6 +211,7 @@ export default function FrontendLayout({
         <SiteFooter />
         <ConsentBanner />
         <WebMcpProvider />
+        <Analytics />
         <script
           type="application/ld+json"
           suppressHydrationWarning

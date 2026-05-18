@@ -25,6 +25,7 @@
     "@radix-ui/react-select": "^2.2.6",
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-tooltip": "^1.2.8",
+    "@vercel/analytics": "^2.0.1",
     "firebase-admin": "^13.10.0",
     "graphql": "^16.14.0",
     "lucide-react": "^1.16.0",
