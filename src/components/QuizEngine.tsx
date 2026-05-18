@@ -485,6 +485,7 @@ export function QuizEngine({
                 className={cx(
                   "display text-ink leading-[1.08]",
                   "text-[clamp(1.7rem,3.4vw,2.6rem)]",
+                  "mb-8 md:mb-12",
                 )}
                 style={{ letterSpacing: "-0.018em" }}
               >
