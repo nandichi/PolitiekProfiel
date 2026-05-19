@@ -29,8 +29,6 @@ import { newAttemptId, useTracking } from "@/lib/use-tracking";
 type AnswerMap = Record<number, AnswerValue | null>;
 
 const STORAGE_KEY = (tier: Tier) => `politiekprofiel-quiz-${tier}`;
-const ATTEMPT_STORAGE_KEY = (tier: Tier) =>
-  `politiekprofiel-attempt-${tier}`;
 
 const TIER_LABELS: Record<Tier, string> = {
   quick: "Quick",
@@ -69,13 +67,11 @@ export function QuizEngine({
   const [resumePrompt, setResumePrompt] = useState<PersistedState | null>(null);
   const [loadingMore, setLoadingMore] = useState(false);
   const [batchDone, setBatchDone] = useState(false);
+  const [initialAttemptId] = useState(newAttemptId);
   const fetchInFlight = useRef(false);
 
-  const initialAttemptIdRef = useRef<string>("");
-  if (initialAttemptIdRef.current === "") {
-    initialAttemptIdRef.current = newAttemptId();
-  }
-  const tracking = useTracking(initialAttemptIdRef.current);
+  const initialAttemptIdRef = useRef<string>(initialAttemptId);
+  const tracking = useTracking(initialAttemptId);
   const questionStartedAtRef = useRef<number | null>(null);
   const lastViewedQuestionIdRef = useRef<number | null>(null);
   const quizStartedEmittedRef = useRef(false);

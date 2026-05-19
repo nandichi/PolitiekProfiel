@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { nanoid } from "nanoid";
 import type { Tier } from "@/lib/dimensions";
 import type { QuizEventType } from "@/lib/tracking-store";
@@ -26,7 +26,7 @@ interface QueueItem extends TrackEventInput {
   occurredAt: string;
 }
 
-let queue: QueueItem[] = [];
+const queue: QueueItem[] = [];
 let flushTimer: ReturnType<typeof setInterval> | null = null;
 let visibilityHandlerAttached = false;
 
@@ -124,11 +124,9 @@ export interface UseTrackingHandle {
 }
 
 export function useTracking(initialAttemptId: string): UseTrackingHandle {
+  const [initialTrackingId] = useState(getTrackingId);
   const attemptRef = useRef<string>(initialAttemptId);
-  const trackingIdRef = useRef<string>("");
-  if (trackingIdRef.current === "") {
-    trackingIdRef.current = getTrackingId();
-  }
+  const trackingIdRef = useRef<string>(initialTrackingId);
 
   useEffect(() => {
     ensureGlobalHandlers();

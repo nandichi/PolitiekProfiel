@@ -3,6 +3,7 @@ import "server-only";
 import { Timestamp } from "firebase-admin/firestore";
 import { firestore } from "@/lib/firebase-admin";
 import { payload } from "@/lib/payload";
+import type { Where } from "payload";
 import type { QuizEventType } from "@/lib/tracking-store";
 import type { Tier } from "@/lib/dimensions";
 
@@ -108,7 +109,7 @@ const MAX_ATTEMPTS_FOR_KPI = 10000;
 const MAX_RESULTS_FOR_AGG = 10000;
 const RECENT_ATTEMPTS_LIMIT = 25;
 
-function useFirestore(): boolean {
+function hasFirestoreConfig(): boolean {
   return Boolean(
     process.env.FIREBASE_PROJECT_ID &&
       process.env.FIREBASE_CLIENT_EMAIL &&
@@ -165,14 +166,15 @@ function buildTimeSeries(
   return Array.from(map.values());
 }
 
-function buildKpi(attempts: AttemptSummary[]): KpiSummary {
-  let completes = 0;
+function buildKpi(
+  attempts: AttemptSummary[],
+  resultsCount: number,
+): KpiSummary {
   let abandoned = 0;
   let durSum = 0;
   let durCount = 0;
   const visitors = new Set<string>();
   for (const a of attempts) {
-    if (a.submitted) completes += 1;
     if (a.abandoned) abandoned += 1;
     visitors.add(a.trackingId);
     if (typeof a.durationMs === "number" && a.durationMs > 0 && a.submitted) {
@@ -181,6 +183,7 @@ function buildKpi(attempts: AttemptSummary[]): KpiSummary {
     }
   }
   const starts = attempts.length;
+  const completes = resultsCount;
   return {
     starts,
     completes,
@@ -307,7 +310,7 @@ async function fetchPostgresAttempts(
   filters: QueryFilters,
 ): Promise<RawAttempt[]> {
   const p = await payload();
-  const where: Record<string, unknown> = {
+  const where: Where = {
     startedAt: { greater_than_equal: from.toISOString(), less_than_equal: to.toISOString() },
   };
   if (filters.tier) where.tier = { equals: filters.tier };
@@ -343,7 +346,7 @@ async function fetchPostgresEvents(
   filters: QueryFilters,
 ): Promise<RawEvent[]> {
   const p = await payload();
-  const where: Record<string, unknown> = {
+  const where: Where = {
     occurredAt: { greater_than_equal: from.toISOString(), less_than_equal: to.toISOString() },
     type: {
       in: ["question-viewed", "question-answered", "question-skipped"],
@@ -381,9 +384,10 @@ async function fetchPostgresResults(
   ideologies: IdeologyCount[];
   tiers: TierCount[];
   paradoxes: ParadoxCount[];
+  totalCount: number;
 }> {
   const p = await payload();
-  const where: Record<string, unknown> = {
+  const where: Where = {
     createdAt: { greater_than_equal: from.toISOString(), less_than_equal: to.toISOString() },
   };
   if (filters.tier) where.lengthTier = { equals: filters.tier };
@@ -442,6 +446,7 @@ async function fetchPostgresResults(
         avgSeverity: v.count > 0 ? v.sevSum / v.count : 0,
       }))
       .sort((a, b) => b.count - a.count),
+    totalCount: total,
   };
 }
 
@@ -456,7 +461,7 @@ async function getDashboardDataPostgres(
   ]);
   const attempts = attemptsRaw.map(toAttemptSummary);
   const questions = buildQuestionStats(events);
-  const kpi = buildKpi(attempts);
+  const kpi = buildKpi(attempts, results.totalCount);
   const timeSeries = buildTimeSeries(attempts, from, to);
   const funnel = buildFunnel(attempts, questions);
   const recentAttempts = attempts.slice(0, RECENT_ATTEMPTS_LIMIT);
@@ -606,7 +611,7 @@ async function getDashboardDataFirestore(
 
   const attempts = attemptsRaw.map(toAttemptSummary);
   const questions = buildQuestionStats(events);
-  const kpi = buildKpi(attempts);
+  const kpi = buildKpi(attempts, resultsSnap.docs.length);
   const timeSeries = buildTimeSeries(attempts, from, to);
   const funnel = buildFunnel(attempts, questions);
   const recentAttempts = attempts.slice(0, RECENT_ATTEMPTS_LIMIT);
@@ -640,7 +645,7 @@ async function getDashboardDataFirestore(
 export async function getDashboardData(
   filters: QueryFilters,
 ): Promise<DashboardData> {
-  if (useFirestore()) {
+  if (hasFirestoreConfig()) {
     return getDashboardDataFirestore(filters);
   }
   return getDashboardDataPostgres(filters);
@@ -651,7 +656,7 @@ export async function getAttemptDetail(attemptId: string): Promise<{
   events: RawEvent[];
   shareId?: string;
 }> {
-  if (useFirestore()) {
+  if (hasFirestoreConfig()) {
     const db = firestore();
     const attemptSnap = await db
       .collection("quiz-attempts")
@@ -698,7 +703,7 @@ export async function getAttemptDetail(attemptId: string): Promise<{
 export async function getVisitorDetail(trackingId: string): Promise<{
   attempts: AttemptSummary[];
 }> {
-  if (useFirestore()) {
+  if (hasFirestoreConfig()) {
     const db = firestore();
     const snap = await db
       .collection("quiz-attempts")
@@ -726,7 +731,7 @@ export async function getVisitorDetail(trackingId: string): Promise<{
 export async function getQuestionDetail(questionId: number): Promise<{
   events: RawEvent[];
 }> {
-  if (useFirestore()) {
+  if (hasFirestoreConfig()) {
     const db = firestore();
     const snap = await db
       .collection("quiz-events")

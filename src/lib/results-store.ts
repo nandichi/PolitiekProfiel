@@ -42,7 +42,7 @@ export interface StoredResult {
 
 const FIRESTORE_COLLECTION = "results";
 
-function useFirestore(): boolean {
+function hasFirestoreConfig(): boolean {
   return Boolean(
     process.env.FIREBASE_PROJECT_ID &&
       process.env.FIREBASE_CLIENT_EMAIL &&
@@ -98,8 +98,7 @@ export async function createResult(input: {
     attemptId: input.attemptId,
   };
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  if (useFirestore()) {
+  if (hasFirestoreConfig()) {
     const db = firestore();
     // Sanitiseer alle undefined velden weg vóór de write. Paradox-objecten
     // kunnen optionele `dimension`/`theme`/`description` velden hebben die
@@ -167,8 +166,7 @@ export async function createResult(input: {
 }
 
 export async function getResult(shareId: string): Promise<StoredResult | null> {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  if (useFirestore()) {
+  if (hasFirestoreConfig()) {
     const db = firestore();
     const snap = await db.collection(FIRESTORE_COLLECTION).doc(shareId).get();
     if (!snap.exists) return null;

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { AdminViewServerProps } from "payload";
 import { getQuestionDetail } from "@/lib/tracking-queries";
+import { AdminChrome } from "./AdminChrome";
 import { KpiCard, KpiRow } from "./charts/KpiCard";
 import { StackedBar, ANSWER_COLORS } from "./charts/StackedBar";
 import { DataTable } from "./charts/DataTable";
@@ -41,9 +42,11 @@ export default async function QuestionDetailView(props: AdminViewServerProps) {
 
   if (!Number.isFinite(questionId)) {
     return (
-      <div style={{ padding: "32px", maxWidth: 800, margin: "0 auto" }}>
-        <div style={empty}>Ongeldig vraag-ID.</div>
-      </div>
+      <AdminChrome serverProps={props}>
+        <div style={{ padding: "32px", maxWidth: 800, margin: "0 auto" }}>
+          <div style={empty}>Ongeldig vraag-ID.</div>
+        </div>
+      </AdminChrome>
     );
   }
 
@@ -147,6 +150,7 @@ export default async function QuestionDetailView(props: AdminViewServerProps) {
     .slice(0, 100);
 
   return (
+    <AdminChrome serverProps={props}>
     <div
       style={{
         padding: "24px clamp(16px, 4vw, 40px) 80px",
@@ -288,5 +292,6 @@ export default async function QuestionDetailView(props: AdminViewServerProps) {
         />
       </section>
     </div>
+    </AdminChrome>
   );
 }

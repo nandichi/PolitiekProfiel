@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { AdminViewServerProps } from "payload";
 import { getVisitorDetail } from "@/lib/tracking-queries";
+import { AdminChrome } from "./AdminChrome";
 import { DataTable } from "./charts/DataTable";
 import { KpiCard, KpiRow } from "./charts/KpiCard";
 import {
@@ -29,9 +30,11 @@ export default async function VisitorDetailView(props: AdminViewServerProps) {
 
   if (!trackingId) {
     return (
-      <div style={{ padding: "32px", maxWidth: 800, margin: "0 auto" }}>
-        <div style={empty}>Geen tracking-ID opgegeven.</div>
-      </div>
+      <AdminChrome serverProps={props}>
+        <div style={{ padding: "32px", maxWidth: 800, margin: "0 auto" }}>
+          <div style={empty}>Geen tracking-ID opgegeven.</div>
+        </div>
+      </AdminChrome>
     );
   }
 
@@ -50,6 +53,7 @@ export default async function VisitorDetailView(props: AdminViewServerProps) {
   const latest = attempts.length > 0 ? attempts[0].startedAt : undefined;
 
   return (
+    <AdminChrome serverProps={props}>
     <div
       style={{
         padding: "24px clamp(16px, 4vw, 40px) 80px",
@@ -201,5 +205,6 @@ export default async function VisitorDetailView(props: AdminViewServerProps) {
         </>
       )}
     </div>
+    </AdminChrome>
   );
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { AdminViewServerProps } from "payload";
 import { getAttemptDetail } from "@/lib/tracking-queries";
+import { AdminChrome } from "./AdminChrome";
 import { DataTable } from "./charts/DataTable";
 import {
   card,
@@ -29,9 +30,11 @@ export default async function AttemptDetailView(props: AdminViewServerProps) {
 
   if (!attemptId) {
     return (
-      <div style={{ padding: "32px", maxWidth: 800, margin: "0 auto" }}>
-        <div style={empty}>Geen attempt-ID opgegeven.</div>
-      </div>
+      <AdminChrome serverProps={props}>
+        <div style={{ padding: "32px", maxWidth: 800, margin: "0 auto" }}>
+          <div style={empty}>Geen attempt-ID opgegeven.</div>
+        </div>
+      </AdminChrome>
     );
   }
 
@@ -39,28 +42,31 @@ export default async function AttemptDetailView(props: AdminViewServerProps) {
 
   if (!attempt) {
     return (
-      <div style={{ padding: "32px", maxWidth: 800, margin: "0 auto" }}>
-        <div style={empty}>
-          Attempt <span style={{ ...mono }}>{attemptId}</span> niet gevonden.
+      <AdminChrome serverProps={props}>
+        <div style={{ padding: "32px", maxWidth: 800, margin: "0 auto" }}>
+          <div style={empty}>
+            Attempt <span style={{ ...mono }}>{attemptId}</span> niet gevonden.
+          </div>
+          <p style={{ marginTop: 16 }}>
+            <Link href="/admin" style={{ color: tokens.text }}>
+              ← Terug naar dashboard
+            </Link>
+          </p>
         </div>
-        <p style={{ marginTop: 16 }}>
-          <Link href="/admin" style={{ color: tokens.text }}>
-            ← Terug naar dashboard
-          </Link>
-        </p>
-      </div>
+      </AdminChrome>
     );
   }
 
   return (
-    <div
-      style={{
-        padding: "24px clamp(16px, 4vw, 40px) 80px",
-        maxWidth: "1100px",
-        margin: "0 auto",
-        color: tokens.text,
-      }}
-    >
+    <AdminChrome serverProps={props}>
+      <div
+        style={{
+          padding: "24px clamp(16px, 4vw, 40px) 80px",
+          maxWidth: "1100px",
+          margin: "0 auto",
+          color: tokens.text,
+        }}
+      >
       <p style={{ ...cardHeader }}>
         <Link href="/admin" style={{ color: tokens.textMuted }}>
           ← Dashboard
@@ -245,7 +251,8 @@ export default async function AttemptDetailView(props: AdminViewServerProps) {
           ]}
         />
       </section>
-    </div>
+      </div>
+    </AdminChrome>
   );
 }
 

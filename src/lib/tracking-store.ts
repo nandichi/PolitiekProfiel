@@ -51,7 +51,7 @@ interface AttemptDelta {
 const ATTEMPTS_COLLECTION = "quiz-attempts";
 const EVENTS_COLLECTION = "quiz-events";
 
-function useFirestore(): boolean {
+function hasFirestoreConfig(): boolean {
   return Boolean(
     process.env.FIREBASE_PROJECT_ID &&
       process.env.FIREBASE_CLIENT_EMAIL &&
@@ -158,7 +158,7 @@ export async function appendEvents(events: EventInput[]): Promise<void> {
   if (events.length === 0) return;
   const groups = groupByAttempt(events);
 
-  if (useFirestore()) {
+  if (hasFirestoreConfig()) {
     await writeToFirestore(groups);
   } else {
     await writeToPayload(groups);
@@ -382,7 +382,7 @@ export async function markSubmitted(
 ): Promise<void> {
   if (!attemptId) return;
 
-  if (useFirestore()) {
+  if (hasFirestoreConfig()) {
     const db = firestore();
     const ref = db.collection(ATTEMPTS_COLLECTION).doc(attemptId);
     const snap = await ref.get();

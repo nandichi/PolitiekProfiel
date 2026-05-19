@@ -275,7 +275,13 @@ export default async function TrackingDashboardView(
           <KpiCard
             label="Profielen aangemaakt"
             value={formatNumber(data.kpi.completes)}
-            sub={`Completion rate ${formatPct(data.kpi.completionRate, 1)}`}
+            sub={
+              data.kpi.starts === 0
+                ? "Geen quiz-starts in periode"
+                : data.kpi.completes > data.kpi.starts
+                  ? "Inclusief historische profielen"
+                  : `Completion rate ${formatPct(data.kpi.completionRate, 1)}`
+            }
           />
           <KpiCard
             label="Verlaten"
