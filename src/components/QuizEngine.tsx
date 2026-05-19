@@ -23,6 +23,7 @@ import { Container } from "@/components/Container";
 import { InfoDrawer } from "@/components/quiz/InfoDrawer";
 import { QuizSegmentBar } from "@/components/quiz/QuizSegmentBar";
 import { QuizProgressDots } from "@/components/quiz/QuizProgressDots";
+import { EmailResultLinkBlock } from "@/components/EmailResultLinkBlock";
 import { cx } from "@/lib/cx";
 import { newAttemptId, useTracking } from "@/lib/use-tracking";
 
@@ -69,6 +70,7 @@ export function QuizEngine({
   const [resumePrompt, setResumePrompt] = useState<PersistedState | null>(null);
   const [loadingMore, setLoadingMore] = useState(false);
   const [batchDone, setBatchDone] = useState(false);
+  const [completedShareId, setCompletedShareId] = useState<string | null>(null);
   const [initialAttemptId] = useState(newAttemptId);
   const fetchInFlight = useRef(false);
 
@@ -403,7 +405,10 @@ export function QuizEngine({
       if (typeof window !== "undefined") {
         window.localStorage.removeItem(STORAGE_KEY(tier));
       }
-      router.push(`/r/${json.id}`);
+      // Toon een tussenscherm met optionele e-mail-opt-in voordat we naar
+      // de resultaatpagina redirecten. De gebruiker kan ook direct doorklikken.
+      setCompletedShareId(json.id);
+      setSubmitting(false);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Onbekende fout.");
       setSubmitting(false);
@@ -472,6 +477,34 @@ export function QuizEngine({
           >
             Opnieuw beginnen
           </button>
+        </div>
+      </Container>
+    );
+  }
+
+  if (completedShareId) {
+    return (
+      <Container width="narrow" className="py-20 md:py-28">
+        <p className="kicker mb-4">Resultaat klaar</p>
+        <h1 className="display mb-5">Je politieke profiel staat klaar.</h1>
+        <p className="text-ink-2 leading-relaxed mb-10 max-w-xl">
+          We hebben je antwoorden anoniem opgeslagen onder een deel-ID. Hieronder
+          kun je optioneel de link naar je inbox sturen, zodat je je profiel
+          later makkelijk terugvindt.
+        </p>
+        <EmailResultLinkBlock shareId={completedShareId} />
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => router.push(`/r/${completedShareId}`)}
+          >
+            Bekijk mijn resultaat
+            <ArrowRight size={16} strokeWidth={1.8} />
+          </button>
+          <p className="text-xs text-ink-subtle">
+            Je kunt de link ook later mailen vanaf de resultaatpagina.
+          </p>
         </div>
       </Container>
     );

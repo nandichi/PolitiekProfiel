@@ -4,6 +4,7 @@ import { buildConfig } from "payload";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { sqliteAdapter } from "@payloadcms/db-sqlite";
+import { resendAdapter } from "@payloadcms/email-resend";
 import sharp from "sharp";
 
 import { Users } from "./collections/Users";
@@ -44,6 +45,36 @@ const db = databaseUrl
       },
       push: true,
     });
+
+// Parse "Display Name <address@domain.tld>" of een kaal adres uit RESEND_FROM_EMAIL.
+function parseFromEnv(value: string | undefined): { name: string; address: string } | null {
+  if (!value) return null;
+  const trimmed = value.trim();
+  const match = trimmed.match(/^(.*)<([^>]+)>$/);
+  if (match) {
+    const name = match[1].trim().replace(/^"|"$/g, "");
+    const address = match[2].trim();
+    if (!address) return null;
+    return { name: name || "PolitiekProfiel", address };
+  }
+  if (trimmed.includes("@")) {
+    return { name: "PolitiekProfiel", address: trimmed };
+  }
+  return null;
+}
+
+const resendFrom = parseFromEnv(process.env.RESEND_FROM_EMAIL);
+const resendApiKey = process.env.RESEND_API_KEY;
+// Alleen activeren als zowel API key als afzender geconfigureerd zijn. Anders
+// laat Payload e-mails terugvallen op de console-logger (handig in dev).
+const email =
+  resendApiKey && resendFrom
+    ? resendAdapter({
+        apiKey: resendApiKey,
+        defaultFromAddress: resendFrom.address,
+        defaultFromName: resendFrom.name,
+      })
+    : undefined;
 
 export default buildConfig({
   admin: {
@@ -100,6 +131,7 @@ export default buildConfig({
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
   db,
+  email,
   sharp,
   serverURL:
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",

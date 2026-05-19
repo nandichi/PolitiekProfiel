@@ -8,6 +8,7 @@ import { DimensionBar } from "@/components/DimensionBar";
 import { ScatterPlot } from "@/components/ScatterPlot";
 import { RankedList } from "@/components/RankedList";
 import { ShareBlock } from "@/components/ShareBlock";
+import { EmailResultLinkBlock } from "@/components/EmailResultLinkBlock";
 import { SocialShareGrid } from "@/components/result/SocialShareGrid";
 import { ImageDownloads } from "@/components/result/ImageDownloads";
 import { StickyIndex } from "@/components/StickyIndex";
@@ -895,6 +896,13 @@ export default async function ResultPage({ params }: Args) {
                       shareId={result.shareId}
                       ideologyName={ideo.name}
                     />
+                  </div>
+                </ScrollRevealItem>
+
+                {/* Mail mij deze link (opt-in) */}
+                <ScrollRevealItem>
+                  <div className="mt-6">
+                    <EmailResultLinkBlock shareId={result.shareId} />
                   </div>
                 </ScrollRevealItem>
 

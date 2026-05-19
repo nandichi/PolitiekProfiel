@@ -70,9 +70,13 @@ export async function markEntitlementPaid(input: {
   stripePaymentIntentId?: string;
   amountTotal?: number;
   currency?: string;
-}): Promise<void> {
+}): Promise<{ firstPaidTransition: boolean }> {
   const doc = await findEntitlementByToken(input.token);
-  if (!doc || doc.tier !== input.tier) return;
+  if (!doc || doc.tier !== input.tier) {
+    return { firstPaidTransition: false };
+  }
+
+  const wasAlreadyPaid = doc.status === "paid";
 
   const p = await payload();
   await p.update({
@@ -87,6 +91,8 @@ export async function markEntitlementPaid(input: {
       paidAt: new Date().toISOString(),
     },
   });
+
+  return { firstPaidTransition: !wasAlreadyPaid };
 }
 
 export async function markEntitlementConsumed(token: string): Promise<void> {

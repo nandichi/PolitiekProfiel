@@ -43,11 +43,12 @@ const COLUMNS: FooterColumn[] = [
     title: "Methode & juridisch",
     links: [
       { href: "/methodiek", label: "Methodiek" },
-      { href: "/methodiek#dimensies", label: "De vijf dimensies" },
-      { href: "/methodiek#scoring", label: "Scoring" },
-      { href: "/privacy", label: "Privacyverklaring" },
       { href: "/ai-transparantie", label: "AI-transparantie" },
-      { href: "mailto:privacy@politiekprofiel.nl", label: "Contact" },
+      { href: "/privacy", label: "Privacyverklaring" },
+      { href: "/voorwaarden", label: "Algemene voorwaarden" },
+      { href: "/disclaimer", label: "Disclaimer" },
+      { href: "/herroepingsrecht", label: "Herroepingsrecht" },
+      { href: "mailto:info@politiekprofiel.nl", label: "Contact" },
     ],
   },
 ];
