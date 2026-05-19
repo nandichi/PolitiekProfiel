@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock3 } from "lucide-react";
 import { Container } from "@/components/Container";
+import { CheckoutButton } from "@/components/CheckoutButton";
 import { Kicker } from "@/components/Kicker";
 import { LiveAxes } from "@/components/LiveAxes";
 import {
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     absolute: "PolitiekProfiel: een onafhankelijk politiek kompas",
   },
   description:
-    "Politiek is meer dan links of rechts. Een rustig, doordacht profiel op vijf onafhankelijke dimensies. Geen scorelijst voor partijen, geen tracking, anonieme deelbare resultaten.",
+    "Politiek is meer dan links of rechts. Een rustig, doordacht profiel op vijf onafhankelijke dimensies. Gratis indicatie, betaalde verdieping, geen advertentietracking.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "PolitiekProfiel: een onafhankelijk politiek kompas",
@@ -44,8 +45,8 @@ const FEATURES: Array<{
   },
   {
     kicker: "Privacy",
-    title: "Geen account, geen tracking",
-    body: "Resultaten worden anoniem opgeslagen voor een korte deellink. Geen IP-adres, geen analytics, geen marketing-cookies.",
+    title: "Geen account, geen advertentietracking",
+    body: "Resultaten worden anoniem opgeslagen voor een korte deellink. Stripe verwerkt betalingen; wij koppelen betaalgegevens niet aan je politieke uitslag.",
   },
 ];
 
@@ -95,8 +96,8 @@ export default function HomePage() {
                 </p>
 
                 <div className="mt-10 flex flex-wrap gap-3">
-                  <Link href="/quiz/standard" className="btn btn-primary">
-                    Start de standaard quiz
+                  <Link href="/quiz/quick" className="btn btn-primary">
+                    Start gratis
                     <ArrowRight size={16} strokeWidth={1.8} />
                   </Link>
                   <Link href="/methodiek" className="btn btn-secondary">
@@ -184,9 +185,9 @@ export default function HomePage() {
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <p className="text-sm text-ink-muted max-w-xs">
-                  Voortgang wordt lokaal in je browser bewaard.
+                  Quick is gratis. Standaard kost 5 euro, uitgebreid 10 euro.
                   <br />
-                  Geen account, geen e-mail.
+                  Geen PolitiekProfiel-account nodig.
                 </p>
               </ScrollRevealItem>
             </div>
@@ -195,24 +196,27 @@ export default function HomePage() {
               <TierCard
                 tier="quick"
                 title="Quick"
-                minutes="5 min"
+                minutes="3 min"
+                price="Gratis"
                 tagline="Korte indicatie van waar je staat."
-                description="Genoeg om een ruwe positie te zien op de vijf assen, ideaal als snelle introductie."
+                description="Een gratis proefuitslag met je profielnaam en vijf assen. Verdieping blijft bewust beperkt."
               />
               <TierCard
                 tier="standard"
                 title="Standaard"
                 minutes="10 min"
+                price="5 euro"
                 tagline="Onze aanbevolen lengte voor een degelijk profiel."
-                description="Een evenwichtige steekproef per dimensie, met genoeg nuance voor een serieus portret."
+                description="Het volledige rapport met thema's, standpunten, paradoxen, vergelijkingen en leesverdieping."
                 recommended
               />
               <TierCard
                 tier="extended"
                 title="Uitgebreid"
                 minutes="20 min"
+                price="10 euro"
                 tagline="Diepgaande analyse met de meeste nuances."
-                description="Alle stellingen, voor wie tijd wil nemen en zeker wil zijn van het resultaat."
+                description="De langste quiz met extra standpunten, ruimere vergelijkingen en de meeste confidence."
               />
             </div>
           </ScrollReveal>
@@ -275,6 +279,7 @@ interface TierCardProps {
   tier: "quick" | "standard" | "extended";
   title: string;
   minutes: string;
+  price: string;
   tagline: string;
   description: string;
   recommended?: boolean;
@@ -284,21 +289,15 @@ function TierCard({
   tier,
   title,
   minutes,
+  price,
   tagline,
   description,
   recommended = false,
 }: TierCardProps) {
   const count = TIER_QUESTION_COUNT[tier];
-  return (
-    <Link
-      href={`/quiz/${tier}`}
-      className={cx(
-        "group relative block p-8 md:p-10 transition-colors duration-200 no-underline",
-        recommended
-          ? "bg-ink text-paper hover:bg-navy"
-          : "bg-paper hover:bg-paper-50"
-      )}
-    >
+  const isPaid = tier === "standard" || tier === "extended";
+  const content = (
+    <>
       {recommended && (
         <span
           className={cx(
@@ -363,15 +362,25 @@ function TierCard({
             Stellingen
           </span>
         </div>
-        <p
-          className={cx(
-            "mono text-[0.7rem] tracking-widest inline-flex items-center gap-1.5",
-            recommended ? "text-paper/70" : "text-ink-muted"
-          )}
-        >
-          <Clock3 size={12} strokeWidth={1.8} />
-          {minutes.toUpperCase()}
-        </p>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p
+            className={cx(
+              "mono text-[0.7rem] tracking-widest inline-flex items-center gap-1.5",
+              recommended ? "text-paper/70" : "text-ink-muted"
+            )}
+          >
+            <Clock3 size={12} strokeWidth={1.8} />
+            {minutes.toUpperCase()}
+          </p>
+          <p
+            className={cx(
+              "mono text-[0.7rem] tracking-widest",
+              recommended ? "text-paper/80" : "text-ink"
+            )}
+          >
+            {price.toUpperCase()}
+          </p>
+        </div>
       </div>
 
       <p
@@ -383,15 +392,52 @@ function TierCard({
         {description}
       </p>
 
-      <span
-        className={cx(
-          "inline-flex items-center gap-2 text-sm font-medium transition-transform group-hover:translate-x-0.5",
-          recommended ? "text-paper" : "text-ink"
-        )}
-      >
-        Begin
-        <ArrowRight size={16} strokeWidth={1.8} />
-      </span>
+      {isPaid ? (
+        <CheckoutButton
+          tier={tier as "standard" | "extended"}
+          className={recommended ? "btn bg-paper text-ink" : "btn btn-primary"}
+        >
+          Koop {title.toLowerCase()}
+          <ArrowRight size={16} strokeWidth={1.8} />
+        </CheckoutButton>
+      ) : (
+        <span
+          className={cx(
+            "inline-flex items-center gap-2 text-sm font-medium transition-transform group-hover:translate-x-0.5",
+            recommended ? "text-paper" : "text-ink"
+          )}
+        >
+          Begin gratis
+          <ArrowRight size={16} strokeWidth={1.8} />
+        </span>
+      )}
+    </>
+  );
+
+  if (isPaid) {
+    return (
+      <article
+      className={cx(
+        "group relative block p-8 md:p-10 transition-colors duration-200",
+        recommended
+          ? "bg-ink text-paper hover:bg-navy"
+          : "bg-paper hover:bg-paper-50"
+      )}
+    >
+        {content}
+      </article>
+    );
+  }
+
+  return (
+    <Link
+      href={`/quiz/${tier}`}
+      className={cx(
+        "group relative block p-8 md:p-10 transition-colors duration-200 no-underline",
+        "bg-paper hover:bg-paper-50"
+      )}
+    >
+      {content}
     </Link>
   );
 }

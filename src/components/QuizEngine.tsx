@@ -49,10 +49,12 @@ export function QuizEngine({
   tier,
   questions: initialQuestions,
   adaptive = false,
+  entitlementToken,
 }: {
   tier: Tier;
   questions: QuizQuestion[];
   adaptive?: boolean;
+  entitlementToken?: string;
 }) {
   const router = useRouter();
   const reduce = useReducedMotion();
@@ -194,7 +196,12 @@ export function QuizEngine({
       const res = await fetch("/api/quiz/next", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ tier, seenIds, answers: answerList }),
+        body: JSON.stringify({
+          tier,
+          seenIds,
+          answers: answerList,
+          entitlementToken,
+        }),
       });
       if (!res.ok) {
         setBatchDone(true);
@@ -226,7 +233,16 @@ export function QuizEngine({
       fetchInFlight.current = false;
       setLoadingMore(false);
     }
-  }, [adaptive, answers, adaptiveTarget, batchDone, questions, tier, tracking]);
+  }, [
+    adaptive,
+    answers,
+    adaptiveTarget,
+    batchDone,
+    questions,
+    tier,
+    tracking,
+    entitlementToken,
+  ]);
 
   useEffect(() => {
     if (!adaptive || !hydrated || resumePrompt) return;
@@ -355,6 +371,7 @@ export function QuizEngine({
       const payload = {
         tier,
         attemptId: initialAttemptIdRef.current,
+        entitlementToken,
         answers:
           answerEntries.length > 0
             ? answerEntries

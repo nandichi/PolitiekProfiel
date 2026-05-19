@@ -1,12 +1,22 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import {
   getInitialAdaptiveQuestions,
   getQuestionsForTier,
 } from "@/lib/quiz-data";
 import { QuizEngine } from "@/components/QuizEngine";
+import { CheckoutButton } from "@/components/CheckoutButton";
+import { Container } from "@/components/Container";
+import { Kicker } from "@/components/Kicker";
 import type { Tier } from "@/lib/dimensions";
 import { TIER_QUESTION_COUNT } from "@/lib/dimensions";
+import {
+  normalizeEntitlementToken,
+  validateEntitlementForTier,
+} from "@/lib/entitlements";
+import { isPaidTier, type PaidTier } from "@/lib/stripe";
 import {
   buildBreadcrumbList,
   buildQuizSchema,
@@ -27,25 +37,28 @@ const TIER_LABELS: Record<
 > = {
   quick: {
     title: "Quick quiz",
-    minutes: "5 minuten",
-    tagline: "Korte indicatie van waar je staat op de vijf dimensies.",
-    duration: "PT5M",
+    minutes: "3 minuten",
+    tagline: "Gratis indicatie van waar je staat op de vijf dimensies.",
+    duration: "PT3M",
   },
   standard: {
     title: "Standaard quiz",
     minutes: "10 minuten",
-    tagline: "Aanbevolen lengte voor een degelijk politiek profiel.",
+    tagline: "Betaalde quiz voor een volledig politiek profiel.",
     duration: "PT10M",
   },
   extended: {
     title: "Uitgebreide quiz",
     minutes: "20 minuten",
-    tagline: "Diepgaande analyse met de meeste nuances.",
+    tagline: "Betaalde quiz met de meeste nuance en extra verdieping.",
     duration: "PT20M",
   },
 };
 
 type Args = { params: Promise<{ tier: string }> };
+type PageArgs = Args & {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { tier } = await params;
@@ -70,12 +83,38 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
 
 const ADAPTIVE_ENABLED = process.env.NEXT_PUBLIC_ADAPTIVE_QUIZ !== "false";
 
-export default async function QuizPage({ params }: Args) {
+export default async function QuizPage({ params, searchParams }: PageArgs) {
   const { tier } = await params;
   if (!VALID_TIERS.includes(tier as Tier)) {
     notFound();
   }
   const tierKey = tier as Tier;
+  const search = await searchParams;
+  const entitlementToken = normalizeEntitlementToken(
+    Array.isArray(search.entitlement)
+      ? search.entitlement[0]
+      : search.entitlement,
+  );
+
+  if (isPaidTier(tierKey)) {
+    const access = await validateEntitlementForTier({
+      tier: tierKey,
+      token: entitlementToken,
+    });
+    if (!access.ok) {
+      return (
+        <PaidQuizGate
+          tier={tierKey}
+          entitlementToken={entitlementToken ?? undefined}
+          checkoutStatus={
+            Array.isArray(search.checkout) ? search.checkout[0] : search.checkout
+          }
+          entitlementStatus={access.status}
+        />
+      );
+    }
+  }
+
   const questions = ADAPTIVE_ENABLED
     ? await getInitialAdaptiveQuestions(tierKey)
     : await getQuestionsForTier(tierKey);
@@ -110,9 +149,61 @@ export default async function QuizPage({ params }: Args) {
         tier={tierKey}
         questions={questions}
         adaptive={ADAPTIVE_ENABLED}
+        entitlementToken={entitlementToken ?? undefined}
       />
     </>
   );
 }
 
 export const dynamic = "force-dynamic";
+
+function PaidQuizGate({
+  tier,
+  entitlementToken,
+  checkoutStatus,
+  entitlementStatus,
+}: {
+  tier: PaidTier;
+  entitlementToken?: string;
+  checkoutStatus?: string;
+  entitlementStatus: string;
+}) {
+  const title =
+    tier === "standard" ? "Standaard quiz" : "Uitgebreide quiz";
+  const price = tier === "standard" ? "5 euro" : "10 euro";
+  const count = TIER_QUESTION_COUNT[tier];
+  const processing =
+    checkoutStatus === "success" &&
+    (entitlementStatus === "pending" || entitlementStatus === "missing");
+
+  return (
+    <Container width="narrow" className="py-20 md:py-28">
+      <Kicker>{processing ? "Betaling verwerken" : "Betaalde quiz"}</Kicker>
+      <h1 className="display mt-5 mb-5">{title}</h1>
+      <p className="text-ink-2 leading-relaxed mb-8 max-w-xl">
+        {processing
+          ? "Stripe heeft je teruggestuurd. De webhook verwerkt je betaling nog. Ververs deze pagina over een paar seconden."
+          : `${title} bevat ${count} stellingen en kost ${price}. Na betaling kun je zonder account verder naar de quiz.`}
+      </p>
+      <div className="flex flex-wrap gap-3">
+        {processing ? (
+          <Link
+            href={`/quiz/${tier}${entitlementToken ? `?entitlement=${entitlementToken}&checkout=success` : ""}`}
+            className="btn btn-secondary"
+          >
+            Opnieuw controleren
+            <ArrowRight size={16} strokeWidth={1.8} />
+          </Link>
+        ) : (
+          <CheckoutButton tier={tier}>
+            Koop voor {price}
+            <ArrowRight size={16} strokeWidth={1.8} />
+          </CheckoutButton>
+        )}
+        <Link href="/quiz/quick" className="btn-ghost">
+          Start gratis met 15 vragen
+        </Link>
+      </div>
+    </Container>
+  );
+}

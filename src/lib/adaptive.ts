@@ -33,7 +33,7 @@ export interface AdaptiveContext {
 }
 
 const PHASE_THRESHOLDS: Record<Tier, { refine: number; verify: number }> = {
-  quick: { refine: 10, verify: 24 },
+  quick: { refine: 5, verify: 12 },
   standard: { refine: 12, verify: 40 },
   extended: { refine: 16, verify: 64 },
 };
@@ -41,7 +41,7 @@ const PHASE_THRESHOLDS: Record<Tier, { refine: number; verify: number }> = {
 export function tierBatchSize(tier: Tier, alreadyAnswered: number): number {
   const total = TIER_QUESTION_COUNT[tier];
   const remaining = Math.max(0, total - alreadyAnswered);
-  if (alreadyAnswered === 0) return Math.min(10, remaining);
+  if (alreadyAnswered === 0) return Math.min(tier === "quick" ? 5 : 10, remaining);
   return Math.min(5, remaining);
 }
 

@@ -101,7 +101,7 @@ export function GET() {
           type: "string",
           enum: ["quick", "standard", "extended"],
           description:
-            "Quizlengte. quick = ~30 vragen, standard = ~50, extended = ~80.",
+            "Quizlengte. quick = 15 vragen, standard = 50, extended = 80.",
         },
         AnswerValue: {
           type: "integer",

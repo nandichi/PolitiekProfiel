@@ -6,11 +6,13 @@ import {
   type AdaptiveQuestion,
 } from "@/lib/adaptive";
 import type { AnswerValue, Tier } from "@/lib/dimensions";
+import { validateEntitlementForTier } from "@/lib/entitlements";
 
 interface Body {
   tier?: Tier;
   seenIds?: number[];
   answers?: Array<{ questionId: number; value: AnswerValue | null }>;
+  entitlementToken?: string;
 }
 
 const VALID_TIERS: Tier[] = ["quick", "standard", "extended"];
@@ -29,6 +31,17 @@ export async function POST(request: Request) {
     return NextResponse.json(
       { error: "Onbekende quizlengte." },
       { status: 400 },
+    );
+  }
+
+  const entitlement = await validateEntitlementForTier({
+    tier: body.tier,
+    token: body.entitlementToken,
+  });
+  if (!entitlement.ok) {
+    return NextResponse.json(
+      { error: "Voor deze quiz is een geldige betaling nodig." },
+      { status: 402 },
     );
   }
 

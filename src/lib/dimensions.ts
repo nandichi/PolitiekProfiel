@@ -117,13 +117,13 @@ export function dimensionMeta(id: DimensionId): DimensionMeta {
 }
 
 export const TIER_QUESTION_COUNT: Record<Tier, number> = {
-  quick: 30,
+  quick: 15,
   standard: 50,
   extended: 80,
 };
 
 export const TIER_PER_DIMENSION: Record<Tier, number> = {
-  quick: 6,
+  quick: 3,
   standard: 10,
   extended: 16,
 };

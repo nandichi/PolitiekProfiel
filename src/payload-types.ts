@@ -77,6 +77,8 @@ export interface Config {
     aiContent: AiContent;
     'quiz-attempts': QuizAttempt;
     'quiz-events': QuizEvent;
+    entitlements: Entitlement;
+    'stripe-promotion-codes': StripePromotionCode;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -94,6 +96,8 @@ export interface Config {
     aiContent: AiContentSelect<false> | AiContentSelect<true>;
     'quiz-attempts': QuizAttemptsSelect<false> | QuizAttemptsSelect<true>;
     'quiz-events': QuizEventsSelect<false> | QuizEventsSelect<true>;
+    entitlements: EntitlementsSelect<false> | EntitlementsSelect<true>;
+    'stripe-promotion-codes': StripePromotionCodesSelect<false> | StripePromotionCodesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -694,6 +698,57 @@ export interface QuizEvent {
   createdAt: string;
 }
 /**
+ * Betaaltoegang voor quiz-tiers. Bevat geen e-mail, antwoorden, tracking-ID of resultaat-ID.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "entitlements".
+ */
+export interface Entitlement {
+  id: number;
+  /**
+   * Opaque capability-token dat de browser tijdelijk gebruikt om een betaalde quiz te starten.
+   */
+  token: string;
+  tier: 'standard' | 'extended';
+  status: 'pending' | 'paid' | 'revoked';
+  stripeCheckoutSessionId?: string | null;
+  stripePaymentIntentId?: string | null;
+  stripePriceId?: string | null;
+  /**
+   * Bedrag in minor units, bijvoorbeeld centen.
+   */
+  amountTotal?: number | null;
+  currency?: string | null;
+  paidAt?: string | null;
+  /**
+   * Wordt gezet na submit, zonder link naar het politieke resultaat.
+   */
+  consumedAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Admin generator voor Stripe promotion codes. Nieuwe records maken direct een 100 procent korting-code in Stripe aan.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "stripe-promotion-codes".
+ */
+export interface StripePromotionCode {
+  id: number;
+  /**
+   * Laat leeg om automatisch een code te genereren. Alleen hoofdletters, cijfers, _ en -.
+   */
+  code?: string | null;
+  tier: 'all' | 'standard' | 'extended';
+  maxRedemptions?: number | null;
+  expiresAt?: string | null;
+  note?: string | null;
+  stripeCouponId?: string | null;
+  stripePromotionCodeId?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
@@ -756,6 +811,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'quiz-events';
         value: number | QuizEvent;
+      } | null)
+    | ({
+        relationTo: 'entitlements';
+        value: number | Entitlement;
+      } | null)
+    | ({
+        relationTo: 'stripe-promotion-codes';
+        value: number | StripePromotionCode;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1131,6 +1194,39 @@ export interface QuizEventsSelect<T extends boolean = true> {
   cursor?: T;
   timeOnQuestionMs?: T;
   meta?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "entitlements_select".
+ */
+export interface EntitlementsSelect<T extends boolean = true> {
+  token?: T;
+  tier?: T;
+  status?: T;
+  stripeCheckoutSessionId?: T;
+  stripePaymentIntentId?: T;
+  stripePriceId?: T;
+  amountTotal?: T;
+  currency?: T;
+  paidAt?: T;
+  consumedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "stripe-promotion-codes_select".
+ */
+export interface StripePromotionCodesSelect<T extends boolean = true> {
+  code?: T;
+  tier?: T;
+  maxRedemptions?: T;
+  expiresAt?: T;
+  note?: T;
+  stripeCouponId?: T;
+  stripePromotionCodeId?: T;
   updatedAt?: T;
   createdAt?: T;
 }

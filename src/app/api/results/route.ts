@@ -5,13 +5,18 @@ import { calculateThemeScores } from "@/lib/themes";
 import { calculateConfidence } from "@/lib/confidence";
 import { detectParadoxes } from "@/lib/paradox";
 import { createResult } from "@/lib/results-store";
-import type { AnswerValue, Tier } from "@/lib/dimensions";
+import { TIER_QUESTION_COUNT, type AnswerValue, type Tier } from "@/lib/dimensions";
+import {
+  markEntitlementConsumed,
+  validateEntitlementForTier,
+} from "@/lib/entitlements";
 import type { ThemeId } from "@/lib/themes";
 
 interface Body {
   tier?: Tier;
   answers?: Array<{ questionId: number; value: AnswerValue | null }>;
   attemptId?: string;
+  entitlementToken?: string;
 }
 
 const ATTEMPT_ID_PATTERN = /^[A-Za-z0-9_-]{6,32}$/;
@@ -35,6 +40,17 @@ export async function POST(request: Request) {
     return NextResponse.json(
       { error: "Geen antwoorden ontvangen." },
       { status: 400 },
+    );
+  }
+
+  const entitlement = await validateEntitlementForTier({
+    tier: body.tier,
+    token: body.entitlementToken,
+  });
+  if (!entitlement.ok) {
+    return NextResponse.json(
+      { error: "Voor deze quiz is een geldige betaling nodig." },
+      { status: 402 },
     );
   }
 
@@ -143,9 +159,13 @@ export async function POST(request: Request) {
     answers: storedAnswers,
     answeredCount: breakdown.answeredCount,
     skippedCount: breakdown.skippedCount,
-    totalQuestions: questionsRes.docs.length,
+    totalQuestions: TIER_QUESTION_COUNT[body.tier],
     attemptId,
   });
+
+  if (body.entitlementToken) {
+    await markEntitlementConsumed(body.entitlementToken);
+  }
 
   return NextResponse.json({ id: stored.shareId });
 }

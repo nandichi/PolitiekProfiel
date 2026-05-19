@@ -55,7 +55,7 @@ const DIRECTION_LABEL = {
 } as const;
 
 const TIER_LABEL = {
-  quick: "Quick (30)",
+  quick: "Quick (15)",
   standard: "Standaard (50)",
   extended: "Uitgebreid (80)",
 } as const;

@@ -1,7 +1,7 @@
 import "server-only";
 
 import { payload } from "@/lib/payload";
-import type { DimensionId, Tier } from "@/lib/dimensions";
+import { TIER_QUESTION_COUNT, type DimensionId, type Tier } from "@/lib/dimensions";
 import type { ThemeId } from "@/lib/themes";
 import {
   pickInitialBatch,
@@ -113,7 +113,7 @@ export async function getQuestionsForTier(tier: Tier): Promise<QuizQuestion[]> {
     }
     return a.id - b.id;
   });
-  return interleaveByDimension(pool);
+  return interleaveByDimension(pool).slice(0, TIER_QUESTION_COUNT[tier]);
 }
 
 function interleaveByDimension(questions: QuizQuestion[]): QuizQuestion[] {

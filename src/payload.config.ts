@@ -16,6 +16,8 @@ import { Results } from "./collections/Results";
 import { AiContent } from "./collections/AiContent";
 import { QuizAttempts } from "./collections/QuizAttempts";
 import { QuizEvents } from "./collections/QuizEvents";
+import { Entitlements } from "./collections/Entitlements";
+import { StripePromotionCodes } from "./collections/StripePromotionCodes";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -71,6 +73,10 @@ export default buildConfig({
           Component: "@/admin-tracking/QuestionDetailView",
           path: "/tracking/question/:questionId",
         },
+        couponGenerator: {
+          Component: "@/admin-coupons/CouponGeneratorView",
+          path: "/coupons",
+        },
       },
     },
   },
@@ -85,6 +91,8 @@ export default buildConfig({
     AiContent,
     QuizAttempts,
     QuizEvents,
+    Entitlements,
+    StripePromotionCodes,
   ],
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || "dev-secret-replace-me",

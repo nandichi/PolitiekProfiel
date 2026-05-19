@@ -62,7 +62,7 @@ export function WebMcpProvider() {
               type: "string",
               enum: ["quick", "standard", "extended"],
               description:
-                "Quizlengte. quick = ~30 vragen (~5 min), standard = ~50 vragen (~10 min), extended = ~80 vragen (~20 min).",
+                "Quizlengte. quick = 15 vragen (~3 min, gratis), standard = 50 vragen (~10 min), extended = 80 vragen (~20 min).",
             },
           },
         },

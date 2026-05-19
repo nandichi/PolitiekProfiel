@@ -16,7 +16,7 @@ const PAGE_PATH = "/privacy";
 const PAGE_PUBLISHED = "2026-01-15";
 const PAGE_MODIFIED = "2026-05-17";
 const PAGE_DESCRIPTION =
-  "Politieke voorkeur valt onder bijzondere persoonsgegevens (AVG). Wat we wel en niet opslaan, hoe we anonieme cohort-aggregaten gebruiken, en je recht op verwijdering.";
+  "Politieke voorkeur valt onder bijzondere persoonsgegevens (AVG). Wat we opslaan, hoe Stripe-betalingen gescheiden blijven, en je recht op verwijdering.";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Privacy · PolitiekProfiel",
     description:
-      "Geen account, geen tracking. Anonieme opslag onder de AVG. Politieke voorkeur als bijzondere persoonsgegevens.",
+      "Geen account, geen advertentietracking. Stripe-betalingen worden niet gekoppeld aan politieke uitslagen.",
     url: PAGE_PATH,
     type: "article",
     publishedTime: PAGE_PUBLISHED,
@@ -115,6 +115,10 @@ export default function PrivacyPage() {
             <ul>
               <li>Een willekeurige share-ID van 12 tekens</li>
               <li>De vijf dimensiescores en de berekende ideologie</li>
+              <li>
+                Je ingevulde antwoordwaarden per vraag, zodat de resultaatpagina
+                standpunten kan afleiden
+              </li>
               <li>Het aantal beantwoorde en overgeslagen vragen</li>
               <li>Het tijdstip van aanmaken</li>
             </ul>
@@ -138,7 +142,7 @@ export default function PrivacyPage() {
               </li>
               <li>Je IP-adres of user-agent</li>
               <li>Tracking-cookies of marketing-pixels</li>
-              <li>Je individuele antwoorden per vraag</li>
+              <li>Een koppeling tussen je Stripe-betaling en je politieke uitslag</li>
             </ul>
           </Block>
 
@@ -200,10 +204,29 @@ export default function PrivacyPage() {
             </p>
           </Block>
 
+          <Block
+            id="betalingen"
+            kicker="06 · Betalingen"
+            title="Hoe betaalde quizzen werken."
+            accent="ink"
+          >
+            <p>
+              Betalingen lopen via Stripe Checkout. Stripe verwerkt daarbij de
+              betaalgegevens en eventuele e-mail voor betaling en ontvangstbewijs.
+              PolitiekProfiel gebruikt alleen een tijdelijk toegangstoken om te
+              controleren dat een betaalde quiz is ontgrendeld.
+            </p>
+            <p>
+              Dat toegangstoken bevat geen antwoorden, geen ideologie, geen
+              tracking-ID en geen resultaatlink. Na het indienen markeren we het
+              token als gebruikt zonder het aan je politieke profiel te koppelen.
+            </p>
+          </Block>
+
           {/* Verwijderen */}
           <Block
             id="verwijderen"
-            kicker="06 · Recht op verwijdering"
+            kicker="07 · Recht op verwijdering"
             title="Een verwijderverzoek indienen."
             accent="ink"
           >
@@ -220,7 +243,7 @@ export default function PrivacyPage() {
           {/* Cookies */}
           <Block
             id="cookies"
-            kicker="07 · Cookies"
+            kicker="08 · Cookies"
             title="Cookies."
             accent="ink"
             last

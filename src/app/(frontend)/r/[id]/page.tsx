@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowRight, Repeat, BookOpen } from "lucide-react";
+import { ArrowRight, Repeat, BookOpen, Lock } from "lucide-react";
 import { Container } from "@/components/Container";
+import { CheckoutButton } from "@/components/CheckoutButton";
 import { DimensionBar } from "@/components/DimensionBar";
 import { ScatterPlot } from "@/components/ScatterPlot";
 import { RankedList } from "@/components/RankedList";
@@ -124,6 +125,8 @@ export default async function ResultPage({ params }: Args) {
   const { id } = await params;
   const result = await getResult(id);
   if (!result) notFound();
+  const isFreeResult = result.tier === "quick";
+  const isExtendedResult = result.tier === "extended";
 
   const [ideo, politicians, countries, allParties] = await Promise.all([
     getIdeologyBySlug(result.ideologySlug),
@@ -205,7 +208,9 @@ export default async function ResultPage({ params }: Args) {
     getAiContentBySlugs(steelmanSlugs),
   ]);
 
-  const stances = result.answers ? await extractStances(result.answers, 6) : [];
+  const stances = result.answers
+    ? await extractStances(result.answers, isExtendedResult ? 10 : 6)
+    : [];
 
   const [cohort, totalProfiles] = await Promise.all([
     getCohortForVector(result.dimensions).catch(() => null),
@@ -278,7 +283,7 @@ export default async function ResultPage({ params }: Args) {
     ),
     politici: readingMinutesFor(
       ...rankedPoliticians
-        .slice(0, 20)
+        .slice(0, isExtendedResult ? 30 : 20)
         .map((p) => `${p.item.primary} ${p.item.secondary}`),
     ),
     landen: readingMinutesFor(
@@ -293,7 +298,14 @@ export default async function ResultPage({ params }: Args) {
     ),
   };
 
-  const indexItems = INDEX_ITEMS.map((it) => ({
+  const visibleIndexItems = isFreeResult
+    ? [
+        ...INDEX_ITEMS.filter((it) => it.id === "profiel" || it.id === "dimensies"),
+        { id: "premium", label: "Volledig rapport" },
+      ]
+    : INDEX_ITEMS;
+
+  const indexItems = visibleIndexItems.map((it) => ({
     ...it,
     readingMinutes: sectionMinutes[it.id],
   }));
@@ -354,6 +366,16 @@ export default async function ResultPage({ params }: Args) {
                       />
                     )}
                   </div>
+                  {isExtendedResult && (
+                    <div className="mt-6 max-w-2xl border border-navy/30 bg-navy/5 p-5">
+                      <p className="kicker mb-2">Uitgebreide verdieping</p>
+                      <p className="text-sm text-ink-2 leading-relaxed">
+                        Dit resultaat is gebaseerd op de langste quiz. Daarom
+                        tonen we extra standpunten, ruimere vergelijkingen en
+                        meer context bij sterke uitslagen.
+                      </p>
+                    </div>
+                  )}
                 </ScrollRevealItem>
               </ScrollReveal>
 
@@ -365,14 +387,21 @@ export default async function ResultPage({ params }: Args) {
                   />
                 )}
                 <div className="mt-5">
-                  <AiContentReveal previewHeight={420} minOverflow={120}>
-                    <AiContentBlock
-                      content={essayContent}
-                      fallback={undefined}
-                      variant="prose"
-                      showSourceNote
+                  {isFreeResult ? (
+                    <InlinePaywall
+                      title="De volledige profieluitleg is onderdeel van het betaalde rapport."
+                      body="Je gratis uitslag geeft de kern: profielnaam en vijf assen. Met de standaard quiz krijg je de volledige duiding, context en leesverdieping."
                     />
-                  </AiContentReveal>
+                  ) : (
+                    <AiContentReveal previewHeight={420} minOverflow={120}>
+                      <AiContentBlock
+                        content={essayContent}
+                        fallback={undefined}
+                        variant="prose"
+                        showSourceNote
+                      />
+                    </AiContentReveal>
+                  )}
                 </div>
 
                 {ideo.examplePeople?.length ? (
@@ -431,12 +460,21 @@ export default async function ResultPage({ params }: Args) {
                           {(bucketContent || dimConfidence !== undefined) && (
                             <div className="pb-7 mt-5 md:mt-6 grid grid-cols-1 md:grid-cols-[1fr_auto] md:gap-8 md:items-start">
                               <div className="max-w-2xl">
-                                <AiContentReveal previewHeight={180} minOverflow={80}>
-                                  <AiContentBlock
-                                    content={bucketContent}
-                                    variant="compact"
-                                  />
-                                </AiContentReveal>
+                                {isFreeResult ? (
+                                  <p className="text-sm text-ink-muted leading-relaxed">
+                                    De gratis indicatie toont je positie op deze
+                                    as. De volledige betaalde analyse legt uit
+                                    wat deze score politiek betekent en waar de
+                                    nuance zit.
+                                  </p>
+                                ) : (
+                                  <AiContentReveal previewHeight={180} minOverflow={80}>
+                                    <AiContentBlock
+                                      content={bucketContent}
+                                      variant="compact"
+                                    />
+                                  </AiContentReveal>
+                                )}
                               </div>
                               {dimConfidence !== undefined && (
                                 <div className="mt-4 md:mt-1">
@@ -459,6 +497,10 @@ export default async function ResultPage({ params }: Args) {
               </ScrollReveal>
             </section>
 
+            {isFreeResult ? (
+              <FreeResultPaywall />
+            ) : (
+              <>
             {/* SECTIE 3 · THEMA'S */}
             <section
               id="themas"
@@ -536,7 +578,8 @@ export default async function ResultPage({ params }: Args) {
                 <ScrollRevealItem>
                   <Kicker number={4}>Wat je waarschijnlijk vindt</Kicker>
                   <h2 className="display mt-5 max-w-3xl">
-                    Zes concrete standpunten gedistilleerd uit je antwoorden.
+                    {isExtendedResult ? "Tien" : "Zes"} concrete standpunten
+                    gedistilleerd uit je antwoorden.
                   </h2>
                 </ScrollRevealItem>
                 <ScrollRevealItem>
@@ -788,7 +831,7 @@ export default async function ResultPage({ params }: Args) {
                       <p className="kicker mb-4">Rangschikking</p>
                       <RankedList
                         matches={rankedPoliticians}
-                        limit={20}
+                        limit={isExtendedResult ? 30 : 20}
                         highlightFirst
                       />
                     </div>
@@ -947,11 +990,114 @@ export default async function ResultPage({ params }: Args) {
                 </ScrollRevealItem>
               </ScrollReveal>
             </section>
+              </>
+            )}
           </div>
         </div>
       </Container>
       <BackToTop threshold={0.5} />
     </div>
+  );
+}
+
+function InlinePaywall({ title, body }: { title: string; body: string }) {
+  return (
+    <div className="relative overflow-hidden border border-rule bg-paper-50 p-5">
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-b from-transparent to-paper"
+      />
+      <div className="relative">
+        <p className="kicker mb-2 inline-flex items-center gap-2">
+          <Lock size={13} strokeWidth={1.8} />
+          Betaalde verdieping
+        </p>
+        <p className="display text-xl leading-tight text-ink">{title}</p>
+        <p className="mt-3 text-sm text-ink-2 leading-relaxed">{body}</p>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <CheckoutButton tier="standard" className="btn btn-primary">
+            Ontgrendel voor 5 euro
+            <ArrowRight size={16} strokeWidth={1.8} />
+          </CheckoutButton>
+          <CheckoutButton tier="extended" className="btn btn-secondary">
+            Uitgebreid voor 10 euro
+          </CheckoutButton>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FreeResultPaywall() {
+  const locked = [
+    "zeven thema-scores",
+    "concrete standpunten",
+    "tegenargumenten",
+    "paradoxen",
+    "partij-context",
+    "politici- en landenvergelijking",
+    "delen, evolutie en downloads",
+  ];
+
+  return (
+    <section
+      id="premium"
+      className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12 pb-8"
+    >
+      <ScrollReveal variant="stagger">
+        <ScrollRevealItem>
+          <Kicker number={3}>Volledig rapport</Kicker>
+          <h2 className="display mt-5 max-w-3xl">
+            Je gratis uitslag is een indicatie. De verdieping zit in het
+            betaalde rapport.
+          </h2>
+        </ScrollRevealItem>
+        <ScrollRevealItem>
+          <p className="mt-4 max-w-2xl text-sm text-ink-muted leading-relaxed">
+            Je ziet nu de profielnaam en vijf dimensies. Met de standaard of
+            uitgebreide quiz krijg je meer vragen, scherpere confidence en alle
+            contextsecties die helpen om je uitslag echt te begrijpen.
+          </p>
+        </ScrollRevealItem>
+        <ScrollRevealItem>
+          <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_0.9fr]">
+            <div className="border border-rule bg-paper-50 p-6 md:p-8">
+              <p className="kicker mb-5 inline-flex items-center gap-2">
+                <Lock size={14} strokeWidth={1.8} />
+                Vergrendeld in gratis
+              </p>
+              <ul className="grid grid-cols-1 gap-3 text-sm text-ink-2 md:grid-cols-2">
+                {locked.map((item) => (
+                  <li key={item} className="border-t border-rule pt-3">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="border border-ink p-6 md:p-8">
+              <p className="kicker mb-3">Aanbevolen</p>
+              <h3 className="display text-2xl leading-tight">
+                Start de standaard quiz.
+              </h3>
+              <p className="mt-4 text-sm text-ink-2 leading-relaxed">
+                Voor 5 euro krijg je een volledig rapport op basis van 50
+                stellingen. Wil je maximale nuance, kies dan de uitgebreide quiz
+                van 80 vragen.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <CheckoutButton tier="standard" className="btn btn-primary">
+                  Koop standaard voor 5 euro
+                  <ArrowRight size={16} strokeWidth={1.8} />
+                </CheckoutButton>
+                <CheckoutButton tier="extended" className="btn btn-secondary">
+                  Uitgebreid voor 10 euro
+                </CheckoutButton>
+              </div>
+            </div>
+          </div>
+        </ScrollRevealItem>
+      </ScrollReveal>
+    </section>
   );
 }
 
@@ -977,7 +1123,7 @@ function MetaPill({
 }
 
 function tierLabel(tier: string): string {
-  if (tier === "quick") return "Quick · 30 vragen";
+  if (tier === "quick") return "Quick · 15 vragen";
   if (tier === "extended") return "Uitgebreid · 80 vragen";
   return "Standaard · 50 vragen";
 }

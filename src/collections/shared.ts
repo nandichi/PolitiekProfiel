@@ -9,7 +9,7 @@ export const dimensionOptions = [
 ] as const;
 
 export const tierOptions = [
-  { label: "Quick (30)", value: "quick" },
+  { label: "Quick (15)", value: "quick" },
   { label: "Standaard (50)", value: "standard" },
   { label: "Uitgebreid (80)", value: "extended" },
 ] as const;

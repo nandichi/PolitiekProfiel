@@ -27,7 +27,7 @@ PolitiekProfiel is een Nederlandstalig instrument voor reflectie op politieke ho
 
 ## Quiz-tiers
 
-- [Quick (5 minuten, 30 stellingen)](${BASE_URL}/quiz/quick): korte indicatie.
+- [Quick (3 minuten, 15 stellingen)](${BASE_URL}/quiz/quick): gratis indicatie.
 - [Standaard (10 minuten, 50 stellingen)](${BASE_URL}/quiz/standard): aanbevolen lengte.
 - [Uitgebreid (20 minuten, 80 stellingen)](${BASE_URL}/quiz/extended): meeste nuance.
 
