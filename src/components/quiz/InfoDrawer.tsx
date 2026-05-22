@@ -38,6 +38,7 @@ export function InfoDrawer({ open, onOpenChange, content }: InfoDrawerProps) {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
+                onClick={() => onOpenChange(false)}
               />
             </Dialog.Overlay>
             <Dialog.Content asChild>
@@ -55,15 +56,14 @@ export function InfoDrawer({ open, onOpenChange, content }: InfoDrawerProps) {
                 {/* Drawer header */}
                 <div className="flex items-center justify-between px-7 h-16 border-b border-rule shrink-0">
                   <p className="kicker">Achtergrond</p>
-                  <Dialog.Close asChild>
-                    <button
-                      type="button"
-                      aria-label="Sluiten"
-                      className="w-10 h-10 -mr-2 inline-flex items-center justify-center text-ink-muted hover:text-ink"
-                    >
-                      <X size={20} strokeWidth={1.7} />
-                    </button>
-                  </Dialog.Close>
+                  <button
+                    type="button"
+                    aria-label="Sluiten"
+                    onClick={() => onOpenChange(false)}
+                    className="w-10 h-10 -mr-2 inline-flex items-center justify-center text-ink-muted hover:text-ink"
+                  >
+                    <X size={20} strokeWidth={1.7} />
+                  </button>
                 </div>
 
                 {/* Content */}

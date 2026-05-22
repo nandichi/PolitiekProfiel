@@ -43,7 +43,6 @@ const COLUMNS: FooterColumn[] = [
     title: "Methode & juridisch",
     links: [
       { href: "/methodiek", label: "Methodiek" },
-      { href: "/ai-transparantie", label: "AI-transparantie" },
       { href: "/privacy", label: "Privacyverklaring" },
       { href: "/voorwaarden", label: "Algemene voorwaarden" },
       { href: "/disclaimer", label: "Disclaimer" },

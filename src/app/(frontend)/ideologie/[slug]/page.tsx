@@ -194,7 +194,6 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
                 <AiContentBlock
                   content={essay}
                   fallback={ideology.description}
-                  showSourceNote={Boolean(essay)}
                 />
               </div>
             </ScrollRevealItem>
