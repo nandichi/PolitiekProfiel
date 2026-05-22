@@ -16,7 +16,7 @@ import {
 const PAGE_PATH = "/turing-test";
 const PAGE_TITLE = "Ideological Turing Test";
 const PAGE_DESCRIPTION =
-  "Acht citaten uit het Nederlandse debat. Kun jij raden welk kamp ze uitspreekt? Geen partij-quiz, maar een retoriek-test.";
+  "Acht citaten uit het Nederlandse debat (of speel een langere ronde van 12). Kun jij raden welk kamp ze uitspreekt? Geen partij-quiz, maar een retoriek-test.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -93,10 +93,12 @@ export default async function TuringTestPage({ searchParams }: PageProps) {
             <p className="mt-4 text-sm text-ink-2 leading-relaxed">
               Citaten komen uit Kamerdebatten, verkiezingsprogramma's of openbare
               interviews uit 2024-2026. Sommige zijn geparafraseerd voor
-              leesbaarheid (gemarkeerd). De bibliotheek bevat {TURING_QUOTES.length}{" "}
-              citaten verdeeld over drie kampen: links, midden en rechts. We
-              gokken niet op partij omdat partijen overlappen; we gokken op
-              kamp omdat retoriek meestal wel verraadt waar iemand staat.
+              leesbaarheid (gemarkeerd). De bibliotheek bevat in totaal{" "}
+              {TURING_QUOTES.length} citaten verdeeld over drie kampen: links,
+              midden en rechts. Een standaardronde toont er 8; een langere
+              ronde toont er 12. We gokken niet op partij omdat partijen
+              overlappen; we gokken op kamp omdat retoriek meestal wel
+              verraadt waar iemand staat.
             </p>
           </ScrollRevealItem>
           <ScrollRevealItem>
@@ -105,7 +107,7 @@ export default async function TuringTestPage({ searchParams }: PageProps) {
                 href="/turing-test?n=12"
                 className="btn btn-ghost"
               >
-                12 citaten
+                Langere ronde (12)
               </Link>
               <Link
                 href={`/turing-test?seed=${Math.floor(Math.random() * 1_000_000)}`}
