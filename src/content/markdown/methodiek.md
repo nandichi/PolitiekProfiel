@@ -95,10 +95,6 @@ Hoeveel vertrouwen je in je dimensie-score kunt hebben hangt af van:
 
 De drie delen vormen samen een score van 0..100. Hoog vertrouwen begint bij 70, gemiddeld bij 40.
 
-## AI-content vooraf gegenereerd
-
-De duidende teksten op je resultaatpagina (essays per ideologie, betekenis per dimensie en thema, paradox-uitleg, leesvoer en argumenten) zijn **vooraf gegenereerd** met OpenAI en opgeslagen in de CMS. Bij het tonen van je resultaat wordt **nooit** een AI-call gedaan op jouw antwoorden. Audit-trail (model, prompt, datum) is per slot bewaard. Zie [`/ai-transparantie`](/ai-transparantie).
-
 ## Beperkingen
 
 Dit kompas is geen **stemwijzer** en geen wetenschappelijke meting. Het is een instrument voor reflectie. We werken met geschatte profielposities van politici en landen die we afleiden uit publieke indices, programma's en debatten. Posities zijn discutabel, en wij bouwen graag verder op feedback.

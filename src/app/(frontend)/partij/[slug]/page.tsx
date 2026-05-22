@@ -162,7 +162,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
           <ScrollRevealItem>
             <dl className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-px bg-rule border border-rule max-w-4xl">
               <Meta term="Opgericht" value={party.founded ?? "Onbekend"} />
-              <Meta term="Lijsttrekker" value={party.leader ?? "Onbekend"} />
+              <Meta term="Partijleider" value={party.leader ?? "Onbekend"} />
               <Meta
                 term="Fractievoorzitter"
                 value={party.factionLeader ?? party.leader ?? "Onbekend"}

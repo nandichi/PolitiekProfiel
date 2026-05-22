@@ -7,7 +7,7 @@ PolitiekProfiel is een Nederlandstalig politiek kompas op **vijf onafhankelijke 
 - Geen tracking
 - Volledig anoniem
 - 5 tot 20 minuten
-- Vooraf gegenereerde duiding; jouw antwoorden gaan nooit naar een AI-model
+- Redactioneel gemaakte duiding bij iedere ideologie, dimensie en paradox
 
 ## Drie principes
 
@@ -19,9 +19,9 @@ Stellingen die de redactie zorgvuldig opstelt. Voor en tegen krijgen evenveel ru
 
 Economisch, sociaal-cultureel, burgerrechten, bestuur en systeemvertrouwen vormen vijf onafhankelijke scores. Daarbovenop zeven beleidsthema's (klimaat, zorg, migratie, economie, EU, democratie, wonen) en paradox-detectie wanneer je antwoorden elkaar onderling tegenspreken.
 
-### 3. Privacy: geen account, geen tracking, AI alleen vooraf
+### 3. Privacy: geen account, geen tracking, geen profilering
 
-Resultaten worden anoniem opgeslagen voor een korte deellink. Geen IP-adres, geen analytics, geen marketing-cookies. AI-gegenereerde duiding is **vooraf** gemaakt en gecached; jouw antwoorden komen er nooit aan te pas. Lees details op [`/ai-transparantie`](/ai-transparantie).
+Resultaten worden anoniem opgeslagen voor een korte deellink. Geen IP-adres, geen analytics, geen marketing-cookies. Jouw antwoorden worden niet doorverkocht of doorgestuurd. Lees details op [`/privacy`](/privacy).
 
 ## Kies een lengte
 

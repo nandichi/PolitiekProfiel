@@ -17,7 +17,7 @@ import {
 const PAGE_PATH = "/ideologieen";
 const PAGE_TITLE = "Ideologieën";
 const PAGE_DESCRIPTION =
-  "Twaalf politieke stromingen, hun kernwaarden, voorbeelden en hoe ze zich verhouden tot Nederlandse partijen anno 2026.";
+  "Zestien politieke stromingen, hun kernwaarden, voorbeelden en hoe ze zich verhouden tot Nederlandse partijen anno 2026.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -83,7 +83,7 @@ export default function IdeologieenPage() {
             className="display mt-6 max-w-4xl"
             style={{ letterSpacing: "-0.025em" }}
           >
-            Twaalf manieren om de wereld te ordenen,{" "}
+            Zestien manieren om de wereld te ordenen,{" "}
             <em className="display-italic font-light text-navy">
               zonder hokjes
             </em>

@@ -78,8 +78,9 @@ const cpb2025: SeedSource = {
 export const PARTIES: SeedParty[] = [
   // ============== NEDERLAND (16) ==============
   // Stand: 17 mei 2026. Zetels = uitslag Tweede Kamerverkiezingen 29 oktober 2025
-  // (Kiesraad 7 november 2025), gecorrigeerd voor de afsplitsing van Groep
-  // Markuszower / DNA op 20 januari 2026 (7 zetels uit de PVV).
+  // (Kiesraad 7 november 2025), gecorrigeerd voor de afsplitsing van 7 PVV-Kamerleden
+  // onder leiding van Gidi Markuszower op 20 januari 2026 (eerst als Groep Markuszower;
+  // partij De Nederlandse Alliantie (DNA) officieel opgericht op 17 april 2026).
   // Coalitie = kabinet-Jetten (D66 + VVD + CDA), beëdigd 23 februari 2026.
   {
     name: "Democraten 66",
@@ -110,7 +111,7 @@ export const PARTIES: SeedParty[] = [
     regionType: "national",
     country: "Nederland",
     description:
-      "Nationaal-populistische partij, geleid door Geert Wilders. Behaalde 29 oktober 2025 26 zetels, maar zag op 20 januari 2026 zeven Kamerleden onder leiding van Gidi Markuszower vertrekken (later opgericht als De Nederlandse Alliantie). Combineert harde lijn op migratie en EU met sociale uitgaven voor de eigen kiezers en sterk wantrouwen jegens gevestigde instituties.",
+      "Nationaal-populistische partij, geleid door Geert Wilders. Behaalde 29 oktober 2025 26 zetels, maar zag op 20 januari 2026 zeven Kamerleden onder leiding van Gidi Markuszower vertrekken naar Groep Markuszower, die op 17 april 2026 de partij De Nederlandse Alliantie (DNA) oprichtte. Combineert harde lijn op migratie en EU met sociale uitgaven voor de eigen kiezers en sterk wantrouwen jegens gevestigde instituties.",
     positionVector: { economic: 0, social: -90, civil: -40, governance: -85, trust: -75 },
     ideologySlugs: ["populistisch-rechts", "nationaal-conservatief"],
     founded: "2006",
@@ -215,11 +216,11 @@ export const PARTIES: SeedParty[] = [
     regionType: "national",
     country: "Nederland",
     description:
-      "Rechts-conservatief en sterk EU-kritisch (7 zetels in 2025). Sinds de verkiezingen leidt Lidewij de Vos de fractie; oprichter Thierry Baudet bleef partijleider buiten het fractievoorzitterschap. Combineert libertaire economische ideeën met cultureel-conservatieve agenda en wantrouwen jegens mainstream wetenschap en media.",
+      "Rechts-conservatief en sterk EU-kritisch (7 zetels in 2025). Lidewij de Vos volgde Thierry Baudet op als politiek leider en lijsttrekker (4 september 2025) en is sindsdien ook fractievoorzitter; Baudet blijft oprichter van de partij. Combineert libertaire economische ideeën met cultureel-conservatieve agenda en wantrouwen jegens mainstream wetenschap en media.",
     positionVector: { economic: -55, social: -70, civil: 25, governance: -85, trust: -90 },
     ideologySlugs: ["libertarier", "populistisch-rechts"],
     founded: "2016",
-    leader: "Thierry Baudet",
+    leader: "Lidewij de Vos",
     factionLeader: "Lidewij de Vos",
     websiteUrl: "https://www.fvd.nl",
     lastReviewed: REVIEW_DATE,
@@ -257,11 +258,11 @@ export const PARTIES: SeedParty[] = [
     regionType: "national",
     country: "Nederland",
     description:
-      "Politieke beweging voor boeren, plattelandsbewoners en regionale belangen. Verloor zwaar in 2025 (4 zetels). Henk Vermeer leidt de fractie sinds oprichter Caroline van der Plas terugtrad uit de Kamerleiding. Scepsis tegenover stikstofbeleid en EU-regelgeving op landbouwgebied.",
+      "Politieke beweging voor boeren, plattelandsbewoners en regionale belangen. Verloor zwaar in 2025 (4 zetels). Mede-oprichter Henk Vermeer volgde Caroline van der Plas op als partijleider én fractievoorzitter op 20 februari 2026; Van der Plas blijft Tweede Kamerlid en richt zich op landbouw- en visserijdossiers. Scepsis tegenover stikstofbeleid en EU-regelgeving op landbouwgebied.",
     positionVector: { economic: -10, social: -50, civil: -20, governance: -50, trust: -30 },
     ideologySlugs: ["klassiek-conservatief", "communitarist"],
     founded: "2019",
-    leader: "Caroline van der Plas",
+    leader: "Henk Vermeer",
     factionLeader: "Henk Vermeer",
     websiteUrl: "https://www.boerburgerbeweging.nl",
     lastReviewed: REVIEW_DATE,

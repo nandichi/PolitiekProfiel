@@ -6,14 +6,12 @@ interface AiContentBlockProps {
   content?: AiContentRecord | null;
   fallback?: string;
   variant?: "prose" | "compact";
-  showSourceNote?: boolean;
 }
 
 export function AiContentBlock({
   content,
   fallback,
   variant = "prose",
-  showSourceNote = false,
 }: AiContentBlockProps) {
   if (!content) {
     if (!fallback) return null;
@@ -33,13 +31,6 @@ export function AiContentBlock({
       >
         <LexicalRenderer value={content.bodyLexical} />
       </div>
-      {showSourceNote && (
-        <p className="mt-4 mono text-[0.65rem] tracking-wider text-ink-subtle">
-          TEKST VOORAF GEGENEREERD MET {content.model.toUpperCase()} · GEEN PERSOONLIJKE
-          DATA NAAR AI
-          {content.humanEdited ? " · REDACTIONEEL BEWERKT" : ""}
-        </p>
-      )}
     </div>
   );
 }

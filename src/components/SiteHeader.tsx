@@ -39,7 +39,7 @@ const EXPLORE_COLUMNS: ExploreColumn[] = [
       {
         href: "/ideologieen",
         label: "Ideologieën",
-        description: "Twaalf stromingen op de vijf dimensies.",
+        description: "Zestien stromingen op de vijf dimensies.",
       },
       {
         href: "/woordenboek",

@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import {
   ArrowLeft,
@@ -57,7 +56,6 @@ export function QuizEngine({
   adaptive?: boolean;
   entitlementToken?: string;
 }) {
-  const router = useRouter();
   const reduce = useReducedMotion();
   const [questions, setQuestions] = useState<QuizQuestion[]>(initialQuestions);
   const [answers, setAnswers] = useState<AnswerMap>({});
@@ -494,14 +492,14 @@ export function QuizEngine({
         </p>
         <EmailResultLinkBlock shareId={completedShareId} />
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <button
-            type="button"
+          <Link
+            href={`/r/${completedShareId}`}
             className="btn btn-primary"
-            onClick={() => router.push(`/r/${completedShareId}`)}
+            prefetch={false}
           >
             Bekijk mijn resultaat
             <ArrowRight size={16} strokeWidth={1.8} />
-          </button>
+          </Link>
           <p className="text-xs text-ink-subtle">
             Je kunt de link ook later mailen vanaf de resultaatpagina.
           </p>

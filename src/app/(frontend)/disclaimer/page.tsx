@@ -40,7 +40,6 @@ const INDEX = [
   { id: "geen-advies", label: "Geen advies" },
   { id: "duiding", label: "Duiding & interpretatie" },
   { id: "bronnen", label: "Bronnen & citaten" },
-  { id: "ai", label: "Gebruik van AI" },
   { id: "links", label: "Externe links" },
   { id: "beschikbaarheid", label: "Beschikbaarheid" },
   { id: "aansprakelijkheid", label: "Aansprakelijkheid" },
@@ -127,10 +126,9 @@ export default function DisclaimerPage() {
               Dat betekent niet dat de inhoud waardevrij is. Het selecteren
               van dimensies, het wegen van stellingen en het toekennen van
               ideologische clusters vergt keuzes. Die keuzes proberen we
-              transparant te maken op de pagina&apos;s{" "}
-              <a href="/methodiek">methodiek</a> en{" "}
-              <a href="/ai-transparantie">AI-transparantie</a>. We staan voor
-              die keuzes, maar zien ze niet als de enige denkbare waarheid.
+              transparant te maken op de pagina{" "}
+              <a href="/methodiek">methodiek</a>. We staan voor die keuzes,
+              maar zien ze niet als de enige denkbare waarheid.
             </p>
             <p>
               Verwijzingen naar partijen, politici, ideologieën of historische
@@ -238,31 +236,8 @@ export default function DisclaimerPage() {
           </Block>
 
           <Block
-            id="ai"
-            kicker="05 · Gebruik van AI"
-            title="Wat AI wel en niet doet op deze site."
-            accent="ink"
-          >
-            <p>
-              Delen van de redactionele inhoud worden mede tot stand
-              gebracht met behulp van AI-modellen, onder menselijke
-              redactie. AI wordt niet gebruikt om jouw antwoorden door te
-              sturen of om in real-time op basis van persoonsgegevens
-              uitspraken te doen. Voor de volledige werking en
-              audit-trail verwijzen we naar{" "}
-              <a href="/ai-transparantie">AI-transparantie</a>.
-            </p>
-            <p>
-              AI-gegenereerde tekst kan hallucinaties bevatten en is
-              uitdrukkelijk niet onfeilbaar. We aanvaarden geen
-              aansprakelijkheid voor onjuistheden die ondanks redactie
-              door deze techniek ontstaan.
-            </p>
-          </Block>
-
-          <Block
             id="links"
-            kicker="06 · Externe links"
+            kicker="05 · Externe links"
             title="Wij beheren niet wat we niet zelf publiceren."
             accent="ink"
           >
@@ -280,7 +255,7 @@ export default function DisclaimerPage() {
 
           <Block
             id="beschikbaarheid"
-            kicker="07 · Beschikbaarheid"
+            kicker="06 · Beschikbaarheid"
             title="Best effort, geen garantie."
             accent="ink"
           >
@@ -297,7 +272,7 @@ export default function DisclaimerPage() {
 
           <Block
             id="aansprakelijkheid"
-            kicker="08 · Aansprakelijkheid"
+            kicker="07 · Aansprakelijkheid"
             title="Verwijzing naar de algemene voorwaarden."
             accent="terra"
           >
@@ -323,7 +298,7 @@ export default function DisclaimerPage() {
 
           <Block
             id="melding"
-            kicker="09 · Meldingen"
+            kicker="08 · Meldingen"
             title="Wanneer iets onjuist of schadelijk is."
             accent="ink"
             last

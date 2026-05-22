@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
-import { type ReactNode } from "react";
+import { motion, useInView, type Variants } from "motion/react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import {
   fadeUp,
   inViewSettings,
@@ -35,29 +35,27 @@ export function ScrollReveal({
 }: ScrollRevealProps) {
   const MotionTag = motion[as];
   const variants = variantsMap[variant];
+  const ref = useRef<HTMLElement | null>(null);
+  const inView = useInView(ref, inViewSettings);
+  const [forceVisible, setForceVisible] = useState(false);
 
-  if (immediate) {
-    // Voorkom witte flash bij SSR: rendert direct in de "visible" eindstaat
-    // zodat de server-HTML al de juiste opacity heeft. Geen entrance-animatie
-    // voor above-the-fold content; dat is een bewuste afweging.
-    return (
-      <MotionTag
-        className={className}
-        initial="visible"
-        animate="visible"
-        variants={variants}
-      >
-        {children}
-      </MotionTag>
-    );
-  }
+  useEffect(() => {
+    if (immediate) return;
+    const timer = setTimeout(() => setForceVisible(true), 1200);
+    return () => clearTimeout(timer);
+  }, [immediate]);
+
+  const shouldShow = immediate || inView || forceVisible;
 
   return (
     <MotionTag
+      // motion[as] supports element-specific refs; we use a permissive HTMLElement
+      // ref so the same component works for div/section/article/li/ul/ol/header/footer.
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ref={ref as any}
       className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={inViewSettings}
+      initial={immediate ? "visible" : "hidden"}
+      animate={shouldShow ? "visible" : "hidden"}
       variants={variants}
       transition={delay ? { delay } : undefined}
     >

@@ -69,7 +69,7 @@ export default async function VerkennenPage() {
       href: "/ideologieen",
       title: "Ideologieën",
       description:
-        "Twaalf politieke stromingen, hun kernwaarden, voorbeelden en hoe ze zich in 2026 verhouden tot Nederlandse partijen.",
+        "Zestien politieke stromingen, hun kernwaarden, voorbeelden en hoe ze zich in 2026 verhouden tot Nederlandse partijen.",
       meta: `${ideologies.length} IDEOLOGIEËN`,
     },
     {

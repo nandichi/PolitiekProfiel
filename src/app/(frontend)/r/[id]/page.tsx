@@ -399,7 +399,6 @@ export default async function ResultPage({ params }: Args) {
                         content={essayContent}
                         fallback={undefined}
                         variant="prose"
-                        showSourceNote
                       />
                     </AiContentReveal>
                   )}

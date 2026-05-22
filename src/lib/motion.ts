@@ -70,5 +70,5 @@ export const staggerContainerSlow: Variants = {
 
 export const inViewSettings = {
   once: true,
-  margin: "-12% 0px -8% 0px" as const,
-};
+  amount: 0.05,
+} as const;
