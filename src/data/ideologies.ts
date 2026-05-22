@@ -157,7 +157,7 @@ export const IDEOLOGIES: SeedIdeology[] = [
     examplePeople: ["SP (radicale vleugel)", "Jean-Luc Mélenchon", "Bernie Sanders (links flank)"],
   },
   {
-    name: "Anarcho-Libertair",
+    name: "Links-libertair",
     slug: "anarcho-libertair",
     shortDescription:
       "Sterke argwaan tegen elke geconcentreerde macht: staat, kapitaal of supranationale instituties.",
@@ -248,7 +248,7 @@ export const IDEOLOGIES: SeedIdeology[] = [
       "Volk tegen kapitaal: scherpe kritiek op bedrijven en banken, met sociale agenda.",
     description:
       "Populistisch links stelt 'het volk' tegenover machtige bedrijven, banken en politieke elites. Hoge belasting op vermogen, sterke publieke voorzieningen en bescherming van werknemers staan centraal. Cultureel zit deze stroming vaak in het midden of licht traditioneler. Internationaal wantrouwen jegens vrijhandelsverdragen en supranationale instituties is groot.",
-    spectrumPosition: "links",
+    spectrumPosition: "ver-links",
     profileVector: {
       economic: 70,
       social: -10,
