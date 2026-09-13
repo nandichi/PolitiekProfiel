@@ -4,6 +4,7 @@ import { nanoid } from "nanoid";
 import { payload } from "@/lib/payload";
 import type { Tier } from "@/lib/dimensions";
 import { isPaidTier, type PaidTier } from "@/lib/stripe";
+import { getAttemptCount, MAX_PAID_ATTEMPTS, recordAttempt } from "@/lib/attempts-store";
 
 const TOKEN_LENGTH = 32;
 
@@ -154,9 +155,29 @@ export async function validateEntitlementForTier(input: {
   if (!doc) return { ok: false, status: "missing" };
   if (doc.tier !== input.tier) return { ok: false, status: "wrong-tier" };
   if (doc.status !== "paid") return { ok: false, status: doc.status };
-  if (doc.consumedAt) return { ok: false, status: "consumed" };
+
+  // Een betaalde quiz mag een beperkt aantal keer worden afgerond. De teller
+  // staat bewust buiten de entitlements zelf (zie lib/attempts-store.ts).
+  const attempts = await getAttemptCount(token);
+  if (attempts >= MAX_PAID_ATTEMPTS) return { ok: false, status: "consumed" };
 
   return { ok: true, status: "paid" };
+}
+
+/**
+ * Registreert een afgeronde betaalde quiz. Bij het laatste toegestane bezoek
+ * wordt de entitlement ook op `consumed` gezet, zodat het admin-overzicht
+ * dezelfde status laat zien als de teller.
+ */
+export async function registerPaidAttempt(
+  token: string,
+): Promise<{ attempts: number; exhausted: boolean }> {
+  const attempts = await recordAttempt(token);
+  const exhausted = attempts >= MAX_PAID_ATTEMPTS;
+  if (exhausted) {
+    await markEntitlementConsumed(token);
+  }
+  return { attempts, exhausted };
 }
 
 async function findEntitlementByToken(

@@ -1,4 +1,5 @@
 import { Container } from "@/components/Container";
+import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { StickyIndex } from "@/components/StickyIndex";
 import {
@@ -232,10 +233,8 @@ export default function PrivacyPage() {
           >
             <p>
               Wil je dat we jouw opgeslagen resultaat verwijderen? Stuur een
-              e-mail naar{" "}
-              <a href="mailto:privacy@politiekprofiel.nl">
-                privacy@politiekprofiel.nl
-              </a>{" "}
+              bericht via{" "}
+              <Link href="/contact" className="underline">het contactformulier</Link>{" "}
               met de share-ID, en we verwijderen het binnen 14 dagen.
             </p>
           </Block>

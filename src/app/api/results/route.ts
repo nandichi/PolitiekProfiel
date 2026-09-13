@@ -7,9 +7,11 @@ import { detectParadoxes } from "@/lib/paradox";
 import { createResult } from "@/lib/results-store";
 import { TIER_QUESTION_COUNT, type AnswerValue, type Tier } from "@/lib/dimensions";
 import {
-  markEntitlementConsumed,
+  normalizeEntitlementToken,
+  registerPaidAttempt,
   validateEntitlementForTier,
 } from "@/lib/entitlements";
+import { isPaidTier } from "@/lib/stripe";
 import type { ThemeId } from "@/lib/themes";
 
 interface Body {
@@ -163,8 +165,12 @@ export async function POST(request: Request) {
     attemptId,
   });
 
-  if (body.entitlementToken) {
-    await markEntitlementConsumed(body.entitlementToken);
+  // Alleen betaalde quizzen tellen mee voor het poginglimiet.
+  if (isPaidTier(body.tier)) {
+    const token = normalizeEntitlementToken(body.entitlementToken);
+    if (token) {
+      await registerPaidAttempt(token);
+    }
   }
 
   return NextResponse.json({ id: stored.shareId });

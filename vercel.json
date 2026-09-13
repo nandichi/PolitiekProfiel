@@ -3,7 +3,7 @@
   "crons": [
     {
       "path": "/api/cron/tk-voting",
-      "schedule": "0 4 * * 1"
+      "schedule": "0 4 * * *"
     }
   ],
   "redirects": [

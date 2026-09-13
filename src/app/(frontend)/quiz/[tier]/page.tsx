@@ -189,8 +189,8 @@ function PaidQuizGate({
         {processing
           ? "Stripe heeft je teruggestuurd. De webhook verwerkt je betaling nog. Ververs deze pagina over een paar seconden."
           : consumed
-            ? "Dit toegangstoken hoort bij een quiz die je al hebt afgerond. Je uitslag staat op de deel-link die je aan het eind van de quiz kreeg. Die link begint met politiekprofiel.nl/r/ en is ook naar je gemaild als je daarom hebt gevraagd."
-            : `${title} bevat ${count} stellingen en kost ${price}. Na betaling kun je zonder account verder naar de quiz.`}
+            ? "Dit toegangstoken is al twee keer gebruikt, dat is het maximum per aankoop. Je uitslag staat op de deel-link die je aan het eind van de quiz kreeg. Die link begint met politiekprofiel.nl/r/ en is ook naar je gemaild als je daarom hebt gevraagd."
+            : `${title} bevat ${count} stellingen en kost ${price}. Na betaling kun je zonder account verder naar de quiz, die je maximaal twee keer kunt afronden.`}
       </p>
       <div className="flex flex-wrap gap-3">
         {processing ? (
@@ -202,9 +202,9 @@ function PaidQuizGate({
             <ArrowRight size={16} strokeWidth={1.8} />
           </Link>
         ) : consumed ? (
-          <a href="mailto:info@politiekprofiel.nl" className="btn btn-secondary">
-            Resultaat kwijt? Mail me
-          </a>
+          <Link href="/contact" className="btn btn-secondary">
+            Resultaat kwijt? Stuur een bericht
+          </Link>
         ) : (
           <ConsentCheckoutButton tier={tier}>
             Koop voor {price}

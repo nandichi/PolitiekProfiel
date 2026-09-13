@@ -1,4 +1,5 @@
 import { Container } from "@/components/Container";
+import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { StickyIndex } from "@/components/StickyIndex";
 import {
@@ -123,9 +124,7 @@ export default function VoorwaardenPage() {
                 <strong>Aanbieder / wij / ons:</strong> Naoufal Andichi, de
                 natuurlijke persoon die PolitiekProfiel exploiteert, bereikbaar
                 via{" "}
-                <a href="mailto:info@politiekprofiel.nl">
-                  info@politiekprofiel.nl
-                </a>
+                <Link href="/contact" className="underline">het contactformulier</Link>
                 .
               </li>
               <li>
@@ -295,9 +294,7 @@ export default function VoorwaardenPage() {
               de relevante uitzonderingen in het auteursrecht (waaronder
               citaat- en nieuwsuitzondering). Wie meent dat zijn rechten
               worden geschonden kan dat melden via{" "}
-              <a href="mailto:info@politiekprofiel.nl">
-                info@politiekprofiel.nl
-              </a>
+              <Link href="/contact" className="underline">het contactformulier</Link>
               ; wij beoordelen meldingen serieus en handelen waar nodig
               binnen redelijke termijn.
             </p>
@@ -540,10 +537,8 @@ export default function VoorwaardenPage() {
             <p>
               Vragen over deze voorwaarden, een melding van onrechtmatige
               inhoud of een verzoek tot inzage of verwijdering kun je
-              sturen naar{" "}
-              <a href="mailto:info@politiekprofiel.nl">
-                info@politiekprofiel.nl
-              </a>
+              sturen via{" "}
+              <Link href="/contact" className="underline">het contactformulier</Link>
               . We reageren binnen een redelijke termijn, in de regel binnen
               veertien dagen.
             </p>

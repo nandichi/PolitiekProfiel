@@ -1,4 +1,5 @@
 import { Container } from "@/components/Container";
+import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { StickyIndex } from "@/components/StickyIndex";
 import {
@@ -227,10 +228,8 @@ export default function DisclaimerPage() {
             </p>
             <p>
               Zie je een fout, een verouderd citaat of een onjuiste
-              toeschrijving? Mail{" "}
-              <a href="mailto:info@politiekprofiel.nl">
-                info@politiekprofiel.nl
-              </a>{" "}
+              toeschrijving? Mail via{" "}
+              <Link href="/contact" className="underline">het contactformulier</Link>{" "}
               en we bekijken het zo snel mogelijk.
             </p>
           </Block>
@@ -306,10 +305,8 @@ export default function DisclaimerPage() {
             <p>
               Vermoed je een fout, een onrechtmatige uitlating, een
               schending van auteursrecht of een ander serieus probleem?
-              Stuur dan een onderbouwde melding naar{" "}
-              <a href="mailto:info@politiekprofiel.nl">
-                info@politiekprofiel.nl
-              </a>{" "}
+              Stuur dan een onderbouwde melding via{" "}
+              <Link href="/contact" className="underline">het contactformulier</Link>{" "}
               met de exacte vindplaats (URL), de aard van de klacht en
               voldoende context om te beoordelen. We reageren binnen een
               redelijke termijn en handelen waar nodig.

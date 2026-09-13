@@ -47,7 +47,7 @@ const COLUMNS: FooterColumn[] = [
       { href: "/voorwaarden", label: "Algemene voorwaarden" },
       { href: "/disclaimer", label: "Disclaimer" },
       { href: "/herroepingsrecht", label: "Herroepingsrecht" },
-      { href: "mailto:info@politiekprofiel.nl", label: "Contact" },
+      { href: "/contact", label: "Contact" },
     ],
   },
 ];

@@ -10,6 +10,7 @@
  */
 import { NextResponse } from "next/server";
 import { refreshTkVoting } from "@/lib/tk-open-data/refresh";
+import { recordTkVotingRun } from "@/lib/tk-open-data/heartbeat";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -35,8 +36,23 @@ export async function GET(request: Request) {
   const sinceParam = url.searchParams.get("since");
   const since = sinceParam ? new Date(sinceParam) : undefined;
 
-  const summary = await refreshTkVoting({ since });
-  return NextResponse.json(summary);
+  try {
+    const summary = await refreshTkVoting({ since });
+    // Hartslag wegschrijven zodat /api/health/tk-voting laat zien dat de
+    // pipeline loopt, ook als de runtime-logs allang geroteerd zijn.
+    await recordTkVotingRun({
+      stemmingen: summary.stemmingen,
+      errors: summary.errors,
+    }).catch((err) => {
+      console.error("[tk-voting] hartslag schrijven mislukt", err);
+    });
+    return NextResponse.json(summary);
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "onbekende fout";
+    console.error("[tk-voting] refresh mislukt:", message);
+    await recordTkVotingRun({ stemmingen: 0, errors: [message] }).catch(() => {});
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
 }
 
 export const POST = GET;

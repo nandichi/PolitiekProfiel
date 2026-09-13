@@ -1,4 +1,5 @@
 import { Container } from "@/components/Container";
+import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { StickyIndex } from "@/components/StickyIndex";
 import {
@@ -246,10 +247,8 @@ export default function HerroepingsrechtPage() {
           >
             <p>
               Om de overeenkomst te herroepen stuur je binnen de
-              bedenktijd een ondubbelzinnige verklaring naar{" "}
-              <a href="mailto:info@politiekprofiel.nl">
-                info@politiekprofiel.nl
-              </a>
+              bedenktijd een ondubbelzinnige verklaring via{" "}
+              <Link href="/contact" className="underline">het contactformulier</Link>
               . Vermeld in elk geval:
             </p>
             <ul>
@@ -304,10 +303,8 @@ export default function HerroepingsrechtPage() {
             <p>
               Klachten over de uitvoering van de overeenkomst moeten
               binnen een redelijke termijn na ontdekking duidelijk
-              omschreven worden ingediend bij{" "}
-              <a href="mailto:info@politiekprofiel.nl">
-                info@politiekprofiel.nl
-              </a>
+              omschreven worden ingediend via{" "}
+              <Link href="/contact" className="underline">het contactformulier</Link>
               . We streven naar een reactie binnen veertien dagen. Komen we
               er samen niet uit, dan kun je het geschil voorleggen via het{" "}
               <a

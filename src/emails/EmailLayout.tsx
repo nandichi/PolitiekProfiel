@@ -141,7 +141,7 @@ function EmailLayout(props: EmailLayoutProps) {
             antwoorden of resultaten.
           </Text>
           <Text style={styles.footer}>
-            Vragen? Stuur een e-mail naar privacy@politiekprofiel.nl.
+            Vragen? Ga naar politiekprofiel.nl/contact.
           </Text>
         </Container>
       </Body>

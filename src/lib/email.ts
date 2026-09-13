@@ -47,6 +47,9 @@ export interface SendEmailInput {
   text: string;
   // Tags helpen filteren in het Resend-dashboard.
   tags?: Array<{ name: string; value: string }>;
+  // Optionele reply-to die de env-instelling overschrijft (bv. het
+  // contactformulier, waar antwoorden naar de bezoeker moeten gaan).
+  replyTo?: string;
 }
 
 export interface SendEmailResult {
@@ -68,7 +71,7 @@ export async function sendEmail(input: SendEmailInput): Promise<SendEmailResult>
       subject: input.subject,
       react: input.react,
       text: input.text,
-      replyTo: replyTo(),
+      replyTo: input.replyTo ?? replyTo(),
       tags: input.tags,
     });
 
