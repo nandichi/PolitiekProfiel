@@ -53,7 +53,7 @@ Editorial pagina's ondersteunen content negotiation: stuur \`Accept: text/markdo
 
 ## Crawl-beleid
 
-Alle openbare content mag worden gebruikt voor zoekindexen, AI-training, en real-time AI-grounding (RAG). Privé-paden \`/admin/\` en \`/api/\` zijn uitgesloten. Persoonlijke profiel-resultaten op \`/r/{id}\` zijn \`noindex\` (anonieme deelbare links, geen openbare zoekindex).
+Alle openbare content mag worden gebruikt voor zoekindexen en real-time AI-grounding (RAG), mits met bronvermelding en binnen toepasselijk recht. Gebruik voor het trainen van AI- of taalmodellen vereist voorafgaande schriftelijke toestemming. Privé-paden \`/admin/\` en \`/api/\` zijn uitgesloten.
 
 ## Auteur
 

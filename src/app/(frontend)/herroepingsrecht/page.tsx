@@ -208,28 +208,13 @@ export default function HerroepingsrechtPage() {
             accent="terra"
           >
             <p>
-              Het herroepingsrecht geldt <strong>niet</strong> wanneer de
-              digitale inhoud volledig is geleverd. Concreet:
-            </p>
-            <ul>
-              <li>
-                wanneer je de quiz inhoudelijk hebt afgerond (alle vragen
-                ingevuld en het resultaat opgehaald) binnen de bedenktijd,
-                geldt de digitale dienst als volledig geleverd en kunnen
-                wij een verzoek tot herroeping op basis van
-                consumentenrecht weigeren;
-              </li>
-              <li>
-                op maat gemaakte rapporten of inhoud die op jouw
-                specificatie is samengesteld, vallen niet onder het
-                herroepingsrecht.
-              </li>
-            </ul>
-            <p>
-              Heb je de quiz niet afgerond, dan blijft de 14-dagen bedenktijd
-              staan. Twijfel je of jouw situatie onder een uitzondering valt?
-              Stuur ons dan eerst een bericht voordat je tot aankoop
-              overgaat.
+              Voor digitale inhoud kan het herroepingsrecht alleen vóór het
+              einde van de bedenktijd vervallen als de wet daarvoor aan alle
+              voorwaarden voldoet, waaronder voorafgaande uitdrukkelijke instemming,
+              een afzonderlijke verklaring over het verlies van het herroepingsrecht
+en een bevestiging op een duurzame gegevensdrager. PolitiekProfiel beroept zich
+              niet uitsluitend op het afronden van een quiz of het genereren van een
+              rapport om een herroepingsverzoek te weigeren.
             </p>
           </Block>
 
@@ -280,11 +265,10 @@ export default function HerroepingsrechtPage() {
               brengen wij geen kosten in rekening.
             </p>
             <p>
-              Wij behouden ons het recht voor om eventueel reeds gebruikte
-              of geleverde delen van de dienst niet terug te betalen
-              wanneer je de uitzondering op het herroepingsrecht hebt
-              geaccepteerd (zie hierboven). De volledige
-              betaalreferentie blijft bij Stripe vindbaar.
+              Je volledige betaalreferentie blijft bij Stripe vindbaar. Als
+              wettelijke voorwaarden voor een uitzondering op het herroepingsrecht
+              ontbreken, betalen we bij een geldig herroepingsverzoek het volledige
+              aankoopbedrag terug.
             </p>
           </Block>
 
@@ -299,17 +283,10 @@ export default function HerroepingsrechtPage() {
               binnen een redelijke termijn na ontdekking duidelijk
               omschreven worden ingediend via{" "}
               <Link href="/contact" className="underline">het contactformulier</Link>
-              . We streven naar een reactie binnen veertien dagen. Komen we
-              er samen niet uit, dan kun je het geschil voorleggen via het{" "}
-              <a
-                href="https://ec.europa.eu/consumers/odr"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                ODR-platform van de Europese Commissie
-              </a>{" "}
-              of aan de bevoegde Nederlandse rechter. Wij zijn niet
-              aangesloten bij een aparte geschillencommissie.
+              . We streven naar een reactie binnen veertien dagen. Wij zijn
+              niet aangesloten bij een aparte geschillencommissie. Als we er samen
+              niet uitkomen, kun je het geschil voorleggen aan de bevoegde Nederlandse
+              rechter.
             </p>
           </Block>
 

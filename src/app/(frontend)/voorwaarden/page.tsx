@@ -516,16 +516,10 @@ export default function VoorwaardenPage() {
               bevoegde rechter.
             </p>
             <p>
-              Consumenten kunnen geschillen ook melden via het{" "}
-              <a
-                href="https://ec.europa.eu/consumers/odr"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                ODR-platform van de Europese Commissie
-              </a>
-              . Wij zijn niet verplicht en niet voornemens deel te nemen
-              aan een geschillencommissie, tenzij wettelijk vereist.
+              Wij zijn niet aangesloten bij een geschillencommissie. Neem bij
+              een klacht eerst contact met ons op via het contactformulier. Komen
+              we er niet uit, dan kun je het geschil voorleggen aan de bevoegde
+              Nederlandse rechter.
             </p>
           </Block>
 

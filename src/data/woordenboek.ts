@@ -281,7 +281,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
     short:
       "Aantal stemmen dat een partij minimaal nodig heeft voor één zetel in de Tweede Kamer.",
     long:
-      "De kiesdeler = totaal aantal geldige stemmen ÷ 150 zetels. In 2025 was dat 70.935 stemmen per zetel. Lijsten die de kiesdeler niet halen, doen niet mee aan de restzetel-verdeling.",
+      "De kiesdeler = totaal aantal geldige stemmen ÷ 150 zetels. In 2025 was dat 70.479 stemmen per zetel, afgerond. Lijsten die de kiesdeler niet halen, doen niet mee aan de restzetel-verdeling.",
     related: ["evenredige-vertegenwoordiging", "restzetels"],
   },
   {
@@ -346,7 +346,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
     short:
       "Inkomstenbelasting-box voor vermogen (spaargeld, beleggingen, tweede huis); jaren-oude juridische strijd over fictief rendement vs werkelijk rendement.",
     long:
-      "Box 3 belastte tot 2022 een fictief rendement, dat de Hoge Raad in het Kerstarrest (24 dec 2021) onrechtmatig verklaarde. Een tussenoplossing geldt sinds 2023; een nieuwe wet voor werkelijk rendement zou per 1 januari 2027 ingaan, maar wordt herhaaldelijk uitgesteld. Een belangrijk politiek dossier voor kabinet-Jetten.",
+      "Box 3 belastte tot 2022 een fictief rendement, dat de Hoge Raad in het Kerstarrest (24 dec 2021) onrechtmatig verklaarde. Een tussenoplossing geldt sinds 2023. De regering streeft naar een nieuw stelsel op basis van werkelijk rendement per 1 januari 2028; dat wetsvoorstel is nog niet definitief.",
     related: ["hypotheekrenteaftrek", "vermogensbelasting"],
   },
   {
