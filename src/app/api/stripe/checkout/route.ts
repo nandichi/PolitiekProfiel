@@ -45,9 +45,9 @@ export async function POST(request: Request) {
     });
     const siteUrl = getSiteUrl();
 
-    // Prijzen in Stripe zijn exclusief btw. De btw wordt als aparte regel
-    // bovenop het bedrag gezet, zodat de klant precies ziet wat hij betaalt
-    // en de btw op de bon/factuur gespecificeerd staat.
+    // De Stripe-prijzen zijn vaste brutoprijzen. De gekoppelde Nederlandse
+    // btw-rate is inclusief, zodat Stripe de 21% afzonderlijk toont zonder
+    // boven op 5 of 10 euro te rekenen.
     const vatRate = process.env.STRIPE_TAX_RATE_VAT;
     const lineItems = [
       {
