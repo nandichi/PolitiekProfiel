@@ -81,9 +81,7 @@ export async function POST(request: Request) {
       ...(promotionCheckout.discounts
         ? { discounts: promotionCheckout.discounts }
         : {}),
-      ...(promotionCheckout.paymentMethodCollection
-        ? { payment_method_collection: promotionCheckout.paymentMethodCollection }
-        : { submit_type: "pay" }),
+      ...(promotionCheckout.discounts ? {} : { submit_type: "pay" }),
       billing_address_collection: "auto",
       phone_number_collection: { enabled: false },
       customer_creation: "always",

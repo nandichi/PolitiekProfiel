@@ -3,7 +3,6 @@ const PROMOTION_CODE_PATTERN = /^[A-Z0-9][A-Z0-9_-]{2,63}$/;
 export interface PromotionCheckoutOptions {
   allowPromotionCodes?: boolean;
   discounts?: Array<{ promotion_code: string }>;
-  paymentMethodCollection?: "if_required";
 }
 
 export function normalizePromotionCode(value: unknown): string | null {
@@ -24,6 +23,5 @@ export function buildPromotionCheckoutOptions(
 
   return {
     discounts: [{ promotion_code: promotionCodeId }],
-    paymentMethodCollection: "if_required",
   };
 }
