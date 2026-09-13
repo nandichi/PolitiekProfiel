@@ -16,6 +16,14 @@ const nza: SeedSource = {
   label: "Nederlandse Zorgautoriteit – Stand van de zorg",
   url: "https://www.nza.nl/",
 };
+const euthanasie: SeedSource = {
+  label: "Rijksoverheid – Euthanasie en levenseinde",
+  url: "https://www.rijksoverheid.nl/onderwerpen/euthanasie",
+};
+const religiousFreedom: SeedSource = {
+  label: "Rijksoverheid – Discriminatie en gelijke behandeling",
+  url: "https://www.rijksoverheid.nl/onderwerpen/discriminatie-en-racisme",
+};
 const ind: SeedSource = {
   label: "IND – Asielcijfers",
   url: "https://ind.nl/nl/over-ons/cijfers-en-publicaties",
@@ -311,7 +319,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
         "Een vol curriculum laat weinig ruimte voor extra verplichte stof.",
         "Risico op activistische lesstof in plaats van wetenschappelijke onderbouwing.",
       ],
-      sources: [],
+      sources: [pbl],
     },
   },
   {
@@ -539,7 +547,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
         "Risico op druk op kwetsbare ouderen.",
         "Medische beoordeling bij dementie is principieel ingewikkeld.",
       ],
-      sources: [],
+      sources: [euthanasie],
     },
   },
   {
@@ -834,7 +842,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
         "Verbod sluit gelovigen uit van publieke functies.",
         "Echte neutraliteit zit in handelen, niet in kleding.",
       ],
-      sources: [],
+      sources: [religiousFreedom],
     },
   },
   {
