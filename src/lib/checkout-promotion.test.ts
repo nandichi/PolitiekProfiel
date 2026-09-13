@@ -18,7 +18,6 @@ describe("checkout promotion options", () => {
 
   it("pre-applies a verified Stripe code as a no-cost Checkout discount", () => {
     expect(buildPromotionCheckoutOptions("promo_123")).toEqual({
-      allowPromotionCodes: false,
       discounts: [{ promotion_code: "promo_123" }],
       paymentMethodCollection: "if_required",
     });

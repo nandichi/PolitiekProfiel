@@ -75,7 +75,9 @@ export async function POST(request: Request) {
       mode: "payment",
       locale: "nl",
       line_items: lineItems,
-      allow_promotion_codes: promotionCheckout.allowPromotionCodes,
+      ...(promotionCheckout.allowPromotionCodes
+        ? { allow_promotion_codes: true }
+        : {}),
       ...(promotionCheckout.discounts
         ? { discounts: promotionCheckout.discounts }
         : {}),

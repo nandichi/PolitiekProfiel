@@ -1,7 +1,7 @@
 const PROMOTION_CODE_PATTERN = /^[A-Z0-9][A-Z0-9_-]{2,63}$/;
 
 export interface PromotionCheckoutOptions {
-  allowPromotionCodes: boolean;
+  allowPromotionCodes?: boolean;
   discounts?: Array<{ promotion_code: string }>;
   paymentMethodCollection?: "if_required";
 }
@@ -23,7 +23,6 @@ export function buildPromotionCheckoutOptions(
   if (!promotionCodeId) return { allowPromotionCodes: true };
 
   return {
-    allowPromotionCodes: false,
     discounts: [{ promotion_code: promotionCodeId }],
     paymentMethodCollection: "if_required",
   };
