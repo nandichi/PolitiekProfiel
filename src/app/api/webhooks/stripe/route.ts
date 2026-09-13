@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
-import { markEntitlementPaid } from "@/lib/entitlements";
+import { markEntitlementPaid, revokeEntitlementByPaymentIntent } from "@/lib/entitlements";
 import { getSiteUrl, isPaidTier, paidTierLabel, stripe } from "@/lib/stripe";
 import { isValidEmail, sendEmail } from "@/lib/email";
 import {
@@ -58,6 +58,37 @@ export async function POST(request: Request) {
           // anders zou Stripe blijven retryen en zou de gebruiker meerdere
           // mails kunnen krijgen.
           await sendEntitlementBackupEmail({ session, token, tier });
+        }
+      }
+    } else if (event.type === "charge.refunded") {
+      // Alleen bij een volledige refund de toegang intrekken; bij een
+      // gedeeltelijke refund (bijvoorbeeld een coulance-bedrag) blijft de
+      // klant gewoon toegang houden.
+      const charge = event.data.object as Stripe.Charge;
+      const fullyRefunded =
+        charge.refunded === true || charge.amount_refunded >= charge.amount;
+
+      if (fullyRefunded) {
+        const paymentIntent = paymentIntentId(charge.payment_intent);
+        if (paymentIntent) {
+          const { revoked } = await revokeEntitlementByPaymentIntent(paymentIntent);
+          if (revoked) {
+            console.log(
+              `[stripe-webhook] entitlement ingetrokken na refund (${paymentIntent})`,
+            );
+          }
+        }
+      }
+    } else if (event.type === "charge.dispute.created") {
+      // Betwiste betaling: toegang direct dicht tot de zaak is beslecht.
+      const dispute = event.data.object as Stripe.Dispute;
+      const paymentIntent = paymentIntentId(dispute.payment_intent);
+      if (paymentIntent) {
+        const { revoked } = await revokeEntitlementByPaymentIntent(paymentIntent);
+        if (revoked) {
+          console.log(
+            `[stripe-webhook] entitlement ingetrokken na dispuut (${paymentIntent})`,
+          );
         }
       }
     }

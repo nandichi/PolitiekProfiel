@@ -109,6 +109,36 @@ export async function markEntitlementConsumed(token: string): Promise<void> {
   });
 }
 
+/**
+ * Trekt de toegang in na een refund of een betwiste betaling. De koppeling
+ * loopt via het Stripe payment intent, want dat is het enige veld dat zowel op
+ * de checkout-sessie als op de refund terugkomt.
+ */
+export async function revokeEntitlementByPaymentIntent(
+  stripePaymentIntentId: string,
+): Promise<{ revoked: boolean }> {
+  if (!stripePaymentIntentId) return { revoked: false };
+
+  const p = await payload();
+  const res = await p.find({
+    collection: "entitlements",
+    where: { stripePaymentIntentId: { equals: stripePaymentIntentId } },
+    limit: 1,
+    depth: 0,
+  });
+  if (res.docs.length === 0) return { revoked: false };
+
+  const doc = res.docs[0] as unknown as EntitlementDoc;
+  if (doc.status === "revoked") return { revoked: false };
+
+  await p.update({
+    collection: "entitlements",
+    id: doc.id,
+    data: { status: "revoked" },
+  });
+  return { revoked: true };
+}
+
 export async function validateEntitlementForTier(input: {
   tier: Tier;
   token?: unknown;

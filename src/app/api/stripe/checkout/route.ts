@@ -16,6 +16,8 @@ import type { Tier } from "@/lib/dimensions";
 
 interface Body {
   tier?: Tier;
+  /** Expliciete verklaring dat de klant direct toegang wil (afstand herroepingsrecht). */
+  immediateAccessConsent?: boolean;
 }
 
 export const runtime = "nodejs";
@@ -31,6 +33,19 @@ export async function POST(request: Request) {
   if (!body.tier || !isPaidTier(body.tier)) {
     return NextResponse.json(
       { error: "Deze quiz heeft geen betaling nodig." },
+      { status: 400 },
+    );
+  }
+
+  // Zonder expliciete verklaring geen betaalde levering: de klant moet vooraf
+  // instemmen met directe levering en daarmee afstand doen van het
+  // herroepingsrecht (zie /herroepingsrecht).
+  if (body.immediateAccessConsent !== true) {
+    return NextResponse.json(
+      {
+        error:
+          "Bevestig eerst dat je direct toegang wil en afstand doet van je herroepingsrecht.",
+      },
       { status: 400 },
     );
   }
@@ -60,6 +75,8 @@ export async function POST(request: Request) {
         entitlementToken: token,
         tier,
         product: "politiekprofiel-quiz",
+        waiverAccepted: "true",
+        waiverAcceptedAt: new Date().toISOString(),
       },
       payment_intent_data: {
         description: `PolitiekProfiel ${paidTierLabel(tier)}`,
@@ -67,7 +84,7 @@ export async function POST(request: Request) {
       },
       custom_text: {
         submit: {
-          message: `${paidTierLabel(tier)} van PolitiekProfiel. Je krijgt direct na betaling toegang, zonder PolitiekProfiel-account.`,
+          message: `${paidTierLabel(tier)} van PolitiekProfiel. Je krijgt direct na betaling toegang, zonder PolitiekProfiel-account. Je hebt afstand gedaan van je herroepingsrecht, zie politiekprofiel.nl/herroepingsrecht.`,
         },
       },
     });

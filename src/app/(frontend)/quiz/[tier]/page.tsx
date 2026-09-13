@@ -7,7 +7,7 @@ import {
   getQuestionsForTier,
 } from "@/lib/quiz-data";
 import { QuizEngine } from "@/components/QuizEngine";
-import { CheckoutButton } from "@/components/CheckoutButton";
+import { ConsentCheckoutButton } from "@/components/ConsentCheckoutButton";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
 import type { Tier } from "@/lib/dimensions";
@@ -175,15 +175,22 @@ function PaidQuizGate({
   const processing =
     checkoutStatus === "success" &&
     (entitlementStatus === "pending" || entitlementStatus === "missing");
+  // Al afgerond met dit token. Zonder de /r/-link is het resultaat niet meer
+  // op te halen: het token bewaart bewust geen koppeling met het resultaat.
+  const consumed = entitlementStatus === "consumed";
 
   return (
     <Container width="narrow" className="py-20 md:py-28">
-      <Kicker>{processing ? "Betaling verwerken" : "Betaalde quiz"}</Kicker>
+      <Kicker>
+        {processing ? "Betaling verwerken" : consumed ? "Al afgerond" : "Betaalde quiz"}
+      </Kicker>
       <h1 className="display mt-5 mb-5">{title}</h1>
       <p className="text-ink-2 leading-relaxed mb-8 max-w-xl">
         {processing
           ? "Stripe heeft je teruggestuurd. De webhook verwerkt je betaling nog. Ververs deze pagina over een paar seconden."
-          : `${title} bevat ${count} stellingen en kost ${price}. Na betaling kun je zonder account verder naar de quiz.`}
+          : consumed
+            ? "Dit toegangstoken hoort bij een quiz die je al hebt afgerond. Je uitslag staat op de deel-link die je aan het eind van de quiz kreeg. Die link begint met politiekprofiel.nl/r/ en is ook naar je gemaild als je daarom hebt gevraagd."
+            : `${title} bevat ${count} stellingen en kost ${price}. Na betaling kun je zonder account verder naar de quiz.`}
       </p>
       <div className="flex flex-wrap gap-3">
         {processing ? (
@@ -194,11 +201,15 @@ function PaidQuizGate({
             Opnieuw controleren
             <ArrowRight size={16} strokeWidth={1.8} />
           </Link>
+        ) : consumed ? (
+          <a href="mailto:info@politiekprofiel.nl" className="btn btn-secondary">
+            Resultaat kwijt? Mail me
+          </a>
         ) : (
-          <CheckoutButton tier={tier}>
+          <ConsentCheckoutButton tier={tier}>
             Koop voor {price}
             <ArrowRight size={16} strokeWidth={1.8} />
-          </CheckoutButton>
+          </ConsentCheckoutButton>
         )}
         <Link href="/quiz/quick" className="btn-ghost">
           Start gratis met 15 vragen

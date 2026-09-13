@@ -5,5 +5,13 @@
       "path": "/api/cron/tk-voting",
       "schedule": "0 4 * * 1"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.politiekprofiel.nl" }],
+      "destination": "https://politiekprofiel.nl/:path*",
+      "permanent": true
+    }
   ]
 }
