@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { ReactNode } from "react";
 import { Loader2 } from "lucide-react";
 import Link from "next/link";
+import { startStripeCheckout } from "@/lib/checkout-client";
 import type { Tier } from "@/lib/dimensions";
 
 interface ConsentCheckoutButtonProps {
@@ -35,19 +36,7 @@ export function ConsentCheckoutButton({
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/stripe/checkout", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ tier, immediateAccessConsent: true }),
-      });
-      const json = (await res.json().catch(() => ({}))) as {
-        url?: string;
-        error?: string;
-      };
-      if (!res.ok || !json.url) {
-        throw new Error(json.error ?? "Checkout kon niet worden gestart.");
-      }
-      window.location.assign(json.url);
+      await startStripeCheckout(tier);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Onbekende fout.");
       setLoading(false);
