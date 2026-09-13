@@ -8,9 +8,15 @@
   ],
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/",
       "has": [{ "type": "host", "value": "www.politiekprofiel.nl" }],
-      "destination": "https://politiekprofiel.nl/:path*",
+      "destination": "https://politiekprofiel.nl/",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [{ "type": "host", "value": "www.politiekprofiel.nl" }],
+      "destination": "https://politiekprofiel.nl/:path+",
       "permanent": true
     }
   ]
