@@ -168,7 +168,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
                 value={party.factionLeader ?? party.leader ?? "Onbekend"}
               />
               <Meta
-                term="Zetels TK 2025"
+                term="Actuele zetels"
                 value={String(party.seatsTK2025 ?? 0)}
               />
             </dl>
@@ -246,14 +246,14 @@ export default async function PartijDetailPage({ params }: PageProps) {
               <ScrollRevealItem>
                 <Kicker number={2}>Programma per thema</Kicker>
                 <h2 className="display mt-5 max-w-3xl">
-                  Wat zegt {party.abbreviation} over de zeven thema's?
+                  Wat zegt {party.abbreviation} over de zeven thema&apos;s?
                 </h2>
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <p className="mt-4 max-w-2xl text-sm text-ink-muted">
                   Redactionele samenvatting per thema, op basis van het
-                  verkiezingsprogramma 2025 en het kabinetsbeleid (mei 2026).
-                  Geen rangschikking, geen stemadvies.
+                  verkiezingsprogramma 2025. Deze pagina beschrijft geen later
+                  kabinetsbeleid of recente Kamerstemmen.
                 </p>
               </ScrollRevealItem>
               <ScrollRevealItem>
@@ -328,7 +328,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
                 <p className="mt-4 max-w-2xl text-sm text-ink-muted">
                   Aggregaat van moties en wetsvoorstellen die in de Tweede
                   Kamer ter stemming kwamen. Thema-classificatie via
-                  keyword-mapping. Gewogen percentage 'voor' van het totaal
+                  keyword-mapping. Gewogen percentage &apos;voor&apos; van het totaal
                   uitgebrachte stemmen.
                 </p>
               </ScrollRevealItem>

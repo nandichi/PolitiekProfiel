@@ -822,10 +822,10 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
     discriminator: 75,
     themes: ["migratie", "democratie"],
     derivedStance:
-      "Je vindt dat ambtenaren in machtspublieke functies geen religieuze symbolen moeten dragen.",
+      "Je vindt dat ambtenaren in publieke functies geen religieuze symbolen moeten dragen.",
     info: {
       context:
-        "Frankrijk kent strikte laïcité; Nederland laat hoofddoeken bij de politie sinds 2024 toe in beperkte vorm.",
+        "De vraag gaat over de spanning tussen neutraliteit van publieke functies en de godsdienstvrijheid van werknemers. Regels verschillen per functie en werkgever.",
       argumentsFor: [
         "Het uniform staat boven persoonlijke overtuiging.",
         "Burgers moeten neutraliteit kunnen zien.",
@@ -1550,7 +1550,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
   },
   {
     statement:
-      "Politieke macht in Nederland is overgenomen door een elite die niet representatief is voor de bevolking.",
+      "De achtergrond van politici en bestuurders weerspiegelt de samenleving onvoldoende.",
     dimension: "trust",
     direction: "negative",
     weight: 1.3,
@@ -1559,17 +1559,17 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
     discriminator: 90,
     themes: ["democratie"],
     derivedStance:
-      "Je vindt dat het Nederlandse politieke bestel gedomineerd wordt door een niet-representatieve elite.",
+      "Je vindt dat de achtergrond van politici en bestuurders onvoldoende aansluit bij de samenleving.",
     info: {
       context:
-        "Onderzoek (Burgerperspectieven, SCP) laat zien dat lager opgeleide Nederlanders veel minder politiek vertegenwoordigd zijn dan hoger opgeleiden.",
+        "Onderzoek naar politieke vertegenwoordiging laat zien dat opleiding, beroep en netwerk mede bepalen wie in politiek en bestuur terechtkomt.",
       argumentsFor: [
-        "Tweede Kamer bestaat voor 90% uit hbo'ers en wo'ers.",
-        "Beleid gaat regelmatig in tegen de duidelijke wens van de meerderheid.",
+        "Een beperkte sociale en professionele spreiding kan het gevoel van vertegenwoordiging verminderen.",
+        "Kiezers kunnen zich structureel onvoldoende gehoord voelen in politieke besluiten.",
       ],
       argumentsAgainst: [
-        "Diversiteit van levensverhalen is groter dan opleiding suggereert.",
-        "Een 'elite' suggereert complot waar gewoon politiek bedrijven hoort.",
+        "Opleiding en beroep zijn geen volledige maat voor ervaringen, overtuigingen of vertegenwoordiging.",
+        "Een representatieprobleem is iets anders dan de stelling dat één groep de macht heeft overgenomen.",
       ],
       sources: [staatscommissie, vdem2],
     },
@@ -1936,7 +1936,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat de NAVO-norm van 5% bbp voor defensie hard moet worden ingevoerd, ook ten koste van zorg of onderwijs.",
     info: {
       context:
-        "Op de NAVO-top in Den Haag (juni 2025) spraken bondgenoten af om 5% van het bbp aan defensie te besteden tegen 2032 (3,5% direct + 1,5% defensie-gerelateerd). Voor Nederland betekent dit 16-19 miljard extra per jaar bovenop het huidige defensiebudget.",
+        "Op de NAVO-top in Den Haag (juni 2025) spraken bondgenoten af om 5% van het bbp aan defensie te besteden tegen 2035 (3,5% direct + 1,5% defensie-gerelateerd). Voor Nederland betekent dit 16-19 miljard extra per jaar bovenop het huidige defensiebudget.",
       argumentsFor: [
         "Russische dreiging en wegvallende Amerikaanse garantie maken dit noodzakelijk.",
         "Vrede en welvaart op lange termijn vragen sterke afschrikking nu.",

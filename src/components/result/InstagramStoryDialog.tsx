@@ -47,22 +47,20 @@ export function InstagramStoryDialog({
   }, [shareId]);
 
   useEffect(() => {
-    if (typeof navigator === "undefined" || !navigator.canShare) {
-      setCapability("download-only");
-      return;
-    }
-    try {
-      const testFile = new File([new Blob(["test"])], "test.png", {
-        type: "image/png",
-      });
-      if (navigator.canShare({ files: [testFile] })) {
-        setCapability("share-files");
-      } else {
-        setCapability("download-only");
+    let next: Capability = "download-only";
+    if (typeof navigator !== "undefined" && navigator.canShare) {
+      try {
+        const testFile = new File([new Blob(["test"])], "test.png", {
+          type: "image/png",
+        });
+        if (navigator.canShare({ files: [testFile] })) {
+          next = "share-files";
+        }
+      } catch {
+        next = "download-only";
       }
-    } catch {
-      setCapability("download-only");
     }
+    queueMicrotask(() => setCapability(next));
   }, []);
 
   const filename = `politiekprofiel-${shareId}-story.png`;

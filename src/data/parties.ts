@@ -61,14 +61,14 @@ const pewUS: SeedSource = {
   url: "https://www.pewresearch.org/politics/2021/11/09/beyond-red-vs-blue-the-political-typology-2/",
 };
 
-const REVIEW_DATE = "2026-05-17";
+const REVIEW_DATE = "2026-09-13";
 const cbsKiesraad: SeedSource = {
   label: "Kiesraad – Definitieve uitslag Tweede Kamerverkiezing 29 oktober 2025",
   url: "https://www.verkiezingsuitslagen.nl/verkiezingen/detail/TK20251029",
 };
 const tkFractievoorzitters: SeedSource = {
-  label: "Tweede Kamer – Alle fractievoorzitters (mei 2026)",
-  url: "https://www.tweedekamer.nl/kamerleden_en_commissies/alle_fractievoorzitters",
+  label: "Tweede Kamer – Fracties en fractievoorzitters (13 september 2026)",
+  url: "https://www.tweedekamer.nl/kamerleden_en_commissies/fracties",
 };
 const cpb2025: SeedSource = {
   label: "CPB – Keuzes in Kaart 2025-2028",
@@ -76,11 +76,10 @@ const cpb2025: SeedSource = {
 };
 
 export const PARTIES: SeedParty[] = [
-  // ============== NEDERLAND (16) ==============
-  // Stand: 17 mei 2026. Zetels = uitslag Tweede Kamerverkiezingen 29 oktober 2025
-  // (Kiesraad 7 november 2025), gecorrigeerd voor de afsplitsing van 7 PVV-Kamerleden
-  // onder leiding van Gidi Markuszower op 20 januari 2026 (eerst als Groep Markuszower;
-  // partij De Nederlandse Alliantie (DNA) officieel opgericht op 17 april 2026).
+  // ============== NEDERLAND (17) ==============
+  // Stand: 13 september 2026. `seatsTK2025` is een historische veldnaam,
+  // maar bevat hieronder de actuele fractiegrootte zoals de Tweede Kamer die toont.
+  // De uitslag van 2025 is uitsluitend als bron voor de oorspronkelijke zetelverdeling bewaard.
   // Coalitie = kabinet-Jetten (D66 + VVD + CDA), beëdigd 23 februari 2026.
   {
     name: "Democraten 66",
@@ -146,14 +145,14 @@ export const PARTIES: SeedParty[] = [
     sources: [ches, kieskompas, manifesto, cbsKiesraad, tkFractievoorzitters, cpb2025],
   },
   {
-    name: "GroenLinks-PvdA",
-    abbreviation: "GL-PvdA",
-    slug: "groenlinks-pvda",
+    name: "Progressief Nederland",
+    abbreviation: "PRO",
+    slug: "progressief-nederland",
     region: "NL",
     regionType: "national",
     country: "Nederland",
     description:
-      "Fusiepartij van GroenLinks en PvdA (sinds 2023). Behaalde 20 zetels in 2025 en zit sindsdien in de oppositie tegen kabinet-Jetten. Frans Timmermans trad terug als lijsttrekker; Jesse Klaver is sindsdien fractievoorzitter. Verbindt sociaal-democratisch herverdelingsbeleid met ambitieus klimaatbeleid en sterke pro-Europese koers.",
+      "Progressief Nederland heeft 20 zetels en zit in de oppositie tegen kabinet-Jetten. Jesse Klaver is fractievoorzitter. De partij combineert sociaal-democratische herverdeling met ambitieus klimaatbeleid en een pro-Europese koers.",
     positionVector: { economic: 65, social: 70, civil: 30, governance: 75, trust: 55 },
     ideologySlugs: ["sociaal-democraat", "groen-progressief"],
     founded: "2023",
@@ -174,7 +173,7 @@ export const PARTIES: SeedParty[] = [
     regionType: "national",
     country: "Nederland",
     description:
-      "Klassieke christen-democratische partij, derde coalitiepartij in kabinet-Jetten met 18 zetels. Henri Bontenbal leidt de fractie; Bart van den Brink (CDA) is vicepremier en bewindspersoon voor Asiel en Migratie binnen Justitie en Veiligheid. Pleit voor gespreide verantwoordelijkheid, brede welvaart en gematigd cultureel-conservatief beleid.",
+      "Klassieke christen-democratische partij, derde coalitiepartij in kabinet-Jetten met 18 zetels. Henri Bontenbal leidt de fractie; Bart van den Brink (CDA) is minister van Asiel en Migratie en tweede viceminister-president. Pleit voor gespreide verantwoordelijkheid, brede welvaart en gematigd cultureel-conservatief beleid.",
     positionVector: { economic: 20, social: -25, civil: -10, governance: 10, trust: 30 },
     ideologySlugs: ["christen-democraat", "conservatief-liberaal"],
     founded: "1980",
@@ -216,12 +215,12 @@ export const PARTIES: SeedParty[] = [
     regionType: "national",
     country: "Nederland",
     description:
-      "Rechts-conservatief en sterk EU-kritisch (7 zetels in 2025). Lidewij de Vos volgde Thierry Baudet op als politiek leider en lijsttrekker (4 september 2025) en is sindsdien ook fractievoorzitter; Baudet blijft oprichter van de partij. Combineert libertaire economische ideeën met cultureel-conservatieve agenda en wantrouwen jegens mainstream wetenschap en media.",
+      "Rechts-conservatieve en sterk EU-kritische partij met 7 zetels. Lidewij de Vos is politiek leider; Ralf Dekker is fractievoorzitter. De partij combineert libertaire economische ideeën met cultureel-conservatieve standpunten en wantrouwen jegens gevestigde instituties.",
     positionVector: { economic: -55, social: -70, civil: 25, governance: -85, trust: -90 },
     ideologySlugs: ["libertarier", "populistisch-rechts"],
     founded: "2016",
     leader: "Lidewij de Vos",
-    factionLeader: "Lidewij de Vos",
+    factionLeader: "Ralf Dekker",
     websiteUrl: "https://www.fvd.nl",
     lastReviewed: REVIEW_DATE,
     seatsTK2025: 7,
@@ -230,14 +229,14 @@ export const PARTIES: SeedParty[] = [
     sources: [kieskompas, cbsKiesraad, tkFractievoorzitters],
   },
   {
-    name: "De Nederlandse Alliantie",
-    abbreviation: "DNA",
-    slug: "dna",
+    name: "Groep Markuszower (DNA)",
+    abbreviation: "GM/DNA",
+    slug: "groep-markuszower",
     region: "NL",
     regionType: "national",
     country: "Nederland",
     description:
-      "Nieuwe rechts-conservatieve partij, opgericht 17 april 2026 na de afsplitsing van zeven PVV-Kamerleden onder leiding van Gidi Markuszower op 20 januari 2026 (eerst als Groep Markuszower). Pleit voor strenge grenscontrole, soevereiniteit, joods-christelijke waarden en wil, anders dan de PVV, een open ledenpartij zijn. Voormalig VVD-minister Rita Verdonk treedt op als politieke coach.",
+      "De parlementaire fractie Groep Markuszower telt 7 zetels en wordt geleid door Gidi Markuszower. De groep ontstond in januari 2026 na een breuk met de PVV. De daaruit voortgekomen partij gebruikt de naam De Nederlandse Alliantie (DNA).",
     positionVector: { economic: -10, social: -80, civil: -30, governance: -75, trust: -55 },
     ideologySlugs: ["nationaal-conservatief", "populistisch-rechts"],
     founded: "2026",
@@ -258,7 +257,7 @@ export const PARTIES: SeedParty[] = [
     regionType: "national",
     country: "Nederland",
     description:
-      "Politieke beweging voor boeren, plattelandsbewoners en regionale belangen. Verloor zwaar in 2025 (4 zetels). Mede-oprichter Henk Vermeer volgde Caroline van der Plas op als partijleider én fractievoorzitter op 20 februari 2026; Van der Plas blijft Tweede Kamerlid en richt zich op landbouw- en visserijdossiers. Scepsis tegenover stikstofbeleid en EU-regelgeving op landbouwgebied.",
+      "Politieke beweging voor boeren, plattelandsbewoners en regionale belangen. BBB heeft 3 zetels; Henk Vermeer is partij- en fractievoorzitter. De partij is kritisch op stikstofbeleid en EU-regelgeving voor landbouw.",
     positionVector: { economic: -10, social: -50, civil: -20, governance: -50, trust: -30 },
     ideologySlugs: ["klassiek-conservatief", "communitarist"],
     founded: "2019",
@@ -266,7 +265,7 @@ export const PARTIES: SeedParty[] = [
     factionLeader: "Henk Vermeer",
     websiteUrl: "https://www.boerburgerbeweging.nl",
     lastReviewed: REVIEW_DATE,
-    seatsTK2025: 4,
+    seatsTK2025: 3,
     coalitionStatus: "opposition",
     cpbReviewed2025: false,
     sources: [kieskompas, cbsKiesraad, tkFractievoorzitters],
@@ -363,12 +362,12 @@ export const PARTIES: SeedParty[] = [
     regionType: "national",
     country: "Nederland",
     description:
-      "Eco-progressieve partij die dierenwelzijn en ecologie als hoofdrichtsnoeren neemt (3 zetels in 2025). Combineert sterk klimaatbeleid met progressieve sociale agenda.",
+      "Eco-progressieve partij met 3 zetels. Christine Teunissen is fractievoorzitter. De partij zet dierenwelzijn en ecologie centraal en combineert dat met progressieve sociaal-economische standpunten.",
     positionVector: { economic: 60, social: 80, civil: 50, governance: 50, trust: 20 },
     ideologySlugs: ["eco-socialist", "groen-progressief"],
     founded: "2002",
     leader: "Esther Ouwehand",
-    factionLeader: "Esther Ouwehand",
+    factionLeader: "Christine Teunissen",
     websiteUrl: "https://www.partijvoordedieren.nl",
     lastReviewed: REVIEW_DATE,
     seatsTK2025: 3,
@@ -417,6 +416,26 @@ export const PARTIES: SeedParty[] = [
     coalitionStatus: "opposition",
     cpbReviewed2025: true,
     sources: [kieskompas, cbsKiesraad, tkFractievoorzitters, cpb2025],
+  },
+
+  {
+    name: "Lid Keijzer",
+    abbreviation: "Keijzer",
+    slug: "lid-keijzer",
+    region: "NL",
+    regionType: "faction",
+    country: "Nederland",
+    description:
+      "Eenpersoonsfractie met 1 zetel, geleid door Mona Keijzer. De politieke positionering is in dit model voorlopig afgeleid van haar eerdere BBB-profiel, omdat de fractie geen zelfstandig verkiezingsprogramma heeft.",
+    positionVector: { economic: -10, social: -50, civil: -20, governance: -50, trust: -30 },
+    ideologySlugs: ["klassiek-conservatief", "communitarist"],
+    leader: "Mona Keijzer",
+    factionLeader: "Mona Keijzer",
+    lastReviewed: REVIEW_DATE,
+    seatsTK2025: 1,
+    coalitionStatus: "splinter",
+    cpbReviewed2025: false,
+    sources: [tkFractievoorzitters],
   },
 
   // ============== EUROPESE PARTIJ-FAMILIES (7) ==============

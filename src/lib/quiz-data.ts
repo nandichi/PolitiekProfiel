@@ -1,6 +1,6 @@
 import "server-only";
 
-import { payload } from "@/lib/payload";
+import { getStaticQuestions } from "@/lib/static-question-data";
 import { TIER_QUESTION_COUNT, type DimensionId, type Tier } from "@/lib/dimensions";
 import type { ThemeId } from "@/lib/themes";
 import {
@@ -27,57 +27,25 @@ export interface QuizQuestion {
   };
 }
 
-interface QuestionDoc {
-  id: number;
-  statement: string;
-  dimension: DimensionId;
-  direction: "positive" | "negative";
-  weight?: number;
-  tiers: Tier[];
-  depth?: QuestionDepth;
-  discriminator?: number;
-  themes?: ThemeId[];
-  info?: {
-    context?: string;
-    argumentsFor?: { text: string }[];
-    argumentsAgainst?: { text: string }[];
-    sources?: { label: string; url: string }[];
-  };
-}
-
-function docToQuestion(d: QuestionDoc): QuizQuestion {
-  return {
-    id: d.id,
-    statement: d.statement,
-    dimension: d.dimension,
-    direction: d.direction === "positive" ? 1 : -1,
-    weight: d.weight ?? 1,
-    tiers: d.tiers,
-    depth: d.depth ?? "broad",
-    discriminator: d.discriminator ?? 50,
-    themes: Array.isArray(d.themes) ? d.themes : [],
-    info: {
-      context: d.info?.context,
-      argumentsFor: (d.info?.argumentsFor ?? []).map((x) => x.text),
-      argumentsAgainst: (d.info?.argumentsAgainst ?? []).map((x) => x.text),
-      sources: d.info?.sources ?? [],
-    },
-  };
-}
 
 export async function getQuestionPoolForTier(
   tier: Tier,
 ): Promise<QuizQuestion[]> {
-  const p = await payload();
-  const res = await p.find({
-    collection: "questions",
-    where: { tiers: { contains: tier } },
-    limit: 300,
-    depth: 0,
-    pagination: false,
-  });
-  const docs = res.docs as unknown as QuestionDoc[];
-  return docs.map(docToQuestion);
+  const staticQuestions = await getStaticQuestions();
+  return staticQuestions.filter((question) => question.tiers.includes(tier)).map(
+    (question) => ({
+      id: question.id,
+      statement: question.statement,
+      dimension: question.dimension,
+      direction: question.direction === "positive" ? 1 : -1,
+      weight: question.weight ?? 1,
+      tiers: question.tiers,
+      depth: question.depth,
+      discriminator: question.discriminator,
+      themes: question.themes,
+      info: question.info,
+    }),
+  );
 }
 
 export async function getInitialAdaptiveQuestions(

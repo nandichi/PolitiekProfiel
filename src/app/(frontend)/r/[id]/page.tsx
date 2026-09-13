@@ -17,12 +17,8 @@ import {
   ScrollReveal,
   ScrollRevealItem,
 } from "@/components/motion/ScrollReveal";
-import { AiContentBlock, AiContentItemList } from "@/components/result/AiContentBlock";
-import { AiContentReveal } from "@/components/result/AiContentReveal";
 import { BackToTop } from "@/components/result/BackToTop";
-import { TldrCallout } from "@/components/result/TldrCallout";
 import { readingMinutesFor } from "@/lib/reading-time";
-import { lexicalFirstSentence, lexicalToPlainText } from "@/lib/lexical";
 import { ConfidenceIndicator } from "@/components/result/ConfidenceIndicator";
 import { ThemeBars } from "@/components/result/ThemeBars";
 import { ParadoxList, type ParadoxItemContext } from "@/components/result/ParadoxList";
@@ -38,19 +34,7 @@ import {
 import { DIMENSIONS, dimensionMeta } from "@/lib/dimensions";
 import { rankByDistance } from "@/lib/scoring";
 import { THEMES } from "@/lib/themes";
-import { scoreToBucket } from "@/lib/buckets";
 import { confidenceBand, confidenceBandLabel } from "@/lib/confidence";
-import {
-  dimensionBucketSlug,
-  getAiContentBySlug,
-  getAiContentBySlugs,
-  ideologyArgumentsAgainstSlug,
-  ideologyArgumentsForSlug,
-  ideologyEssaySlug,
-  ideologyReadingSlug,
-  ideologyThemeSlug,
-  paradoxSlug,
-} from "@/lib/ai-content";
 import { paradoxDescription, type ParadoxType } from "@/lib/paradox";
 import { extractStances, getQuestionsByIds } from "@/lib/stance-extract";
 import {
@@ -114,7 +98,7 @@ const INDEX_ITEMS = [
   { id: "dimensies", label: "Vijf dimensies" },
   { id: "themas", label: "Zeven thema's" },
   { id: "standpunten", label: "Standpunten" },
-  { id: "steelman", label: "Tegen-argumenten" },
+  { id: "steelman", label: "Andere richting" },
   { id: "paradoxen", label: "Paradoxen" },
   { id: "partijen", label: "Partij-context" },
   { id: "politici", label: "Politici" },
@@ -167,47 +151,18 @@ export default async function ResultPage({ params }: Args) {
       )
     : null;
 
-  const dimensionSlugs = DIMENSIONS.map((d) =>
-    dimensionBucketSlug(d.id, scoreToBucket(result.dimensions[d.id])),
-  );
-  // Steelman: voor elke dimensie waar de gebruiker sterk uitslaat,
-  // halen we het AI-content blok van de tegenoverliggende bucket op.
-  // Score >= +60 → tegenargument uit "strong-negative" bucket; etc.
-  const steelmanCandidates = DIMENSIONS.map((d) => {
-    const value = result.dimensions[d.id];
-    if (Math.abs(value) < 40) return null;
-    const oppositeBucket = value > 0 ? "strong-negative" : "strong-positive";
-    return {
-      dimension: d,
-      yourScore: value,
-      slug: dimensionBucketSlug(d.id, oppositeBucket),
-    };
-  }).filter((x): x is NonNullable<typeof x> => Boolean(x));
-  const steelmanSlugs = steelmanCandidates.map((s) => s.slug);
-  const themeSlugs = THEMES.map((t) => ideologyThemeSlug(ideo.slug, t.id));
-  const paradoxSlugs = (result.paradoxes ?? []).map((p) =>
-    paradoxSlug(p.type as ParadoxType),
-  );
+  const themeResultCards = result.themeScores
+    ? THEMES.map((theme) => ({
+        theme,
+        score: result.themeScores?.[theme.id] ?? 0,
+      }))
+    : [];
 
-  const [
-    essayContent,
-    readingContent,
-    argumentsForContent,
-    argumentsAgainstContent,
-    dimensionBucketMap,
-    themeMap,
-    paradoxMap,
-    steelmanMap,
-  ] = await Promise.all([
-    getAiContentBySlug(ideologyEssaySlug(ideo.slug)),
-    getAiContentBySlug(ideologyReadingSlug(ideo.slug)),
-    getAiContentBySlug(ideologyArgumentsForSlug(ideo.slug)),
-    getAiContentBySlug(ideologyArgumentsAgainstSlug(ideo.slug)),
-    getAiContentBySlugs(dimensionSlugs),
-    getAiContentBySlugs(themeSlugs),
-    getAiContentBySlugs(paradoxSlugs),
-    getAiContentBySlugs(steelmanSlugs),
-  ]);
+  const steelmanCandidates = DIMENSIONS.map((dimension) => {
+    const yourScore = result.dimensions[dimension.id];
+    if (Math.abs(yourScore) < 40) return null;
+    return { dimension, yourScore };
+  }).filter((candidate): candidate is NonNullable<typeof candidate> => Boolean(candidate));
 
   const stances = result.answers
     ? await extractStances(result.answers, isExtendedResult ? 10 : 6)
@@ -239,63 +194,55 @@ export default async function ResultPage({ params }: Args) {
         description,
         exampleQuestionIds: p.exampleQuestionIds ?? [],
       },
-      aiContent: paradoxMap.get(paradoxSlug(type)) ?? null,
       examples: (p.exampleQuestionIds ?? [])
         .map((qid) => paradoxExampleMap.get(qid))
         .filter((q): q is { id: number; statement: string } => Boolean(q)),
     };
   });
 
-  // Leestijden per sectie: berekend uit de tekstinhoud die de gebruiker
-  // daadwerkelijk in beeld krijgt (inclusief AI-content, korte beschrijvingen
-  // en lijsten). Wordt onder elke index-label getoond zodat de lezer vooraf
-  // een idee heeft van de scope per sectie.
+  // Leestijden volgen alleen de redactioneel beheerde, regelgebaseerde inhoud
+  // die op deze pagina staat. Er wordt geen gegenereerde tekst meegeteld.
   const sectionMinutes: Record<string, number> = {
-    profiel: readingMinutesFor(ideo.shortDescription, essayContent?.body),
+    profiel: readingMinutesFor(ideo.shortDescription, ideo.description),
     dimensies: readingMinutesFor(
-      ...Array.from(dimensionBucketMap.values()).map((c) => c.body),
-      ...DIMENSIONS.flatMap((d) => [
-        d.poleNegative.description,
-        d.polePositive.description,
+      ...DIMENSIONS.flatMap((dimension) => [
+        dimension.poleNegative.description,
+        dimension.polePositive.description,
       ]),
     ),
     themas: readingMinutesFor(
-      ...Array.from(themeMap.values()).map((c) => c.body),
+      ...themeResultCards.flatMap(({ theme }) => [
+        theme.description,
+        theme.poleNegative.description,
+        theme.polePositive.description,
+      ]),
     ),
-    standpunten: readingMinutesFor(
-      ...stances.map((s) => s.derivedStance ?? s.statement),
-    ),
+    standpunten: readingMinutesFor(...stances.map((stance) => stance.statement)),
     steelman: readingMinutesFor(
-      ...Array.from(steelmanMap.values()).map((c) => c.body),
-      ...steelmanCandidates.map((s) =>
-        s.yourScore > 0
-          ? s.dimension.poleNegative.description
-          : s.dimension.polePositive.description,
+      ...steelmanCandidates.map((candidate) =>
+        candidate.yourScore > 0
+          ? candidate.dimension.poleNegative.description
+          : candidate.dimension.polePositive.description,
       ),
     ),
     paradoxen: readingMinutesFor(
-      ...paradoxItems.flatMap((p) => [
-        p.aiContent?.body ?? "",
-        p.signal.description,
-      ]),
+      ...paradoxItems.map((item) => item.signal.description),
     ),
     partijen: readingMinutesFor(
-      ...parties.flatMap((p) => [p.name, lexicalToPlainText(p.description)]),
+      ...parties.flatMap((party) => [party.name, party.description]),
     ),
     politici: readingMinutesFor(
       ...rankedPoliticians
         .slice(0, isExtendedResult ? 30 : 20)
-        .map((p) => `${p.item.primary} ${p.item.secondary}`),
+        .map((politician) => `${politician.item.primary} ${politician.item.secondary}`),
     ),
     landen: readingMinutesFor(
       ...rankedCountries
         .slice(0, 15)
-        .map((c) => `${c.item.primary} ${c.item.secondary}`),
+        .map((country) => `${country.item.primary} ${country.item.secondary}`),
     ),
     delen: readingMinutesFor(
-      ...(argumentsForContent?.items ?? []).map((i) => i.text),
-      ...(argumentsAgainstContent?.items ?? []).map((i) => i.text),
-      ...(readingContent?.items ?? []).map((i) => i.text),
+      ...ideo.furtherReading.flatMap((book) => [book.title, book.note]),
     ),
   };
 
@@ -382,11 +329,6 @@ export default async function ResultPage({ params }: Args) {
 
               <div className="mt-16 md:mt-20 max-w-3xl">
                 <Kicker>Wat houdt dit profiel in?</Kicker>
-                {essayContent && (
-                  <TldrCallout
-                    text={lexicalFirstSentence(essayContent.bodyLexical)}
-                  />
-                )}
                 <div className="mt-5">
                   {isFreeResult ? (
                     <InlinePaywall
@@ -394,13 +336,7 @@ export default async function ResultPage({ params }: Args) {
                       body="Je gratis uitslag geeft de kern: profielnaam en vijf assen. Met de standaard quiz krijg je de volledige duiding, context en leesverdieping."
                     />
                   ) : (
-                    <AiContentReveal previewHeight={420} minOverflow={120}>
-                      <AiContentBlock
-                        content={essayContent}
-                        fallback={undefined}
-                        variant="prose"
-                      />
-                    </AiContentReveal>
+                    <StaticProse text={ideo.description} />
                   )}
                 </div>
 
@@ -443,52 +379,52 @@ export default async function ResultPage({ params }: Args) {
 
                 <ScrollRevealItem>
                   <div className="border-t border-rule">
-                    {DIMENSIONS.map((d, i) => {
-                      const value = result.dimensions[d.id];
-                      const dimConfidence = result.confidence?.[d.id];
-                      const bucket = scoreToBucket(value);
-                      const bucketContent = dimensionBucketMap.get(
-                        dimensionBucketSlug(d.id, bucket),
-                      );
+                    {DIMENSIONS.map((dimension, index) => {
+                      const value = result.dimensions[dimension.id];
+                      const dimConfidence = result.confidence?.[dimension.id];
+                      const matchedPole =
+                        value >= 0
+                          ? dimension.polePositive
+                          : dimension.poleNegative;
                       return (
-                        <div key={d.id}>
+                        <div key={dimension.id}>
                           <DimensionBar
-                            dimension={d.id}
+                            dimension={dimension.id}
                             value={value}
-                            index={i}
+                            index={index}
                           />
-                          {(bucketContent || dimConfidence !== undefined) && (
-                            <div className="pb-7 mt-5 md:mt-6 grid grid-cols-1 md:grid-cols-[1fr_auto] md:gap-8 md:items-start">
-                              <div className="max-w-2xl">
-                                {isFreeResult ? (
-                                  <p className="text-sm text-ink-muted leading-relaxed">
-                                    De gratis indicatie toont je positie op deze
-                                    as. De volledige betaalde analyse legt uit
-                                    wat deze score politiek betekent en waar de
-                                    nuance zit.
+                          <div className="pb-7 mt-5 md:mt-6 grid grid-cols-1 md:grid-cols-[1fr_auto] md:gap-8 md:items-start">
+                            <div className="max-w-2xl">
+                              {isFreeResult ? (
+                                <p className="text-sm text-ink-muted leading-relaxed">
+                                  De gratis indicatie toont je positie op deze
+                                  as. De volledige betaalde analyse legt uit
+                                  wat deze score politiek betekent en waar de
+                                  nuance zit.
+                                </p>
+                              ) : (
+                                <>
+                                  <p className="kicker mb-2">
+                                    Jouw richting: {matchedPole.label}
                                   </p>
-                                ) : (
-                                  <AiContentReveal previewHeight={180} minOverflow={80}>
-                                    <AiContentBlock
-                                      content={bucketContent}
-                                      variant="compact"
-                                    />
-                                  </AiContentReveal>
-                                )}
-                              </div>
-                              {dimConfidence !== undefined && (
-                                <div className="mt-4 md:mt-1">
-                                  <ConfidenceIndicator
-                                    score={dimConfidence}
-                                    label="Vertrouwen op deze as"
-                                  />
-                                  <p className="mt-2 text-xs text-ink-muted max-w-56">
-                                    {confidenceExplain(dimConfidence)}
+                                  <p className="text-sm text-ink-2 leading-relaxed">
+                                    {matchedPole.description}
                                   </p>
-                                </div>
+                                </>
                               )}
                             </div>
-                          )}
+                            {dimConfidence !== undefined && (
+                              <div className="mt-4 md:mt-1">
+                                <ConfidenceIndicator
+                                  score={dimConfidence}
+                                  label="Vertrouwen op deze as"
+                                />
+                                <p className="mt-2 text-xs text-ink-muted max-w-56">
+                                  {confidenceExplain(dimConfidence)}
+                                </p>
+                              </div>
+                            )}
+                          </div>
                         </div>
                       );
                     })}
@@ -530,30 +466,21 @@ export default async function ResultPage({ params }: Args) {
                     </ScrollRevealItem>
                     <ScrollRevealItem>
                       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
-                        {THEMES.map((t) => {
-                          const themeContent = themeMap.get(
-                            ideologyThemeSlug(ideo.slug, t.id),
-                          );
-                          if (!themeContent) return null;
+                        {themeResultCards.map(({ theme, score }) => {
+                          const position = describeThemeScore(theme, score);
                           return (
-                            <div
-                              key={t.id}
-                              className="border-t border-rule pt-5"
-                            >
-                              <p className="kicker mb-2">{t.label}</p>
-                              <TldrCallout
-                                text={lexicalFirstSentence(
-                                  themeContent.bodyLexical,
-                                  180,
-                                )}
-                                variant="compact"
-                              />
-                              <AiContentReveal previewHeight={220} minOverflow={80}>
-                                <AiContentBlock
-                                  content={themeContent}
-                                  variant="compact"
-                                />
-                              </AiContentReveal>
+                            <div key={theme.id} className="border-t border-rule pt-5">
+                              <p className="kicker mb-2">{theme.label}</p>
+                              <p className="display text-lg leading-snug text-ink">
+                                {position.label}
+                              </p>
+                              <p className="mt-2 text-sm text-ink-2 leading-relaxed">
+                                {position.description}
+                              </p>
+                              <p className="mt-3 text-xs text-ink-muted">
+                                Score {formatScore(score)} op basis van de beantwoorde
+                                vragen bij dit thema.
+                              </p>
                             </div>
                           );
                         })}
@@ -576,17 +503,17 @@ export default async function ResultPage({ params }: Args) {
             >
               <ScrollReveal variant="stagger">
                 <ScrollRevealItem>
-                  <Kicker number={4}>Wat je waarschijnlijk vindt</Kicker>
+                  <Kicker number={4}>Je uitgesproken antwoorden</Kicker>
                   <h2 className="display mt-5 max-w-3xl">
-                    {isExtendedResult ? "Tien" : "Zes"} concrete standpunten
-                    gedistilleerd uit je antwoorden.
+                    {isExtendedResult ? "Tien" : "Zes"} stellingen waarop je
+                    het duidelijkst reageerde.
                   </h2>
                 </ScrollRevealItem>
                 <ScrollRevealItem>
                   <p className="mt-4 max-w-2xl text-sm text-ink-muted">
-                    Server-side afgeleid uit jouw sterkste antwoorden. Geen AI
-                    en geen externe analyse. Pure regelgebaseerde extractie
-                    van je eigen keuzes.
+                    Dit is een terugblik op je eigen antwoorden, geen voorspelling
+                    over jou en geen partijadvies. We tonen de stellingen waarop
+                    je het meest uitgesproken reageerde.
                   </p>
                 </ScrollRevealItem>
                 <ScrollRevealItem>
@@ -605,58 +532,43 @@ export default async function ResultPage({ params }: Args) {
               >
                 <ScrollReveal variant="stagger">
                   <ScrollRevealItem>
-                    <Kicker number="4b">Wat zou de andere kant zeggen?</Kicker>
+                    <Kicker number="4b">De andere richting</Kicker>
                     <h2 className="display mt-5 max-w-3xl">
-                      Het sterkste argument tegen jouw eigen positie, per dimensie.
+                      De tegenoverliggende positie op assen waar je duidelijk uitslaat.
                     </h2>
                   </ScrollRevealItem>
                   <ScrollRevealItem>
                     <p className="mt-4 max-w-2xl text-sm text-ink-muted">
-                      Voor de dimensies waar je het sterkst uitslaat, tonen we
-                      de positie aan het andere uiterste. Niet om je van mening
-                      te doen veranderen, wel om je eigen argument scherp te
-                      houden.
+                      Bij een duidelijke score tonen we het andere uiteinde van
+                      dezelfde schaal. Gebruik dit als een korte check van de
+                      afweging die achter je score zit.
                     </p>
                   </ScrollRevealItem>
                   <ScrollRevealItem>
                     <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-8 max-w-5xl">
-                      {steelmanCandidates.map((s) => {
-                        const content = steelmanMap.get(s.slug);
-                        return (
-                          <div
-                            key={s.dimension.id}
-                            className="border-t border-rule pt-5"
-                          >
-                            <div className="flex items-baseline justify-between gap-3">
-                              <p className="kicker">{s.dimension.label}</p>
-                              <p className="mono tabular-nums text-xs text-ink-muted">
-                                JOUW SCORE {s.yourScore > 0 ? "+" : ""}
-                                {Math.round(s.yourScore)}
-                              </p>
-                            </div>
-                            <p className="display text-lg mt-2 text-ink leading-snug">
-                              {s.yourScore > 0
-                                ? s.dimension.poleNegative.label
-                                : s.dimension.polePositive.label}
+                      {steelmanCandidates.map((candidate) => (
+                        <div
+                          key={candidate.dimension.id}
+                          className="border-t border-rule pt-5"
+                        >
+                          <div className="flex items-baseline justify-between gap-3">
+                            <p className="kicker">{candidate.dimension.label}</p>
+                            <p className="mono tabular-nums text-xs text-ink-muted">
+                              JOUW SCORE {formatScore(candidate.yourScore)}
                             </p>
-                            <p className="mt-2 text-sm text-ink-2 leading-relaxed">
-                              {s.yourScore > 0
-                                ? s.dimension.poleNegative.description
-                                : s.dimension.polePositive.description}
-                            </p>
-                            {content && (
-                              <div className="mt-4">
-                                <AiContentReveal previewHeight={200} minOverflow={80}>
-                                  <AiContentBlock
-                                    content={content}
-                                    variant="compact"
-                                  />
-                                </AiContentReveal>
-                              </div>
-                            )}
                           </div>
-                        );
-                      })}
+                          <p className="display text-lg mt-2 text-ink leading-snug">
+                            {candidate.yourScore > 0
+                              ? candidate.dimension.poleNegative.label
+                              : candidate.dimension.polePositive.label}
+                          </p>
+                          <p className="mt-2 text-sm text-ink-2 leading-relaxed">
+                            {candidate.yourScore > 0
+                              ? candidate.dimension.poleNegative.description
+                              : candidate.dimension.polePositive.description}
+                          </p>
+                        </div>
+                      ))}
                     </div>
                   </ScrollRevealItem>
                 </ScrollReveal>
@@ -939,32 +851,33 @@ export default async function ResultPage({ params }: Args) {
                   </div>
                 </ScrollRevealItem>
 
-                {(argumentsForContent || argumentsAgainstContent) && (
-                  <ScrollRevealItem>
-                    <div className="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-10">
-                      {argumentsForContent && (
-                        <div className="border-t border-rule pt-6">
-                          <p className="kicker mb-3">
-                            Sterkste argumenten voor jouw kant
-                          </p>
-                          <AiContentItemList content={argumentsForContent} />
-                        </div>
-                      )}
-                      {argumentsAgainstContent && (
-                        <div className="border-t border-rule pt-6">
-                          <p className="kicker mb-3">Wat zou een ander zeggen?</p>
-                          <AiContentItemList content={argumentsAgainstContent} />
-                        </div>
-                      )}
-                    </div>
-                  </ScrollRevealItem>
-                )}
-
-                {readingContent && (
+                {ideo.furtherReading.length > 0 && (
                   <ScrollRevealItem>
                     <div className="mt-14 border-t border-rule pt-6">
-                      <p className="kicker mb-3">Lees verder</p>
-                      <AiContentItemList content={readingContent} />
+                      <p className="kicker mb-3">Verder lezen</p>
+                      <ul className="max-w-3xl divide-y divide-rule border-t border-rule">
+                        {ideo.furtherReading.map((book) => (
+                          <li key={book.url} className="py-4">
+                            <a
+                              href={book.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="no-underline text-ink hover:text-navy"
+                            >
+                              <span className="display text-lg leading-tight">
+                                {book.title}
+                              </span>
+                              <span className="block mt-1 text-sm text-ink-2">
+                                {book.author}
+                                {book.publisher ? ` · ${book.publisher}` : ""}
+                              </span>
+                              <span className="block mt-2 text-sm text-ink-muted leading-relaxed">
+                                {book.note}
+                              </span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </ScrollRevealItem>
                 )}
@@ -1050,8 +963,8 @@ function InlinePaywall({ title, body }: { title: string; body: string }) {
 function FreeResultPaywall() {
   const locked = [
     "zeven thema-scores",
-    "concrete standpunten",
-    "tegenargumenten",
+    "uitgesproken antwoorden",
+    "andere richtingen op de vijf assen",
     "paradoxen",
     "partij-context",
     "politici- en landenvergelijking",
@@ -1168,4 +1081,38 @@ function confidenceExplain(score: number): string {
     return `${confidenceBandLabel(band)}. Redelijke maar nog niet uitgekristalliseerde positie.`;
   }
   return `${confidenceBandLabel(band)}. Weinig sterke antwoorden of veel variatie. Meer vragen geven hier scherper beeld.`;
+}
+
+function StaticProse({ text }: { text: string }) {
+  return (
+    <div className="space-y-5 text-ink-2 leading-relaxed">
+      {text
+        .split(/\n{2,}/)
+        .filter(Boolean)
+        .map((paragraph) => (
+          <p key={paragraph} className="text-base md:text-lg">
+            {paragraph}
+          </p>
+        ))}
+    </div>
+  );
+}
+
+function formatScore(score: number): string {
+  const rounded = Math.round(score);
+  return `${rounded > 0 ? "+" : ""}${rounded}`;
+}
+
+function describeThemeScore(
+  theme: (typeof THEMES)[number],
+  score: number,
+): { label: string; description: string } {
+  if (Math.abs(score) < 20) {
+    return {
+      label: "Geen uitgesproken richting",
+      description:
+        "Je antwoorden liggen tussen beide richtingen. Op dit thema is de uitkomst een oriëntatie, geen duidelijke voorkeur.",
+    };
+  }
+  return score > 0 ? theme.polePositive : theme.poleNegative;
 }

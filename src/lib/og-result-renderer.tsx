@@ -717,46 +717,6 @@ function Badge({ text, fontFamilies, size = 13 }: BadgeProps) {
   );
 }
 
-interface MetaPillProps {
-  label: string;
-  value: string;
-  fontFamilies: { display: string; sans: string; mono: string };
-}
-
-function MetaPill({ label, value, fontFamilies }: MetaPillProps) {
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 4,
-      }}
-    >
-      <span
-        style={{
-          fontFamily: fontFamilies.mono,
-          fontSize: 11,
-          letterSpacing: 1.8,
-          color: C.inkSubtle,
-          textTransform: "uppercase",
-        }}
-      >
-        {label}
-      </span>
-      <span
-        style={{
-          fontFamily: fontFamilies.display,
-          fontSize: 22,
-          fontWeight: 500,
-          color: C.ink,
-          letterSpacing: -0.4,
-        }}
-      >
-        {value}
-      </span>
-    </div>
-  );
-}
 
 /* ============================================================== */
 /*  WIDE — 1200x630 (link preview)                                  */

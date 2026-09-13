@@ -1,15 +1,14 @@
 /**
  * Editorial programma-samenvattingen per partij per thema.
  *
- * Bron: verkiezingsprogramma's TK 2025 + CPB Keuzes in Kaart 2025-2028 + actuele
- * Kamerstandpunten per mei 2026. Alle samenvattingen zijn redactioneel en
- * neutraal gehouden; bedoeld als naslag, niet als stemadvies.
+ * Bron: verkiezingsprogramma's TK 2025 en waar nodig de primaire partijpagina.
+ * Samenvattingen beschrijven de verkiezingsprogramma's van 2025, geen huidig
+ * kabinetsbeleid of latere fractiestandpunten. Dat onderscheid blijft zichtbaar
+ * in de UI, zodat historisch programma en actuele macht niet door elkaar lopen.
  *
- * Status (17 mei 2026): D66, VVD, CDA, PVV, GL-PvdA, JA21, BBB, FvD, SP, CU,
- * SGP, PvdD, DENK, DNA, 50PLUS, Volt.
- *
- * Voor partijen waarvan nog geen redactionele samenvatting bestaat, valt de
- * UI terug op de algemene `description` uit `parties.ts`.
+ * Status (13 september 2026): programmalinks gecontroleerd en samenvattingen
+ * opnieuw beoordeeld op neutraliteit. Fracties zonder zelfstandig programma
+ * vallen terug op de actuele beschrijving in `parties.ts`.
  */
 import type { ThemeId } from "@/lib/themes";
 
@@ -31,21 +30,20 @@ export type PartyProgramme = Partial<Record<ThemeId, PartyProgrammeTheme>>;
 /** Generieke bronlink naar het verkiezingsprogramma per partij (2025). */
 export const PROGRAMME_SOURCES: Record<string, { label: string; url: string }> = {
   d66: { label: "D66 – Verkiezingsprogramma 2025 'Een nieuw begin'", url: "https://d66.nl/verkiezingsprogramma" },
-  pvv: { label: "PVV – Concept-verkiezingsprogramma 2025", url: "https://www.pvv.nl/standpunten" },
+  pvv: { label: "PVV – Verkiezingsprogramma 2025 'Dit is uw land'", url: "https://www.pvv.nl/verkiezingsprogramma.html" },
   vvd: { label: "VVD – Verkiezingsprogramma 2025 'Ruimte om vooruit te komen'", url: "https://www.vvd.nl/verkiezingsprogramma" },
-  "groenlinks-pvda": { label: "GroenLinks-PvdA – Verkiezingsprogramma 2025 'Tijd voor eerlijk'", url: "https://groenlinkspvda.nl/verkiezingsprogramma" },
+  "progressief-nederland": { label: "GroenLinks-PvdA – Verkiezingsprogramma 2025 'Tijd voor eerlijk'", url: "https://groenlinkspvda.nl/verkiezingsprogramma" },
   cda: { label: "CDA – Verkiezingsprogramma 2025 'Recht doen aan Nederland'", url: "https://www.cda.nl/verkiezingsprogramma" },
-  ja21: { label: "JA21 – Verkiezingsprogramma 2025", url: "https://www.ja21.nl/verkiezingsprogramma" },
-  fvd: { label: "FvD – Verkiezingsprogramma 2025", url: "https://www.fvd.nl/standpunten" },
-  dna: { label: "DNA – Beginselprogramma 2026", url: "https://www.denederlandsevrijheidsalliantie.nl/" },
-  bbb: { label: "BBB – Verkiezingsprogramma 2025 'Boeren, Burgers, Beleid'", url: "https://www.boerburgerbeweging.nl/programma" },
-  denk: { label: "DENK – Verkiezingsprogramma 2025", url: "https://www.bewegingdenk.nl/programma" },
+  ja21: { label: "JA21 – Verkiezingsprogramma 2025 'De Juiste Aanpak voor Nederland'", url: "https://ja21.nl/fileadmin/user_upload/Verkiezingsprogramma_JA21_TK25_DEF.pdf" },
+  fvd: { label: "FvD – Presentatie verkiezingsprogramma 2025", url: "https://fvd.nl/nieuws/fvd-presenteert-kandidatenlijst-en-verkiezingsprogramma-een-nieuwe-kans-voor-nederland" },
+  bbb: { label: "BBB – Verkiezingsprogramma 2025 'BBB Levert!'", url: "https://boerburgerbeweging.nl/tweede-kamer/verkiezingsprogramma" },
+  denk: { label: "DENK – Standpunten en verkiezingsprogramma 2025", url: "https://www.bewegingdenk.nl/standpunten/" },
   christenunie: { label: "ChristenUnie – Verkiezingsprogramma 2025", url: "https://www.christenunie.nl/standpunten" },
   sp: { label: "SP – Verkiezingsprogramma 2025", url: "https://www.sp.nl/standpunten" },
   sgp: { label: "SGP – Verkiezingsprogramma 2025", url: "https://www.sgp.nl/standpunten" },
-  pvdd: { label: "Partij voor de Dieren – Verkiezingsprogramma 2025", url: "https://www.partijvoordedieren.nl/standpunten" },
-  "50plus": { label: "50PLUS – Verkiezingsprogramma 2025", url: "https://www.50pluspartij.nl/standpunten" },
-  volt: { label: "Volt – Verkiezingsprogramma 2025", url: "https://voltnederland.org/programma" },
+  pvdd: { label: "Partij voor de Dieren – Verkiezingsprogramma 2025", url: "https://www.partijvoordedieren.nl/partijprogrammas/tweede-kamerverkiezingen-2025" },
+  "50plus": { label: "50PLUS – Verkiezingsprogramma 2025-2029", url: "https://www.50pluspartij.nl/verkiezingsprogramma-50plus/" },
+  volt: { label: "Volt – Verkiezingsprogramma 2025", url: "https://voltnederland.org/verkiezingsprogramma-2025" },
 };
 
 export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
@@ -128,7 +126,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       summary:
         "Marktwerking met sterk toezicht. Inzet op eigen verantwoordelijkheid, technologie en innovatie.",
       bullets: [
-        { text: "Eigen risico bevriezen op €385; geen verlaging." },
+        { text: "Verlaging van het eigen risico terugdraaien en het bedrag per zorgmoment beperken." },
         { text: "Zorgzwaartepakketten herzien; meer thuiszorg via digitale tools." },
         { text: "Doorbreken arbeidsmarkttekort via flexibel inzetbare buitenlandse zorgverleners." },
       ],
@@ -166,7 +164,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       bullets: [
         { text: "Tegen bindend correctief referendum." },
         { text: "Versterken parlementair budgetrecht via Algemene Rekenkamer." },
-        { text: "Pleit voor coalitiediscipline in minderheidskabinet." },
+        { text: "Coalitieafspraken moeten voor Kamer en kiezer controleerbaar zijn." },
       ],
     },
     wonen: {
@@ -184,7 +182,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       summary:
         "Klimaatbeleid met respect voor boeren, ondernemers en regio's. Stikstof oplossen via natuurherstel en innovatie, niet via gedwongen uitkoop.",
       bullets: [
-        { text: "Volgens regie van het kabinet-Jetten: 35 mrd klimaatfonds behouden; herziening verdeling." },
+        { text: "Klimaatfonds behouden en de verdeling ervan herzien." },
         { text: "Stikstofdoelen pas in 2035 i.p.v. 2030 (mits EU-akkoord)." },
         { text: "Inzet op biobased bouw en duurzame landbouw." },
       ],
@@ -200,7 +198,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
     },
     migratie: {
       summary:
-        "Gecontroleerde instroom, sterk gericht op draagvlak in gemeentes. Bart van den Brink leidt vanuit ministerie van Justitie en Veiligheid.",
+        "Gecontroleerde instroom, sterk gericht op draagvlak in gemeenten.",
       bullets: [
         { text: "Tweestatusstelsel uitvoeren; nareis subsidiair beschermden inperken." },
         { text: "Spreidingswet houden, maar evalueren in 2027." },
@@ -213,7 +211,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       bullets: [
         { text: "Familiebedrijfsregeling behouden; vermogensgrens optrekken naar 6 miljoen." },
         { text: "Brede heroriëntatie subsidies op brede welvaart i.p.v. bbp." },
-        { text: "Loonruimte voor publieke sectoren verruimen via kabinetsformatie 2026." },
+        { text: "Loonruimte voor publieke sectoren verruimen." },
       ],
     },
     eu: {
@@ -309,7 +307,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       ],
     },
   },
-  "groenlinks-pvda": {
+  "progressief-nederland": {
     klimaat: {
       summary:
         "Ambitieus klimaatbeleid met eerlijke verdeling: vervuiler betaalt, fossiele subsidies afbouwen, klimaatticket voor ov.",
@@ -388,7 +386,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       summary:
         "Hard restrictief: opt-outs EU-asielpact, asielstop voor specifieke landen.",
       bullets: [
-        { text: "Tweestatusstelsel als minimum; harder dan kabinet-Jetten." },
+        { text: "Tweestatusstelsel als minimum; strengere asielregels bepleiten." },
         { text: "Opt-out spreidingswet voor gemeenten met grote opvanglast." },
         { text: "Geen werkmigranten van buiten EU zonder tekortverklaring." },
       ],
@@ -456,44 +454,6 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
         { text: "Bindend referendum op alle wetten." },
         { text: "Gekozen burgemeester en gouverneur." },
         { text: "Kritisch op rol Hoge Raad en EHRM." },
-      ],
-    },
-  },
-  dna: {
-    klimaat: {
-      summary:
-        "Klimaatbeleid alleen als het niet schaadt voor middenklasse; afschaffen klimaatfonds.",
-      bullets: [
-        { text: "Klimaatwet versoepelen; klimaatfonds afschaffen." },
-        { text: "Stikstofregels schrappen voor wonen en infrastructuur." },
-        { text: "Kernenergie bouwen, gas openhouden." },
-      ],
-    },
-    migratie: {
-      summary:
-        "Asielstop en strikte handhaving. Inzet op 'joods-christelijke' identiteit.",
-      bullets: [
-        { text: "Volledige asielstop; intrekken status statushouders na 5 jaar." },
-        { text: "Werkmigratie buiten EU bevriezen." },
-        { text: "Strenge handhaving op terugkeer." },
-      ],
-    },
-    economie: {
-      summary:
-        "Lastenverlichting middeninkomens; behoud sociale voorzieningen voor 'eigen' burgers.",
-      bullets: [
-        { text: "BTW boodschappen naar 0%." },
-        { text: "AOW-leeftijd terug naar 65." },
-        { text: "Voorrang Nederlanders op uitkeringen." },
-      ],
-    },
-    eu: {
-      summary:
-        "Sterk EU-kritisch: Nexit-referendum op termijn, vetorecht behouden, geen Europees leger.",
-      bullets: [
-        { text: "Vetorecht behouden op alle terreinen." },
-        { text: "Referendum over EU op middellange termijn." },
-        { text: "Geen Europees leger; sterke NAVO-band met VS." },
       ],
     },
   },

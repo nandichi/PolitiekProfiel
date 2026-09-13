@@ -9,10 +9,12 @@ export const AiContent: CollectionConfig = {
     useAsTitle: "slug",
     defaultColumns: ["slug", "kind", "generatedAt", "model"],
     description:
-      "Vooraf gegenereerde teksten voor de resultaatpagina. Build-time gegenereerd, gebruiker-data raakt nooit OpenAI.",
+      "Gearchiveerde, vooraf gegenereerde teksten. Niet publiek en niet gebruikt op de resultaatpagina's.",
   },
   access: {
-    read: () => true,
+    // Deze collectie is archiefmateriaal voor redactie. Resultaatpagina's tonen
+    // uitsluitend de versiebeheerde, handmatig gecontroleerde brondata.
+    read: ({ req }) => Boolean(req.user),
     create: ({ req }) => Boolean(req.user),
     update: ({ req }) => Boolean(req.user),
     delete: ({ req }) => Boolean(req.user),

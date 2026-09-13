@@ -10,20 +10,20 @@ export interface SeedCountry {
 }
 
 const vdem: SeedSource = {
-  label: "V-Dem Institute – Liberal Democracy Index 2025",
+  label: "V-Dem Institute – dataset over democratie en rechtsstaat (laatste beschikbare editie)",
   url: "https://v-dem.net/data/",
 };
 const heritage: SeedSource = {
-  label: "Heritage Foundation – Index of Economic Freedom 2025",
+  label: "Heritage Foundation – Index of Economic Freedom (laatste beschikbare editie)",
   url: "https://www.heritage.org/index/",
 };
 const rsf: SeedSource = {
-  label: "Reporters Without Borders – Press Freedom Index 2025",
+  label: "Reporters Without Borders – Press Freedom Index (laatste beschikbare editie)",
   url: "https://rsf.org/en/index",
 };
 const eurobarometer: SeedSource = {
-  label: "Eurobarometer Standard 102 (2024)",
-  url: "https://europa.eu/eurobarometer/surveys/detail/3215",
+  label: "Eurobarometer – publieke opinie in de EU (laatste beschikbare standaardmeting)",
+  url: "https://europa.eu/eurobarometer/surveys/standard-eurobarometer",
 };
 const oecd: SeedSource = {
   label: "OECD – Trust in Government 2024",
@@ -189,7 +189,7 @@ export const COUNTRIES: SeedCountry[] = [
     name: "Bulgarije",
     countryCode: "BG",
     description:
-      "Politiek versnipperd, kwetsbaar voor populisme. Lid van EU en NAVO, maar nog grote uitdagingen op rechtsstaat en vertrouwen.",
+      "Politiek versnipperd en kwetsbaar voor populisme. Lid van EU en NAVO; sinds 1 januari 2026 ook lid van de eurozone. De rechtsstaat en het vertrouwen in instituties blijven aandachtspunten.",
     positionVector: { economic: 25, social: -30, civil: 0, governance: 10, trust: -30 },
     sources: baseEU,
   },

@@ -17,6 +17,16 @@ export interface SeedIdeology {
   spectrumPosition: SpectrumPosition;
   profileVector: DimensionScores;
   examplePeople: string[];
+  /** Curated, static reading list. Each entry is checked before a content refresh. */
+  furtherReading?: Array<{
+    title: string;
+    author: string;
+    publisher?: string;
+    url: string;
+    note: string;
+  }>;
+  /** Primary or scholarly orientation sources for the short profile. */
+  sources?: Array<{ label: string; url: string }>;
 }
 
 export const IDEOLOGIES: SeedIdeology[] = [

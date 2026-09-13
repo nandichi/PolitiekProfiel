@@ -92,7 +92,7 @@ export default function IdeologieenPage() {
         </ScrollRevealItem>
         <ScrollRevealItem>
           <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
-            Geen ideologie is een toetssteen voor 'goed' of 'fout'. Wij beschrijven
+            Geen ideologie is een toetssteen voor &apos;goed&apos; of &apos;fout&apos;. Wij beschrijven
             ze als coherente verzamelingen ideeën, met hun kerngedachten, hun
             voorbeelden en de bijbehorende positie op de vijf dimensies.
           </p>

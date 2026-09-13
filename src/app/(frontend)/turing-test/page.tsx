@@ -36,7 +36,7 @@ interface PageProps {
 
 export default async function TuringTestPage({ searchParams }: PageProps) {
   const sp = await searchParams;
-  const seed = sp.seed ? Number(sp.seed) : Math.floor(Math.random() * 1_000_000);
+  const seed = sp.seed ? Number(sp.seed) : 20260913;
   const n = sp.n ? Math.max(3, Math.min(15, Number(sp.n))) : 8;
   const quotes = pickQuotes(n, seed);
 
@@ -91,7 +91,7 @@ export default async function TuringTestPage({ searchParams }: PageProps) {
           </ScrollRevealItem>
           <ScrollRevealItem>
             <p className="mt-4 text-sm text-ink-2 leading-relaxed">
-              Citaten komen uit Kamerdebatten, verkiezingsprogramma's of openbare
+              Citaten komen uit Kamerdebatten, verkiezingsprogramma&apos;s of openbare
               interviews uit 2024-2026. Sommige zijn geparafraseerd voor
               leesbaarheid (gemarkeerd). De bibliotheek bevat in totaal{" "}
               {TURING_QUOTES.length} citaten verdeeld over drie kampen: links,
@@ -110,7 +110,7 @@ export default async function TuringTestPage({ searchParams }: PageProps) {
                 Langere ronde (12)
               </Link>
               <Link
-                href={`/turing-test?seed=${Math.floor(Math.random() * 1_000_000)}`}
+                href={`/turing-test?seed=${seed + 1}&n=${n}`}
                 className="btn btn-ghost"
               >
                 Nieuwe ronde

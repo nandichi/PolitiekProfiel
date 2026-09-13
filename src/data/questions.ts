@@ -545,11 +545,11 @@ export const QUESTIONS: SeedQuestion[] = [
     statement:
       "Religieuze symbolen horen niet thuis bij overheidsfuncties (politie, rechter, leerkracht in het openbaar onderwijs).",
     dimension: "social",
-    direction: "positive",
+    direction: "negative",
     tiers: standardExtended,
     info: {
       context:
-        "In Nederland geldt een kleine-letterlijne in dit debat: politie en rechters dragen geen zichtbare religieuze tekens; sommige sectoren wel.",
+        "De vraag gaat over de spanning tussen neutraliteit van publieke functies en de godsdienstvrijheid van werknemers. Regels verschillen per functie en werkgever.",
       argumentsFor: [
         "Neutraliteit van de overheid versterkt vertrouwen voor alle burgers.",
         "Een uniform straalt gelijkheid uit, los van geloof.",
@@ -574,7 +574,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: extendedOnly,
     info: {
       context:
-        "De Staatscommissie MDMA adviseerde in 2024 een gecontroleerde regulering van MDMA voor volwassenen, mits omkleed met waarborgen. Het kabinet legde dit advies grotendeels naast zich neer; partijen als D66, VOLT en GL-PvdA blijven aandringen op een experiment.",
+        "De Staatscommissie MDMA adviseerde in 2024 een vorm van gereguleerde verkoop aan volwassenen, met stevige waarborgen. Het kabinet nam dat advies niet over. De vraag gaat over regulering versus verbod, niet over het gebruik van drugs zelf.",
       argumentsFor: [
         "Reguleren snijdt criminaliteit en maakt gebruik veiliger.",
         "Onderzoek wijst op relatief lage gezondheidsrisico’s bij begeleid gebruik.",
@@ -1243,7 +1243,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: allTiers,
     info: {
       context:
-        "De EU verdiept zich onder andere op gebied van defensie (ReArm Europe, 800 miljard, maart 2025), klimaat (Green Deal) en industriebeleid (Chips Act, AI Act). Onder druk van Trump 2.0 spraken NAVO-landen in juni 2025 in Den Haag af 5% van het bbp aan defensie te besteden tegen 2032.",
+        "De EU verdiept zich onder andere op gebied van defensie (ReArm Europe, 800 miljard, maart 2025), klimaat (Green Deal) en industriebeleid (Chips Act, AI Act). Onder druk van Trump 2.0 spraken NAVO-landen in juni 2025 in Den Haag af 5% van het bbp aan defensie te besteden tegen 2035.",
       argumentsFor: [
         "Op het wereldtoneel telt Europa alleen samen mee.",
         "Gezamenlijke aanpak is efficiënter voor klimaat, migratie en veiligheid.",
@@ -1313,7 +1313,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: standardExtended,
     info: {
       context:
-        "Onder Trump 2.0 is de Amerikaanse veiligheidsgarantie minder vanzelfsprekend. EU-Commissie lanceerde maart 2025 ReArm Europe (800 miljard). NAVO sprak in juni 2025 een norm van 5% bbp af (3,5% direct + 1,5% defensie-gerelateerd) tegen 2032.",
+        "Onder Trump 2.0 is de Amerikaanse veiligheidsgarantie minder vanzelfsprekend. EU-Commissie lanceerde maart 2025 ReArm Europe (800 miljard). NAVO sprak in juni 2025 een norm van 5% bbp af (3,5% direct + 1,5% defensie-gerelateerd) tegen 2035.",
       argumentsFor: [
         "Versnipperde nationale legers zijn duur en inefficiënt.",
         "Europa moet zichzelf kunnen verdedigen, los van Amerikaanse politiek.",

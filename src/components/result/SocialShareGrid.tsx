@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Share2 } from "lucide-react";
 import { motion } from "motion/react";
 import {
@@ -97,21 +97,15 @@ const PLATFORMS: PlatformTile[] = [
 ];
 
 export function SocialShareGrid({ shareId, ideologyName }: SocialShareGridProps) {
-  const [url, setUrl] = useState("");
-  const [canShare, setCanShare] = useState(false);
   const [igOpen, setIgOpen] = useState(false);
+  const url = `https://politiekprofiel.nl/r/${shareId}`;
+  const canShare = true;
 
   const text = `Mijn politieke profiel: ${ideologyName}.`;
   const encodedText = encodeURIComponent(text);
   const encodedUrl = url ? encodeURIComponent(url) : "";
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    setUrl(`${window.location.origin}/r/${shareId}`);
-    if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
-      setCanShare(true);
-    }
-  }, [shareId]);
+
 
   const nativeShare = useCallback(async () => {
     if (!url || typeof navigator === "undefined" || !navigator.share) return;

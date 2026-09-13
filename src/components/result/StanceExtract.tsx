@@ -39,14 +39,10 @@ export function StanceExtract({ items, emptyText }: StanceExtractProps) {
         // signedValue * weight gebeuren (in stance-extract.ts).
         const direction = item.value >= 0 ? "eens" : "oneens";
         const intensity = Math.abs(item.value) >= 2 ? "sterk" : "matig";
-        // derivedStance is in de CMS opgeslagen in eens-vorm. Bij een oneens-
-        // antwoord (value < 0) zou die zin het tegenovergestelde uitdrukken
-        // van wat de gebruiker vindt, dus vallen we dan terug op een correcte
-        // negatie-zin. De feitelijke stelling wordt eronder los getoond.
-        const stanceText =
-          item.value > 0 && item.derivedStance
-            ? item.derivedStance
-            : agreementFallback(item.value);
+        // Toon de letterlijke stelling met het daadwerkelijke antwoord erboven.
+        // Zo leest de bezoeker terug wat hij koos, zonder een generieke of
+        // door taalmodellen geformuleerde conclusie over zijn opvattingen.
+        const stanceText = item.statement;
         return (
           <li
             key={item.questionId}
@@ -62,8 +58,8 @@ export function StanceExtract({ items, emptyText }: StanceExtractProps) {
               <p className="display text-lg md:text-xl leading-snug text-ink wrap-break-word [hyphens:auto]">
                 {stanceText}
               </p>
-              <p className="mt-3 text-xs text-ink-muted italic wrap-break-word">
-                Op stelling: &ldquo;{item.statement}&rdquo;
+              <p className="mt-3 text-xs text-ink-muted">
+                Letterlijke stelling uit jouw quiz
               </p>
             </div>
           </li>
@@ -71,12 +67,4 @@ export function StanceExtract({ items, emptyText }: StanceExtractProps) {
       })}
     </ol>
   );
-}
-
-function agreementFallback(value: number): string {
-  const strength = Math.abs(value) === 2 ? "sterk" : "in zekere mate";
-  if (value > 0) {
-    return `Je bent het ${strength} eens met de stelling.`;
-  }
-  return `Je bent het ${strength} oneens met de stelling.`;
 }

@@ -1,5 +1,4 @@
 import type { PartyDoc } from "@/lib/result-data";
-import { LexicalRenderer } from "@/components/LexicalRenderer";
 
 const REGION_TITLES: Record<PartyDoc["region"], string> = {
   NL: "Nederlandse partijen",
@@ -71,9 +70,9 @@ export function PartyContext({ parties, ideologyName }: PartyContextProps) {
                     {party.abbreviation}
                   </span>
                 </div>
-                <div className="editorial-prose [&>p]:text-sm [&>p]:text-ink-2 [&>p]:leading-relaxed [&>p]:mt-2 [&>p:first-child]:mt-0">
-                  <LexicalRenderer value={party.description} />
-                </div>
+                <p className="mt-2 text-sm text-ink-2 leading-relaxed">
+                  {party.description}
+                </p>
                 {(party.founded || party.leader) && (
                   <p className="mt-3 mono text-[0.65rem] tracking-wider text-ink-subtle">
                     {[party.founded, party.leader].filter(Boolean).join(" · ").toUpperCase()}

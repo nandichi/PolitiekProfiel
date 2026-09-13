@@ -50,25 +50,53 @@ const europeElects: SeedSource = {
   url: "https://europeelects.eu/",
 };
 const tkFracties: SeedSource = {
-  label: "Tweede Kamer – Alle fractievoorzitters (mei 2026)",
-  url: "https://www.tweedekamer.nl/kamerleden_en_commissies/alle_fractievoorzitters",
+  label: "Tweede Kamer – Fracties en fractievoorzitters (13 september 2026)",
+  url: "https://www.tweedekamer.nl/kamerleden_en_commissies/fracties",
 };
 const rijksoverheid: SeedSource = {
-  label: "Rijksoverheid – Kabinet-Jetten beëdigd (23 februari 2026)",
-  url: "https://www.rijksoverheid.nl/actueel/nieuws/2026/02/23/kabinet-jetten-beedigd",
+  label: "Rijksoverheid – Kabinet-Jetten (sinds 2026)",
+  url: "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-jetten",
 };
 const dnaSource: SeedSource = {
   label: "NRC – Groep Markuszower start nieuwe partij (20 april 2026)",
   url: "https://www.nrc.nl/nieuws/2026/04/20/groep-markuszower-start-nieuwe-partij-rita-verdonk-sluit-zich-aan-a4925990",
 };
 
-const REVIEW_DATE = "2026-05-17";
+const internationalRoles: SeedSource = {
+  label: "Officiële regerings- en parlementspagina's (13 september 2026)",
+  url: "https://www.consilium.europa.eu/en/european-council/members/",
+};
+const ukGovernment: SeedSource = {
+  label: "GOV.UK – Prime Minister",
+  url: "https://www.gov.uk/government/ministers/prime-minister",
+};
+const usAdministration: SeedSource = {
+  label: "The White House – The Administration",
+  url: "https://www.whitehouse.gov/administration/",
+};
+const sandersSenate: SeedSource = {
+  label: "Office of Senator Bernie Sanders",
+  url: "https://sanders.senate.gov/",
+};
+const ocasioCortezHouse: SeedSource = {
+  label: "U.S. House Clerk – Alexandria Ocasio-Cortez",
+  url: "https://clerk.house.gov/Members/O000172",
+};
+const canadaGovernment: SeedSource = {
+  label: "Prime Minister of Canada",
+  url: "https://pm.gc.ca/en",
+};
+const frPresidency: SeedSource = {
+  label: "Élysée – Emmanuel Macron",
+  url: "https://www.elysee.fr/en/emmanuel-macron",
+};
+
+const REVIEW_DATE = "2026-09-13";
 
 export const POLITICIANS: SeedPolitician[] = [
-  // ============== NEDERLAND (16) ==============
-  // Stand 17 mei 2026, na kabinet-Jetten (beëdigd 23 februari 2026) en
-  // afsplitsing van Groep Markuszower uit de PVV (20 januari 2026,
-  // partij DNA opgericht 17 april 2026).
+  // ============== NEDERLAND (17) ==============
+  // Stand: 13 september 2026. Rollen en fractienamen zijn gecontroleerd
+  // tegen de Tweede Kamer en Rijksoverheid.
   {
     name: "Rob Jetten",
     role: "Minister-president (D66)",
@@ -127,12 +155,12 @@ export const POLITICIANS: SeedPolitician[] = [
   },
   {
     name: "Jesse Klaver",
-    role: "Fractievoorzitter GroenLinks-PvdA",
+    role: "Fractievoorzitter PRO",
     roleKind: "fractievoorzitter",
     country: "Nederland",
-    party: "GroenLinks-PvdA",
-    partySlug: "groenlinks-pvda",
-    bio: "Leidt de fractie van GroenLinks-PvdA sinds Frans Timmermans terugtrad na de verkiezingen van 29 oktober 2025. Sociaal-democratische koers met sterk klimaatprofiel en pleidooi voor publieke voorzieningen.",
+    party: "Progressief Nederland",
+    partySlug: "progressief-nederland",
+    bio: "Leidt de PRO-fractie in de Tweede Kamer. De partij combineert een sociaal-democratische koers met een sterk klimaatprofiel en pleidooien voor publieke voorzieningen.",
     positionVector: { economic: 60, social: 70, civil: 35, governance: 75, trust: 55 },
     isInternational: false,
     ideologySlugs: ["sociaal-democraat", "groen-progressief"],
@@ -160,7 +188,7 @@ export const POLITICIANS: SeedPolitician[] = [
     country: "Nederland",
     party: "PVV",
     partySlug: "pvv",
-    bio: "Oprichter en leider van de PVV sinds 2006. PVV werd in 2025 tweede partij (26 zetels), maar verloor op 20 januari 2026 zeven Kamerleden aan Groep Markuszower (later DNA), waardoor de fractie kromp tot 19. Combineert harde lijn op migratie en EU met sociale uitgaven voor de eigen kiezers en sterk wantrouwen jegens gevestigde instituties.",
+    bio: "Oprichter en leider van de PVV sinds 2006. De fractie telt 19 zetels. Wilders combineert een harde lijn op migratie en de EU met sociale uitgaven voor zijn kiezers en scherp wantrouwen jegens gevestigde instituties.",
     positionVector: { economic: 0, social: -90, civil: -40, governance: -85, trust: -75 },
     isInternational: false,
     ideologySlugs: ["populistisch-rechts", "nationaal-conservatief"],
@@ -182,13 +210,13 @@ export const POLITICIANS: SeedPolitician[] = [
     lastReviewed: REVIEW_DATE,
   },
   {
-    name: "Lidewij de Vos",
-    role: "Politiek leider en fractievoorzitter Forum voor Democratie",
+    name: "Ralf Dekker",
+    role: "Fractievoorzitter Forum voor Democratie",
     roleKind: "fractievoorzitter",
     country: "Nederland",
     party: "FvD",
     partySlug: "fvd",
-    bio: "Politiek leider en fractievoorzitter van FvD sinds 4 september 2025; volgde oprichter Thierry Baudet op als lijsttrekker. Bij de TK-verkiezingen van 29 oktober 2025 groeide FvD onder haar leiding van 3 naar 7 zetels ('Lidewij-effect'). Rechts-conservatieve, EU-kritische koers met libertaire economische trekken.",
+    bio: "Fractievoorzitter van FVD. De partij heeft 7 zetels en voert een rechts-conservatieve, EU-kritische koers met libertaire economische trekken.",
     positionVector: { economic: -55, social: -70, civil: 25, governance: -85, trust: -90 },
     isInternational: false,
     ideologySlugs: ["libertarier", "populistisch-rechts"],
@@ -197,12 +225,12 @@ export const POLITICIANS: SeedPolitician[] = [
   },
   {
     name: "Gidi Markuszower",
-    role: "Partijleider De Nederlandse Alliantie (DNA)",
-    roleKind: "partijleider",
+    role: "Fractievoorzitter Groep Markuszower (DNA)",
+    roleKind: "fractievoorzitter",
     country: "Nederland",
-    party: "DNA",
-    partySlug: "dna",
-    bio: "Voormalig PVV-Kamerlid en woordvoerder Justitie/Migratie. Leidde op 20 januari 2026 een afsplitsing van zeven PVV-Kamerleden (eerst als Groep Markuszower) en richtte op 17 april 2026 De Nederlandse Alliantie op, een open ledenpartij met focus op grenscontrole, soevereiniteit en joods-christelijke waarden.",
+    party: "Groep Markuszower (DNA)",
+    partySlug: "groep-markuszower",
+    bio: "Leidt de 7-koppige Groep Markuszower in de Tweede Kamer. De fractie ontstond na een breuk met de PVV in januari 2026; de bredere partijvorming eromheen wordt als DNA aangeduid.",
     positionVector: { economic: -10, social: -80, civil: -30, governance: -75, trust: -55 },
     isInternational: false,
     ideologySlugs: ["nationaal-conservatief", "populistisch-rechts"],
@@ -216,7 +244,7 @@ export const POLITICIANS: SeedPolitician[] = [
     country: "Nederland",
     party: "BBB",
     partySlug: "bbb",
-    bio: "Mede-oprichter van BBB en partijleider sinds 20 februari 2026; nam beide rollen (partijleider en fractievoorzitter) over van Caroline van der Plas na de electorale terugval in 2025 (4 zetels). Voormalig wethouder en regionaal bestuurder; vertegenwoordigt plattelandsbelangen, kritisch op stikstofbeleid en EU-regelgeving op landbouwgebied.",
+    bio: "Medeoprichter van BBB en partijleider. Henk Vermeer leidt een fractie van 3 zetels en vertegenwoordigt vooral plattelandsbelangen; BBB is kritisch op stikstofbeleid en EU-regelgeving voor de landbouw.",
     positionVector: { economic: -10, social: -50, civil: -20, governance: -50, trust: -30 },
     isInternational: false,
     ideologySlugs: ["klassiek-conservatief", "communitarist"],
@@ -224,13 +252,27 @@ export const POLITICIANS: SeedPolitician[] = [
     lastReviewed: REVIEW_DATE,
   },
   {
-    name: "Esther Ouwehand",
+    name: "Mona Keijzer",
+    role: "Fractievoorzitter Lid Keijzer",
+    roleKind: "fractievoorzitter",
+    country: "Nederland",
+    party: "Lid Keijzer",
+    partySlug: "lid-keijzer",
+    bio: "Fractievoorzitter van de eenpersoonsfractie Lid Keijzer in de Tweede Kamer.",
+    positionVector: { economic: -10, social: -50, civil: -20, governance: -50, trust: -30 },
+    isInternational: false,
+    ideologySlugs: ["klassiek-conservatief", "communitarist"],
+    sources: [tkFracties],
+    lastReviewed: REVIEW_DATE,
+  },
+  {
+    name: "Christine Teunissen",
     role: "Fractievoorzitter PvdD",
     roleKind: "fractievoorzitter",
     country: "Nederland",
     party: "PvdD",
     partySlug: "pvdd",
-    bio: "Leider van de Partij voor de Dieren. Combineert ecologisch radicalisme met progressieve sociale agenda en stevige kritiek op marktwerking in landbouw en zorg. PvdD behield 3 zetels in 2025.",
+    bio: "Fractievoorzitter van de Partij voor de Dieren. De partij combineert dierenwelzijn en ecologie met een progressieve sociale agenda en kritiek op marktwerking in landbouw en zorg.",
     positionVector: { economic: 60, social: 80, civil: 50, governance: 50, trust: 20 },
     isInternational: false,
     ideologySlugs: ["eco-socialist", "groen-progressief"],
@@ -301,11 +343,11 @@ export const POLITICIANS: SeedPolitician[] = [
     roleKind: "president",
     country: "Verenigde Staten",
     party: "Republican",
-    bio: "Sinds januari 2025 opnieuw president van de Verenigde Staten. Combineert nationaal-protectionisme, hardere migratielijn en wantrouwen jegens instituties. Lage approval (38% per voorjaar 2026), onder druk door impopulair tarievenbeleid.",
+    bio: "Sinds januari 2025 opnieuw president van de Verenigde Staten. Combineert nationaal-protectionisme, een harde migratielijn en scherpe kritiek op gevestigde instituties.",
     positionVector: { economic: -35, social: -85, civil: -50, governance: -85, trust: -85 },
     isInternational: true,
     ideologySlugs: ["populistisch-rechts", "nationaal-conservatief"],
-    sources: [europeElects],
+    sources: [europeElects, usAdministration],
     lastReviewed: REVIEW_DATE,
   },
   {
@@ -314,11 +356,11 @@ export const POLITICIANS: SeedPolitician[] = [
     roleKind: "senator",
     country: "Verenigde Staten",
     party: "Independent / Democratic",
-    bio: "Democratisch-socialistische senator, bekend van campagnes voor Medicare for All, hoger minimumloon en stevige belasting op vermogen. Trekt in 2025-2026 'Fighting Oligarchy'-rallies tegen Trumps tweede ambtstermijn.",
+    bio: "Onafhankelijke senator uit Vermont, bekend van campagnes voor Medicare for All, een hoger minimumloon en een zwaardere belasting op vermogen.",
     positionVector: { economic: 85, social: 60, civil: 40, governance: 25, trust: 0 },
     isInternational: true,
     ideologySlugs: ["sociaal-democraat", "eco-socialist"],
-    sources: [europeElects],
+    sources: [europeElects, sandersSenate],
     lastReviewed: REVIEW_DATE,
   },
   {
@@ -327,11 +369,11 @@ export const POLITICIANS: SeedPolitician[] = [
     roleKind: "congreslid",
     country: "Verenigde Staten",
     party: "Democratic",
-    bio: "Progressief Congreslid uit New York en boegbeeld van de linkervleugel binnen de Democraten. Pleit voor Green New Deal en uitbreiding sociale voorzieningen. Steeds vaker genoemd als kandidaat voor de progressieve presidentslijn in 2028.",
+    bio: "Progressief Congreslid uit New York en een gezicht van de linkervleugel van de Democratische Partij. Pleit voor de Green New Deal en uitbreiding van sociale voorzieningen.",
     positionVector: { economic: 80, social: 85, civil: 45, governance: 25, trust: 5 },
     isInternational: true,
     ideologySlugs: ["eco-socialist", "groen-progressief"],
-    sources: [europeElects],
+    sources: [europeElects, ocasioCortezHouse],
     lastReviewed: REVIEW_DATE,
   },
   {
@@ -340,11 +382,11 @@ export const POLITICIANS: SeedPolitician[] = [
     roleKind: "president",
     country: "Frankrijk",
     party: "Renaissance",
-    bio: "President van Frankrijk sinds 2017; niet meer herkiesbaar in 2027. Pro-Europese centristische koers; combineert markthervormingen met sterke pleidooien voor Europese soevereiniteit.",
+    bio: "President van Frankrijk sinds 2017 en in 2022 herkozen. Hij kan zich volgens de huidige grondwettelijke termijnlimiet niet opnieuw kandidaat stellen in 2027. Zijn koers is pro-Europees en centristisch, met markthervormingen en nadruk op Europese soevereiniteit.",
     positionVector: { economic: -10, social: 30, civil: 10, governance: 85, trust: 55 },
     isInternational: true,
     ideologySlugs: ["technocratisch-centrist", "sociaal-liberaal"],
-    sources: [europeElects],
+    sources: [europeElects, frPresidency],
     lastReviewed: REVIEW_DATE,
   },
   {
@@ -353,7 +395,7 @@ export const POLITICIANS: SeedPolitician[] = [
     roleKind: "fractievoorzitter",
     country: "Frankrijk",
     party: "Rassemblement National",
-    bio: "Leider van het Franse Rassemblement National in de Assemblée. In maart 2025 veroordeeld tot vier jaar celstraf en een vijfjarig verkiezingsverbod wegens fraude met EU-gelden; hoger beroep loopt. Adjunct Jordan Bardella wordt vooralsnog beoogd kandidaat voor de presidentsverkiezingen van 2027.",
+    bio: "Afgevaardigde voor Rassemblement National in de Franse Assemblée. Haar politieke profiel is nationalistisch en eurosceptisch, met een restrictieve migratiekoers.",
     positionVector: { economic: 15, social: -85, civil: -40, governance: -90, trust: -75 },
     isInternational: true,
     ideologySlugs: ["populistisch-rechts", "nationaal-conservatief"],
@@ -370,7 +412,7 @@ export const POLITICIANS: SeedPolitician[] = [
     positionVector: { economic: -45, social: -30, civil: -10, governance: 35, trust: 30 },
     isInternational: true,
     ideologySlugs: ["conservatief-liberaal", "christen-democraat"],
-    sources: [europeElects],
+    sources: [europeElects, internationalRoles],
     lastReviewed: REVIEW_DATE,
   },
   {
@@ -396,20 +438,20 @@ export const POLITICIANS: SeedPolitician[] = [
     positionVector: { economic: -10, social: -75, civil: -30, governance: -45, trust: -20 },
     isInternational: true,
     ideologySlugs: ["nationaal-conservatief", "klassiek-conservatief"],
-    sources: [europeElects],
+    sources: [europeElects, internationalRoles],
     lastReviewed: REVIEW_DATE,
   },
   {
-    name: "Keir Starmer",
+    name: "Andy Burnham",
     role: "Premier Verenigd Koninkrijk",
     roleKind: "premier",
     country: "Verenigd Koninkrijk",
     party: "Labour",
-    bio: "Premier van het VK sinds 2024. Centrum-links profiel: pragmatische sociale agenda, herstel van banden met Europa en focus op publieke voorzieningen.",
+    bio: "Premier van het Verenigd Koninkrijk sinds 20 juli 2026 en leider van de Labour Party. Zijn politieke profiel is centrum-links, met aandacht voor publieke diensten, sociale zorg en decentralisatie.",
     positionVector: { economic: 35, social: 40, civil: 20, governance: 25, trust: 50 },
     isInternational: true,
     ideologySlugs: ["sociaal-democraat", "sociaal-liberaal"],
-    sources: [europeElects],
+    sources: [europeElects, ukGovernment],
     lastReviewed: REVIEW_DATE,
   },
   {
@@ -422,7 +464,7 @@ export const POLITICIANS: SeedPolitician[] = [
     positionVector: { economic: 25, social: 60, civil: 45, governance: 55, trust: 65 },
     isInternational: true,
     ideologySlugs: ["sociaal-liberaal", "technocratisch-centrist"],
-    sources: [europeElects],
+    sources: [europeElects, canadaGovernment],
     lastReviewed: REVIEW_DATE,
   },
 ];

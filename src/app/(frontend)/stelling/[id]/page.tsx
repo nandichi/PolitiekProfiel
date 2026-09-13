@@ -200,7 +200,7 @@ export default async function StellingDetailPage({ params }: PageProps) {
           <Container width="bleed" className="py-12 md:py-16">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
-                <Kicker number={3}>Beleidsthema's waarop deze stelling raakt</Kicker>
+                <Kicker number={3}>Beleidsthema&apos;s waarop deze stelling raakt</Kicker>
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl">

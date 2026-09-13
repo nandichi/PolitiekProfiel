@@ -1,6 +1,7 @@
 import "server-only";
 
 import { payload } from "@/lib/payload";
+import { getStaticQuestionById, isStaticQuestionId } from "@/lib/static-question-data";
 import type { DimensionId } from "@/lib/dimensions";
 import type { ThemeId } from "@/lib/themes";
 import type { StoredAnswer } from "@/lib/results-store";
@@ -25,17 +26,36 @@ export async function extractStances(
   const ids = answers.map((a) => a.questionId).filter((n) => Number.isInteger(n));
   if (ids.length === 0) return [];
 
-  const p = await payload();
-  const res = await p.find({
-    collection: "questions",
-    where: { id: { in: ids } },
-    limit: ids.length + 10,
-    depth: 0,
-    pagination: false,
-  });
-  const docs = res.docs as unknown as QuestionDoc[];
   const byId = new Map<number, QuestionDoc>();
-  for (const d of docs) byId.set(d.id, d);
+  const legacyIds = ids.filter((id) => !isStaticQuestionId(id));
+
+  for (const id of ids.filter(isStaticQuestionId)) {
+    const question = await getStaticQuestionById(id);
+    if (!question) continue;
+    byId.set(id, {
+      id,
+      statement: question.statement,
+      dimension: question.dimension,
+      direction: question.direction,
+      weight: question.weight,
+      themes: question.themes,
+      derivedStance: question.derivedStance,
+    });
+  }
+
+  if (legacyIds.length > 0) {
+    const p = await payload();
+    const res = await p.find({
+      collection: "questions",
+      where: { id: { in: legacyIds } },
+      limit: legacyIds.length + 10,
+      depth: 0,
+      pagination: false,
+    });
+    for (const doc of res.docs as unknown as QuestionDoc[]) {
+      byId.set(doc.id, doc);
+    }
+  }
 
   const candidates: StanceItem[] = [];
   for (const a of answers) {
@@ -81,11 +101,20 @@ export async function getQuestionsByIds(
 ): Promise<Map<number, { id: number; statement: string }>> {
   const map = new Map<number, { id: number; statement: string }>();
   if (ids.length === 0) return map;
+  const staticIds = ids.filter(isStaticQuestionId);
+  for (const id of staticIds) {
+    const question = await getStaticQuestionById(id);
+    if (question) map.set(id, { id, statement: question.statement });
+  }
+
+  const legacyIds = ids.filter((id) => !isStaticQuestionId(id));
+  if (legacyIds.length === 0) return map;
+
   const p = await payload();
   const res = await p.find({
     collection: "questions",
-    where: { id: { in: ids as number[] } },
-    limit: ids.length + 10,
+    where: { id: { in: legacyIds } },
+    limit: legacyIds.length + 10,
     depth: 0,
     pagination: false,
   });

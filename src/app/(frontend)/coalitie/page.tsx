@@ -99,11 +99,11 @@ export default async function CoalitiePage({ searchParams }: PageProps) {
         </ScrollRevealItem>
         <ScrollRevealItem>
           <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
-            Met de zetelverdeling van de Tweede Kamer (TK 2025) zoek je
-            zelf naar een meerderheid van 76 zetels. Per geselecteerde
-            combinatie zie je het zetel-gewogen zwaartepunt op de vijf
-            dimensies en de maximale onderlinge afstand &mdash; een ruwe
-            maat voor politieke spanning binnen de coalitie.
+            Met de actuele zetelverdeling van de Tweede Kamer (stand 13 september
+            2026) zoek je zelf naar een meerderheid van 76 zetels. Per geselecteerde
+            combinatie zie je het zetelgewogen zwaartepunt op de vijf dimensies en de
+            maximale onderlinge afstand, een ruwe maat voor politieke spanning binnen
+            de coalitie.
           </p>
         </ScrollRevealItem>
         <ScrollRevealItem>

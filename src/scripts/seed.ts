@@ -17,29 +17,82 @@ type SeedCollection =
   | "countries"
   | "parties";
 
+// Bij een inhoudelijke herformulering houden we bestaande klantresultaten
+// gekoppeld aan hetzelfde vraagdocument. Zonder deze alias zou de seed een
+// tweede vraag aanmaken en oude antwoorden loslaten.
+const QUESTION_PREVIOUS_STATEMENTS: Record<string, string[]> = {
+  "De achtergrond van politici en bestuurders weerspiegelt de samenleving onvoldoende.": [
+    "Politieke macht in Nederland is overgenomen door een elite die niet representatief is voor de bevolking.",
+  ],
+};
+
+const LEGACY_PARTY_SLUGS: Record<string, string[]> = {
+  "progressief-nederland": ["groenlinks-pvda"],
+  "groep-markuszower": ["dna"],
+};
+
+const LEGACY_POLITICIAN_NAMES: Record<string, string[]> = {
+  "Ralf Dekker": ["Lidewij de Vos"],
+  "Christine Teunissen": ["Esther Ouwehand"],
+};
+
 async function upsert(
   payload: Awaited<ReturnType<typeof getPayload>>,
   collection: SeedCollection,
   whereField: string,
   whereValue: string,
   data: Record<string, unknown>,
+  aliases: string[] = [],
 ) {
-  const existing = await payload.find({
-    collection,
-    where: { [whereField]: { equals: whereValue } },
-    limit: 1,
-    depth: 0,
-  });
-  if (existing.docs.length > 0) {
-    await (payload.update as (args: unknown) => Promise<unknown>)({
+  for (const candidate of [whereValue, ...aliases]) {
+    const existing = await payload.find({
       collection,
-      id: existing.docs[0].id,
-      data,
+      where: { [whereField]: { equals: candidate } },
+      limit: 1,
+      depth: 0,
     });
-    return "updated" as const;
+    if (existing.docs.length > 0) {
+      await (payload.update as (args: unknown) => Promise<unknown>)({
+        collection,
+        id: existing.docs[0].id,
+        data,
+      });
+      return "updated" as const;
+    }
   }
   await (payload.create as (args: unknown) => Promise<unknown>)({
     collection,
+    data,
+  });
+  return "created" as const;
+}
+
+async function upsertQuestion(
+  payload: Awaited<ReturnType<typeof getPayload>>,
+  statement: string,
+  data: Record<string, unknown>,
+) {
+  for (const candidate of [
+    statement,
+    ...(QUESTION_PREVIOUS_STATEMENTS[statement] ?? []),
+  ]) {
+    const existing = await payload.find({
+      collection: "questions",
+      where: { statement: { equals: candidate } },
+      limit: 1,
+      depth: 0,
+    });
+    if (existing.docs.length > 0) {
+      await (payload.update as (args: unknown) => Promise<unknown>)({
+        collection: "questions",
+        id: existing.docs[0].id,
+        data,
+      });
+      return "updated" as const;
+    }
+  }
+  await (payload.create as (args: unknown) => Promise<unknown>)({
+    collection: "questions",
     data,
   });
   return "created" as const;
@@ -77,7 +130,7 @@ async function main() {
   let qUpdated = 0;
   for (const q of ALL_QUESTIONS) {
     const tags = tagQuestion(q);
-    const res = await upsert(payload, "questions", "statement", q.statement, {
+    const res = await upsertQuestion(payload, q.statement, {
       statement: q.statement,
       dimension: q.dimension,
       direction: q.direction,
@@ -137,7 +190,7 @@ async function main() {
       })),
       lastReviewed: p.lastReviewed,
       sources: p.sources.map((s) => ({ label: s.label, url: s.url })),
-    });
+    }, LEGACY_POLITICIAN_NAMES[p.name] ?? []);
     if (res === "created") pCreated++;
     else pUpdated++;
   }
@@ -165,7 +218,7 @@ async function main() {
       cpbReviewed2025: party.cpbReviewed2025 ?? false,
       lastReviewed: party.lastReviewed,
       sources: party.sources.map((s) => ({ label: s.label, url: s.url })),
-    });
+    }, LEGACY_PARTY_SLUGS[party.slug] ?? []);
     if (res === "created") prCreated++;
     else prUpdated++;
   }

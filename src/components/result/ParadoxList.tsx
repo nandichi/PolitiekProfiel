@@ -1,11 +1,8 @@
 import type { ParadoxSignal } from "@/lib/paradox";
 import { paradoxTitle } from "@/lib/paradox";
-import type { AiContentRecord } from "@/lib/ai-content";
-import { AiContentBlock } from "./AiContentBlock";
 
 export interface ParadoxItemContext {
   signal: ParadoxSignal;
-  aiContent?: AiContentRecord | null;
   examples?: Array<{ id: number; statement: string }>;
 }
 
@@ -45,13 +42,9 @@ export function ParadoxList({ items, emptyText }: ParadoxListProps) {
               <h3 className="display text-xl md:text-2xl leading-tight text-ink wrap-break-word [hyphens:auto]">
                 {paradoxTitle(ctx.signal.type)}
               </h3>
-              <div className="mt-4">
-                <AiContentBlock
-                  content={ctx.aiContent}
-                  fallback={ctx.signal.description}
-                  variant="compact"
-                />
-              </div>
+              <p className="mt-4 max-w-2xl text-sm text-ink-2 leading-relaxed">
+                {ctx.signal.description}
+              </p>
               {ctx.examples && ctx.examples.length > 0 && (
                 <div className="mt-5 border-l-2 border-rule pl-4">
                   <p className="kicker mb-3">Antwoorden die hier op wezen</p>

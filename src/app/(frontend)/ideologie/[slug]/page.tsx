@@ -5,27 +5,17 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
 import { DimensionBar } from "@/components/DimensionBar";
+import { IDEOLOGY_READING } from "@/data/ideology-reading";
 import {
   ScrollReveal,
   ScrollRevealItem,
 } from "@/components/motion/ScrollReveal";
 import { DIMENSIONS } from "@/lib/dimensions";
 import {
-  getAiContentBySlug,
-  getAiContentBySlugs,
-  ideologyArgumentsAgainstSlug,
-  ideologyArgumentsForSlug,
-  ideologyEssaySlug,
-  ideologyReadingSlug,
-  ideologyThemeSlug,
-} from "@/lib/ai-content";
-import { AiContentBlock, AiContentItemList } from "@/components/result/AiContentBlock";
-import {
   getAllIdeologiesSeed,
   getAllPartiesSeed,
   getIdeologyBySlugSeed,
 } from "@/lib/seed-readers";
-import { THEMES } from "@/lib/themes";
 import {
   buildArticleSchema,
   buildBreadcrumbList,
@@ -77,33 +67,21 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
   const ideology = getIdeologyBySlugSeed(slug);
   if (!ideology) notFound();
 
-  // AI-content slots ophalen (kan ontbreken, afhankelijk van of de generator
-  // gedraaid is). Page rendert ook gracieus zonder.
-  const slots = await getAiContentBySlugs([
-    ideologyEssaySlug(slug),
-    ideologyReadingSlug(slug),
-    ideologyArgumentsForSlug(slug),
-    ideologyArgumentsAgainstSlug(slug),
-    ...THEMES.map((t) => ideologyThemeSlug(slug, t.id)),
-  ]);
 
-  const essay = slots.get(ideologyEssaySlug(slug)) ?? null;
-  const reading = slots.get(ideologyReadingSlug(slug)) ?? null;
-  const argFor = slots.get(ideologyArgumentsForSlug(slug)) ?? null;
-  const argAgainst = slots.get(ideologyArgumentsAgainstSlug(slug)) ?? null;
 
   const relatedParties = getAllPartiesSeed().filter((p) =>
     p.ideologySlugs.includes(slug),
   );
   const otherIdeologies = getAllIdeologiesSeed().filter((i) => i.slug !== slug);
+  const curatedReading = IDEOLOGY_READING[slug] ?? [];
 
   const path = `/ideologie/${slug}`;
   const articleLd = buildArticleSchema({
     path,
-    headline: `${ideology.name}: een politieke deepdive`,
+    headline: `${ideology.name}: een grondige uitleg`,
     description: ideology.shortDescription,
     datePublished: "2026-05-01",
-    dateModified: "2026-05-17",
+    dateModified: "2026-09-13",
     articleSection: "Ideologieën",
   });
   const breadcrumbLd = buildBreadcrumbList([
@@ -191,10 +169,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
             </ScrollRevealItem>
             <ScrollRevealItem>
               <div className="mt-8 max-w-3xl">
-                <AiContentBlock
-                  content={essay}
-                  fallback={ideology.description}
-                />
+                <StaticProse text={ideology.description} />
               </div>
             </ScrollRevealItem>
           </ScrollReveal>
@@ -230,58 +205,71 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Argumenten voor / tegen */}
-      {(argFor || argAgainst) && (
+      {ideology.sources?.length ? (
         <section className="border-t border-rule">
-          <Container width="bleed" className="py-16 md:py-24">
+          <Container width="bleed" className="py-16 md:py-20">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
-                <Kicker number={4}>Argumenten</Kicker>
+                <Kicker number={4}>Bronnen</Kicker>
                 <h2 className="display mt-5 max-w-3xl">
-                  De sterkste argumenten voor én tegen.
+                  Waar deze korte duiding op steunt.
                 </h2>
               </ScrollRevealItem>
               <ScrollRevealItem>
-                <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl">
-                  <div>
-                    <p className="kicker mb-4">Argumenten vóór</p>
-                    <AiContentItemList
-                      content={argFor}
-                      emptyText="Nog niet beschikbaar."
-                    />
-                  </div>
-                  <div>
-                    <p className="kicker mb-4">Argumenten tegen</p>
-                    <AiContentItemList
-                      content={argAgainst}
-                      emptyText="Nog niet beschikbaar."
-                    />
-                  </div>
-                </div>
+                <ul className="mt-8 max-w-3xl border-t border-rule">
+                  {ideology.sources.map((source) => (
+                    <li key={source.url} className="border-b border-rule py-3">
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-ink hover:text-navy no-underline"
+                      >
+                        {source.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </ScrollRevealItem>
             </ScrollReveal>
           </Container>
         </section>
-      )}
+      ) : null}
 
-      {/* Verder lezen */}
-      {reading && (
+      {curatedReading.length ? (
         <section className="border-t border-rule bg-paper-50/40">
           <Container width="bleed" className="py-16 md:py-20">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
                 <Kicker number={5}>Verder lezen</Kicker>
-                <h2 className="display mt-5">Bronnen en denkers.</h2>
+                <h2 className="display mt-5">Boeken en essays.</h2>
               </ScrollRevealItem>
               <ScrollRevealItem>
-                <div className="mt-8 max-w-3xl">
-                  <AiContentItemList content={reading} />
-                </div>
+                <ul className="mt-8 max-w-3xl divide-y divide-rule border-t border-rule">
+                  {curatedReading.map((book) => (
+                    <li key={book.url} className="py-4">
+                      <a
+                        href={book.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="no-underline text-ink hover:text-navy"
+                      >
+                        <span className="display text-lg leading-tight">{book.title}</span>
+                        <span className="block mt-1 text-sm text-ink-2">
+                          {book.author} ({book.year})
+                        </span>
+                        <span className="block mt-2 text-sm text-ink-muted leading-relaxed">
+                          {book.note}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </ScrollRevealItem>
             </ScrollReveal>
           </Container>
         </section>
-      )}
+      ) : null}
 
       {/* Verwante partijen */}
       {relatedParties.length > 0 && (
@@ -355,5 +343,18 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
         </Container>
       </section>
     </>
+  );
+}
+
+function StaticProse({ text }: { text: string }) {
+  return (
+    <div className="space-y-5 text-base md:text-lg text-ink-2 leading-relaxed">
+      {text
+        .split(/\n{2,}/)
+        .filter(Boolean)
+        .map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+    </div>
   );
 }

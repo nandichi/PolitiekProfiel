@@ -71,7 +71,7 @@ function coalitionSpread(parties: ReadonlyArray<CoalitionInput>): number {
  * Genereer alle coalities tot maxSize partijen die samen minimaal majority
  * zetels halen. Aflopend gesorteerd op match (laagste afstand eerst).
  *
- * Performance: voor 16 partijen × maxSize 6 = ~14_500 combinaties, prima
+ * Performance: voor 17 partijen × maxSize 6 = ~21.800 combinaties, prima
  * voor server-side rendering en build-time.
  */
 export function findCoalitions(options: {

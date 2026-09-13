@@ -69,8 +69,8 @@ export default function PoliticiOverviewPage() {
         <ScrollRevealItem>
           <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
             Posities zijn schattingen op basis van publieke standpunten,
-            verkiezingsprogramma's en Kieskompas. Per politicus: dichtstbijzijnde
-            ideologie, bio, en alle vijf scores. Geactualiseerd 17 mei 2026.
+            verkiezingsprogramma&apos;s en Kieskompas. Per politicus: dichtstbijzijnde
+            ideologie, bio, en alle vijf scores. Geactualiseerd 13 september 2026.
           </p>
         </ScrollRevealItem>
       </ScrollReveal>
@@ -78,7 +78,7 @@ export default function PoliticiOverviewPage() {
       <Section
         title="Nederland: kabinet en Kamer"
         kickerNum={1}
-        subtitle={`${nl.length} politici. Inclusief premier Rob Jetten, vicepremier Yeşilgöz, fractievoorzitters en nieuwe partijleider DNA.`}
+        subtitle={`${nl.length} politici. Inclusief premier Rob Jetten, vicepremier Yeşilgöz, fractievoorzitters en Groep Markuszower.`}
       >
         <PoliticianGrid items={nl} />
       </Section>
