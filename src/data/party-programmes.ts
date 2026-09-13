@@ -29,20 +29,20 @@ export type PartyProgramme = Partial<Record<ThemeId, PartyProgrammeTheme>>;
 
 /** Generieke bronlink naar het verkiezingsprogramma per partij (2025). */
 export const PROGRAMME_SOURCES: Record<string, { label: string; url: string }> = {
-  d66: { label: "D66 – Verkiezingsprogramma 2025 'Een nieuw begin'", url: "https://d66.nl/verkiezingsprogramma" },
+  d66: { label: "D66 – Verkiezingsprogramma 2025-2030 'Het kan wél'", url: "https://d66.nl/verkiezingsprogramma" },
   pvv: { label: "PVV – Verkiezingsprogramma 2025 'Dit is uw land'", url: "https://www.pvv.nl/verkiezingsprogramma.html" },
-  vvd: { label: "VVD – Verkiezingsprogramma 2025 'Ruimte om vooruit te komen'", url: "https://www.vvd.nl/verkiezingsprogramma" },
-  "progressief-nederland": { label: "GroenLinks-PvdA – Verkiezingsprogramma 2025 'Tijd voor eerlijk'", url: "https://groenlinkspvda.nl/verkiezingsprogramma" },
-  cda: { label: "CDA – Verkiezingsprogramma 2025 'Recht doen aan Nederland'", url: "https://www.cda.nl/verkiezingsprogramma" },
-  ja21: { label: "JA21 – Verkiezingsprogramma 2025 'De Juiste Aanpak voor Nederland'", url: "https://ja21.nl/fileadmin/user_upload/Verkiezingsprogramma_JA21_TK25_DEF.pdf" },
+  vvd: { label: "VVD – Verkiezingsprogramma 2025 'Sterker uit de storm'", url: "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf" },
+  "progressief-nederland": { label: "GroenLinks-PvdA – Verkiezingsprogramma 2025 'Een nieuwe start voor Nederland'", url: "https://groenlinkspvda.nl/verkiezingsprogramma" },
+  cda: { label: "CDA – Verkiezingsprogramma 2025 'Bouwen op vertrouwen'", url: "https://www.cda.nl/verkiezingsprogramma" },
+  ja21: { label: "JA21 – Verkiezingsprogramma 2025 'De Juiste Aanpak voor Nederland'", url: "https://ja21.nl/partij-programma" },
   fvd: { label: "FvD – Presentatie verkiezingsprogramma 2025", url: "https://fvd.nl/nieuws/fvd-presenteert-kandidatenlijst-en-verkiezingsprogramma-een-nieuwe-kans-voor-nederland" },
-  bbb: { label: "BBB – Verkiezingsprogramma 2025 'BBB Levert!'", url: "https://boerburgerbeweging.nl/tweede-kamer/verkiezingsprogramma" },
+  bbb: { label: "BBB – Verkiezingsprogramma 2025 'BBB Levert!'", url: "https://boerburgerbeweging.nl/tweede-kamerverkiezingen-2025" },
   denk: { label: "DENK – Standpunten en verkiezingsprogramma 2025", url: "https://www.bewegingdenk.nl/standpunten/" },
-  christenunie: { label: "ChristenUnie – Verkiezingsprogramma 2025", url: "https://www.christenunie.nl/standpunten" },
-  sp: { label: "SP – Verkiezingsprogramma 2025", url: "https://www.sp.nl/standpunten" },
-  sgp: { label: "SGP – Verkiezingsprogramma 2025", url: "https://www.sgp.nl/standpunten" },
+  christenunie: { label: "ChristenUnie – Verkiezingsprogramma 2025 'Opstaan voor het goede'", url: "https://www.christenunie.nl/verkiezingsprogramma" },
+  sp: { label: "SP – Verkiezingsprogramma 2025 'Supersociaal!'", url: "https://www.sp.nl/nieuws/supersociaal-verkiezingsprogramma" },
+  sgp: { label: "SGP – Verkiezingsprogramma 2025 'Stem christelijk voor Nederland'", url: "https://sgp.nl/verkiezingsprogramma" },
   pvdd: { label: "Partij voor de Dieren – Verkiezingsprogramma 2025", url: "https://www.partijvoordedieren.nl/partijprogrammas/tweede-kamerverkiezingen-2025" },
-  "50plus": { label: "50PLUS – Verkiezingsprogramma 2025-2029", url: "https://www.50pluspartij.nl/verkiezingsprogramma-50plus/" },
+  "50plus": { label: "50PLUS – Verkiezingsprogramma 2025-2029", url: "https://www.50pluspartij.nl/verkiezingsprogramma-50plus" },
   volt: { label: "Volt – Verkiezingsprogramma 2025", url: "https://voltnederland.org/verkiezingsprogramma-2025" },
 };
 
@@ -50,7 +50,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
   d66: {
     klimaat: {
       summary:
-        "Doorzetten klimaatdoelen (netto-nul 2050, −60% CO₂ in 2030 t.o.v. 1990) met nadruk op kernenergie, groene industrie en eerlijke verdeling van lasten.",
+        "Doorzetten van een ambitieus klimaatpad richting netto-nul in 2050, met nadruk op kernenergie, groene industrie en een eerlijke verdeling van lasten.",
       bullets: [
         { text: "Bouw van vier nieuwe kerncentrales versnellen; tegelijk inzet op wind op zee en zonneparken." },
         { text: "Klimaatfonds van 35 miljard euro behouden voor verduurzaming industrie, woningen en mobiliteit." },
@@ -359,7 +359,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       bullets: [
         { text: "Burgerberaad klimaat met bindend advies." },
         { text: "Open begroting alle gemeenten via standaardformat." },
-        { text: "Tegen bindend referendum (gevaar van populisme)." },
+        { text: "Voorstander van een correctief referendum als extra invloedskanaal voor burgers." },
       ],
     },
     wonen: {
@@ -621,7 +621,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
         "Indexatie pensioenen; behoud koopkracht ouderen.",
       bullets: [
         { text: "Pensioenen volledig indexeren." },
-        { text: "AOW met 10% verhogen." },
+        { text: "AOW gekoppeld houden aan het minimumloon en een dertiende maand voor AOW'ers invoeren." },
       ],
     },
   },

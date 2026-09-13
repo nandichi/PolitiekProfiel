@@ -40,6 +40,10 @@ const ches: SeedSource = {
   label: "Chapel Hill Expert Survey 2024",
   url: "https://www.chesdata.eu/ches-europe",
 };
+const fvdFractieVoorzitterschap: SeedSource = {
+  label: "FVD – Ralf Dekker neemt fractievoorzitterschap tijdelijk waar (20 augustus 2026)",
+  url: "https://fvd.nl/international/weekly-forum/the-weekly-forum-20-august-2026",
+};
 const kieskompas: SeedSource = {
   label: "Kieskompas – Politieke kaart Nederland",
   url: "https://www.kieskompas.nl/",
@@ -155,7 +159,7 @@ export const PARTIES: SeedParty[] = [
       "Progressief Nederland heeft 20 zetels en zit in de oppositie tegen kabinet-Jetten. Jesse Klaver is fractievoorzitter. De partij combineert sociaal-democratische herverdeling met ambitieus klimaatbeleid en een pro-Europese koers.",
     positionVector: { economic: 65, social: 70, civil: 30, governance: 75, trust: 55 },
     ideologySlugs: ["sociaal-democraat", "groen-progressief"],
-    founded: "2023",
+    founded: "2026",
     leader: "Jesse Klaver",
     factionLeader: "Jesse Klaver",
     websiteUrl: "https://www.groenlinkspvda.nl",
@@ -215,7 +219,7 @@ export const PARTIES: SeedParty[] = [
     regionType: "national",
     country: "Nederland",
     description:
-      "Rechts-conservatieve en sterk EU-kritische partij met 7 zetels. Lidewij de Vos is politiek leider; Ralf Dekker is fractievoorzitter. De partij combineert libertaire economische ideeën met cultureel-conservatieve standpunten en wantrouwen jegens gevestigde instituties.",
+      "Rechts-conservatieve en sterk EU-kritische partij met 7 zetels. Lidewij de Vos blijft politiek leider. Ralf Dekker neemt het fractievoorzitterschap tijdelijk waar tijdens haar zwangerschapsverlof.",
     positionVector: { economic: -55, social: -70, civil: 25, governance: -85, trust: -90 },
     ideologySlugs: ["libertarier", "populistisch-rechts"],
     founded: "2016",
@@ -226,7 +230,7 @@ export const PARTIES: SeedParty[] = [
     seatsTK2025: 7,
     coalitionStatus: "opposition",
     cpbReviewed2025: false,
-    sources: [kieskompas, cbsKiesraad, tkFractievoorzitters],
+    sources: [kieskompas, cbsKiesraad, tkFractievoorzitters, fvdFractieVoorzitterschap],
   },
   {
     name: "Groep Markuszower (DNA)",
@@ -242,7 +246,7 @@ export const PARTIES: SeedParty[] = [
     founded: "2026",
     leader: "Gidi Markuszower",
     factionLeader: "Gidi Markuszower",
-    websiteUrl: "https://www.denederlandsevrijheidsalliantie.nl",
+    websiteUrl: "https://denederlandsealliantie.nl/",
     lastReviewed: REVIEW_DATE,
     seatsTK2025: 7,
     coalitionStatus: "splinter",
@@ -362,11 +366,11 @@ export const PARTIES: SeedParty[] = [
     regionType: "national",
     country: "Nederland",
     description:
-      "Eco-progressieve partij met 3 zetels. Christine Teunissen is fractievoorzitter. De partij zet dierenwelzijn en ecologie centraal en combineert dat met progressieve sociaal-economische standpunten.",
+      "Eco-progressieve partij met 3 zetels. Christine Teunissen is partijleider en fractievoorzitter; Esther Ouwehand blijft Kamerlid. De partij zet dierenwelzijn en ecologie centraal en combineert dat met progressieve sociaal-economische standpunten.",
     positionVector: { economic: 60, social: 80, civil: 50, governance: 50, trust: 20 },
     ideologySlugs: ["eco-socialist", "groen-progressief"],
     founded: "2002",
-    leader: "Esther Ouwehand",
+    leader: "Christine Teunissen",
     factionLeader: "Christine Teunissen",
     websiteUrl: "https://www.partijvoordedieren.nl",
     lastReviewed: REVIEW_DATE,
