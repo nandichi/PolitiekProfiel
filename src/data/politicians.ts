@@ -155,7 +155,7 @@ export const POLITICIANS: SeedPolitician[] = [
   },
   {
     name: "Jesse Klaver",
-    role: "Fractievoorzitter PRO",
+    role: "Fractievoorzitter Progressief Nederland (PRO)",
     roleKind: "fractievoorzitter",
     country: "Nederland",
     party: "Progressief Nederland",

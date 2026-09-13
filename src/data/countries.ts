@@ -10,24 +10,24 @@ export interface SeedCountry {
 }
 
 const vdem: SeedSource = {
-  label: "V-Dem Institute – dataset over democratie en rechtsstaat (laatste beschikbare editie)",
-  url: "https://v-dem.net/data/",
+  label: "V-Dem Dataset v16 (2025 country-year data, gepubliceerd maart 2026)",
+  url: "https://v-dem.net/data/the-v-dem-dataset/",
 };
 const heritage: SeedSource = {
-  label: "Heritage Foundation – Index of Economic Freedom (laatste beschikbare editie)",
-  url: "https://www.heritage.org/index/",
+  label: "Heritage Foundation – Index of Economic Freedom 2026",
+  url: "https://economicfreedom.heritage.org/",
 };
 const rsf: SeedSource = {
-  label: "Reporters Without Borders – Press Freedom Index (laatste beschikbare editie)",
-  url: "https://rsf.org/en/index",
+  label: "Reporters Without Borders – Press Freedom Index 2026",
+  url: "https://rsf.org/en/index?year=2026",
 };
 const eurobarometer: SeedSource = {
-  label: "Eurobarometer – publieke opinie in de EU (laatste beschikbare standaardmeting)",
-  url: "https://europa.eu/eurobarometer/surveys/standard-eurobarometer",
+  label: "Standard Eurobarometer 105 – Spring 2026",
+  url: "https://europa.eu/eurobarometer/surveys/browse/all/series/4961",
 };
 const oecd: SeedSource = {
-  label: "OECD – Trust in Government 2024",
-  url: "https://www.oecd.org/governance/trust-in-government/",
+  label: "OECD Survey on Drivers of Trust in Public Institutions 2026 Results",
+  url: "https://www.oecd.org/en/publications/oecd-survey-on-drivers-of-trust-in-public-institutions-2026-results_9eb63fec-en.html",
 };
 
 const baseEU: SeedSource[] = [vdem, heritage, eurobarometer];
