@@ -139,9 +139,8 @@ export default function HerroepingsrechtPage() {
           >
             <p>
               De betaalde quizzen kosten 5 euro (standaard) en 10 euro
-              (uitgebreid), exclusief btw. Op de betaalpagina wordt 21%
-              Nederlandse btw toegevoegd, waardoor je 6,05 euro respectievelijk
-              12,10 euro betaalt. Dat totaalbedrag staat ook op je bon. Alle
+              (uitgebreid), inclusief 21% btw. Daarvan is respectievelijk 0,87
+              euro en 1,74 euro btw; dat staat ook zo op je bon. Alle
               bedragen zijn in euro&apos;s. Eventuele transactiekosten van
               betaalmethodes worden afzonderlijk getoond voordat je betaalt.
               Aanbiedingen, kortingen en kortingscodes gelden alleen binnen de

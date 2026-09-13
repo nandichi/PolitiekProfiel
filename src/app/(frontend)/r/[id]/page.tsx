@@ -1029,7 +1029,7 @@ function InlinePaywall({ title, body }: { title: string; body: string }) {
                 className: "btn btn-primary",
                 children: (
                   <>
-                    Ontgrendel voor 6,05 euro
+                    Ontgrendel voor 5 euro
                     <ArrowRight size={16} strokeWidth={1.8} />
                   </>
                 ),
@@ -1037,7 +1037,7 @@ function InlinePaywall({ title, body }: { title: string; body: string }) {
               {
                 tier: "extended",
                 className: "btn btn-secondary",
-                children: <>Uitgebreid voor 12,10 euro</>,
+                children: <>Uitgebreid voor 10 euro</>,
               },
             ]}
           />
@@ -1099,7 +1099,7 @@ function FreeResultPaywall() {
                 Start de standaard quiz.
               </h3>
               <p className="mt-4 text-sm text-ink-2 leading-relaxed">
-                Voor 6,05 euro krijg je een volledig rapport op basis van 50
+                Voor 5 euro krijg je een volledig rapport op basis van 50
                 stellingen. Wil je maximale nuance, kies dan de uitgebreide quiz
                 van 80 vragen.
               </p>
@@ -1111,7 +1111,7 @@ function FreeResultPaywall() {
                       className: "btn btn-primary",
                       children: (
                         <>
-                          Koop standaard voor 6,05 euro
+                          Koop standaard voor 5 euro
                           <ArrowRight size={16} strokeWidth={1.8} />
                         </>
                       ),
@@ -1119,7 +1119,7 @@ function FreeResultPaywall() {
                     {
                       tier: "extended",
                       className: "btn btn-secondary",
-                      children: <>Uitgebreid voor 12,10 euro</>,
+                      children: <>Uitgebreid voor 10 euro</>,
                     },
                   ]}
                 />

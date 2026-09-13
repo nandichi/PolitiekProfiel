@@ -185,8 +185,8 @@ export default function HomePage() {
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <p className="text-sm text-ink-muted max-w-xs">
-                  Quick is gratis. Standaard kost 6,05 euro, uitgebreid 12,10
-                  euro, inclusief btw.
+                  Quick is gratis. Standaard kost 5 euro, uitgebreid 10 euro,
+                  inclusief btw.
                   <br />
                   Geen PolitiekProfiel-account nodig.
                 </p>
@@ -206,7 +206,7 @@ export default function HomePage() {
                 tier="standard"
                 title="Standaard"
                 minutes="10 min"
-                price="6,05 euro incl. btw"
+                price="5 euro incl. btw"
                 tagline="Onze aanbevolen lengte voor een degelijk profiel."
                 description="Het volledige rapport met thema's, standpunten, paradoxen, vergelijkingen en leesverdieping."
                 recommended
@@ -215,7 +215,7 @@ export default function HomePage() {
                 tier="extended"
                 title="Uitgebreid"
                 minutes="20 min"
-                price="12,10 euro incl. btw"
+                price="10 euro incl. btw"
                 tagline="Diepgaande analyse met de meeste nuances."
                 description="De langste quiz met extra standpunten, ruimere vergelijkingen en de meeste confidence."
               />
