@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock3 } from "lucide-react";
 import { Container } from "@/components/Container";
-import { ConsentCheckoutButton } from "@/components/ConsentCheckoutButton";
+import { CheckoutButton } from "@/components/CheckoutButton";
 import { Kicker } from "@/components/Kicker";
 import { LiveAxes } from "@/components/LiveAxes";
 import {
@@ -394,13 +394,13 @@ function TierCard({
       </p>
 
       {isPaid ? (
-        <ConsentCheckoutButton
+        <CheckoutButton
           tier={tier as "standard" | "extended"}
           className={recommended ? "btn bg-paper text-ink" : "btn btn-primary"}
         >
           Koop {title.toLowerCase()}
           <ArrowRight size={16} strokeWidth={1.8} />
-        </ConsentCheckoutButton>
+        </CheckoutButton>
       ) : (
         <span
           className={cx(

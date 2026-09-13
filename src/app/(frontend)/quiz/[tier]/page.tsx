@@ -7,7 +7,7 @@ import {
   getQuestionsForTier,
 } from "@/lib/quiz-data";
 import { QuizEngine } from "@/components/QuizEngine";
-import { ConsentCheckoutButton } from "@/components/ConsentCheckoutButton";
+import { CheckoutButton } from "@/components/CheckoutButton";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
 import type { Tier } from "@/lib/dimensions";
@@ -207,10 +207,10 @@ function PaidQuizGate({
             Resultaat kwijt? Stuur een bericht
           </Link>
         ) : (
-          <ConsentCheckoutButton tier={tier}>
+          <CheckoutButton tier={tier}>
             Koop voor {price}
             <ArrowRight size={16} strokeWidth={1.8} />
-          </ConsentCheckoutButton>
+          </CheckoutButton>
         )}
         <Link href="/quiz/quick" className="btn-ghost">
           Start gratis met 15 vragen

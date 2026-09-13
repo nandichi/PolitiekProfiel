@@ -208,18 +208,10 @@ export default function HerroepingsrechtPage() {
             accent="terra"
           >
             <p>
-              Het herroepingsrecht geldt <strong>niet</strong> wanneer je
-              uitdrukkelijk hebt gevraagd om directe levering van de
-              digitale inhoud en daarbij hebt verklaard dat je afziet van
-              het herroepingsrecht zodra de inhoud is geleverd. Concreet:
+              Het herroepingsrecht geldt <strong>niet</strong> wanneer de
+              digitale inhoud volledig is geleverd. Concreet:
             </p>
             <ul>
-              <li>
-                wanneer je op de bestelpagina expliciet aanvinkt dat je
-                direct toegang wilt en afstand doet van je herroepingsrecht,
-                en de inhoud volledig is geleverd, vervalt het
-                herroepingsrecht in zoverre;
-              </li>
               <li>
                 wanneer je de quiz inhoudelijk hebt afgerond (alle vragen
                 ingevuld en het resultaat opgehaald) binnen de bedenktijd,
@@ -234,9 +226,10 @@ export default function HerroepingsrechtPage() {
               </li>
             </ul>
             <p>
-              Buiten deze gevallen blijft de 14-dagen bedenktijd staan.
-              Twijfel je of jouw situatie onder een uitzondering valt? Mail
-              ons dan eerst voordat je tot aankoop overgaat.
+              Heb je de quiz niet afgerond, dan blijft de 14-dagen bedenktijd
+              staan. Twijfel je of jouw situatie onder een uitzondering valt?
+              Stuur ons dan eerst een bericht voordat je tot aankoop
+              overgaat.
             </p>
           </Block>
 

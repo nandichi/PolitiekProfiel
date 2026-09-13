@@ -7,18 +7,14 @@ interface CheckoutResponse {
   error?: string;
 }
 
-/**
- * Start een Stripe-checkout voor een betaalde quiz. De verklaring dat de klant
- * direct toegang wil (en dus afstand doet van het herroepingsrecht) gaat altijd
- * mee: het endpoint weigert een checkout zonder die bevestiging.
- */
+/** Start een Stripe-checkout voor een betaalde quiz. */
 export async function startStripeCheckout(
   tier: PaidTierButtonTier,
 ): Promise<void> {
   const res = await fetch("/api/stripe/checkout", {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ tier, immediateAccessConsent: true }),
+    body: JSON.stringify({ tier }),
   });
   const json = (await res.json().catch(() => ({}))) as CheckoutResponse;
   if (!res.ok || !json.url) {
