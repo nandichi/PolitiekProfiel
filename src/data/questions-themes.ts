@@ -10,7 +10,7 @@ const ipcc: SeedSource = {
 };
 const rivm: SeedSource = {
   label: "RIVM – Volksgezondheid Toekomst Verkenning",
-  url: "https://www.vtv2024.nl/",
+  url: "https://www.rivm.nl/volksgezondheid-toekomst-verkenning-vtv",
 };
 const nza: SeedSource = {
   label: "Nederlandse Zorgautoriteit – Stand van de zorg",
@@ -22,11 +22,11 @@ const ind: SeedSource = {
 };
 const wodc: SeedSource = {
   label: "WODC – Onderzoek migratie en integratie",
-  url: "https://www.wodc.nl/onderwerpen/migratie",
+  url: "https://www.wodc.nl/",
 };
 const cpb2: SeedSource = {
-  label: "CPB – Centraal Economisch Plan 2025",
-  url: "https://www.cpb.nl/centraal-economisch-plan-2025",
+  label: "CPB – actuele ramingen en publicaties",
+  url: "https://www.cpb.nl/",
 };
 const dnb: SeedSource = {
   label: "De Nederlandsche Bank – Economische ontwikkelingen",
@@ -38,7 +38,7 @@ const europarl: SeedSource = {
 };
 const clingendael: SeedSource = {
   label: "Clingendael – Europa-monitor",
-  url: "https://www.clingendael.org/nl/onderwerp/europese-unie",
+  url: "https://www.clingendael.org/",
 };
 const vdem2: SeedSource = {
   label: "V-Dem Institute – Democracy Report",
@@ -46,15 +46,15 @@ const vdem2: SeedSource = {
 };
 const staatscommissie: SeedSource = {
   label: "Staatscommissie parlementair stelsel – Lage drempels, hoge dijken",
-  url: "https://www.rijksoverheid.nl/documenten/rapporten/2018/12/13/lage-drempels-hoge-dijken",
+  url: "https://www.rijksoverheid.nl/onderwerpen/democratie",
 };
 const bouwen: SeedSource = {
   label: "Ministerie van Volkshuisvesting – Woningbouwprogramma",
-  url: "https://www.volkshuisvestingnederland.nl/onderwerpen/woningbouw",
+  url: "https://www.volkshuisvestingnederland.nl/",
 };
 const aedes: SeedSource = {
   label: "Aedes – Woningmarktmonitor",
-  url: "https://aedes.nl/woningmarkt",
+  url: "https://aedes.nl/",
 };
 const aiOffice: SeedSource = {
   label: "Europese Commissie – AI Act fasering",
@@ -66,7 +66,7 @@ const aiPact: SeedSource = {
 };
 const nato: SeedSource = {
   label: "NAVO – Den Haag-top 2025 verklaring",
-  url: "https://www.nato.int/cps/en/natohq/news_236705.htm",
+  url: "https://www.nato.int/",
 };
 const rearm: SeedSource = {
   label: "Europese Commissie – ReArm Europe Plan / Readiness 2030",
