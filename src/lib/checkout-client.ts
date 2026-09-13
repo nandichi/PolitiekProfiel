@@ -10,11 +10,15 @@ interface CheckoutResponse {
 /** Start een Stripe-checkout voor een betaalde quiz. */
 export async function startStripeCheckout(
   tier: PaidTierButtonTier,
+  promotionCode?: string | null,
 ): Promise<void> {
   const res = await fetch("/api/stripe/checkout", {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ tier }),
+    body: JSON.stringify({
+      tier,
+      ...(promotionCode ? { promotionCode } : {}),
+    }),
   });
   const json = (await res.json().catch(() => ({}))) as CheckoutResponse;
   if (!res.ok || !json.url) {

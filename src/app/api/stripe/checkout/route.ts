@@ -12,10 +12,16 @@ import {
   stripe,
   type PaidTier,
 } from "@/lib/stripe";
+import {
+  buildPromotionCheckoutOptions,
+  normalizePromotionCode,
+} from "@/lib/checkout-promotion";
 import type { Tier } from "@/lib/dimensions";
 
 interface Body {
   tier?: Tier;
+  /** Private owner links pre-apply a verified 100% Stripe promotion. */
+  promotionCode?: unknown;
 }
 
 export const runtime = "nodejs";
@@ -36,8 +42,16 @@ export async function POST(request: Request) {
   }
 
   const tier: PaidTier = body.tier;
+  const promotionCode = normalizePromotionCode(body.promotionCode);
+  if (body.promotionCode !== undefined && !promotionCode) {
+    return NextResponse.json(
+      { error: "Ongeldige promotiecode." },
+      { status: 400 },
+    );
+  }
 
   try {
+    const promotionCheckout = await resolveFullPromotion(promotionCode);
     const priceId = priceIdForTier(tier);
     const { token } = await createPendingEntitlement({
       tier,
@@ -60,9 +74,14 @@ export async function POST(request: Request) {
     const session = await stripe().checkout.sessions.create({
       mode: "payment",
       locale: "nl",
-      submit_type: "pay",
       line_items: lineItems,
-      allow_promotion_codes: true,
+      allow_promotion_codes: promotionCheckout.allowPromotionCodes,
+      ...(promotionCheckout.discounts
+        ? { discounts: promotionCheckout.discounts }
+        : {}),
+      ...(promotionCheckout.paymentMethodCollection
+        ? { payment_method_collection: promotionCheckout.paymentMethodCollection }
+        : { submit_type: "pay" }),
       billing_address_collection: "auto",
       phone_number_collection: { enabled: false },
       customer_creation: "always",
@@ -73,10 +92,15 @@ export async function POST(request: Request) {
         tier,
         product: "politiekprofiel-quiz",
       },
-      payment_intent_data: {
-        description: `PolitiekProfiel ${paidTierLabel(tier)}`,
-        statement_descriptor_suffix: tier === "standard" ? "QUIZ STD" : "QUIZ EXT",
-      },
+      ...(promotionCheckout.discounts
+        ? {}
+        : {
+            payment_intent_data: {
+              description: `PolitiekProfiel ${paidTierLabel(tier)}`,
+              statement_descriptor_suffix:
+                tier === "standard" ? "QUIZ STD" : "QUIZ EXT",
+            },
+          }),
       custom_text: {
         submit: {
           message: `${paidTierLabel(tier)} van PolitiekProfiel. Je krijgt direct na betaling toegang, zonder PolitiekProfiel-account.`,
@@ -109,6 +133,37 @@ export async function POST(request: Request) {
       { status: 500 },
     );
   }
+}
+
+/**
+ * Stripe requires a no-cost checkout to receive the discount while the
+ * Checkout Session is created. The coupon and redemption remain in Stripe.
+ */
+async function resolveFullPromotion(code: string | null) {
+  if (!code) return buildPromotionCheckoutOptions(null);
+
+  const matches = await stripe().promotionCodes.list({
+    active: true,
+    code,
+    limit: 1,
+  });
+  const promotion = matches.data[0];
+  if (!promotion) {
+    throw new Error("Promotiecode is niet beschikbaar.");
+  }
+
+  const couponRef = promotion.promotion.coupon;
+  if (!couponRef) {
+    throw new Error("Promotiecode heeft geen geldige coupon.");
+  }
+  const couponId = typeof couponRef === "string" ? couponRef : couponRef.id;
+  const coupon = await stripe().coupons.retrieve(couponId);
+
+  if (!coupon.valid || coupon.percent_off !== 100) {
+    throw new Error("Deze promotiecode geeft geen volledige testtoegang.");
+  }
+
+  return buildPromotionCheckoutOptions(promotion.id);
 }
 
 interface ErrorSummary {

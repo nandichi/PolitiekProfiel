@@ -26,7 +26,10 @@ export function CheckoutButton({
     setLoading(true);
     setError(null);
     try {
-      await startStripeCheckout(tier);
+      const promotionCode = new URLSearchParams(window.location.search).get(
+        "promo",
+      );
+      await startStripeCheckout(tier, promotionCode);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Onbekende fout.");
       setLoading(false);
