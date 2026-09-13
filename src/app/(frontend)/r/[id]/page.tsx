@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowRight, Repeat, BookOpen, Lock } from "lucide-react";
 import { Container } from "@/components/Container";
-import { CheckoutButton } from "@/components/CheckoutButton";
+import { ConsentCheckoutButton } from "@/components/ConsentCheckoutButton";
 import { DimensionBar } from "@/components/DimensionBar";
 import { ScatterPlot } from "@/components/ScatterPlot";
 import { RankedList } from "@/components/RankedList";
@@ -1022,13 +1022,13 @@ function InlinePaywall({ title, body }: { title: string; body: string }) {
         <p className="display text-xl leading-tight text-ink">{title}</p>
         <p className="mt-3 text-sm text-ink-2 leading-relaxed">{body}</p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <CheckoutButton tier="standard" className="btn btn-primary">
+          <ConsentCheckoutButton tier="standard" className="btn btn-primary">
             Ontgrendel voor 5 euro
             <ArrowRight size={16} strokeWidth={1.8} />
-          </CheckoutButton>
-          <CheckoutButton tier="extended" className="btn btn-secondary">
+          </ConsentCheckoutButton>
+          <ConsentCheckoutButton tier="extended" className="btn btn-secondary">
             Uitgebreid voor 10 euro
-          </CheckoutButton>
+          </ConsentCheckoutButton>
         </div>
       </div>
     </div>
@@ -1092,13 +1092,13 @@ function FreeResultPaywall() {
                 van 80 vragen.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <CheckoutButton tier="standard" className="btn btn-primary">
+                <ConsentCheckoutButton tier="standard" className="btn btn-primary">
                   Koop standaard voor 5 euro
                   <ArrowRight size={16} strokeWidth={1.8} />
-                </CheckoutButton>
-                <CheckoutButton tier="extended" className="btn btn-secondary">
+                </ConsentCheckoutButton>
+                <ConsentCheckoutButton tier="extended" className="btn btn-secondary">
                   Uitgebreid voor 10 euro
-                </CheckoutButton>
+                </ConsentCheckoutButton>
               </div>
             </div>
           </div>
