@@ -14,7 +14,7 @@ import { Politicians } from "./collections/Politicians";
 import { Parties } from "./collections/Parties";
 import { Countries } from "./collections/Countries";
 import { Results } from "./collections/Results";
-import { AiContent } from "./collections/AIContent";
+import { AiContent } from "./collections/AiContent";
 import { QuizAttempts } from "./collections/QuizAttempts";
 import { QuizEvents } from "./collections/QuizEvents";
 import { Entitlements } from "./collections/Entitlements";
