@@ -343,8 +343,10 @@ export default function VoorwaardenPage() {
               stand op het moment dat de betaling door Stripe is bevestigd.
             </p>
             <p>
-              Prijzen worden getoond inclusief eventuele BTW, voor zover
-              wettelijk vereist. De levering bestaat uit directe toegang tot
+              De prijzen van de betaalde quizzen zijn exclusief btw. Op de
+              betaalpagina wordt 21% Nederlandse btw toegevoegd; het
+              totaalbedrag dat je betaalt staat daar en op je bon vermeld. De
+              levering bestaat uit directe toegang tot
               digitale inhoud. Voor herroepingsrecht, refunds en specifieke
               betaalvoorwaarden geldt de aparte pagina{" "}
               <a href="/herroepingsrecht">Herroepingsrecht & refunds</a>, die

@@ -138,12 +138,14 @@ export default function HerroepingsrechtPage() {
             accent="ink"
           >
             <p>
-              Alle prijzen op de website worden weergegeven in euro&apos;s en
-              zijn inclusief BTW voor zover die wettelijk verschuldigd is.
-              Eventuele transactiekosten van betaalmethodes worden
-              afzonderlijk getoond voordat je betaalt. Aanbiedingen,
-              kortingen en kortingscodes gelden alleen binnen de daarbij
-              vermelde voorwaarden en termijn.
+              De betaalde quizzen kosten 5 euro (standaard) en 10 euro
+              (uitgebreid), exclusief btw. Op de betaalpagina wordt 21%
+              Nederlandse btw toegevoegd, waardoor je 6,05 euro respectievelijk
+              12,10 euro betaalt. Dat totaalbedrag staat ook op je bon. Alle
+              bedragen zijn in euro&apos;s. Eventuele transactiekosten van
+              betaalmethodes worden afzonderlijk getoond voordat je betaalt.
+              Aanbiedingen, kortingen en kortingscodes gelden alleen binnen de
+              daarbij vermelde voorwaarden en termijn.
             </p>
             <p>
               Wij behouden ons het recht voor om kennelijke prijsfouten te

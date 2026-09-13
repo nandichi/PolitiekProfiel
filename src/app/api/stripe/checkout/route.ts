@@ -60,11 +60,23 @@ export async function POST(request: Request) {
     });
     const siteUrl = getSiteUrl();
 
+    // Prijzen in Stripe zijn exclusief btw. De btw wordt als aparte regel
+    // bovenop het bedrag gezet, zodat de klant precies ziet wat hij betaalt
+    // en de btw op de bon/factuur gespecificeerd staat.
+    const vatRate = process.env.STRIPE_TAX_RATE_VAT;
+    const lineItems = [
+      {
+        price: priceId,
+        quantity: 1,
+        ...(vatRate ? { tax_rates: [vatRate] } : {}),
+      },
+    ];
+
     const session = await stripe().checkout.sessions.create({
       mode: "payment",
       locale: "nl",
       submit_type: "pay",
-      line_items: [{ price: priceId, quantity: 1 }],
+      line_items: lineItems,
       allow_promotion_codes: true,
       billing_address_collection: "auto",
       phone_number_collection: { enabled: false },

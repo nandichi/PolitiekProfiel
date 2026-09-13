@@ -170,7 +170,8 @@ function PaidQuizGate({
 }) {
   const title =
     tier === "standard" ? "Standaard quiz" : "Uitgebreide quiz";
-  const price = tier === "standard" ? "5 euro" : "10 euro";
+  const price = tier === "standard" ? "6,05 euro" : "12,10 euro";
+  const priceExclVat = tier === "standard" ? "5 euro" : "10 euro";
   const count = TIER_QUESTION_COUNT[tier];
   const processing =
     checkoutStatus === "success" &&
@@ -190,7 +191,7 @@ function PaidQuizGate({
           ? "Stripe heeft je teruggestuurd. De webhook verwerkt je betaling nog. Ververs deze pagina over een paar seconden."
           : consumed
             ? "Dit toegangstoken is al twee keer gebruikt, dat is het maximum per aankoop. Je uitslag staat op de deel-link die je aan het eind van de quiz kreeg. Die link begint met politiekprofiel.nl/r/ en is ook naar je gemaild als je daarom hebt gevraagd."
-            : `${title} bevat ${count} stellingen en kost ${price}. Na betaling kun je zonder account verder naar de quiz, die je maximaal twee keer kunt afronden.`}
+            : `${title} bevat ${count} stellingen en kost ${price} inclusief 21% btw (${priceExclVat} excl. btw). Na betaling kun je zonder account verder naar de quiz, die je maximaal twee keer kunt afronden.`}
       </p>
       <div className="flex flex-wrap gap-3">
         {processing ? (
