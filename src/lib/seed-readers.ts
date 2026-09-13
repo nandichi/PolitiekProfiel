@@ -56,15 +56,13 @@ export function getPartyBySlugSeed(slug: string): SeedParty | null {
 }
 
 /**
- * Nederlandse partijen die op 17 mei 2026 een zetel hebben in de Tweede Kamer.
- * Geordend op zetelaantal aflopend.
+ * Nederlandse parlementaire fracties met een zetel in de Tweede Kamer,
+ * gecontroleerd op 13 september 2026. Geordend op zetelaantal aflopend.
  */
 export function getActiveDutchParties(): SeedParty[] {
   return PARTIES.filter(
     (p) =>
-      p.region === "NL" &&
-      p.regionType === "national" &&
-      (p.seatsTK2025 ?? 0) > 0,
+      p.region === "NL" && (p.seatsTK2025 ?? 0) > 0,
   ).sort((a, b) => (b.seatsTK2025 ?? 0) - (a.seatsTK2025 ?? 0));
 }
 

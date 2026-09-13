@@ -20,7 +20,7 @@ import {
 const PAGE_PATH = "/partijen";
 const PAGE_TITLE = "Partijen";
 const PAGE_DESCRIPTION =
-  "Alle Nederlandse, Europese en Amerikaanse partijen op de vijf dimensies, met programma-samenvatting, fractieleider en coalitiestatus per mei 2026.";
+  "Alle Nederlandse, Europese en Amerikaanse partijen op de vijf dimensies, met programma-samenvatting, fractieleider en actuele fractiegrootte per 13 september 2026.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -77,9 +77,9 @@ export default function PartijenOverviewPage() {
         </ScrollRevealItem>
         <ScrollRevealItem>
           <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
-            Per partij: positie op de vijf dimensies, fractieleider, zetels TK
-            2025, coalitiestatus en, voor de grootste partijen, een
-            redactionele samenvatting van het verkiezingsprogramma per thema.
+            Per partij: positie op de vijf dimensies, fractieleider, actuele
+            fractiegrootte, coalitiestatus en, voor de grootste partijen, een
+            redactionele samenvatting van het verkiezingsprogramma uit 2025.
           </p>
         </ScrollRevealItem>
       </ScrollReveal>
@@ -88,16 +88,15 @@ export default function PartijenOverviewPage() {
       <section className="mt-16 md:mt-20 border-t border-ink pt-10">
         <ScrollReveal variant="stagger">
           <ScrollRevealItem>
-            <Kicker number={1}>Tweede Kamer, peildatum 17 mei 2026</Kicker>
+            <Kicker number={1}>Tweede Kamer, peildatum 13 september 2026</Kicker>
             <h2 className="display mt-5 max-w-3xl">
-              {nl.length} partijen met zetels in de Kamer.
+              {nl.length} fracties met zetels in de Kamer.
             </h2>
           </ScrollRevealItem>
           <ScrollRevealItem>
             <p className="mt-4 max-w-2xl text-sm text-ink-muted">
-              Uitslag verkiezingen 29 oktober 2025, gecorrigeerd voor de
-              afsplitsing van Groep Markuszower / De Nederlandse Alliantie op
-              20 januari 2026. Coalitie = kabinet-Jetten (D66 + VVD + CDA).
+              Actuele fractiegrootte volgens de Tweede Kamer. De lijst bevat ook
+              eenpersoonsfracties. Coalitie = kabinet-Jetten (D66 + VVD + CDA).
             </p>
           </ScrollRevealItem>
           <ScrollRevealItem>
