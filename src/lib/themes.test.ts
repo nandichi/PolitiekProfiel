@@ -64,6 +64,20 @@ describe("calculateThemeScores", () => {
     expect(result.scores.economie).toBe(50);
   });
 
+  it("uses a theme-specific direction when a question spans two constructs", () => {
+    const questions: QuestionScoringMeta[] = [
+      {
+        id: 9,
+        dimension: "civil",
+        direction: -1,
+        themes: ["klimaat"],
+        themeDirections: { klimaat: 1 },
+      },
+    ];
+    const result = calculateThemeScores(questions, [{ questionId: 9, value: 2 }]);
+    expect(result.scores.klimaat).toBe(100);
+  });
+
   it("handles a single themed question correctly", () => {
     const answers: RawAnswer[] = [{ questionId: 3, value: -2 }];
     const result = calculateThemeScores(baseQuestions, answers);

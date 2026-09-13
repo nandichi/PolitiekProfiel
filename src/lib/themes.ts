@@ -190,7 +190,7 @@ export function calculateThemeScores(
     for (const theme of q.themes) {
       maxAbs[theme] += 2 * weight;
       if (answer.value !== 0) {
-        sums[theme] += q.direction * answer.value * weight;
+        sums[theme] += (q.themeDirections?.[theme] ?? q.direction) * answer.value * weight;
       }
       counts[theme] += 1;
     }

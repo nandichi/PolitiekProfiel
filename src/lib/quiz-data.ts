@@ -19,6 +19,7 @@ export interface QuizQuestion {
   depth: QuestionDepth;
   discriminator: number;
   themes: ThemeId[];
+  themeDirections?: Partial<Record<ThemeId, 1 | -1>>;
   info: {
     context?: string;
     argumentsFor: string[];
@@ -43,6 +44,14 @@ export async function getQuestionPoolForTier(
       depth: question.depth,
       discriminator: question.discriminator,
       themes: question.themes,
+      themeDirections: question.themeDirections
+        ? Object.fromEntries(
+            Object.entries(question.themeDirections).map(([theme, direction]) => [
+              theme,
+              direction === "positive" ? 1 : -1,
+            ]),
+          )
+        : undefined,
       info: question.info,
     }),
   );

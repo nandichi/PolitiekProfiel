@@ -74,7 +74,7 @@ const aiPact: SeedSource = {
 };
 const nato: SeedSource = {
   label: "NAVO – Den Haag-top 2025 verklaring",
-  url: "https://www.nato.int/",
+  url: "https://nato.int/en/about-us/official-texts-and-resources/official-texts/2025/06/25/the-hague-summit-declaration",
 };
 const rearm: SeedSource = {
   label: "Europese Commissie – ReArm Europe Plan / Readiness 2030",
@@ -283,8 +283,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
     depth: "deep",
     discriminator: 65,
     themes: ["klimaat"],
-    derivedStance:
-      "Je vindt dat de privé-auto op benzine of diesel binnen tien jaar uitgefaseerd moet zijn.",
+    themeDirections: { klimaat: "positive" },
     info: {
       context:
         "De EU besloot dat vanaf 2035 nieuwe auto's geen CO2 meer mogen uitstoten. Verkoop blijft mogelijk, gebruik van bestaande auto's niet (nu nog niet) verboden.",
@@ -785,7 +784,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat asiel en migratie hoofdzakelijk Europees beleid moeten zijn.",
     info: {
       context:
-        "Het EU-Asiel- en Migratiepact (2024) introduceert verplichte solidariteit. Nederland kreeg uitzonderingen op delen ervan.",
+        "Het EU-Asiel- en Migratiepact geldt sinds juni 2026 in alle EU-landen en bevat een flexibel maar permanent solidariteitsmechanisme. Lidstaten kunnen kiezen hoe zij solidariteit tonen.",
       argumentsFor: [
         "Migratie stopt niet bij de grens; alleen samen kunnen we het reguleren.",
         "Voorkomt dat enkele landen alle opvang dragen.",
@@ -959,7 +958,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat de pensioenleeftijd voor jongere generaties verder omhoog mag.",
     info: {
       context:
-        "AOW-leeftijd ligt in 2026 op 67 jaar en 3 maanden en stijgt mee met levensverwachting. De Wet toekomst pensioenen (juli 2023) is in volle uitvoering; ABP vaart per 1 januari 2027 het collectieve vermogen in. Vergrijzing zet de financierbaarheid onder druk.",
+        "De AOW-leeftijd is 67 jaar voor mensen geboren van 1 maart 1957 tot en met 31 december 1960. Voor geboortejaren daarna geldt een hogere leeftijd volgens de SVB-tabel. De Wet toekomst pensioenen is in uitvoering en vergrijzing zet de financierbaarheid onder druk.",
       argumentsFor: [
         "Levensverwachting stijgt; pensioenduur moet daarmee meebewegen.",
         "Behoud werknemers in productieve sectoren langer.",
@@ -1646,7 +1645,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat huurprijsregulering verder uitgebreid moet worden.",
     info: {
       context:
-        "De Wet betaalbare huur (juli 2024) reguleert middenhuur (geïndexeerd richting €1.180 in 2026). In april 2026 kondigde minister Boekholt-O'Sullivan vijf versoepelingen aan om nieuwbouw te stimuleren. Een evaluatie volgt in Q2 2027. Uitbreiden naar duurdere segmenten is een terugkerend linkse wens.",
+        "De Wet betaalbare huur trad in juli 2024 in werking. In juni 2026 zette de minister drie aanpassingen van het WWS en aanvullende voorstellen voor nieuwbouwopslag en studentencontracten in gang. De evaluatie gaat uiterlijk 1 juli 2027 naar de Kamer.",
       argumentsFor: [
         "Middenhuur is voor veel jonge huishoudens onbetaalbaar.",
         "Voorkomt dat huurders 50%+ van hun inkomen kwijt zijn.",

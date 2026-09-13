@@ -17,6 +17,8 @@ export interface SeedQuestion {
   depth?: QuestionDepth;
   discriminator?: number;
   themes?: ThemeId[];
+  /** Een thema kan een andere richting hebben dan de hoofdas van de vraag. */
+  themeDirections?: Partial<Record<ThemeId, "positive" | "negative">>;
   derivedStance?: string;
   info: {
     context: string;
@@ -1705,7 +1707,7 @@ export const QUESTIONS: SeedQuestion[] = [
     tiers: standardExtended,
     info: {
       context:
-        "Nederland staat in 2025 op de #4 plek in de Reporters Without Borders Press Freedom Index, met sterke wettelijke bescherming maar zorgen over bedreiging van journalisten en mediaconcentratie.",
+        "Nederland stond in 2025 op plaats 3 van 180 in de Reporters Without Borders Press Freedom Index. De index meet de omstandigheden voor persvrijheid, niet rechtstreeks de betrouwbaarheid van afzonderlijke media.",
       argumentsFor: [
         "Hoge journalistieke standaarden en interne kwaliteitscontrole.",
         "Pluriform medialandschap met onafhankelijke titels.",

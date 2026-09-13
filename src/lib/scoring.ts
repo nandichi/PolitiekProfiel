@@ -11,6 +11,7 @@ export interface QuestionScoringMeta {
   direction: 1 | -1;
   weight?: number;
   themes?: ThemeId[];
+  themeDirections?: Partial<Record<ThemeId, 1 | -1>>;
 }
 
 export interface RawAnswer {

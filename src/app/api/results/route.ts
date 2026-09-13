@@ -12,6 +12,8 @@ import {
   validateEntitlementForTier,
 } from "@/lib/entitlements";
 import { isPaidTier } from "@/lib/stripe";
+import { getAllIdeologiesSeed } from "@/lib/seed-readers";
+import { getStaticQuestionById, isStaticQuestionId } from "@/lib/static-question-data";
 import type { ThemeId } from "@/lib/themes";
 
 interface Body {
@@ -64,38 +66,67 @@ export async function POST(request: Request) {
     );
   }
 
-  const p = await payload();
-  const [questionsRes, ideologiesRes] = await Promise.all([
-    p.find({
-      collection: "questions",
-      where: { id: { in: ids } },
-      limit: 300,
-      depth: 0,
-      pagination: false,
-    }),
-    p.find({ collection: "ideologies", limit: 100, depth: 0 }),
-  ]);
+  const staticQuestions = await Promise.all(
+    ids.filter(isStaticQuestionId).map((id) => getStaticQuestionById(id)),
+  );
+  const legacyIds = ids.filter((id) => !isStaticQuestionId(id));
+  const p = legacyIds.length > 0 ? await payload() : null;
+  const legacyDocs = p
+    ? await p.find({
+        collection: "questions",
+        where: { id: { in: legacyIds } },
+        limit: 300,
+        depth: 0,
+        pagination: false,
+      })
+    : { docs: [] };
 
-  if (questionsRes.docs.length === 0 || ideologiesRes.docs.length === 0) {
-    return NextResponse.json(
-      { error: "Quiz of ideologieën niet gevonden." },
-      { status: 500 },
-    );
+  const staticById = new Map(
+    staticQuestions.filter((q): q is NonNullable<typeof q> => Boolean(q)).map((q) => [q.id, q]),
+  );
+  const legacyById = new Map(
+    (legacyDocs.docs as unknown as Array<{
+      id: number;
+      dimension: QuestionScoringMeta["dimension"];
+      direction: "positive" | "negative";
+      weight?: number;
+      themes?: ThemeId[];
+    }>).map((q) => [q.id, q]),
+  );
+
+  const scoringMeta: QuestionScoringMeta[] = ids.flatMap((id) => {
+    const staticQuestion = staticById.get(id);
+    if (staticQuestion) {
+      return [{
+        id,
+        dimension: staticQuestion.dimension,
+        direction: staticQuestion.direction === "positive" ? 1 : -1,
+        weight: staticQuestion.weight ?? 1,
+        themes: staticQuestion.themes ?? [],
+        themeDirections: staticQuestion.themeDirections
+          ? Object.fromEntries(
+              Object.entries(staticQuestion.themeDirections).map(([theme, direction]) => [
+                theme,
+                direction === "positive" ? 1 : -1,
+              ]),
+            )
+          : undefined,
+      }];
+    }
+    const legacyQuestion = legacyById.get(id);
+    if (!legacyQuestion) return [];
+    return [{
+      id,
+      dimension: legacyQuestion.dimension,
+      direction: legacyQuestion.direction === "positive" ? 1 : -1,
+      weight: legacyQuestion.weight ?? 1,
+      themes: legacyQuestion.themes ?? [],
+    }];
+  });
+
+  if (scoringMeta.length === 0) {
+    return NextResponse.json({ error: "Quizvragen niet gevonden." }, { status: 500 });
   }
-
-  const scoringMeta: QuestionScoringMeta[] = (questionsRes.docs as unknown as Array<{
-    id: number;
-    dimension: QuestionScoringMeta["dimension"];
-    direction: "positive" | "negative";
-    weight?: number;
-    themes?: ThemeId[];
-  }>).map((d) => ({
-    id: d.id,
-    dimension: d.dimension,
-    direction: d.direction === "positive" ? 1 : -1,
-    weight: d.weight ?? 1,
-    themes: Array.isArray(d.themes) ? d.themes : [],
-  }));
 
   const breakdown = calculateScores(scoringMeta, body.answers);
 
@@ -114,12 +145,9 @@ export async function POST(request: Request) {
   );
   const paradoxes = detectParadoxes(scoringMeta, body.answers);
 
-  const ideologies = (ideologiesRes.docs as unknown as Array<{
-    slug: string;
-    profileVector: ReturnType<typeof calculateScores>["scores"];
-  }>).map((d) => ({
-    slug: d.slug,
-    vector: d.profileVector,
+  const ideologies = (await getAllIdeologiesSeed()).map((ideology) => ({
+    slug: ideology.slug,
+    vector: ideology.profileVector,
   }));
 
   const best = bestMatch(breakdown.scores, ideologies);
