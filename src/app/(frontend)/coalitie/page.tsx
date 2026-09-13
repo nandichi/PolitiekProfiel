@@ -148,7 +148,7 @@ export default async function CoalitiePage({ searchParams }: PageProps) {
         </ScrollReveal>
       </section>
 
-      {/* Rekenkundig kleinste meerderheden — secundaire ontdekking */}
+      {/* Rekenkundig kleinste meerderheden, secundaire ontdekking */}
       <section className="mt-20 border-t border-ink pt-10">
         <ScrollReveal variant="stagger">
           <ScrollRevealItem>
@@ -160,8 +160,8 @@ export default async function CoalitiePage({ searchParams }: PageProps) {
           <ScrollRevealItem>
             <p className="mt-4 max-w-2xl text-sm text-ink-muted">
               Geen rekening gehouden met uitsluitingen of politieke voorkeuren.
-              Puur arithmetisch. Gesorteerd op spread &mdash; de maximale
-              afstand tussen partijen binnen de coalitie. Klik een combinatie
+              Puur arithmetisch. Gesorteerd op spread, de maximale afstand
+              tussen partijen binnen de coalitie. Klik een combinatie
               om hem in de builder hierboven te bekijken (gebruik daarvoor de
               partij-knoppen).
             </p>

@@ -85,7 +85,7 @@ export default async function VerkennenPage() {
       href: "/partijen",
       title: "Partijen",
       description:
-        "Alle partijen met een Tweede Kamer-zetel anno mei 2026, met fractievoorzitter, ideologische verwantschap en CPB-status.",
+        "Alle Tweede Kamer-fracties per 13 september 2026, met fractievoorzitter, ideologische verwantschap en CPB-status.",
       meta: `${parties.length} PARTIJEN MET ZETELS`,
     },
     {

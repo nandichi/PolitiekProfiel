@@ -15,7 +15,7 @@ import type { Metadata } from "next";
 
 const PAGE_PATH = "/disclaimer";
 const PAGE_PUBLISHED = "2026-05-19";
-const PAGE_MODIFIED = "2026-05-19";
+const PAGE_MODIFIED = "2026-09-13";
 const PAGE_DESCRIPTION =
   "Disclaimer van PolitiekProfiel: politieke neutraliteit, geen stem- of juridisch advies, en de uitdrukkelijke uitsluiting van aansprakelijkheid voor interpretaties.";
 
@@ -96,14 +96,14 @@ export default function DisclaimerPage() {
                 <p className="mt-8 text-lg md:text-xl text-ink-2 leading-relaxed">
                   PolitiekProfiel is een educatief instrument voor
                   zelfreflectie, niet meer en niet minder. Deze disclaimer
-                  legt vast wat dat juridisch betekent — voor jou, voor ons,
+                  legt vast wat dat juridisch betekent, voor jou, voor ons,
                   en voor wie ooit een conclusie aan een resultaat probeert
                   te koppelen.
                 </p>
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <p className="mt-6 mono text-xs text-ink-muted tracking-wide">
-                  Versie 1.0 · laatst bijgewerkt op 19 mei 2026
+                  Versie 1.1 · laatst bijgewerkt op 13 september 2026
                 </p>
               </ScrollRevealItem>
             </ScrollReveal>
@@ -174,8 +174,8 @@ export default function DisclaimerPage() {
             </ul>
             <p>
               Beslissingen die je neemt op basis van de inhoud van de
-              website &mdash; over stemmen, lidmaatschap, donaties,
-              publicaties of uitlatingen &mdash; neem je volledig op eigen
+              website, over stemmen, lidmaatschap, donaties, publicaties of
+              uitlatingen, neem je volledig op eigen
               verantwoordelijkheid.
             </p>
           </Block>
@@ -202,8 +202,8 @@ export default function DisclaimerPage() {
               van een specifieke uitslag.
             </p>
             <p>
-              Wanneer een derde &mdash; werkgever, journalist, familielid,
-              algoritme of overheid &mdash; jouw resultaat tegen je gebruikt
+              Wanneer een derde, bijvoorbeeld een werkgever, journalist,
+              familielid, algoritme of overheid, jouw resultaat tegen je gebruikt
               of er een conclusie aan verbindt, is dat de
               verantwoordelijkheid van die derde, niet van ons. Deel je
               share-link daarom alleen met wie je vertrouwt; zie ook de{" "}
@@ -277,9 +277,9 @@ export default function DisclaimerPage() {
           >
             <p>
               Voor de volledige beperking en uitsluiting van
-              aansprakelijkheid &mdash; inclusief het maximumbedrag, de
-              verval- en klachttermijnen en de uitgesloten schadesoorten
-              &mdash; verwijzen we integraal naar het hoofdstuk{" "}
+              aansprakelijkheid, inclusief het maximumbedrag, de verval- en
+              klachttermijnen en de uitgesloten schadesoorten, verwijzen we
+              integraal naar het hoofdstuk{" "}
               <a href="/voorwaarden#aansprakelijkheid">
                 Aansprakelijkheid in de algemene voorwaarden
               </a>

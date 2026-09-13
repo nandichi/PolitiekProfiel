@@ -17,7 +17,7 @@ import {
 const PAGE_PATH = "/politici";
 const PAGE_TITLE = "Politici";
 const PAGE_DESCRIPTION =
-  "Nederlandse en internationale politici op de vijf dimensies. Geactualiseerd voor mei 2026, na de Tweede Kamerverkiezingen van 29 oktober 2025 en de beëdiging van kabinet-Jetten.";
+  "Nederlandse en internationale politici op de vijf dimensies. Geactualiseerd op 13 september 2026, na de Tweede Kamerverkiezingen van 29 oktober 2025 en de beëdiging van kabinet-Jetten.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

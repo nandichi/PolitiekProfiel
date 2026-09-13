@@ -16,7 +16,7 @@ import type { Metadata } from "next";
 
 const PAGE_PATH = "/methodiek";
 const PAGE_PUBLISHED = "2026-01-15";
-const PAGE_MODIFIED = "2026-05-16";
+const PAGE_MODIFIED = "2026-09-13";
 const PAGE_TITLE = "Methodiek";
 const PAGE_DESCRIPTION =
   "Hoe PolitiekProfiel politieke houding meet: vijf onafhankelijke dimensies, gebalanceerde stellingen, transparante scoring op −100 tot +100. Lees over de werking, de aannames en de beperkingen.";

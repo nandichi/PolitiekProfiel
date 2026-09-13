@@ -15,7 +15,7 @@ import type { Metadata } from "next";
 
 const PAGE_PATH = "/herroepingsrecht";
 const PAGE_PUBLISHED = "2026-05-19";
-const PAGE_MODIFIED = "2026-05-19";
+const PAGE_MODIFIED = "2026-09-13";
 const PAGE_DESCRIPTION =
   "Herroepingsrecht, refundregels en betaalvoorwaarden voor de betaalde quizzen van PolitiekProfiel. 14 dagen bedenktijd, met heldere uitzonderingen.";
 
@@ -96,14 +96,14 @@ export default function HerroepingsrechtPage() {
               <ScrollRevealItem>
                 <p className="mt-8 text-lg md:text-xl text-ink-2 leading-relaxed">
                   Betaal je voor een quiz, dan heb je standaard{" "}
-                  <strong>14 dagen bedenktijd</strong> &mdash; zonder opgaaf
+                  <strong>14 dagen bedenktijd</strong>, zonder opgaaf
                   van reden. Op deze pagina staat exact hoe het werkt, wat de
                   uitzonderingen zijn en hoe je geld terugkrijgt.
                 </p>
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <p className="mt-6 mono text-xs text-ink-muted tracking-wide">
-                  Versie 1.0 · laatst bijgewerkt op 19 mei 2026
+                  Versie 1.1 · laatst bijgewerkt op 13 september 2026
                 </p>
               </ScrollRevealItem>
             </ScrollReveal>
@@ -324,7 +324,7 @@ en een bevestiging op een duurzame gegevensdrager. PolitiekProfiel beroept zich
             </ul>
             <p>
               In alle andere gevallen verlenen we het herroepingsrecht
-              ruimhartig &mdash; we vinden het belangrijker dat je een
+              ruimhartig. We vinden het belangrijker dat je een
               eerlijke ervaring hebt dan dat we discussies winnen.
             </p>
           </Block>

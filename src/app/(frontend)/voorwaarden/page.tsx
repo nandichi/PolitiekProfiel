@@ -15,7 +15,7 @@ import type { Metadata } from "next";
 
 const PAGE_PATH = "/voorwaarden";
 const PAGE_PUBLISHED = "2026-05-19";
-const PAGE_MODIFIED = "2026-05-19";
+const PAGE_MODIFIED = "2026-09-13";
 const PAGE_DESCRIPTION =
   "Algemene voorwaarden voor het gebruik van PolitiekProfiel: spelregels, intellectueel eigendom, gedragsregels en de uitsluiting van aansprakelijkheid.";
 
@@ -107,7 +107,7 @@ export default function VoorwaardenPage() {
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <p className="mt-6 mono text-xs text-ink-muted tracking-wide">
-                  Versie 1.0 · laatst bijgewerkt op 19 mei 2026
+                  Versie 1.1 · laatst bijgewerkt op 13 september 2026
                 </p>
               </ScrollRevealItem>
             </ScrollReveal>
