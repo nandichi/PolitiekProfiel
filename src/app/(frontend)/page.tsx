@@ -9,6 +9,7 @@ import {
   ScrollReveal,
   ScrollRevealItem,
 } from "@/components/motion/ScrollReveal";
+import { DimensionStory } from "@/components/motion/DimensionStory";
 import { DIMENSIONS, TIER_QUESTION_COUNT } from "@/lib/dimensions";
 import { cx } from "@/lib/cx";
 
@@ -242,32 +243,17 @@ export default function HomePage() {
                 </p>
               </ScrollRevealItem>
             </div>
-
-            <ol className="border-t border-ink">
-              {DIMENSIONS.map((d, i) => (
-                <ScrollRevealItem
-                  key={d.id}
-                  as="li"
-                  className="border-b border-rule"
-                >
-                  <div className="grid grid-cols-1 gap-4 lg:grid-cols-[80px_1fr_2fr_auto] lg:gap-8 py-7 md:py-9 items-baseline group">
-                    <p className="index-num text-sm">
-                      {String(i + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="display text-2xl md:text-3xl leading-tight text-ink">
-                      {d.poleNegative.label}
-                      <span className="text-ink-subtle font-light mx-2">/</span>
-                      {d.polePositive.label}
-                    </h3>
-                    <p className="text-sm md:text-base text-ink-2 leading-relaxed lg:max-w-xl">
-                      {d.description}
-                    </p>
-                    <p className="kicker text-right">{d.shortLabel}</p>
-                  </div>
-                </ScrollRevealItem>
-              ))}
-            </ol>
           </ScrollReveal>
+
+          <DimensionStory
+            dimensions={DIMENSIONS.map((dimension) => ({
+              id: dimension.id,
+              shortLabel: dimension.shortLabel,
+              negative: dimension.poleNegative.label,
+              positive: dimension.polePositive.label,
+              description: dimension.description,
+            }))}
+          />
         </Container>
       </section>
     </>
@@ -417,7 +403,7 @@ function TierCard({
     return (
       <article
       className={cx(
-        "group relative block p-8 md:p-10 transition-colors duration-200",
+        "group relative block p-8 md:p-10 transition-[background-color,transform] duration-300 hover:-translate-y-1",
         recommended
           ? "bg-ink text-paper hover:bg-navy"
           : "bg-paper hover:bg-paper-50"
@@ -432,7 +418,7 @@ function TierCard({
     <Link
       href={`/quiz/${tier}`}
       className={cx(
-        "group relative block p-8 md:p-10 transition-colors duration-200 no-underline",
+        "group relative block p-8 md:p-10 transition-[background-color,transform] duration-300 hover:-translate-y-1 no-underline",
         "bg-paper hover:bg-paper-50"
       )}
     >

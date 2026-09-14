@@ -3,20 +3,14 @@
 import { useEffect, useRef } from "react";
 
 const AXES = [
-  { id: "economie", label: "Economie", left: "markt", right: "staat", x: 406, y: 108 },
-  { id: "cultuur", label: "Cultuur", left: "behoud", right: "verandering", x: 476, y: 164 },
-  { id: "vrijheid", label: "Vrijheid", left: "orde", right: "ruimte", x: 338, y: 224 },
-  { id: "bestuur", label: "Bestuur", left: "nationaal", right: "Europees", x: 448, y: 284 },
-  { id: "vertrouwen", label: "Vertrouwen", left: "kritisch", right: "vertrouwen", x: 376, y: 344 },
+  { id: "economie", label: "Economie", left: "vrije markt", right: "sterke staat" },
+  { id: "cultuur", label: "Cultuur", left: "behoud", right: "verandering" },
+  { id: "vrijheid", label: "Vrijheid", left: "orde", right: "ruimte" },
+  { id: "bestuur", label: "Bestuur", left: "nationaal", right: "Europees" },
+  { id: "vertrouwen", label: "Vertrouwen", left: "kritisch", right: "vertrouwen" },
 ] as const;
 
-const TRACE_PATHS = [
-  "M 16 108 C 132 108, 160 52, 274 92 S 428 136, 596 108",
-  "M 16 164 C 126 164, 188 208, 278 160 S 446 116, 596 164",
-  "M 16 224 C 126 224, 170 170, 284 238 S 434 274, 596 224",
-  "M 16 284 C 124 284, 176 342, 276 288 S 446 240, 596 284",
-  "M 16 344 C 128 344, 172 292, 286 338 S 438 392, 596 344",
-] as const;
+const ROWS = [108, 164, 220, 276, 332] as const;
 
 export function CivicField() {
   const ref = useRef<HTMLElement | null>(null);
@@ -41,56 +35,39 @@ export function CivicField() {
     <aside
       ref={ref}
       className="civic-field"
-      aria-label="Illustratie van de vijf onafhankelijke dimensies van PolitiekProfiel"
+      aria-label="Open meetkaart van de vijf onafhankelijke dimensies van PolitiekProfiel"
     >
       <div className="civic-field__topline">
-        <p className="mono">VIJF ASSEN. GEEN ETIKET.</p>
-        <span className="mono">01 / 05</span>
+        <p className="mono">OPEN MEETKAART</p>
+        <span className="mono">NOG NIET GEMETEN</span>
       </div>
 
       <div className="civic-field__canvas">
         <svg
           className="civic-field__svg"
-          viewBox="0 0 612 452"
+          viewBox="0 0 612 420"
           role="img"
           aria-labelledby="civic-field-title civic-field-description"
         >
-          <title id="civic-field-title">Vijf politieke assen in beweging</title>
+          <title id="civic-field-title">Vijf open politieke meetassen</title>
           <desc id="civic-field-description">
-            Vijf afzonderlijke lijnen kruisen elkaar zonder samen te vallen.
+            Vijf onafhankelijke assen zonder ingevulde uitslag. De meting start pas na het beantwoorden van de stellingen.
           </desc>
-          <rect className="civic-field__frame" x="16" y="52" width="580" height="328" />
-          <line className="civic-field__spine" x1="306" x2="306" y1="52" y2="380" />
-          {TRACE_PATHS.map((path, index) => (
-            <g className="civic-field__trace-group" key={AXES[index].id}>
-              <path className="civic-field__trace-ghost" d={path} />
-              <path
-                className="civic-field__trace"
-                d={path}
-                style={{ animationDelay: `${220 + index * 150}ms` }}
-              />
-              <circle
-                className="civic-field__signal-ring"
-                cx={AXES[index].x}
-                cy={AXES[index].y}
-                r="10"
-                style={{ animationDelay: `${850 + index * 155}ms` }}
-              />
-              <rect
-                className="civic-field__signal"
-                x={AXES[index].x - 4}
-                y={AXES[index].y - 4}
-                width="8"
-                height="8"
-                style={{ animationDelay: `${760 + index * 155}ms` }}
-              />
-              <text className="civic-field__number" x="26" y={AXES[index].y + 4}>
+          <rect className="civic-field__frame" x="16" y="52" width="580" height="304" />
+          <line className="civic-field__spine" x1="306" x2="306" y1="52" y2="356" />
+          {ROWS.map((y, index) => (
+            <g className="civic-field__axis" key={AXES[index].id}>
+              <line className="civic-field__rail" x1="78" x2="562" y1={y} y2={y} />
+              <line className="civic-field__tick" x1="78" x2="78" y1={y - 7} y2={y + 7} />
+              <line className="civic-field__tick" x1="562" x2="562" y1={y - 7} y2={y + 7} />
+              <rect className="civic-field__registration" x="300" y={y - 6} width="12" height="12" />
+              <text className="civic-field__number" x="26" y={y + 4}>
                 {String(index + 1).padStart(2, "0")}
               </text>
             </g>
           ))}
           <path className="civic-field__fold" d="M 306 52 L 320 64 L 306 76 L 292 64 Z" />
-          <path className="civic-field__fold" d="M 306 356 L 320 368 L 306 380 L 292 368 Z" />
+          <path className="civic-field__fold" d="M 306 332 L 320 344 L 306 356 L 292 344 Z" />
         </svg>
       </div>
 
@@ -107,7 +84,7 @@ export function CivicField() {
       </ol>
 
       <div className="civic-field__note">
-        <p>Geen as dicteert de rest. Samen vormen ze een profiel.</p>
+        <p>Vijf onafhankelijke metingen. Geen partijsom.</p>
         <span className="mono">VRAAG VOOR VRAAG</span>
       </div>
     </aside>
