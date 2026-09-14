@@ -26,6 +26,7 @@ import { ParadoxList, type ParadoxItemContext } from "@/components/result/Parado
 import { PartyContext } from "@/components/result/PartyContext";
 import { PersonalProfile } from "@/components/result/PersonalProfile";
 import { AnswerAtlas } from "@/components/result/AnswerAtlas";
+import { PivotalAnswers } from "@/components/result/PivotalAnswers";
 import { getResult } from "@/lib/results-store";
 import {
   getAllCountries,
@@ -36,12 +37,15 @@ import {
 import { DIMENSIONS, dimensionMeta } from "@/lib/dimensions";
 import { rankByDistance } from "@/lib/scoring";
 import { THEMES } from "@/lib/themes";
+import type { AnswerValue } from "@/lib/dimensions";
 import { confidenceBand, confidenceBandLabel } from "@/lib/confidence";
 import { paradoxDescription, type ParadoxType } from "@/lib/paradox";
 import { getQuestionsByIds } from "@/lib/stance-extract";
 import { hasClearDimensionDirection } from "@/lib/result-presentation";
 import { createPersonalProfile } from "@/lib/result-profile-narrative";
 import { deriveAnswerAtlas } from "@/lib/result-answer-atlas";
+import { derivePivotalAnswers } from "@/lib/result-pivotal-answers";
+import { getQuestionPoolForTier } from "@/lib/quiz-data";
 
 type Args = { params: Promise<{ id: string }> };
 
@@ -93,11 +97,15 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
   };
 }
 
+/** Antwoordwaarden die de scorer accepteert; alles daarbuiten negeren we. */
+const ANSWER_VALUES = [-2, -1, 0, 1, 2] as const;
+
 const INDEX_ITEMS = [
   { id: "profiel", label: "Profiel" },
   { id: "dimensies", label: "Vijf dimensies" },
   { id: "themas", label: "Zeven thema's" },
   { id: "antwoordkaart", label: "Je antwoordkaart" },
+  { id: "kantelpunten", label: "Wat als je anders had geantwoord" },
   { id: "steelman", label: "Andere richting" },
   { id: "paradoxen", label: "Paradoxen" },
   { id: "partijen", label: "Partij-context" },
@@ -187,6 +195,34 @@ export default async function ResultPage({ params }: Args) {
       )
     : [];
 
+  // Kantelpunten: dezelfde scoringsregel, één keer opnieuw doorgerekend op het
+  // omdraaien van één antwoord. Oude rapporten met positiegebaseerde vraag-ID's
+  // vallen buiten de statische vragenlijst en leveren hier dus niets op; de
+  // sectie verbergt zichzelf dan.
+  const pivotalPool = await getQuestionPoolForTier(result.tier);
+  const pivotalAnswers = result.answers
+    ? derivePivotalAnswers({
+        questions: pivotalPool.map((question) => ({
+          id: question.id,
+          dimension: question.dimension,
+          direction: question.direction,
+          weight: question.weight,
+          statement: question.statement,
+          theme:
+            question.themes?.find((theme) =>
+              answerAtlasThemeOrder.includes(theme),
+            ) ?? question.themes?.[0],
+        })),
+        answers: result.answers.flatMap((answer) =>
+          answer.value !== null && ANSWER_VALUES.includes(answer.value as never)
+            ? [{ questionId: answer.questionId, value: answer.value as AnswerValue }]
+            : [],
+        ),
+        scores: result.dimensions,
+        limit: isExtendedResult ? 5 : 3,
+      })
+    : [];
+
   const steelmanCandidates = DIMENSIONS.map((dimension) => {
     const yourScore = result.dimensions[dimension.id];
     if (Math.abs(yourScore) < 40) return null;
@@ -244,6 +280,9 @@ export default async function ResultPage({ params }: Args) {
       ),
     ),
 
+    kantelpunten: readingMinutesFor(
+      ...pivotalAnswers.flatMap((item) => [item.statement]),
+    ),
     steelman: readingMinutesFor(
       ...steelmanCandidates.map((candidate) =>
         candidate.yourScore > 0
@@ -537,6 +576,12 @@ export default async function ResultPage({ params }: Args) {
             {answerAtlas.length > 0 ? (
               <div id="antwoordkaart" className="mt-24 md:mt-32 scroll-mt-32">
                 <AnswerAtlas sections={answerAtlas} />
+              </div>
+            ) : null}
+
+            {pivotalAnswers.length > 0 ? (
+              <div id="kantelpunten" className="mt-24 md:mt-32 scroll-mt-32">
+                <PivotalAnswers items={pivotalAnswers} />
               </div>
             ) : null}
 

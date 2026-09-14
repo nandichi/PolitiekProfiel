@@ -48,6 +48,33 @@ export function calculateScores(
   questions: ReadonlyArray<QuestionScoringMeta>,
   answers: ReadonlyArray<RawAnswer>,
 ): ScoreBreakdown {
+  const parts = scoreParts(questions, answers);
+  return {
+    scores: scoreFromParts(parts),
+    answeredCount: parts.answeredCount,
+    skippedCount: parts.skippedCount,
+    totalQuestions: questions.length,
+  };
+}
+
+/**
+ * De ruwe teller en noemer per as.
+ *
+ * `calculateScores` deelt `sums` door `maxAbs`; door die twee los te bewaren
+ * kan een andere functie exact doorrekenen wat er gebeurt als één antwoord
+ * verandert, zonder de scoringsregel te dupliceren.
+ */
+export interface ScoreParts {
+  sums: DimensionScores;
+  maxAbs: DimensionScores;
+  answeredCount: number;
+  skippedCount: number;
+}
+
+export function scoreParts(
+  questions: ReadonlyArray<QuestionScoringMeta>,
+  answers: ReadonlyArray<RawAnswer>,
+): ScoreParts {
   const byId = new Map<QuestionScoringMeta["id"], QuestionScoringMeta>();
   for (const q of questions) {
     byId.set(q.id, q);
@@ -77,22 +104,20 @@ export function calculateScores(
     maxAbs[q.dimension] += 2 * weight;
   }
 
+  return { sums, maxAbs, answeredCount: answered, skippedCount: skipped };
+}
+
+export function scoreFromParts(parts: ScoreParts): DimensionScores {
   const scores = emptyScores();
   for (const dim of DIMENSION_IDS) {
-    if (maxAbs[dim] === 0) {
+    if (parts.maxAbs[dim] === 0) {
       scores[dim] = 0;
     } else {
-      const normalized = (sums[dim] / maxAbs[dim]) * 100;
+      const normalized = (parts.sums[dim] / parts.maxAbs[dim]) * 100;
       scores[dim] = Math.max(-100, Math.min(100, Math.round(normalized)));
     }
   }
-
-  return {
-    scores,
-    answeredCount: answered,
-    skippedCount: skipped,
-    totalQuestions: questions.length,
-  };
+  return scores;
 }
 
 export function distance(a: DimensionScores, b: DimensionScores): number {
