@@ -1,5 +1,5 @@
 import type { CollectionConfig } from "payload";
-import { hasPayloadUser } from "@/lib/payload-access";
+import { hasPayloadAdmin } from "@/lib/payload-access";
 
 export const Results: CollectionConfig = {
   slug: "results",
@@ -11,10 +11,10 @@ export const Results: CollectionConfig = {
       "Anoniem opgeslagen quizresultaten, opgehaald via een shareId in de URL.",
   },
   access: {
-    read: ({ req }) => hasPayloadUser(req),
-    create: ({ req }) => hasPayloadUser(req),
+    read: ({ req }) => hasPayloadAdmin(req),
+    create: ({ req }) => hasPayloadAdmin(req),
     update: () => false,
-    delete: ({ req }) => hasPayloadUser(req),
+    delete: ({ req }) => hasPayloadAdmin(req),
   },
   fields: [
     {
@@ -26,17 +26,7 @@ export const Results: CollectionConfig = {
       label: "Share-ID",
       admin: { description: "Korte unieke string in de URL." },
     },
-    {
-      name: "attemptId",
-      type: "text",
-      required: false,
-      index: true,
-      label: "Attempt-ID",
-      admin: {
-        description:
-          "Koppelt dit resultaat aan een quiz-attempts row. Leeg voor historische resultaten van vóór de tracking-integratie.",
-      },
-    },
+
     {
       name: "lengthTier",
       type: "select",

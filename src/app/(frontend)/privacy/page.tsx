@@ -170,9 +170,10 @@ export default function PrivacyPage() {
           <Block id="delen" kicker="05 · Delen en verwijderen" title="Een resultaatlink is een sleutel." accent="ink">
             <p>
               Iedereen die je share-link heeft, kan het resultaat zien. Stuur de
-              link daarom alleen naar mensen met wie je dit wilt delen. We tonen
-              geen openbare resultatenlijst en blokkeren rechtstreekse database-
-              toegang voor bezoekers.
+              link daarom alleen naar mensen met wie je dit wilt delen. Deel je hem
+              op sociale media of in een externe embed, dan kunnen dat platform en
+              anderen de inhoud kopiëren of bewaren. We tonen geen openbare
+              resultatenlijst en blokkeren rechtstreekse databasetoegang voor bezoekers.
             </p>
             <p>
               Wil je een resultaat laten verwijderen? Stuur via het{" "}

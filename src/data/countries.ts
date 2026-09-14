@@ -29,6 +29,10 @@ const oecd: SeedSource = {
   label: "OECD Survey on Drivers of Trust in Public Institutions 2026 Results",
   url: "https://www.oecd.org/en/publications/oecd-survey-on-drivers-of-trust-in-public-institutions-2026-results_9eb63fec-en.html",
 };
+const hungaryGovernment: SeedSource = {
+  label: "Hongaarse regering – Péter Magyar benoemd tot minister-president (mei 2026)",
+  url: "https://kormany.hu/en/news/magyar-peter-magyarorszag-miniszterelnoke",
+};
 
 const baseEU: SeedSource[] = [vdem, heritage, eurobarometer];
 
@@ -173,9 +177,9 @@ export const COUNTRIES: SeedCountry[] = [
     name: "Hongarije",
     countryCode: "HU",
     description:
-      "Onder Orbán (Fidesz) sinds 2010 stevig nationaal-conservatieve koers. V-Dem rekent het land tot 'electorale autocratieën'.",
+      "Sinds mei 2026 is Péter Magyar (TISZA) minister-president. Vergelijkende indicatoren lopen achter op zo'n regeringswissel en beschrijven vooral de institutionele situatie van de voorafgaande meetperiode.",
     positionVector: { economic: 30, social: -70, civil: -50, governance: -80, trust: -40 },
-    sources: [vdem, rsf, heritage],
+    sources: [hungaryGovernment, vdem, rsf, heritage],
   },
   {
     name: "Roemenië",

@@ -6,7 +6,7 @@
  * kabinetsbeleid of latere fractiestandpunten. Dat onderscheid blijft zichtbaar
  * in de UI, zodat historisch programma en actuele macht niet door elkaar lopen.
  *
- * Status (13 september 2026): programmalinks gecontroleerd en samenvattingen
+ * Status (14 september 2026): programmalinks gecontroleerd en samenvattingen
  * opnieuw beoordeeld op neutraliteit. Fracties zonder zelfstandig programma
  * vallen terug op de actuele beschrijving in `parties.ts`.
  */
@@ -29,19 +29,19 @@ export type PartyProgramme = Partial<Record<ThemeId, PartyProgrammeTheme>>;
 
 /** Generieke bronlink naar het verkiezingsprogramma per partij (2025). */
 export const PROGRAMME_SOURCES: Record<string, { label: string; url: string }> = {
-  d66: { label: "D66 – Verkiezingsprogramma 2025-2030 'Het kan wél'", url: "https://d66.nl/verkiezingsprogramma" },
+  d66: { label: "D66 – Verkiezingsprogramma 2025-2030 'Het kan wél'", url: "https://media.d66.nl/uploads/2026/04/D66-Verkiezingsprogramma-2025-2030-2-1.pdf" },
   pvv: { label: "PVV – Verkiezingsprogramma 2025 'Dit is uw land'", url: "https://www.pvv.nl/verkiezingsprogramma.html" },
-  vvd: { label: "VVD – Verkiezingsprogramma 2025 'Sterker uit de storm'", url: "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf" },
-  "progressief-nederland": { label: "GroenLinks-PvdA – Verkiezingsprogramma 2025 'Een nieuwe start voor Nederland'", url: "https://groenlinkspvda.nl/verkiezingsprogramma" },
+  vvd: { label: "VVD – Verkiezingsprogramma 2025 'Een sterker Nederland'", url: "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf" },
+  "progressief-nederland": { label: "GroenLinks-PvdA – Verkiezingsprogramma 2025 'Tijd voor solidariteit'", url: "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf" },
   cda: { label: "CDA – Verkiezingsprogramma 2025 'Bouwen op vertrouwen'", url: "https://www.cda.nl/verkiezingsprogramma" },
   ja21: { label: "JA21 – Verkiezingsprogramma 2025 'De Juiste Aanpak voor Nederland'", url: "https://ja21.nl/partij-programma" },
   fvd: { label: "FvD – Presentatie verkiezingsprogramma 2025", url: "https://fvd.nl/nieuws/fvd-presenteert-kandidatenlijst-en-verkiezingsprogramma-een-nieuwe-kans-voor-nederland" },
   bbb: { label: "BBB – Verkiezingsprogramma 2025 'BBB Levert!'", url: "https://boerburgerbeweging.nl/tweede-kamerverkiezingen-2025" },
   denk: { label: "DENK – Standpunten en verkiezingsprogramma 2025", url: "https://www.bewegingdenk.nl/standpunten/" },
   christenunie: { label: "ChristenUnie – Verkiezingsprogramma 2025 'Opstaan voor het goede'", url: "https://www.christenunie.nl/verkiezingsprogramma" },
-  sp: { label: "SP – Verkiezingsprogramma 2025 'Supersociaal!'", url: "https://www.sp.nl/nieuws/supersociaal-verkiezingsprogramma" },
+  sp: { label: "SP – Verkiezingsprogramma 2025 'Supersociaal'", url: "https://cdn.sp.nl/2025/09/SP-verkiezingsprogramma-TK2025.pdf" },
   sgp: { label: "SGP – Verkiezingsprogramma 2025 'Stem christelijk voor Nederland'", url: "https://sgp.nl/verkiezingsprogramma" },
-  pvdd: { label: "Partij voor de Dieren – Verkiezingsprogramma 2025", url: "https://www.partijvoordedieren.nl/partijprogrammas/tweede-kamerverkiezingen-2025" },
+  pvdd: { label: "Partij voor de Dieren – Verkiezingsprogramma 2025", url: "https://assets.partijvoordedieren.nl/assets/algemeen/PVDD-programma-tweede-kamerverkiezingen-okt-2025.pdf" },
   "50plus": { label: "50PLUS – Verkiezingsprogramma 2025-2029", url: "https://www.50pluspartij.nl/verkiezingsprogramma-50plus" },
   volt: { label: "Volt – Verkiezingsprogramma 2025", url: "https://voltnederland.org/verkiezingsprogramma-2025" },
 };
@@ -50,10 +50,10 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
   d66: {
     klimaat: {
       summary:
-        "Doorzetten van een ambitieus klimaatpad richting netto-nul in 2050, met nadruk op kernenergie, groene industrie en een eerlijke verdeling van lasten.",
+        "Klimaatpad naar klimaatneutraliteit in 2050, met wind en zon als eerste keuze en voorbereidingen voor twee nieuwe kerncentrales.",
       bullets: [
-        { text: "Bouw van vier nieuwe kerncentrales versnellen; tegelijk inzet op wind op zee en zonneparken." },
-        { text: "Klimaatfonds van 35 miljard euro behouden voor verduurzaming industrie, woningen en mobiliteit." },
+        { text: "Doorgaan met de voorbereidingen voor de bouw van twee nieuwe kerncentrales." },
+        { text: "Investeren in schone energie, een sterker elektriciteitsnet en verduurzaming van de industrie." },
         { text: "Vliegbelasting verhogen en kerosineheffing inzetten via EU." },
       ],
     },
@@ -63,7 +63,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       bullets: [
         { text: "Loonsverhoging zorgpersoneel boven inflatie; minder regeldruk en administratielast." },
         { text: "Mentale-gezondheidszorg jongeren ophogen via wijkteams en huisartsen." },
-        { text: "Eigen risico op termijn afschaffen; eerst halveren naar €165 in 2027." },
+        { text: "Zorg betaalbaar houden en voorkomen dat mensen zorg mijden om financiële redenen." },
       ],
     },
     migratie: {
@@ -77,11 +77,11 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
     },
     economie: {
       summary:
-        "Brede welvaart: investeren in onderwijs, innovatie en EU-handel. Vlakke belastingverhoging top, lasten op arbeid omlaag.",
+        "Brede welvaart: investeren in onderwijs en innovatie, lasten op arbeid verlagen en het minimumloon verhogen.",
       bullets: [
-        { text: "Extra schijf inkomstenbelasting boven €150.000 op 52%." },
-        { text: "Toptarief vennootschapsbelasting naar 27%." },
-        { text: "Onderwijsuitgaven structureel +5 miljard euro per jaar." },
+        { text: "Het tarief in de eerste en tweede schijf van de inkomstenbelasting verlagen en het minimumloon verhogen." },
+        { text: "Investeren in een slimme, innovatieve economie en goed onderwijs." },
+        { text: "Ondernemers ruimte geven om te vernieuwen, met aandacht voor publieke waarden." },
       ],
     },
     eu: {
@@ -108,7 +108,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       bullets: [
         { text: "Afbouw hypotheekrenteaftrek vanaf 2028; opbrengst naar bouw." },
         { text: "Verplicht aandeel sociale huur in nieuwe wijken (30%)." },
-        { text: "Wet huurmaximum aanscherpen tot middenhuur €1.300/maand." },
+        { text: "Corporaties ruimte geven om middenhuur onderdeel van hun kerntaak te maken." },
       ],
     },
   },
@@ -312,8 +312,8 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       summary:
         "Ambitieus klimaatbeleid met eerlijke verdeling: vervuiler betaalt, fossiele subsidies afbouwen, klimaatticket voor ov.",
       bullets: [
-        { text: "Klimaatfonds verdubbelen naar 70 mrd voor versnelde transitie." },
-        { text: "Fossiele subsidies (39 mrd) afschaffen in deze regeerperiode." },
+        { text: "Fossiele subsidies zo snel mogelijk afbouwen, ook als Europa nog niet meebeweegt." },
+        { text: "Grote vervuilers meer laten bijdragen aan de klimaattransitie." },
         { text: "Nationaal klimaatticket €40/maand voor ov." },
       ],
     },
@@ -341,7 +341,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       bullets: [
         { text: "Progressieve vermogensbelasting boven €1 mln." },
         { text: "Minimumloon naar €18/uur in twee stappen." },
-        { text: "Toptarief inkomstenbelasting naar 60% boven €150.000." },
+        { text: "Topinkomens en mensen met veel vermogen eerlijk laten bijdragen aan de samenleving." },
       ],
     },
     eu: {
@@ -364,10 +364,10 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
     },
     wonen: {
       summary:
-        "Publieke regie op wonen: huurprijsbevriezing, sterke positie corporaties, sociaal bouwen.",
+        "Publieke regie op wonen: huurverhogingen begrenzen, sterke positie corporaties en meer betaalbare woningen.",
       bullets: [
         { text: "Hypotheekrenteaftrek volledig afschaffen in 5 jaar." },
-        { text: "Huurprijsbevriezing 3 jaar in vrije sector." },
+        { text: "Een wettelijke bovengrens aan huurstijgingen invoeren en bescherming tegen woekerhuren voor alle huurwoningen laten gelden." },
         { text: "Verdubbeling sociale huur via corporaties." },
       ],
     },
@@ -519,7 +519,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
         "Sterk eurosceptisch: terughalen bevoegdheden, geen federale EU.",
       bullets: [
         { text: "Vetorecht behouden." },
-        { text: "Tegen verdragswijzigingen die soevereiniteit overdragen." },
+        { text: "Europese verdragen wijzigen: de Commissie verkleinen en bevoegdheden afstaan aan het Europees Parlement en de lidstaten." },
         { text: "Tegen Eurobonds." },
       ],
     },
@@ -573,11 +573,11 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
   pvdd: {
     klimaat: {
       summary:
-        "Eco-radicaal: 75% CO₂-reductie in 2030, einde veehouderij in huidige vorm.",
+        "Radicaal klimaat- en natuurbeleid: Nederland uiterlijk in 2030 klimaatneutraal en een andere inrichting van de landbouw.",
       bullets: [
-        { text: "Klimaatfonds verdrievoudigen." },
-        { text: "Halvering veestapel binnen 5 jaar." },
-        { text: "Verbod nieuwe fossiele projecten." },
+        { text: "Elk jaar 5% van het nationale inkomen besteden aan de klimaat- en natuurcrisis." },
+        { text: "Direct stoppen met fossiele subsidies en landbouwsubsidies." },
+        { text: "Een nationaal CO₂-budget invoeren en klimaatbeleid daarop richten." },
       ],
     },
     economie: {

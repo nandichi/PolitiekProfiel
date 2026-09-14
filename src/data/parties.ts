@@ -450,7 +450,7 @@ export const PARTIES: SeedParty[] = [
     region: "EU",
     regionType: "family",
     description:
-      "Grootste partij-familie in het Europees Parlement. Christen-democratisch en centrum-rechts: pro-EU, marktgericht, gematigd cultureel-conservatief. Bevat CDA, CDU, Forza Italia, PP, Fidesz (geschorst sinds 2021).",
+      "Grootste partij-familie in het Europees Parlement. Christen-democratisch en centrum-rechts: pro-EU, marktgericht en gematigd cultureel-conservatief. Bevat onder meer CDA, CDU, Forza Italia en PP.",
     positionVector: { economic: -25, social: -25, civil: -10, governance: 50, trust: 40 },
     ideologySlugs: ["christen-democraat", "conservatief-liberaal"],
     founded: "1976",

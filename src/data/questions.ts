@@ -295,8 +295,8 @@ export const QUESTIONS: SeedQuestion[] = [
       ],
       sources: [
         {
-          label: "ATR – Adviescollege Toetsing Regeldruk – Jaarverslag",
-          url: "https://www.atr-regeldruk.nl/",
+          label: "Rijksoverheid – Regeldruk bij ondernemers en burgers",
+          url: "https://www.rijksoverheid.nl/themas/overheid-en-democratie/regeldruk",
         },
       ],
     },
@@ -1401,8 +1401,8 @@ export const QUESTIONS: SeedQuestion[] = [
       ],
       sources: [
         {
-          label: "Staatscommissie Parlementair stelsel – Eindrapport",
-          url: "https://www.staatscommissieparlementairstelsel.nl/",
+          label: "Staatscommissie Parlementair stelsel – Eindrapport 'Lage drempels, hoge dijken'",
+          url: "https://www.tweedekamer.nl/kamerstukken/detail?did=2018D60651&id=2018D60651",
         },
       ],
     },

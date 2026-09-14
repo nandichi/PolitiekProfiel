@@ -13,6 +13,11 @@ const LINK_HEADER_HOMEPAGE = [
   '</methodiek>; rel="describedby"; type="text/html"',
 ].join(", ");
 
+const PRIVATE_RESULT_HEADERS = [
+  { key: "Cache-Control", value: "private, no-store" },
+  { key: "X-Robots-Tag", value: "noindex, nofollow" },
+];
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   serverExternalPackages: ["payload", "@payloadcms/db-postgres", "@payloadcms/db-sqlite"],
@@ -33,6 +38,26 @@ const nextConfig: NextConfig = {
             value: "Accept",
           },
         ],
+      },
+      {
+        source: "/r/:path*",
+        headers: PRIVATE_RESULT_HEADERS,
+      },
+      {
+        source: "/embed/:path*",
+        headers: PRIVATE_RESULT_HEADERS,
+      },
+      {
+        source: "/widget/profiel/:path*",
+        headers: PRIVATE_RESULT_HEADERS,
+      },
+      {
+        source: "/api/r/:path*/export.md",
+        headers: PRIVATE_RESULT_HEADERS,
+      },
+      {
+        source: "/api/og/:path*",
+        headers: PRIVATE_RESULT_HEADERS,
       },
     ];
   },
