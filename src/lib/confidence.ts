@@ -38,12 +38,14 @@ export function calculateConfidence(
   };
 
   for (const dim of DIMENSION_IDS) {
-    const values: number[] = [];
+    const values: Array<{ value: number; weight: number }> = [];
     for (const answer of answers) {
       const q = byId.get(answer.questionId);
-      if (!q || q.dimension !== dim) continue;
-      if (answer.value === null) continue;
-      values.push(q.direction * answer.value);
+      if (!q || q.dimension !== dim || answer.value === null) continue;
+      values.push({
+        value: q.direction * answer.value,
+        weight: q.weight ?? 1,
+      });
     }
 
     if (values.length === 0) {
@@ -51,21 +53,36 @@ export function calculateConfidence(
       continue;
     }
 
+    const totalWeight = values.reduce((sum, entry) => sum + entry.weight, 0);
+    const squaredWeight = values.reduce(
+      (sum, entry) => sum + entry.weight * entry.weight,
+      0,
+    );
+    const effectiveAnswerCount =
+      totalWeight === 0 ? 0 : (totalWeight * totalWeight) / squaredWeight;
     const coveragePart = clamp(
-      (values.length / MIN_ANSWERS_FOR_FULL_COUNT) * 100,
+      (effectiveAnswerCount / MIN_ANSWERS_FOR_FULL_COUNT) * 100,
       0,
       100,
     );
     const strengthPart = clamp(Math.abs(scores[dim]), 0, 100);
 
-    const mean = values.reduce((s, v) => s + v, 0) / values.length;
+    const mean =
+      values.reduce((sum, entry) => sum + entry.value * entry.weight, 0) /
+      totalWeight;
     const variance =
-      values.reduce((s, v) => s + (v - mean) * (v - mean), 0) / values.length;
+      values.reduce(
+        (sum, entry) =>
+          sum + entry.weight * (entry.value - mean) * (entry.value - mean),
+        0,
+      ) / totalWeight;
     const variancePart = clamp(100 - (variance / 4) * 100, 0, 100);
 
     const blended =
       coveragePart * 0.35 + strengthPart * 0.4 + variancePart * 0.25;
-    perDim[dim] = Math.round(clamp(blended));
+    const evidenceCap =
+      effectiveAnswerCount < MIN_ANSWERS_FOR_FULL_COUNT ? 69 : 100;
+    perDim[dim] = Math.round(clamp(Math.min(blended, evidenceCap)));
   }
 
   const overall = Math.round(

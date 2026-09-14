@@ -6,7 +6,7 @@ import { firestore } from "@/lib/firebase-admin";
 import { payload } from "@/lib/payload";
 import { markSubmitted as markAttemptSubmitted } from "@/lib/tracking-store";
 import type { DimensionScores } from "@/lib/scoring";
-import type { Tier } from "@/lib/dimensions";
+import type { AnswerValue, Tier } from "@/lib/dimensions";
 import type { ThemeScores } from "@/lib/themes";
 import type { DimensionConfidence } from "@/lib/confidence";
 
@@ -21,7 +21,7 @@ export interface StoredParadox {
 
 export interface StoredAnswer {
   questionId: number;
-  value: number;
+  value: AnswerValue | null;
 }
 
 export interface StoredResult {
@@ -146,7 +146,10 @@ export async function createResult(input: {
         themeScores: input.themeScores,
         confidence: input.confidence,
         paradoxes: paradoxesForPayload,
-        answers: input.answers,
+        answers: input.answers?.filter(
+          (answer): answer is { questionId: number; value: AnswerValue } =>
+            answer.value !== null,
+        ),
         answeredCount: input.answeredCount,
         skippedCount: input.skippedCount,
         totalQuestions: input.totalQuestions,

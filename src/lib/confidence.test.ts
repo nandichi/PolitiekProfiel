@@ -57,6 +57,16 @@ describe("calculateConfidence", () => {
     expect(b.perDimension.economic).toBeGreaterThan(a.perDimension.economic);
   });
 
+  it("keeps one strong answer below the high-confidence band", () => {
+    const answers: RawAnswer[] = [{ questionId: 1, value: 2 }];
+    const scores = { ...emptyScores(), economic: 100 };
+
+    const result = calculateConfidence(questions, answers, scores);
+
+    expect(result.perDimension.economic).toBeLessThan(70);
+    expect(confidenceBand(result.perDimension.economic)).not.toBe("hoog");
+  });
+
   it("confidenceBand maps scores to bands", () => {
     expect(confidenceBand(80)).toBe("hoog");
     expect(confidenceBand(50)).toBe("gemiddeld");

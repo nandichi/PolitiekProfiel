@@ -44,7 +44,7 @@ export async function GET(_request: Request, context: RouteContext) {
     stances: stances.map((s) => ({
       statement: s.statement,
       signedValue: s.signedValue,
-      derivedStance: s.derivedStance,
+      value: s.value,
       dimension: s.dimension,
     })),
   });

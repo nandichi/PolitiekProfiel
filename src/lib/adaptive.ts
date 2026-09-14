@@ -180,7 +180,7 @@ function interleaveByDimension(qs: AdaptiveQuestion[]): AdaptiveQuestion[] {
 }
 
 export function pickNextBatch(ctx: AdaptiveContext): AdaptiveQuestion[] {
-  const answered = ctx.answers.filter((a) => a !== null).length;
+  const answered = ctx.answers.filter((a) => a.value !== null).length;
   if (tierIsComplete(ctx.tier, answered)) return [];
 
   const need = tierBatchSize(ctx.tier, answered);

@@ -12,6 +12,8 @@ import {
   validateEntitlementForTier,
 } from "@/lib/entitlements";
 import { isPaidTier } from "@/lib/stripe";
+import { validateSubmittedAnswers } from "@/lib/result-answer-validation";
+import { MINIMUM_RESULT_ANSWERS } from "@/lib/quiz-completion";
 import { getAllIdeologiesSeed } from "@/lib/seed-readers";
 import { getStaticQuestionById, isStaticQuestionId } from "@/lib/static-question-data";
 import type { ThemeId } from "@/lib/themes";
@@ -26,6 +28,7 @@ interface Body {
 const ATTEMPT_ID_PATTERN = /^[A-Za-z0-9_-]{6,32}$/;
 
 const VALID_TIERS: Tier[] = ["quick", "standard", "extended"];
+const MAXIMUM_SUBMITTED_STATEMENTS = 300;
 
 export const runtime = "nodejs";
 
@@ -40,12 +43,14 @@ export async function POST(request: Request) {
   if (!body.tier || !VALID_TIERS.includes(body.tier)) {
     return NextResponse.json({ error: "Onbekende quizlengte." }, { status: 400 });
   }
-  if (!Array.isArray(body.answers) || body.answers.length === 0) {
-    return NextResponse.json(
-      { error: "Geen antwoorden ontvangen." },
-      { status: 400 },
-    );
+  const parsedAnswers = validateSubmittedAnswers(
+    body.answers,
+    MAXIMUM_SUBMITTED_STATEMENTS,
+  );
+  if (!parsedAnswers.ok) {
+    return NextResponse.json({ error: parsedAnswers.reason }, { status: 400 });
   }
+  const answers = parsedAnswers.answers;
 
   const entitlement = await validateEntitlementForTier({
     tier: body.tier,
@@ -58,7 +63,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const ids = body.answers.map((a) => a.questionId).filter((n) => Number.isInteger(n));
+  const ids = answers.map((a) => a.questionId);
   if (ids.length === 0) {
     return NextResponse.json(
       { error: "Geen geldige vraag-IDs ontvangen." },
@@ -91,6 +96,7 @@ export async function POST(request: Request) {
       direction: "positive" | "negative";
       weight?: number;
       themes?: ThemeId[];
+      tiers?: Tier[];
     }>).map((q) => [q.id, q]),
   );
 
@@ -124,26 +130,51 @@ export async function POST(request: Request) {
     }];
   });
 
-  if (scoringMeta.length === 0) {
-    return NextResponse.json({ error: "Quizvragen niet gevonden." }, { status: 500 });
+  if (scoringMeta.length !== answers.length) {
+    return NextResponse.json(
+      { error: "Een of meer quizvragen zijn niet gevonden." },
+      { status: 400 },
+    );
   }
 
-  const breakdown = calculateScores(scoringMeta, body.answers);
+  const containsQuestionOutsideTier = ids.some((id) => {
+    const staticQuestion = staticById.get(id);
+    if (staticQuestion) return !staticQuestion.tiers.includes(body.tier!);
+    const legacyQuestion = legacyById.get(id);
+    return Boolean(
+      legacyQuestion?.tiers && !legacyQuestion.tiers.includes(body.tier!),
+    );
+  });
+  if (containsQuestionOutsideTier) {
+    return NextResponse.json(
+      { error: "Een of meer vragen horen niet bij deze quizlengte." },
+      { status: 400 },
+    );
+  }
 
-  if (breakdown.answeredCount < 5) {
+  const breakdown = calculateScores(scoringMeta, answers);
+
+  if (breakdown.answeredCount > TIER_QUESTION_COUNT[body.tier]) {
+    return NextResponse.json(
+      { error: "Er zijn meer beantwoorde stellingen ingestuurd dan deze quiz bevat." },
+      { status: 400 },
+    );
+  }
+
+  if (breakdown.answeredCount < MINIMUM_RESULT_ANSWERS) {
     return NextResponse.json(
       { error: "Te weinig vragen beantwoord voor een betrouwbaar resultaat." },
       { status: 400 },
     );
   }
 
-  const themeBreakdown = calculateThemeScores(scoringMeta, body.answers);
+  const themeBreakdown = calculateThemeScores(scoringMeta, answers);
   const confidence = calculateConfidence(
     scoringMeta,
-    body.answers,
+    answers,
     breakdown.scores,
   );
-  const paradoxes = detectParadoxes(scoringMeta, body.answers);
+  const paradoxes = detectParadoxes(scoringMeta, answers);
 
   const ideologies = (await getAllIdeologiesSeed()).map((ideology) => ({
     slug: ideology.slug,
@@ -158,12 +189,10 @@ export async function POST(request: Request) {
     );
   }
 
-  const storedAnswers = body.answers
-    .filter((a) => a.value !== null && Number.isInteger(a.questionId))
-    .map((a) => ({
-      questionId: a.questionId,
-      value: a.value as number,
-    }));
+  const storedAnswers = answers.map((answer) => ({
+    questionId: answer.questionId,
+    value: answer.value,
+  }));
 
   const attemptId =
     typeof body.attemptId === "string" && ATTEMPT_ID_PATTERN.test(body.attemptId)

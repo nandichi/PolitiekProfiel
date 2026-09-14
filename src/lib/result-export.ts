@@ -20,9 +20,17 @@ export interface ExportInput {
   stances: Array<{
     statement: string;
     signedValue: number;
-    derivedStance?: string | null;
     dimension: string;
+    value: number;
   }>;
+}
+
+function answerLabel(value: number): string {
+  if (value === -2) return "sterk oneens";
+  if (value === -1) return "oneens";
+  if (value === 1) return "eens";
+  if (value === 2) return "sterk eens";
+  return "neutraal";
 }
 
 function formatScore(n: number): string {
@@ -72,12 +80,12 @@ export function buildResultMarkdown(input: ExportInput): string {
     lines.push("");
   }
 
-  // 3. Standpunten
+  // 3. Jouw uitgesproken antwoorden
   if (stances.length > 0) {
-    lines.push("## Wat jij waarschijnlijk vindt");
+    lines.push("## Jouw uitgesproken antwoorden");
     lines.push("");
     lines.push(
-      "Server-side gedistilleerd uit jouw sterkste antwoorden. Geen AI, geen externe analyse.",
+      "Hier staan de letterlijke stellingen waarop je een uitgesproken antwoord gaf. Dit is een terugblik op je eigen antwoorden, geen voorspelling.",
     );
     lines.push("");
     for (const s of stances) {
@@ -85,7 +93,8 @@ export function buildResultMarkdown(input: ExportInput): string {
         s.dimension as Parameters<typeof dimensionMeta>[0],
       );
       lines.push(`### ${dim.label}`);
-      lines.push(`> ${s.derivedStance ?? s.statement}`);
+      lines.push(`> ${s.statement}`);
+      lines.push(`*Jouw antwoord: ${answerLabel(s.value)}.*`);
       lines.push(
         `*Sterkte ${formatScore(s.signedValue * 25)} op een schaal van −50 tot +50.*`,
       );

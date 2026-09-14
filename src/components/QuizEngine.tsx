@@ -25,6 +25,7 @@ import { QuizProgressDots } from "@/components/quiz/QuizProgressDots";
 import { EmailResultLinkBlock } from "@/components/EmailResultLinkBlock";
 import { cx } from "@/lib/cx";
 import { newAttemptId, useTracking } from "@/lib/use-tracking";
+import { MINIMUM_RESULT_ANSWERS, canCreateResult } from "@/lib/quiz-completion";
 
 type AnswerMap = Record<number, AnswerValue | null>;
 
@@ -80,7 +81,7 @@ export function QuizEngine({
   const submittedRef = useRef(false);
 
   const adaptiveTarget = adaptive ? TIER_QUESTION_COUNT[tier] : questions.length;
-  const total = adaptive ? adaptiveTarget : questions.length;
+  const total = adaptive ? Math.max(adaptiveTarget, questions.length) : questions.length;
   const current = questions[cursor];
 
   useEffect(() => {
@@ -173,7 +174,10 @@ export function QuizEngine({
   }, [hydrated, resumePrompt, tracking, tier, adaptive, cursor]);
 
   const answeredCount = useMemo(
-    () => Object.values(answers).filter((v) => v !== undefined).length,
+    () =>
+      Object.values(answers).filter(
+        (value) => value !== undefined && value !== null,
+      ).length,
     [answers],
   );
 
@@ -184,7 +188,6 @@ export function QuizEngine({
 
   const fetchNextBatch = useCallback(async () => {
     if (!adaptive || batchDone || fetchInFlight.current) return;
-    if (questions.length >= adaptiveTarget) return;
     fetchInFlight.current = true;
     setLoadingMore(true);
     try {
@@ -236,7 +239,6 @@ export function QuizEngine({
   }, [
     adaptive,
     answers,
-    adaptiveTarget,
     batchDone,
     questions,
     tier,
@@ -249,7 +251,7 @@ export function QuizEngine({
     const remainingInBuffer = questions.length - cursor;
     const reachedTier = answeredCount >= adaptiveTarget;
     if (reachedTier) return;
-    if (remainingInBuffer <= 2 && questions.length < adaptiveTarget) {
+    if (remainingInBuffer <= 2) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       void fetchNextBatch();
     }
@@ -285,7 +287,9 @@ export function QuizEngine({
       trust: 0,
     };
     for (const q of questions) {
-      if (answers[q.id] !== undefined) m[q.dimension] += 1;
+      if (answers[q.id] !== undefined && answers[q.id] !== null) {
+        m[q.dimension] += 1;
+      }
     }
     return m;
   }, [questions, answers]);
@@ -509,15 +513,21 @@ export function QuizEngine({
   }
 
   const reachedTarget = adaptive
-    ? answeredCount >= adaptiveTarget ||
-      (cursor >= questions.length && (batchDone || questions.length >= adaptiveTarget))
+    ? answeredCount >= adaptiveTarget || (cursor >= questions.length && batchDone)
     : cursor >= questions.length;
+  const canSubmitResult = canCreateResult(answeredCount);
 
   if (reachedTarget) {
     return (
       <Container width="narrow" className="py-20 md:py-28">
-        <p className="kicker mb-4">Alle stellingen ingevuld</p>
-        <h1 className="display mb-5">Klaar voor je profiel.</h1>
+        <p className="kicker mb-4">
+          {canSubmitResult ? "Alle stellingen ingevuld" : "Nog niet genoeg antwoorden"}
+        </p>
+        <h1 className="display mb-5">
+          {canSubmitResult
+            ? "Klaar voor je profiel."
+            : `Beantwoord nog ${MINIMUM_RESULT_ANSWERS - answeredCount} stellingen.`}
+        </h1>
         <p className="text-ink-2 leading-relaxed mb-10 max-w-xl">
           Je beantwoordde{" "}
           <span className="mono tabular-nums">{answeredCount}</span> van{" "}
@@ -525,7 +535,10 @@ export function QuizEngine({
           {answeredCount < adaptiveTarget
             ? ` (${adaptiveTarget - answeredCount} overgeslagen)`
             : ""}
-          . Klik hieronder om je profiel te berekenen.
+          .{" "}
+          {canSubmitResult
+            ? "Klik hieronder om je profiel te berekenen."
+            : "Een overgeslagen stelling telt niet mee. Ga terug naar de laatste vraag en pas je antwoorden aan."}
         </p>
         {error && (
           <div
@@ -536,24 +549,26 @@ export function QuizEngine({
           </div>
         )}
         <div className="flex flex-wrap gap-3">
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={submit}
-            disabled={submitting}
-          >
-            {submitting ? (
-              <>
-                <Loader2 size={16} className="animate-spin" strokeWidth={1.8} />
-                Berekenen…
-              </>
-            ) : (
-              <>
-                Bekijk mijn profiel
-                <ArrowRight size={16} strokeWidth={1.8} />
-              </>
-            )}
-          </button>
+          {canSubmitResult && (
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={submit}
+              disabled={submitting}
+            >
+              {submitting ? (
+                <>
+                  <Loader2 size={16} className="animate-spin" strokeWidth={1.8} />
+                  Berekenen…
+                </>
+              ) : (
+                <>
+                  Bekijk mijn profiel
+                  <ArrowRight size={16} strokeWidth={1.8} />
+                </>
+              )}
+            </button>
+          )}
           {questions.length > 0 && (
             <button
               type="button"

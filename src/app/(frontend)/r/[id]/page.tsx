@@ -37,6 +37,7 @@ import { THEMES } from "@/lib/themes";
 import { confidenceBand, confidenceBandLabel } from "@/lib/confidence";
 import { paradoxDescription, type ParadoxType } from "@/lib/paradox";
 import { extractStances, getQuestionsByIds } from "@/lib/stance-extract";
+import { hasClearDimensionDirection } from "@/lib/result-presentation";
 import {
   getCohortForVector,
   getTotalProfileCount,
@@ -382,6 +383,7 @@ export default async function ResultPage({ params }: Args) {
                     {DIMENSIONS.map((dimension, index) => {
                       const value = result.dimensions[dimension.id];
                       const dimConfidence = result.confidence?.[dimension.id];
+                      const hasDirection = hasClearDimensionDirection(value);
                       const matchedPole =
                         value >= 0
                           ? dimension.polePositive
@@ -402,16 +404,24 @@ export default async function ResultPage({ params }: Args) {
                                   wat deze score politiek betekent en waar de
                                   nuance zit.
                                 </p>
-                              ) : (
-                                <>
-                                  <p className="kicker mb-2">
-                                    Jouw richting: {matchedPole.label}
-                                  </p>
-                                  <p className="text-sm text-ink-2 leading-relaxed">
-                                    {matchedPole.description}
-                                  </p>
-                                </>
-                              )}
+                              ) : hasDirection ? (
+                                  <>
+                                    <p className="kicker mb-2">
+                                      Jouw richting: {matchedPole.label}
+                                    </p>
+                                    <p className="text-sm text-ink-2 leading-relaxed">
+                                      {matchedPole.description}
+                                    </p>
+                                  </>
+                                ) : (
+                                  <>
+                                    <p className="kicker mb-2">Geen duidelijke richting</p>
+                                    <p className="text-sm text-ink-2 leading-relaxed">
+                                      Je antwoorden liggen op deze as dicht bij het midden. Daaruit
+                                      volgt geen sterke voorkeur voor een van beide polen.
+                                    </p>
+                                  </>
+                                )}
                             </div>
                             {dimConfidence !== undefined && (
                               <div className="mt-4 md:mt-1">
