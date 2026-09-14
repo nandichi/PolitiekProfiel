@@ -91,7 +91,8 @@ export default function PrivacyPage() {
                 <p className="mt-8 text-lg md:text-xl text-ink-2 leading-relaxed">
                   Politieke opvattingen verdienen extra zorg. PolitiekProfiel
                   vraagt geen account voor een quiz, gebruikt geen
-                  advertentiecookies en slaat geen quizgedrag als analyse op.
+                  advertentiecookies en verzamelt sinds 14 september 2026 geen
+                  nieuw quizgedrag voor analyse.
                   Wel is een resultaat via een deelbare link beschikbaar. Lees
                   daarom hieronder precies wat er gebeurt.
                 </p>
@@ -161,9 +162,15 @@ export default function PrivacyPage() {
               verwijderen via je browserinstellingen of door opnieuw te beginnen.
             </p>
             <p>
-              We maken geen vaste tracking-ID aan. We registreren niet welke
+              Sinds 14 september 2026 maken we geen vaste tracking-ID aan. We registreren niet welke
               vraag je opent, hoeveel tijd je per vraag gebruikt of welke
               antwoorden je als gedragsdata invoert.
+            </p>
+            <p>
+              Voor die datum werden bij sommige quizsessies technische
+              eventgegevens opgeslagen, waaronder een willekeurige pogingcode
+              en antwoordwaarden. Deze historische gegevens zijn niet publiek
+              toegankelijk. Nieuwe sessies voegen zulke gegevens niet meer toe.
             </p>
           </Block>
 
