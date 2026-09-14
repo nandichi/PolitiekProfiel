@@ -1616,8 +1616,8 @@ export const QUESTIONS: SeedQuestion[] = [
       ],
       sources: [
         {
-          label: "Nederlandse Vereniging voor Internationaal Recht",
-          url: "https://nvir.nl/",
+          label: "Rijkswet goedkeuring en bekendmaking verdragen",
+          url: "https://wetten.overheid.nl/BWBR0006799",
         },
       ],
     },

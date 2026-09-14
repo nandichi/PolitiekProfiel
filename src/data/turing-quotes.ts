@@ -124,7 +124,7 @@ export const TURING_QUOTES: TuringQuote[] = [
     theme: "eu",
     source: {
       label: "JA21 Verkiezingsprogramma 2025",
-      url: "https://www.ja21.nl/verkiezingsprogramma",
+      url: "https://ja21.nl/partij-programma",
     },
     paraphrased: true,
   },
@@ -135,7 +135,7 @@ export const TURING_QUOTES: TuringQuote[] = [
     theme: "democratie",
     source: {
       label: "Volt – Verkiezingsprogramma 2025",
-      url: "https://voltnederland.org/programma",
+      url: "https://voltnederland.org/verkiezingsprogramma-2025",
     },
     paraphrased: true,
   },
