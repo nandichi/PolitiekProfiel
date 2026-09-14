@@ -74,6 +74,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
   );
   const otherIdeologies = getAllIdeologiesSeed().filter((i) => i.slug !== slug);
   const curatedReading = IDEOLOGY_READING[slug] ?? [];
+  const usesCuratedReadingAsSources = !ideology.sources?.length;
   const sources =
     ideology.sources?.length
       ? ideology.sources
@@ -221,6 +222,13 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
                 <h2 className="display mt-5 max-w-3xl">
                   Bronnen en verdere verdieping.
                 </h2>
+                {usesCuratedReadingAsSources ? (
+                  <p className="mt-3 max-w-2xl text-sm text-ink-2 leading-relaxed">
+                    Deze Engelstalige titels geven achtergrond bij de redactionele
+                    schets. Zij vormen geen volledige bronverantwoording voor
+                    iedere actuele partij- of persoonsclassificatie.
+                  </p>
+                ) : null}
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <ul className="mt-8 max-w-3xl border-t border-rule">
@@ -243,7 +251,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
         </section>
       ) : null}
 
-      {curatedReading.length ? (
+      {curatedReading.length && ideology.sources?.length ? (
         <section className="border-t border-rule bg-paper-50/40">
           <Container width="bleed" className="py-16 md:py-20">
             <ScrollReveal variant="stagger">
