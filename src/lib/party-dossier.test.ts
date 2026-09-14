@@ -27,4 +27,17 @@ describe("buildPartyDossier", () => {
     expect(dossier.roleLine).toContain("stroming");
     expect(dossier.strongestSignals).toHaveLength(0);
   });
+
+  it("uses a Dutch country adjective rather than a literal country name", () => {
+    const dossier = buildPartyDossier({
+      name: "Democratic Party",
+      country: "Verenigde Staten",
+      regionType: "national",
+      positionVector: { economic: 1, social: 2, civil: 3, governance: 4, trust: 5 },
+      lastReviewed: "2026-09-14",
+    });
+
+    expect(dossier.roleLine).toContain("Amerikaanse partij");
+    expect(dossier.roleLine).not.toContain("Verenigde Statense");
+  });
 });

@@ -16,8 +16,22 @@ export interface PartyDossier {
   methodLine: string;
 }
 
+const COUNTRY_ADJECTIVES: Record<string, string> = {
+  Nederland: "Nederlandse",
+  "Europese Unie": "Europese",
+  "Verenigde Staten": "Amerikaanse",
+  Duitsland: "Duitse",
+  "Verenigd Koninkrijk": "Britse",
+  Frankrijk: "Franse",
+};
+
+function countryAdjective(country?: string): string {
+  if (!country) return "internationale";
+  return COUNTRY_ADJECTIVES[country] ?? country + "se";
+}
+
 export function buildPartyDossier(input: PartyDossierInput): PartyDossier {
-  const place = input.country ? input.country + "se" : "internationale";
+  const place = countryAdjective(input.country);
   const roleLine =
     input.regionType === "faction"
       ? input.name + " is een stroming binnen een grotere partij, dus geen volledige partij op zichzelf."
