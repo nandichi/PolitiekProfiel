@@ -3,7 +3,7 @@ import "server-only";
 import { COUNTRIES } from "@/data/countries";
 import { IDEOLOGY_READING } from "@/data/ideology-reading";
 import { IDEOLOGIES } from "@/data/ideologies";
-import { PARTIES } from "@/data/parties";
+import { PARTIES, type PartyRegion } from "@/data/parties";
 import { POLITICIANS } from "@/data/politicians";
 import type { DimensionScores } from "@/lib/scoring";
 
@@ -51,7 +51,7 @@ export interface PartyDoc {
   name: string;
   abbreviation: string;
   slug: string;
-  region: "NL" | "EU" | "US";
+  region: PartyRegion;
   regionType: "national" | "family" | "faction";
   country?: string;
   description: string;

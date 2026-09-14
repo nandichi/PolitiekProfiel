@@ -117,6 +117,14 @@
     font-optical-sizing: auto;
   }
 
+  .party-title {
+    font-size: clamp(2.25rem, 6vw, 5.5rem);
+  }
+
+  .party-meta-term {
+    overflow-wrap: anywhere;
+  }
+
   .display-italic {
     font-family: var(--font-display);
     font-style: italic;

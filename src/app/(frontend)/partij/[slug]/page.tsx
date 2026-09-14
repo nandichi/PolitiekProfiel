@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
 import { DimensionBar } from "@/components/DimensionBar";
+import { PartyDossier } from "@/components/parties/PartyDossier";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -18,6 +19,7 @@ import {
   getAllIdeologiesSeed,
 } from "@/lib/seed-readers";
 import { distance } from "@/lib/scoring";
+import { buildPartyDossier } from "@/lib/party-dossier";
 import {
   PARTY_PROGRAMMES,
   PROGRAMME_SOURCES,
@@ -70,6 +72,13 @@ export default async function PartijDetailPage({ params }: PageProps) {
 
   const programme = PARTY_PROGRAMMES[slug];
   const programmeSource = PROGRAMME_SOURCES[slug];
+  const partyDossier = buildPartyDossier({
+    name: party.name,
+    country: party.country,
+    regionType: party.regionType,
+    positionVector: party.positionVector,
+    lastReviewed: party.lastReviewed,
+  });
 
   const allParties = getAllPartiesSeed();
   const closeParties = allParties
@@ -146,7 +155,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
           </ScrollRevealItem>
           <ScrollRevealItem>
             <h1
-              className="display mt-6 max-w-4xl"
+              className="party-title display mt-6 max-w-4xl"
               style={{ letterSpacing: "-0.025em" }}
             >
               {party.name}
@@ -208,6 +217,10 @@ export default async function PartijDetailPage({ params }: PageProps) {
             </div>
           </ScrollRevealItem>
         </ScrollReveal>
+      </Container>
+
+      <Container width="bleed" className="mt-16 md:mt-20">
+        <PartyDossier dossier={partyDossier} />
       </Container>
 
       {/* Dimensies */}
@@ -503,7 +516,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
 function Meta({ term, value }: { term: string; value: string }) {
   return (
     <div className="bg-paper p-4">
-      <dt className="kicker mb-1">{term}</dt>
+      <dt className="party-meta-term kicker mb-1">{term}</dt>
       <dd className="text-sm text-ink">{value}</dd>
     </div>
   );

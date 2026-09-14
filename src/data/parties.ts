@@ -1,7 +1,8 @@
 import type { DimensionScores } from "@/lib/scoring";
 import type { SeedSource } from "./questions";
+import { INTERNATIONAL_PARTIES } from "./international-parties";
 
-export type PartyRegion = "NL" | "EU" | "US";
+export type PartyRegion = "NL" | "EU" | "US" | "DE" | "GB" | "FR";
 export type PartyRegionType = "national" | "family" | "faction";
 export type CoalitionStatus =
   | "governing"
@@ -614,4 +615,5 @@ export const PARTIES: SeedParty[] = [
     lastReviewed: REVIEW_DATE,
     sources: [pewUS, europeElects],
   },
+  ...INTERNATIONAL_PARTIES,
 ];

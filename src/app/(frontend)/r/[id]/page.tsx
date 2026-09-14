@@ -25,6 +25,8 @@ import { ThemeBars } from "@/components/result/ThemeBars";
 import { ParadoxList, type ParadoxItemContext } from "@/components/result/ParadoxList";
 import { PartyContext } from "@/components/result/PartyContext";
 import { StanceExtract } from "@/components/result/StanceExtract";
+import { PersonalProfile } from "@/components/result/PersonalProfile";
+import { AnswerAtlas } from "@/components/result/AnswerAtlas";
 import { getResult } from "@/lib/results-store";
 import {
   getAllCountries,
@@ -39,6 +41,8 @@ import { confidenceBand, confidenceBandLabel } from "@/lib/confidence";
 import { paradoxDescription, type ParadoxType } from "@/lib/paradox";
 import { extractStances, getQuestionsByIds } from "@/lib/stance-extract";
 import { hasClearDimensionDirection } from "@/lib/result-presentation";
+import { createPersonalProfile } from "@/lib/result-profile-narrative";
+import { deriveAnswerAtlas } from "@/lib/result-answer-atlas";
 
 type Args = { params: Promise<{ id: string }> };
 
@@ -94,6 +98,7 @@ const INDEX_ITEMS = [
   { id: "profiel", label: "Profiel" },
   { id: "dimensies", label: "Vijf dimensies" },
   { id: "themas", label: "Zeven thema's" },
+  { id: "antwoordkaart", label: "Je antwoordkaart" },
   { id: "standpunten", label: "Standpunten" },
   { id: "steelman", label: "Andere richting" },
   { id: "paradoxen", label: "Paradoxen" },
@@ -155,6 +160,35 @@ export default async function ResultPage({ params }: Args) {
       }))
     : [];
 
+  const personalProfile = createPersonalProfile({
+    ideologyName: ideo.name,
+    dimensions: result.dimensions,
+    themeScores: result.themeScores,
+    confidence: result.confidence,
+    answeredCount: result.answeredCount,
+    totalQuestions: result.totalQuestions,
+  });
+
+  const answerAtlasThemeOrder = result.themeScores
+    ? [...THEMES]
+        .sort(
+          (a, b) =>
+            Math.abs(result.themeScores?.[b.id] ?? 0) -
+            Math.abs(result.themeScores?.[a.id] ?? 0),
+        )
+        .map((theme) => theme.id)
+    : [];
+  const answerAtlas = result.answers
+    ? await deriveAnswerAtlas(
+        result.answers.map((answer) => ({
+          questionId: answer.questionId,
+          value: answer.value,
+        })),
+        answerAtlasThemeOrder,
+        isExtendedResult ? 2 : 1,
+      )
+    : [];
+
   const steelmanCandidates = DIMENSIONS.map((dimension) => {
     const yourScore = result.dimensions[dimension.id];
     if (Math.abs(yourScore) < 40) return null;
@@ -209,6 +243,11 @@ export default async function ResultPage({ params }: Args) {
         theme.poleNegative.description,
         theme.polePositive.description,
       ]),
+    ),
+    antwoordkaart: readingMinutesFor(
+      ...answerAtlas.flatMap((section) =>
+        section.entries.flatMap((entry) => [entry.question, entry.explanation]),
+      ),
     ),
     standpunten: readingMinutesFor(...stances.map((stance) => stance.statement)),
     steelman: readingMinutesFor(
@@ -319,6 +358,8 @@ export default async function ResultPage({ params }: Args) {
                   )}
                 </ScrollRevealItem>
               </ScrollReveal>
+
+              {!isFreeResult && <PersonalProfile profile={personalProfile} />}
 
               <div className="mt-16 md:mt-20 max-w-3xl">
                 <Kicker>Wat houdt dit profiel in?</Kicker>
@@ -497,6 +538,13 @@ export default async function ResultPage({ params }: Args) {
                 )}
               </ScrollReveal>
             </section>
+
+            {/* SECTIE 3b · ANTWOORDKAART */}
+            {answerAtlas.length > 0 ? (
+              <div id="antwoordkaart" className="mt-24 md:mt-32 scroll-mt-32">
+                <AnswerAtlas sections={answerAtlas} />
+              </div>
+            ) : null}
 
             {/* SECTIE 4 · STANDPUNTEN */}
             <section

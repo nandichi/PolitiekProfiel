@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
 import { DimensionBar } from "@/components/DimensionBar";
+import { PoliticianProfileLens } from "@/components/politicians/PoliticianProfileLens";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -23,6 +24,7 @@ import {
 } from "@/lib/structured-data";
 import { loadPartyVotingByTheme } from "@/lib/tk-open-data/voting-store";
 import { projectVotingToDimensions } from "@/lib/voting-projection";
+import { buildPoliticianProfileLens } from "@/lib/politician-profile-lens";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -82,6 +84,13 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
   const party = politicus.partySlug
     ? getPartyBySlugSeed(politicus.partySlug)
     : null;
+  const politicianLens = buildPoliticianProfileLens({
+    name: politicus.name,
+    role: politicus.role,
+    party: politicus.party,
+    country: politicus.country,
+    dimensions: politicus.positionVector,
+  });
 
   // C5: stemgedrag-projectie via partij (alleen voor NL-politici met partij).
   const votingProjection =
@@ -155,6 +164,10 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
             </p>
           </ScrollRevealItem>
         </ScrollReveal>
+      </Container>
+
+      <Container width="bleed" className="mt-16 md:mt-20">
+        <PoliticianProfileLens lens={politicianLens} />
       </Container>
 
       {/* Vector */}

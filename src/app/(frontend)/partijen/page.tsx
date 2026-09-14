@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
 import { MiniVector } from "@/components/MiniVector";
+import { InternationalPartyIndex } from "@/components/parties/InternationalPartyIndex";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -46,6 +47,11 @@ export default function PartijenOverviewPage() {
   const nl = getActiveDutchParties();
   const eu = all.filter((p) => p.region === "EU");
   const us = all.filter((p) => p.region === "US");
+  const internationalCountries = [
+    { country: "Duitsland", note: "Vijf brongebonden profielpagina's.", parties: all.filter((p) => p.region === "DE") },
+    { country: "Verenigd Koninkrijk", note: "Vijf brongebonden profielpagina's.", parties: all.filter((p) => p.region === "GB") },
+    { country: "Frankrijk", note: "Vijf brongebonden profielpagina's.", parties: all.filter((p) => p.region === "FR") },
+  ];
 
   const breadcrumbLd = buildBreadcrumbList([
     { name: "Start", item: "/" },
@@ -214,6 +220,10 @@ export default function PartijenOverviewPage() {
           </ScrollReveal>
         </section>
       )}
+
+      <div className="mt-20">
+        <InternationalPartyIndex countries={internationalCountries} />
+      </div>
     </Container>
   );
 }

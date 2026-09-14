@@ -4,12 +4,18 @@ const REGION_TITLES: Record<PartyDoc["region"], string> = {
   NL: "Nederlandse partijen",
   EU: "Europese partij-families",
   US: "Amerikaanse stromingen",
+  DE: "Duitse partijen",
+  GB: "Britse partijen",
+  FR: "Franse partijen",
 };
 
 const REGION_DESC: Record<PartyDoc["region"], string> = {
   NL: "Welke Nederlandse partijen liggen het dichtst bij deze ideologie? Dit is educatieve context, geen stemadvies.",
   EU: "Hoe vertaalt deze ideologie zich in het Europees Parlement?",
   US: "En in het Amerikaanse politieke landschap?",
+  DE: "Hoe komt deze ideologie terug in de Duitse politiek?",
+  GB: "Hoe komt deze ideologie terug in de Britse politiek?",
+  FR: "Hoe komt deze ideologie terug in de Franse politiek?",
 };
 
 interface PartyContextProps {
@@ -35,6 +41,9 @@ export function PartyContext({ parties, ideologyName }: PartyContextProps) {
     NL: [],
     EU: [],
     US: [],
+    DE: [],
+    GB: [],
+    FR: [],
   };
   for (const p of parties) byRegion[p.region].push(p);
 
