@@ -4,7 +4,7 @@ import { ArrowRight, Clock3 } from "lucide-react";
 import { Container } from "@/components/Container";
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { Kicker } from "@/components/Kicker";
-import { LiveAxes } from "@/components/LiveAxes";
+import { CivicField } from "@/components/CivicField";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -116,16 +116,14 @@ export default function HomePage() {
                   </span>
                   <span className="inline-flex items-center gap-2">
                     <span className="block w-1.5 h-1.5 bg-success rounded-full" />
-                    <span className="mono tracking-wider">5–20 MIN</span>
+                    <span className="mono tracking-wider">5 tot 20 min</span>
                   </span>
                 </div>
               </ScrollRevealItem>
 
-              {/* Live axes */}
-              <ScrollRevealItem className="lg:col-span-5 lg:pl-6 lg:border-l lg:border-rule">
-                <div className="relative bg-paper-50 border border-rule p-6 md:p-8 lg:bg-transparent lg:border-0 lg:p-0">
-                  <LiveAxes />
-                </div>
+              {/* Vijf onafhankelijke sporen */}
+              <ScrollRevealItem className="lg:col-span-5 lg:pl-2">
+                <CivicField />
               </ScrollRevealItem>
             </div>
           </ScrollReveal>
@@ -240,7 +238,7 @@ export default function HomePage() {
                   Iedere dimensie meet een onafhankelijke houding. Een
                   conservatief op cultuur kan economisch links zijn. Een
                   libertair kan EU-gezind zijn. De vijf scores samen tonen wat
-                  een enkele links–rechts schaal niet kan.
+                  een enkele links/rechts-schaal niet kan.
                 </p>
               </ScrollRevealItem>
             </div>
