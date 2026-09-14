@@ -74,6 +74,13 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
   );
   const otherIdeologies = getAllIdeologiesSeed().filter((i) => i.slug !== slug);
   const curatedReading = IDEOLOGY_READING[slug] ?? [];
+  const sources =
+    ideology.sources?.length
+      ? ideology.sources
+      : curatedReading.map((book) => ({
+          label: `${book.title} · ${book.author}`,
+          url: book.url,
+        }));
 
   const path = `/ideologie/${slug}`;
   const articleLd = buildArticleSchema({
@@ -205,19 +212,19 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
         </section>
       )}
 
-      {ideology.sources?.length ? (
+      {sources.length ? (
         <section className="border-t border-rule">
           <Container width="bleed" className="py-16 md:py-20">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
                 <Kicker number={4}>Bronnen</Kicker>
                 <h2 className="display mt-5 max-w-3xl">
-                  Waar deze korte duiding op steunt.
+                  Bronnen en verdere verdieping.
                 </h2>
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <ul className="mt-8 max-w-3xl border-t border-rule">
-                  {ideology.sources.map((source) => (
+                  {sources.map((source) => (
                     <li key={source.url} className="border-b border-rule py-3">
                       <a
                         href={source.url}
@@ -241,7 +248,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
           <Container width="bleed" className="py-16 md:py-20">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
-                <Kicker number={5}>Verder lezen</Kicker>
+                <Kicker number={5}>Engelstalige verdieping</Kicker>
                 <h2 className="display mt-5">Boeken en essays.</h2>
                 <p className="mt-3 max-w-2xl text-sm text-ink-2 leading-relaxed">
                   Dit zijn bestaande titels. Elke link opent een cataloguszoekopdracht,

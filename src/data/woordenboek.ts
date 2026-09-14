@@ -78,7 +78,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Voorzitter van de ministerraad en politiek leider van het kabinet; in Nederland sinds 23 februari 2026 Rob Jetten (D66).",
     long:
       "De minister-president (premier) leidt de wekelijkse ministerraad, vertegenwoordigt Nederland in de Europese Raad en spreekt namens het kabinet. Hij of zij is in Nederland primus inter pares: meer een coördinator dan een sterke uitvoerende macht zoals een Franse president.",
-    related: ["kabinet", "ministerraad"],
+    related: ["kabinet"],
   },
   {
     term: "Raad van State",
@@ -170,7 +170,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Direct gekozen volksvertegenwoordiging van een gemeente; controleert het college van burgemeester en wethouders.",
     long:
       "Gemeenteraden worden om de vier jaar gekozen; volgende verkiezingen waren op 18 maart 2026. De raad stelt verordeningen vast en controleert het college van B&W. De burgemeester wordt door de Kroon benoemd, maar in toenemende mate via aanbeveling van de raad.",
-    related: ["wethouder", "burgemeester"],
+    related: ["gemeenteraad"],
   },
   {
     term: "Waterschap",
@@ -178,7 +178,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
     short:
       "Decentraal openbaar lichaam dat verantwoordelijk is voor waterveiligheid, waterkwaliteit en peilbeheer.",
     long:
-      "Nederland telt 21 waterschappen. Het algemeen bestuur wordt deels gekozen door inwoners (sinds 2023 geheel) en deels gevormd door 'geborgde zetels' voor bedrijven en agrariërs (afgeschaft per 2023, maar 7 zetels blijven voor natuur en agrariërs).",
+      "Nederland telt 21 waterschappen. De meeste leden van het algemeen bestuur worden door inwoners gekozen. Daarnaast hebben boeren en natuurbelangen geborgde zetels: die worden niet rechtstreeks gekozen.",
     related: ["provinciale-staten"],
   },
 
@@ -190,7 +190,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Typisch Nederlandse vorm van compromis-besluitvorming tussen overheid, werkgevers, vakbonden en maatschappelijke organisaties.",
     long:
       "Polderen verwijst naar het 'overleg-economie'-model dat in de jaren '80 internationaal beroemd werd via het Akkoord van Wassenaar (1982). Voorstanders prijzen het draagvlak; critici noemen het traag en consensus-verslaafd.",
-    related: ["sociaal-akkoord", "subsidiariteit"],
+    related: ["subsidiariteit"],
   },
   {
     term: "Subsidiariteit",
@@ -217,7 +217,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Economische school die overheidsuitgaven bepleit in tijden van recessie om vraag te stimuleren en werkgelegenheid te beschermen.",
     long:
       "Naar de Britse econoom John Maynard Keynes (1883–1946), die tegen het orthodoxe begrotingsdenken inging tijdens de jaren '30. Tegenwoordig is keynesiaans beleid mainstream in noodsituaties (corona, energiecrisis), maar in 'normale' tijden domineert de discipline van staatsschuld-regels (zie 'begrotingsregels').",
-    related: ["monetarisme", "begrotingsregels"],
+    related: ["begrotingsregels"],
   },
   {
     term: "Liberalisme",
@@ -226,7 +226,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Politieke filosofie die individuele vrijheid, rechtsstaat en (vaak) vrije markt centraal stelt.",
     long:
       "Klassiek liberalisme legt nadruk op terughoudende staat in economie en privéleven. Sociaal-liberalisme accepteert sterkere herverdeling en publieke voorzieningen als voorwaarde voor effectieve vrijheid. Conservatief liberalisme combineert markt-georiënteerd beleid met traditie-bewuste cultuur.",
-    related: ["klassiek-liberalisme", "sociaal-liberalisme"],
+    related: [],
   },
   {
     term: "Sociaal-democratie",
@@ -235,7 +235,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Centrum-linkse stroming die markt accepteert maar publieke voorzieningen, herverdeling en arbeidsbescherming als kerntaken ziet.",
     long:
       "Sociaal-democratische partijen kwamen op in de 19e eeuw uit de arbeidersbeweging. Hun klassieke instrumenten zijn progressieve belasting, collectief arbeidsrecht, publieke zorg en onderwijs. In Nederland is GroenLinks-PvdA (sinds 2023) de grootste sociaal-democratische groepering.",
-    related: ["socialisme", "verzorgingsstaat"],
+    related: ["verzorgingsstaat"],
   },
   {
     term: "Christen-democratie",
@@ -253,7 +253,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Politieke stijl die 'het volk' tegenover 'de elite' plaatst en zich als enige authentieke vertegenwoordiger van het volk presenteert.",
     long:
       "Populisme is geen vaste ideologie maar een framing-strategie die zowel links als rechts voorkomt. Rechts-populisme combineert het vaak met nationale identiteit en migratiekritiek (PVV, DNA); links-populisme met economische herverdeling en kritiek op 'het kapitalisme' (SP, DENK).",
-    related: ["nationalisme", "anti-establishment"],
+    related: [],
   },
   {
     term: "Communitarisme",
@@ -309,7 +309,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Eerste persoon op de kandidatenlijst van een partij; doorgaans het gezicht van de campagne en beoogd fractievoorzitter.",
     long:
       "De lijsttrekker wordt meestal door partijleden gekozen, soms door het partijbestuur. Bij winst leidt deze persoon meestal ook de formatie en kan minister-president of fractievoorzitter worden. Rob Jetten (D66) ging in 2025 als lijsttrekker naar het premierschap; Jan Paternotte werd vervolgens fractievoorzitter.",
-    related: ["fractievoorzitter", "kandidatenlijst"],
+    related: ["fractievoorzitter"],
   },
   {
     term: "Fractievoorzitter",
@@ -327,7 +327,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Online tool die stellingen vergelijkt met partij-standpunten en aangeeft welke partij het dichtst bij de gebruiker staat.",
     long:
       "De bekendste tools in Nederland zijn StemWijzer (ProDemos, sinds 1989) en Kieskompas (sinds 2006). Academisch onderzoek wijst uit dat stellingkeuze en weging de uitslag sterk beïnvloeden; een belangrijke reden om meerdere tools naast elkaar te raadplegen, of een bredere quiz zoals PolitiekProfiel.",
-    related: ["politiek-kompas", "voorkeurstem"],
+    related: ["voorkeurstem"],
   },
 
   // ─── Fiscaal & economie ────────────────────────────────────────
@@ -338,7 +338,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Belastingvoordeel waarmee huiseigenaren betaalde hypotheekrente aftrekken van hun belastbaar inkomen.",
     long:
       "Sinds 2013 is de regeling beperkt: alleen voor nieuwe leningen geldt verplichte aflossing in 30 jaar, en het aftrektarief is verlaagd naar uiteindelijk het basis-IB-tarief. Linkse en centrum-rechtse partijen pleiten al jaren voor verdere afbouw vanwege marktverstoring; rechts vreest schade voor huiseigenaren.",
-    related: ["box-3", "woz"],
+    related: ["box-3"],
   },
   {
     term: "Box 3",
@@ -347,7 +347,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Inkomstenbelasting-box voor vermogen (spaargeld, beleggingen, tweede huis); jaren-oude juridische strijd over fictief rendement vs werkelijk rendement.",
     long:
       "Box 3 belastte tot 2022 een fictief rendement, dat de Hoge Raad in het Kerstarrest (24 dec 2021) onrechtmatig verklaarde. Een tussenoplossing geldt sinds 2023. De regering streeft naar een nieuw stelsel op basis van werkelijk rendement per 1 januari 2028; dat wetsvoorstel is nog niet definitief.",
-    related: ["hypotheekrenteaftrek", "vermogensbelasting"],
+    related: ["hypotheekrenteaftrek"],
   },
   {
     term: "WOZ-waarde",
@@ -365,7 +365,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Algemene Ouderdomswet: basispensioen vanaf de AOW-leeftijd, gefinancierd via omslagstelsel uit lopende premies.",
     long:
       "De AOW is ingevoerd in 1957 (Drees). De AOW-leeftijd is sinds 2013 gekoppeld aan de levensverwachting; kabinet-Jetten kondigde in zijn akkoord (januari 2026) een verdere stapsgewijze verhoging aan, wat tot oppositieprotest leidde van GL-PvdA, SP en 50PLUS.",
-    related: ["pensioen", "omslagstelsel"],
+    related: ["aow"],
   },
   {
     term: "Begrotingsregels",
@@ -374,7 +374,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "EU- en nationale afspraken die het tekort en de schuld van overheden beperken (3% tekort, 60% schuld als referentie).",
     long:
       "De EU-begrotingsregels (Stabiliteits- en Groeipact, in 2024 hervormd) verplichten lidstaten tot middellange-termijnplanning. Nederland kent daarnaast eigen 'Studiegroep Begrotingsruimte'-aanbevelingen. Critici vinden de regels te streng in tijden van investeringsbehoefte; voorstanders zien ze als bescherming tegen schuldcrises.",
-    related: ["keynesianisme", "monetarisme"],
+    related: ["keynesianisme"],
   },
   {
     term: "CPB-doorrekening",
@@ -392,7 +392,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Hypothetische belastinghervorming waarin alle inkomens onder één tarief vallen, eventueel met hoge belastingvrije voet.",
     long:
       "Vlaktaks-voorstellen circuleren sinds de jaren '80; voorstanders (sommige liberale en libertaire kringen) wijzen op eenvoud en efficiëntie. Tegenstanders waarschuwen dat de hervorming herverdeling drastisch beperkt tenzij gecombineerd met een hoge belastingvrije voet of basisinkomen.",
-    related: ["progressieve-belasting", "basisinkomen"],
+    related: ["basisinkomen"],
   },
   {
     term: "Basisinkomen",
@@ -401,7 +401,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Onvoorwaardelijke uitkering aan iedere burger, ter vervanging van een deel van het sociale stelsel.",
     long:
       "Basisinkomen-debatten zijn al decennia gaande en bestaan in varianten van zeer karig tot rijkelijk. Experimenten in Finland (2017–2018) en op kleinere schaal in Nederlandse gemeenten gaven gemengd beeld: meer welbevinden, niet altijd meer werkparticipatie.",
-    related: ["uitkering", "vlaktaks"],
+    related: ["vlaktaks"],
   },
 
   // ─── Europa ────────────────────────────────────────────────────
@@ -460,7 +460,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Politiek begrip dat duidt op een minimum aan zekerheid in inkomen, wonen en zorg dat de overheid moet borgen.",
     long:
       "Bestaanszekerheid werd een centraal frame in de campagne van 2023, vooral door SP, GL-PvdA, CU en het destijds nieuwe NSC. Concreet: minimumloon-verhoging, hogere toeslagen, betaalbare woningen, stabiele zorgkosten. Het kabinet-Jetten plaatste bestaanszekerheid als doel, maar combineert dat met versobering van uitkeringen.",
-    related: ["minimumloon", "uitkering"],
+    related: [],
   },
   {
     term: "Toeslagenaffaire",
@@ -469,7 +469,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Schandaal waarbij de Belastingdienst tussen ca. 2005-2019 onterecht duizenden ouders als fraudeurs aanmerkte bij kinderopvangtoeslag.",
     long:
       "De toeslagenaffaire leidde tot het aftreden van kabinet-Rutte III (januari 2021), tot een parlementaire ondervragingscommissie en tot een breed debat over bestuurscultuur en discriminatie ('etnisch profileren'). Hersteloperatie loopt nog steeds; CDA-Kamerlid Pieter Omtzigt speelde een hoofdrol bij ontmaskering.",
-    related: ["rechtsstaat", "bestuurscultuur"],
+    related: ["rechtsstaat"],
   },
   {
     term: "Gendergelijkheid",
@@ -478,7 +478,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Streven naar gelijke rechten, kansen en behandeling van mensen ongeacht gender; raakt aan onderwijs, werk, gezondheidszorg, recht.",
     long:
       "In Nederland is gendergelijkheid juridisch verankerd (Algemene wet gelijke behandeling, 1994). Politieke discussie loopt vooral over de loonkloof, het quota voor topfuncties (sinds 2022) en rechten van trans personen. Conservatieve partijen (SGP, FvD) zijn kritisch op wat zij 'genderideologie' noemen.",
-    related: ["burgerrechten"],
+    related: [],
   },
 
   // ─── Juridisch ─────────────────────────────────────────────────
@@ -498,7 +498,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Mogelijkheid voor rechters om wetten te toetsen aan de Grondwet en zo nodig buiten toepassing te laten.",
     long:
       "Nederland verbiedt constitutionele toetsing van wetten in formele zin (artikel 120 Grondwet). Sinds 2018 ligt een initiatiefwet (Halsema, later overgenomen) klaar voor invoering. Rechters mogen wel toetsen aan internationale verdragen zoals het EVRM.",
-    related: ["rechtsstaat", "grondwet"],
+    related: ["rechtsstaat"],
   },
   {
     term: "Trias politica",
@@ -525,7 +525,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Fundamentele rechten van burgers, vastgelegd in de Grondwet en internationale verdragen zoals het EVRM en VN-mensenrechten-verdragen.",
     long:
       "Klassieke grondrechten (vrijheid van meningsuiting, godsdienst, vereniging) staan in hoofdstuk 1 Grondwet. Sociale grondrechten (recht op werk, wonen, gezondheid) zijn als opdracht aan de overheid geformuleerd, niet als afdwingbaar recht in Nederland.",
-    related: ["rechtsstaat", "vrijheid-van-meningsuiting"],
+    related: ["rechtsstaat"],
   },
 
   // ─── Geopolitiek ───────────────────────────────────────────────
@@ -536,7 +536,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Noord-Atlantische Verdragsorganisatie: collectief veiligheidsbondgenootschap van 32 lidstaten in Europa en Noord-Amerika.",
     long:
       "Opgericht in 1949. Artikel 5 bepaalt dat een aanval op één lidstaat een aanval op allemaal is. Sinds de Russische invasie van Oekraïne (2022) is de NAVO opnieuw centraal in Europese veiligheid; de Trump-regering in de VS heeft EU-leden onder druk gezet hun bijdragen te verhogen naar 3-5% bbp.",
-    related: ["europese-unie", "defensie"],
+    related: ["europese-unie"],
   },
   {
     term: "Westfalen-systeem",
@@ -554,7 +554,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Wereldwijde organisatie van 193 staten met als doel vrede, veiligheid, mensenrechten en duurzame ontwikkeling te bevorderen.",
     long:
       "Opgericht in 1945 na WO II. Belangrijkste organen: Algemene Vergadering, Veiligheidsraad (vijf vetomachten), Internationaal Gerechtshof. Effectiviteit wordt beperkt door grote-machten-politiek (bv. Russisch veto over Oekraïne).",
-    related: ["westfalen-systeem", "internationaal-recht"],
+    related: ["westfalen-systeem"],
   },
 
   // ─── Media & pers ─────────────────────────────────────────────
@@ -565,7 +565,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
       "Recht van journalisten om vrij te publiceren zonder voorafgaande censuur of onevenredige sancties.",
     long:
       "Persvrijheid is verankerd in artikel 7 Grondwet en artikel 10 EVRM. Reporters Without Borders rangschikt Nederland al jaren in de top-10 wereldwijd, maar plaatselijke incidenten (bedreiging, doxing, beperking journalistieke bronnen) baren zorgen.",
-    related: ["vrijheid-van-meningsuiting", "rechtsstaat"],
+    related: ["rechtsstaat"],
   },
   {
     term: "Publieke omroep",

@@ -75,16 +75,16 @@ export const DIMENSIONS: ReadonlyArray<DimensionMeta> = [
     label: "Bestuur",
     shortLabel: "Bestuur",
     description:
-      "Waar moet macht liggen: bij de natiestaat, bij Europa, of juist bij gemeentes en burgers?",
+      "Waar moeten gezamenlijke politieke keuzes liggen: vooral nationaal of vaker via de EU en internationale samenwerking?",
     poleNegative: {
       label: "Nationaal-soeverein",
       description:
         "Macht bij de natiestaat, terughoudend t.o.v. supranationale instituties zoals de EU.",
     },
     polePositive: {
-      label: "Multilevel/EU",
+      label: "Europees/internationaal samenwerken",
       description:
-        "Sterkere Europese samenwerking, of juist meer macht naar regio's, gemeentes en burgers.",
+        "Meer gezamenlijke besluitvorming via de EU en internationale samenwerking bij grensoverschrijdende vraagstukken.",
     },
   },
   {

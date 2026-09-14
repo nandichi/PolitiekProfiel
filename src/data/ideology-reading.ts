@@ -19,7 +19,7 @@ export const IDEOLOGY_READING: Record<string, CuratedReading[]> = {
       author: "Sheri Berman",
       year: 2006,
       note: "Historische uitleg van de sociaal-democratische traditie in Europa.",
-      url: openLibrary("The Primacy of Politics Sheri Berman"),
+      url: "https://www.cambridge.org/core/books/primacy-of-politics/DD19C88ECBF20B33D8D6DE445D198D13",
     },
   ],
   "klassiek-liberaal": [
@@ -37,7 +37,7 @@ export const IDEOLOGY_READING: Record<string, CuratedReading[]> = {
       author: "Robert Nozick",
       year: 1974,
       note: "Invloedrijke verdediging van de minimale staat.",
-      url: openLibrary("Anarchy State and Utopia Robert Nozick"),
+      url: "https://www.hachettebookgroup.com/titles/robert-nozick/anarchy-state-and-utopia/9780465051007/?lens=basic-books",
     },
   ],
   "groen-progressief": [
@@ -55,7 +55,7 @@ export const IDEOLOGY_READING: Record<string, CuratedReading[]> = {
       author: "Stathis N. Kalyvas",
       year: 1996,
       note: "Wetenschappelijke geschiedenis van christen-democratische partijen.",
-      url: openLibrary("The Rise of Christian Democracy in Europe Stathis Kalyvas"),
+      url: "https://cornellpress.cornell.edu/book/9781501731419/the-rise-of-christian-democracy-in-europe/",
     },
   ],
   "nationaal-conservatief": [
@@ -106,10 +106,10 @@ export const IDEOLOGY_READING: Record<string, CuratedReading[]> = {
   "sociaal-liberaal": [
     {
       title: "Liberalism and Social Action",
-      author: "L. T. Hobhouse",
-      year: 1911,
-      note: "Vroege formulering van sociaal-liberale verantwoordelijkheid naast vrijheid.",
-      url: openLibrary("Liberalism and Social Action L T Hobhouse"),
+      author: "John Dewey",
+      year: 1935,
+      note: "Toegankelijke Engelstalige klassieke tekst over vrijheid, democratie en sociale verantwoordelijkheid.",
+      url: "https://archive.org/details/dewey_liberalism/page/n4/mode/2up",
     },
   ],
   "eco-socialist": [
@@ -145,7 +145,7 @@ export const IDEOLOGY_READING: Record<string, CuratedReading[]> = {
       author: "Amitai Etzioni",
       year: 1998,
       note: "Bundel over gemeenschap, plichten en de grenzen van individualisme.",
-      url: openLibrary("The Essential Communitarian Reader Amitai Etzioni"),
+      url: "https://rowman.com/ISBN/9780847688272/The-Essential-Communitarian-Reader",
     },
   ],
   "klassiek-conservatief": [

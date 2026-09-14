@@ -311,7 +311,7 @@ export default async function ResultPage({ params }: Args) {
                     {overallConfidence !== null && (
                       <ConfidenceIndicator
                         score={overallConfidence}
-                        label="Vertrouwen"
+                        label="Zekerheid van deze quizschatting"
                       />
                     )}
                   </div>
@@ -427,7 +427,7 @@ export default async function ResultPage({ params }: Args) {
                               <div className="mt-4 md:mt-1">
                                 <ConfidenceIndicator
                                   score={dimConfidence}
-                                  label="Vertrouwen op deze as"
+                                  label="Zekerheid op deze as"
                                 />
                                 <p className="mt-2 text-xs text-ink-muted max-w-56">
                                   {confidenceExplain(dimConfidence)}

@@ -49,7 +49,7 @@ const FAQ_ENTRIES = [
   {
     question: "Hoe meet PolitiekProfiel mijn politieke houding?",
     answer:
-      "PolitiekProfiel beschrijft je antwoorden op vijf afzonderlijk geconstrueerde dimensies: economisch (vrije markt vs sterke staat), sociaal-cultureel (conservatief vs progressief), burgerrechten (autoritair vs libertair), bestuur (nationaal-soeverein vs multilevel/EU) en systeemvertrouwen (wantrouwen vs vertrouwen). Je antwoorden worden per dimensie vertaald naar een score van −100 tot +100.",
+      "PolitiekProfiel beschrijft je antwoorden op vijf afzonderlijk geconstrueerde dimensies: economisch (vrije markt vs sterke staat), sociaal-cultureel (conservatief vs progressief), burgerrechten (autoritair vs libertair), bestuur (nationaal-soeverein vs meer Europese/internationale samenwerking) en systeemvertrouwen (wantrouwen vs vertrouwen). Je antwoorden worden per dimensie vertaald naar een score van −100 tot +100.",
   },
   {
     question: "Hoe komen de scores tot stand?",

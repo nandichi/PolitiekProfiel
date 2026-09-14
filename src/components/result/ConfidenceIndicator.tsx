@@ -9,7 +9,7 @@ interface ConfidenceIndicatorProps {
 
 export function ConfidenceIndicator({
   score,
-  label = "Vertrouwen",
+  label = "Zekerheid van deze quizschatting",
   size = "sm",
 }: ConfidenceIndicatorProps) {
   const band = confidenceBand(score);
@@ -52,7 +52,7 @@ export function ConfidenceIndicator({
       </span>
       <span className="capitalize text-ink-2">{band}</span>
       <span className="sr-only">
-        Vertrouwen-score: {score} van 100, niveau {bandLabel.toLowerCase()}.
+        Zekerheid van deze quizschatting: {score} van 100, niveau {bandLabel.toLowerCase()}.
       </span>
     </div>
   );

@@ -79,7 +79,7 @@ export const IDEOLOGIES: SeedIdeology[] = [
       governance: -20,
       trust: -10,
     },
-    examplePeople: ["Forum voor Vrijheid", "Javier Milei", "Ron Paul"],
+    examplePeople: ["Javier Milei", "Ron Paul"],
   },
   {
     name: "Groen-Progressief",
@@ -121,7 +121,7 @@ export const IDEOLOGIES: SeedIdeology[] = [
     shortDescription:
       "Behoud van nationale identiteit, beperking van migratie en kritisch op supranationale instituties.",
     description:
-      "Nationaal-conservatieven zien de natiestaat als belangrijkste politieke gemeenschap. Tradities, taal, cultuur en grenzen verdienen actieve bescherming. Migratie wordt streng gereguleerd. De overheid neemt orde, veiligheid en sociale samenhang serieus. De EU mag samenwerken, maar nationale soevereiniteit blijft leidend. Wetenschap en media worden kritisch gevolgd waar zij ‘kosmopolitisch’ aanvoelen.",
+      "Nationaal-conservatieven zien de natiestaat als belangrijkste politieke gemeenschap. Tradities, taal, cultuur en grenzen verdienen actieve bescherming. Migratie wordt vaak streng gereguleerd. De overheid neemt orde, veiligheid en sociale samenhang serieus. De EU mag samenwerken, maar nationale soevereiniteit blijft leidend. Opvattingen over media en wetenschap verschillen per partij en aanhanger.",
     spectrumPosition: "rechts",
     profileVector: {
       economic: 0,
@@ -198,7 +198,7 @@ export const IDEOLOGIES: SeedIdeology[] = [
       governance: -5,
       trust: 15,
     },
-    examplePeople: ["VVD (klassieke vleugel)", "Tories (One Nation)", "Henri Bontenbal"],
+    examplePeople: ["VVD (klassieke vleugel)", "Tories (One Nation)"],
   },
   {
     name: "Sociaal-Liberaal",
@@ -240,7 +240,7 @@ export const IDEOLOGIES: SeedIdeology[] = [
     shortDescription:
       "Volkssoevereiniteit, kritiek op ‘elites’, harde lijn op migratie en EU.",
     description:
-      "Het populistisch-rechtse perspectief stelt 'het volk' tegenover 'de elite'. Migratie wordt streng beperkt, culturele identiteit beschermd. De EU wordt als bedreiging gezien voor nationale soevereiniteit. Wantrouwen tegen media, rechters en wetenschap is groot. Economisch combineert deze stroming protectionisme met soms genereuze sociale uitgaven voor de eigen kiezers.",
+      "Populisme zet 'het volk' tegenover 'de elite'. Populistische bewegingen claimen vaak dat zij als enigen het echte volk vertegenwoordigen. Rechts-populistische partijen combineren dat vaak met een strenge migratiekoers en nadruk op nationale soevereiniteit. Standpunten over economie, media en wetenschap verschillen per beweging.",
     spectrumPosition: "ver-rechts",
     profileVector: {
       economic: 0,
@@ -257,7 +257,7 @@ export const IDEOLOGIES: SeedIdeology[] = [
     shortDescription:
       "Volk tegen kapitaal: scherpe kritiek op bedrijven en banken, met sociale agenda.",
     description:
-      "Populistisch links stelt 'het volk' tegenover machtige bedrijven, banken en politieke elites. Hoge belasting op vermogen, sterke publieke voorzieningen en bescherming van werknemers staan centraal. Cultureel zit deze stroming vaak in het midden of licht traditioneler. Internationaal wantrouwen jegens vrijhandelsverdragen en supranationale instituties is groot.",
+      "Populistisch links stelt 'het volk' tegenover machtige bedrijven, banken en politieke elites. Hoge belasting op vermogen, sterke publieke voorzieningen en bescherming van werknemers staan vaak centraal. Standpunten over cultuur, handel en internationale samenwerking verschillen per beweging.",
     spectrumPosition: "ver-links",
     profileVector: {
       economic: 70,

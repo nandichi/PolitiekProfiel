@@ -9,7 +9,7 @@ export type ParadoxType =
   | "governance-mismatch"
   | "trust-mismatch"
   | "klimaat-economie"
-  | "migratie-economie"
+  | "migratie-mismatch"
   | "democratie-trust";
 
 export interface ParadoxSignal {
@@ -133,11 +133,11 @@ function detectCrossThemeMismatch(
   );
   if (migratiePos && migratieNeg) {
     out.push({
-      type: "migratie-economie",
+      type: "migratie-mismatch",
       theme: "migratie",
       severity: 55,
       exampleQuestionIds: [migratiePos.q.id, migratieNeg.q.id],
-      description: paradoxDescription("migratie-economie"),
+      description: paradoxDescription("migratie-mismatch"),
     });
   }
 
@@ -177,7 +177,7 @@ export function paradoxDescription(type: ParadoxType): string {
       return "Je laat zowel sterk vertrouwen als sterk wantrouwen in instituties zien, afhankelijk van wélke instelling het betreft.";
     case "klimaat-economie":
       return "Je hecht aan ambitieus klimaatbeleid, maar wil tegelijk lasten of regelgeving voor de economie zoveel mogelijk beperken.";
-    case "migratie-economie":
+    case "migratie-mismatch":
       return "Je houding op migratie wijst in twee verschillende richtingen: open op het ene aspect, restrictief op het andere.";
     case "democratie-trust":
       return "Je wilt sterke democratische instituties, maar wantrouwt het huidige bestel tegelijk diep.";
@@ -198,7 +198,7 @@ export function paradoxTitle(type: ParadoxType): string {
       return "Selectief vertrouwen in instituties";
     case "klimaat-economie":
       return "Klimaat ambitieus, lasten laag";
-    case "migratie-economie":
+    case "migratie-mismatch":
       return "Migratie in twee richtingen";
     case "democratie-trust":
       return "Sterke democratie, diep wantrouwen";
@@ -234,6 +234,6 @@ export const ALL_PARADOX_TYPES: ParadoxType[] = [
   "governance-mismatch",
   "trust-mismatch",
   "klimaat-economie",
-  "migratie-economie",
+  "migratie-mismatch",
   "democratie-trust",
 ];

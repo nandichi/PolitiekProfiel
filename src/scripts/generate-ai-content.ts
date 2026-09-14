@@ -193,8 +193,8 @@ function paradoxPrompt(type: ParadoxType): string {
       "iemand vertrouwt sommige instituties wel en wantrouwt andere diep",
     "klimaat-economie":
       "iemand hecht aan ambitieus klimaatbeleid maar wil tegelijk economische lasten en regels laag houden",
-    "migratie-economie":
-      "iemand combineert tegengestelde houdingen tegenover migratie op verschillende dimensies (humanitair vs arbeidsmarkt)",
+    "migratie-mismatch":
+      "iemand combineert tegengestelde houdingen tegenover verschillende migratievragen",
     "democratie-trust":
       "iemand wil sterke democratische instituties maar wantrouwt het huidige bestel diep",
   };
