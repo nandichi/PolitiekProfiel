@@ -153,7 +153,7 @@ export default function PartijenOverviewPage() {
             <ScrollRevealItem>
               <Kicker number={2}>Europese partijfamilies</Kicker>
               <h2 className="display mt-5 max-w-3xl">
-                {eu.length} EU-fracties op de vijf dimensies.
+                {eu.length} geselecteerde EU-fracties op de vijf dimensies.
               </h2>
             </ScrollRevealItem>
             <ScrollRevealItem>

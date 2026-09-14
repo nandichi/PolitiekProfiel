@@ -358,7 +358,7 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
                   <dl className="border-l border-rule pl-6 space-y-4 text-sm">
                     {party.seatsTK2025 !== undefined && (
                       <div>
-                        <dt className="kicker mb-1">Zetels TK 2025</dt>
+                        <dt className="kicker mb-1">Actuele zetels</dt>
                         <dd className="display tabular-nums text-3xl text-ink leading-none">
                           {party.seatsTK2025}
                         </dd>

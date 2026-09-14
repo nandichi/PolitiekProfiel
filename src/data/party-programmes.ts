@@ -50,9 +50,9 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
   d66: {
     klimaat: {
       summary:
-        "Klimaatpad naar klimaatneutraliteit in 2050, met wind en zon als eerste keuze en voorbereidingen voor twee nieuwe kerncentrales.",
+        "Klimaatpad naar klimaatneutraliteit in 2050, met wind en zon als eerste keuze. D66 sluit kernenergie niet uit wanneer die doelmatig is.",
       bullets: [
-        { text: "Doorgaan met de voorbereidingen voor de bouw van twee nieuwe kerncentrales." },
+        { text: "Kernenergie niet uitsluiten wanneer die doelmatig is." },
         { text: "Investeren in schone energie, een sterker elektriciteitsnet en verduurzaming van de industrie." },
         { text: "Vliegbelasting verhogen en kerosineheffing inzetten via EU." },
       ],
@@ -201,7 +201,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
         "Gecontroleerde instroom, sterk gericht op draagvlak in gemeenten.",
       bullets: [
         { text: "Tweestatusstelsel uitvoeren; nareis subsidiair beschermden inperken." },
-        { text: "Spreidingswet houden, maar evalueren in 2027." },
+        { text: "Spreidingswet uitvoeren en doorzetten." },
         { text: "Brede integratie via maatschappelijke diensttijd." },
       ],
     },
@@ -238,7 +238,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       bullets: [
         { text: "Starterskorting overdrachtsbelasting tot €450.000." },
         { text: "Versnelde herziening Wet bestuurlijke boete (planschade)." },
-        { text: "Hypotheekrenteaftrek behouden voor middeninkomens." },
+        { text: "Hypotheekrenteaftrek stapsgewijs afbouwen en de inkomstenbelasting evenveel verlagen." },
       ],
     },
   },
@@ -314,7 +314,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       bullets: [
         { text: "Fossiele subsidies zo snel mogelijk afbouwen, ook als Europa nog niet meebeweegt." },
         { text: "Grote vervuilers meer laten bijdragen aan de klimaattransitie." },
-        { text: "Nationaal klimaatticket €40/maand voor ov." },
+        { text: "Klimaatticket van €59 per maand voor onbeperkt ov in de daluren." },
       ],
     },
     zorg: {
@@ -366,9 +366,9 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       summary:
         "Publieke regie op wonen: huurverhogingen begrenzen, sterke positie corporaties en meer betaalbare woningen.",
       bullets: [
-        { text: "Hypotheekrenteaftrek volledig afschaffen in 5 jaar." },
-        { text: "Een wettelijke bovengrens aan huurstijgingen invoeren en bescherming tegen woekerhuren voor alle huurwoningen laten gelden." },
-        { text: "Verdubbeling sociale huur via corporaties." },
+        { text: "Hypotheekrenteaftrek stapsgewijs afbouwen." },
+        { text: "Huurverhogingen aan banden leggen en huurders beter beschermen tegen woekerhuren." },
+        { text: "Corporaties een sterke rol geven bij betaalbare woningen." },
       ],
     },
   },
@@ -509,7 +509,7 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
       summary:
         "Klassiek-socialistisch: nationaliseren, vermogensbelasting, AOW omhoog.",
       bullets: [
-        { text: "Progressieve vermogensbelasting boven €500.000." },
+        { text: "Miljonairsbelasting voor vermogens boven €5 miljoen en een vermogensplafond boven €50 miljoen." },
         { text: "AOW met 10% verhogen." },
         { text: "Energieprijzen reguleren; staatsenergiebedrijf oprichten." },
       ],
@@ -573,11 +573,11 @@ export const PARTY_PROGRAMMES: Record<string, PartyProgramme> = {
   pvdd: {
     klimaat: {
       summary:
-        "Radicaal klimaat- en natuurbeleid: Nederland uiterlijk in 2030 klimaatneutraal en een andere inrichting van de landbouw.",
+        "Radicaal klimaat- en natuurbeleid: zo snel mogelijk klimaatneutraal, met 2030 als uitgangspunt, en een andere inrichting van de landbouw.",
       bullets: [
-        { text: "Elk jaar 5% van het nationale inkomen besteden aan de klimaat- en natuurcrisis." },
         { text: "Direct stoppen met fossiele subsidies en landbouwsubsidies." },
         { text: "Een nationaal CO₂-budget invoeren en klimaatbeleid daarop richten." },
+        { text: "Het aantal dieren dat in de bio-industrie wordt gefokt en gedood binnen twee jaar met minstens 75% laten dalen." },
       ],
     },
     economie: {
