@@ -101,7 +101,7 @@ export function confidenceBand(score: number): ConfidenceBand {
 }
 
 export function confidenceBandLabel(band: ConfidenceBand): string {
-  if (band === "hoog") return "Hoog vertrouwen";
-  if (band === "gemiddeld") return "Gemiddeld vertrouwen";
-  return "Laag vertrouwen";
+  if (band === "hoog") return "Duidelijk patroon";
+  if (band === "gemiddeld") return "Voorzichtig patroon";
+  return "Gemengd patroon";
 }

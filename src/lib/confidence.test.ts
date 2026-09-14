@@ -72,4 +72,12 @@ describe("calculateConfidence", () => {
     expect(confidenceBand(50)).toBe("gemiddeld");
     expect(confidenceBand(20)).toBe("laag");
   });
+
+  it("describes evidence as a pattern rather than a claim of certainty", async () => {
+    const { confidenceBandLabel } = await import("./confidence");
+
+    expect(confidenceBandLabel("hoog")).toBe("Duidelijk patroon");
+    expect(confidenceBandLabel("gemiddeld")).toBe("Voorzichtig patroon");
+    expect(confidenceBandLabel("laag")).toBe("Gemengd patroon");
+  });
 });

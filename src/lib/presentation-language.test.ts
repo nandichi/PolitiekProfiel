@@ -12,10 +12,13 @@ describe("plain-language result presentation", () => {
     expect(dimensions).not.toContain("of juist meer macht naar regio's, gemeentes en burgers");
   });
 
-  it("does not call measurement confidence trust", () => {
+  it("describes result evidence as pattern clarity, not as trust", () => {
     const indicator = read("src/components/result/ConfidenceIndicator.tsx");
-    expect(indicator).toContain("Zekerheid van deze quizschatting");
+    const confidence = read("src/lib/confidence.ts");
+    expect(indicator).toContain("Duidelijkheid van dit patroon");
     expect(indicator).not.toContain('label = "Vertrouwen"');
+    expect(confidence).toContain("Duidelijk patroon");
+    expect(confidence).not.toContain("Hoog vertrouwen");
   });
 
   it("does not imply an economic link in a migration-only mismatch", () => {
