@@ -13,6 +13,8 @@ import "server-only";
 
 import { getNeonSql, isNeonConfigured } from "@/lib/neon-client";
 import type { ThemeId } from "@/lib/themes";
+import { partySlugLookupKeys } from "@/lib/tk-open-data/party-aliases";
+import { mergePartyVotingRows } from "@/lib/tk-open-data/party-voting-merge";
 
 export interface PartyThemeVoting {
   partySlug: string;
@@ -93,18 +95,29 @@ export async function loadPartyVoting(): Promise<PartyThemeVoting[]> {
 export async function loadPartyVotingByTheme(
   partySlug: string,
 ): Promise<PartyThemeVoting[]> {
+  // Een partij kan eerder onder een andere slug zijn weggeschreven. Alle
+  // bekende namen ophalen en per thema optellen voorkomt dat opgebouwd
+  // stemgedrag stil verdwijnt na een slugwijziging.
+  const lookupKeys = partySlugLookupKeys(partySlug);
+
   if (isNeonConfigured()) {
     const sql = getNeonSql();
-    const rows = (await sql`SELECT * FROM tk_voting_party WHERE party_slug = ${partySlug}`) as Record<
-      string,
-      unknown
-    >[];
-    return rows.map(rowToPartyVoting);
+    const rows: Record<string, unknown>[] = [];
+    for (const key of lookupKeys) {
+      const found = (await sql`SELECT * FROM tk_voting_party WHERE party_slug = ${key}`) as Record<
+        string,
+        unknown
+      >[];
+      rows.push(...found);
+    }
+    return mergePartyVotingRows(partySlug, rows.map(rowToPartyVoting));
   }
   if (!memoryParty) memoryParty = new Map();
-  return Array.from(memoryParty.values()).filter(
-    (v) => v.partySlug === partySlug,
+  const allowed = new Set(lookupKeys);
+  const rows = Array.from(memoryParty.values()).filter((v) =>
+    allowed.has(v.partySlug),
   );
+  return mergePartyVotingRows(partySlug, rows);
 }
 
 export async function upsertPartyVoting(
