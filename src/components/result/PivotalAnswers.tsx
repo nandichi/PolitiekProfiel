@@ -37,16 +37,16 @@ export function PivotalAnswers({ items }: PivotalAnswersProps) {
   return (
     <section
       aria-labelledby="kantelpunt-heading"
-      className="border-y border-[var(--ink)]/15 py-12 sm:py-16"
+      className="border-y border-[var(--color-ink)]/15 py-12 sm:py-16"
     >
       <div className="max-w-3xl">
-        <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--brand)]">
+        <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--color-terra)]">
           Doorgerekend op jouw antwoorden
         </p>
         <h2 id="kantelpunt-heading" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
           Wat als je hier anders had geantwoord?
         </h2>
-        <p className="mt-4 text-base leading-7 text-[var(--ink)]/72 sm:text-lg">
+        <p className="mt-4 text-base leading-7 text-[var(--color-ink)]/72 sm:text-lg">
           Deze stellingen verschoven je uitkomst het meest. Hieronder staat per
           stelling wat er met die ene as gebeurt als je precies het tegenovergestelde
           had geantwoord. Dat is geen schatting: het is dezelfde rekenregel als
@@ -60,36 +60,36 @@ export function PivotalAnswers({ items }: PivotalAnswersProps) {
           return (
             <li
               key={item.questionId}
-              className="border-l-2 border-[var(--brand)] pl-5 sm:pl-7"
+              className="border-l-2 border-[var(--color-terra)] pl-5 sm:pl-7"
             >
-              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--brand)]">
+              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-terra)]">
                 {meta.label}
               </p>
-              <p className="mt-2 max-w-3xl text-lg font-semibold leading-7 text-[var(--ink)]">
+              <p className="mt-2 max-w-3xl text-lg font-semibold leading-7 text-[var(--color-ink)]">
                 {item.statement}
               </p>
               <dl className="mt-4 grid max-w-3xl grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-3">
                 <div>
-                  <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--ink)]/55">
+                  <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-ink)]/55">
                     Jouw antwoord
                   </dt>
-                  <dd className="mt-1 text-base text-[var(--ink)]">{label(item.value)}</dd>
+                  <dd className="mt-1 text-base text-[var(--color-ink)]">{label(item.value)}</dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--ink)]/55">
+                  <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-ink)]/55">
                     Je score op deze as
                   </dt>
-                  <dd className="mt-1 text-base tabular-nums text-[var(--ink)]">
+                  <dd className="mt-1 text-base tabular-nums text-[var(--color-ink)]">
                     {signed(item.currentScore)}
                   </dd>
                 </div>
                 <div>
-                  <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--ink)]/55">
+                  <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-ink)]/55">
                     Bij {flipLabel(item.value)}
                   </dt>
-                  <dd className="mt-1 text-base tabular-nums text-[var(--ink)]">
+                  <dd className="mt-1 text-base tabular-nums text-[var(--color-ink)]">
                     {signed(item.flippedScore)}
-                    <span className="ml-2 text-sm text-[var(--ink)]/60">
+                    <span className="ml-2 text-sm text-[var(--color-ink)]/60">
                       {item.impact} punten verschil
                     </span>
                   </dd>
@@ -100,7 +100,7 @@ export function PivotalAnswers({ items }: PivotalAnswersProps) {
         })}
       </ol>
 
-      <p className="mt-10 max-w-3xl text-sm leading-6 text-[var(--ink)]/60">
+      <p className="mt-10 max-w-3xl text-sm leading-6 text-[var(--color-ink)]/60">
         Dit rekent één antwoord in isolatie door. Je echte uitkomst komt uit het
         geheel van je antwoorden, en een verschuiving van één as is geen
         voorspelling van een ander profiel. Het is ook geen advies over hoe je

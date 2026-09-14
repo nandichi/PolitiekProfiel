@@ -104,8 +104,8 @@ export default async function EmbedConfigPage({ params }: PageProps) {
                   width="100%"
                   height={520}
                   style={{
-                    border: "1px solid var(--rule)",
-                    background: "var(--paper)",
+                    border: "1px solid var(--color-rule)",
+                    background: "var(--color-paper)",
                     maxWidth: 520,
                   }}
                   loading="lazy"

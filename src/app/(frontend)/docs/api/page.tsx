@@ -87,7 +87,7 @@ export default function ApiDocsPage() {
         dangerouslySetInnerHTML={{ __html: jsonLdString(breadcrumbLd) }}
       />
       <Kicker>API & Agent Discovery</Kicker>
-      <h1 className="font-serif text-4xl md:text-5xl tracking-tight text-ink mt-3 mb-6">
+      <h1 className="display text-4xl md:text-5xl tracking-tight text-ink mt-3 mb-6">
         Voor developers en AI-agents
       </h1>
       <p className="text-ink/80 text-lg leading-relaxed max-w-2xl mb-12">
@@ -98,7 +98,7 @@ export default function ApiDocsPage() {
       </p>
 
       <section className="mb-16">
-        <h2 className="font-serif text-2xl md:text-3xl text-ink mb-6">Endpoints</h2>
+        <h2 className="display text-2xl md:text-3xl text-ink mb-6">Endpoints</h2>
         <div className="overflow-x-auto rounded-lg border border-ink/10">
           <table className="w-full text-sm">
             <thead className="bg-ink/5 text-ink/70">
@@ -134,7 +134,7 @@ export default function ApiDocsPage() {
       </section>
 
       <section className="mb-16">
-        <h2 className="font-serif text-2xl md:text-3xl text-ink mb-6">
+        <h2 className="display text-2xl md:text-3xl text-ink mb-6">
           Link headers op de homepage
         </h2>
         <p className="text-ink/80 leading-relaxed mb-4">
@@ -147,7 +147,7 @@ export default function ApiDocsPage() {
       </section>
 
       <section className="mb-16">
-        <h2 className="font-serif text-2xl md:text-3xl text-ink mb-6">
+        <h2 className="display text-2xl md:text-3xl text-ink mb-6">
           Markdown for Agents
         </h2>
         <p className="text-ink/80 leading-relaxed mb-4">
@@ -165,7 +165,7 @@ export default function ApiDocsPage() {
       </section>
 
       <section className="mb-16">
-        <h2 className="font-serif text-2xl md:text-3xl text-ink mb-6">WebMCP</h2>
+        <h2 className="display text-2xl md:text-3xl text-ink mb-6">WebMCP</h2>
         <p className="text-ink/80 leading-relaxed mb-4">
           Bij het laden van de site wordt{" "}
           <code className="font-mono text-sm">navigator.modelContext.provideContext()</code>
@@ -176,7 +176,7 @@ export default function ApiDocsPage() {
       </section>
 
       <section>
-        <h2 className="font-serif text-2xl md:text-3xl text-ink mb-6">Crawl-beleid</h2>
+        <h2 className="display text-2xl md:text-3xl text-ink mb-6">Crawl-beleid</h2>
         <p className="text-ink/80 leading-relaxed">
           Volledig open: zowel zoekmachines als AI-crawlers (training, real-time grounding,
           search) mogen de publieke pagina&apos;s indexeren en gebruiken. Alleen{" "}
