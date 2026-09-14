@@ -175,7 +175,10 @@ export default async function PartijDetailPage({ params }: PageProps) {
                 { term: "Partijleider", value: party.leader },
                 {
                   term: "Fractievoorzitter",
-                  value: party.factionLeader ?? party.leader,
+                  // Geen terugval op `leader`: bij partijen waar die twee
+                  // verschillen zou dat een verkeerde naam als fractieleider
+                  // tonen. Alleen een expliciet vastgelegde naam komt hier.
+                  value: party.factionLeader,
                 },
                 {
                   term: "Actuele zetels",

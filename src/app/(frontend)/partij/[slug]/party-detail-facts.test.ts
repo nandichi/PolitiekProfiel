@@ -23,4 +23,8 @@ describe("partijpagina toont feiten en geen 'Onbekend'", () => {
   it("verbergt meta-velden die geen waarde hebben in plaats van 'Onbekend'", () => {
     expect(source).not.toContain('?? "Onbekend"');
   });
+
+  it("verzint geen fractievoorzitter als die niet apart bekend is", () => {
+    expect(source).not.toContain("party.factionLeader ?? party.leader");
+  });
 });
