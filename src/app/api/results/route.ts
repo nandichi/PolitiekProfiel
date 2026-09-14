@@ -4,7 +4,7 @@ import { calculateScores, bestMatch, type QuestionScoringMeta } from "@/lib/scor
 import { calculateThemeScores } from "@/lib/themes";
 import { calculateConfidence } from "@/lib/confidence";
 import { detectParadoxes } from "@/lib/paradox";
-import { createResult } from "@/lib/results-store";
+import { createResult, getResult } from "@/lib/results-store";
 import { TIER_QUESTION_COUNT, type AnswerValue, type Tier } from "@/lib/dimensions";
 import {
   normalizeEntitlementToken,
@@ -188,6 +188,7 @@ export async function POST(request: Request) {
     );
   }
 
+  let reservedShareId: string | undefined;
   if (isPaidTier(body.tier)) {
     const token = normalizeEntitlementToken(body.entitlementToken);
     if (!token || !isSubmissionId(body.submissionId)) {
@@ -209,6 +210,12 @@ export async function POST(request: Request) {
         { status: registration.reason === "exhausted" ? 429 : 503 },
       );
     }
+
+    reservedShareId = registration.shareId;
+    if (registration.alreadyReserved) {
+      const existing = await getResult(registration.shareId);
+      if (existing) return NextResponse.json({ id: existing.shareId });
+    }
   }
 
   const storedAnswers = answers.map((answer) => ({
@@ -217,6 +224,7 @@ export async function POST(request: Request) {
   }));
 
   const stored = await createResult({
+    shareId: reservedShareId,
     tier: body.tier,
     ideologySlug: best.item.slug,
     dimensions: breakdown.scores,

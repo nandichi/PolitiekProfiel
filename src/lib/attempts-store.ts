@@ -1,6 +1,7 @@
 import "server-only";
 
 import { Timestamp } from "firebase-admin/firestore";
+import { nanoid } from "nanoid";
 import { firestore } from "@/lib/firebase-admin";
 import { entitlementAttemptKey, nextReservedAttempt } from "@/lib/attempt-reservation";
 
@@ -9,7 +10,7 @@ export const MAX_PAID_ATTEMPTS = 2;
 const COLLECTION = "entitlement_attempts";
 
 export type AttemptReservation =
-  | { ok: true; count: number; alreadyReserved: boolean }
+  | { ok: true; count: number; alreadyReserved: boolean; shareId: string }
   | { ok: false; reason: "unavailable" | "exhausted" };
 
 function hasFirestoreConfig(): boolean {
@@ -45,35 +46,55 @@ export async function reserveAttempt(
         transaction.get(legacyRef),
       ]);
       const data = snap.data() as
-        | { count?: unknown; submissionIds?: unknown }
+        | { count?: unknown; submissionIds?: unknown; submissionShareIds?: unknown }
         | undefined;
       const legacy = legacySnap.data() as { count?: unknown } | undefined;
       const submissionIds = Array.isArray(data?.submissionIds)
         ? data.submissionIds.filter((value): value is string => typeof value === "string")
         : [];
+      const submissionShareIds =
+        data?.submissionShareIds && typeof data.submissionShareIds === "object"
+          ? Object.fromEntries(
+              Object.entries(data.submissionShareIds as Record<string, unknown>).filter(
+                (entry): entry is [string, string] => typeof entry[1] === "string",
+              ),
+            )
+          : {};
       const currentCount = Number.isSafeInteger(data?.count)
         ? Number(data?.count)
         : Number.isSafeInteger(legacy?.count)
           ? Number(legacy?.count)
           : 0;
 
-      if (submissionIds.includes(submissionId)) {
-        return { ok: true, count: currentCount, alreadyReserved: true };
+      if (submissionShareIds[submissionId]) {
+        return {
+          ok: true,
+          count: currentCount,
+          alreadyReserved: true,
+          shareId: submissionShareIds[submissionId],
+        };
       }
 
-      const next = nextReservedAttempt(currentCount, MAX_PAID_ATTEMPTS);
+      const alreadyReserved = submissionIds.includes(submissionId);
+      const next = alreadyReserved
+        ? { ok: true as const, count: currentCount }
+        : nextReservedAttempt(currentCount, MAX_PAID_ATTEMPTS);
       if (!next.ok) return { ok: false, reason: "exhausted" } as const;
+      const shareId = nanoid(12);
 
       transaction.set(
         ref,
         {
           count: next.count,
-          submissionIds: [...submissionIds, submissionId].slice(-MAX_PAID_ATTEMPTS),
+          submissionIds: alreadyReserved
+            ? submissionIds
+            : [...submissionIds, submissionId].slice(-MAX_PAID_ATTEMPTS),
+          submissionShareIds: { ...submissionShareIds, [submissionId]: shareId },
           lastAttemptAt: Timestamp.now(),
         },
         { merge: true },
       );
-      return { ok: true, count: next.count, alreadyReserved: false };
+      return { ok: true, count: next.count, alreadyReserved, shareId };
     });
   } catch (error) {
     console.error("[attempts] atomic reservation failed", error);

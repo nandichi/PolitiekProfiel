@@ -160,29 +160,33 @@ export async function validateEntitlementForTier(input: {
 }
 
 /**
- * Registreert een afgeronde betaalde quiz. Bij het laatste toegestane bezoek
- * wordt de entitlement ook op `consumed` gezet, zodat het admin-overzicht
- * dezelfde status laat zien als de teller.
+ * Reserveert een betaalde afronding. De atomaire teller is de autoriteit:
+ * de entitlement blijft `paid` zodat een netwerkretry met dezelfde
+ * submission-ID nog zijn al gemaakte rapport kan terugkrijgen.
  */
 export async function registerPaidAttempt(
   token: string,
   submissionId: string,
 ): Promise<
-  | { ok: true; attempts: number; exhausted: boolean; alreadyReserved: boolean }
+  | {
+      ok: true;
+      attempts: number;
+      exhausted: boolean;
+      alreadyReserved: boolean;
+      shareId: string;
+    }
   | { ok: false; reason: "unavailable" | "exhausted" }
 > {
   const reservation = await reserveAttempt(token, submissionId);
   if (!reservation.ok) return reservation;
 
   const exhausted = reservation.count >= MAX_PAID_ATTEMPTS;
-  if (exhausted) {
-    await markEntitlementConsumed(token);
-  }
   return {
     ok: true,
     attempts: reservation.count,
     exhausted,
     alreadyReserved: reservation.alreadyReserved,
+    shareId: reservation.shareId,
   };
 }
 

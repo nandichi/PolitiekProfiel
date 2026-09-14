@@ -65,6 +65,7 @@ function omitUndefined<T extends Record<string, unknown>>(obj: T): Partial<T> {
 }
 
 export async function createResult(input: {
+  shareId?: string;
   tier: Tier;
   ideologySlug: string;
   dimensions: DimensionScores;
@@ -76,7 +77,7 @@ export async function createResult(input: {
   skippedCount: number;
   totalQuestions: number;
 }): Promise<StoredResult> {
-  const shareId = nanoid(12);
+  const shareId = input.shareId ?? nanoid(12);
   const createdAt = new Date().toISOString();
 
   const record: StoredResult = {
