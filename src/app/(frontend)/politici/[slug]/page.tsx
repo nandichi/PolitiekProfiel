@@ -191,6 +191,45 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
         </Container>
       </section>
 
+      {/* Bronnen */}
+      {politicus.sources.length > 0 && (
+        <section className="border-t border-rule bg-paper-50/40">
+          <Container width="bleed" className="py-12 md:py-16">
+            <ScrollReveal variant="stagger">
+              <ScrollRevealItem>
+                <Kicker number="1a">Bronnen bij dit portret</Kicker>
+                <h2 className="display mt-5 max-w-3xl">
+                  Controleer de uitgangspunten zelf.
+                </h2>
+                <p className="mt-4 max-w-2xl text-sm text-ink-2 leading-relaxed">
+                  Functie, partijcontext en de redactionele positieraming zijn
+                  gebaseerd op publieke informatie. De vijfdimensiepositie blijft
+                  een transparante redactionele schatting, geen letterlijk
+                  standpunt of stemadvies.
+                </p>
+              </ScrollRevealItem>
+              <ScrollRevealItem>
+                <ul className="mt-8 max-w-3xl border-t border-rule">
+                  {politicus.sources.map((source) => (
+                    <li key={source.url} className="border-b border-rule py-3">
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm text-ink hover:text-navy no-underline"
+                      >
+                        {source.label}
+                        <ArrowRight size={14} strokeWidth={1.8} aria-hidden="true" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </ScrollRevealItem>
+            </ScrollReveal>
+          </Container>
+        </section>
+      )}
+
       {/* Stemgedrag-projectie (C5) */}
       {votingProjection && (
         <section className="border-t border-rule">
