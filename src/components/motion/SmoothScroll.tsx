@@ -2,6 +2,7 @@
 
 import Lenis from "lenis";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 /**
  * Keeps ordinary document scroll behaviour while giving the editorial landing
@@ -9,7 +10,12 @@ import { useEffect } from "react";
  * motion and leaves anchors, keyboard navigation and native touch scrolling intact.
  */
 export function SmoothScroll() {
+  const pathname = usePathname();
+
   useEffect(() => {
+    // The quiz and paid result flows retain native browser scrolling.
+    if (pathname !== "/") return;
+
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
     let lenis: Lenis | null = null;
 
@@ -39,7 +45,7 @@ export function SmoothScroll() {
       media.removeEventListener("change", sync);
       lenis?.destroy();
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }
