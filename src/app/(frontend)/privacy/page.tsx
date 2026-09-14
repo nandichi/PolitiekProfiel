@@ -15,9 +15,9 @@ import type { Metadata } from "next";
 
 const PAGE_PATH = "/privacy";
 const PAGE_PUBLISHED = "2026-01-15";
-const PAGE_MODIFIED = "2026-05-17";
+const PAGE_MODIFIED = "2026-09-14";
 const PAGE_DESCRIPTION =
-  "Politieke voorkeur valt onder bijzondere persoonsgegevens (AVG). Wat we opslaan, hoe Stripe-betalingen gescheiden blijven, en je recht op verwijdering.";
+  "Welke gegevens PolitiekProfiel verwerkt voor een quiz, betaling, resultaatlink en contactverzoek. Politieke antwoorden worden niet gebruikt voor advertentietracking.";
 
 export const metadata: Metadata = {
   title: "Privacy",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Privacy · PolitiekProfiel",
     description:
-      "Geen account, geen advertentietracking. Stripe-betalingen worden niet gekoppeld aan politieke uitslagen.",
+      "Een resultaat gebruikt een deelbare link. We gebruiken geen advertentiecookies of gedragsanalyse van quizantwoorden.",
     url: PAGE_PATH,
     type: "article",
     publishedTime: PAGE_PUBLISHED,
@@ -37,13 +37,12 @@ export const metadata: Metadata = {
 
 const INDEX = [
   { id: "intro", label: "Inleiding" },
-  { id: "wel", label: "Wat we wel opslaan" },
-  { id: "niet", label: "Wat we niet opslaan" },
-  { id: "cohort", label: "Cohort-aggregaten" },
-  { id: "evolutie", label: "Politieke evolutie" },
-  { id: "lokaal", label: "Lokale opslag" },
-  { id: "verwijderen", label: "Verwijderen" },
-  { id: "cookies", label: "Cookies" },
+  { id: "resultaat", label: "Quizresultaat" },
+  { id: "contact", label: "Contact en e-mail" },
+  { id: "betaling", label: "Betaling" },
+  { id: "browser", label: "Je browser" },
+  { id: "delen", label: "Delen en verwijderen" },
+  { id: "cookies", label: "Cookies en analytics" },
 ];
 
 export default function PrivacyPage() {
@@ -79,10 +78,7 @@ export default function PrivacyPage() {
                 <Kicker>Privacy</Kicker>
               </ScrollRevealItem>
               <ScrollRevealItem>
-                <h1
-                  className="display mt-6"
-                  style={{ letterSpacing: "-0.025em" }}
-                >
+                <h1 className="display mt-6" style={{ letterSpacing: "-0.025em" }}>
                   Hoe we omgaan met
                   <span className="block">
                     <em className="display-italic font-light text-navy">
@@ -93,165 +89,108 @@ export default function PrivacyPage() {
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <p className="mt-8 text-lg md:text-xl text-ink-2 leading-relaxed">
-                  Politieke voorkeur valt onder &lsquo;bijzondere
-                  persoonsgegevens&rsquo; in de AVG. We hebben PolitiekProfiel
-                  ontworpen om je hierin maximaal te beschermen.
+                  Politieke opvattingen verdienen extra zorg. PolitiekProfiel
+                  vraagt geen account voor een quiz, gebruikt geen
+                  advertentiecookies en slaat geen quizgedrag als analyse op.
+                  Wel is een resultaat via een deelbare link beschikbaar. Lees
+                  daarom hieronder precies wat er gebeurt.
                 </p>
               </ScrollRevealItem>
             </ScrollReveal>
           </section>
 
-          {/* Wat we wel opslaan */}
-          <Block
-            id="wel"
-            kicker="01 · Wat we opslaan"
-            title="Wat we wel opslaan."
-            accent="ink"
-          >
+          <Block id="resultaat" kicker="01 · Quizresultaat" title="Wat bij een profiel wordt bewaard." accent="ink">
             <p>
-              Wanneer je een quiz invult en op &lsquo;Bekijk mijn
-              profiel&rsquo; klikt, slaan we het volgende{" "}
-              <strong>anoniem</strong> op:
+              Als je op <strong>Bekijk mijn profiel</strong> klikt, maken we
+              een willekeurige share-ID van 12 tekens. Onder die ID bewaren we
+              de antwoordwaarden, dimensiescores, gekozen ideologie, aantallen
+              beantwoorde en overgeslagen vragen en het aanmaaktijdstip. De
+              antwoordwaarden zijn nodig om op je resultaatpagina te laten zien
+              welke stellingen jouw profiel onderbouwen.
             </p>
-            <ul>
-              <li>Een willekeurige share-ID van 12 tekens</li>
-              <li>De vijf dimensiescores en de berekende ideologie</li>
-              <li>
-                Je ingevulde antwoordwaarden per vraag, zodat de resultaatpagina
-                standpunten kan afleiden
-              </li>
-              <li>Het aantal beantwoorde en overgeslagen vragen</li>
-              <li>Het tijdstip van aanmaken</li>
-            </ul>
             <p>
-              Iedereen met de link kan dit resultaat zien. Wil je niet dat je
-              resultaat permanent online staat? Maak dan geen profiel aan, of
-              deel de link niet.
+              We vragen voor een quiz geen naam of e-mailadres. Dat maakt een
+              resultaat niet automatisch ongevoelig: politieke antwoorden kunnen
+              iets over iemand zeggen. Daarom gebruiken we ze niet voor reclame,
+              profilering of gedragsanalyse.
             </p>
           </Block>
 
-          {/* Wat we niet opslaan */}
-          <Block
-            id="niet"
-            kicker="02 · Wat we niet opslaan"
-            title="Wat we NIET opslaan."
-            accent="terra"
-          >
-            <ul>
-              <li>
-                Je naam, e-mail of enig persoonlijk identificerend gegeven
-              </li>
-              <li>Je IP-adres of user-agent</li>
-              <li>Tracking-cookies of marketing-pixels</li>
-              <li>Een koppeling tussen je Stripe-betaling en je politieke uitslag</li>
-            </ul>
-          </Block>
-
-          {/* Cohort-aggregaten */}
-          <Block
-            id="cohort"
-            kicker="03 · Cohort-aggregaten"
-            title="Wat we afleiden uit alle resultaten samen."
-            accent="ink"
-          >
+          <Block id="contact" kicker="02 · Contact en e-mail" title="Wat er gebeurt als je zelf contact opneemt." accent="terra">
             <p>
-              Voor pagina&apos;s als{" "}
-              <a href="/typology">typology-clusters</a> en de
-              &lsquo;mensen-zoals-jij&rsquo;-sectie op je resultaatpagina
-              berekenen we <strong>geaggregeerde gemiddelden</strong> over
-              groepen anonieme profielen. We hanteren hierbij{" "}
-              <strong>k-anonimiteit</strong>: een groep wordt pas getoond als er
-              minimaal <span className="mono tabular-nums">50</span> profielen
-              in vallen. Daaronder zien we niets.
+              Het contactformulier verwerkt je naam, e-mailadres en bericht om
+              te kunnen reageren. Als je vrijwillig een resultaatlink per e-mail
+              laat sturen, verwerken we daarvoor je e-mailadres en de
+              resultaatlink. Deze berichten lopen via onze e-maildienst en komen
+              binnen in de werkmailbox van PolitiekProfiel.
             </p>
             <p>
-              We berekenen alleen gemiddelden per dimensie en per thema. We
-              kunnen niet, en willen niet kunnen, individuele profielen uit
-              een aggregaat terugleiden. Geen advertenties, geen
-              doorverkoop, geen overdracht aan derden.
+              Om misbruik van de formulieren te beperken, houdt de server een
+              IP-adres tijdelijk in het geheugen bij voor een limiet op verzoeken.
+              Dat is geen onderdeel van je quizprofiel en wordt niet in de
+              applicatiedatabase opgeslagen.
+            </p>
+            <p>
+              Deel in een contactbericht alleen wat nodig is. Stuur geen
+              politieke antwoorden mee als een share-ID of link voldoende is.
             </p>
           </Block>
 
-          {/* Politieke evolutie */}
-          <Block
-            id="evolutie"
-            kicker="04 · Politieke evolutie"
-            title="Hoe we jouw tijdlijn bewaren."
-            accent="ink"
-          >
+          <Block id="betaling" kicker="03 · Betaling" title="Betaling staat los van je politieke profiel." accent="ink">
             <p>
-              De &lsquo;<a href="/evolutie">politieke evolutie</a>&rsquo;-pagina
-              laat zien hoe je profiel verandert tussen meerdere quizes. We
-              koppelen deze ID&apos;s <strong>niet</strong> aan een account:
-              jouw lijst van share-ID&apos;s leeft alleen in jouw browser
-              (URL en localStorage) en in de link die je zelf bewaart. Wis je
-              browser-data of de link, dan is de koppeling weg.
+              Betalingen verlopen via Stripe Checkout. Stripe verwerkt de
+              betaalgegevens, de betalingsreferentie en, afhankelijk van de
+              betaalmethode, contactgegevens voor de betaling en bon. Voor
+              toegang gebruiken we een apart toegangstoken. Dat token bevat geen
+              politieke score of antwoordwaarden.
+            </p>
+            <p>
+              Onze hosting en gegevensopslag gebruiken Vercel en Firebase. Voor
+              contact- en resultaatmails gebruiken we een e-maildienst. Deze
+              technische dienstverleners ontvangen gegevens voor de onderdelen
+              die zij uitvoeren. Lees voor hun eigen verwerking ook hun
+              privacyinformatie.
             </p>
           </Block>
 
-          {/* Lokale opslag */}
-          <Block
-            id="lokaal"
-            kicker="05 · Lokale opslag"
-            title="Tussentijdse opslag in je browser."
-            accent="ink"
-          >
+          <Block id="browser" kicker="04 · Je browser" title="Voortgang blijft op je eigen apparaat." accent="ink">
             <p>
-              Tijdens het invullen bewaren we je voortgang in je browser
-              (localStorage). Zo kun je later terugkomen en doorgaan. Deze
-              gegevens verlaten je apparaat niet, en je kunt ze wissen via de
-              instellingen van je browser of door op &lsquo;Opnieuw
-              beginnen&rsquo; te klikken.
+              Tijdens het invullen bewaart je browser voortgang in localStorage:
+              de getoonde vragen, je antwoorden en je plek in de quiz. Dat is
+              nodig om na een refresh verder te kunnen. Je kunt deze gegevens
+              verwijderen via je browserinstellingen of door opnieuw te beginnen.
+            </p>
+            <p>
+              We maken geen vaste tracking-ID aan. We registreren niet welke
+              vraag je opent, hoeveel tijd je per vraag gebruikt of welke
+              antwoorden je als gedragsdata invoert.
             </p>
           </Block>
 
-          <Block
-            id="betalingen"
-            kicker="06 · Betalingen"
-            title="Hoe betaalde quizzen werken."
-            accent="ink"
-          >
+          <Block id="delen" kicker="05 · Delen en verwijderen" title="Een resultaatlink is een sleutel." accent="ink">
             <p>
-              Betalingen lopen via Stripe Checkout. Stripe verwerkt daarbij de
-              betaalgegevens en eventuele e-mail voor betaling en ontvangstbewijs.
-              PolitiekProfiel gebruikt alleen een tijdelijk toegangstoken om te
-              controleren dat een betaalde quiz is ontgrendeld.
+              Iedereen die je share-link heeft, kan het resultaat zien. Stuur de
+              link daarom alleen naar mensen met wie je dit wilt delen. We tonen
+              geen openbare resultatenlijst en blokkeren rechtstreekse database-
+              toegang voor bezoekers.
             </p>
             <p>
-              Dat toegangstoken bevat geen antwoorden, geen ideologie, geen
-              tracking-ID en geen resultaatlink. Na het indienen markeren we het
-              token als gebruikt zonder het aan je politieke profiel te koppelen.
+              Wil je een resultaat laten verwijderen? Stuur via het{" "}
+              <Link href="/contact" className="underline">contactformulier</Link>{" "}
+              de share-ID of de volledige link. We bevestigen de ontvangst en
+              behandelen het verzoek zo snel mogelijk. Resultaten verlopen nu
+              niet automatisch; vraag verwijdering als je de link niet wilt
+              behouden.
             </p>
           </Block>
 
-          {/* Verwijderen */}
-          <Block
-            id="verwijderen"
-            kicker="07 · Recht op verwijdering"
-            title="Een verwijderverzoek indienen."
-            accent="ink"
-          >
+          <Block id="cookies" kicker="06 · Cookies en analytics" title="Geen advertentiecookies." accent="ink" last>
             <p>
-              Wil je dat we jouw opgeslagen resultaat verwijderen? Stuur een
-              bericht via{" "}
-              <Link href="/contact" className="underline">het contactformulier</Link>{" "}
-              met de share-ID, en we verwijderen het binnen 14 dagen.
-            </p>
-          </Block>
-
-          {/* Cookies */}
-          <Block
-            id="cookies"
-            kicker="08 · Cookies"
-            title="Cookies."
-            accent="ink"
-            last
-          >
-            <p>
-              We gebruiken geen tracking- of advertentiecookies. We laten een
-              functionele cookieconsent-banner zien om dit te bevestigen. Je
-              kunt deze banner sluiten; je hoeft niets te accepteren of
-              weigeren omdat we niets in cookies zetten.
+              PolitiekProfiel gebruikt geen advertentie- of trackingcookies en
+              geen externe webanalyse. Er is geen
+              cookiebanner, omdat we geen toestemming vragen voor zulke cookies.
+              LocalStorage voor quizvoortgang is geen cookie en kun je zelf
+              wissen.
             </p>
           </Block>
         </div>

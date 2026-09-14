@@ -4,7 +4,6 @@ import { Timestamp } from "firebase-admin/firestore";
 import { nanoid } from "nanoid";
 import { firestore } from "@/lib/firebase-admin";
 import { payload } from "@/lib/payload";
-import { markSubmitted as markAttemptSubmitted } from "@/lib/tracking-store";
 import type { DimensionScores } from "@/lib/scoring";
 import type { AnswerValue, Tier } from "@/lib/dimensions";
 import type { ThemeScores } from "@/lib/themes";
@@ -37,7 +36,6 @@ export interface StoredResult {
   skippedCount: number;
   totalQuestions: number;
   createdAt: string;
-  attemptId?: string;
 }
 
 const FIRESTORE_COLLECTION = "results";
@@ -77,7 +75,6 @@ export async function createResult(input: {
   answeredCount: number;
   skippedCount: number;
   totalQuestions: number;
-  attemptId?: string;
 }): Promise<StoredResult> {
   const shareId = nanoid(12);
   const createdAt = new Date().toISOString();
@@ -95,7 +92,6 @@ export async function createResult(input: {
     skippedCount: input.skippedCount,
     totalQuestions: input.totalQuestions,
     createdAt,
-    attemptId: input.attemptId,
   };
 
   if (hasFirestoreConfig()) {
@@ -137,9 +133,9 @@ export async function createResult(input: {
     }));
     await p.create({
       collection: "results",
+      overrideAccess: true,
       data: {
         shareId,
-        attemptId: input.attemptId,
         lengthTier: input.tier,
         ideologySlug: input.ideologySlug,
         dimensions: input.dimensions,
@@ -155,14 +151,6 @@ export async function createResult(input: {
         totalQuestions: input.totalQuestions,
       },
     });
-  }
-
-  if (input.attemptId) {
-    try {
-      await markAttemptSubmitted(input.attemptId, shareId);
-    } catch (err) {
-      console.error("[results] markAttemptSubmitted failed", err);
-    }
   }
 
   return record;
@@ -200,6 +188,7 @@ export async function getResult(shareId: string): Promise<StoredResult | null> {
   const p = await payload();
   const res = await p.find({
     collection: "results",
+    overrideAccess: true,
     where: { shareId: { equals: shareId } },
     limit: 1,
     depth: 0,

@@ -21,11 +21,8 @@ import type { ThemeId } from "@/lib/themes";
 interface Body {
   tier?: Tier;
   answers?: Array<{ questionId: number; value: AnswerValue | null }>;
-  attemptId?: string;
   entitlementToken?: string;
 }
-
-const ATTEMPT_ID_PATTERN = /^[A-Za-z0-9_-]{6,32}$/;
 
 const VALID_TIERS: Tier[] = ["quick", "standard", "extended"];
 const MAXIMUM_SUBMITTED_STATEMENTS = 300;
@@ -194,11 +191,6 @@ export async function POST(request: Request) {
     value: answer.value,
   }));
 
-  const attemptId =
-    typeof body.attemptId === "string" && ATTEMPT_ID_PATTERN.test(body.attemptId)
-      ? body.attemptId
-      : undefined;
-
   const stored = await createResult({
     tier: body.tier,
     ideologySlug: best.item.slug,
@@ -219,7 +211,6 @@ export async function POST(request: Request) {
     answeredCount: breakdown.answeredCount,
     skippedCount: breakdown.skippedCount,
     totalQuestions: TIER_QUESTION_COUNT[body.tier],
-    attemptId,
   });
 
   // Alleen betaalde quizzen tellen mee voor het poginglimiet.

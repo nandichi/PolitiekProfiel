@@ -243,6 +243,10 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
               <ScrollRevealItem>
                 <Kicker number={5}>Verder lezen</Kicker>
                 <h2 className="display mt-5">Boeken en essays.</h2>
+                <p className="mt-3 max-w-2xl text-sm text-ink-2 leading-relaxed">
+                  Dit zijn bestaande titels. Elke link opent een cataloguszoekopdracht,
+                  zodat je zelf een editie, bibliotheek of verkoper kunt kiezen.
+                </p>
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <ul className="mt-8 max-w-3xl divide-y divide-rule border-t border-rule">

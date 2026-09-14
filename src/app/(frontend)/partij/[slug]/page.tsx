@@ -231,7 +231,20 @@ export default async function PartijDetailPage({ params }: PageProps) {
             </ScrollRevealItem>
             <ScrollRevealItem>
               <p className="mt-6 mono text-[0.62rem] tracking-wider text-ink-subtle max-w-3xl">
-                BRONNEN: {party.sources.map((s) => s.label).join(" · ").toUpperCase()}
+                BRONNEN:{" "}
+                {party.sources.map((s, index) => (
+                  <span key={s.url}>
+                    {index > 0 ? " · " : ""}
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-ink-2 hover:text-navy no-underline"
+                    >
+                      {s.label}
+                    </a>
+                  </span>
+                ))}
               </p>
             </ScrollRevealItem>
           </ScrollReveal>

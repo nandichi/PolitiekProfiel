@@ -4,6 +4,10 @@ const pbl: SeedSource = {
   label: "Planbureau voor de Leefomgeving – Klimaat- en Energieverkenning",
   url: "https://www.pbl.nl/onderwerpen/klimaat-en-energie",
 };
+const nuclearResearch: SeedSource = {
+  label: "Rijksoverheid – onderzoek naar locaties voor nieuwe kerncentrales (19 juni 2026)",
+  url: "https://www.rijksoverheid.nl/actueel/nieuws/2026/06/19/kabinet-volgende-stap-in-onderzoek-naar-locaties-nieuwe-grote-kerncentrales-versterking-van-innovatie-voor-inzet-van-nieuwe-technologieen",
+};
 const ipcc: SeedSource = {
   label: "IPCC – AR6 Synthesis Report",
   url: "https://www.ipcc.ch/report/ar6/syr/",
@@ -18,7 +22,7 @@ const nza: SeedSource = {
 };
 const euthanasie: SeedSource = {
   label: "Rijksoverheid – Euthanasie en levenseinde",
-  url: "https://www.rijksoverheid.nl/onderwerpen/euthanasie",
+  url: "https://www.rijksoverheid.nl/onderwerpen/levenseinde-en-euthanasie",
 };
 const religiousFreedom: SeedSource = {
   label: "Rijksoverheid – Discriminatie en gelijke behandeling",
@@ -93,20 +97,20 @@ const igh: SeedSource = {
   url: "https://www.icj-cij.org/case/192",
 };
 const buza: SeedSource = {
-  label: "Ministerie van Buitenlandse Zaken – Midden-Oosten",
-  url: "https://www.rijksoverheid.nl/onderwerpen/midden-oosten",
+  label: "Rijksoverheid – Internationale vrede en veiligheid",
+  url: "https://www.rijksoverheid.nl/onderwerpen/internationale-vrede-en-veiligheid",
 };
 const acm: SeedSource = {
-  label: "Autoriteit Consument & Markt – Digitale economie",
-  url: "https://www.acm.nl/nl/onderwerpen/digitale-economie",
+  label: "Autoriteit Consument & Markt",
+  url: "https://www.acm.nl/",
 };
 const rivmJeugd: SeedSource = {
   label: "RIVM – Mentale gezondheid jongeren",
   url: "https://www.rivm.nl/mentale-gezondheid",
 };
 const ocw: SeedSource = {
-  label: "Ministerie van OCW – Mobiele telefoons in de klas",
-  url: "https://www.rijksoverheid.nl/onderwerpen/voortgezet-onderwijs/mobiele-telefoons-en-andere-apparaten-in-de-les",
+  label: "Rijksoverheid – Voortgezet onderwijs",
+  url: "https://www.rijksoverheid.nl/onderwerpen/voortgezet-onderwijs",
 };
 const cbsArbeid: SeedSource = {
   label: "CBS – Arbeidsmarkt en automatisering",
@@ -193,10 +197,10 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
         "Maakt het net robuuster naast wind en zon.",
       ],
       argumentsAgainst: [
-        "Bouw is jaren vertraagd en kost tientallen miljarden.",
-        "Het afvalvraagstuk is voor duizenden jaren onopgelost.",
+        "Planning en bouw duren lang en kosten veel geld.",
+        "Radioactief afval vraagt langdurige en veilige opslag.",
       ],
-      sources: [pbl],
+      sources: [nuclearResearch],
     },
   },
   {
@@ -2100,7 +2104,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat Nederland Palestina als staat moet erkennen, ook bij Israëlische bezwaren.",
     info: {
       context:
-        "Sinds 2024 hebben onder meer Spanje, Ierland en Noorwegen Palestina erkend. Inmiddels erkent een ruime meerderheid van VN-lidstaten Palestina; in Nederland steunen GL-PvdA, D66, SP, BIJ1 en VOLT erkenning. Het staakt-het-vuren tussen Israël en Hamas (januari 2025) heeft de diplomatie deels heropend.",
+        "Spanje, Ierland en Noorwegen erkenden Palestina in 2024. Veel VN-lidstaten doen dat al langer. De vraag is of erkenning door Nederland een twee-statenoplossing helpt, of pas zinvol is als onderdeel van onderhandelingen.",
       argumentsFor: [
         "Erkenning houdt het perspectief van een twee-statenoplossing levend.",
         "Nederland verliest geloofwaardigheid door wel Israël maar niet Palestina te erkennen.",
@@ -2114,7 +2118,7 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
   },
   {
     statement:
-      "Nederland is verplicht het ICC-arrestatiebevel tegen Netanyahu uit te voeren als hij Nederlands grondgebied zou betreden.",
+      "Nederland moet een eventueel ICC-arrestatiebevel tegen Netanyahu uitvoeren als hij Nederlands grondgebied zou betreden.",
     dimension: "trust",
     direction: "positive",
     weight: 1.2,
@@ -2126,21 +2130,21 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
       "Je vindt dat Nederland het ICC-arrestatiebevel tegen Netanyahu zonder uitzondering moet uitvoeren.",
     info: {
       context:
-        "Het Internationaal Strafhof (ICC, Den Haag) gaf in november 2024 arrestatiebevelen uit tegen Netanyahu en oud-minister Gallant. In december 2025 verwierp het ICC een Israëlisch verzoek het onderzoek te stoppen; de bevelen blijven van kracht. Nederland is partij bij het ICC-statuut en zou een arrestatie moeten uitvoeren.",
+        "Het Internationaal Strafhof (ICC) vaardigde in november 2024 arrestatiebevelen uit tegen Benjamin Netanyahu en Yoav Gallant. Nederland is partij bij het Statuut van Rome. Deze stelling vraagt hoe zwaar je internationale rechtsverplichtingen laat wegen als die politiek gevoelig zijn.",
       argumentsFor: [
         "Een internationale rechtsorde geldt voor iedereen of voor niemand.",
         "Als gastland van het ICC heeft Nederland een bijzondere verantwoordelijkheid.",
       ],
       argumentsAgainst: [
-        "Politieke en veiligheidsbelangen kunnen botsen met juridische plicht.",
-        "Toepassing kan diplomatieke crisissen veroorzaken.",
+        "Een arrestatie kan grote diplomatieke en veiligheidsgevolgen hebben.",
+        "De reikwijdte van internationale rechtsverplichtingen kan juridisch worden betwist.",
       ],
       sources: [icc, igh],
     },
   },
   {
     statement:
-      "Nederland moet wapenleveranties en militaire samenwerking met Israël opschorten zolang de situatie in Gaza niet structureel is opgelost.",
+      "Nederland moet militaire samenwerking met Israël opschorten zolang er geen overtuigende waarborgen zijn dat die niet bijdraagt aan schendingen van het humanitair oorlogsrecht.",
     dimension: "social",
     direction: "positive",
     tiers: [...standardExtended],
@@ -2148,10 +2152,10 @@ export const THEMED_QUESTIONS: SeedQuestion[] = [
     discriminator: 80,
     themes: ["eu", "democratie"],
     derivedStance:
-      "Je vindt dat Nederland militaire samenwerking met Israël moet opschorten tot er een duurzame oplossing voor Gaza is.",
+      "Je vindt dat Nederland militaire samenwerking met Israël moet opschorten zolang die mogelijk bijdraagt aan schendingen van het humanitair oorlogsrecht.",
     info: {
       context:
-        "Het Gerechtshof Den Haag verbood in 2024 export van F-35-onderdelen aan Israël. Het ICC houdt arrestatiebevelen overeind; het IGH (zaak Zuid-Afrika tegen Israël) beoordeelt of er sprake is van genocide. Een VN-commissie onder Pillay sprak in september 2025 over 'gezaghebbende aanwijzingen' voor genocide.",
+        "De vraag gaat over de verantwoordelijkheid van een land dat militair samenwerkt met een bondgenoot in een conflictgebied. Internationale procedures en nationale exportregels kunnen daarbij verschillende juridische vragen raken.",
       argumentsFor: [
         "Volkenrechtelijke verplichtingen verbieden bijdragen aan ernstige schendingen.",
         "Wapenstops vergroten de druk om naar een duurzame oplossing toe te werken.",

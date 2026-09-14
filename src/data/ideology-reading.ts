@@ -51,11 +51,11 @@ export const IDEOLOGY_READING: Record<string, CuratedReading[]> = {
   ],
   "christen-democraat": [
     {
-      title: "Christian Democracy in Europe",
+      title: "The Rise of Christian Democracy in Europe",
       author: "Stathis N. Kalyvas",
       year: 1996,
       note: "Wetenschappelijke geschiedenis van christen-democratische partijen.",
-      url: openLibrary("Christian Democracy in Europe Stathis Kalyvas"),
+      url: openLibrary("The Rise of Christian Democracy in Europe Stathis Kalyvas"),
     },
   ],
   "nationaal-conservatief": [
@@ -69,11 +69,11 @@ export const IDEOLOGY_READING: Record<string, CuratedReading[]> = {
   ],
   "technocratisch-centrist": [
     {
-      title: "The Technocratic Challenge to Democracy",
+      title: "Technocracy and the Politics of Expertise",
       author: "Frank Fischer",
       year: 1990,
       note: "Kritische studie naar de rol van expertise in democratisch bestuur.",
-      url: openLibrary("The Technocratic Challenge to Democracy Frank Fischer"),
+      url: openLibrary("Technocracy and the Politics of Expertise Frank Fischer"),
     },
   ],
   marxist: [
@@ -141,11 +141,11 @@ export const IDEOLOGY_READING: Record<string, CuratedReading[]> = {
   ],
   communitarist: [
     {
-      title: "The Communitarian Reader",
+      title: "The Essential Communitarian Reader",
       author: "Amitai Etzioni",
       year: 1998,
       note: "Bundel over gemeenschap, plichten en de grenzen van individualisme.",
-      url: openLibrary("The Communitarian Reader Amitai Etzioni"),
+      url: openLibrary("The Essential Communitarian Reader Amitai Etzioni"),
     },
   ],
   "klassiek-conservatief": [

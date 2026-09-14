@@ -292,40 +292,17 @@ en een bevestiging op een duurzame gegevensdrager. PolitiekProfiel beroept zich
 
           <Block
             id="misbruik"
-            kicker="09 · Misbruik"
-            title="Wanneer een refund wordt geweigerd."
+            kicker="09 · Betalingsfraude"
+            title="Fraude verandert je rechten niet."
             accent="terra"
             last
           >
             <p>
-              Wij behouden ons het recht voor om een refund- of
-              herroepingsverzoek te weigeren of te vertragen wanneer er
-              gegronde aanwijzingen zijn van misbruik, waaronder:
-            </p>
-            <ul>
-              <li>
-                herhaaldelijk aankopen plaatsen, gebruiken en herroepen op
-                een wijze die het doel van het herroepingsrecht
-                ondermijnt;
-              </li>
-              <li>
-                betaling met een betaalmiddel dat aantoonbaar niet aan jou
-                toebehoort of waarvoor onvoldoende identificatie is;
-              </li>
-              <li>
-                het ontwijken van een eerdere blokkering van een
-                gebruikersaccount of betaalmuur;
-              </li>
-              <li>
-                het delen, doorverkopen of geautomatiseerd uitvragen van
-                betaalde resultaten in strijd met de{" "}
-                <a href="/voorwaarden">algemene voorwaarden</a>.
-              </li>
-            </ul>
-            <p>
-              In alle andere gevallen verlenen we het herroepingsrecht
-              ruimhartig. We vinden het belangrijker dat je een
-              eerlijke ervaring hebt dan dat we discussies winnen.
+              We behandelen een herroeping volgens de wettelijke termijnen.
+              Een vermoeden van betaalfraude of een beveiligingsprobleem
+              onderzoeken we afzonderlijk. Dat verandert je wettelijke
+              herroepingsrecht niet, behalve als een wettelijke uitzondering
+              aantoonbaar van toepassing is.
             </p>
           </Block>
         </div>

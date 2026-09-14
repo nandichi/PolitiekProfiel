@@ -1,10 +1,9 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /results/{shareId} {
-      allow read: if true;
-      allow create, update, delete: if false;
-    }
+    // Alle lees- en schrijfoperaties lopen via de server met Firebase Admin.
+    // Resultaatlinks blijven via de Next-route werken, maar Firestore is zelf
+    // niet publiek doorzoekbaar of uitleesbaar.
     match /{document=**} {
       allow read, write: if false;
     }

@@ -38,8 +38,8 @@ export interface SeedPolitician {
 }
 
 const programmaNL: SeedSource = {
-  label: "ProDemos – Verkiezingsprogramma's TK 2025",
-  url: "https://prodemos.nl/verkiezingen/tweede-kamer/programmas/",
+  label: "ProDemos – Tweede Kamerverkiezing",
+  url: "https://verkiezingen.prodemos.nl/verkiezingsinformatie/tweede-kamer/",
 };
 const stemwijzer: SeedSource = {
   label: "Kieskompas – Politieke kaart Nederland",

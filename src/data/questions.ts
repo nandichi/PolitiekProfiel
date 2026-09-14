@@ -42,8 +42,8 @@ const cpb: SeedSource = {
   url: "https://www.cpb.nl/keuzes-in-kaart-2025-2028",
 };
 const scp: SeedSource = {
-  label: "Sociaal en Cultureel Planbureau – Continu Onderzoek Burgerperspectieven",
-  url: "https://www.scp.nl/onderwerpen/burgerperspectieven",
+  label: "Sociaal en Cultureel Planbureau – Burgerperspectieven 2026",
+  url: "https://www.scp.nl/documenten/2026/03/03/burgerperspectieven-bericht-1-2026-de-stemming",
 };
 const eurobarometer: SeedSource = {
   label: "Eurobarometer Standard 102 (najaar 2024)",
@@ -176,7 +176,7 @@ export const QUESTIONS: SeedQuestion[] = [
       sources: [
         {
           label: "Ministerie van Volkshuisvesting – Woningbouwprogramma",
-          url: "https://www.volkshuisvestingnederland.nl/onderwerpen/woningbouw",
+          url: "https://www.volkshuisvestingnederland.nl/actueel/nieuws/2024/12/11/kabinet-aedes-en-vng-30.000-nieuwe-sociale-huurwoningen-per-jaar",
         },
       ],
     },
@@ -250,8 +250,8 @@ export const QUESTIONS: SeedQuestion[] = [
       ],
       sources: [
         {
-          label: "Universiteit Utrecht – Weten wat werkt onderzoek",
-          url: "https://www.uu.nl/onderzoek/weten-wat-werkt",
+          label: "Universiteit Utrecht – Onderzoek",
+          url: "https://www.uu.nl/onderzoek",
         },
       ],
     },
@@ -321,7 +321,7 @@ export const QUESTIONS: SeedQuestion[] = [
       sources: [
         {
           label: "Commissie Borstlap – In wat voor land willen wij werken?",
-          url: "https://www.rijksoverheid.nl/documenten/rapporten/2020/01/23/eindrapport-in-wat-voor-land-willen-wij-werken",
+          url: "https://www.rijksoverheid.nl/documenten/2020/01/23/rapport-in-wat-voor-land-willen-wij-werken",
         },
       ],
     },
@@ -346,7 +346,7 @@ export const QUESTIONS: SeedQuestion[] = [
       sources: [
         {
           label: "Eerste Kamer – Onderzoek privatisering en verzelfstandiging",
-          url: "https://www.eerstekamer.nl/commissieonderzoek/onderzoek_privatisering",
+          url: "https://www.eerstekamer.nl/behandeling/20121030/aanbiedingsbrief_en_hoofdrapport",
         },
       ],
     },
@@ -440,8 +440,8 @@ export const QUESTIONS: SeedQuestion[] = [
       ],
       sources: [
         {
-          label: "Nibud – Inkomensonderzoek",
-          url: "https://www.nibud.nl/onderzoek/",
+          label: "Nibud – Geldzaken in de praktijk (2026)",
+          url: "https://www.nibud.nl/onderzoeksrapporten/rapport-geldzaken-in-de-praktijk-2026/",
         },
       ],
     },
@@ -518,7 +518,7 @@ export const QUESTIONS: SeedQuestion[] = [
       sources: [
         {
           label: "SER – Diversiteit in de top",
-          url: "https://www.ser.nl/nl/thema/diversiteit",
+          url: "https://ser.nl/nl/thema/diversiteitsportaal/english",
         },
       ],
     },
@@ -587,8 +587,8 @@ export const QUESTIONS: SeedQuestion[] = [
       ],
       sources: [
         {
-          label: "Staatscommissie MDMA – Eindrapport 2024",
-          url: "https://www.rijksoverheid.nl/onderwerpen/staatscommissie-mdma",
+          label: "Rijksoverheid – Kabinetsreactie op Staatscommissie MDMA",
+          url: "https://www.rijksoverheid.nl/actueel/nieuws/2024/06/06/staatscommissie-mdma-ziet-mogelijkheden-voor-therapeutische-toepassing-mdma",
         },
       ],
     },
@@ -732,8 +732,8 @@ export const QUESTIONS: SeedQuestion[] = [
       ],
       sources: [
         {
-          label: "Divosa – Monitor Wet inburgering",
-          url: "https://www.divosa.nl/themas/inburgering",
+          label: "Divosa – Inburgering",
+          url: "https://www.divosa.nl/meedoen/inburgering",
         },
       ],
     },
@@ -808,7 +808,7 @@ export const QUESTIONS: SeedQuestion[] = [
       sources: [
         {
           label: "Onze Taal – Genderneutrale aanspreekvormen",
-          url: "https://onzetaal.nl/taaladvies/genderneutrale-aanspreekvormen",
+          url: "https://onzetaal.nl/taalloket/neutrale-verwijswoorden-algemeen",
         },
       ],
     },
@@ -879,8 +879,8 @@ export const QUESTIONS: SeedQuestion[] = [
       ],
       sources: [
         {
-          label: "Bits of Freedom – Chatcontrole",
-          url: "https://www.bitsoffreedom.nl/onderwerp/chatcontrole/",
+          label: "Europese Commissie – digitale strategie en online veiligheid",
+          url: "https://digital-strategy.ec.europa.eu/en",
         },
       ],
     },
@@ -930,7 +930,7 @@ export const QUESTIONS: SeedQuestion[] = [
       sources: [
         {
           label: "Amnesty International – Recht op protest",
-          url: "https://www.amnesty.nl/wat-we-doen/themas/recht-op-protest",
+          url: "https://www.amnesty.nl/wat-we-doen/demonstratierecht-in-nederland",
         },
       ],
     },
@@ -1054,8 +1054,8 @@ export const QUESTIONS: SeedQuestion[] = [
       ],
       sources: [
         {
-          label: "Politieacademie – Effectiviteit preventief fouilleren",
-          url: "https://www.politieacademie.nl/onderzoek",
+          label: "Politie – Preventief fouilleren",
+          url: "https://www.politie.nl/informatie/wanneer-mag-de-politie-preventief-fouilleren.html",
         },
       ],
     },
@@ -1080,7 +1080,7 @@ export const QUESTIONS: SeedQuestion[] = [
       sources: [
         {
           label: "Raad voor de Rechtspraak – Voorlopige hechtenis",
-          url: "https://www.rechtspraak.nl/Themas/Strafrecht",
+          url: "https://www.rechtspraak.nl/juridische-begrippen/voorlopige-hechtenis",
         },
       ],
     },
@@ -1669,7 +1669,7 @@ export const QUESTIONS: SeedQuestion[] = [
       sources: [
         {
           label: "Rathenau Instituut – Vertrouwen in wetenschap",
-          url: "https://www.rathenau.nl/nl/publicaties/vertrouwen-de-wetenschap-2024",
+          url: "https://www.rathenau.nl/nl",
         },
       ],
     },
@@ -1763,8 +1763,8 @@ export const QUESTIONS: SeedQuestion[] = [
       ],
       sources: [
         {
-          label: "Onderzoeksraad voor Veiligheid – Aanpak coronacrisis",
-          url: "https://www.onderzoeksraad.nl/nl/page/26088/aanpak-coronacrisis",
+          label: "Onderzoeksraad voor Veiligheid – onderzoeken en lessen",
+          url: "https://www.onderzoeksraad.nl/",
         },
       ],
     },
@@ -1900,7 +1900,7 @@ export const QUESTIONS: SeedQuestion[] = [
       sources: [
         {
           label: "Europese Commissie – Digital Markets Act",
-          url: "https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/europe-fit-digital-age/digital-markets-act_en",
+          url: "https://digital-markets-act.ec.europa.eu/index_en",
         },
       ],
     },
@@ -1974,8 +1974,8 @@ export const QUESTIONS: SeedQuestion[] = [
       ],
       sources: [
         {
-          label: "POK – Ongekend onrecht",
-          url: "https://www.tweedekamer.nl/kamerstukken/detail?id=2020Z25762",
+          label: "Tweede Kamer – Kamerstukken en rapporten",
+          url: "https://www.tweedekamer.nl/kamerstukken",
         },
       ],
     },

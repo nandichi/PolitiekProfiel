@@ -19,7 +19,7 @@ const PAGE_PUBLISHED = "2026-01-15";
 const PAGE_MODIFIED = "2026-09-13";
 const PAGE_TITLE = "Methodiek";
 const PAGE_DESCRIPTION =
-  "Hoe PolitiekProfiel politieke houding meet: vijf onafhankelijke dimensies, gebalanceerde stellingen, transparante scoring op −100 tot +100. Lees over de werking, de aannames en de beperkingen.";
+  "Hoe PolitiekProfiel politieke houding beschrijft: vijf redactioneel geconstrueerde dimensies, transparante scoring op −100 tot +100 en duidelijke beperkingen.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Methodiek · PolitiekProfiel",
     description:
-      "Vijf onafhankelijke dimensies, gebalanceerde stellingen, transparante scoring. Geen één-as label.",
+      "Vijf afzonderlijk geconstrueerde dimensies, stellingen met context en transparante scoring. Geen stemadvies.",
     url: PAGE_PATH,
     type: "article",
     publishedTime: PAGE_PUBLISHED,
@@ -49,7 +49,7 @@ const FAQ_ENTRIES = [
   {
     question: "Hoe meet PolitiekProfiel mijn politieke houding?",
     answer:
-      "PolitiekProfiel meet je politieke houding op vijf onafhankelijke dimensies: economisch (vrije markt vs sterke staat), sociaal-cultureel (conservatief vs progressief), burgerrechten (autoritair vs libertair), bestuur (nationaal-soeverein vs multilevel/EU) en systeemvertrouwen (wantrouwen vs vertrouwen). Per dimensie worden gebalanceerde stellingen voorgelegd en je antwoorden vertaald naar een score van −100 tot +100.",
+      "PolitiekProfiel beschrijft je antwoorden op vijf afzonderlijk geconstrueerde dimensies: economisch (vrije markt vs sterke staat), sociaal-cultureel (conservatief vs progressief), burgerrechten (autoritair vs libertair), bestuur (nationaal-soeverein vs multilevel/EU) en systeemvertrouwen (wantrouwen vs vertrouwen). Je antwoorden worden per dimensie vertaald naar een score van −100 tot +100.",
   },
   {
     question: "Hoe komen de scores tot stand?",
@@ -64,7 +64,7 @@ const FAQ_ENTRIES = [
   {
     question: "Waarom vijf dimensies en niet één links-rechts schaal?",
     answer:
-      "Een enkele links-rechts as kan onafhankelijke politieke houdingen niet vangen. Een conservatief op cultuur kan economisch links zijn; een libertair kan EU-gezind zijn. Vijf onafhankelijke dimensies geven een rijker en eerlijker beeld dan een gereduceerd één-as label.",
+      "Een enkele links-rechts as vangt niet elke combinatie van antwoorden. Iemand kan bijvoorbeeld cultureel conservatief en economisch links antwoorden. Vijf dimensies zijn een redactionele manier om die verschillen zichtbaar te maken. Ze zijn niet statistisch gevalideerd als onafhankelijke wetenschappelijke schalen.",
   },
   {
     question: "Is dit een stemwijzer?",
@@ -74,7 +74,7 @@ const FAQ_ENTRIES = [
   {
     question: "Hoe worden stellingen gekozen?",
     answer:
-      "Per dimensie staan evenveel stellingen die richting de positieve pool wijzen als richting de negatieve pool, zodat een 'mee eens' nooit eenzijdig één kant op weegt. We kiezen concrete en actuele beleidsstellingen, geen vage platitudes. Bij elke stelling zijn context, argumenten voor en tegen, en bronnen beschikbaar.",
+      "We maken stellingen voor beide richtingen van een dimensie en controleren de verdeling wanneer we de vragenbank aanpassen. De precieze mix kan per quiz verschillen. We kiezen concrete, actuele beleidsstellingen en tonen bij elke stelling context, argumenten voor en tegen, en bronnen.",
   },
 ];
 
@@ -129,8 +129,9 @@ export default function MethodiekPage() {
                 <p className="mt-8 text-lg md:text-xl text-ink-2 leading-relaxed">
                   We willen niet weten of je &lsquo;links&rsquo; of
                   &lsquo;rechts&rsquo; bent. We willen weten waar je staat op
-                  vijf onafhankelijke politieke vragen. Dat geeft een rijker en
-                  eerlijker beeld dan een enkele as.
+                  vijf afzonderlijk geconstrueerde politieke dimensies. Dat laat
+                  meer zien dan één links-rechts as, maar blijft een hulpmiddel
+                  voor reflectie en geen wetenschappelijke diagnose.
                 </p>
               </ScrollRevealItem>
             </ScrollReveal>
@@ -145,7 +146,7 @@ export default function MethodiekPage() {
               <ScrollRevealItem>
                 <Kicker number={2}>De vijf assen</Kicker>
                 <h2 className="display mt-5">
-                  Vijf onafhankelijke politieke houdingen.
+                  Vijf afzonderlijk geconstrueerde politieke dimensies.
                 </h2>
               </ScrollRevealItem>
               <ScrollRevealItem>
@@ -211,14 +212,11 @@ export default function MethodiekPage() {
               <ScrollRevealItem>
                 <div className="mt-8 editorial-prose">
                   <p>
-                    Per dimensie staan stellingen die{" "}
-                    <strong>richting de positieve pool</strong>
-                    {" "}
-                    wijzen, en even veel stellingen die{" "}
-                    <strong>richting de negatieve pool</strong>
-                    {" "}
-                    wijzen. Zo kan een &lsquo;mee eens&rsquo; nooit eenzijdig
-                    één kant op wegen; de balans is wiskundig ingebouwd.
+                    Per dimensie gebruiken we stellingen die{" "}
+                    <strong>richting beide polen</strong> wijzen. Bij een
+                    update controleren we die verdeling, maar de precieze mix
+                    kan per quiz en per adaptieve selectie verschillen. Daarom
+                    tonen we op een resultaat welke antwoorden de score dragen.
                   </p>
                   <p>
                     We kiezen <strong>concrete en actuele stellingen</strong>.

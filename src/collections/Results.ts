@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { hasPayloadUser } from "@/lib/payload-access";
 
 export const Results: CollectionConfig = {
   slug: "results",
@@ -10,10 +11,10 @@ export const Results: CollectionConfig = {
       "Anoniem opgeslagen quizresultaten, opgehaald via een shareId in de URL.",
   },
   access: {
-    read: () => true,
-    create: () => true,
+    read: ({ req }) => hasPayloadUser(req),
+    create: ({ req }) => hasPayloadUser(req),
     update: () => false,
-    delete: ({ req }) => Boolean(req.user),
+    delete: ({ req }) => hasPayloadUser(req),
   },
   fields: [
     {

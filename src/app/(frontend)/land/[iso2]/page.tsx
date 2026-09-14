@@ -138,7 +138,20 @@ export default async function LandDetailPage({ params }: PageProps) {
             </ScrollRevealItem>
             <ScrollRevealItem>
               <p className="mt-8 mono text-[0.65rem] tracking-wider text-ink-subtle max-w-3xl">
-                BRONNEN: {country.sources.map((s) => s.label).join(" · ").toUpperCase()}
+                BRONNEN:{" "}
+                {country.sources.map((s, index) => (
+                  <span key={s.url}>
+                    {index > 0 ? " · " : ""}
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-ink-2 hover:text-navy no-underline"
+                    >
+                      {s.label}
+                    </a>
+                  </span>
+                ))}
               </p>
             </ScrollRevealItem>
           </ScrollReveal>
