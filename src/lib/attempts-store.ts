@@ -1,24 +1,16 @@
 import "server-only";
 
-import { FieldValue, Timestamp } from "firebase-admin/firestore";
+import { Timestamp } from "firebase-admin/firestore";
 import { firestore } from "@/lib/firebase-admin";
+import { entitlementAttemptKey, nextReservedAttempt } from "@/lib/attempt-reservation";
 
-/**
- * Telt hoe vaak een betaald toegangstoken de quiz heeft afgerond.
- *
- * Bewust NIET in de entitlements-collectie (Payload/Postgres): dat zou een
- * schemamigratie vragen en het koppelt gebruiksdata aan betaaldata. Hier staat
- * alleen token -> aantal pogingen, zonder enige link naar het politieke
- * resultaat. Zonder Firestore-config valt dit terug op een in-memory teller
- * (alleen bruikbaar binnen één invocation).
- */
-
+/** Maximum number of completed paid quizzes per entitlement. */
+export const MAX_PAID_ATTEMPTS = 2;
 const COLLECTION = "entitlement_attempts";
 
-/** Hoe vaak iemand een betaalde quiz mag afronden. */
-export const MAX_PAID_ATTEMPTS = 2;
-
-const memoryCounts = new Map<string, number>();
+export type AttemptReservation =
+  | { ok: true; count: number; alreadyReserved: boolean }
+  | { ok: false; reason: "unavailable" | "exhausted" };
 
 function hasFirestoreConfig(): boolean {
   return Boolean(
@@ -28,38 +20,63 @@ function hasFirestoreConfig(): boolean {
   );
 }
 
-export async function getAttemptCount(token: string): Promise<number> {
-  if (!hasFirestoreConfig()) return memoryCounts.get(token) ?? 0;
+/**
+ * Atomically reserves one paid completion. The document key is a SHA-256
+ * digest, never the bearer entitlement token. Reusing the same submission ID
+ * returns the original reservation instead of consuming a second attempt.
+ */
+export async function reserveAttempt(
+  token: string,
+  submissionId: string,
+): Promise<AttemptReservation> {
+  if (!hasFirestoreConfig()) return { ok: false, reason: "unavailable" };
+
+  const db = firestore();
+  const key = entitlementAttemptKey(token);
+  const ref = db.collection(COLLECTION).doc(key);
+  // Read the historical raw-token document only during the compatibility
+  // transition so a customer never regains attempts after this hardening.
+  const legacyRef = db.collection(COLLECTION).doc(token);
 
   try {
-    const snap = await firestore().collection(COLLECTION).doc(token).get();
-    if (!snap.exists) return 0;
-    const data = snap.data() as { count?: number } | undefined;
-    return Number(data?.count ?? 0);
-  } catch (err) {
-    console.error("[attempts] tellen mislukt, sta toe:", err);
-    // Fail-open: een teller die stuk is mag een betalende klant niet buiten
-    // sluiten. De poging wordt dan niet geteld.
-    return 0;
-  }
-}
+    return await db.runTransaction(async (transaction) => {
+      const [snap, legacySnap] = await Promise.all([
+        transaction.get(ref),
+        transaction.get(legacyRef),
+      ]);
+      const data = snap.data() as
+        | { count?: unknown; submissionIds?: unknown }
+        | undefined;
+      const legacy = legacySnap.data() as { count?: unknown } | undefined;
+      const submissionIds = Array.isArray(data?.submissionIds)
+        ? data.submissionIds.filter((value): value is string => typeof value === "string")
+        : [];
+      const currentCount = Number.isSafeInteger(data?.count)
+        ? Number(data?.count)
+        : Number.isSafeInteger(legacy?.count)
+          ? Number(legacy?.count)
+          : 0;
 
-export async function recordAttempt(token: string): Promise<number> {
-  if (!hasFirestoreConfig()) {
-    const next = (memoryCounts.get(token) ?? 0) + 1;
-    memoryCounts.set(token, next);
-    return next;
-  }
+      if (submissionIds.includes(submissionId)) {
+        return { ok: true, count: currentCount, alreadyReserved: true };
+      }
 
-  const ref = firestore().collection(COLLECTION).doc(token);
-  await ref.set(
-    {
-      count: FieldValue.increment(1),
-      lastAttemptAt: Timestamp.now(),
-    },
-    { merge: true },
-  );
-  const snap = await ref.get();
-  const data = snap.data() as { count?: number } | undefined;
-  return Number(data?.count ?? 1);
+      const next = nextReservedAttempt(currentCount, MAX_PAID_ATTEMPTS);
+      if (!next.ok) return { ok: false, reason: "exhausted" } as const;
+
+      transaction.set(
+        ref,
+        {
+          count: next.count,
+          submissionIds: [...submissionIds, submissionId].slice(-MAX_PAID_ATTEMPTS),
+          lastAttemptAt: Timestamp.now(),
+        },
+        { merge: true },
+      );
+      return { ok: true, count: next.count, alreadyReserved: false };
+    });
+  } catch (error) {
+    console.error("[attempts] atomic reservation failed", error);
+    return { ok: false, reason: "unavailable" };
+  }
 }

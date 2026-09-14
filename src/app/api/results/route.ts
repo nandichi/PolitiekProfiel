@@ -16,12 +16,14 @@ import { validateSubmittedAnswers } from "@/lib/result-answer-validation";
 import { MINIMUM_RESULT_ANSWERS } from "@/lib/quiz-completion";
 import { getAllIdeologiesSeed } from "@/lib/seed-readers";
 import { getStaticQuestionById, isStaticQuestionId } from "@/lib/static-question-data";
+import { isSubmissionId } from "@/lib/attempt-reservation";
 import type { ThemeId } from "@/lib/themes";
 
 interface Body {
   tier?: Tier;
   answers?: Array<{ questionId: number; value: AnswerValue | null }>;
   entitlementToken?: string;
+  submissionId?: string;
 }
 
 const VALID_TIERS: Tier[] = ["quick", "standard", "extended"];
@@ -186,6 +188,29 @@ export async function POST(request: Request) {
     );
   }
 
+  if (isPaidTier(body.tier)) {
+    const token = normalizeEntitlementToken(body.entitlementToken);
+    if (!token || !isSubmissionId(body.submissionId)) {
+      return NextResponse.json(
+        { error: "Ongeldige afrondingscode." },
+        { status: 400 },
+      );
+    }
+
+    const registration = await registerPaidAttempt(token, body.submissionId);
+    if (!registration.ok) {
+      return NextResponse.json(
+        {
+          error:
+            registration.reason === "exhausted"
+              ? "Je hebt beide quizpogingen al gebruikt."
+              : "De poging kon niet veilig worden geregistreerd. Probeer het later opnieuw.",
+        },
+        { status: registration.reason === "exhausted" ? 429 : 503 },
+      );
+    }
+  }
+
   const storedAnswers = answers.map((answer) => ({
     questionId: answer.questionId,
     value: answer.value,
@@ -212,14 +237,6 @@ export async function POST(request: Request) {
     skippedCount: breakdown.skippedCount,
     totalQuestions: TIER_QUESTION_COUNT[body.tier],
   });
-
-  // Alleen betaalde quizzen tellen mee voor het poginglimiet.
-  if (isPaidTier(body.tier)) {
-    const token = normalizeEntitlementToken(body.entitlementToken);
-    if (token) {
-      await registerPaidAttempt(token);
-    }
-  }
 
   return NextResponse.json({ id: stored.shareId });
 }

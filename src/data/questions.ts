@@ -296,7 +296,7 @@ export const QUESTIONS: SeedQuestion[] = [
       sources: [
         {
           label: "Rijksoverheid – Regeldruk bij ondernemers en burgers",
-          url: "https://www.rijksoverheid.nl/themas/overheid-en-democratie/regeldruk",
+          url: "https://www.rijksoverheid.nl/onderwerpen/regeldruk",
         },
       ],
     },

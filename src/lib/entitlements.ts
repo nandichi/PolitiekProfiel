@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 import { payload } from "@/lib/payload";
 import type { Tier } from "@/lib/dimensions";
 import { isPaidTier, type PaidTier } from "@/lib/stripe";
-import { getAttemptCount, MAX_PAID_ATTEMPTS, recordAttempt } from "@/lib/attempts-store";
+import { MAX_PAID_ATTEMPTS, reserveAttempt } from "@/lib/attempts-store";
 
 const TOKEN_LENGTH = 32;
 
@@ -156,11 +156,6 @@ export async function validateEntitlementForTier(input: {
   if (doc.tier !== input.tier) return { ok: false, status: "wrong-tier" };
   if (doc.status !== "paid") return { ok: false, status: doc.status };
 
-  // Een betaalde quiz mag een beperkt aantal keer worden afgerond. De teller
-  // staat bewust buiten de entitlements zelf (zie lib/attempts-store.ts).
-  const attempts = await getAttemptCount(token);
-  if (attempts >= MAX_PAID_ATTEMPTS) return { ok: false, status: "consumed" };
-
   return { ok: true, status: "paid" };
 }
 
@@ -171,13 +166,24 @@ export async function validateEntitlementForTier(input: {
  */
 export async function registerPaidAttempt(
   token: string,
-): Promise<{ attempts: number; exhausted: boolean }> {
-  const attempts = await recordAttempt(token);
-  const exhausted = attempts >= MAX_PAID_ATTEMPTS;
+  submissionId: string,
+): Promise<
+  | { ok: true; attempts: number; exhausted: boolean; alreadyReserved: boolean }
+  | { ok: false; reason: "unavailable" | "exhausted" }
+> {
+  const reservation = await reserveAttempt(token, submissionId);
+  if (!reservation.ok) return reservation;
+
+  const exhausted = reservation.count >= MAX_PAID_ATTEMPTS;
   if (exhausted) {
     await markEntitlementConsumed(token);
   }
-  return { attempts, exhausted };
+  return {
+    ok: true,
+    attempts: reservation.count,
+    exhausted,
+    alreadyReserved: reservation.alreadyReserved,
+  };
 }
 
 async function findEntitlementByToken(

@@ -69,6 +69,7 @@ export function QuizEngine({
   const [batchDone, setBatchDone] = useState(false);
   const [completedShareId, setCompletedShareId] = useState<string | null>(null);
   const fetchInFlight = useRef(false);
+  const submissionIdRef = useRef<string | null>(null);
 
   const adaptiveTarget = adaptive ? TIER_QUESTION_COUNT[tier] : questions.length;
   const total = adaptive ? Math.max(adaptiveTarget, questions.length) : questions.length;
@@ -261,9 +262,16 @@ export function QuizEngine({
           value,
         }))
         .filter((a) => Number.isFinite(a.questionId));
+      const submissionId =
+        submissionIdRef.current ??
+        (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+          ? crypto.randomUUID()
+          : `submission_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 14)}`);
+      submissionIdRef.current = submissionId;
       const payload = {
         tier,
         entitlementToken,
+        submissionId,
         answers:
           answerEntries.length > 0
             ? answerEntries
@@ -336,6 +344,7 @@ export function QuizEngine({
               setQuestions(initialQuestions);
               setAnswers({});
               setCursor(0);
+              submissionIdRef.current = null;
               setResumePrompt(null);
             }}
           >
