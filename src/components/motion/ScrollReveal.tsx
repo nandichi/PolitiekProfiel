@@ -1,6 +1,13 @@
 "use client";
 
+import { motion, useInView, type Variants } from "motion/react";
 import { type ReactNode, useEffect, useRef, useState } from "react";
+import {
+  fadeUp,
+  inViewSettings,
+  staggerContainer,
+  staggerContainerSlow,
+} from "@/lib/motion";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -12,6 +19,12 @@ interface ScrollRevealProps {
   immediate?: boolean;
 }
 
+const variantsMap: Record<string, Variants> = {
+  fadeUp,
+  stagger: staggerContainer,
+  staggerSlow: staggerContainerSlow,
+};
+
 export function ScrollReveal({
   children,
   className,
@@ -20,70 +33,34 @@ export function ScrollReveal({
   as = "div",
   immediate = false,
 }: ScrollRevealProps) {
+  const MotionTag = motion[as];
+  const variants = variantsMap[variant];
   const ref = useRef<HTMLElement | null>(null);
-  const [visible, setVisible] = useState(true);
+  const inView = useInView(ref, inViewSettings);
+  const [forceVisible, setForceVisible] = useState(false);
 
   useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
-
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (media.matches) return;
-
-    element.classList.add("pp-motion-ready");
-
-    if (immediate) {
-      const prepareTimer = window.setTimeout(() => {
-        setVisible(false);
-      }, 0);
-      const revealTimer = window.setTimeout(() => setVisible(true), 80);
-      return () => {
-        window.clearTimeout(prepareTimer);
-        window.clearTimeout(revealTimer);
-      };
-    }
-
-    let observer: IntersectionObserver | null = null;
-    const prepareTimer = window.setTimeout(() => {
-      setVisible(false);
-      observer = new IntersectionObserver(
-        (entries) => {
-          if (entries.some((entry) => entry.isIntersecting)) {
-            setVisible(true);
-            observer?.disconnect();
-          }
-        },
-        { threshold: 0, rootMargin: "0px 0px -10% 0px" }
-      );
-      observer.observe(element);
-    }, 0);
-
-    return () => {
-      window.clearTimeout(prepareTimer);
-      observer?.disconnect();
-    };
+    if (immediate) return;
+    const timer = setTimeout(() => setForceVisible(true), 1200);
+    return () => clearTimeout(timer);
   }, [immediate]);
 
-  const classNames = [
-    className,
-    "pp-reveal",
-    `pp-reveal--${variant}`,
-    visible ? "is-visible" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
-  const Tag = as;
+  const shouldShow = immediate || inView || forceVisible;
 
   return (
-    <Tag
-      // HTML tag refs are intentionally generalized so semantic list and section wrappers share one animation primitive.
+    <MotionTag
+      // motion[as] supports element-specific refs; we use a permissive HTMLElement
+      // ref so the same component works for div/section/article/li/ul/ol/header/footer.
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ref={ref as any}
-      className={classNames}
-      style={delay ? { transitionDelay: `${delay}s` } : undefined}
+      className={className}
+      initial={immediate ? "visible" : "hidden"}
+      animate={shouldShow ? "visible" : "hidden"}
+      variants={variants}
+      transition={delay ? { delay } : undefined}
     >
       {children}
-    </Tag>
+    </MotionTag>
   );
 }
 
@@ -96,10 +73,10 @@ export function ScrollRevealItem({
   className?: string;
   as?: "div" | "section" | "article" | "li" | "ul" | "ol" | "header" | "p";
 }) {
-  const Tag = as;
+  const MotionTag = motion[as];
   return (
-    <Tag className={[className, "pp-reveal-item"].filter(Boolean).join(" ")}>
+    <MotionTag className={className} variants={fadeUp}>
       {children}
-    </Tag>
+    </MotionTag>
   );
 }

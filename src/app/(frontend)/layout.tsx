@@ -4,9 +4,6 @@ import { Analytics } from "@vercel/analytics/next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WebMcpProvider } from "@/components/WebMcpProvider";
-import { PageTransition } from "@/components/motion/PageTransition";
-import { ReadingProgress } from "@/components/motion/ReadingProgress";
-import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import "./globals.css";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://politiekprofiel.nl";
@@ -208,12 +205,8 @@ export default function FrontendLayout({
       className={`${inter.variable} ${fraunces.variable} ${plex.variable}`}
     >
       <body className="min-h-screen flex flex-col bg-paper text-ink antialiased">
-        <SmoothScroll />
-        <ReadingProgress />
         <SiteHeader />
-        <main className="flex-1">
-          <PageTransition>{children}</PageTransition>
-        </main>
+        <main className="flex-1">{children}</main>
         <SiteFooter />
 
         <WebMcpProvider />

@@ -4,12 +4,11 @@ import { ArrowRight, Clock3 } from "lucide-react";
 import { Container } from "@/components/Container";
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { Kicker } from "@/components/Kicker";
-import { CivicPrism } from "@/components/CivicPrism";
+import { LiveAxes } from "@/components/LiveAxes";
 import {
   ScrollReveal,
   ScrollRevealItem,
 } from "@/components/motion/ScrollReveal";
-import { DimensionStory } from "@/components/motion/DimensionStory";
 import { DIMENSIONS, TIER_QUESTION_COUNT } from "@/lib/dimensions";
 import { cx } from "@/lib/cx";
 
@@ -55,8 +54,8 @@ export default function HomePage() {
   return (
     <>
       {/* ─────────────────────── HERO ─────────────────────── */}
-      <section className="home-hero relative overflow-hidden">
-        <Container width="bleed" className="home-hero__inner pt-12 md:pt-20 pb-16 md:pb-24">
+      <section className="relative overflow-hidden">
+        <Container width="bleed" className="pt-12 md:pt-20 pb-16 md:pb-24">
           <ScrollReveal variant="stagger" immediate>
             <ScrollRevealItem>
               <Kicker number={"NL · 2026"}>Een onafhankelijk kompas</Kicker>
@@ -66,29 +65,29 @@ export default function HomePage() {
               {/* Manifesto headline */}
               <ScrollRevealItem className="lg:col-span-7">
                 <h1
-                  className="display font-medium text-paper"
+                  className="display font-medium text-ink"
                   style={{ letterSpacing: "-0.025em" }}
                 >
                   <span className="block">Politiek is meer</span>
                   <span className="block">
                     dan{" "}
-                    <em className="display-italic font-light text-terra-soft">
+                    <em className="display-italic font-light text-navy">
                       links
                     </em>{" "}
                     of{" "}
-                    <em className="display-italic font-light text-terra-soft">
+                    <em className="display-italic font-light text-navy">
                       rechts
                     </em>
                     .
                   </span>
-                  <span className="block text-paper/65 mt-3 md:mt-5">
+                  <span className="block text-ink-2 mt-3 md:mt-5">
                     Zie waar je écht staat.
                   </span>
                 </h1>
 
-                <p className="mt-8 md:mt-10 max-w-xl text-lg text-paper/72 leading-relaxed">
+                <p className="mt-8 md:mt-10 max-w-xl text-lg text-ink-2 leading-relaxed">
                   Een rustig, doordacht profiel op{" "}
-                  <strong className="text-paper">
+                  <strong className="text-ink">
                     vijf onafhankelijke dimensies
                   </strong>
                   . Geen scorelijst voor partijen. Geen reclame. Wel heldere
@@ -96,17 +95,17 @@ export default function HomePage() {
                   politici en landen.
                 </p>
 
-                <div className="home-hero__actions mt-10 flex flex-wrap gap-3">
-                  <Link href="/quiz/quick" className="btn btn-primary home-hero__primary">
+                <div className="mt-10 flex flex-wrap gap-3">
+                  <Link href="/quiz/quick" className="btn btn-primary">
                     Start gratis
                     <ArrowRight size={16} strokeWidth={1.8} />
                   </Link>
-                  <Link href="/methodiek" className="btn btn-secondary home-hero__secondary">
+                  <Link href="/methodiek" className="btn btn-secondary">
                     Lees eerst de methodiek
                   </Link>
                 </div>
 
-                <div className="home-hero__proofs mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs">
+                <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs text-ink-muted">
                   <span className="inline-flex items-center gap-2">
                     <span className="block w-1.5 h-1.5 bg-success rounded-full" />
                     <span className="mono tracking-wider">GEEN TRACKING</span>
@@ -117,14 +116,16 @@ export default function HomePage() {
                   </span>
                   <span className="inline-flex items-center gap-2">
                     <span className="block w-1.5 h-1.5 bg-success rounded-full" />
-                    <span className="mono tracking-wider">5 TOT 20 MIN</span>
+                    <span className="mono tracking-wider">5–20 MIN</span>
                   </span>
                 </div>
               </ScrollRevealItem>
 
-              {/* Vijf onafhankelijke sporen */}
-              <ScrollRevealItem className="lg:col-span-5 lg:pl-2">
-                <CivicPrism />
+              {/* Live axes */}
+              <ScrollRevealItem className="lg:col-span-5 lg:pl-6 lg:border-l lg:border-rule">
+                <div className="relative bg-paper-50 border border-rule p-6 md:p-8 lg:bg-transparent lg:border-0 lg:p-0">
+                  <LiveAxes />
+                </div>
               </ScrollRevealItem>
             </div>
           </ScrollReveal>
@@ -239,21 +240,36 @@ export default function HomePage() {
                   Iedere dimensie meet een onafhankelijke houding. Een
                   conservatief op cultuur kan economisch links zijn. Een
                   libertair kan EU-gezind zijn. De vijf scores samen tonen wat
-                  een enkele links/rechts-schaal niet kan.
+                  een enkele links–rechts schaal niet kan.
                 </p>
               </ScrollRevealItem>
             </div>
-          </ScrollReveal>
 
-          <DimensionStory
-            dimensions={DIMENSIONS.map((dimension) => ({
-              id: dimension.id,
-              shortLabel: dimension.shortLabel,
-              negative: dimension.poleNegative.label,
-              positive: dimension.polePositive.label,
-              description: dimension.description,
-            }))}
-          />
+            <ol className="border-t border-ink">
+              {DIMENSIONS.map((d, i) => (
+                <ScrollRevealItem
+                  key={d.id}
+                  as="li"
+                  className="border-b border-rule"
+                >
+                  <div className="grid grid-cols-1 gap-4 lg:grid-cols-[80px_1fr_2fr_auto] lg:gap-8 py-7 md:py-9 items-baseline group">
+                    <p className="index-num text-sm">
+                      {String(i + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="display text-2xl md:text-3xl leading-tight text-ink">
+                      {d.poleNegative.label}
+                      <span className="text-ink-subtle font-light mx-2">/</span>
+                      {d.polePositive.label}
+                    </h3>
+                    <p className="text-sm md:text-base text-ink-2 leading-relaxed lg:max-w-xl">
+                      {d.description}
+                    </p>
+                    <p className="kicker text-right">{d.shortLabel}</p>
+                  </div>
+                </ScrollRevealItem>
+              ))}
+            </ol>
+          </ScrollReveal>
         </Container>
       </section>
     </>
@@ -403,7 +419,7 @@ function TierCard({
     return (
       <article
       className={cx(
-        "group relative block p-8 md:p-10 transition-[background-color,transform] duration-300 hover:-translate-y-1",
+        "group relative block p-8 md:p-10 transition-colors duration-200",
         recommended
           ? "bg-ink text-paper hover:bg-navy"
           : "bg-paper hover:bg-paper-50"
@@ -418,7 +434,7 @@ function TierCard({
     <Link
       href={`/quiz/${tier}`}
       className={cx(
-        "group relative block p-8 md:p-10 transition-[background-color,transform] duration-300 hover:-translate-y-1 no-underline",
+        "group relative block p-8 md:p-10 transition-colors duration-200 no-underline",
         "bg-paper hover:bg-paper-50"
       )}
     >
