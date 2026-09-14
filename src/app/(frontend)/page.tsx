@@ -116,7 +116,7 @@ export default function HomePage() {
                   </span>
                   <span className="inline-flex items-center gap-2">
                     <span className="block w-1.5 h-1.5 bg-success rounded-full" />
-                    <span className="mono tracking-wider">5 tot 20 min</span>
+                    <span className="mono tracking-wider">5 TOT 20 MIN</span>
                   </span>
                 </div>
               </ScrollRevealItem>
