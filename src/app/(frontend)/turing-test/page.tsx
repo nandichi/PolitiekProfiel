@@ -14,9 +14,9 @@ import {
 } from "@/lib/structured-data";
 
 const PAGE_PATH = "/turing-test";
-const PAGE_TITLE = "Ideological Turing Test";
+const PAGE_TITLE = "Retoriekspel";
 const PAGE_DESCRIPTION =
-  "Acht citaten uit het Nederlandse debat (of speel een langere ronde van 12). Kun jij raden welk kamp ze uitspreekt? Geen partij-quiz, maar een retoriek-test.";
+  "Acht redactionele oefenfragmenten over Nederlandse politieke retoriek. Raad welk ideologisch kamp het fragment het beste typeert.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -36,14 +36,14 @@ interface PageProps {
 
 export default async function TuringTestPage({ searchParams }: PageProps) {
   const sp = await searchParams;
-  const seed = sp.seed ? Number(sp.seed) : 20260913;
+  const seed = sp.seed ? Number(sp.seed) : 20260914;
   const n = sp.n ? Math.max(3, Math.min(15, Number(sp.n))) : 8;
   const quotes = pickQuotes(n, seed);
 
   const breadcrumbLd = buildBreadcrumbList([
     { name: "Start", item: "/" },
     { name: "Verkennen", item: "/verkennen" },
-    { name: "Ideological Turing Test", item: PAGE_PATH },
+    { name: "Retoriekspel", item: PAGE_PATH },
   ]);
 
   return (
@@ -56,7 +56,7 @@ export default async function TuringTestPage({ searchParams }: PageProps) {
 
       <ScrollReveal variant="stagger" immediate>
         <ScrollRevealItem>
-          <Kicker number="B6">Ideological Turing Test</Kicker>
+          <Kicker number="B6">Retoriekspel</Kicker>
         </ScrollRevealItem>
         <ScrollRevealItem>
           <h1
@@ -72,10 +72,10 @@ export default async function TuringTestPage({ searchParams }: PageProps) {
         </ScrollRevealItem>
         <ScrollRevealItem>
           <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
-            {n} willekeurige citaten uit het Nederlandse politieke debat (2024-2026).
-            Voor elk citaat: zou een linkse politicus, een midden-politicus
-            of een rechtse politicus dit gezegd hebben? Geen valstrik,
-            wel een spiegel voor hoe goed je politieke retoriek leest.
+            {n} redactionele oefenfragmenten, geschreven om verschillende
+            politieke retoriek te herkennen. Bij elk fragment kies je het kamp
+            dat er het beste bij past: links, midden of rechts. Het zijn geen
+            letterlijke uitspraken van politici en geen partijadvies.
           </p>
         </ScrollRevealItem>
       </ScrollReveal>
@@ -91,14 +91,12 @@ export default async function TuringTestPage({ searchParams }: PageProps) {
           </ScrollRevealItem>
           <ScrollRevealItem>
             <p className="mt-4 text-sm text-ink-2 leading-relaxed">
-              Citaten komen uit Kamerdebatten, verkiezingsprogramma&apos;s of openbare
-              interviews uit 2024-2026. Sommige zijn geparafraseerd voor
-              leesbaarheid (gemarkeerd). De bibliotheek bevat in totaal{" "}
-              {TURING_QUOTES.length} citaten verdeeld over drie kampen: links,
+              De bibliotheek bevat {TURING_QUOTES.length} redactionele oefenfragmenten,
+              verdeeld over drie kampen: links,
               midden en rechts. Een standaardronde toont er 8; een langere
-              ronde toont er 12. We gokken niet op partij omdat partijen
-              overlappen; we gokken op kamp omdat retoriek meestal wel
-              verraadt waar iemand staat.
+              ronde toont er 12. De labels beschrijven een retorische stijl,
+              geen persoon, partij of wetenschappelijke meting. Gebruik de
+              gewone quiz als je je eigen antwoorden inhoudelijk wilt terugzien.
             </p>
           </ScrollRevealItem>
           <ScrollRevealItem>

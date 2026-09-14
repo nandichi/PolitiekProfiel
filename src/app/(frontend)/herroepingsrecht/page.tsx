@@ -15,9 +15,9 @@ import type { Metadata } from "next";
 
 const PAGE_PATH = "/herroepingsrecht";
 const PAGE_PUBLISHED = "2026-05-19";
-const PAGE_MODIFIED = "2026-09-13";
+const PAGE_MODIFIED = "2026-09-14";
 const PAGE_DESCRIPTION =
-  "Herroepingsrecht, refundregels en betaalvoorwaarden voor de betaalde quizzen van PolitiekProfiel. 14 dagen bedenktijd, met heldere uitzonderingen.";
+  "Herroepingsrecht, refundregels en betaalvoorwaarden voor de betaalde quizzen van PolitiekProfiel. Uitleg over de wettelijke bedenktijd en hoe je een verzoek indient.";
 
 export const metadata: Metadata = {
   title: "Herroepingsrecht & refunds",
@@ -103,7 +103,7 @@ export default function HerroepingsrechtPage() {
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <p className="mt-6 mono text-xs text-ink-muted tracking-wide">
-                  Versie 1.1 · laatst bijgewerkt op 13 september 2026
+                  Versie 1.1 · laatst bijgewerkt op 14 september 2026
                 </p>
               </ScrollRevealItem>
             </ScrollReveal>

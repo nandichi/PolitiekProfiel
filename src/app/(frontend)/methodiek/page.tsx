@@ -16,7 +16,7 @@ import type { Metadata } from "next";
 
 const PAGE_PATH = "/methodiek";
 const PAGE_PUBLISHED = "2026-01-15";
-const PAGE_MODIFIED = "2026-09-13";
+const PAGE_MODIFIED = "2026-09-14";
 const PAGE_TITLE = "Methodiek";
 const PAGE_DESCRIPTION =
   "Hoe PolitiekProfiel politieke houding beschrijft: vijf redactioneel geconstrueerde dimensies, transparante scoring op −100 tot +100 en duidelijke beperkingen.";

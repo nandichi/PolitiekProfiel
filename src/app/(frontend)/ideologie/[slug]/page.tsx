@@ -81,7 +81,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
     headline: `${ideology.name}: een grondige uitleg`,
     description: ideology.shortDescription,
     datePublished: "2026-05-01",
-    dateModified: "2026-09-13",
+    dateModified: "2026-09-14",
     articleSection: "Ideologieën",
   });
   const breadcrumbLd = buildBreadcrumbList([

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ArrowRight, RotateCcw, Check, X, ExternalLink } from "lucide-react";
+import { ArrowRight, RotateCcw, Check, X } from "lucide-react";
 import type { TuringQuote, QuoteCamp } from "@/data/turing-quotes";
 
 interface TuringGameProps {
@@ -105,15 +105,7 @@ export function TuringGame({ quotes }: TuringGameProps) {
                           {q.explanation}
                         </p>
                       )}
-                      <a
-                        href={q.source.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-2 inline-flex items-center gap-1 text-[0.7rem] text-ink-subtle hover:text-navy no-underline"
-                      >
-                        Bron: {q.source.label}
-                        <ExternalLink size={10} strokeWidth={1.8} />
-                      </a>
+
                     </div>
                   </div>
                 </li>
@@ -142,19 +134,19 @@ export function TuringGame({ quotes }: TuringGameProps) {
     <div className="border border-rule bg-paper p-8">
       <div className="flex items-baseline justify-between mb-6">
         <p className="kicker">
-          Citaat {idx + 1} van {total}
+          Fragment {idx + 1} van {total}
         </p>
         <p className="mono tabular-nums text-xs text-ink-muted">
           SCORE {score}/{idx + (answered ? 1 : 0)}
         </p>
       </div>
 
-      <blockquote
+      <p
         className="display text-2xl md:text-3xl leading-snug text-ink"
         style={{ letterSpacing: "-0.015em" }}
       >
-        &ldquo;{current.text}&rdquo;
-      </blockquote>
+        {current.text}
+      </p>
 
       {!answered && (
         <div className="mt-10">
@@ -207,26 +199,13 @@ export function TuringGame({ quotes }: TuringGameProps) {
             </div>
           )}
 
-          <a
-            href={current.source.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-navy no-underline"
-          >
-            Bron: {current.source.label}
-            {current.paraphrased && (
-              <span className="text-ink-subtle">(geparafraseerd)</span>
-            )}
-            <ExternalLink size={12} strokeWidth={1.8} />
-          </a>
-
           <div className="mt-8">
             <button
               type="button"
               onClick={handleNext}
               className="btn btn-primary"
             >
-              {idx + 1 >= total ? "Toon de uitslag" : "Volgende citaat"}
+              {idx + 1 >= total ? "Toon de uitslag" : "Volgend fragment"}
               <ArrowRight size={14} strokeWidth={1.8} />
             </button>
           </div>

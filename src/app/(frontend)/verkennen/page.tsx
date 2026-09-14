@@ -115,9 +115,9 @@ export default async function VerkennenPage() {
     {
       kicker: "B6",
       href: "/turing-test",
-      title: "Ideological Turing Test",
+      title: "Retoriekspel",
       description:
-        "Raad uit welk politiek kamp een citaat komt. Mini-game tegen je eigen vooroordelen.",
+        "Raad welk politiek kamp een retorisch fragment het beste typeert. Een mini-game zonder partijadvies.",
       meta: "EXPERIMENTEEL",
     },
     {

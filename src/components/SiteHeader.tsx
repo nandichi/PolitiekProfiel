@@ -81,7 +81,7 @@ const EXPLORE_COLUMNS: ExploreColumn[] = [
       {
         href: "/turing-test",
         label: "Turing test",
-        description: "Raad uit welk politiek kamp een citaat komt.",
+        description: "Raad welk politiek kamp een retorisch fragment het beste typeert.",
       },
       {
         href: "/evolutie",

@@ -1,12 +1,12 @@
 /**
- * Citaten voor de Ideological Turing Test.
+ * Redactionele retoriekfragmenten voor het retoriekspel.
  *
- * Alle citaten zijn redactioneel geselecteerd uit publieke debatten, programma's,
- * Kamerstukken of openbare interviews uit 2024-2026. Bronnen zijn altijd
- * meegegeven; bij twijfel of een citaat exact zo is gevallen, is het
- * geparafraseerd (gemarkeerd als `paraphrased: true`).
+ * Dit zijn geen letterlijke uitspraken, geen citaten en geen standpunten van
+ * individuele politici. Ze zijn geschreven als oefenmateriaal om retorische
+ * patronen te herkennen. De oude bronvelden blijven alleen interne
+ * redactiecontext en worden niet als bewijs voor de tekst getoond.
  *
- * Bedoeling van de test: niet "raad de partij", maar "raad het politieke kamp",
+ * Bedoeling van het spel: niet "raad de partij", maar "raad het politieke kamp",
  * dus meer aanvoelend dan triviaal. Daarom drie buckets: links, midden, rechts.
  */
 import type { ThemeId } from "@/lib/themes";
@@ -16,15 +16,15 @@ export type QuoteCamp = "links" | "midden" | "rechts";
 export interface TuringQuote {
   /** Stabiele id, niet visueel zichtbaar. */
   id: string;
-  /** Het citaat zelf. Idealiter 1-2 zinnen. */
+  /** Het redactionele oefenfragment. Idealiter 1-2 zinnen. */
   text: string;
   /** Het juiste kamp om te raden. */
   camp: QuoteCamp;
-  /** Optioneel: thema waar het citaat over gaat. */
+  /** Optioneel: thema van het fragment. */
   theme?: ThemeId;
-  /** Bronlabel + url voor verificatie achteraf. */
+  /** Interne redactiecontext, niet de bron van een letterlijk citaat. */
   source: { label: string; url: string };
-  /** True als citaat geparafraseerd is voor leesbaarheid. */
+  /** Historisch veld, niet openbaar getoond. */
   paraphrased?: boolean;
   /** Optioneel: 1-zin uitleg waarom dit kamp. */
   explanation?: string;
