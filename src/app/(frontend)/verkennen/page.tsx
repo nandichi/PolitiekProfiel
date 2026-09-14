@@ -19,6 +19,7 @@ import {
   getAllQuestionsSeed,
 } from "@/lib/seed-readers";
 import { GLOSSARY } from "@/data/woordenboek";
+import { CABINETS } from "@/data/cabinets";
 
 const PAGE_PATH = "/verkennen";
 const PAGE_TITLE = "Verken het kompas";
@@ -87,6 +88,14 @@ export default async function VerkennenPage() {
       description:
         "Alle Tweede Kamer-fracties per 14 september 2026, met fractievoorzitter, ideologische verwantschap en CPB-status.",
       meta: `${parties.length} PARTIJEN MET ZETELS`,
+    },
+    {
+      kicker: "B2",
+      href: "/kabinetten",
+      title: "Kabinetten",
+      description:
+        "Twaalf kabinetten sinds 1994: wie meeregeerde, hoe lang, waarom het eindigde, wat is bereikt en wat niet.",
+      meta: `${CABINETS.length} KABINETTEN`,
     },
     {
       kicker: "A4",

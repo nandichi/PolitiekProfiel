@@ -63,6 +63,11 @@ const EXPLORE_COLUMNS: ExploreColumn[] = [
         description: "Alle Tweede Kamer-fracties, peildatum 14 september 2026.",
       },
       {
+        href: "/kabinetten",
+        label: "Kabinetten",
+        description: "Wat coalities sinds 1994 beloofden en wat er terechtkwam.",
+      },
+      {
         href: "/landen",
         label: "Landen",
         description: "Korte profielen, regering en context.",
