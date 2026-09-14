@@ -43,14 +43,23 @@ const profile = {
 };
 
 describe("PersonalProfile", () => {
-  it("renders a readable profile, open questions and answer coverage", () => {
+  it("vat het profiel samen in gewone taal", () => {
     const html = renderToStaticMarkup(createElement(PersonalProfile, { profile }));
 
     expect(html).toContain("Je politieke kern in woorden");
-    expect(html).toContain("Sterke staat");
-    expect(html).toContain("Waar je ruimte laat");
-    expect(html).toContain("Open midden");
+    expect(html).toContain("Deze uitkomst ligt het dichtst bij sociaal-liberaal");
     expect(html).toContain("50 van 50 stellingen beantwoord");
-    expect(html).toContain("Klimaat &amp; milieu");
+    expect(html).toContain("Sterke staat");
+    expect(html).toContain("Open midden");
+  });
+
+  it("herhaalt de assen en thema's niet die al een eigen sectie hebben", () => {
+    const html = renderToStaticMarkup(createElement(PersonalProfile, { profile }));
+
+    // De uitleg per pool staat in de sectie "Vijf dimensies".
+    expect(html).not.toContain("Je antwoorden wijzen hier duidelijk deze kant op.");
+    // De themabeschrijvingen staan in de sectie "Zeven thema's".
+    expect(html).not.toContain("Klimaat &amp; milieu");
+    expect(html).not.toContain("Sterk klimaatbeleid staat voorop.");
   });
 });

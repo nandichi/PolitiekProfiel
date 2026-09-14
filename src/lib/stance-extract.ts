@@ -5,7 +5,26 @@ import { getStaticQuestionById, isStaticQuestionId } from "@/lib/static-question
 import type { DimensionId } from "@/lib/dimensions";
 import type { ThemeId } from "@/lib/themes";
 import type { StoredAnswer } from "@/lib/results-store";
-import type { StanceItem } from "@/components/result/StanceExtract";
+
+/**
+ * Eén uitgesproken antwoord met de stelling erbij.
+ *
+ * De type-definitie staat hier en niet in een component: de Markdown-export
+ * gebruikt deze data ook, en de resultaatpagina toont de stellingen via de
+ * antwoordkaart.
+ */
+export interface StanceItem {
+  questionId: number;
+  statement: string;
+  derivedStance?: string | null;
+  dimension: string;
+  /** Dimensie-positie: `direction * value`. Wordt gebruikt voor sortering. */
+  signedValue: number;
+  /** Oorspronkelijk antwoord van de gebruiker (-2 t/m +2, exclusief 0). */
+  value: number;
+  weight: number;
+  themes?: string[];
+}
 
 interface QuestionDoc {
   id: number;

@@ -7,10 +7,10 @@ import {
 } from "./result-answer-atlas";
 
 const answers: AnswerAtlasInput[] = [
-  { questionId: 1, question: "Energie", explanation: "Een vraag over energie.", theme: "klimaat", value: 2 },
-  { questionId: 2, question: "CO2", explanation: "Een vraag over klimaatbeleid.", theme: "klimaat", value: 1 },
-  { questionId: 3, question: "Belasting", explanation: "Een vraag over belasting.", theme: "economie", value: -2 },
-  { questionId: 4, question: "Zorg", explanation: "Een vraag over zorg.", theme: "zorg", value: 0 },
+  { questionId: 1, question: "Energie", explanation: "Een vraag over energie.", theme: "klimaat", dimension: "economic", value: 2 },
+  { questionId: 2, question: "CO2", explanation: "Een vraag over klimaatbeleid.", theme: "klimaat", dimension: "economic", value: 1 },
+  { questionId: 3, question: "Belasting", explanation: "Een vraag over belasting.", theme: "economie", dimension: "economic", value: -2 },
+  { questionId: 4, question: "Zorg", explanation: "Een vraag over zorg.", theme: "zorg", dimension: "social", value: 0 },
 ];
 
 describe("buildAnswerAtlas", () => {

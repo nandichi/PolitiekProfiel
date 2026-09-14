@@ -4,6 +4,14 @@ interface PersonalProfileProps {
   profile: PersonalProfileData;
 }
 
+/**
+ * Samenvatting in gewone taal, bovenaan het rapport.
+ *
+ * Deze sectie geeft het overzicht: wat de uitkomst in woorden is, hoeveel
+ * antwoorden eronder liggen, en waar de duidelijkste en de open lijnen zitten.
+ * De uitleg per as staat in "Vijf dimensies" en de thema's in "Zeven thema's";
+ * die worden hier bewust niet herhaald.
+ */
 export function PersonalProfile({ profile }: PersonalProfileProps) {
   return (
     <section aria-labelledby="persoonlijke-kern-title" className="mt-12 md:mt-16 border-y border-ink py-8 md:py-10">
@@ -54,34 +62,16 @@ export function PersonalProfile({ profile }: PersonalProfileProps) {
               <li key={axis.id} className="border-t border-rule pt-4">
                 <p className="kicker">{axis.label}</p>
                 <p className="display mt-1 text-lg leading-tight text-ink">{axis.direction}</p>
-                <p className="mt-2 text-sm text-ink-2 leading-relaxed">{axis.explanation}</p>
               </li>
             ))}
           </ul>
         </div>
       )}
 
-      {profile.themeSignals.length > 0 && (
-        <div className="mt-10 border-t border-rule pt-6">
-          <p className="kicker">Thema&apos;s die je profiel kleuren</p>
-          <h3 className="display mt-3 max-w-2xl text-2xl leading-tight text-ink">
-            Waar je antwoorden het meest uitgesproken samenkomen.
-          </h3>
-          <ol className="mt-6 divide-y divide-rule border-y border-rule">
-            {profile.themeSignals.map((theme, index) => (
-              <li key={theme.id} className="grid grid-cols-[2rem_1fr_auto] gap-3 py-4 md:grid-cols-[3rem_1fr_auto] md:gap-5">
-                <span className="mono text-xs text-ink-muted pt-1.5">{String(index + 1).padStart(2, "0")}</span>
-                <div className="min-w-0">
-                  <p className="kicker">{theme.label}</p>
-                  <p className="display mt-1 text-lg leading-tight text-ink">{theme.direction}</p>
-                  <p className="mt-2 max-w-2xl text-sm text-ink-2 leading-relaxed">{theme.explanation}</p>
-                </div>
-                <span className="mono tabular-nums text-sm text-ink-muted pt-1.5">{theme.score > 0 ? "+" : ""}{theme.score}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      )}
+      <p className="mt-8 max-w-3xl text-sm text-ink-muted leading-relaxed">
+        Wat elke richting precies betekent staat bij de vijf assen en de zeven
+        thema&apos;s verderop in dit rapport.
+      </p>
     </section>
   );
 }
@@ -111,7 +101,6 @@ function ProfileAxisSection({
               <div className="min-w-0">
                 <p className="kicker">{axis.label}</p>
                 <p className="display mt-1 text-lg leading-tight text-ink">{axis.direction}</p>
-                <p className="mt-2 max-w-xl text-sm text-ink-2 leading-relaxed">{axis.explanation}</p>
               </div>
               <span className="mono tabular-nums text-sm text-ink-muted pt-1.5">{axis.score > 0 ? "+" : ""}{axis.score}</span>
             </li>

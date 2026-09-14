@@ -1,10 +1,13 @@
 import { getStaticQuestions } from "@/lib/static-question-data";
+import type { DimensionId } from "@/lib/dimensions";
 
 export interface AnswerAtlasInput {
   questionId: number;
   question: string;
   explanation: string;
   theme: string;
+  /** De as waarop deze stelling meetelde in de score. */
+  dimension: DimensionId;
   value: -2 | -1 | 0 | 1 | 2;
   sourceUrl?: string;
 }
@@ -86,6 +89,7 @@ export async function deriveAnswerAtlas(
       question: question.statement,
       explanation: question.info.context,
       theme,
+      dimension: question.dimension as DimensionId,
       value: answer.value,
       sourceUrl: question.info.sources[0]?.url,
     }];

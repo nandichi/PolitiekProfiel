@@ -1,4 +1,5 @@
 import type { AnswerAtlasSection } from "@/lib/result-answer-atlas";
+import { dimensionMeta } from "@/lib/dimensions";
 import { THEMES, type ThemeId } from "@/lib/themes";
 
 interface AnswerAtlasProps {
@@ -6,6 +7,13 @@ interface AnswerAtlasProps {
 }
 
 const themeLabels = new Map(THEMES.map((theme) => [theme.id, theme.label]));
+
+function intensityLabel(value: number): string {
+  const strong = Math.abs(value) >= 2;
+  const once = value >= 0;
+  if (value === 0) return "geen duidelijke richting";
+  return `${strong ? "sterk" : "matig"} ${once ? "eens" : "oneens"}`;
+}
 
 export function AnswerAtlas({ sections }: AnswerAtlasProps) {
   if (!sections.length) return null;
@@ -41,7 +49,7 @@ export function AnswerAtlas({ sections }: AnswerAtlasProps) {
               {section.entries.map((entry) => (
                 <li key={entry.questionId} className="border-t border-[var(--ink)]/12 pt-5">
                   <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--brand)]">
-                    Jouw antwoord: {entry.answerLabel}
+                    {dimensionMeta(entry.dimension).shortLabel} · {intensityLabel(entry.value)} · jouw antwoord: {entry.answerLabel}
                   </p>
                   <p className="mt-2 max-w-3xl text-lg font-semibold leading-7 text-[var(--ink)]">
                     {entry.question}

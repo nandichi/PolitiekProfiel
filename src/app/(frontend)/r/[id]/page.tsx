@@ -24,7 +24,6 @@ import { ConfidenceIndicator } from "@/components/result/ConfidenceIndicator";
 import { ThemeBars } from "@/components/result/ThemeBars";
 import { ParadoxList, type ParadoxItemContext } from "@/components/result/ParadoxList";
 import { PartyContext } from "@/components/result/PartyContext";
-import { StanceExtract } from "@/components/result/StanceExtract";
 import { PersonalProfile } from "@/components/result/PersonalProfile";
 import { AnswerAtlas } from "@/components/result/AnswerAtlas";
 import { getResult } from "@/lib/results-store";
@@ -39,7 +38,7 @@ import { rankByDistance } from "@/lib/scoring";
 import { THEMES } from "@/lib/themes";
 import { confidenceBand, confidenceBandLabel } from "@/lib/confidence";
 import { paradoxDescription, type ParadoxType } from "@/lib/paradox";
-import { extractStances, getQuestionsByIds } from "@/lib/stance-extract";
+import { getQuestionsByIds } from "@/lib/stance-extract";
 import { hasClearDimensionDirection } from "@/lib/result-presentation";
 import { createPersonalProfile } from "@/lib/result-profile-narrative";
 import { deriveAnswerAtlas } from "@/lib/result-answer-atlas";
@@ -99,7 +98,6 @@ const INDEX_ITEMS = [
   { id: "dimensies", label: "Vijf dimensies" },
   { id: "themas", label: "Zeven thema's" },
   { id: "antwoordkaart", label: "Je antwoordkaart" },
-  { id: "standpunten", label: "Standpunten" },
   { id: "steelman", label: "Andere richting" },
   { id: "paradoxen", label: "Paradoxen" },
   { id: "partijen", label: "Partij-context" },
@@ -195,10 +193,6 @@ export default async function ResultPage({ params }: Args) {
     return { dimension, yourScore };
   }).filter((candidate): candidate is NonNullable<typeof candidate> => Boolean(candidate));
 
-  const stances = result.answers
-    ? await extractStances(result.answers, isExtendedResult ? 10 : 6)
-    : [];
-
 
   const paradoxExampleIds = (result.paradoxes ?? [])
     .flatMap((p) => p.exampleQuestionIds ?? []);
@@ -249,7 +243,7 @@ export default async function ResultPage({ params }: Args) {
         section.entries.flatMap((entry) => [entry.question, entry.explanation]),
       ),
     ),
-    standpunten: readingMinutesFor(...stances.map((stance) => stance.statement)),
+
     steelman: readingMinutesFor(
       ...steelmanCandidates.map((candidate) =>
         candidate.yourScore > 0
@@ -351,8 +345,8 @@ export default async function ResultPage({ params }: Args) {
                       <p className="kicker mb-2">Uitgebreide verdieping</p>
                       <p className="text-sm text-ink-2 leading-relaxed">
                         Dit resultaat is gebaseerd op de langste quiz. Daarom
-                        tonen we extra standpunten, ruimere vergelijkingen en
-                        meer context bij sterke uitslagen.
+                        tonen we per thema twee onderbouwende antwoorden in
+                        plaats van één, en vergelijken we met meer politici.
                       </p>
                     </div>
                   )}
@@ -546,35 +540,7 @@ export default async function ResultPage({ params }: Args) {
               </div>
             ) : null}
 
-            {/* SECTIE 4 · STANDPUNTEN */}
-            <section
-              id="standpunten"
-              className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
-            >
-              <ScrollReveal variant="stagger">
-                <ScrollRevealItem>
-                  <Kicker number={4}>Je uitgesproken antwoorden</Kicker>
-                  <h2 className="display mt-5 max-w-3xl">
-                    {isExtendedResult ? "Tien" : "Zes"} stellingen waarop je
-                    het duidelijkst reageerde.
-                  </h2>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
-                  <p className="mt-4 max-w-2xl text-sm text-ink-muted">
-                    Dit is een terugblik op je eigen antwoorden, geen voorspelling
-                    over jou en geen partijadvies. We tonen de stellingen waarop
-                    je het meest uitgesproken reageerde.
-                  </p>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
-                  <div className="mt-10">
-                    <StanceExtract items={stances} />
-                  </div>
-                </ScrollRevealItem>
-              </ScrollReveal>
-            </section>
-
-            {/* SECTIE 4b · STEELMAN: BESTE TEGEN-ARGUMENT */}
+            {/* SECTIE 4 · STEELMAN: BESTE TEGEN-ARGUMENT */}
             {steelmanCandidates.length > 0 && (
               <section
                 id="steelman"
