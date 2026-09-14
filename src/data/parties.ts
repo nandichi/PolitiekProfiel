@@ -4,6 +4,12 @@ import { INTERNATIONAL_PARTIES } from "./international-parties";
 
 export type PartyRegion = "NL" | "EU" | "US" | "DE" | "GB" | "FR";
 export type PartyRegionType = "national" | "family" | "faction";
+
+/** Eén verifieerbaar gegeven over een partij, met de bron erbij. */
+export interface SeedFact {
+  claim: string;
+  sourceUrl: string;
+}
 export type CoalitionStatus =
   | "governing"
   | "opposition"
@@ -21,6 +27,11 @@ export interface SeedParty {
   positionVector: DimensionScores;
   ideologySlugs: string[];
   founded?: string;
+  /**
+   * Een opvallend, verifieerbaar gegeven over de partij. Alleen feiten met een
+   * bron-URL; geen anekdotes of roddels.
+   */
+  facts?: SeedFact[];
   /** Politiek leider / partijvoorzitter (bv. lijsttrekker). */
   leader?: string;
   /** Fractievoorzitter in de Tweede Kamer (kan verschillen van `leader`). */

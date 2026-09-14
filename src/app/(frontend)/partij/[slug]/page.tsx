@@ -170,18 +170,55 @@ export default async function PartijDetailPage({ params }: PageProps) {
           {/* Meta-strip */}
           <ScrollRevealItem>
             <dl className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-px bg-rule border border-rule max-w-4xl">
-              <Meta term="Opgericht" value={party.founded ?? "Onbekend"} />
-              <Meta term="Partijleider" value={party.leader ?? "Onbekend"} />
-              <Meta
-                term="Fractievoorzitter"
-                value={party.factionLeader ?? party.leader ?? "Onbekend"}
-              />
-              <Meta
-                term="Actuele zetels"
-                value={String(party.seatsTK2025 ?? 0)}
-              />
+              {[
+                { term: "Opgericht", value: party.founded },
+                { term: "Partijleider", value: party.leader },
+                {
+                  term: "Fractievoorzitter",
+                  value: party.factionLeader ?? party.leader,
+                },
+                {
+                  term: "Actuele zetels",
+                  value:
+                    party.seatsTK2025 === undefined
+                      ? undefined
+                      : String(party.seatsTK2025),
+                },
+              ]
+                .filter(
+                  (item): item is { term: string; value: string } =>
+                    Boolean(item.value),
+                )
+                .map((item) => (
+                  <Meta key={item.term} term={item.term} value={item.value} />
+                ))}
             </dl>
           </ScrollRevealItem>
+
+          {party.facts?.length ? (
+            <ScrollRevealItem>
+              <div className="mt-10 max-w-3xl border-t border-rule pt-6">
+                <p className="kicker mb-4">Opvallende feiten</p>
+                <ul className="divide-y divide-rule border-y border-rule">
+                  {party.facts.map((fact) => (
+                    <li key={fact.claim} className="py-4">
+                      <p className="text-sm text-ink-2 leading-relaxed">
+                        {fact.claim}
+                      </p>
+                      <a
+                        href={fact.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="mt-2 inline-block text-xs text-ink-muted underline decoration-rule hover:text-ink"
+                      >
+                        Bron bij dit feit
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </ScrollRevealItem>
+          ) : null}
 
           <ScrollRevealItem>
             <div className="mt-6 flex flex-wrap items-center gap-3 text-xs">
