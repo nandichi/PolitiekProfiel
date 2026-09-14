@@ -37,7 +37,7 @@ export const TURING_QUOTES: TuringQuote[] = [
     camp: "rechts",
     theme: "economie",
     source: {
-      label: "VVD Verkiezingsprogramma 2025 'Ruimte om vooruit te komen'",
+      label: "VVD Verkiezingsprogramma 2025 'Een sterker Nederland'",
       url: "https://www.vvd.nl/verkiezingsprogramma",
     },
     paraphrased: true,
@@ -50,9 +50,10 @@ export const TURING_QUOTES: TuringQuote[] = [
     camp: "links",
     theme: "economie",
     source: {
-      label: "Jesse Klaver, debat Algemene Politieke Beschouwingen 25 september 2024",
+      label: "Redactionele parafrase, geen letterlijk citaat uit de APB",
       url: "https://www.tweedekamer.nl/kamerstukken/plenaire_verslagen",
     },
+    paraphrased: true,
     explanation:
       "Herverdelingsframe, expliciete tegenstelling rijken vs. werkenden. Sociaal-democratisch idioom.",
   },
@@ -75,7 +76,7 @@ export const TURING_QUOTES: TuringQuote[] = [
     camp: "links",
     theme: "klimaat",
     source: {
-      label: "GroenLinks-PvdA Verkiezingsprogramma 2025 'Tijd voor eerlijk'",
+      label: "GroenLinks-PvdA Verkiezingsprogramma 2025 'Een nieuwe start voor Nederland'",
       url: "https://groenlinkspvda.nl/verkiezingsprogramma",
     },
     paraphrased: true,
@@ -86,8 +87,8 @@ export const TURING_QUOTES: TuringQuote[] = [
     camp: "links",
     theme: "zorg",
     source: {
-      label: "SP – Verkiezingsprogramma 2025",
-      url: "https://www.sp.nl/standpunten",
+      label: "SP Verkiezingsprogramma 2025 'Super Sociaal'",
+      url: "https://cdn.sp.nl/2025/09/SP-verkiezingsprogramma-TK2025.pdf",
     },
     paraphrased: true,
   },
@@ -97,8 +98,8 @@ export const TURING_QUOTES: TuringQuote[] = [
     camp: "midden",
     theme: "klimaat",
     source: {
-      label: "CDA Verkiezingsprogramma 2025 'Recht doen aan Nederland'",
-      url: "https://www.cda.nl/verkiezingsprogramma",
+      label: "CDA Verkiezingsprogramma 2025 'Bouwen op vertrouwen'",
+      url: "https://d2vs36cx04qmpo.cloudfront.net/files/Algemene-webpagina/Documenten-en-reglementen-CDA/CDA-Verkiezingsprogramma-TK2025-Digitaal-DEFINHOUD.pdf",
     },
     paraphrased: true,
     explanation:
@@ -123,8 +124,8 @@ export const TURING_QUOTES: TuringQuote[] = [
     camp: "rechts",
     theme: "eu",
     source: {
-      label: "JA21 Verkiezingsprogramma 2025",
-      url: "https://ja21.nl/partij-programma",
+      label: "JA21 Verkiezingsprogramma 2025 'De Juiste Aanpak voor Nederland'",
+      url: "https://ja21.nl/fileadmin/user_upload/Verkiezingsprogramma_JA21_TK25_DEF.pdf",
     },
     paraphrased: true,
   },
@@ -135,7 +136,7 @@ export const TURING_QUOTES: TuringQuote[] = [
     theme: "democratie",
     source: {
       label: "Volt – Verkiezingsprogramma 2025",
-      url: "https://voltnederland.org/verkiezingsprogramma-2025",
+      url: "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
     },
     paraphrased: true,
   },
@@ -156,8 +157,8 @@ export const TURING_QUOTES: TuringQuote[] = [
     camp: "midden",
     theme: "eu",
     source: {
-      label: "Henri Bontenbal, EP-verkiezingsdebat NOS 4 juni 2024",
-      url: "https://nos.nl/collectie/13921",
+      label: "Redactionele parafrase, geen politiek citaat",
+      url: "/methodiek",
     },
     paraphrased: true,
   },
@@ -178,8 +179,8 @@ export const TURING_QUOTES: TuringQuote[] = [
     camp: "rechts",
     theme: "klimaat",
     source: {
-      label: "BBB Verkiezingsprogramma 2025 'Boeren, Burgers, Beleid'",
-      url: "https://www.boerburgerbeweging.nl/programma",
+      label: "BBB Verkiezingsprogramma 2025 'BBB Levert!'",
+      url: "https://boerburgerbeweging.nl/tweede-kamerverkiezingen-2025/",
     },
     paraphrased: true,
   },

@@ -178,7 +178,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
     short:
       "Decentraal openbaar lichaam dat verantwoordelijk is voor waterveiligheid, waterkwaliteit en peilbeheer.",
     long:
-      "Nederland telt 21 waterschappen. De meeste leden van het algemeen bestuur worden door inwoners gekozen. Daarnaast hebben boeren en natuurbelangen geborgde zetels: die worden niet rechtstreeks gekozen.",
+      "Nederland telt 21 waterschappen. Inwoners kiezen de meeste leden van het algemeen bestuur. Daarnaast kunnen natuur en landbouw geborgde zetels hebben; die leden worden niet rechtstreeks gekozen.",
     related: ["provinciale-staten"],
   },
 
@@ -196,7 +196,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
     term: "Subsidiariteit",
     category: "ideologie",
     short:
-      "Principe dat beleid op het laagst mogelijke bestuursniveau moet worden gemaakt: Europees, nationaal, lokaal of bij burgers zelf.",
+      "Besluiten moeten zo dicht mogelijk bij burgers worden genomen. De EU handelt alleen als dat beter werkt dan nationaal, regionaal of lokaal beleid.",
     long:
       "Subsidiariteit komt uit de katholieke sociale leer en is verankerd in het EU-verdrag. Het wordt door uiteenlopende stromingen omarmd: christen-democraten leggen het bij gezin en gemeenschap, EU-sceptici bij de natiestaat, anarchisten bij vrijwillige verbanden.",
     related: ["soevereiniteit", "europese-unie"],
@@ -297,7 +297,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
     term: "Voorkeurstem",
     category: "verkiezingen",
     short:
-      "Stem op een specifieke kandidaat verder naar onderen op de lijst; bij genoeg voorkeurstemmen kan deze met voorrang verkozen worden.",
+      "Stem op een kandidaat van een partij, ongeacht de plek op de lijst. Wie genoeg voorkeurstemmen haalt, kan hoger geplaatste kandidaten passeren.",
     long:
       "In Nederland geldt sinds 1998 dat een kandidaat met 25% van de kiesdeler aan voorkeurstemmen automatisch een zetel krijgt, ongeacht de lijstvolgorde. Voorbeelden van politici die zo de Kamer haalden: Pia Dijkstra, Sylvana Simons.",
     related: ["kiesdeler"],
@@ -409,7 +409,7 @@ const TERMS_RAW: Omit<GlossaryTerm, "slug">[] = [
     term: "Europese Unie",
     category: "europa",
     short:
-      "Politiek-economische unie van 27 lidstaten, met gedeeltelijk gepoolde soevereiniteit, één markt en, voor 20 leden, één munt.",
+      "Samenwerking van 27 Europese landen met een gezamenlijke markt. De landen beslissen op sommige terreinen samen; 21 landen gebruiken de euro.",
     long:
       "De EU ontstond uit de Europese Gemeenschap voor Kolen en Staal (1951) als project van vrede en handel. Belangrijkste instellingen: Europees Parlement (direct gekozen), Raad van de EU (lidstaten), Europese Commissie (uitvoerend) en Europees Hof van Justitie. Nederland is netto-betaler en kernlid.",
     aliases: ["EU", "Unie"],
