@@ -17,7 +17,7 @@ import {
 const PAGE_PATH = "/politici";
 const PAGE_TITLE = "Politici";
 const PAGE_DESCRIPTION =
-  "Nederlandse en internationale politici op de vijf dimensies. Geactualiseerd op 13 september 2026, na de Tweede Kamerverkiezingen van 29 oktober 2025 en de beëdiging van kabinet-Jetten.";
+  "Nederlandse en internationale politici op de vijf dimensies. Geactualiseerd op 14 september 2026, na de Tweede Kamerverkiezingen van 29 oktober 2025 en de beëdiging van kabinet-Jetten.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -70,7 +70,7 @@ export default function PoliticiOverviewPage() {
           <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
             Posities zijn schattingen op basis van publieke standpunten,
             verkiezingsprogramma&apos;s en Kieskompas. Per politicus: dichtstbijzijnde
-            ideologie, bio, en alle vijf scores. Geactualiseerd 13 september 2026.
+            ideologie, bio, en alle vijf scores. Geactualiseerd 14 september 2026.
           </p>
         </ScrollRevealItem>
       </ScrollReveal>

@@ -20,7 +20,7 @@ import {
 const PAGE_PATH = "/partijen";
 const PAGE_TITLE = "Partijen";
 const PAGE_DESCRIPTION =
-  "Alle Nederlandse, Europese en Amerikaanse partijen op de vijf dimensies, met programma-samenvatting, fractieleider en actuele fractiegrootte per 13 september 2026.";
+  "Alle Nederlandse, Europese en Amerikaanse partijen op de vijf dimensies, met programma-samenvatting, fractieleider en actuele fractiegrootte per 14 september 2026.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -88,7 +88,7 @@ export default function PartijenOverviewPage() {
       <section className="mt-16 md:mt-20 border-t border-ink pt-10">
         <ScrollReveal variant="stagger">
           <ScrollRevealItem>
-            <Kicker number={1}>Tweede Kamer, peildatum 13 september 2026</Kicker>
+            <Kicker number={1}>Tweede Kamer, peildatum 14 september 2026</Kicker>
             <h2 className="display mt-5 max-w-3xl">
               {nl.length} fracties met zetels in de Kamer.
             </h2>

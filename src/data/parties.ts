@@ -65,13 +65,13 @@ const pewUS: SeedSource = {
   url: "https://www.pewresearch.org/politics/2021/11/09/beyond-red-vs-blue-the-political-typology-2/",
 };
 
-const REVIEW_DATE = "2026-09-13";
+const REVIEW_DATE = "2026-09-14";
 const cbsKiesraad: SeedSource = {
   label: "Kiesraad – Definitieve uitslag Tweede Kamerverkiezing 29 oktober 2025",
   url: "https://www.verkiezingsuitslagen.nl/verkiezingen/detail/TK20251029",
 };
 const tkFractievoorzitters: SeedSource = {
-  label: "Tweede Kamer – Fracties en fractievoorzitters (13 september 2026)",
+  label: "Tweede Kamer – Fracties en fractievoorzitters (14 september 2026)",
   url: "https://www.tweedekamer.nl/kamerleden_en_commissies/fracties",
 };
 const cpb2025: SeedSource = {
@@ -81,7 +81,7 @@ const cpb2025: SeedSource = {
 
 export const PARTIES: SeedParty[] = [
   // ============== NEDERLAND (17) ==============
-  // Stand: 13 september 2026. `seatsTK2025` is een historische veldnaam,
+  // Stand: 14 september 2026. `seatsTK2025` is een historische veldnaam,
   // maar bevat hieronder de actuele fractiegrootte zoals de Tweede Kamer die toont.
   // De uitslag van 2025 is uitsluitend als bron voor de oorspronkelijke zetelverdeling bewaard.
   // Coalitie = kabinet-Jetten (D66 + VVD + CDA), beëdigd 23 februari 2026.

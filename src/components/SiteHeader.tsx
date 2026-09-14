@@ -60,7 +60,7 @@ const EXPLORE_COLUMNS: ExploreColumn[] = [
       {
         href: "/partijen",
         label: "Partijen",
-        description: "Alle Tweede Kamer-fracties, peildatum 13 september 2026.",
+        description: "Alle Tweede Kamer-fracties, peildatum 14 september 2026.",
       },
       {
         href: "/landen",

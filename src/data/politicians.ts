@@ -50,7 +50,7 @@ const europeElects: SeedSource = {
   url: "https://europeelects.eu/",
 };
 const tkFracties: SeedSource = {
-  label: "Tweede Kamer – Fracties en fractievoorzitters (13 september 2026)",
+  label: "Tweede Kamer – Fracties en fractievoorzitters (14 september 2026)",
   url: "https://www.tweedekamer.nl/kamerleden_en_commissies/fracties",
 };
 const rijksoverheid: SeedSource = {
@@ -63,7 +63,7 @@ const dnaSource: SeedSource = {
 };
 
 const internationalRoles: SeedSource = {
-  label: "Officiële regerings- en parlementspagina's (13 september 2026)",
+  label: "Officiële regerings- en parlementspagina's (14 september 2026)",
   url: "https://www.consilium.europa.eu/en/european-council/members/",
 };
 const ukGovernment: SeedSource = {
@@ -91,11 +91,11 @@ const frPresidency: SeedSource = {
   url: "https://www.elysee.fr/en/emmanuel-macron",
 };
 
-const REVIEW_DATE = "2026-09-13";
+const REVIEW_DATE = "2026-09-14";
 
 export const POLITICIANS: SeedPolitician[] = [
   // ============== NEDERLAND (17) ==============
-  // Stand: 13 september 2026. Rollen en fractienamen zijn gecontroleerd
+  // Stand: 14 september 2026. Rollen en fractienamen zijn gecontroleerd
   // tegen de Tweede Kamer en Rijksoverheid.
   {
     name: "Rob Jetten",
