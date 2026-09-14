@@ -380,6 +380,300 @@
     will-change: transform;
   }
 
+  /* Homepage hero: a civic instrument, not a quiz dashboard. */
+  .home-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    background: var(--color-navy);
+    color: var(--color-paper);
+  }
+
+  .home-hero::before {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    content: "";
+    opacity: 0.5;
+    background-image: linear-gradient(rgba(250, 250, 247, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(250, 250, 247, 0.07) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(to bottom, black, transparent 92%);
+  }
+
+  .home-hero::after {
+    position: absolute;
+    z-index: -1;
+    top: -22rem;
+    right: -14rem;
+    width: 40rem;
+    height: 48rem;
+    content: "";
+    border: 1px solid rgba(241, 216, 205, 0.33);
+    background: linear-gradient(135deg, rgba(179, 67, 41, 0.34), transparent 68%);
+    transform: rotate(24deg);
+  }
+
+  .home-hero__inner {
+    position: relative;
+  }
+
+  .home-hero .kicker,
+  .home-hero .index-num {
+    color: rgba(250, 250, 247, 0.66);
+  }
+
+  .home-hero .bg-rule-strong {
+    background-color: var(--color-terra-soft);
+  }
+
+  .home-hero__primary {
+    min-height: 3.3rem;
+    padding-inline: 1.55rem;
+    background: var(--color-terra);
+    border-color: var(--color-terra);
+    color: var(--color-paper);
+  }
+
+  .home-hero__primary:hover {
+    background: var(--color-terra-soft);
+    border-color: var(--color-terra-soft);
+    color: var(--color-navy);
+  }
+
+  .home-hero__secondary {
+    min-height: 3.3rem;
+    border-color: rgba(250, 250, 247, 0.52);
+    color: var(--color-paper);
+  }
+
+  .home-hero__secondary:hover {
+    background: var(--color-paper);
+    border-color: var(--color-paper);
+    color: var(--color-navy);
+  }
+
+  .home-hero__proofs {
+    color: rgba(250, 250, 247, 0.64);
+  }
+
+  .home-hero__proofs .bg-success {
+    background-color: var(--color-terra-soft);
+  }
+
+  .civic-prism {
+    position: relative;
+    min-height: 35rem;
+    padding: 1rem;
+    overflow: hidden;
+    background: rgba(6, 19, 46, 0.58);
+    border: 1px solid rgba(250, 250, 247, 0.24);
+    box-shadow: inset 0 1px 0 rgba(250, 250, 247, 0.14), 0 2.2rem 4.5rem -2.5rem rgba(1, 7, 22, 0.9);
+  }
+
+  .civic-prism::before {
+    position: absolute;
+    inset: 0.8rem;
+    content: "";
+    border: 1px solid rgba(250, 250, 247, 0.12);
+    pointer-events: none;
+  }
+
+  .civic-prism__header,
+  .civic-prism__footer {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .civic-prism__header {
+    padding: 0.55rem 0.65rem 0.95rem;
+    color: rgba(250, 250, 247, 0.72);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+
+  .civic-prism__header p,
+  .civic-prism__footer p {
+    margin: 0;
+    color: inherit;
+  }
+
+  .civic-prism__object {
+    position: relative;
+    height: 25.4rem;
+    margin: 0.6rem 0.2rem 0;
+  }
+
+  .civic-prism__layer {
+    position: absolute;
+    top: calc(0.5rem + (var(--layer) * 3.5rem));
+    left: calc(0.15rem + (var(--layer) * 0.72rem));
+    z-index: calc(5 + var(--layer));
+    display: grid;
+    grid-template-columns: 2.2rem minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    width: calc(100% - 1.7rem - (var(--layer) * 0.72rem));
+    height: 12.2rem;
+    padding: 1rem 1.1rem;
+    overflow: hidden;
+    color: var(--color-navy);
+    text-align: left;
+    cursor: pointer;
+    border: 1px solid rgba(20, 40, 80, 0.22);
+    background: var(--color-paper);
+    box-shadow: 0 1.15rem 1.9rem -1.6rem rgba(1, 7, 22, 0.94);
+    transform: rotate(calc((var(--layer) - 2) * 1.35deg));
+    transition: transform 460ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 460ms cubic-bezier(0.16, 1, 0.3, 1), background-color 320ms cubic-bezier(0.16, 1, 0.3, 1);
+    animation: prism-sheet-in 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(80ms + (var(--layer) * 105ms));
+  }
+
+  .civic-prism__layer::before {
+    position: absolute;
+    inset: 0;
+    content: "";
+    opacity: 0.48;
+    background-image: linear-gradient(90deg, transparent 49.6%, rgba(20, 40, 80, 0.12) 50%, transparent 50.4%);
+    background-size: 100% 100%;
+    pointer-events: none;
+  }
+
+  .civic-prism__layer[data-active="true"] {
+    z-index: 20;
+    background: var(--color-terra-soft);
+    box-shadow: 0 2rem 3rem -1.5rem rgba(1, 7, 22, 0.98);
+    transform: translateX(-0.8rem) translateY(-0.55rem) rotate(0deg) scale(1.025);
+  }
+
+  .civic-prism__layer:focus-visible {
+    outline: 2px solid var(--color-paper);
+    outline-offset: 4px;
+  }
+
+  .civic-prism__layer-number {
+    grid-row: 1 / -1;
+    align-self: end;
+    padding-bottom: 0.12rem;
+    color: var(--color-terra-2);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+  }
+
+  .civic-prism__layer-name {
+    position: relative;
+    z-index: 1;
+    align-self: start;
+    font-family: var(--font-display);
+    font-size: clamp(1.65rem, 3vw, 2.5rem);
+    font-weight: 450;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+  }
+
+  .civic-prism__layer-track {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 0.9rem 1fr;
+    align-items: center;
+    gap: 0.45rem;
+    align-self: center;
+  }
+
+  .civic-prism__layer-track i {
+    display: block;
+    height: 1px;
+    background: var(--color-navy);
+  }
+
+  .civic-prism__layer-track b {
+    display: block;
+    width: 0.68rem;
+    height: 0.68rem;
+    border: 1px solid var(--color-terra);
+    background: var(--color-paper);
+    transform: rotate(45deg);
+  }
+
+  .civic-prism__layer-poles {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: rgba(20, 40, 80, 0.7);
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .civic-prism__core {
+    position: absolute;
+    z-index: 25;
+    top: 44%;
+    left: 50%;
+    display: grid;
+    width: 5.4rem;
+    height: 5.4rem;
+    place-items: center;
+    color: var(--color-paper);
+    text-align: center;
+    pointer-events: none;
+    background: var(--color-terra);
+    border: 1px solid var(--color-paper);
+    box-shadow: 0 1rem 2rem -1rem rgba(1, 7, 22, 0.8);
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  .civic-prism__core span,
+  .civic-prism__core small {
+    transform: rotate(-45deg);
+  }
+
+  .civic-prism__core span {
+    grid-row: 1;
+    align-self: end;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 0.9;
+  }
+
+  .civic-prism__core small {
+    grid-row: 2;
+    align-self: start;
+    width: 7rem;
+    margin-top: -0.2rem;
+    font-size: 0.43rem;
+    letter-spacing: 0.08em;
+  }
+
+  .civic-prism__footer {
+    align-items: end;
+    padding: 0.85rem 0.65rem 0.4rem;
+    color: rgba(250, 250, 247, 0.74);
+  }
+
+  .civic-prism__footer p {
+    max-width: 16rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.18;
+  }
+
+  .civic-prism__footer > span {
+    font-size: 0.54rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  @keyframes prism-sheet-in {
+    from { opacity: 0; transform: translateY(2rem) rotate(calc((var(--layer) - 2) * 4deg)); }
+    to { opacity: 1; transform: rotate(calc((var(--layer) - 2) * 1.35deg)); }
+  }
+
   /* Hero: a five-channel political field, not a single left-right slider. */
   .civic-field {
     position: relative;
@@ -822,6 +1116,71 @@
   }
 
   @media (max-width: 640px) {
+    .home-hero::after {
+      top: 16rem;
+      right: -24rem;
+      width: 34rem;
+      height: 34rem;
+    }
+
+    .civic-prism {
+      min-height: 31rem;
+      padding: 0.7rem;
+    }
+
+    .civic-prism::before {
+      inset: 0.55rem;
+    }
+
+    .civic-prism__header {
+      padding: 0.55rem 0.45rem 0.7rem;
+      font-size: 0.49rem;
+    }
+
+    .civic-prism__object {
+      height: 22.2rem;
+      margin-inline: 0;
+    }
+
+    .civic-prism__layer {
+      top: calc(0.45rem + (var(--layer) * 3rem));
+      left: calc(0.05rem + (var(--layer) * 0.32rem));
+      width: calc(100% - 0.72rem - (var(--layer) * 0.32rem));
+      height: 10.4rem;
+      padding: 0.78rem 0.85rem;
+      grid-template-columns: 1.8rem minmax(0, 1fr);
+    }
+
+    .civic-prism__layer[data-active="true"] {
+      transform: translateX(-0.3rem) translateY(-0.35rem) rotate(0deg) scale(1.015);
+    }
+
+    .civic-prism__layer-name {
+      font-size: 1.68rem;
+    }
+
+    .civic-prism__core {
+      width: 4.65rem;
+      height: 4.65rem;
+    }
+
+    .civic-prism__core span {
+      font-size: 2.1rem;
+    }
+
+    .civic-prism__footer {
+      padding: 0.45rem;
+    }
+
+    .civic-prism__footer p {
+      max-width: 13.2rem;
+      font-size: 0.93rem;
+    }
+
+    .civic-prism__footer > span {
+      font-size: 0.45rem;
+    }
+
     .civic-field {
       padding: 1.15rem;
     }

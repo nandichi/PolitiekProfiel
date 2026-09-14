@@ -4,7 +4,7 @@ import { ArrowRight, Clock3 } from "lucide-react";
 import { Container } from "@/components/Container";
 import { CheckoutButton } from "@/components/CheckoutButton";
 import { Kicker } from "@/components/Kicker";
-import { CivicField } from "@/components/CivicField";
+import { CivicPrism } from "@/components/CivicPrism";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -55,8 +55,8 @@ export default function HomePage() {
   return (
     <>
       {/* ─────────────────────── HERO ─────────────────────── */}
-      <section className="relative overflow-hidden">
-        <Container width="bleed" className="pt-12 md:pt-20 pb-16 md:pb-24">
+      <section className="home-hero relative overflow-hidden">
+        <Container width="bleed" className="home-hero__inner pt-12 md:pt-20 pb-16 md:pb-24">
           <ScrollReveal variant="stagger" immediate>
             <ScrollRevealItem>
               <Kicker number={"NL · 2026"}>Een onafhankelijk kompas</Kicker>
@@ -66,29 +66,29 @@ export default function HomePage() {
               {/* Manifesto headline */}
               <ScrollRevealItem className="lg:col-span-7">
                 <h1
-                  className="display font-medium text-ink"
+                  className="display font-medium text-paper"
                   style={{ letterSpacing: "-0.025em" }}
                 >
                   <span className="block">Politiek is meer</span>
                   <span className="block">
                     dan{" "}
-                    <em className="display-italic font-light text-navy">
+                    <em className="display-italic font-light text-terra-soft">
                       links
                     </em>{" "}
                     of{" "}
-                    <em className="display-italic font-light text-navy">
+                    <em className="display-italic font-light text-terra-soft">
                       rechts
                     </em>
                     .
                   </span>
-                  <span className="block text-ink-2 mt-3 md:mt-5">
+                  <span className="block text-paper/65 mt-3 md:mt-5">
                     Zie waar je écht staat.
                   </span>
                 </h1>
 
-                <p className="mt-8 md:mt-10 max-w-xl text-lg text-ink-2 leading-relaxed">
+                <p className="mt-8 md:mt-10 max-w-xl text-lg text-paper/72 leading-relaxed">
                   Een rustig, doordacht profiel op{" "}
-                  <strong className="text-ink">
+                  <strong className="text-paper">
                     vijf onafhankelijke dimensies
                   </strong>
                   . Geen scorelijst voor partijen. Geen reclame. Wel heldere
@@ -96,17 +96,17 @@ export default function HomePage() {
                   politici en landen.
                 </p>
 
-                <div className="mt-10 flex flex-wrap gap-3">
-                  <Link href="/quiz/quick" className="btn btn-primary">
+                <div className="home-hero__actions mt-10 flex flex-wrap gap-3">
+                  <Link href="/quiz/quick" className="btn btn-primary home-hero__primary">
                     Start gratis
                     <ArrowRight size={16} strokeWidth={1.8} />
                   </Link>
-                  <Link href="/methodiek" className="btn btn-secondary">
+                  <Link href="/methodiek" className="btn btn-secondary home-hero__secondary">
                     Lees eerst de methodiek
                   </Link>
                 </div>
 
-                <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs text-ink-muted">
+                <div className="home-hero__proofs mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs">
                   <span className="inline-flex items-center gap-2">
                     <span className="block w-1.5 h-1.5 bg-success rounded-full" />
                     <span className="mono tracking-wider">GEEN TRACKING</span>
@@ -124,7 +124,7 @@ export default function HomePage() {
 
               {/* Vijf onafhankelijke sporen */}
               <ScrollRevealItem className="lg:col-span-5 lg:pl-2">
-                <CivicField />
+                <CivicPrism />
               </ScrollRevealItem>
             </div>
           </ScrollReveal>
