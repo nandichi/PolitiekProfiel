@@ -118,6 +118,7 @@ async function main() {
         email: adminEmail,
         password: adminPassword,
         name: adminName,
+        role: "admin",
       },
     });
     console.log(`[seed] admin user '${adminEmail}' aangemaakt (wachtwoord uit env of fallback)`);

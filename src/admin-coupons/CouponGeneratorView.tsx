@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { AdminViewServerProps } from "payload";
-import { AdminChrome } from "@/admin-tracking/AdminChrome";
+import { AdminChrome } from "@/admin-ui/AdminChrome";
 import {
   card,
   cardHeader,
@@ -9,7 +9,7 @@ import {
   muted,
   sectionTitle,
   tokens,
-} from "@/admin-tracking/styles";
+} from "@/admin-ui/styles";
 
 interface PromotionCodeRow {
   id: string | number;

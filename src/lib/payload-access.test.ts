@@ -12,6 +12,10 @@ describe("hasPayloadAdmin", () => {
     expect(hasPayloadAdmin({ user: { id: "editor-1", role: "editor" } })).toBe(false);
   });
 
+  it("rejects any future non-administrator role from reading sensitive results", () => {
+    expect(hasPayloadAdmin({ user: { id: "viewer-1", role: "viewer" } })).toBe(false);
+  });
+
   it("allows an administrator and preserves the legacy administrator migration path", () => {
     expect(hasPayloadAdmin({ user: { id: "admin-1", role: "admin" } })).toBe(true);
     expect(hasPayloadAdmin({ user: { id: "legacy-admin" } })).toBe(true);

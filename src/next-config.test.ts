@@ -11,5 +11,8 @@ describe("private-result cache policy", () => {
     expect(config).toContain('value: "private, no-store"');
     expect(config).toContain('key: "X-Robots-Tag"');
     expect(config).toContain('value: "noindex, nofollow"');
+    expect(config).toContain('key: "Referrer-Policy"');
+    expect(config).toContain('value: "no-referrer"');
+    expect(config).toContain('source: "/api/og/:path*"');
   });
 });

@@ -131,10 +131,10 @@ export default async function VerkennenPage() {
     {
       kicker: "C2",
       href: "/typology",
-      title: "Typology-clusters",
+      title: "Politieke typologie",
       description:
-        "Acht archetypes van de Nederlandse kiezer, gevoed door anonieme aggregaten van eerdere profielen. Bedoeld als spiegel, niet als label.",
-      meta: "K-ANONIEM · ≥50 PROFIELEN",
+        "Lees hoe politieke typologieën en de vijf assen werken, zonder klantresultaten te groeperen of analyseren.",
+      meta: "PRIVACYVEILIG DENKRAAM",
     },
     {
       kicker: "D3",

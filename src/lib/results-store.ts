@@ -242,3 +242,36 @@ export async function getResult(shareId: string): Promise<StoredResult | null> {
     createdAt: doc.createdAt,
   };
 }
+
+/**
+ * Deletes a result through the same server-only store selection used for
+ * reads and writes. The share capability is validated by the route layer.
+ */
+export async function deleteResult(shareId: string): Promise<boolean> {
+  if (hasFirestoreConfig()) {
+    const db = firestore();
+    const ref = db.collection(FIRESTORE_COLLECTION).doc(shareId);
+    const snap = await ref.get();
+    if (!snap.exists) return false;
+    await db.collection(FIRESTORE_COLLECTION).doc(shareId).delete();
+    return true;
+  }
+
+  const p = await payload();
+  const res = await p.find({
+    collection: "results",
+    overrideAccess: true,
+    where: { shareId: { equals: shareId } },
+    limit: 1,
+    depth: 0,
+  });
+  if (res.docs.length === 0) return false;
+
+  const doc = res.docs[0] as { id: string | number };
+  await p.delete({
+    collection: "results",
+    id: doc.id,
+    overrideAccess: true,
+  });
+  return true;
+}

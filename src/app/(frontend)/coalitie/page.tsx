@@ -20,6 +20,7 @@ import {
 import { CoalitionResultExplorer } from "@/components/coalition/CoalitionResultExplorer";
 import { CoalitionBuilder } from "@/components/coalition/CoalitionBuilder";
 import { getResult } from "@/lib/results-store";
+import { PRIVATE_RESULT_QUERY_ROBOTS } from "@/lib/result-privacy";
 
 interface PageProps {
   searchParams: Promise<{ r?: string }>;
@@ -30,7 +31,7 @@ const PAGE_TITLE = "Coalitie-simulator";
 const PAGE_DESCRIPTION =
   "Bouw zelf een coalitie en zie live hoeveel zetels je hebt, waar de coalitie politiek staat en hoeveel spanning er zit tussen de partijen.";
 
-export const metadata: Metadata = {
+const PUBLIC_METADATA: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   alternates: { canonical: PAGE_PATH },
@@ -41,6 +42,15 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+
+export async function generateMetadata({
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  const { r } = await searchParams;
+  return r
+    ? { ...PUBLIC_METADATA, robots: PRIVATE_RESULT_QUERY_ROBOTS }
+    : PUBLIC_METADATA;
+}
 
 export default async function CoalitiePage({ searchParams }: PageProps) {
   const sp = await searchParams;
@@ -99,7 +109,7 @@ export default async function CoalitiePage({ searchParams }: PageProps) {
         </ScrollRevealItem>
         <ScrollRevealItem>
           <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
-            Met de actuele zetelverdeling van de Tweede Kamer (stand 13 september
+            Met de actuele zetelverdeling van de Tweede Kamer (stand 14 september
             2026) zoek je zelf naar een meerderheid van 76 zetels. Per geselecteerde
             combinatie zie je het zetelgewogen zwaartepunt op de vijf dimensies en de
             maximale onderlinge afstand, een ruwe maat voor politieke spanning binnen

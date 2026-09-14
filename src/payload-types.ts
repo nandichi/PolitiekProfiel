@@ -75,8 +75,6 @@ export interface Config {
     countries: Country;
     results: Result;
     aiContent: AiContent;
-    'quiz-attempts': QuizAttempt;
-    'quiz-events': QuizEvent;
     entitlements: Entitlement;
     'stripe-promotion-codes': StripePromotionCode;
     'payload-kv': PayloadKv;
@@ -94,8 +92,6 @@ export interface Config {
     countries: CountriesSelect<false> | CountriesSelect<true>;
     results: ResultsSelect<false> | ResultsSelect<true>;
     aiContent: AiContentSelect<false> | AiContentSelect<true>;
-    'quiz-attempts': QuizAttemptsSelect<false> | QuizAttemptsSelect<true>;
-    'quiz-events': QuizEventsSelect<false> | QuizEventsSelect<true>;
     entitlements: EntitlementsSelect<false> | EntitlementsSelect<true>;
     'stripe-promotion-codes': StripePromotionCodesSelect<false> | StripePromotionCodesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -146,6 +142,10 @@ export interface UserAuthOperations {
 export interface User {
   id: number;
   name?: string | null;
+  /**
+   * Nieuwe gebruikers starten als redacteur. Alleen een beheerder kan rollen wijzigen.
+   */
+  role: 'admin' | 'editor';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -479,10 +479,6 @@ export interface Result {
    * Korte unieke string in de URL.
    */
   shareId: string;
-  /**
-   * Koppelt dit resultaat aan een quiz-attempts row. Leeg voor historische resultaten van vóór de tracking-integratie.
-   */
-  attemptId?: string | null;
   lengthTier: 'quick' | 'standard' | 'extended';
   ideologySlug: string;
   dimensions: {
@@ -550,7 +546,7 @@ export interface Result {
   createdAt: string;
 }
 /**
- * Vooraf gegenereerde teksten voor de resultaatpagina. Build-time gegenereerd, gebruiker-data raakt nooit OpenAI.
+ * Gearchiveerde, vooraf gegenereerde teksten. Niet publiek en niet gebruikt op de resultaatpagina's.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "aiContent".
@@ -612,88 +608,6 @@ export interface AiContent {
    * Aanvinken als een redacteur deze tekst heeft aangepast; voorkomt overschrijven bij regeneratie.
    */
   humanEdited?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * Eén document per quiz-poging (start). Bevat alleen anonieme telemetrie: geen IP, geen user-agent.
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "quiz-attempts".
- */
-export interface QuizAttempt {
-  id: number;
-  attemptId: string;
-  /**
-   * Browser-persistent ID uit localStorage. Stabiel over meerdere quizzes.
-   */
-  trackingId: string;
-  tier: 'quick' | 'standard' | 'extended';
-  adaptive?: boolean | null;
-  startedAt: string;
-  lastEventAt?: string | null;
-  completedAt?: string | null;
-  submitted?: boolean | null;
-  abandoned?: boolean | null;
-  /**
-   * Gevuld na succesvolle submit; koppelt deze poging aan het Results-record.
-   */
-  shareId?: string | null;
-  questionsSeen: number;
-  questionsAnswered: number;
-  questionsSkipped: number;
-  questionsBack: number;
-  infoOpenedCount: number;
-  /**
-   * Tijd tussen startedAt en completedAt. Gevuld bij submit of abandon.
-   */
-  durationMs?: number | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * Append-only ruwe events tijdens de quiz. Bevat geen IP of user-agent.
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "quiz-events".
- */
-export interface QuizEvent {
-  id: number;
-  type:
-    | 'quiz-started'
-    | 'question-viewed'
-    | 'question-answered'
-    | 'question-skipped'
-    | 'question-back'
-    | 'info-opened'
-    | 'resume-prompt'
-    | 'adaptive-batch'
-    | 'quiz-completed'
-    | 'quiz-abandoned';
-  /**
-   * Tijdstip dat het event in de browser werd gegenereerd (client-clock).
-   */
-  occurredAt: string;
-  attemptId: string;
-  trackingId: string;
-  tier?: string | null;
-  adaptive?: boolean | null;
-  questionId?: number | null;
-  value?: number | null;
-  cursor?: number | null;
-  timeOnQuestionMs?: number | null;
-  /**
-   * Optionele extra context, bv. resume-keuze 'continue'|'restart', batch-grootte, of abandon-reason.
-   */
-  meta?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -805,14 +719,6 @@ export interface PayloadLockedDocument {
         value: number | AiContent;
       } | null)
     | ({
-        relationTo: 'quiz-attempts';
-        value: number | QuizAttempt;
-      } | null)
-    | ({
-        relationTo: 'quiz-events';
-        value: number | QuizEvent;
-      } | null)
-    | ({
         relationTo: 'entitlements';
         value: number | Entitlement;
       } | null)
@@ -868,6 +774,7 @@ export interface PayloadMigration {
  */
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
+  role?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -1069,7 +976,6 @@ export interface CountriesSelect<T extends boolean = true> {
  */
 export interface ResultsSelect<T extends boolean = true> {
   shareId?: T;
-  attemptId?: T;
   lengthTier?: T;
   ideologySlug?: T;
   dimensions?:
@@ -1151,49 +1057,6 @@ export interface AiContentSelect<T extends boolean = true> {
   generatedAt?: T;
   prompt?: T;
   humanEdited?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "quiz-attempts_select".
- */
-export interface QuizAttemptsSelect<T extends boolean = true> {
-  attemptId?: T;
-  trackingId?: T;
-  tier?: T;
-  adaptive?: T;
-  startedAt?: T;
-  lastEventAt?: T;
-  completedAt?: T;
-  submitted?: T;
-  abandoned?: T;
-  shareId?: T;
-  questionsSeen?: T;
-  questionsAnswered?: T;
-  questionsSkipped?: T;
-  questionsBack?: T;
-  infoOpenedCount?: T;
-  durationMs?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "quiz-events_select".
- */
-export interface QuizEventsSelect<T extends boolean = true> {
-  type?: T;
-  occurredAt?: T;
-  attemptId?: T;
-  trackingId?: T;
-  tier?: T;
-  adaptive?: T;
-  questionId?: T;
-  value?: T;
-  cursor?: T;
-  timeOnQuestionMs?: T;
-  meta?: T;
   updatedAt?: T;
   createdAt?: T;
 }

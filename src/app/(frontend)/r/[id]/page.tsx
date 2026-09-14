@@ -11,6 +11,7 @@ import { ShareBlock } from "@/components/ShareBlock";
 import { EmailResultLinkBlock } from "@/components/EmailResultLinkBlock";
 import { SocialShareGrid } from "@/components/result/SocialShareGrid";
 import { ImageDownloads } from "@/components/result/ImageDownloads";
+import { DeleteResultButton } from "@/components/result/DeleteResultButton";
 import { StickyIndex } from "@/components/StickyIndex";
 import { Kicker } from "@/components/Kicker";
 import {
@@ -38,11 +39,6 @@ import { confidenceBand, confidenceBandLabel } from "@/lib/confidence";
 import { paradoxDescription, type ParadoxType } from "@/lib/paradox";
 import { extractStances, getQuestionsByIds } from "@/lib/stance-extract";
 import { hasClearDimensionDirection } from "@/lib/result-presentation";
-import {
-  getCohortForVector,
-  getTotalProfileCount,
-  MIN_COHORT_SIZE,
-} from "@/lib/cohort";
 
 type Args = { params: Promise<{ id: string }> };
 
@@ -62,15 +58,15 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
     description: ideo?.shortDescription ?? "Bekijk dit politieke profiel.",
     robots: {
       index: false,
-      follow: true,
+      follow: false,
       nocache: true,
       googleBot: {
         index: false,
-        follow: true,
+        follow: false,
+        noarchive: true,
         noimageindex: true,
       },
     },
-    alternates: { canonical: `/vergelijk?a=${result.shareId}` },
     openGraph: {
       title: `${name} · PolitiekProfiel`,
       description: ideo?.shortDescription ?? "Bekijk dit politieke profiel.",
@@ -169,10 +165,6 @@ export default async function ResultPage({ params }: Args) {
     ? await extractStances(result.answers, isExtendedResult ? 10 : 6)
     : [];
 
-  const [cohort, totalProfiles] = await Promise.all([
-    getCohortForVector(result.dimensions).catch(() => null),
-    getTotalProfileCount().catch(() => 0),
-  ]);
 
   const paradoxExampleIds = (result.paradoxes ?? [])
     .flatMap((p) => p.exampleQuestionIds ?? []);
@@ -585,85 +577,6 @@ export default async function ResultPage({ params }: Args) {
               </section>
             )}
 
-            {/* SECTIE 4c · COHORT (B3) */}
-            {cohort && (
-              <section
-                id="cohort"
-                className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
-              >
-                <ScrollReveal variant="stagger">
-                  <ScrollRevealItem>
-                    <Kicker number="4c">Mensen met een profiel als jouw</Kicker>
-                    <h2 className="display mt-5 max-w-3xl">
-                      {cohort.size.toLocaleString("nl-NL")} anderen scoren ongeveer als jij.
-                    </h2>
-                  </ScrollRevealItem>
-                  <ScrollRevealItem>
-                    <p className="mt-4 max-w-2xl text-sm text-ink-muted">
-                      Cohort van {cohort.size.toLocaleString("nl-NL")} profielen
-                      uit {totalProfiles.toLocaleString("nl-NL")} totaal. We
-                      tonen alleen cohorten met ≥{MIN_COHORT_SIZE} profielen,
-                      altijd geaggregeerd, nooit individueel. K-anonimiteit als
-                      privacy-floor. Verschil = gemiddelde van het cohort minus
-                      jouw score.
-                    </p>
-                  </ScrollRevealItem>
-                  <ScrollRevealItem>
-                    <table className="mt-8 w-full max-w-3xl border-collapse">
-                      <thead>
-                        <tr className="border-b border-ink">
-                          <th className="kicker text-left pb-3">Dimensie</th>
-                          <th className="kicker text-right pb-3">Jij</th>
-                          <th className="kicker text-right pb-3">Cohort</th>
-                          <th className="kicker text-right pb-3">Δ</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {DIMENSIONS.map((d) => {
-                          const yours = result.dimensions[d.id];
-                          const avg = cohort.averageDimensions[d.id];
-                          const delta = avg - yours;
-                          const sign = delta > 0 ? "+" : delta < 0 ? "" : "±";
-                          return (
-                            <tr key={d.id} className="border-b border-rule">
-                              <td className="py-3 text-sm text-ink">{d.label}</td>
-                              <td className="py-3 mono tabular-nums text-sm text-ink-2 text-right">
-                                {Math.round(yours)}
-                              </td>
-                              <td className="py-3 mono tabular-nums text-sm text-ink-2 text-right">
-                                {Math.round(avg)}
-                              </td>
-                              <td
-                                className={`py-3 mono tabular-nums text-sm text-right ${
-                                  Math.abs(delta) > 5
-                                    ? delta > 0
-                                      ? "text-navy"
-                                      : "text-terra"
-                                    : "text-ink-muted"
-                                }`}
-                              >
-                                {sign}
-                                {Math.round(delta)}
-                              </td>
-                            </tr>
-                          );
-                        })}
-                      </tbody>
-                    </table>
-                  </ScrollRevealItem>
-                  <ScrollRevealItem>
-                    <div className="mt-6">
-                      <Link
-                        href="/typology"
-                        className="text-sm text-ink-2 hover:text-navy"
-                      >
-                        Bekijk alle typology-clusters →
-                      </Link>
-                    </div>
-                  </ScrollRevealItem>
-                </ScrollReveal>
-              </section>
-            )}
 
             {/* SECTIE 5 · PARADOXEN */}
             <section
@@ -817,6 +730,7 @@ export default async function ResultPage({ params }: Args) {
                       shareId={result.shareId}
                       ideologyName={ideo.name}
                     />
+                    <DeleteResultButton shareId={result.shareId} />
                   </div>
                 </ScrollRevealItem>
 

@@ -309,12 +309,10 @@ export default function VoorwaardenPage() {
             <p>
               Door op &lsquo;Bekijk mijn profiel&rsquo; te klikken, een share-link
               te genereren of een formulier te versturen, geef je ons een
-              wereldwijde, niet-exclusieve, royalty-vrije, sublicentieerbare
-              en overdraagbare licentie om de geanonimiseerde gegevens te
-              gebruiken voor: het tonen van jouw resultaatpagina, het
-              berekenen van cohort-aggregaten, het verbeteren van de dienst
-              en wetenschappelijk of journalistiek onderzoek in geaggregeerde
-              vorm.
+              beperkte, niet-exclusieve licentie om de gegevens te verwerken
+              voor het aanmaken, tonen en technisch beheren van jouw
+              resultaatpagina. We gebruiken quizresultaten niet om openbare
+              cohorten, archetypen of gedragsprofielen van bezoekers te maken.
             </p>
             <p>
               Deze licentie strekt zich niet uit tot direct identificerende

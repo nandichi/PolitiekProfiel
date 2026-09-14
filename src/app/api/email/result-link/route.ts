@@ -2,10 +2,10 @@ import { NextResponse } from "next/server";
 import { getResult } from "@/lib/results-store";
 import { isValidEmail, sendEmail } from "@/lib/email";
 import { ResultLinkEmail, resultLinkEmailText } from "@/emails/ResultLinkEmail";
+import { isShareId } from "@/lib/share-id";
 
 export const runtime = "nodejs";
 
-const SHARE_ID_PATTERN = /^[A-Za-z0-9_-]{6,32}$/;
 
 // Eenvoudige in-memory rate limiter per Vercel-instance: max 5 requests per IP
 // per 60 seconden. Eerste verdedigingslinie tegen misbruik (mailbom naar
@@ -79,7 +79,7 @@ export async function POST(request: Request) {
   const shareId = typeof body.shareId === "string" ? body.shareId.trim() : "";
   const email = typeof body.email === "string" ? body.email.trim() : "";
 
-  if (!SHARE_ID_PATTERN.test(shareId)) {
+  if (!isShareId(shareId)) {
     return NextResponse.json(
       { error: "Ongeldige resultaat-ID." },
       { status: 400 },

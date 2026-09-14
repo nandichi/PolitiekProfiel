@@ -16,6 +16,7 @@ const LINK_HEADER_HOMEPAGE = [
 const PRIVATE_RESULT_HEADERS = [
   { key: "Cache-Control", value: "private, no-store" },
   { key: "X-Robots-Tag", value: "noindex, nofollow" },
+  { key: "Referrer-Policy", value: "no-referrer" },
 ];
 
 const nextConfig: NextConfig = {

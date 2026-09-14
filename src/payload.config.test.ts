@@ -23,6 +23,22 @@ describe("Payload data minimisation", () => {
     expect(resultsStore).not.toContain("attemptId");
   });
 
+  it("does not retain obsolete tracking views in the generated admin import map", () => {
+    const importMap = fs.readFileSync(
+      path.join(
+        process.cwd(),
+        "src",
+        "app",
+        "(payload)",
+        "admin",
+        "importMap.js",
+      ),
+      "utf8",
+    );
+
+    expect(importMap).not.toContain("@/admin-tracking/");
+  });
+
   it("does not send a browser attempt identifier with quiz results", () => {
     const quizEngine = fs.readFileSync(
       path.join(process.cwd(), "src", "components", "QuizEngine.tsx"),

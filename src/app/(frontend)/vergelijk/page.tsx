@@ -13,8 +13,9 @@ import { getIdeologyBySlug } from "@/lib/result-data";
 import { DIMENSIONS } from "@/lib/dimensions";
 import { CompareLookup } from "@/components/CompareLookup";
 import { buildBreadcrumbList, jsonLdString } from "@/lib/structured-data";
+import { PRIVATE_RESULT_QUERY_ROBOTS } from "@/lib/result-privacy";
 
-export const metadata: Metadata = {
+const PUBLIC_METADATA: Metadata = {
   title: "Vergelijk",
   description:
     "Twee politieke profielen naast elkaar. Vergelijk jouw resultaat met dat van een vriend, een politicus of een ideologie op de vijf onafhankelijke dimensies.",
@@ -29,6 +30,13 @@ export const metadata: Metadata = {
 };
 
 type Args = { searchParams: Promise<{ a?: string; b?: string }> };
+
+export async function generateMetadata({ searchParams }: Args): Promise<Metadata> {
+  const { a, b } = await searchParams;
+  return a || b
+    ? { ...PUBLIC_METADATA, robots: PRIVATE_RESULT_QUERY_ROBOTS }
+    : PUBLIC_METADATA;
+}
 
 export default async function ComparePage({ searchParams }: Args) {
   const params = await searchParams;

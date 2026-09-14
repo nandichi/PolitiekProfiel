@@ -16,13 +16,14 @@ import {
   jsonLdString,
 } from "@/lib/structured-data";
 import { EvolutionPicker } from "@/components/evolution/EvolutionPicker";
+import { PRIVATE_RESULT_QUERY_ROBOTS } from "@/lib/result-privacy";
 
 const PAGE_PATH = "/evolutie";
 const PAGE_TITLE = "Politieke evolutie";
 const PAGE_DESCRIPTION =
   "Plak meerdere share-IDs en zie hoe je politieke vector zich over de tijd ontwikkelt. Geen account en geen server-opslag van de keten; jij beheert de ID-lijst lokaal.";
 
-export const metadata: Metadata = {
+const PUBLIC_METADATA: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   alternates: { canonical: PAGE_PATH },
@@ -37,6 +38,15 @@ export const metadata: Metadata = {
 
 interface PageProps {
   searchParams: Promise<{ ids?: string }>;
+}
+
+export async function generateMetadata({
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  const { ids } = await searchParams;
+  return ids
+    ? { ...PUBLIC_METADATA, robots: PRIVATE_RESULT_QUERY_ROBOTS }
+    : PUBLIC_METADATA;
 }
 
 function parseIds(input?: string): string[] {

@@ -7,6 +7,20 @@ const MARKDOWN_PATHS: Record<string, string> = {
   "/privacy": "privacy",
 };
 
+const PRIVATE_RESULT_QUERY_KEYS: Record<string, string[]> = {
+  "/vergelijk": ["a", "b"],
+  "/evolutie": ["ids"],
+  "/coalitie": ["r"],
+};
+
+function privateResultResponse(): NextResponse {
+  const response = NextResponse.next();
+  response.headers.set("Cache-Control", "private, no-store");
+  response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+  response.headers.set("Referrer-Policy", "no-referrer");
+  return response;
+}
+
 interface AcceptEntry {
   type: string;
   q: number;
@@ -54,6 +68,12 @@ function wantsMarkdown(accept: string | null): boolean {
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const privateKeys = PRIVATE_RESULT_QUERY_KEYS[pathname];
+
+  if (privateKeys?.some((key) => request.nextUrl.searchParams.has(key))) {
+    return privateResultResponse();
+  }
+
   const slug = MARKDOWN_PATHS[pathname];
 
   if (!slug) {
@@ -72,5 +92,12 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/methodiek", "/privacy"],
+  matcher: [
+    "/",
+    "/methodiek",
+    "/privacy",
+    "/vergelijk",
+    "/evolutie",
+    "/coalitie",
+  ],
 };

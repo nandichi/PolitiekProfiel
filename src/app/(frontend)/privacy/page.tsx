@@ -183,12 +183,12 @@ export default function PrivacyPage() {
               resultatenlijst en blokkeren rechtstreekse databasetoegang voor bezoekers.
             </p>
             <p>
-              Wil je een resultaat laten verwijderen? Stuur via het{" "}
+              Wil je een resultaat verwijderen? Gebruik de knop onderaan de
+              resultaatpagina. Daarmee wordt het actieve resultaat direct
+              verwijderd en werkt de share-link niet meer. Voor hulp kun je ook
+              het{" "}
               <Link href="/contact" className="underline">contactformulier</Link>{" "}
-              de share-ID of de volledige link. We bevestigen de ontvangst en
-              behandelen het verzoek zo snel mogelijk. Resultaten verlopen nu
-              niet automatisch; vraag verwijdering als je de link niet wilt
-              behouden.
+              gebruiken. Resultaten verlopen niet automatisch.
             </p>
           </Block>
 
