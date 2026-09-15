@@ -6,7 +6,7 @@ import { firestore } from "@/lib/firebase-admin";
 import { payload } from "@/lib/payload";
 import type { DimensionScores } from "@/lib/scoring";
 import type { AnswerValue, Tier } from "@/lib/dimensions";
-import type { ThemeScores } from "@/lib/themes";
+import type { ThemeId, ThemeScores } from "@/lib/themes";
 import type { DimensionConfidence } from "@/lib/confidence";
 
 export interface StoredParadox {
@@ -29,6 +29,8 @@ export interface StoredResult {
   ideologySlug: string;
   dimensions: DimensionScores;
   themeScores?: ThemeScores;
+  /** Aantal beantwoorde vragen per thema. Bepaalt wat we over een thema mogen beweren. */
+  themeCoverage?: Partial<Record<ThemeId, number>>;
   confidence?: DimensionConfidence;
   paradoxes?: StoredParadox[];
   answers?: StoredAnswer[];
@@ -70,6 +72,8 @@ export async function createResult(input: {
   ideologySlug: string;
   dimensions: DimensionScores;
   themeScores?: ThemeScores;
+  /** Aantal beantwoorde vragen per thema. Bepaalt wat we over een thema mogen beweren. */
+  themeCoverage?: Partial<Record<ThemeId, number>>;
   confidence?: DimensionConfidence;
   paradoxes?: StoredParadox[];
   answers?: StoredAnswer[];
@@ -86,6 +90,7 @@ export async function createResult(input: {
     ideologySlug: input.ideologySlug,
     dimensions: input.dimensions,
     themeScores: input.themeScores,
+    themeCoverage: input.themeCoverage,
     confidence: input.confidence,
     paradoxes: input.paradoxes,
     answers: input.answers,
@@ -141,6 +146,9 @@ export async function createResult(input: {
         ideologySlug: input.ideologySlug,
         dimensions: input.dimensions,
         themeScores: input.themeScores,
+        // Payload bewaart de themadekking niet: dat vraagt een schemawijziging
+        // en een migratie, en Payload is hier alleen nog terugvaloptie voor oude
+        // rapporten. Zonder dekking tonen die pagina's de score zonder dekkingclaim.
         confidence: input.confidence,
         paradoxes: paradoxesForPayload,
         answers: input.answers?.filter(
@@ -172,6 +180,9 @@ export async function getResult(shareId: string): Promise<StoredResult | null> {
       ideologySlug: String(data.ideologySlug),
       dimensions: data.dimensions as DimensionScores,
       themeScores: data.themeScores as ThemeScores | undefined,
+    themeCoverage: data.themeCoverage as
+      | Partial<Record<ThemeId, number>>
+      | undefined,
       confidence: data.confidence as DimensionConfidence | undefined,
       paradoxes: Array.isArray(data.paradoxes)
         ? (data.paradoxes as StoredParadox[])
@@ -201,6 +212,7 @@ export async function getResult(shareId: string): Promise<StoredResult | null> {
     ideologySlug: string;
     dimensions: DimensionScores;
     themeScores?: Partial<ThemeScores>;
+    themeCoverage?: Partial<Record<string, number>>;
     confidence?: Partial<DimensionConfidence>;
     paradoxes?: Array<{
       dimension?: string;
@@ -223,6 +235,9 @@ export async function getResult(shareId: string): Promise<StoredResult | null> {
     dimensions: doc.dimensions,
     themeScores: doc.themeScores
       ? (doc.themeScores as ThemeScores)
+      : undefined,
+    themeCoverage: doc.themeCoverage
+      ? (doc.themeCoverage as Partial<Record<ThemeId, number>>)
       : undefined,
     confidence: doc.confidence
       ? (doc.confidence as DimensionConfidence)

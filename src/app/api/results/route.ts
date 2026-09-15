@@ -229,6 +229,7 @@ export async function POST(request: Request) {
     ideologySlug: best.item.slug,
     dimensions: breakdown.scores,
     themeScores: themeBreakdown.scores,
+    themeCoverage: themeBreakdown.answeredPerTheme,
     confidence: confidence.perDimension,
     paradoxes: paradoxes.map((p) => ({
       dimension: p.dimension,

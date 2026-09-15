@@ -3,24 +3,61 @@
 import { motion, useInView, useReducedMotion } from "motion/react";
 import { useRef } from "react";
 import { THEMES, type ThemeId, type ThemeScores } from "@/lib/themes";
+import { themeCoverageLabel, themeCoverageState } from "@/lib/theme-coverage";
 
 const TICKS = [-100, 0, 100];
 
 interface ThemeBarsProps {
   scores: ThemeScores;
+  /** Aantal beantwoorde vragen per thema, als dat bekend is. */
+  coverage?: Partial<Record<ThemeId, number>>;
 }
 
-export function ThemeBars({ scores }: ThemeBarsProps) {
+export function ThemeBars({ scores, coverage }: ThemeBarsProps) {
   return (
     <div className="border-t border-rule">
-      {THEMES.map((t, i) => (
-        <ThemeRow
-          key={t.id}
-          theme={t.id}
-          value={Number.isFinite(scores[t.id]) ? scores[t.id] : 0}
-          index={i}
-        />
-      ))}
+      {THEMES.map((t, i) =>
+        themeCoverageState(coverage?.[t.id]) === "geen" ? (
+          <ThemeWithoutQuestions key={t.id} theme={t.id} index={i} />
+        ) : (
+          <ThemeRow
+            key={t.id}
+            theme={t.id}
+            value={Number.isFinite(scores[t.id]) ? scores[t.id] : 0}
+            index={i}
+            coverageLabel={themeCoverageLabel(coverage?.[t.id])}
+          />
+        ),
+      )}
+    </div>
+  );
+}
+
+/**
+ * Een thema waarover de quiz niets vroeg. Hier hoort geen cijfer te staan: een
+ * nul zou niet te onderscheiden zijn van een oprecht neutraal antwoord.
+ */
+function ThemeWithoutQuestions({
+  theme,
+  index,
+}: {
+  theme: ThemeId;
+  index: number;
+}) {
+  const meta = THEMES.find((t) => t.id === theme)!;
+  return (
+    <div className="py-6 border-b border-rule last:border-b-0">
+      <div className="flex items-baseline gap-4 min-w-0">
+        <span className="index-num text-xs hidden sm:inline">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <div className="min-w-0">
+          <p className="kicker mb-1">{meta.label}</p>
+          <p className="text-sm text-ink-muted leading-relaxed">
+            Geen vragen over dit thema in jouw quiz.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -29,10 +66,12 @@ function ThemeRow({
   theme,
   value,
   index,
+  coverageLabel,
 }: {
   theme: ThemeId;
   value: number;
   index: number;
+  coverageLabel?: string | null;
 }) {
   const meta = THEMES.find((t) => t.id === theme)!;
   const ref = useRef<HTMLDivElement>(null);
@@ -115,6 +154,10 @@ function ThemeRow({
           <span className="mono ml-1.5 text-[0.65rem]">→</span>
         </span>
       </div>
+
+      {coverageLabel ? (
+        <p className="mt-2 text-xs text-ink-muted">{coverageLabel}</p>
+      ) : null}
     </div>
   );
 }

@@ -538,7 +538,10 @@ export default async function ResultPage({ params }: Args) {
                 {result.themeScores ? (
                   <>
                     <ScrollRevealItem>
-                      <ThemeBars scores={result.themeScores} />
+                      <ThemeBars
+                        scores={result.themeScores}
+                        coverage={result.themeCoverage}
+                      />
                     </ScrollRevealItem>
                     <ScrollRevealItem>
                       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
