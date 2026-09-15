@@ -59,6 +59,7 @@ export interface PartyPositionSet {
 import d66 from "./party-positions/d66.json";
 import christenunie from "./party-positions/christenunie.json";
 import pvv from "./party-positions/pvv.json";
+import cda from "./party-positions/cda.json";
 
 /**
  * De gecodeerde standpunten per partij. Elke partij is één JSON-bestand, zodat
@@ -68,6 +69,7 @@ export const PARTY_POSITIONS: PartyPositionSet[] = [
   d66 as PartyPositionSet,
   christenunie as PartyPositionSet,
   pvv as PartyPositionSet,
+  cda as PartyPositionSet,
 ];
 
 export function getPartyPositionSet(
