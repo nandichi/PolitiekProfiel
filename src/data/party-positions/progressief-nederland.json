@@ -1,0 +1,1312 @@
+{
+ "partySlug": "progressief-nederland",
+ "programmeTitle": "Een nieuwe start voor Nederland – Verkiezingsprogramma 2025 GroenLinks-PvdA (Tweede Kamerverkiezingen 29 oktober 2025)",
+ "programmeUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+ "reviewed": "Alle 163 stellingen uit questions.ts en questions-themes.ts gecontroleerd tegen het verkiezingsprogramma 2025 van GroenLinks-PvdA ('Een nieuwe start voor Nederland'); alleen coderingen op basis van eigen partijpublicaties, geen standpunt verzonnen (25x geen-standpunt).",
+ "positions": [
+  {
+   "statement": "De overheid moet de hoogste inkomens (boven €150.000 per jaar) zwaarder belasten dan nu.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Dit doen we door hogere schijftarieven in te stellen.",
+   "note": ""
+  },
+  {
+   "statement": "Grote bedrijven betalen in Nederland nu te weinig winstbelasting.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Daarom verhogen we de bijdrage van de meest winstgevende bedrijven.",
+   "note": ""
+  },
+  {
+   "statement": "Essentiële diensten zoals openbaar vervoer en zorg horen in publieke handen, niet bij de markt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "In de zorg, het onderwijs, de kinderopvang en het openbaar vervoer moet het algemeen belang voorop staan",
+   "note": ""
+  },
+  {
+   "statement": "Het minimumloon mag verder omhoog naar minimaal €16 per uur, ook als bedrijven dat moeilijk vinden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We verhogen het minimumloon naar 18 euro per uur.",
+   "note": ""
+  },
+  {
+   "statement": "De overheid moet zelf actief sociale huurwoningen blijven bouwen, ook als dat de woningmarkt verstoort.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Gemeenten met een laag aandeel sociale huurwoningen worden verplicht om een nog hoger aandeel te realiseren.",
+   "note": ""
+  },
+  {
+   "statement": "Het is rechtvaardig om vermogen boven €1 miljoen progressief te belasten.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We voeren daarom een miljonairsbelasting in voor de allerrijksten.",
+   "note": ""
+  },
+  {
+   "statement": "Werknemers verdienen meer formele zeggenschap in beslissingen van bedrijven waar ze werken.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We pleiten voor de benoeming van werknemers in de raden van commissarissen.",
+   "note": ""
+  },
+  {
+   "statement": "Een vorm van basisinkomen zou voor iedere volwassene in Nederland mogelijk moeten zijn.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We onderzoeken of het belastingstelsel op termijn vervangen kan worden door een garantieinkomen of basisinkomen.",
+   "note": ""
+  },
+  {
+   "statement": "Lagere belastingen voor bedrijven zijn beter voor de Nederlandse economie.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We maken een einde aan speciale belastingkortingen voor de rijkste Nederlanders en aandeelhouders van multinationals.",
+   "note": ""
+  },
+  {
+   "statement": "De overheid bemoeit zich te veel met de keuzes die bedrijven en burgers maken.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Wij maken de markt nu juist minder dominant.",
+   "note": ""
+  },
+  {
+   "statement": "Werknemers moeten makkelijker ontslagen kunnen worden zodat bedrijven flexibeler zijn.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Het aantal flexibele arbeidscontracten moet overal naar beneden.",
+   "note": ""
+  },
+  {
+   "statement": "Privatisering heeft Nederland over het algemeen welvarender en efficiënter gemaakt.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Provincies worden gestimuleerd en geholpen om het regionale openbaar vervoer weer in eigen hand te nemen.",
+   "note": ""
+  },
+  {
+   "statement": "Een vlaktaks (één belastingtarief voor iedereen) is rechtvaardiger dan progressieve belasting.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Hoe rijker je bent, hoe lager je belastingdruk. Wij draaien dit om.",
+   "note": ""
+  },
+  {
+   "statement": "De zorg werkt het beste met concurrentie tussen private aanbieders en zorgverzekeraars.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Samenwerking staat centraal in plaats van marktwerking en concurrentie.",
+   "note": ""
+  },
+  {
+   "statement": "Strenge milieuregels remmen economische groei en moeten worden versoepeld.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "in Europa strijden we voor hoge milieunormen",
+   "note": ""
+  },
+  {
+   "statement": "De huidige uitkeringen in Nederland zijn aan de hoge kant en moeten naar beneden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We behouden de koppeling van alle uitkeringen aan het minimumloon, zodat we allemaal vooruit kunnen.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet meer asielzoekers opvangen dan nu het geval is.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We nemen daarbij onze eigen verantwoordelijkheid qua opvang, en kiezen ervoor om solidariteit niet af te kopen.",
+   "note": ""
+  },
+  {
+   "statement": "Onderwijs op school moet expliciet aandacht besteden aan diversiteit en LGBTQ+-thema's.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "aandacht voor seksuele diversiteit en genderidentiteit ... verder worden uitgerold over alle scholen in Nederland",
+   "note": ""
+  },
+  {
+   "statement": "Mannen en vrouwen verdienen wettelijk gelijke kansen, ook als dat actieve quota of voorrangsbeleid vraagt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Dicht de loonkloof. Iedereen hoort evenveel te verdienen voor hetzelfde werk.",
+   "note": ""
+  },
+  {
+   "statement": "De positie van het koningshuis moet democratischer worden of zelfs heroverwogen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We streven naar het op termijn invoeren van een parlementaire republiek.",
+   "note": ""
+  },
+  {
+   "statement": "Religieuze symbolen horen niet thuis bij overheidsfuncties (politie, rechter, leerkracht in het openbaar onderwijs).",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Het verbod op religieuze uitingen bij de politie schaffen we af.",
+   "note": ""
+  },
+  {
+   "statement": "Drugs zoals XTC en MDMA zouden onder strikte voorwaarden gereguleerd verkrijgbaar moeten zijn.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We legaliseren softdrugs en breiden de lijst van softdrugs uit met MDMA.",
+   "note": ""
+  },
+  {
+   "statement": "Discriminatie tegen mensen met een migratie-achtergrond is een groot probleem in Nederland.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "In een rechtvaardig land is geen plek voor welke vorm van discriminatie en seksisme dan ook.",
+   "note": ""
+  },
+  {
+   "statement": "Het Sinterklaasfeest moet zich blijven aanpassen aan moderne opvattingen over racisme.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de instroom van asielzoekers fors beperken.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Wie vlucht voor oorlog, geweld of onderdrukking kan in Nederland altijd op bescherming rekenen.",
+   "note": ""
+  },
+  {
+   "statement": "Tradities en culturele wortels van Nederland moeten beter beschermd worden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We zetten ons in om ons cultureel erfgoed te behouden voor toekomstige generaties.",
+   "note": ""
+  },
+  {
+   "statement": "Op scholen moet de Nederlandse cultuur en geschiedenis centraler komen te staan.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We waarborgen aandacht voor onder andere het koloniale verleden, slavernij, de Holocaust",
+   "note": ""
+  },
+  {
+   "statement": "Inburgering voor nieuwkomers moet strenger en sneller verlopen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Cursussen en examens worden volledig door de overheid bekostigd: de lening bij DUO wordt afgeschaft.",
+   "note": ""
+  },
+  {
+   "statement": "Het traditionele gezin als hoeksteen van de samenleving is iets om te koesteren.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Ook in het belastingstelsel streven we naar gelijkheid tussen verschillende vormen van samenleven.",
+   "note": ""
+  },
+  {
+   "statement": "Religieuze instellingen verdienen meer respect en ruimte in het publieke debat.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Genderneutrale taal (zoals 'reizigers' i.p.v. 'dames en heren') gaat te ver.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nationale symbolen zoals vlag en volkslied verdienen een prominentere plek in het openbare leven.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De overheid mag mijn berichten en e-mails niet zonder concrete verdenking inzien.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Overheden en bedrijven mogen niet over onze schouder meelezen in vertrouwelijke communicatie.",
+   "note": ""
+  },
+  {
+   "statement": "End-to-end versleuteling moet beschermd blijven, ook als het politieonderzoek bemoeilijkt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Wij waarborgen het digitaal briefgeheim en leggen het recht om digitaal privégesprekken te voeren via end-to-end encryptie wettelijk vast.",
+   "note": ""
+  },
+  {
+   "statement": "Cameratoezicht in publieke ruimtes is een te grote inbreuk op privacy.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Vreedzame demonstraties moeten worden beschermd, ook als ze de openbare orde tijdelijk verstoren.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Wij staan pal voor het demonstratierecht.",
+   "note": ""
+  },
+  {
+   "statement": "De wet op de inlichtingen- en veiligheidsdiensten geeft de AIVD/MIVD te ruime bevoegdheden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Het verzamelen van inlichtingen gebeurt zo gericht mogelijk.",
+   "note": ""
+  },
+  {
+   "statement": "Kraken zou niet strafbaar moeten zijn als een pand lang leegstaat.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Persoonlijke vrijheden mogen niet worden ingeperkt op basis van ‘aanstootgevendheid’.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We bestrijden (online) vrouwenhaat door gender als grond toe te voegen aan het artikel over groepsbelediging.",
+   "note": ""
+  },
+  {
+   "statement": "Drugsgebruikers horen niet strafrechtelijk vervolgd te worden, maar geholpen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Tegelijkertijd zorgen we voor betere voorlichting over drugs en wordt er accijns geheven over de verkoop.",
+   "note": ""
+  },
+  {
+   "statement": "De politie heeft ruimere bevoegdheden nodig om de veiligheid op straat te garanderen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We zien er beter op toe dat agenten burgers alleen om legitimatie vragen indien daar redelijke grond voor is.",
+   "note": ""
+  },
+  {
+   "statement": "Verdachten van zware criminaliteit moeten preventief vastgehouden kunnen worden, ook zonder sluitend bewijs.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Terreurverdachten moeten ook zonder strafrechtelijke veroordeling hun nationaliteit kunnen verliezen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Cameratoezicht en slimme sensoren maken onze samenleving veiliger en moeten worden uitgebreid.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Onlinediensten moeten verplicht achterdeurtjes bouwen voor opsporingsdiensten.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Voorstellen die andere manieren van chatcontrole mogelijk maken blijven we fel bestrijden.",
+   "note": ""
+  },
+  {
+   "statement": "Demonstraties die de openbare orde verstoren moeten harder worden aangepakt.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Ingrijpen gebeurt alleen wanneer dit strikt noodzakelijk is, zoals bij strafbare feiten.",
+   "note": ""
+  },
+  {
+   "statement": "Strengere straffen werken afschrikwekkend en dienen het algemeen belang.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Straffen moeten meer gericht worden op het voorkomen van recidive",
+   "note": ""
+  },
+  {
+   "statement": "Een verbod op gezichtsbedekkende kleding in publieke ruimtes is gerechtvaardigd.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Meer macht naar de Europese Unie zou Nederland uiteindelijk versterken.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Om besluitvaardig te kunnen zijn schaffen we het veto op meerdere terreinen af.",
+   "note": ""
+  },
+  {
+   "statement": "Belangrijke besluiten over klimaat, migratie en defensie horen op Europees niveau te worden genomen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We pleiten in de EU voor uitbreiding van CBAM, de Europese CO₂-grensheffing.",
+   "note": ""
+  },
+  {
+   "statement": "Gemeentes verdienen meer eigen beleidsruimte en geld, ook als dat tot verschillen tussen regio's leidt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Gemeente- en Provinciefonds groeien mee met de taken die medeoverheden hebben",
+   "note": ""
+  },
+  {
+   "statement": "Een gezamenlijk Europees leger zou een verstandige stap zijn.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Integratie van de krijgsmachten zetten we voort.",
+   "note": ""
+  },
+  {
+   "statement": "Burgers moeten meer directe zeggenschap krijgen via burgerraden of referenda.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Het correctief referendum stelt burgers daarnaast in staat invloed uit te oefenen op landelijk beleid.",
+   "note": ""
+  },
+  {
+   "statement": "Eurobonds en gezamenlijke schulduitgifte versterken Europa als geheel.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We hanteren daarbij geen taboes op nieuwe inkomstenbronnen of het aangaan van gemeenschappelijke schulden.",
+   "note": ""
+  },
+  {
+   "statement": "Een referendum kan een waardevolle aanvulling zijn op de parlementaire democratie.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Het correctief referendum stelt burgers daarnaast in staat invloed uit te oefenen op landelijk beleid.",
+   "note": ""
+  },
+  {
+   "statement": "Provincies en gemeentes verdienen meer financiële zelfstandigheid van Den Haag.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Gemeenten en provincies krijgen structureel voldoende middelen om hun taken uit te voeren",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet zelf bepalen wie er ons land binnenkomt, niet Brussel.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We baseren ons beleid en onze asielwetgeving op het EU asiel- en migratiepact",
+   "note": ""
+  },
+  {
+   "statement": "De Europese Unie heeft te veel macht en moet kleiner worden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "De EU is in een onveilige wereld belangrijker dan ooit voor onze veiligheid, welvaart en welzijn.",
+   "note": ""
+  },
+  {
+   "statement": "Belangrijke nationale beslissingen mogen niet door internationale rechters worden tegengehouden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We blijven pal staan voor het VN-Vluchtelingenverdrag en het recht op subsidiaire bescherming.",
+   "note": ""
+  },
+  {
+   "statement": "Een serieus debat over een Nexit verdient een eerlijke kans in de Tweede Kamer.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Wij staan voor een sociaal en duurzaam Europa, als koploper in een schone wereldeconomie.",
+   "note": ""
+  },
+  {
+   "statement": "Bij conflict tussen Nederlandse wet en EU-recht moet de Nederlandse wet voorgaan.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We voeren het Migratie- en Asielpact van de EU uit en stellen onze wetgeving daarop in.",
+   "note": ""
+  },
+  {
+   "statement": "Het Europees Parlement is te ver van de gewone burger om belangrijke beslissingen te nemen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "versterking van het Europees Parlement als medewetgever en controleur van de Commissie",
+   "note": ""
+  },
+  {
+   "statement": "Centralisatie in Den Haag is efficiënter dan macht overdragen aan provincies.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "De regie terug bij gemeenten.",
+   "note": ""
+  },
+  {
+   "statement": "Internationale verdragen mogen Nederland niet binden tegen de wil van een meerderheid.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Wij kijken niet passief toe wanneer het internationaal recht met voeten wordt getreden.",
+   "note": ""
+  },
+  {
+   "statement": "De rechtspraak in Nederland werkt over het algemeen onafhankelijk en eerlijk.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We versterken onze democratische rechtsstaat en kiezen voor een sterke rechtspraak, vrije pers en stevige democratische controle.",
+   "note": ""
+  },
+  {
+   "statement": "Nederlandse wetenschappers en experts zijn over het algemeen te vertrouwen op hun vakgebied.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Academische vrijheid is van fundamenteel belang voor goede wetenschapsbeoefening",
+   "note": ""
+  },
+  {
+   "statement": "Onze verkiezingen verlopen eerlijk en zijn betrouwbaar.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De NPO en kwaliteitskranten leveren grotendeels betrouwbare informatie.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Een onafhankelijke en pluriforme publieke mediadienst is een onmisbaar onderdeel van ons democratisch bestel.",
+   "note": ""
+  },
+  {
+   "statement": "Toezichthouders zoals AFM, DNB, NZa en ACM doen hun werk over het algemeen goed.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Daarom versterken we de positie van onze toezichthouders met mensen en middelen.",
+   "note": ""
+  },
+  {
+   "statement": "Het RIVM en andere kennisinstituten verdienen vertrouwen, ook bij omstreden adviezen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Het democratische stelsel met partijen, parlement en regering is nog steeds het beste systeem dat we hebben.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Leve de democratie. Democratie is een groot goed.",
+   "note": ""
+  },
+  {
+   "statement": "Politici zijn over het algemeen mensen die zich oprecht inzetten voor het algemeen belang.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De gevestigde media verzwijgen of vertekenen belangrijke onderwerpen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Onafhankelijke media zijn onmisbaar in een democratie.",
+   "note": ""
+  },
+  {
+   "statement": "De overheid heeft tijdens de coronacrisis fouten gemaakt waarover ze nooit eerlijk zal zijn.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Politici zijn vooral bezig met hun eigen carrière, niet met het landsbelang.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Big tech en multinationals hebben meer macht dan democratisch gekozen regeringen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Dominante bedrijven mogen niet langer de vrije hand hebben in het opkopen van de concurrentie",
+   "note": ""
+  },
+  {
+   "statement": "Wetenschappelijk onderzoek wordt te veel gestuurd door commerciële of politieke belangen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "de vrijheid van onderzoekers om naar eigen inzicht onderzoek te doen ... zonder druk van buitenaf",
+   "note": ""
+  },
+  {
+   "statement": "Banken en de financiële sector zijn nooit echt verantwoordelijk gehouden na de kredietcrisis.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Het toeslagenschandaal toont aan dat onze instituties fundamenteel niet deugen.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Door een overheid die burgers niet beschermt, maar verpulvert, zoals bij de toeslagenaffaire",
+   "note": ""
+  },
+  {
+   "statement": "De rechtspraak laat in haar uitspraken vaker politieke voorkeuren meewegen dan recht.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Onafhankelijke rechtspraak. Rechters moeten vrijheid hebben bij het bepalen van de strafmaat.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de klimaatdoelen aanscherpen, ook als dat ten koste gaat van economische groei op de korte termijn.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Om dat te bereiken streven we naar 65% CO₂-reductie in 2030.",
+   "note": ""
+  },
+  {
+   "statement": "Vlees en zuivel moeten zwaarder belast worden om de uitstoot omlaag te krijgen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Kernenergie hoort een centrale rol te spelen in de Nederlandse energiemix.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Geen publiek geld voor kerncentrales. Kernenergie is een te dure technologie",
+   "note": ""
+  },
+  {
+   "statement": "De overheid moet vervuilende industrie versneld sluiten als ze niet snel genoeg verduurzaamt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Voor grootvervuilers die niet tijdig verduurzamen is geen plek in ons land.",
+   "note": ""
+  },
+  {
+   "statement": "De boeren hebben in Nederland te veel concessies hoeven doen voor het klimaatbeleid.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Dat leidt onvermijdelijk tot een krimp van de veestapel en een einde aan de bio-industrie.",
+   "note": ""
+  },
+  {
+   "statement": "Korte vluchten binnen Europa moeten verboden worden als er een treinverbinding bestaat.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We stoppen met nachtvluchten en vluchten waarvoor een alternatieve treinverbinding bestaat.",
+   "note": ""
+  },
+  {
+   "statement": "Rijden in een privé-auto op fossiele brandstof moet over tien jaar onmogelijk zijn.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Zo zorgen we ervoor dat in Nederland vanaf 2030 alleen nog elektrische voertuigen worden verkocht",
+   "note": ""
+  },
+  {
+   "statement": "De klimaatcrisis verdient méér aandacht in het onderwijs dan ze nu krijgt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Subsidies op zonnepanelen en warmtepompen moeten verder uitgebreid worden voor lage inkomens.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We komen in de tussentijd kwetsbare huishoudens tegemoet met een structureel energienoodfonds",
+   "note": ""
+  },
+  {
+   "statement": "Nederland mag klimaatdoelen niet opofferen voor internationale concurrentie, zelfs als andere landen achterblijven.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "met de afbouw van Nederlandse fossiele subsidies wachten we niet op Europa",
+   "note": ""
+  },
+  {
+   "statement": "Het eigen risico in de zorgverzekering moet afgeschaft worden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We schaffen het eigen risico stapsgewijs af.",
+   "note": ""
+  },
+  {
+   "statement": "Winstuitkering in de zorgsector moet wettelijk verboden worden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We scherpen daarom het winstverbod in de zorg aan.",
+   "note": ""
+  },
+  {
+   "statement": "De geestelijke gezondheidszorg verdient een veel groter aandeel van het zorgbudget.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We investeren in het terugdringen van de lange wachtlijsten in de ggz.",
+   "note": ""
+  },
+  {
+   "statement": "Zorgverzekeraars moeten verdwijnen en de zorg moet weer puur publiek gefinancierd worden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We pakken de doorgeschoten marktwerking aan en passen het zorgstelsel aan zodat samenwerking loont.",
+   "note": ""
+  },
+  {
+   "statement": "Mensen moeten meer eigen verantwoordelijkheid nemen voor hun gezondheid (sporten, dieet, niet roken), ook als dat hun zorgkosten beïnvloedt.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We leggen geen rekening neer bij mensen die ziek worden.",
+   "note": ""
+  },
+  {
+   "statement": "Mantelzorgers verdienen een financiële vergoeding van de overheid.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Werknemers krijgen recht op mantelzorg met een vergoeding, en het kortdurende mantelzorgverlof wordt uitgebreid.",
+   "note": ""
+  },
+  {
+   "statement": "Een patiënt heeft het recht om bij ondraaglijk lijden zelf voor euthanasie te kiezen, ook bij dementie of voltooid leven.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Wie ondraaglijk en uitzichtloos lijdt ... kan een beroep doen op het recht op zelfbeschikking.",
+   "note": ""
+  },
+  {
+   "statement": "Preventie en leefstijl horen een veel groter deel van het zorgbudget te krijgen, ook als curatieve zorg moet inleveren.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Om ieders gezondheid te verbeteren, zetten we in op preventie, vroegsignalering en samenwerking.",
+   "note": ""
+  },
+  {
+   "statement": "Verpleegkundigen en zorgmedewerkers verdienen aanzienlijk meer salaris, zelfs als dat de premie verhoogt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "we zorgen voor een fatsoenlijk loon en goede arbeidsvoorwaarden voor mensen die in de zorg en het onderwijs werken",
+   "note": ""
+  },
+  {
+   "statement": "Mensen die zelf bewust ongezond leven, moeten een hogere zorgpremie betalen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Mensen gaan minder premies betalen en we financieren een groter deel collectief.",
+   "note": ""
+  },
+  {
+   "statement": "Het aantal asielzoekers dat Nederland jaarlijks opvangt moet expliciet aan een maximum gebonden worden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We spannen ons in de EU maximaal in voor een eerlijke verdeling van vluchtelingen over de lidstaten.",
+   "note": ""
+  },
+  {
+   "statement": "Wie naar Nederland komt, moet vanaf dag één Nederlands leren en de wet kennen, op straffe van consequenties voor verblijf.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Wij willen dat taallessen ook na ontheffing worden aangeboden.",
+   "note": ""
+  },
+  {
+   "statement": "Arbeidsmigratie binnen de EU moet beperkt worden om Nederlandse arbeiders en huisvesting te beschermen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Wij sturen op minder arbeidsmigratie.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet meer doen om vluchtelingen op te vangen die op de grens van Europa stranden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "De opvang van vluchtelingen in de regio wordt beter ondersteund",
+   "note": ""
+  },
+  {
+   "statement": "Kennismigranten met een hoog inkomen moeten andere fiscale regels krijgen dan andere migranten.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "De belastingkorting voor kennismigranten, de expatregeling, bouwen we af.",
+   "note": ""
+  },
+  {
+   "statement": "Migranten zonder verblijfsstatus (ongedocumenteerden) horen recht te hebben op basiszorg en onderdak.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Wij verbeteren de toegankelijkheid voor chronisch zieken, onverzekerden en mensen met een kleine beurs",
+   "note": ""
+  },
+  {
+   "statement": "Inburgering, asielprocedures en migratie horen Europees geregeld te worden, niet alleen nationaal.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We voeren het Migratie- en Asielpact van de EU uit en stellen onze wetgeving daarop in.",
+   "note": ""
+  },
+  {
+   "statement": "Iedereen die ergens fout in Nederland is geboren, moet automatisch Nederlander zijn (ius soli).",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Religieuze symbolen (zoals hoofddoek, keppel, kruis) horen niet thuis bij ambtenaren in publieke functies (politie, rechter).",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Het verbod op religieuze uitingen bij de politie schaffen we af.",
+   "note": ""
+  },
+  {
+   "statement": "Migratiebeperking is een hogere prioriteit dan de invulling van vacatures in de Nederlandse economie.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Soms is arbeidsmigratie nodig om een personeelsvraag in belangrijke sectoren op te vullen",
+   "note": ""
+  },
+  {
+   "statement": "Erfenissen boven €500.000 horen veel zwaarder belast te worden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Gewone erfenissen hoeven niet te worden belast, de belasting op de grote erfenissen gaat omhoog.",
+   "note": ""
+  },
+  {
+   "statement": "Het verschil tussen vast en flex op de arbeidsmarkt moet veel kleiner worden, zelfs als dat ondernemers beperkt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We maken een einde aan de praktijk waarbij werkgevers en uitzendbureaus werknemers voor vast werk onzekere contracten bieden.",
+   "note": ""
+  },
+  {
+   "statement": "Een aanvullende belasting op grote vermogens (>€2 miljoen) is noodzakelijk om de begroting eerlijk te maken.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Als je meer verdient, kun je relatief ook meer bijdragen aan voorzieningen die belangrijk zijn voor ons allemaal.",
+   "note": ""
+  },
+  {
+   "statement": "Pensioenleeftijd mag verder omhoog naar 70 jaar voor wie nu jonger dan 40 is.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De overheid moet veel actiever industriebeleid voeren en strategische sectoren beschermen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Daarom helpen we bedrijven die passen in de schone en eerlijke economie van de toekomst",
+   "note": ""
+  },
+  {
+   "statement": "Multinationals die de Nederlandse fiscaliteit ontwijken horen daarvoor hard aangepakt te worden, ook ten koste van vestigingsklimaat.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Wij gaan belastingontwijking daarom harder aanpakken en maken dergelijke agressieve constructies illegaal.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet veel agressiever bezuinigen om de staatsschuld omlaag te krijgen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Wie denkt dat harde bezuinigingen op de korte termijn verstandig zijn, heeft het mis.",
+   "note": ""
+  },
+  {
+   "statement": "Een 32-urige werkweek moet de norm worden in plaats van 40 uur.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Daarom streven we naar een 32-urige werkweek, met behoud van inkomen",
+   "note": ""
+  },
+  {
+   "statement": "De Nederlandse economie hoort meer op groen ondernemerschap te wedden, ook al kost dat traditionele banen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We maken van Nederland een koploper in duurzame economie.",
+   "note": ""
+  },
+  {
+   "statement": "Het is meer rechtvaardig om ondernemers fiscaal te belonen dan om werknemers extra te beschermen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We maken werken lonend, door de belasting op inkomen uit arbeid te verlagen.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland hoort meer bevoegdheden over te dragen aan de EU op het gebied van defensie en buitenlands beleid.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Defensie moet een gedeelde EU-competentie worden",
+   "note": ""
+  },
+  {
+   "statement": "Er moet een vetorecht behouden blijven voor nationale parlementen op alle grote EU-besluiten.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "minder veto's op Europees belasting- en buitenlandbeleid",
+   "note": ""
+  },
+  {
+   "statement": "Een rijkere EU-lidstaat zoals Nederland hoort ruimhartig bij te dragen aan een sterk EU-budget.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Een sterkere en meer gefocuste EU-begroting is nodig de komende jaren.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de optie van vertrek uit de EU bespreekbaar houden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "De EU dient hervormd en verder gedemocratiseerd te worden.",
+   "note": ""
+  },
+  {
+   "statement": "De EU moet meer macht krijgen om in te grijpen wanneer een lidstaat de rechtsstaat ondermijnt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Het moet makkelijker worden om het stemrecht van lidstaten op te schorten en subsidies te bevriezen.",
+   "note": ""
+  },
+  {
+   "statement": "Europese verkiezingen verdienen veel meer aandacht dan ze nu in Nederland krijgen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De EU is uiteindelijk meer in het belang van bedrijven dan van gewone burgers.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Corruptie, fraude, buitenlandse beïnvloeding en ondoorzichtige lobby’s moeten stevig worden aangepakt.",
+   "note": ""
+  },
+  {
+   "statement": "Europese minimumlonen en sociale standaarden moeten in alle lidstaten gelden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We pleiten voor een sociale vooruitgangsclausule in Europese verdragen die sociale rechten beschermt.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet zich aansluiten bij landen die de uitbreiding van de EU naar de Balkan tegenhouden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "De landen op de Westelijke Balkan moeten een realistisch uitzicht hebben op lidmaatschap.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland hoort koploper te zijn in een sterk Europees klimaatbeleid, ook al kost dat economisch geld.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Ook in Europa is dit onze inzet.",
+   "note": ""
+  },
+  {
+   "statement": "Een referendum over belangrijke wetten moet eenvoudig te organiseren zijn voor burgers.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Het correctief referendum stelt burgers in staat invloed uit te oefenen op landelijk beleid.",
+   "note": ""
+  },
+  {
+   "statement": "Rechters moeten wetten van het parlement aan de Grondwet kunnen toetsen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We geven burgers het recht om een wet te laten toetsen aan de Grondwet",
+   "note": ""
+  },
+  {
+   "statement": "Het Nederlandse kiesstelsel hoort district-elementen te bevatten zodat kiezers een persoonlijker stem hebben.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Het kiesstelsel blijft onveranderd.",
+   "note": ""
+  },
+  {
+   "statement": "Politieke partijen moeten verplicht hun financiering volledig openbaar maken.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Giften boven de 1500 euro worden openbaar gemaakt en moeten te herleiden zijn naar een persoon.",
+   "note": ""
+  },
+  {
+   "statement": "De macht van de minister-president moet uitgebreid worden zodat regeren slagvaardiger wordt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Publieke omroep (NPO) is een onmisbaar tegengewicht tegen de macht van commerciële media.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We gaan voor een stevige publieke omroep, met een pluriform aanbod en een broedplaats voor talent.",
+   "note": ""
+  },
+  {
+   "statement": "Wetenschappers horen zich vooral terughoudend op te stellen in politieke discussies.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We ondersteunen buitenlandse klimaatwetenschappers die bijvoorbeeld in de VS hun werk niet meer kunnen doen.",
+   "note": ""
+  },
+  {
+   "statement": "Lokale gemeenten verdienen meer eigen geld en bevoegdheden dan ze nu hebben.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We stimuleren het delen van kennis en expertise tussen gemeenten en provincies",
+   "note": ""
+  },
+  {
+   "statement": "De achtergrond van politici en bestuurders weerspiegelt de samenleving onvoldoende.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "De overheid geeft het goede voorbeeld met diverse en inclusieve benoemingen",
+   "note": ""
+  },
+  {
+   "statement": "Een burgerberaad met door loting gekozen burgers hoort bindende invloed te krijgen op grote beslissingen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Beleggers moeten geweerd worden van de markt voor betaalbare koopwoningen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "In het hele land komt er een opkoopbescherming die starters beschermt.",
+   "note": ""
+  },
+  {
+   "statement": "De Wet betaalbare huur moet uitgebreid worden tot meer woningen en hogere huurklassen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "De wettelijke bescherming tegen woekerhuren gaat gelden voor alle huurwoningen.",
+   "note": ""
+  },
+  {
+   "statement": "Bouwen in groene gebieden moet mogelijk worden gemaakt om de woningnood op te lossen.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Pas wanneer die ruimte benut is, komen uitbreidingslocaties in beeld.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet veel meer publieke woningbouwgrond zelf in eigendom houden om speculatie tegen te gaan.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Daarom gaan we actief grond opkopen zodat grond weer in publieke handen komt",
+   "note": ""
+  },
+  {
+   "statement": "Een sterke woningcorporatie hoort weer een dominante speler te zijn in de Nederlandse woningmarkt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "De Woningbouwcorporaties Nieuwe Stijl gaan bouwen voor de sociale meerderheid.",
+   "note": ""
+  },
+  {
+   "statement": "Hypotheekrenteaftrek hoort verder afgebouwd te worden om de huizenmarkt eerlijker te maken.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Daarom gaan we de hypotheekrenteaftrek stapsgewijs afbouwen.",
+   "note": ""
+  },
+  {
+   "statement": "Statushouders horen niet langer voorrang te krijgen op sociale huurwoningen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We draaien de aanscherpingen van de voorrangsregeling voor statushouders daarom terug.",
+   "note": ""
+  },
+  {
+   "statement": "Vakantiewoningen in toeristische gebieden mogen niet ten koste gaan van permanent wonen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nieuwbouw hoort veel meer in een hoog tempo via prefab en industriële bouw te gaan, ook al kost dat architectonische kwaliteit.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De prioriteit bij de woningmarkt moet liggen bij starters en jonge gezinnen, niet bij doorstromers.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Zo krijgen starters en de middenklasse toegang tot betaalbare woningen.",
+   "note": ""
+  },
+  {
+   "statement": "De Europese AI-verordening (AI Act) is een goede zaak, ook als dat innovatie kan vertragen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We verbieden riskante AI-systemen, zoals systemen voor realtime-gezichts- of emotieherkenning.",
+   "note": ""
+  },
+  {
+   "statement": "De overheid moet werkenden actief beschermen tegen banenverlies door AI, ook als dat extra belastinggeld kost.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We willen volledige inspraak van medewerkers over de manier waarop AI-toepassingen worden ingezet op de werkvloer.",
+   "note": ""
+  },
+  {
+   "statement": "AI-bedrijven moeten verplicht hun trainingsdata openbaar maken zodat makers van content kunnen controleren of hun werk is gebruikt.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Data voor het trainen van AI-modellen mag alleen zonder dwang of drang en met expliciete toegang verkregen zijn.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de NAVO-norm van 5% bbp voor defensie volledig overnemen, ook als dat ten koste gaat van zorg of onderwijs.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We betalen de hogere defensie-uitgaven niet met bezuinigen op zorg, onderwijs, sociale zekerheid en pensioenen.",
+   "note": ""
+  },
+  {
+   "statement": "Europa moet zo snel mogelijk een eigen defensie opbouwen die niet afhankelijk is van de Verenigde Staten.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Europa zal zo spoedig mogelijk voor zijn eigen veiligheid moeten kunnen zorgen.",
+   "note": ""
+  },
+  {
+   "statement": "De dienstplicht moet weer geactiveerd worden om de Nederlandse krijgsmacht op sterkte te brengen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We voeren niet opnieuw een opkomstplicht in",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet doorgaan met militaire en financiële steun aan Oekraïne, ook als dat onze eigen begroting onder druk zet.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Nederland moet een leidende rol spelen in de militaire, financiële en humanitaire steun aan Oekraïne.",
+   "note": ""
+  },
+  {
+   "statement": "Sociale media zoals TikTok en Instagram moeten verboden worden voor kinderen onder de 15 jaar.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We zijn voor (gedifferentieerde) adviesleeftijden voor sociale media die verslavende algoritmen gebruiken.",
+   "note": ""
+  },
+  {
+   "statement": "Smartphones en tablets horen tijdens schooluren volledig de klas uit, op alle niveaus.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Leerlingen gebruiken tijdens de les alleen door school beheerde apparaten (geen privételefoons of apparaten)",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de Palestijnse staat erkennen, ook als dat de relatie met Israël onder druk zet.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Nederland gaat direct over tot erkenning van een soevereine Palestijnse staat",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet een eventueel ICC-arrestatiebevel tegen Netanyahu uitvoeren als hij Nederlands grondgebied zou betreden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Nederland voert de arrestatiebevelen van het Internationaal Strafhof uit",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet militaire samenwerking met Israël opschorten zolang er geen overtuigende waarborgen zijn dat die niet bijdraagt aan schendingen van het humanitair oorlogsrecht.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "We schorten het EU-Israël Associatieakkoord volledig op, stoppen de militaire samenwerking",
+   "note": ""
+  },
+  {
+   "statement": "Internationale rechtbanken zoals het ICC en IGH verdienen ons vertrouwen, ook als hun uitspraken Nederlandse bondgenoten ongelegen komen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://groenlinkspvda.nl/wp-content/uploads/2025/10/GroenLinks-PvdA-Verkiezingsprogramma-2025.pdf",
+   "quote": "Nederland sluit zich aan bij de Genocidezaak bij het Internationaal Gerechtshof.",
+   "note": ""
+  }
+ ]
+}

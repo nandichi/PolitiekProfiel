@@ -61,6 +61,7 @@ import christenunie from "./party-positions/christenunie.json";
 import pvv from "./party-positions/pvv.json";
 import cda from "./party-positions/cda.json";
 import vvd from "./party-positions/vvd.json";
+import progressiefNederland from "./party-positions/progressief-nederland.json";
 
 /**
  * De gecodeerde standpunten per partij. Elke partij is één JSON-bestand, zodat
@@ -72,6 +73,7 @@ export const PARTY_POSITIONS: PartyPositionSet[] = [
   pvv as PartyPositionSet,
   cda as PartyPositionSet,
   vvd as PartyPositionSet,
+  progressiefNederland as PartyPositionSet,
 ];
 
 export function getPartyPositionSet(
