@@ -1,0 +1,1312 @@
+{
+ "partySlug": "vvd",
+ "programmeTitle": "Sterker uit de storm. Keuzes voor een nieuwe tijd met vrijheid, veiligheid en groei (VVD-verkiezingsprogramma Tweede Kamerverkiezingen 29 oktober 2025, definitieve versie)",
+ "programmeUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+ "reviewed": "Alle 163 stellingen uit src/data/questions.ts en src/data/questions-themes.ts gecodeerd op basis van (a) het definitieve VVD-verkiezingsprogramma 2025 'Sterker uit de storm' (PDF, 91 pagina's, vvd.nl) en (b) het feitelijke stemgedrag van de VVD-fractie in de Tweede Kamer, ontsloten via de officiële OData-API van het Tweede Kamer-gegevensmagazijn (gegevensmagazijn.tweedekamer.nl, entiteiten Besluit/Zaak/Stemming) en geverifieerd tegen de stemmingsuitslagen op tweedekamer.nl. Elke quote uit het programma is machinaal gecontroleerd op letterlijke aanwezigheid in de programmatekst (0 afwijkingen) en telt maximaal 20 woorden; stellingteksten zijn byte-identiek overgenomen uit de bronbestanden (0 mismatches). Verdeling naar codering: 55 eens, 48 oneens, 12 neutraal, 48 geen-standpunt. Verdeling naar basis: 80 programma, 28 beide, 7 stemgedrag, 48 geen-standpunt. Waar programma en stemgedrag van elkaar afwijken is dat expliciet in het veld note vermeld (o.a. stelling 107 over het EU-Asiel- en migratiepact, stelling 112 over vast/flex, stelling 151 over de AI Act en stelling 160 over erkenning van de Palestijnse staat).",
+ "positions": [
+  {
+   "statement": "De overheid moet de hoogste inkomens (boven €150.000 per jaar) zwaarder belasten dan nu.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We gaan stoppen met nog meer nivelleren door werken en ondernemen minder te belasten.",
+   "note": ""
+  },
+  {
+   "statement": "Grote bedrijven betalen in Nederland nu te weinig winstbelasting.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Minder lasten voor ondernemers is onze inzet. Dit geeft ondernemers de ruimte om te investeren, banen te creëren",
+   "note": ""
+  },
+  {
+   "statement": "Essentiële diensten zoals openbaar vervoer en zorg horen in publieke handen, niet bij de markt.",
+   "stance": "oneens",
+   "basis": "stemgedrag",
+   "sourceUrl": "https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P11248",
+   "quote": "Motie van de leden Idsinga en Van der Lee over bewerkstelligen dat de voorbereiding van de privatisering van de Volksbank wordt gestaakt",
+   "note": "VVD stemde tegen (17-06-2025, 2025Z11878). Ook tegen moties om marktwerking in jeugdzorg en kraamzorg terug te dringen (2026Z02143, 2026Z04438). Programma zwijgt over privatisering."
+  },
+  {
+   "statement": "Het minimumloon mag verder omhoog naar minimaal €16 per uur, ook als bedrijven dat moeilijk vinden.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Wij laten deze koppeling los en herstellen het verschil tussen werk en uitkering.",
+   "note": "VVD stemde tegen de motie-Jimmy Dijk om het minimumloon naar €18 per uur te verhogen (12-05-2026, 2026Z08961) en tegen de motie-Van Hijum over minimumloonverhoging (18-09-2025, 2025Z17222). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P06920."
+  },
+  {
+   "statement": "De overheid moet zelf actief sociale huurwoningen blijven bouwen, ook als dat de woningmarkt verstoort.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Ook voor particulieren moet het aantrekkelijk worden om te investeren in huurwoningen en verhuur moet weer lonen.",
+   "note": "Het programma laat bouwen over aan corporaties en marktpartijen; de overheid bouwt niet zelf."
+  },
+  {
+   "statement": "Het is rechtvaardig om vermogen boven €1 miljoen progressief te belasten.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "geen verhogingen van de belastingen op sparen, beleggingen en overige bezittingen (box 3)",
+   "note": "VVD stemde voor de Wet werkelijk rendement box 3 (12-02-2026, 2025Z09723), een hervorming naar werkelijk rendement, niet een progressieve vermogensbelasting. Programma sluit verhogingen van box 3 expliciet uit. Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P02572."
+  },
+  {
+   "statement": "Werknemers verdienen meer formele zeggenschap in beslissingen van bedrijven waar ze werken.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Programma zwijgt over medezeggenschap of werknemerszeggenschap in bedrijfsbesluiten. Motie over informele medezeggenschap (30-06-2026, 2026Z14448) dekt deze stelling niet."
+  },
+  {
+   "statement": "Een vorm van basisinkomen zou voor iedere volwassene in Nederland mogelijk moeten zijn.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Basisinkomen komt niet voor in het verkiezingsprogramma."
+  },
+  {
+   "statement": "Lagere belastingen voor bedrijven zijn beter voor de Nederlandse economie.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Lagere belastingen voor ondernemers: We voorkomen dat de lasten voor ondernemers steeds omhooggaan. Minder lasten voor ondernemers is onze inzet.",
+   "note": ""
+  },
+  {
+   "statement": "De overheid bemoeit zich te veel met de keuzes die bedrijven en burgers maken.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Een streep door knellende regels: we hanteren een meetbare doelstelling om het aantal onnodige regels te verminderen.",
+   "note": ""
+  },
+  {
+   "statement": "Werknemers moeten makkelijker ontslagen kunnen worden zodat bedrijven flexibeler zijn.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Programma zegt niets over het ontslagrecht. Amendement over het laten bestaan van een uitzondering in het ontslagrecht: VVD tegen (27-01-2026, 2026Z00703) - te indirect om een standpunt aan te ontlenen."
+  },
+  {
+   "statement": "Privatisering heeft Nederland over het algemeen welvarender en efficiënter gemaakt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Privatisering of verzelfstandiging wordt in het programma niet geëvalueerd."
+  },
+  {
+   "statement": "Een vlaktaks (één belastingtarief voor iedereen) is rechtvaardiger dan progressieve belasting.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Een vlaktaks wordt in het programma niet genoemd; de VVD spreekt wel van een 'simpeler belastingstelsel' zonder één tarief voor te stellen."
+  },
+  {
+   "statement": "De zorg werkt het beste met concurrentie tussen private aanbieders en zorgverzekeraars.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We stellen zorgverzekeraars en zorgkantoren in staat de doelmatigheid van de zorg verder te verbeteren en de kosten te beperken",
+   "note": "VVD stemde tegen moties om marktwerking in jeugdzorg en kraamzorg terug te dringen (10-02-2026, 2026Z02143; 10-03-2026, 2026Z04438). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P03568."
+  },
+  {
+   "statement": "Strenge milieuregels remmen economische groei en moeten worden versoepeld.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "De Nederlandse economie wordt momenteel enorm belemmerd door stikstof, netcongestie en stroperige vergunningverlening. Het zet onze economie op slot.",
+   "note": ""
+  },
+  {
+   "statement": "De huidige uitkeringen in Nederland zijn aan de hoge kant en moeten naar beneden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "De huidige koppeling tussen minimumloon en uitkeringen zorgt ervoor dat veel werkenden er nooit méér op vooruit mogen gaan",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet meer asielzoekers opvangen dan nu het geval is.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Nationale koppen die het asielbeleid gunstiger maken voor asielzoekers worden zo snel mogelijk afgeschaft.",
+   "note": "VVD stemde voor de Asielnoodmaatregelenwet (04-07-2025, 2025Z04242 en 2025Z04243). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P13100."
+  },
+  {
+   "statement": "Onderwijs op school moet expliciet aandacht besteden aan diversiteit en LGBTQ+-thema's.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "De acceptatie van LHBTIQ+’ers op scholen stimuleren we door initiatieven zoals Paarse Vrijdag te ondersteunen",
+   "note": ""
+  },
+  {
+   "statement": "Mannen en vrouwen verdienen wettelijk gelijke kansen, ook als dat actieve quota of voorrangsbeleid vraagt.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Dit geeft gezinnen meer regie over de balans tussen werk en zorg, vermindert regeldruk voor werkgevers",
+   "note": "Programma steunt gelijke kansen, maar noemt geen quota of voorrangsbeleid."
+  },
+  {
+   "statement": "De positie van het koningshuis moet democratischer worden of zelfs heroverwogen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Koningshuis of monarchie komt niet voor in het programma. VVD stemde tegen moties over belastingplicht en vermogenstransparantie van het Koninklijk Huis (16-12-2025, 2025Z21543 en 2025Z21546), maar dat gaat niet over democratisering."
+  },
+  {
+   "statement": "Religieuze symbolen horen niet thuis bij overheidsfuncties (politie, rechter, leerkracht in het openbaar onderwijs).",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "hoort een uniform voor politieambtenaren en buitengewone opsporingsambtenaren neutraal te zijn, zonder zichtbare symbolen van geloofs- of levensovertuigingen",
+   "note": "Het programma noemt politie en boa's expliciet; rechter en leerkracht niet."
+  },
+  {
+   "statement": "Drugs zoals XTC en MDMA zouden onder strikte voorwaarden gereguleerd verkrijgbaar moeten zijn.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Gereguleerde verkoop van XTC/MDMA staat niet in het programma."
+  },
+  {
+   "statement": "Discriminatie tegen mensen met een migratie-achtergrond is een groot probleem in Nederland.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Elke vorm van discriminatie is onacceptabel en hoort niet thuis in ons land.",
+   "note": ""
+  },
+  {
+   "statement": "Het Sinterklaasfeest moet zich blijven aanpassen aan moderne opvattingen over racisme.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Sinterklaas of Zwarte Piet komt niet voor in het programma."
+  },
+  {
+   "statement": "Nederland moet de instroom van asielzoekers fors beperken.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "De migratiewet verplicht het kabinet om bij een te hoge instroom van asiel- en/of arbeidsmigranten bestuurlijke maatregelen te nemen",
+   "note": "VVD stemde voor de Asielnoodmaatregelenwet (04-07-2025, 2025Z04242 en 2025Z04243). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P13100."
+  },
+  {
+   "statement": "Tradities en culturele wortels van Nederland moeten beter beschermd worden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We ondersteunen organisatoren van volkscultuur beter en maken volkscultuur een volwaardig onderdeel van de culturele basisinfrastructuur.",
+   "note": ""
+  },
+  {
+   "statement": "Op scholen moet de Nederlandse cultuur en geschiedenis centraler komen te staan.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Iedere leerling en student moet de normen en waarden van de Nederlandse rechtstaat kennen en daarnaar handelen.",
+   "note": ""
+  },
+  {
+   "statement": "Inburgering voor nieuwkomers moet strenger en sneller verlopen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Inburgeringsprogramma’s moeten daarom expliciet aandacht besteden aan vrije waarden, zelfbeschikking, antisemitisme, de holocaust en eer-gerelateerd geweld",
+   "note": ""
+  },
+  {
+   "statement": "Het traditionele gezin als hoeksteen van de samenleving is iets om te koesteren.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Het programma noemt gezinnen (verlof, kinderopvang) maar spreekt zich niet uit over het traditionele gezin als hoeksteen."
+  },
+  {
+   "statement": "Religieuze instellingen verdienen meer respect en ruimte in het publieke debat.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Versterkte vocale gebedsoproepen in de openbare ruimte worden in beginsel niet meer toegestaan en verboden.",
+   "note": "Het programma bevat geen passage die religieuze instellingen meer ruimte in het publieke debat geeft; wel beperkingen van religieuze uitingen in de openbare ruimte."
+  },
+  {
+   "statement": "Genderneutrale taal (zoals 'reizigers' i.p.v. 'dames en heren') gaat te ver.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Genderneutrale taal komt niet voor in het programma."
+  },
+  {
+   "statement": "Nationale symbolen zoals vlag en volkslied verdienen een prominentere plek in het openbare leven.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Vlag en volkslied als prominentere symbolen staan niet in het programma."
+  },
+  {
+   "statement": "De overheid mag mijn berichten en e-mails niet zonder concrete verdenking inzien.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We maken de Wet op de inlichtingen- en veiligheidsdiensten (Wiv) toekomstbestendig",
+   "note": ""
+  },
+  {
+   "statement": "End-to-end versleuteling moet beschermd blijven, ook als het politieonderzoek bemoeilijkt.",
+   "stance": "eens",
+   "basis": "stemgedrag",
+   "sourceUrl": "https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P03559",
+   "quote": "Motie van de leden Kathmann en Van den Berg over ondubbelzinnig opkomen voor het recht op end-to-endencryptie en onlineprivacy",
+   "note": "VVD stemde voor (10-03-2026, 2026Z04030). Programma zwijgt over encryptie en chatcontrole."
+  },
+  {
+   "statement": "Cameratoezicht in publieke ruimtes is een te grote inbreuk op privacy.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Er komen daderprofielen en meer cameratoezicht om de handhaving op de strafbaarstelling van straatintimidatie nog effectiever te maken.",
+   "note": "VVD stemde voor de motie over het versneld uitbreiden van mogelijkheden voor gezichtsherkennende camera's (25-09-2025, 2025Z17897). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P16396."
+  },
+  {
+   "statement": "Vreedzame demonstraties moeten worden beschermd, ook als ze de openbare orde tijdelijk verstoren.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We maken een scherper onderscheid tussen (vreedzame) demonstraties en ordeverstorende acties.",
+   "note": "VVD beschermt het demonstratierecht, maar pakt ordeverstoring juist harder aan in plaats van die te accepteren."
+  },
+  {
+   "statement": "De wet op de inlichtingen- en veiligheidsdiensten geeft de AIVD/MIVD te ruime bevoegdheden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We maken de Wet op de inlichtingen- en veiligheidsdiensten (Wiv) toekomstbestendig",
+   "note": ""
+  },
+  {
+   "statement": "Kraken zou niet strafbaar moeten zijn als een pand lang leegstaat.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Hier hoort ook bij dat we kraken harder aanpakken. We verhogen de straffen verder, zorgen voor schadevergoeding aan eigenaren",
+   "note": ""
+  },
+  {
+   "statement": "Persoonlijke vrijheden mogen niet worden ingeperkt op basis van ‘aanstootgevendheid’.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "'Aanstootgevendheid' als grens aan persoonlijke vrijheden wordt in het programma niet geadresseerd."
+  },
+  {
+   "statement": "Drugsgebruikers horen niet strafrechtelijk vervolgd te worden, maar geholpen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Het programma kiest voor preventie en voorlichting over drugsgebruik en voor harde aanpak van drugscriminaliteit, maar zegt niets over decriminalisering van gebruikers."
+  },
+  {
+   "statement": "De politie heeft ruimere bevoegdheden nodig om de veiligheid op straat te garanderen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "ook lichte strafbare feiten zoals lichte winkeldiefstallen zelfstandig af te doen",
+   "note": ""
+  },
+  {
+   "statement": "Verdachten van zware criminaliteit moeten preventief vastgehouden kunnen worden, ook zonder sluitend bewijs.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Preventieve hechtenis zonder sluitend bewijs staat niet in het programma."
+  },
+  {
+   "statement": "Terreurverdachten moeten ook zonder strafrechtelijke veroordeling hun nationaliteit kunnen verliezen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Het programma bevat geen voorstel om het Nederlanderschap van terreurverdachten zonder veroordeling in te trekken."
+  },
+  {
+   "statement": "Cameratoezicht en slimme sensoren maken onze samenleving veiliger en moeten worden uitgebreid.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "plaatsen we camera’s langs landelijke, maar specifiek ook langs kleine wegen in grensregio’s die kentekens registreren",
+   "note": "VVD stemde voor de motie over gezichtsherkennende camera's (25-09-2025, 2025Z17897). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P16396."
+  },
+  {
+   "statement": "Onlinediensten moeten verplicht achterdeurtjes bouwen voor opsporingsdiensten.",
+   "stance": "oneens",
+   "basis": "stemgedrag",
+   "sourceUrl": "https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P03559",
+   "quote": "Motie van de leden Kathmann en Van den Berg over ondubbelzinnig opkomen voor het recht op end-to-endencryptie en onlineprivacy",
+   "note": "VVD stemde voor het beschermen van end-to-endversleuteling (10-03-2026, 2026Z04030), wat zich verzet tegen verplichte achterdeurtjes."
+  },
+  {
+   "statement": "Demonstraties die de openbare orde verstoren moeten harder worden aangepakt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Het blokkeren van wegen door demonstraties voor welke doeleinden dan ook, gaan we strafbaar stellen.",
+   "note": ""
+  },
+  {
+   "statement": "Strengere straffen werken afschrikwekkend en dienen het algemeen belang.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We verhogen de straffen voor (stelselmatige) verkeershufters, onder meer door levenslange rijontzeggingen in te voeren en boetes te verhogen.",
+   "note": ""
+  },
+  {
+   "statement": "Een verbod op gezichtsbedekkende kleding in publieke ruimtes is gerechtvaardigd.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We volgen Frankrijk en België om binnen het Europees recht een totaalverbod in te voeren.",
+   "note": "VVD stemde voor uitbreiding van het boerkaverbod (18-09-2025, 2025Z17211; 23-09-2025, 2025Z16593) en tegen intrekking (02-10-2025, 2025Z18555). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P15777."
+  },
+  {
+   "statement": "Meer macht naar de Europese Unie zou Nederland uiteindelijk versterken.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Wij verzetten ons tegen een sluipende overdracht van nationale bevoegdheden en een federale glijbaan.",
+   "note": "VVD verzet zich tegen een sluipende overdracht van bevoegdheden, maar steunt Europese samenwerking op defensie en economie."
+  },
+  {
+   "statement": "Belangrijke besluiten over klimaat, migratie en defensie horen op Europees niveau te worden genomen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Een opt-out-clausule voor EU-afspraken op gebied van asiel en migratie",
+   "note": ""
+  },
+  {
+   "statement": "Gemeentes verdienen meer eigen beleidsruimte en geld, ook als dat tot verschillen tussen regio's leidt.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We hebben vertrouwen in de lokale democratie en kiezen voor meer bestedingsvrijheid voor gemeenten en provincies",
+   "note": "VVD stemde tegen de motie om bezuinigingen op het Gemeentefonds te schrappen (17-06-2025, 2025Z11849), maar is voor meer bestedingsvrijheid. Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P11245."
+  },
+  {
+   "statement": "Een gezamenlijk Europees leger zou een verstandige stap zijn.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Geen Europees leger, maar een sterke Europese pijler binnen de NAVO",
+   "note": ""
+  },
+  {
+   "statement": "Burgers moeten meer directe zeggenschap krijgen via burgerraden of referenda.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We zijn tegenstander van referenda.",
+   "note": "Het programma steunt een eenmalig verkennend burgerberaad (motie 25-06-2025, 2025Z12745), maar wijst (bindende) referenda af."
+  },
+  {
+   "statement": "Eurobonds en gezamenlijke schulduitgifte versterken Europa als geheel.",
+   "stance": "oneens",
+   "basis": "stemgedrag",
+   "sourceUrl": "https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P11257",
+   "quote": "Motie van de leden Eerdmans en Diederik van Dijk over gezamenlijke schulduitgifte nadrukkelijk uitsluiten bij de MFK- en EMB-onderhandelingen",
+   "note": "VVD stemde voor het uitsluiten van gezamenlijke schulduitgifte (17-06-2025, 2025Z12101) en tegen de motie om eurobonds niet uit te sluiten (17-12-2025, 2025Z22233). Programma zwijgt over eurobonds."
+  },
+  {
+   "statement": "Een referendum kan een waardevolle aanvulling zijn op de parlementaire democratie.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We zijn tegenstander van referenda.",
+   "note": ""
+  },
+  {
+   "statement": "Provincies en gemeentes verdienen meer financiële zelfstandigheid van Den Haag.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We hebben vertrouwen in de lokale democratie en kiezen voor meer bestedingsvrijheid voor gemeenten en provincies",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet zelf bepalen wie er ons land binnenkomt, niet Brussel.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "De meest effectieve plek om illegale migranten tegen te houden is niet aan de nationale grens",
+   "note": ""
+  },
+  {
+   "statement": "De Europese Unie heeft te veel macht en moet kleiner worden.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Wij verzetten ons tegen een sluipende overdracht van nationale bevoegdheden en een federale glijbaan.",
+   "note": "VVD wil geen federale ontwikkeling, maar ook geen kleinere EU: het programma kiest voor een sterkere EU op defensie en economie."
+  },
+  {
+   "statement": "Belangrijke nationale beslissingen mogen niet door internationale rechters worden tegengehouden.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Internationale verdragen worden gemoderniseerd, opvang in de regio wordt de norm",
+   "note": "Het programma wil verdragen herzien en waar nodig aanpassen, maar spreekt zich niet uit tegen toetsing door internationale rechters."
+  },
+  {
+   "statement": "Een serieus debat over een Nexit verdient een eerlijke kans in de Tweede Kamer.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Nexit of EU-vertrek komt niet voor in het programma; er is ook geen stemming over gevonden."
+  },
+  {
+   "statement": "Bij conflict tussen Nederlandse wet en EU-recht moet de Nederlandse wet voorgaan.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "De verhouding tussen nationaal recht en EU-recht wordt in het programma niet behandeld."
+  },
+  {
+   "statement": "Het Europees Parlement is te ver van de gewone burger om belangrijke beslissingen te nemen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Het programma noemt alleen het afschaffen van de dubbele vergaderlocatie van het Europees Parlement, niet de afstand tot de burger."
+  },
+  {
+   "statement": "Centralisatie in Den Haag is efficiënter dan macht overdragen aan provincies.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We hebben vertrouwen in de lokale democratie en kiezen voor meer bestedingsvrijheid voor gemeenten en provincies",
+   "note": ""
+  },
+  {
+   "statement": "Internationale verdragen mogen Nederland niet binden tegen de wil van een meerderheid.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Indien internationale verdragen deze maatregelen belemmeren, werkt Nederland aan aanpassing of opzegging ervan.",
+   "note": ""
+  },
+  {
+   "statement": "De rechtspraak in Nederland werkt over het algemeen onafhankelijk en eerlijk.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We beschermen de kracht en onafhankelijkheid van onder andere de rechterlijke macht, journalistiek en toezichthouders.",
+   "note": ""
+  },
+  {
+   "statement": "Nederlandse wetenschappers en experts zijn over het algemeen te vertrouwen op hun vakgebied.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Vertrouwen in wetenschappers en experts wordt in het programma niet geadresseerd."
+  },
+  {
+   "statement": "Onze verkiezingen verlopen eerlijk en zijn betrouwbaar.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Betrouwbaarheid van het verkiezingsproces staat niet in het programma."
+  },
+  {
+   "statement": "De NPO en kwaliteitskranten leveren grotendeels betrouwbare informatie.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Het programma waardeert de publieke omroep en vrije media, maar zegt niets over de betrouwbaarheid van hun informatie."
+  },
+  {
+   "statement": "Toezichthouders zoals AFM, DNB, NZa en ACM doen hun werk over het algemeen goed.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We beschermen de kracht en onafhankelijkheid van onder andere de rechterlijke macht, journalistiek en toezichthouders.",
+   "note": ""
+  },
+  {
+   "statement": "Het RIVM en andere kennisinstituten verdienen vertrouwen, ook bij omstreden adviezen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "RIVM of kennisinstituten worden niet behandeld in het programma."
+  },
+  {
+   "statement": "Het democratische stelsel met partijen, parlement en regering is nog steeds het beste systeem dat we hebben.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "een sterke en stabiele liberale democratie en een sterke en stabiele rechtsstaat",
+   "note": ""
+  },
+  {
+   "statement": "Politici zijn over het algemeen mensen die zich oprecht inzetten voor het algemeen belang.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "De intenties van politici als groep worden in het programma niet geadresseerd."
+  },
+  {
+   "statement": "De gevestigde media verzwijgen of vertekenen belangrijke onderwerpen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Het programma bevat geen uitspraak over verzwijgen of vertekenen door gevestigde media."
+  },
+  {
+   "statement": "De overheid heeft tijdens de coronacrisis fouten gemaakt waarover ze nooit eerlijk zal zijn.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Verantwoording over de coronacrisis staat niet in het programma."
+  },
+  {
+   "statement": "Politici zijn vooral bezig met hun eigen carrière, niet met het landsbelang.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "De drijfveren van politici worden in het programma niet geadresseerd."
+  },
+  {
+   "statement": "Big tech en multinationals hebben meer macht dan democratisch gekozen regeringen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Het programma kondigt streng toezicht op grote platforms aan, maar doet geen uitspraak over machtsverhoudingen tussen big tech en regeringen."
+  },
+  {
+   "statement": "Wetenschappelijk onderzoek wordt te veel gestuurd door commerciële of politieke belangen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Sturing van wetenschappelijk onderzoek door commerciële of politieke belangen staat niet in het programma."
+  },
+  {
+   "statement": "Banken en de financiële sector zijn nooit echt verantwoordelijk gehouden na de kredietcrisis.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Verantwoordelijkheid van banken na de kredietcrisis staat niet in het programma."
+  },
+  {
+   "statement": "Het toeslagenschandaal toont aan dat onze instituties fundamenteel niet deugen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Het toeslagenschandaal wordt in het programma niet behandeld."
+  },
+  {
+   "statement": "De rechtspraak laat in haar uitspraken vaker politieke voorkeuren meewegen dan recht.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Politieke voorkeuren in rechterlijke uitspraken worden in het programma niet geadresseerd."
+  },
+  {
+   "statement": "Nederland moet de klimaatdoelen aanscherpen, ook als dat ten koste gaat van economische groei op de korte termijn.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Van Klimaatwet naar Klimaat- en groeiwet: We bouwen aan een schone én weerbare economie.",
+   "note": ""
+  },
+  {
+   "statement": "Vlees en zuivel moeten zwaarder belast worden om de uitstoot omlaag te krijgen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Een belasting op vlees of zuivel staat niet in het programma."
+  },
+  {
+   "statement": "Kernenergie hoort een centrale rol te spelen in de Nederlandse energiemix.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We zetten vol in op kernenergie als stabiele energiebron.",
+   "note": "VVD stemde voor de Kernenergiewet voor bedrijfsduurverlenging van Borssele (16-06-2026, 2025Z19456) en voor het versnellen van de bouw van vier kerncentrales (02-10-2025, 2025Z18435). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P10199."
+  },
+  {
+   "statement": "De overheid moet vervuilende industrie versneld sluiten als ze niet snel genoeg verduurzaamt.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We spreken ons daarom uit voor het behoud van Tata Steel in Nederland, mits het bedrijf investeert in verduurzaming",
+   "note": ""
+  },
+  {
+   "statement": "De boeren hebben in Nederland te veel concessies hoeven doen voor het klimaatbeleid.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Boeren zitten al te lang in onzekerheid.",
+   "note": ""
+  },
+  {
+   "statement": "Korte vluchten binnen Europa moeten verboden worden als er een treinverbinding bestaat.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "De VVD wil vliegen betaalbaar houden. We maken ons er daarom sterk voor om geen nieuwe vliegbelastingen te introduceren",
+   "note": "VVD stemde voor de Wet differentiatie vliegbelasting (27-11-2025, 2025Z16934), maar tegen nieuwe of hogere vliegbelastingen als lastenverzwaring. Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P18661."
+  },
+  {
+   "statement": "Rijden in een privé-auto op fossiele brandstof moet over tien jaar onmogelijk zijn.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We verlagen de brandstofaccijns zodat autorijden betaalbaarder wordt.",
+   "note": ""
+  },
+  {
+   "statement": "De klimaatcrisis verdient méér aandacht in het onderwijs dan ze nu krijgt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Klimaatonderwijs staat niet in het programma."
+  },
+  {
+   "statement": "Subsidies op zonnepanelen en warmtepompen moeten verder uitgebreid worden voor lage inkomens.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We zetten in op isolatie en stimuleren het gebruik van warmte, bijvoorbeeld met een warmtepomp.",
+   "note": "Het programma richt zich niet specifiek op lage inkomens."
+  },
+  {
+   "statement": "Nederland mag klimaatdoelen niet opofferen voor internationale concurrentie, zelfs als andere landen achterblijven.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We willen geen nieuw Europees beleid dat het verdienvermogen en de internationale concurrentie positie van Nederland schaden.",
+   "note": ""
+  },
+  {
+   "statement": "Het eigen risico in de zorgverzekering moet afgeschaft worden.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We draaien de verlaging van het eigen risico terug.",
+   "note": "VVD stemde tegen de moties om het eigen risico af te schaffen (25-06-2025, 2025Z12563 en 2025Z12649; 18-09-2025, 2025Z17205; 02-10-2025, 2025Z18619). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P11798."
+  },
+  {
+   "statement": "Winstuitkering in de zorgsector moet wettelijk verboden worden.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Een wettelijk verbod op winstuitkering in de zorg staat niet in het programma; het programma zet juist in op concurrentie en doelmatigheid."
+  },
+  {
+   "statement": "De geestelijke gezondheidszorg verdient een veel groter aandeel van het zorgbudget.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Geestelijke gezondheidszorg: We zorgen ervoor dat de wachtlijsten in de ggz afnemen.",
+   "note": "Het programma belooft geen groter aandeel van het zorgbudget voor de ggz."
+  },
+  {
+   "statement": "Zorgverzekeraars moeten verdwijnen en de zorg moet weer puur publiek gefinancierd worden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We stellen zorgverzekeraars en zorgkantoren in staat de doelmatigheid van de zorg verder te verbeteren en de kosten te beperken",
+   "note": ""
+  },
+  {
+   "statement": "Mensen moeten meer eigen verantwoordelijkheid nemen voor hun gezondheid (sporten, dieet, niet roken), ook als dat hun zorgkosten beïnvloedt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "moeten we een groter beroep doen op de individuele verantwoordelijkheid van iedere Nederlander voor zijn eigen gezondheid",
+   "note": ""
+  },
+  {
+   "statement": "Mantelzorgers verdienen een financiële vergoeding van de overheid.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We willen eenvoudige verlofregels voor mantelzorgers.",
+   "note": "Het programma zegt niets over een financiële vergoeding voor mantelzorgers."
+  },
+  {
+   "statement": "Een patiënt heeft het recht om bij ondraaglijk lijden zelf voor euthanasie te kiezen, ook bij dementie of voltooid leven.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Zelfbeschikking voor een waardig en barmhartig levenseinde zijn onlosmakelijk verbonden met liberale zorg, ook voor mensen met dementie",
+   "note": ""
+  },
+  {
+   "statement": "Preventie en leefstijl horen een veel groter deel van het zorgbudget te krijgen, ook als curatieve zorg moet inleveren.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We richten ons op het voorkomen van zorg, leefstijl bewustzijn, eigen regie en welbevinden",
+   "note": "Het programma belooft geen verschuiving van budget ten koste van curatieve zorg."
+  },
+  {
+   "statement": "Verpleegkundigen en zorgmedewerkers verdienen aanzienlijk meer salaris, zelfs als dat de premie verhoogt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Het programma doet geen loonbelofte voor zorgpersoneel; de motie over het voorkomen van uitstroom van zorgmedewerkers (16-06-2026, 2026Z12340) is geen salarisbelofte."
+  },
+  {
+   "statement": "Mensen die zelf bewust ongezond leven, moeten een hogere zorgpremie betalen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Premiedifferentiatie naar leefstijl staat niet in het programma."
+  },
+  {
+   "statement": "Het aantal asielzoekers dat Nederland jaarlijks opvangt moet expliciet aan een maximum gebonden worden.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "De migratiewet verplicht het kabinet om bij een te hoge instroom van asiel- en/of arbeidsmigranten bestuurlijke maatregelen te nemen",
+   "note": "VVD stemde voor een opnamelimiet (03-07-2025, 2025Z13434); het programma kent een migratiewet met verplichte instroombeperking. Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P13101."
+  },
+  {
+   "statement": "Wie naar Nederland komt, moet vanaf dag één Nederlands leren en de wet kennen, op straffe van consequenties voor verblijf.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Nederlands spreken is de basis: De Nederlandse taal spreken is cruciaal om vol mee te doen in onze samenleving.",
+   "note": ""
+  },
+  {
+   "statement": "Arbeidsmigratie binnen de EU moet beperkt worden om Nederlandse arbeiders en huisvesting te beschermen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Daarom moeten de excessen van arbeidsmigratie worden aangepakt.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet meer doen om vluchtelingen op te vangen die op de grens van Europa stranden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "vluchtelingen kunnen alleen nog via hervestiging naar Nederland komen",
+   "note": "Het programma wil geen ruimere opvang aan de Europese grenzen, maar hervestiging en opvang in de regio."
+  },
+  {
+   "statement": "Kennismigranten met een hoog inkomen moeten andere fiscale regels krijgen dan andere migranten.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "hebben we soms naast alle knappe koppen in Nederland ook toptalent uit het buitenland nodig",
+   "note": ""
+  },
+  {
+   "statement": "Migranten zonder verblijfsstatus (ongedocumenteerden) horen recht te hebben op basiszorg en onderdak.",
+   "stance": "oneens",
+   "basis": "stemgedrag",
+   "sourceUrl": "https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P02203",
+   "quote": "Motie van de leden Westerveld en Ceder over uitspreken dat de strafbaarstelling van ongedocumenteerden ongewenst is",
+   "note": "VVD stemde tegen (10-02-2026, 2026Z02528). Het programma zwijgt over basiszorg en onderdak voor ongedocumenteerden."
+  },
+  {
+   "statement": "Inburgering, asielprocedures en migratie horen Europees geregeld te worden, niet alleen nationaal.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Het Europese asiel- en migratiepact is een goed middel om de asielinstroom drastisch te beperken en terugkeer te bevorderen.",
+   "note": "VVD stemde voor de Uitvoerings- en implementatiewet EU-Asiel- en migratiepact (02-04-2026, 2025Z22479). Let op de spanning met het programma, dat tegelijk een opt-out-clausule wil als andere lidstaten de regels niet naleven. Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P05371."
+  },
+  {
+   "statement": "Iedereen die ergens fout in Nederland is geboren, moet automatisch Nederlander zijn (ius soli).",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Het is onacceptabel dat migranten die onvoldoende Nederlands spreken Nederlander mogen worden",
+   "note": "VVD stemde voor het verlengen van de naturalisatietermijn naar tien jaar (03-07-2025, 2025Z13441). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P13101."
+  },
+  {
+   "statement": "Religieuze symbolen (zoals hoofddoek, keppel, kruis) horen niet thuis bij ambtenaren in publieke functies (politie, rechter).",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "hoort een uniform voor politieambtenaren en buitengewone opsporingsambtenaren neutraal te zijn, zonder zichtbare symbolen van geloofs- of levensovertuigingen",
+   "note": "Het programma noemt politie en boa's; rechters worden niet genoemd."
+  },
+  {
+   "statement": "Migratiebeperking is een hogere prioriteit dan de invulling van vacatures in de Nederlandse economie.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "zodat de bevolkingsgroei als gevolg van migratie beperkt blijft",
+   "note": ""
+  },
+  {
+   "statement": "Erfenissen boven €500.000 horen veel zwaarder belast te worden.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "verhogingen van de belastingen op sparen, beleggingen en overige bezittingen (box 3), ondernemen (box 2)",
+   "note": "VVD stemde tegen het amendement om de eenmalige vrijstelling voor de schenkbelasting te laten vervallen (27-11-2025, 2025Z20446) en voor het terugdraaien van lastenverzwaringen in box 3 (2025Z20247). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P18567."
+  },
+  {
+   "statement": "Het verschil tussen vast en flex op de arbeidsmarkt moet veel kleiner worden, zelfs als dat ondernemers beperkt.",
+   "stance": "neutraal",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We voeren een rechtsvermoeden van werknemerschap in bij een laag uurtarief.",
+   "note": "Tegensprekende bronnen: het programma benadrukt vrijheid en flexibiliteit voor zzp'ers, maar de VVD stemde voor de wet die flexibele arbeidskrachten meer zekerheid geeft (12-05-2026, 2025Z09689). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P06912."
+  },
+  {
+   "statement": "Een aanvullende belasting op grote vermogens (>€2 miljoen) is noodzakelijk om de begroting eerlijk te maken.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "wil de VVD geen verhogingen van de belastingen op sparen, beleggingen en overige bezittingen (box 3)",
+   "note": "VVD stemde voor de Wet werkelijk rendement box 3 (12-02-2026, 2025Z09723), maar het programma sluit een aanvullende belasting op grote vermogens uit. Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P02572."
+  },
+  {
+   "statement": "Pensioenleeftijd mag verder omhoog naar 70 jaar voor wie nu jonger dan 40 is.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We vinden daarom dat bij een stijgende levensverwachting, de pensioenleeftijd mee moet stijgen.",
+   "note": "VVD stemde tegen alle moties om de AOW-leeftijd niet (versneld) te verhogen (03-02-2026, 2026Z02254; 24-03-2026, 2026Z05563 en 2026Z05572). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P01981."
+  },
+  {
+   "statement": "De overheid moet veel actiever industriebeleid voeren en strategische sectoren beschermen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "met een investeringsagenda voor nationale groei gaan we de komende jaren extra investeren om de knelpunten weg te halen",
+   "note": ""
+  },
+  {
+   "statement": "Multinationals die de Nederlandse fiscaliteit ontwijken horen daarvoor hard aangepakt te worden, ook ten koste van vestigingsklimaat.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "moet altijd eerst in kaart worden gebracht wat het effect is voor het vestigingsklimaat",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet veel agressiever bezuinigen om de staatsschuld omlaag te krijgen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "we houden de overheidsfinanciën op orde, onder meer om te voorkomen dat we de rekening bij de volgende generatie ondernemers",
+   "note": ""
+  },
+  {
+   "statement": "Een 32-urige werkweek moet de norm worden in plaats van 40 uur.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Een 32-urige werkweek staat niet in het programma."
+  },
+  {
+   "statement": "De Nederlandse economie hoort meer op groen ondernemerschap te wedden, ook al kost dat traditionele banen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We zetten daarbij in op het tegengaan van klimaatverandering, zodat economische groei ook groene groei is.",
+   "note": ""
+  },
+  {
+   "statement": "Het is meer rechtvaardig om ondernemers fiscaal te belonen dan om werknemers extra te beschermen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Het geld wordt verdiend door Nederlanders en ondernemers die verantwoordelijkheid voor hun eigen leven nemen, niet door de overheid.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland hoort meer bevoegdheden over te dragen aan de EU op het gebied van defensie en buitenlands beleid.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Wij verzetten ons tegen een sluipende overdracht van nationale bevoegdheden en een federale glijbaan.",
+   "note": "Voorwaardelijke steun voor Europese samenwerking op defensie, geen steun voor extra bevoegdheden als doel op zich."
+  },
+  {
+   "statement": "Er moet een vetorecht behouden blijven voor nationale parlementen op alle grote EU-besluiten.",
+   "stance": "oneens",
+   "basis": "stemgedrag",
+   "sourceUrl": "https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P03152",
+   "quote": "Motie van de leden Heutink en Markuszower over afzien van het afschaffen van unanimiteit in Europa op buitenlands- en veiligheidsbeleid",
+   "note": "VVD stemde tegen (26-02-2026, 2026Z03873), dus vóór het kunnen afschaffen van unanimiteit. Programma zwijgt over het vetorecht."
+  },
+  {
+   "statement": "Een rijkere EU-lidstaat zoals Nederland hoort ruimhartig bij te dragen aan een sterk EU-budget.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Slimmere besteding in plaats van méér geld is het uitgangspunt.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de optie van vertrek uit de EU bespreekbaar houden.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Nederland pakt leiderschap in streng Europees asielbeleid",
+   "note": "Het programma wil de EU versterken op asiel en defensie, maar verzet zich tegen overdracht van bevoegdheden; een Nexit wordt niet genoemd en niet uitgesloten."
+  },
+  {
+   "statement": "De EU moet meer macht krijgen om in te grijpen wanneer een lidstaat de rechtsstaat ondermijnt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "De VVD steunt daarom een strikte handhaving van het rechtsstaatmechanisme in de EU",
+   "note": ""
+  },
+  {
+   "statement": "Europese verkiezingen verdienen veel meer aandacht dan ze nu in Nederland krijgen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Aandacht voor Europese verkiezingen staat niet in het programma."
+  },
+  {
+   "statement": "De EU is uiteindelijk meer in het belang van bedrijven dan van gewone burgers.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "De verhouding tussen EU en gewone burgers tegenover bedrijven wordt in het programma niet geadresseerd."
+  },
+  {
+   "statement": "Europese minimumlonen en sociale standaarden moeten in alle lidstaten gelden.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Europese minimumlonen of Europese sociale standaarden staan niet in het programma."
+  },
+  {
+   "statement": "Nederland moet zich aansluiten bij landen die de uitbreiding van de EU naar de Balkan tegenhouden.",
+   "stance": "oneens",
+   "basis": "stemgedrag",
+   "sourceUrl": "https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P10212",
+   "quote": "Motie van het lid Klos over voorkomen dat aanpassingen in het toetredingsproces het pad naar volledig EU-lidmaatschap belemmeren of vertragen",
+   "note": "VVD stemde voor (16-06-2026, 2026Z12941) en voor het steunen van Oekraïnes EU-pad (16-10-2025, 2025Z19038): streng op criteria, geen blokkade. Het programma is 'streng op uitbreiding' maar houdt zicht op lidmaatschap."
+  },
+  {
+   "statement": "Nederland hoort koploper te zijn in een sterk Europees klimaatbeleid, ook al kost dat economisch geld.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We kiezen voor realisme in klimaatbeleid: We moeten ons niet blindstaren op het creëren van een papieren werkelijkheid",
+   "note": ""
+  },
+  {
+   "statement": "Een referendum over belangrijke wetten moet eenvoudig te organiseren zijn voor burgers.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We zijn tegenstander van referenda.",
+   "note": "VVD stemde ook tegen verplichte referenda bij gemeentelijke herindeling (10-02-2026, 2026Z02481; 26-05-2026, 2026Z10407 en 2026Z09621)."
+  },
+  {
+   "statement": "Rechters moeten wetten van het parlement aan de Grondwet kunnen toetsen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "we schrappen daarom de plannen voor constitutionele toetsing en het constitutioneel hof",
+   "note": ""
+  },
+  {
+   "statement": "Het Nederlandse kiesstelsel hoort district-elementen te bevatten zodat kiezers een persoonlijker stem hebben.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We handhaven het huidige systeem van evenredige vertegenwoordiging, zodat elke stem gehoord wordt.",
+   "note": ""
+  },
+  {
+   "statement": "Politieke partijen moeten verplicht hun financiering volledig openbaar maken.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Openbaarmaking van partijfinanciering staat niet in het programma."
+  },
+  {
+   "statement": "De macht van de minister-president moet uitgebreid worden zodat regeren slagvaardiger wordt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Uitbreiding van de macht van de minister-president staat niet in het programma."
+  },
+  {
+   "statement": "Publieke omroep (NPO) is een onmisbaar tegengewicht tegen de macht van commerciële media.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "De publieke omroep heeft een belangrijke rol in onze vrije democratie.",
+   "note": "VVD stemde voor de Wijziging van de Mediawet 2008 ter versterking van de lokale publieke mediaopdracht (02-07-2026, 2026Z05923). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P11996."
+  },
+  {
+   "statement": "Wetenschappers horen zich vooral terughoudend op te stellen in politieke discussies.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Terughoudendheid van wetenschappers in politieke discussies staat niet in het programma."
+  },
+  {
+   "statement": "Lokale gemeenten verdienen meer eigen geld en bevoegdheden dan ze nu hebben.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We hebben vertrouwen in de lokale democratie en kiezen voor meer bestedingsvrijheid voor gemeenten en provincies",
+   "note": ""
+  },
+  {
+   "statement": "De achtergrond van politici en bestuurders weerspiegelt de samenleving onvoldoende.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "De achtergrond van politici en bestuurders wordt in het programma niet geadresseerd."
+  },
+  {
+   "statement": "Een burgerberaad met door loting gekozen burgers hoort bindende invloed te krijgen op grote beslissingen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Bindende burgerberaden staan niet in het programma. De motie over een verkennend burgerberaad weerbaarheid (25-06-2025, 2025Z12745) betreft geen bindende invloed."
+  },
+  {
+   "statement": "Beleggers moeten geweerd worden van de markt voor betaalbare koopwoningen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Ook voor particulieren moet het aantrekkelijk worden om te investeren in huurwoningen en verhuur moet weer lonen.",
+   "note": ""
+  },
+  {
+   "statement": "De Wet betaalbare huur moet uitgebreid worden tot meer woningen en hogere huurklassen.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We schrappen de Wet betaalbare huur, de lokale zelfbewoningsplicht en het verbod op tijdelijke contracten.",
+   "note": "VVD stemde tegen het afzien van wijzigingen van de Wet betaalbare huur (25-06-2025, 2025Z13015) en tegen evaluatie-eisen (31-03-2026, 2026Z06199). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P04947."
+  },
+  {
+   "statement": "Bouwen in groene gebieden moet mogelijk worden gemaakt om de woningnood op te lossen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Bouwen in het groen: Regels van provincies of gemeenten die bouwen in het groen tegenhouden, beperken we",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet veel meer publieke woningbouwgrond zelf in eigendom houden om speculatie tegen te gaan.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Daarom kiezen wij bij nieuwe woningen in principe niet meer voor de erfpacht.",
+   "note": ""
+  },
+  {
+   "statement": "Een sterke woningcorporatie hoort weer een dominante speler te zijn in de Nederlandse woningmarkt.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Corporaties worden in staat gesteld en verplicht aanzienlijk meer sociale huurwoningen te bouwen.",
+   "note": "Het programma wil corporaties laten bouwen, maar ook dat zij marktpartijen niet oneerlijk beconcurreren; geen dominante rol als doel."
+  },
+  {
+   "statement": "Hypotheekrenteaftrek hoort verder afgebouwd te worden om de huizenmarkt eerlijker te maken.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "De hypotheekrenteaftrek blijft in stand",
+   "note": "VVD stemde voor de motie dat er niet aan de hypotheekrenteaftrek getornd mag worden (02-06-2026, 2026Z11320) en tegen afbouw-moties (02-10-2025, 2025Z18648). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P08990."
+  },
+  {
+   "statement": "Statushouders horen niet langer voorrang te krijgen op sociale huurwoningen.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Daarom schaffen wij de wettelijke taakstelling van gemeenten om statushouders te moeten huisvesten af",
+   "note": "VVD stemde voor het uitsluiten van urgentie voor statushouders (02-07-2025, 2025Z12771). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P12291."
+  },
+  {
+   "statement": "Vakantiewoningen in toeristische gebieden mogen niet ten koste gaan van permanent wonen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We staan het permanent wonen in vakantiewoningen toe waar deze buiten vakantieparken zijn gelegen.",
+   "note": ""
+  },
+  {
+   "statement": "Nieuwbouw hoort veel meer in een hoog tempo via prefab en industriële bouw te gaan, ook al kost dat architectonische kwaliteit.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We gaan meer woningen fabrieksmatig produceren.",
+   "note": "Het programma verbindt dit aan landelijke bouwtechnische eisen voor kwaliteit."
+  },
+  {
+   "statement": "De prioriteit bij de woningmarkt moet liggen bij starters en jonge gezinnen, niet bij doorstromers.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We zetten Rijksmiddelen vooral in voor de bouw van betaalbare koopwoningen.",
+   "note": ""
+  },
+  {
+   "statement": "De Europese AI-verordening (AI Act) is een goede zaak, ook als dat innovatie kan vertragen.",
+   "stance": "neutraal",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "regelgeving remt tegelijkertijd vaak innovatie. Dat is een probleem",
+   "note": "Tegenstrijdig stemgedrag: VVD stemde voor een tijdelijke implementatiepauze van de AI Act (09-09-2025, 2025Z15835) maar tegen versoepeling van artikel 6 (03-12-2025, 2025Z21011). Omdat programma en stemgedrag elkaar tegenspreken: neutraal."
+  },
+  {
+   "statement": "De overheid moet werkenden actief beschermen tegen banenverlies door AI, ook als dat extra belastinggeld kost.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Dat doen we door omscholing toegankelijk te maken, overstappers met een meerwerkbonus financieel te stimuleren",
+   "note": "Het programma koppelt dit aan tekortsectoren, niet specifiek aan AI."
+  },
+  {
+   "statement": "AI-bedrijven moeten verplicht hun trainingsdata openbaar maken zodat makers van content kunnen controleren of hun werk is gebruikt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Openbaarmaking van trainingsdata en auteursrecht bij AI staan niet in het programma."
+  },
+  {
+   "statement": "Nederland moet de NAVO-norm van 5% bbp voor defensie volledig overnemen, ook als dat ten koste gaat van zorg of onderwijs.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Meer bij defensie en veiligheid, minder naar sociale zekerheid en zorg",
+   "note": "VVD stemde voor steun aan de kabinetsinzet op de NAVO-norm (19-06-2025, 2025Z12457) en voor een groeipad naar 3,5% bbp (03-06-2025, 2025Z10662). Het programma legt de NAVO-norm in de wet en volgt een hogere NAVO-norm automatisch. Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2025P11574."
+  },
+  {
+   "statement": "Europa moet zo snel mogelijk een eigen defensie opbouwen die niet afhankelijk is van de Verenigde Staten.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "De eenzijdige afhankelijkheid van Nederland en de rest van Europa van de Verenigde Staten is veel te groot",
+   "note": "VVD stemde voor het bevorderen van Europese defensiesamenwerking (26-05-2026, 2026Z10860), maar houdt vast aan de NAVO als kader. Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P08443."
+  },
+  {
+   "statement": "De dienstplicht moet weer geactiveerd worden om de Nederlandse krijgsmacht op sterkte te brengen.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Als dit onvoldoende resultaat oplevert, overwegen we andere stappen, zoals de herinvoering van de opkomstplicht.",
+   "note": "VVD stemde tegen moties om af te zien van een opkomstplicht (10-03-2026, 2026Z04481; 02-07-2026, 2026Z15448). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P03569."
+  },
+  {
+   "statement": "Nederland moet doorgaan met militaire en financiële steun aan Oekraïne, ook als dat onze eigen begroting onder druk zet.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We blijven Oekraïne onverminderd militair, financieel en humanitair steunen.",
+   "note": ""
+  },
+  {
+   "statement": "Sociale media zoals TikTok en Instagram moeten verboden worden voor kinderen onder de 15 jaar.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "We omarmen het leeftijdsadvies voor het gebruik van sociale media en werken een effectief social media verbod uit voor jongeren.",
+   "note": "Het programma noemt geen leeftijdsgrens van 15 jaar."
+  },
+  {
+   "statement": "Smartphones en tablets horen tijdens schooluren volledig de klas uit, op alle niveaus.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "Leerlingen worden socialer en zijn meer gefocust zonder mobiele telefoon op school.",
+   "note": "Het programma handhaaft de bestaande afspraken waarbij scholen zelf invulling geven."
+  },
+  {
+   "statement": "Nederland moet de Palestijnse staat erkennen, ook als dat de relatie met Israël onder druk zet.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "De VVD staat voor een tweestatenoplossing waardoor een veilig Israël naast een levensvatbare Palestijnse staat kan bestaan.",
+   "note": "VVD steunt een tweestatenoplossing in vredesonderhandelingen, maar stemde tegen moties om de Palestijnse staat nu te erkennen (10-06-2025, 2025Z11369; 26-02-2026, 2026Z03848). Kamerbron: https://www.tweedekamer.nl/kamerstukken/stemmingsuitslagen/detail?id=2026P03152."
+  },
+  {
+   "statement": "Nederland moet een eventueel ICC-arrestatiebevel tegen Netanyahu uitvoeren als hij Nederlands grondgebied zou betreden.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Uitvoering van een ICC-arrestatiebevel staat niet in het programma en er is geen stemming over gevonden."
+  },
+  {
+   "statement": "Nederland moet militaire samenwerking met Israël opschorten zolang er geen overtuigende waarborgen zijn dat die niet bijdraagt aan schendingen van het humanitair oorlogsrecht.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "De VVD steunt Israël in haar doel om terroristen en de handlangers van Iran uit te schakelen.",
+   "note": "VVD stemde ook tegen moties voor sancties tegen Israël en een wapenembargo (10-06-2025, 2025Z11368 en 2025Z11371)."
+  },
+  {
+   "statement": "Internationale rechtbanken zoals het ICC en IGH verdienen ons vertrouwen, ook als hun uitspraken Nederlandse bondgenoten ongelegen komen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "https://www.vvd.nl/wp-content/uploads/2025/09/Verkiezingsprogramma-TK-VVD-2025-DEF.pdf",
+   "quote": "",
+   "note": "Vertrouwen in het ICC en IGH wordt in het programma niet behandeld; het programma wil wel tribunalen voor Russische misdaden."
+  }
+ ]
+}
