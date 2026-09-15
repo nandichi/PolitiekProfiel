@@ -29,6 +29,10 @@ import {
   jsonLdString,
 } from "@/lib/structured-data";
 import { loadPartyVotingByTheme } from "@/lib/tk-open-data/voting-store";
+import {
+  GOVERNMENT_RECORD_REVIEWED,
+  getGovernmentRecord,
+} from "@/data/government-records";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -103,6 +107,8 @@ export default async function PartijDetailPage({ params }: PageProps) {
   const votingRecords = party.region === "NL"
     ? await loadPartyVotingByTheme(party.slug).catch(() => [])
     : [];
+  const governmentRecord = getGovernmentRecord(party.slug);
+
   const votingByTheme = new Map<string, (typeof votingRecords)[number]>();
   for (const v of votingRecords) {
     if (v.theme !== "overig") votingByTheme.set(v.theme, v);
@@ -197,6 +203,70 @@ export default async function PartijDetailPage({ params }: PageProps) {
                 ))}
             </dl>
           </ScrollRevealItem>
+
+          {governmentRecord ? (
+            <ScrollRevealItem>
+              <div className="mt-14 border-t border-ink pt-8">
+                <p className="kicker">Regeringsrecord</p>
+                <h2 className="display mt-4 max-w-3xl">
+                  Wat deze partij in de regering bereikte.
+                </h2>
+                <p className="mt-4 max-w-3xl text-sm text-ink-2 leading-relaxed">
+                  Meegeregeerd in: {governmentRecord.cabinets.join(", ")}.
+                </p>
+                <p className="mt-3 max-w-3xl text-sm text-ink-muted leading-relaxed">
+                  Belangrijkste bewindslieden: {governmentRecord.keyMinisters}.
+                </p>
+
+                <p className="kicker mt-10">Resultaten</p>
+                <ol className="mt-5 max-w-4xl divide-y divide-rule border-y border-rule">
+                  {governmentRecord.results.map((result) => (
+                    <li key={result.claim} className="py-5">
+                      <p className="text-base text-ink-2 leading-relaxed">
+                        {result.claim}
+                      </p>
+                      <p className="mt-2 text-xs text-ink-muted">
+                        {result.responsibleMinister} &middot; {result.year}
+                      </p>
+                      <a
+                        href={result.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="mt-2 inline-block text-xs text-ink-muted underline decoration-rule hover:text-ink"
+                      >
+                        Bron bij dit resultaat
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+
+                <p className="kicker mt-10">Wat niet is gehaald</p>
+                <ol className="mt-5 max-w-4xl divide-y divide-rule border-y border-rule">
+                  {governmentRecord.notDelivered.map((item) => (
+                    <li key={item.claim} className="py-5">
+                      <p className="text-base text-ink-2 leading-relaxed">
+                        {item.claim}
+                      </p>
+                      <a
+                        href={item.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="mt-2 inline-block text-xs text-ink-muted underline decoration-rule hover:text-ink"
+                      >
+                        Bron bij dit punt
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+
+                <p className="mt-8 max-w-3xl text-sm text-ink-muted leading-relaxed">
+                  Een maatregel van een kabinet is niet automatisch de verdienste
+                  van één partij. Waar een besluit van de hele coalitie was,
+                  staat dat erbij. Bijgewerkt op {GOVERNMENT_RECORD_REVIEWED}.
+                </p>
+              </div>
+            </ScrollRevealItem>
+          ) : null}
 
           {party.facts?.length ? (
             <ScrollRevealItem>
