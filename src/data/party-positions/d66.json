@@ -1,0 +1,1312 @@
+{
+ "partySlug": "d66",
+ "programmeTitle": "Het kan wél – Verkiezingsprogramma 2025–2030 (D66)",
+ "programmeUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+ "reviewed": "2026-09-15. bron (a): verkiezingsprogramma D66 2025-2030 (d66.nl) + bijlage Uitvoeringsprogramma 2025-2030 (media.d66.nl); bron (b): officiële Kamerbronnen (tweedekamer.nl) — stemmingen, moties, amendementen en plenaire verslagen 2021-2026. Codering per stelling is expliciet op het programma gebaseerd (basis 'programma'); waar een officiële Kamerstemming dat bevestigt is basis 'beide'. Stemmingen met officiële Kamerbron zijn geverifieerd voor de asielstop-motie (36 871, nr. 41) en de socialmedia-leeftijdsgrens-motie (2025D07255); daarnaast is Kamerstemgedrag nagegaan op kernenergie, Palestijnse staat/ICC, stikstof, Belastingplan 2026, Asiel- en migratiepact, novelle Asielnoodmaatregelenwet (36 855) en aanpalende moties. Vanwege het volume is niet voor alle 163 stellingen een aparte stemming gevonden; waar het programma zwijgt en geen verifieerbare stemming bestaat, is 'geen-standpunt' gecodeerd — er is geen enkel standpunt verzonnen. Geen tegenstellingen gevonden tussen programma en geverifieerd stemgedrag. Waar het programma meerduidig is (o.a. zorgstelsel, arbeidsmigratie, huurmarkt, bouw, dienstplicht) is dat 'neutraal' gecodeerd met een letterlijk programmafragment. Citaten zijn letterlijke fragmenten (max. circa 20 woorden) uit de genoemde bron; '-1' betekent geen citaat.",
+ "positions": [
+  {
+   "statement": "De overheid moet de hoogste inkomens (boven €150.000 per jaar) zwaarder belasten dan nu.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Grote bedrijven betalen in Nederland nu te weinig winstbelasting.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://media.d66.nl/uploads/2026/04/D66-Uitvoeringsprogramma-2025-2030.pdf",
+   "quote": "Daarom wil D66 een Europese vennootschapsbelasting, met een hogere Europese ondergrens.",
+   "note": ""
+  },
+  {
+   "statement": "Essentiële diensten zoals openbaar vervoer en zorg horen in publieke handen, niet bij de markt.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 wil zorg die draait om de patiënt, niet om marktwerking en commercie.",
+   "note": "D66 kiest niet voor nationalisatie; het gereguleerde stelsel met zorgverzekeraars en eigen risico blijft, maar commerciële prikkels in de zorg worden teruggedrongen. Gemengd, daarom 'neutraal'."
+  },
+  {
+   "statement": "Het minimumloon mag verder omhoog naar minimaal €16 per uur, ook als bedrijven dat moeilijk vinden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://media.d66.nl/uploads/2026/04/D66-Uitvoeringsprogramma-2025-2030.pdf",
+   "quote": "We verhogen het minimumloon met 5%. Dat komt neer op €17,85 euro in 2030.",
+   "note": ""
+  },
+  {
+   "statement": "De overheid moet zelf actief sociale huurwoningen blijven bouwen, ook als dat de woningmarkt verstoort.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We leggen wettelijk vast dat bij nieuwbouw in elke gemeente minstens 30% sociale huur komt.",
+   "note": ""
+  },
+  {
+   "statement": "Het is rechtvaardig om vermogen boven €1 miljoen progressief te belasten.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We belasten grote vermogens meer, onder meer met een miljonairsbelasting.",
+   "note": ""
+  },
+  {
+   "statement": "Werknemers verdienen meer formele zeggenschap in beslissingen van bedrijven waar ze werken.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Een vorm van basisinkomen zou voor iedere volwassene in Nederland mogelijk moeten zijn.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Lagere belastingen voor bedrijven zijn beter voor de Nederlandse economie.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://media.d66.nl/uploads/2026/04/D66-Uitvoeringsprogramma-2025-2030.pdf",
+   "quote": "Daarom wil D66 een Europese vennootschapsbelasting, met een hogere Europese ondergrens.",
+   "note": ""
+  },
+  {
+   "statement": "De overheid bemoeit zich te veel met de keuzes die bedrijven en burgers maken.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 maakt een einde aan verstikkende regeldruk. Regels die goed werken en publieke waarden beschermen, houden we.",
+   "note": ""
+  },
+  {
+   "statement": "Werknemers moeten makkelijker ontslagen kunnen worden zodat bedrijven flexibeler zijn.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Privatisering heeft Nederland over het algemeen welvarender en efficiënter gemaakt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Een vlaktaks (één belastingtarief voor iedereen) is rechtvaardiger dan progressieve belasting.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Daarom maken we de erf- en schenkbelasting moderner en progressiever.",
+   "note": ""
+  },
+  {
+   "statement": "De zorg werkt het beste met concurrentie tussen private aanbieders en zorgverzekeraars.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Nu loont het voor specialisten te vaak om zoveel mogelijk behandelingen of operaties te doen.",
+   "note": ""
+  },
+  {
+   "statement": "Strenge milieuregels remmen economische groei en moeten worden versoepeld.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Duurzaamheid is de norm en vervuiling krijgt een voorspelbare prijs: de ‘echte’ prijs.",
+   "note": ""
+  },
+  {
+   "statement": "De huidige uitkeringen in Nederland zijn aan de hoge kant en moeten naar beneden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We verhogen het minimumloon en het minimumjeugdloon. De bijstand stijgt in verhouding mee.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet meer asielzoekers opvangen dan nu het geval is.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We verhogen het Nederlandse hervestigingsquotum stapsgewijs, te beginnen naar vijfduizend mensen per jaar.",
+   "note": ""
+  },
+  {
+   "statement": "Onderwijs op school moet expliciet aandacht besteden aan diversiteit en LGBTQ+-thema's.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://media.d66.nl/uploads/2026/04/D66-Uitvoeringsprogramma-2025-2030.pdf",
+   "quote": "Preventie begint met seksuele vorming waarin kinderen leren praten over wensen, grenzen en consent.",
+   "note": ""
+  },
+  {
+   "statement": "Mannen en vrouwen verdienen wettelijk gelijke kansen, ook als dat actieve quota of voorrangsbeleid vraagt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://media.d66.nl/uploads/2026/04/D66-Uitvoeringsprogramma-2025-2030.pdf",
+   "quote": "een gelijke representatie van vrouwen en mannen in politieke gremia en op kieslijsten, bijvoorbeeld aan de hand van quota",
+   "note": ""
+  },
+  {
+   "statement": "De positie van het koningshuis moet democratischer worden of zelfs heroverwogen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Daarom schaffen we de Eerste Kamer en de politieke functies van de koning af.",
+   "note": ""
+  },
+  {
+   "statement": "Religieuze symbolen horen niet thuis bij overheidsfuncties (politie, rechter, leerkracht in het openbaar onderwijs).",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Drugs zoals XTC en MDMA zouden onder strikte voorwaarden gereguleerd verkrijgbaar moeten zijn.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Door softdrugs en XTC te legaliseren, halen we de handel en productie uit criminele handen",
+   "note": ""
+  },
+  {
+   "statement": "Discriminatie tegen mensen met een migratie-achtergrond is een groot probleem in Nederland.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 wil alle vormen van uitsluiting, racisme en discriminatie doorbreken",
+   "note": ""
+  },
+  {
+   "statement": "Het Sinterklaasfeest moet zich blijven aanpassen aan moderne opvattingen over racisme.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de instroom van asielzoekers fors beperken.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We stellen een wettelijk kinderpardon in: gewortelde kinderen die langer dan vijf jaar in Nederland verblijven, zijn thuis in Nederland.",
+   "note": ""
+  },
+  {
+   "statement": "Tradities en culturele wortels van Nederland moeten beter beschermd worden.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 maakt ons erfgoed weerbaar en toekomstbestendig.",
+   "note": ""
+  },
+  {
+   "statement": "Op scholen moet de Nederlandse cultuur en geschiedenis centraler komen te staan.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Inburgering voor nieuwkomers moet strenger en sneller verlopen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 wil dat kansrijke asielzoekers verplicht Nederlands leren, mogen werken",
+   "note": ""
+  },
+  {
+   "statement": "Het traditionele gezin als hoeksteen van de samenleving is iets om te koesteren.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Religieuze instellingen verdienen meer respect en ruimte in het publieke debat.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Genderneutrale taal (zoals 'reizigers' i.p.v. 'dames en heren') gaat te ver.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nationale symbolen zoals vlag en volkslied verdienen een prominentere plek in het openbare leven.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De overheid mag mijn berichten en e-mails niet zonder concrete verdenking inzien.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "End-to-end versleuteling moet beschermd blijven, ook als het politieonderzoek bemoeilijkt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Cameratoezicht in publieke ruimtes is een te grote inbreuk op privacy.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Vreedzame demonstraties moeten worden beschermd, ook als ze de openbare orde tijdelijk verstoren.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Het recht om te demonstreren, juist als dat schuurt.",
+   "note": ""
+  },
+  {
+   "statement": "De wet op de inlichtingen- en veiligheidsdiensten geeft de AIVD/MIVD te ruime bevoegdheden.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Kraken zou niet strafbaar moeten zijn als een pand lang leegstaat.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Persoonlijke vrijheden mogen niet worden ingeperkt op basis van ‘aanstootgevendheid’.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Drugsgebruikers horen niet strafrechtelijk vervolgd te worden, maar geholpen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We stigmatiseren en criminaliseren mensen die drugs gebruiken niet.",
+   "note": ""
+  },
+  {
+   "statement": "De politie heeft ruimere bevoegdheden nodig om de veiligheid op straat te garanderen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "De politie en de marechaussee mogen niet meer etnisch profileren.",
+   "note": ""
+  },
+  {
+   "statement": "Verdachten van zware criminaliteit moeten preventief vastgehouden kunnen worden, ook zonder sluitend bewijs.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Terreurverdachten moeten ook zonder strafrechtelijke veroordeling hun nationaliteit kunnen verliezen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Cameratoezicht en slimme sensoren maken onze samenleving veiliger en moeten worden uitgebreid.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Onlinediensten moeten verplicht achterdeurtjes bouwen voor opsporingsdiensten.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Demonstraties die de openbare orde verstoren moeten harder worden aangepakt.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 verdedigt het recht om je uit te spreken, ook als je alleen staat.",
+   "note": ""
+  },
+  {
+   "statement": "Strengere straffen werken afschrikwekkend en dienen het algemeen belang.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 kiest voor slimmer straffen.",
+   "note": ""
+  },
+  {
+   "statement": "Een verbod op gezichtsbedekkende kleding in publieke ruimtes is gerechtvaardigd.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Meer macht naar de Europese Unie zou Nederland uiteindelijk versterken.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 is voorstander van diepgaande Europese integratie, en steunt de verdere federalisering van de EU.",
+   "note": ""
+  },
+  {
+   "statement": "Belangrijke besluiten over klimaat, migratie en defensie horen op Europees niveau te worden genomen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We steunen de invoering van het Europese migratiepact in juni 2026",
+   "note": ""
+  },
+  {
+   "statement": "Gemeentes verdienen meer eigen beleidsruimte en geld, ook als dat tot verschillen tussen regio's leidt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Daarom verhogen we de bijdragen van het Rijk aan gemeenten.",
+   "note": ""
+  },
+  {
+   "statement": "Een gezamenlijk Europees leger zou een verstandige stap zijn.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 streeft op lange termijn naar een Europese krijgsmacht.",
+   "note": ""
+  },
+  {
+   "statement": "Burgers moeten meer directe zeggenschap krijgen via burgerraden of referenda.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://media.d66.nl/uploads/2026/04/D66-Uitvoeringsprogramma-2025-2030.pdf",
+   "quote": "We geven kiezers een noodrem in handen om wetgeving in bijzondere gevallen tegen te kunnen houden",
+   "note": ""
+  },
+  {
+   "statement": "Eurobonds en gezamenlijke schulduitgifte versterken Europa als geheel.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://media.d66.nl/uploads/2026/04/D66-Uitvoeringsprogramma-2025-2030.pdf",
+   "quote": "Ook is D66 voorstander van Eurobonds: obligaties (leningen) van de eurozone als geheel",
+   "note": ""
+  },
+  {
+   "statement": "Een referendum kan een waardevolle aanvulling zijn op de parlementaire democratie.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We maken referenda mogelijk om wetgeving te stoppen.",
+   "note": ""
+  },
+  {
+   "statement": "Provincies en gemeentes verdienen meer financiële zelfstandigheid van Den Haag.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Daarnaast krijgen gemeenten meer mogelijkheden voor lokale belastingen en heffingen.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet zelf bepalen wie er ons land binnenkomt, niet Brussel.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We nemen onze verantwoordelijkheid binnen Europa voor asielopvang.",
+   "note": ""
+  },
+  {
+   "statement": "De Europese Unie heeft te veel macht en moet kleiner worden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Met een Europese begroting die twee keer zo groot is, kunnen we samen écht een veranderende wereld aan.",
+   "note": ""
+  },
+  {
+   "statement": "Belangrijke nationale beslissingen mogen niet door internationale rechters worden tegengehouden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Rechten gelden voor iedereen en overtredingen moeten voor iedereen gevolgen hebben.",
+   "note": ""
+  },
+  {
+   "statement": "Een serieus debat over een Nexit verdient een eerlijke kans in de Tweede Kamer.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We willen een Europa dat zichzelf kan verdedigen én haar waarden uitdraagt.",
+   "note": ""
+  },
+  {
+   "statement": "Bij conflict tussen Nederlandse wet en EU-recht moet de Nederlandse wet voorgaan.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We willen vaker één gezamenlijke Europese regel die overal geldt: de verordening.",
+   "note": ""
+  },
+  {
+   "statement": "Het Europees Parlement is te ver van de gewone burger om belangrijke beslissingen te nemen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 wil dat Europeanen de Commissievoorzitter rechtstreeks kunnen kiezen.",
+   "note": ""
+  },
+  {
+   "statement": "Centralisatie in Den Haag is efficiënter dan macht overdragen aan provincies.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 wil dat de rijksoverheid samen met de regio’s de regie neemt.",
+   "note": ""
+  },
+  {
+   "statement": "Internationale verdragen mogen Nederland niet binden tegen de wil van een meerderheid.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "En we houden ons aan het Vluchtelingenverdrag zolang dat nog niet is gemoderniseerd.",
+   "note": ""
+  },
+  {
+   "statement": "De rechtspraak in Nederland werkt over het algemeen onafhankelijk en eerlijk.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We beperken de mogelijkheden van de politiek om de rechterlijke macht en het Openbaar Ministerie oneigenlijk te beïnvloeden.",
+   "note": ""
+  },
+  {
+   "statement": "Nederlandse wetenschappers en experts zijn over het algemeen te vertrouwen op hun vakgebied.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 staat pal voor de onafhankelijke wetenschap.",
+   "note": ""
+  },
+  {
+   "statement": "Onze verkiezingen verlopen eerlijk en zijn betrouwbaar.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": "Geen uitspraak over eerlijkheid/betrouwbaarheid van het Nederlandse verkiezingsproces in programma of stemgedrag."
+  },
+  {
+   "statement": "De NPO en kwaliteitskranten leveren grotendeels betrouwbare informatie.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We versterken de kerntaak van de publieke omroep: mensen voorzien van betrouwbare informatie.",
+   "note": ""
+  },
+  {
+   "statement": "Toezichthouders zoals AFM, DNB, NZa en ACM doen hun werk over het algemeen goed.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We geven ze de slagkracht en onafhankelijkheid die ze nodig hebben om hun belangrijke taak uit te voeren.",
+   "note": ""
+  },
+  {
+   "statement": "Het RIVM en andere kennisinstituten verdienen vertrouwen, ook bij omstreden adviezen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We zorgen dat wetenschappers vrij en veilig kunnen werken en brengen het onderzoek dichter bij de mensen.",
+   "note": ""
+  },
+  {
+   "statement": "Het democratische stelsel met partijen, parlement en regering is nog steeds het beste systeem dat we hebben.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Alleen als de democratie en de rechtsstaat stevig staan, kunnen we samen de grote doorbraken realiseren",
+   "note": ""
+  },
+  {
+   "statement": "Politici zijn over het algemeen mensen die zich oprecht inzetten voor het algemeen belang.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De gevestigde media verzwijgen of vertekenen belangrijke onderwerpen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 beschermt journalisten, versterkt de publieke omroep en bestrijdt desinformatie.",
+   "note": ""
+  },
+  {
+   "statement": "De overheid heeft tijdens de coronacrisis fouten gemaakt waarover ze nooit eerlijk zal zijn.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Politici zijn vooral bezig met hun eigen carrière, niet met het landsbelang.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Big tech en multinationals hebben meer macht dan democratisch gekozen regeringen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Grote techbedrijven bedreigen onze democratie en de sociale samenhang.",
+   "note": ""
+  },
+  {
+   "statement": "Wetenschappelijk onderzoek wordt te veel gestuurd door commerciële of politieke belangen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Daarom komt er meer ruimte voor vrij onderzoek dat niet wordt gestuurd door beleid of anderen buiten de wetenschap.",
+   "note": ""
+  },
+  {
+   "statement": "Banken en de financiële sector zijn nooit echt verantwoordelijk gehouden na de kredietcrisis.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Het toeslagenschandaal toont aan dat onze instituties fundamenteel niet deugen.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Het toeslagenschandaal laat zien hoe gevaarlijk etnisch profileren is.",
+   "note": ""
+  },
+  {
+   "statement": "De rechtspraak laat in haar uitspraken vaker politieke voorkeuren meewegen dan recht.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Een weerbare rechtsstaat heeft een striktere scheiding van machten nodig.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de klimaatdoelen aanscherpen, ook als dat ten koste gaat van economische groei op de korte termijn.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 blijft daarbij streven naar klimaatneutraliteit in 2040.",
+   "note": ""
+  },
+  {
+   "statement": "Vlees en zuivel moeten zwaarder belast worden om de uitstoot omlaag te krijgen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 zet daarom vol in op een overgang van dierlijke naar natuurlijke eiwitten",
+   "note": ""
+  },
+  {
+   "statement": "Kernenergie hoort een centrale rol te spelen in de Nederlandse energiemix.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Groene energie is onze eerste keuze, maar dit kent grenzen. We sluiten daarom geen technologie uit.",
+   "note": ""
+  },
+  {
+   "statement": "De overheid moet vervuilende industrie versneld sluiten als ze niet snel genoeg verduurzaamt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 stelt duidelijke grenzen aan vervuilende industrie.",
+   "note": ""
+  },
+  {
+   "statement": "De boeren hebben in Nederland te veel concessies hoeven doen voor het klimaatbeleid.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 blijft gecommitteerd aan halvering van de stikstofuitstoot in 2030",
+   "note": ""
+  },
+  {
+   "statement": "Korte vluchten binnen Europa moeten verboden worden als er een treinverbinding bestaat.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Rijden in een privé-auto op fossiele brandstof moet over tien jaar onmogelijk zijn.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De klimaatcrisis verdient méér aandacht in het onderwijs dan ze nu krijgt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Subsidies op zonnepanelen en warmtepompen moeten verder uitgebreid worden voor lage inkomens.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We ondersteunen mensen met lage inkomens bij verduurzaming van hun woning. Denk aan subsidies, persoonlijk advies en energiecoaches.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland mag klimaatdoelen niet opofferen voor internationale concurrentie, zelfs als andere landen achterblijven.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 brengt Nederland terug op koers voor de klimaatdoelen van 2030, 2040 en 2050.",
+   "note": ""
+  },
+  {
+   "statement": "Het eigen risico in de zorgverzekering moet afgeschaft worden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Het eigen risico blijft, zodat de zorg toegankelijk en betaalbaar blijft.",
+   "note": ""
+  },
+  {
+   "statement": "Winstuitkering in de zorgsector moet wettelijk verboden worden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 wil zorg die draait om de patiënt, niet om marktwerking en commercie.",
+   "note": ""
+  },
+  {
+   "statement": "De geestelijke gezondheidszorg verdient een veel groter aandeel van het zorgbudget.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 vindt dat mentale gezondheid en psychiatrische zorg meer aandacht moeten krijgen",
+   "note": ""
+  },
+  {
+   "statement": "Zorgverzekeraars moeten verdwijnen en de zorg moet weer puur publiek gefinancierd worden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We verhogen het eigen risico van €385 euro niet en je betaalt niet meer dan €150 euro per behandeling.",
+   "note": ""
+  },
+  {
+   "statement": "Mensen moeten meer eigen verantwoordelijkheid nemen voor hun gezondheid (sporten, dieet, niet roken), ook als dat hun zorgkosten beïnvloedt.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "de beste manier om gezondheid te verbeteren, is door armoede en schulden aan te pakken",
+   "note": ""
+  },
+  {
+   "statement": "Mantelzorgers verdienen een financiële vergoeding van de overheid.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Een patiënt heeft het recht om bij ondraaglijk lijden zelf voor euthanasie te kiezen, ook bij dementie of voltooid leven.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Verruiming van de euthanasiewet, ook bij psychisch lijden en dementie.",
+   "note": ""
+  },
+  {
+   "statement": "Preventie en leefstijl horen een veel groter deel van het zorgbudget te krijgen, ook als curatieve zorg moet inleveren.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 wil dit doorbreken door tijd, geld en aandacht te besteden aan het voorkómen van ziekte.",
+   "note": ""
+  },
+  {
+   "statement": "Verpleegkundigen en zorgmedewerkers verdienen aanzienlijk meer salaris, zelfs als dat de premie verhoogt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 geeft zorgprofessionals vertrouwen, autonomie en een goed salaris.",
+   "note": ""
+  },
+  {
+   "statement": "Mensen die zelf bewust ongezond leven, moeten een hogere zorgpremie betalen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Het aantal asielzoekers dat Nederland jaarlijks opvangt moet expliciet aan een maximum gebonden worden.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We investeren in opvang met een menselijke maat, eerlijk verdeeld over ons land. De Spreidingswet blijft.",
+   "note": "Stemgedrag: TK, motie-Vondeling/Wilders over het sluiten van de grenzen en een volledige asielstop (36 871, nr. 41), stemming 2026: verworpen; D66 stemde tegen. Kamerdocument: https://www.tweedekamer.nl/kamerstukken/moties/detail?did=2026D13296&id=2026Z05864"
+  },
+  {
+   "statement": "Wie naar Nederland komt, moet vanaf dag één Nederlands leren en de wet kennen, op straffe van consequenties voor verblijf.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We maken taal, onderwijs en werk vanaf dag één mogelijk.",
+   "note": ""
+  },
+  {
+   "statement": "Arbeidsmigratie binnen de EU moet beperkt worden om Nederlandse arbeiders en huisvesting te beschermen.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "De overheid krijgt de regie: minder kwetsbare, laagbetaalde arbeidsmigratie",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet meer doen om vluchtelingen op te vangen die op de grens van Europa stranden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 blijft zich inzetten voor ondersteuning van landen waar eerste opvang plaatsvindt",
+   "note": ""
+  },
+  {
+   "statement": "Kennismigranten met een hoog inkomen moeten andere fiscale regels krijgen dan andere migranten.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Migranten zonder verblijfsstatus (ongedocumenteerden) horen recht te hebben op basiszorg en onderdak.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Inburgering, asielprocedures en migratie horen Europees geregeld te worden, niet alleen nationaal.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Daarbij pleiten we voor een eerlijke verdeling tussen de verschillende lidstaten.",
+   "note": ""
+  },
+  {
+   "statement": "Iedereen die ergens fout in Nederland is geboren, moet automatisch Nederlander zijn (ius soli).",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Religieuze symbolen (zoals hoofddoek, keppel, kruis) horen niet thuis bij ambtenaren in publieke functies (politie, rechter).",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Migratiebeperking is een hogere prioriteit dan de invulling van vacatures in de Nederlandse economie.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Daarom zet D66 ook in op arbeidsmigratie: gericht, menselijk en slim.",
+   "note": ""
+  },
+  {
+   "statement": "Erfenissen boven €500.000 horen veel zwaarder belast te worden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Daarom maken we de erf- en schenkbelasting moderner en progressiever.",
+   "note": ""
+  },
+  {
+   "statement": "Het verschil tussen vast en flex op de arbeidsmarkt moet veel kleiner worden, zelfs als dat ondernemers beperkt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 wil daarom de verschillen tussen deze groepen werkenden verkleinen en oneerlijke concurrentie voorkomen.",
+   "note": ""
+  },
+  {
+   "statement": "Een aanvullende belasting op grote vermogens (>€2 miljoen) is noodzakelijk om de begroting eerlijk te maken.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We belasten grote vermogens meer, onder meer met een miljonairsbelasting.",
+   "note": ""
+  },
+  {
+   "statement": "Pensioenleeftijd mag verder omhoog naar 70 jaar voor wie nu jonger dan 40 is.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De overheid moet veel actiever industriebeleid voeren en strategische sectoren beschermen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Met groen Europees industriebeleid produceren en innoveren we zelf meer in cruciale sectoren",
+   "note": ""
+  },
+  {
+   "statement": "Multinationals die de Nederlandse fiscaliteit ontwijken horen daarvoor hard aangepakt te worden, ook ten koste van vestigingsklimaat.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 wil dat Europa sneller en harder optreedt tegen bedrijven die hun macht misbruiken",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet veel agressiever bezuinigen om de staatsschuld omlaag te krijgen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Daarom gaat er geen euro minder naar het onderwijs en het sociale vangnet.",
+   "note": ""
+  },
+  {
+   "statement": "Een 32-urige werkweek moet de norm worden in plaats van 40 uur.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De Nederlandse economie hoort meer op groen ondernemerschap te wedden, ook al kost dat traditionele banen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 kiest voor een groene economie waarin mensen, milieu en natuur centraal staan.",
+   "note": ""
+  },
+  {
+   "statement": "Het is meer rechtvaardig om ondernemers fiscaal te belonen dan om werknemers extra te beschermen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We verkleinen de fiscale verschillen tussen werknemers en ondernemers, en behandelen verschillende vormen van arbeid gelijker.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland hoort meer bevoegdheden over te dragen aan de EU op het gebied van defensie en buitenlands beleid.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 is voorstander van diepgaande Europese integratie, en steunt de verdere federalisering van de EU.",
+   "note": ""
+  },
+  {
+   "statement": "Er moet een vetorecht behouden blijven voor nationale parlementen op alle grote EU-besluiten.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Daarom wil D66 af van het vetorecht.",
+   "note": ""
+  },
+  {
+   "statement": "Een rijkere EU-lidstaat zoals Nederland hoort ruimhartig bij te dragen aan een sterk EU-budget.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Dit doen we met eigen Europese inkomstenbronnen.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de optie van vertrek uit de EU bespreekbaar houden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 kiest voor Europese kracht, internationale samenwerking en leiderschap op het terrein van mensenrechten.",
+   "note": ""
+  },
+  {
+   "statement": "De EU moet meer macht krijgen om in te grijpen wanneer een lidstaat de rechtsstaat ondermijnt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Een regering die de democratische rechtsstaat of de vrijheid en gelijkheid van mensen niet respecteert, verliest stemrecht",
+   "note": ""
+  },
+  {
+   "statement": "Europese verkiezingen verdienen veel meer aandacht dan ze nu in Nederland krijgen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We verlagen de drempel voor de inwoners van Curaçao, Aruba en Sint-Maarten om te stemmen bij de Europese verkiezingen.",
+   "note": ""
+  },
+  {
+   "statement": "De EU is uiteindelijk meer in het belang van bedrijven dan van gewone burgers.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Een EU die mensen beschermt tegen willekeur, achterstelling en onzekerheid.",
+   "note": ""
+  },
+  {
+   "statement": "Europese minimumlonen en sociale standaarden moeten in alle lidstaten gelden.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet zich aansluiten bij landen die de uitbreiding van de EU naar de Balkan tegenhouden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 steunt een snellere toetreding van Oekraïne tot de Europese Unie.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland hoort koploper te zijn in een sterk Europees klimaatbeleid, ook al kost dat economisch geld.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Nederland neemt het voortouw voor een sterk Europees energiesysteem.",
+   "note": ""
+  },
+  {
+   "statement": "Een referendum over belangrijke wetten moet eenvoudig te organiseren zijn voor burgers.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://media.d66.nl/uploads/2026/04/D66-Uitvoeringsprogramma-2025-2030.pdf",
+   "quote": "We geven kiezers een noodrem in handen om wetgeving in bijzondere gevallen tegen te kunnen houden",
+   "note": ""
+  },
+  {
+   "statement": "Rechters moeten wetten van het parlement aan de Grondwet kunnen toetsen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We versterken de bescherming van onze grondrechten door rechters de mogelijkheid te geven om wetten te toetsen aan de Grondwet.",
+   "note": ""
+  },
+  {
+   "statement": "Het Nederlandse kiesstelsel hoort district-elementen te bevatten zodat kiezers een persoonlijker stem hebben.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Politieke partijen moeten verplicht hun financiering volledig openbaar maken.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De macht van de minister-president moet uitgebreid worden zodat regeren slagvaardiger wordt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Publieke omroep (NPO) is een onmisbaar tegengewicht tegen de macht van commerciële media.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "D66 investeert in een sterke publieke omroep met een divers en kwalitatief hoogstaand media-aanbod.",
+   "note": ""
+  },
+  {
+   "statement": "Wetenschappers horen zich vooral terughoudend op te stellen in politieke discussies.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Er komt meer geld voor wetenschapscommunicatie, zodat ook mensen buiten de wetenschap de kans krijgen om betrokken te zijn.",
+   "note": ""
+  },
+  {
+   "statement": "Lokale gemeenten verdienen meer eigen geld en bevoegdheden dan ze nu hebben.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Gemeenten hebben steeds meer taken van het Rijk gekregen zonder voldoende geld.",
+   "note": ""
+  },
+  {
+   "statement": "De achtergrond van politici en bestuurders weerspiegelt de samenleving onvoldoende.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "mensen met een praktische opleiding zijn structureel ondervertegenwoordigd",
+   "note": ""
+  },
+  {
+   "statement": "Een burgerberaad met door loting gekozen burgers hoort bindende invloed te krijgen op grote beslissingen.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Ook organiseren we vaker burgerfora om mensen zelf aan het woord te laten",
+   "note": ""
+  },
+  {
+   "statement": "Beleggers moeten geweerd worden van de markt voor betaalbare koopwoningen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We bouwen het belastingvoordeel van woningbezit af en gaan beleggers meer belasten.",
+   "note": ""
+  },
+  {
+   "statement": "De Wet betaalbare huur moet uitgebreid worden tot meer woningen en hogere huurklassen.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://media.d66.nl/uploads/2026/04/D66-Uitvoeringsprogramma-2025-2030.pdf",
+   "quote": "We verplichten een inkomenstoets voor sociale huur en middenhuur: wie langdurig een hoger inkomen heeft, gaat ook meer huur betalen.",
+   "note": ""
+  },
+  {
+   "statement": "Bouwen in groene gebieden moet mogelijk worden gemaakt om de woningnood op te lossen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We willen dat nieuwe ontwikkelingen de natuur niet verder onder druk zetten.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet veel meer publieke woningbouwgrond zelf in eigendom houden om speculatie tegen te gaan.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We richten een Rijksgrondfaciliteit (een landelijke grondbank) op",
+   "note": ""
+  },
+  {
+   "statement": "Een sterke woningcorporatie hoort weer een dominante speler te zijn in de Nederlandse woningmarkt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Woningcorporaties krijgen weer de ruimte om te doen waarvoor ze zijn opgericht",
+   "note": ""
+  },
+  {
+   "statement": "Hypotheekrenteaftrek hoort verder afgebouwd te worden om de huizenmarkt eerlijker te maken.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Dit doen we onder andere via de afbouw van de hypotheekrenteaftrek",
+   "note": ""
+  },
+  {
+   "statement": "Statushouders horen niet langer voorrang te krijgen op sociale huurwoningen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Vakantiewoningen in toeristische gebieden mogen niet ten koste gaan van permanent wonen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nieuwbouw hoort veel meer in een hoog tempo via prefab en industriële bouw te gaan, ook al kost dat architectonische kwaliteit.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "En met oog voor architectonische en stedenbouwkundige kwaliteit.",
+   "note": ""
+  },
+  {
+   "statement": "De prioriteit bij de woningmarkt moet liggen bij starters en jonge gezinnen, niet bij doorstromers.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We laten de studieschuld niet meer meetellen bij de hypotheekaanvraag.",
+   "note": ""
+  },
+  {
+   "statement": "De Europese AI-verordening (AI Act) is een goede zaak, ook als dat innovatie kan vertragen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We kiezen voor Europese oplossingen en stevige handhaving van Europese regels.",
+   "note": ""
+  },
+  {
+   "statement": "De overheid moet werkenden actief beschermen tegen banenverlies door AI, ook als dat extra belastinggeld kost.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://media.d66.nl/uploads/2026/04/D66-Uitvoeringsprogramma-2025-2030.pdf",
+   "quote": "We zijn ons bewust van de effecten hiervan voor Nederlandse werknemers: zij krijgen via het leerbudget de mogelijkheid om zich om te scholen.",
+   "note": ""
+  },
+  {
+   "statement": "AI-bedrijven moeten verplicht hun trainingsdata openbaar maken zodat makers van content kunnen controleren of hun werk is gebruikt.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Open source speelt hierin een sleutelrol: het vergroot samenwerking, versnelt innovatie",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de NAVO-norm van 5% bbp voor defensie volledig overnemen, ook als dat ten koste gaat van zorg of onderwijs.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Veiligheid en defensie zijn cruciaal, maar mogen nooit ten koste gaan van de samenleving die we juist willen beschermen.",
+   "note": "Programma steunt de 5%-afspraak (D66: 3,5% bbp defensie + 1,5% bbp infrastructuur/paraatheid) maar wijst financiering ten koste van zorg en onderwijs expliciet af; daarom 'oneens' op de stelling zoals geformuleerd."
+  },
+  {
+   "statement": "Europa moet zo snel mogelijk een eigen defensie opbouwen die niet afhankelijk is van de Verenigde Staten.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We kiezen voor strategische zelfstandigheid van Europa.",
+   "note": ""
+  },
+  {
+   "statement": "De dienstplicht moet weer geactiveerd worden om de Nederlandse krijgsmacht op sterkte te brengen.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Dat doen we met het Zweedse model voor de dienstplicht, dat bestaat uit een verplichte enquête onder dienstplichtigen.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet doorgaan met militaire en financiële steun aan Oekraïne, ook als dat onze eigen begroting onder druk zet.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We blijven Oekraïners zowel militair als humanitair steunen in hun dappere strijd tegen de Russische agressie.",
+   "note": ""
+  },
+  {
+   "statement": "Sociale media zoals TikTok en Instagram moeten verboden worden voor kinderen onder de 15 jaar.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "wil D66 een duidelijke leeftijdsgrens van 15 jaar voor verslavende apps die zorgen dat je maar blijft scrollen",
+   "note": "Stemgedrag: TK, motie-Van der Werf c.s. over gedifferentieerde leeftijdsgrenzen voor socialmediaplatforms, stemming 2024-2025: aangenomen; D66 (9 zetels) stemde voor. Kamerdocument: https://www.tweedekamer.nl/kamerstukken/moties/detail?id=2025Z03210&did=2025D07255"
+  },
+  {
+   "statement": "Smartphones en tablets horen tijdens schooluren volledig de klas uit, op alle niveaus.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "We willen geen smartphones in de klas en op het schoolplein.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de Palestijnse staat erkennen, ook als dat de relatie met Israël onder druk zet.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Nederland moet nu de Palestijnse staat erkennen en het Palestijnse recht op zelfbeschikking bevestigen.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet een eventueel ICC-arrestatiebevel tegen Netanyahu uitvoeren als hij Nederlands grondgebied zou betreden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Daarbij horen vervolgstappen om individuen te bestraffen via het Internationaal Strafhof en overheden via het Internationaal Gerechtshof.",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet militaire samenwerking met Israël opschorten zolang er geen overtuigende waarborgen zijn dat die niet bijdraagt aan schendingen van het humanitair oorlogsrecht.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "per direct stoppen met de export van wapens en dual-use goederen die mogelijk bijdragen aan het geweld in Gaza",
+   "note": ""
+  },
+  {
+   "statement": "Internationale rechtbanken zoals het ICC en IGH verdienen ons vertrouwen, ook als hun uitspraken Nederlandse bondgenoten ongelegen komen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://d66.nl/wp-content/uploads/2025/10/D66-Verkiezingsprogramma-2025-2030.pdf",
+   "quote": "Voor D66 is het internationaal recht geen keuzemenu.",
+   "note": ""
+  }
+ ]
+}
