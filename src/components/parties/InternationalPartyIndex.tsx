@@ -1,58 +1,100 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import type { DimensionScores } from "@/lib/scoring";
+import { Kicker } from "@/components/Kicker";
+import { MiniVector } from "@/components/MiniVector";
+import {
+  ScrollReveal,
+  ScrollRevealItem,
+} from "@/components/motion/ScrollReveal";
 
 export interface InternationalPartyCountry {
   country: string;
+  /** Korte landcode voor het mono-label, bijvoorbeeld DE of UK. */
+  code: string;
   note: string;
-  parties: Array<{ name: string; slug: string; description: string }>;
+  parties: Array<{
+    name: string;
+    slug: string;
+    abbreviation: string;
+    description: string;
+    vector: DimensionScores;
+  }>;
 }
 
 interface InternationalPartyIndexProps {
   countries: InternationalPartyCountry[];
 }
 
-export function InternationalPartyIndex({ countries }: InternationalPartyIndexProps) {
-  return (
-    <section id="internationaal" className="border-t border-[var(--color-ink)]/20 pt-8 md:pt-12">
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,0.58fr)_minmax(0,1.42fr)] lg:gap-14">
-        <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-ink)]/50">
-            Kenniscentrum · eerste landengids
-          </p>
-          <h2 className="mt-3 max-w-md display text-3xl leading-[0.98] tracking-[-0.035em] text-[var(--color-ink)] md:text-5xl">
-            Internationale kaart
-          </h2>
-          <p className="mt-5 max-w-sm text-base leading-7 text-[var(--color-ink)]/70">
-            Deze selectie is bewust klein gehouden. Elke pagina begint bij de eigen partijbron en een officiële uitslagenbron, zodat je kunt doorlezen zonder te verdwalen in losse labels.
-          </p>
-        </div>
+/**
+ * De buitenlandse partijen in exact hetzelfde kaartpatroon als de Nederlandse,
+ * Europese en Amerikaanse partijen: mono-label met land en afkorting, de naam in
+ * de display-stijl en de positie op de vijf assen. Zo is elke partij op de site
+ * op dezelfde manier te vergelijken.
+ */
+export function InternationalPartyIndex({
+  countries,
+}: InternationalPartyIndexProps) {
+  if (countries.length === 0) return null;
 
-        <div className="grid gap-8 md:grid-cols-3 md:gap-5">
-          {countries.map((country, countryIndex) => (
-            <section
-              key={country.country}
-              aria-labelledby={"international-country-" + countryIndex}
-              className="border-l border-[var(--color-ink)]/20 pl-4"
-            >
-              <h3 id={"international-country-" + countryIndex} className="display text-2xl tracking-[-0.025em] text-[var(--color-ink)]">
-                {country.country}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-[var(--color-ink)]/60">{country.note}</p>
-              <ul className="mt-5 divide-y divide-[var(--color-ink)]/15 border-y border-[var(--color-ink)]/15">
+  return (
+    <section className="mt-20 border-t border-ink pt-10">
+      <ScrollReveal variant="stagger">
+        <ScrollRevealItem>
+          <Kicker number={4}>Internationale partijen</Kicker>
+          <h2 className="display mt-5 max-w-3xl">
+            Buitenlandse partijen, op dezelfde vijf assen.
+          </h2>
+        </ScrollRevealItem>
+        <ScrollRevealItem>
+          <p className="mt-4 max-w-2xl text-sm text-ink-muted leading-relaxed">
+            Elk profiel begint bij de eigen partijbron en een officiële
+            uitslagenbron, zodat je kunt doorlezen zonder te verdwalen in losse
+            labels. Bewust een selectie, niet een volledige wereldindex.
+          </p>
+        </ScrollRevealItem>
+
+        {countries.map((country) => (
+          <ScrollRevealItem key={country.country}>
+            <div className="mt-12">
+              <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-rule pb-3">
+                <h3 className="display text-xl text-ink">{country.country}</h3>
+                <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                  {country.note}
+                </p>
+              </div>
+              <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {country.parties.map((party) => (
-                  <li key={party.slug} className="py-3">
-                    <Link href={"/partij/" + party.slug} className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-terra)]">
-                      <span className="font-medium text-[var(--color-ink)] transition-colors group-hover:text-[var(--color-terra)]">
+                  <li key={party.slug} className="border border-rule bg-paper p-5">
+                    <Link
+                      href={"/partij/" + party.slug}
+                      className="block no-underline group focus:outline-none focus-visible:ring-2 focus-visible:ring-navy"
+                    >
+                      <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                        {country.code} ·{" "}
+                        {party.abbreviation.toUpperCase()}
+                      </p>
+                      <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-navy transition-colors">
                         {party.name}
-                      </span>
-                      <span className="mt-1 block text-sm leading-5 text-[var(--color-ink)]/60">{party.description}</span>
+                      </p>
+                      <p className="mt-2 text-sm leading-5 text-ink-muted">
+                        {party.description}
+                      </p>
+                      <div className="mt-4">
+                        <MiniVector vector={party.vector} size="sm" />
+                      </div>
+                      <p className="mt-4 inline-flex items-center gap-1.5 text-xs text-ink-muted group-hover:text-navy transition-colors">
+                        Bekijk het profiel
+                        <ArrowRight size={12} strokeWidth={1.8} aria-hidden="true" />
+                      </p>
                     </Link>
                   </li>
                 ))}
               </ul>
-            </section>
-          ))}
-        </div>
-      </div>
+            </div>
+          </ScrollRevealItem>
+        ))}
+      </ScrollReveal>
     </section>
   );
 }

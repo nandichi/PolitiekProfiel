@@ -21,7 +21,7 @@ import {
 const PAGE_PATH = "/partijen";
 const PAGE_TITLE = "Partijen";
 const PAGE_DESCRIPTION =
-  "Alle Nederlandse, Europese en Amerikaanse partijen op de vijf dimensies, met programma-samenvatting, fractieleider en actuele fractiegrootte per 14 september 2026.";
+  "Nederlandse, Europese, Amerikaanse, Duitse, Britse en Franse partijen op de vijf dimensies, met partijleider, actuele zetels en bron per profiel.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -48,10 +48,24 @@ export default function PartijenOverviewPage() {
   const eu = all.filter((p) => p.region === "EU");
   const us = all.filter((p) => p.region === "US");
   const internationalCountries = [
-    { country: "Duitsland", note: "Vijf brongebonden profielpagina's.", parties: all.filter((p) => p.region === "DE") },
-    { country: "Verenigd Koninkrijk", note: "Vijf brongebonden profielpagina's.", parties: all.filter((p) => p.region === "GB") },
-    { country: "Frankrijk", note: "Vijf brongebonden profielpagina's.", parties: all.filter((p) => p.region === "FR") },
-  ];
+    { country: "Duitsland", code: "DE", note: "BONDSDAG 2025", region: "DE" },
+    { country: "Verenigd Koninkrijk", code: "UK", note: "LAGERHUIS 2024", region: "GB" },
+    { country: "Frankrijk", code: "FR", note: "ASSEMBLÉE 2024", region: "FR" },
+  ].map(({ country, code, note, region }) => {
+    const parties = all.filter((party) => party.region === region);
+    return {
+      country,
+      code,
+      note: `${note} · ${parties.length} PARTIJEN`,
+      parties: parties.map((party) => ({
+        name: party.name,
+        slug: party.slug,
+        abbreviation: party.abbreviation,
+        description: party.description,
+        vector: party.positionVector,
+      })),
+    };
+  });
 
   const breadcrumbLd = buildBreadcrumbList([
     { name: "Start", item: "/" },
@@ -221,9 +235,7 @@ export default function PartijenOverviewPage() {
         </section>
       )}
 
-      <div className="mt-20">
-        <InternationalPartyIndex countries={internationalCountries} />
-      </div>
+      <InternationalPartyIndex countries={internationalCountries} />
     </Container>
   );
 }
