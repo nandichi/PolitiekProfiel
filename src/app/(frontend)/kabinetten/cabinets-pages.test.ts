@@ -36,4 +36,10 @@ describe("kabinettenpagina's", () => {
     expect(detail).toContain("notFound()");
     expect(detail).toContain("generateStaticParams");
   });
+
+  it("toont de records en uitzonderingen met bron", () => {
+    expect(overview).toContain("CABINET_RECORDS");
+    expect(overview).toContain("CABINET_RECORD_GROUPS");
+    expect(overview).toContain("record.sourceUrl");
+  });
 });

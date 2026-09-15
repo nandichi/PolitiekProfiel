@@ -7,7 +7,12 @@ import {
   ScrollReveal,
   ScrollRevealItem,
 } from "@/components/motion/ScrollReveal";
-import { CABINETS, CABINET_REVIEWED } from "@/data/cabinets";
+import {
+  CABINETS,
+  CABINET_RECORDS,
+  CABINET_RECORD_GROUPS,
+  CABINET_REVIEWED,
+} from "@/data/cabinets";
 import {
   buildBreadcrumbList,
   jsonLdString,
@@ -151,6 +156,58 @@ export default function KabinettenOverviewPage() {
             ))}
         </ul>
       </section>
+      <section className="mt-20 border-t border-ink pt-10">
+        <Kicker number={2}>Records en uitzonderingen</Kicker>
+        <h2 className="display mt-5 max-w-3xl">
+          Wat in de parlementaire geschiedenis maar één keer gebeurde.
+        </h2>
+        <p className="mt-4 max-w-2xl text-sm text-ink-muted">
+          De langste en de kortste kabinetten, de traagste en de snelste
+          formaties, en de uitzonderingen die het stelsel zelf blootleggen.
+        </p>
+
+        <div className="mt-10 space-y-12">
+          {CABINET_RECORD_GROUPS.map((group) => {
+            const records = CABINET_RECORDS.filter(
+              (record) => record.group === group.id,
+            );
+            if (records.length === 0) return null;
+            return (
+              <div key={group.id}>
+                <p className="kicker">{group.label}</p>
+                <ol className="mt-5 max-w-4xl divide-y divide-rule border-y border-rule">
+                  {records.map((record) => (
+                    <li
+                      key={record.claim}
+                      className="grid grid-cols-[1fr_auto] gap-4 py-5"
+                    >
+                      <div className="min-w-0">
+                        <p className="text-base text-ink-2 leading-relaxed">
+                          {record.claim}
+                        </p>
+                        <a
+                          href={record.sourceUrl}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="mt-2 inline-block text-xs text-ink-muted underline decoration-rule hover:text-ink"
+                        >
+                          Bron bij dit record
+                        </a>
+                      </div>
+                      {record.numbers ? (
+                        <p className="mono tabular-nums text-xs text-ink-muted text-right max-w-40 pt-1">
+                          {record.numbers}
+                        </p>
+                      ) : null}
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
     </Container>
   );
 }

@@ -308,3 +308,135 @@ export const CABINETS: SeedCabinet[] = [
 export function getCabinetBySlug(slug: string): SeedCabinet | undefined {
   return CABINETS.find((cabinet) => cabinet.slug === slug);
 }
+
+/** Eén uitzonderlijkheid of record rond kabinetten en formaties. */
+export interface CabinetRecord {
+  group: "zittingsduur" | "formaties" | "bijzonder" | "mijlpalen";
+  claim: string;
+  numbers?: string;
+  sourceUrl: string;
+}
+
+export const CABINET_RECORD_GROUPS = [
+  { id: "zittingsduur", label: "Hoe lang een kabinet zat" },
+  { id: "formaties", label: "Hoe lang een formatie duurde" },
+  { id: "bijzonder", label: "Wat een kabinet bijzonder maakte" },
+  { id: "mijlpalen", label: "Mijlpalen in de parlementaire geschiedenis" },
+] as const;
+
+export const CABINET_RECORDS: CabinetRecord[] = [
+  {
+    group: "zittingsduur",
+    claim: "Langstzittende kabinet sinds de Tweede Wereldoorlog: Rutte II (VVD en PvdA) zat de volledige parlementaire periode uit.",
+    numbers: "1816 dagen, van 5 november 2012 tot 26 oktober 2017",
+    sourceUrl: "https://www.parlement.com/zittingsduur-kabinetten",
+  },
+  {
+    group: "zittingsduur",
+    claim: "Tweede langstzittende kabinet sinds 1945: Lubbers III (CDA en PvdA), dat eveneens de hele periode uitzat.",
+    numbers: "1748 dagen",
+    sourceUrl: "https://www.parlement.com/zittingsduur-kabinetten",
+  },
+  {
+    group: "zittingsduur",
+    claim: "Derde langstzittende kabinet sinds 1945: Den Uyl (PvdA, D66, PPR, KVP en ARP), dat kort voor de verkiezingen viel.",
+    numbers: "1683 dagen",
+    sourceUrl: "https://www.parlement.com/zittingsduur-kabinetten",
+  },
+  {
+    group: "zittingsduur",
+    claim: "Kortstzittende kabinet na de Tweede Wereldoorlog: Van Agt II (CDA, PvdA en D66), dat viel op een conflict over bezuinigingen.",
+    numbers: "261 dagen",
+    sourceUrl: "https://www.parlement.com/kortstondige-kabinetten",
+  },
+  {
+    group: "zittingsduur",
+    claim: "Kortste kabinet uit de Nederlandse parlementaire geschiedenis: Colijn V werd twee dagen na zijn aantreden al demissionair, omdat het zijn eigen regeringsverklaring niet overleefde.",
+    numbers: "16 dagen in 1939",
+    sourceUrl: "https://www.parlement.com/kabinet-colijn-v-1939",
+  },
+  {
+    group: "zittingsduur",
+    claim: "Langste demissionaire periode van een kabinet: Rutte III bleef na zijn val nog bijna een jaar doorregeren in demissionaire staat.",
+    numbers: "360 dagen",
+    sourceUrl: "https://www.parlement.com/kabinet-rutte-iii-2017-2022",
+  },
+  {
+    group: "formaties",
+    claim: "Langste kabinetsformatie ooit in Nederland: de formatie die leidde tot Rutte IV, na de verkiezingen van 17 maart 2021.",
+    numbers: "299 dagen vanaf de verkiezingen",
+    sourceUrl: "https://www.parlement.com/duur-kabinetsformaties",
+  },
+  {
+    group: "formaties",
+    claim: "Lange formatie die leidde tot Rutte III, nadat een eerdere poging met GroenLinks was mislukt. Dat was toen de langste sinds 1945.",
+    numbers: "225 dagen",
+    sourceUrl: "https://www.parlement.com/duur-kabinetsformaties",
+  },
+  {
+    group: "formaties",
+    claim: "Lange formatie die leidde tot het kabinet-Schoof, met een partijloze minister-president.",
+    numbers: "223 dagen",
+    sourceUrl: "https://www.parlement.com/duur-kabinetsformaties",
+  },
+  {
+    group: "formaties",
+    claim: "Snelste formatie na verkiezingen sinds 1946: die van Drees I, twee jaar na de oorlog.",
+    numbers: "31 dagen",
+    sourceUrl: "https://www.parlement.com/duur-kabinetsformaties",
+  },
+  {
+    group: "formaties",
+    claim: "Snelste formatie van een overgangskabinet: Balkenende III kwam er in een week, direct na de val van Balkenende II.",
+    numbers: "7 dagen",
+    sourceUrl: "https://www.parlement.com/duur-kabinetsformaties",
+  },
+  {
+    group: "formaties",
+    claim: "Gemiddelde duur van een kabinetsformatie na verkiezingen sinds 1946, tussenkabinetten niet meegerekend.",
+    numbers: "114 dagen",
+    sourceUrl: "https://www.parlement.com/duur-kabinetsformaties",
+  },
+  {
+    group: "bijzonder",
+    claim: "Het grootste aantal partijen in een naoorlogs kabinet is vijf. Dat gebeurde onder meer bij Biesheuvel I, dat met één informateur en één formateur werd gevormd.",
+    numbers: "maximaal 5 partijen",
+    sourceUrl: "https://www.parlement.com/soorten-kabinetten",
+  },
+  {
+    group: "bijzonder",
+    claim: "Er is sinds 1945 nooit een kabinet geweest met bewindslieden uit één partij.",
+    numbers: "minimaal 2 partijen",
+    sourceUrl: "https://www.parlement.com/soorten-kabinetten",
+  },
+  {
+    group: "bijzonder",
+    claim: "Het bekendste gedoogkabinet: Rutte I regeerde met VVD en CDA zonder eigen meerderheid, op basis van een gedoogakkoord met de PVV.",
+    numbers: "VVD en CDA plus gedoogsteun PVV",
+    sourceUrl: "https://www.parlement.com/soorten-kabinetten",
+  },
+  {
+    group: "bijzonder",
+    claim: "Het eerste echte minderheidskabinet sinds 1945: het kabinet-Jetten, dat zonder meerderheid in beide Kamers regeert.",
+    numbers: "66 van 150 zetels",
+    sourceUrl: "https://www.parlement.com/soorten-kabinetten",
+  },
+  {
+    group: "bijzonder",
+    claim: "Het kabinet-Schoof week af van alle voorgangers doordat het een partijloze minister-president had en doordat radicaalrechts deelnam.",
+    numbers: "aangetreden op 2 juli 2024",
+    sourceUrl: "https://www.parlement.com/kabinetten-tijdvak",
+  },
+  {
+    group: "mijlpalen",
+    claim: "Eerste vrouwelijke minister van Nederland: Marga Klompé (KVP), minister van Maatschappelijk Werk. In 1971 werd zij als eerste vrouw minister van Staat.",
+    numbers: "13 oktober 1956",
+    sourceUrl: "https://www.parlement.com/vrouwen-de-politiek",
+  },
+  {
+    group: "mijlpalen",
+    claim: "Slechts drie keer in de parlementaire geschiedenis veroorzaakte het stemgedrag van de Eerste Kamer een kabinetscrisis. De laatste keer was de Nacht van Wiegel, toen een grondwetsvoorstel op één stem na geen tweederdemeerderheid haalde. Kok II bood zijn ontslag aan, maar bleef na een lijmpoging zitten.",
+    numbers: "18 mei 1999",
+    sourceUrl: "https://www.parlement.com/kabinetscrises",
+  },
+];
