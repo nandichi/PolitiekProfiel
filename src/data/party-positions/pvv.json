@@ -1,0 +1,1312 @@
+{
+ "partySlug": "pvv",
+ "programmeTitle": "Dit is uw land – Verkiezingsprogramma PVV Tweede Kamerverkiezingen 2025",
+ "programmeUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+ "reviewed": "15-09-2026. Twee bronnen per codering: (a) verkiezingsprogramma 2025 (pvv.nl) en (b) stemgedrag PVV-fractie/PVV-bewindslieden kabinet-Schoof (tweedekamer.nl, eerstekamer.nl, officielebekendmakingen.nl, rijksoverheid.nl). Verdeling: 48 eens, 49 oneens, 2 neutraal, 64 geen-standpunt; basis: 87 programma, 10 beide, 2 stemgedrag, 64 geen. Geen tegenspraak tussen programma en stemgedrag gevonden. Kanttekening: na 29-10-2025 splitste Groep Markuszower (7 zetels) zich af; PVV telt in 2026 negentien zetels. Programma-quotes zijn woordelijk uit de PDF gecontroleerd.",
+ "positions": [
+  {
+   "statement": "De overheid moet de hoogste inkomens (boven €150.000 per jaar) zwaarder belasten dan nu.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Grote bedrijven betalen in Nederland nu te weinig winstbelasting.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Essentiële diensten zoals openbaar vervoer en zorg horen in publieke handen, niet bij de markt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Acute zorg uit de marktwerking halen",
+   "note": ""
+  },
+  {
+   "statement": "Het minimumloon mag verder omhoog naar minimaal €16 per uur, ook als bedrijven dat moeilijk vinden.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De overheid moet zelf actief sociale huurwoningen blijven bouwen, ook als dat de woningmarkt verstoort.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "We bouwen sociale huurwoningen, middenhuurwoningen en betaalbare koopwoningen",
+   "note": ""
+  },
+  {
+   "statement": "Het is rechtvaardig om vermogen boven €1 miljoen progressief te belasten.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Werknemers verdienen meer formele zeggenschap in beslissingen van bedrijven waar ze werken.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Meer zeggenschap voor zorgverleners",
+   "note": ""
+  },
+  {
+   "statement": "Een vorm van basisinkomen zou voor iedere volwassene in Nederland mogelijk moeten zijn.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Lagere belastingen voor bedrijven zijn beter voor de Nederlandse economie.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De overheid bemoeit zich te veel met de keuzes die bedrijven en burgers maken.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Ook stoppen we met alle betutteling van de overheid",
+   "note": ""
+  },
+  {
+   "statement": "Werknemers moeten makkelijker ontslagen kunnen worden zodat bedrijven flexibeler zijn.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Privatisering heeft Nederland over het algemeen welvarender en efficiënter gemaakt.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Havens en andere kritieke infrastructuur altijd met een meerderheidsaandeel in Nederlandse (publieke) handen",
+   "note": ""
+  },
+  {
+   "statement": "Een vlaktaks (één belastingtarief voor iedereen) is rechtvaardiger dan progressieve belasting.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De zorg werkt het beste met concurrentie tussen private aanbieders en zorgverzekeraars.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Stoppen met woekerwinsten in de zorg, weren van private equity",
+   "note": ""
+  },
+  {
+   "statement": "Strenge milieuregels remmen economische groei en moeten worden versoepeld.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Versoepeling van de Brusselse regels; verminderen van het aantal natuurgebieden met Natura 2000-status",
+   "note": ""
+  },
+  {
+   "statement": "De huidige uitkeringen in Nederland zijn aan de hoge kant en moeten naar beneden.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet meer asielzoekers opvangen dan nu het geval is.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Nederland gaat op slot voor asielzoekers – om te beginnen voor de komende vier jaar",
+   "note": ""
+  },
+  {
+   "statement": "Onderwijs op school moet expliciet aandacht besteden aan diversiteit en LGBTQ+-thema's.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "In het onderwijs hoort links-liberale seksuele indoctrinatie niet thuis",
+   "note": ""
+  },
+  {
+   "statement": "Mannen en vrouwen verdienen wettelijk gelijke kansen, ook als dat actieve quota of voorrangsbeleid vraagt.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Bij werving en selectie van (top)ambtenaren telt alleen de inhoudelijke geschiktheid en niet geslacht, huidskleur en/of herkomst",
+   "note": ""
+  },
+  {
+   "statement": "De positie van het koningshuis moet democratischer worden of zelfs heroverwogen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Religieuze symbolen horen niet thuis bij overheidsfuncties (politie, rechter, leerkracht in het openbaar onderwijs).",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Verbod op het dragen van islamitische hoofddoekjes in alle overheidsgebouwen inclusief de Staten-Generaal",
+   "note": ""
+  },
+  {
+   "statement": "Drugs zoals XTC en MDMA zouden onder strikte voorwaarden gereguleerd verkrijgbaar moeten zijn.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Discriminatie tegen mensen met een migratie-achtergrond is een groot probleem in Nederland.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Ontslag voor de Nationaal Coördinator tegen Discriminatie en Racisme",
+   "note": ""
+  },
+  {
+   "statement": "Het Sinterklaasfeest moet zich blijven aanpassen aan moderne opvattingen over racisme.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "onze feesten als Kerstmis, Sinterklaas mét Zwarte Piet en Pasen",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de instroom van asielzoekers fors beperken.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.eerstekamer.nl/wetsvoorstel/36704_asielnoodmaatregelenwet",
+   "quote": "Totale asielstop: alle asielzoekers worden aan de grens geweigerd",
+   "note": "Kamer: Asielnoodmaatregelenwet (36.704) aangenomen 3-7-2025 (94-56), PVV voor."
+  },
+  {
+   "statement": "Tradities en culturele wortels van Nederland moeten beter beschermd worden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Handen af van onze geschiedenis, cultuur, identiteit, tradities en feesten",
+   "note": ""
+  },
+  {
+   "statement": "Op scholen moet de Nederlandse cultuur en geschiedenis centraler komen te staan.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Op elke basisschool en middelbare school moet weer les worden gegeven in vaderlandse geschiedenis",
+   "note": ""
+  },
+  {
+   "statement": "Inburgering voor nieuwkomers moet strenger en sneller verlopen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Geen bijstand voor wie geen Nederlands spreekt",
+   "note": ""
+  },
+  {
+   "statement": "Het traditionele gezin als hoeksteen van de samenleving is iets om te koesteren.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Religieuze instellingen verdienen meer respect en ruimte in het publieke debat.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Verbod op de islamitische gebedsoproep",
+   "note": ""
+  },
+  {
+   "statement": "Genderneutrale taal (zoals 'reizigers' i.p.v. 'dames en heren') gaat te ver.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Voor de PVV bestaan er slechts twee geslachten: man en vrouw",
+   "note": ""
+  },
+  {
+   "statement": "Nationale symbolen zoals vlag en volkslied verdienen een prominentere plek in het openbare leven.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Alléén de Nederlandse vlag op overheidsgebouwen en de Staten-Generaal",
+   "note": ""
+  },
+  {
+   "statement": "De overheid mag mijn berichten en e-mails niet zonder concrete verdenking inzien.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "End-to-end versleuteling moet beschermd blijven, ook als het politieonderzoek bemoeilijkt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Cameratoezicht in publieke ruimtes is een te grote inbreuk op privacy.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "We zetten het leger in voor grensbewaking met gebruik van camera’s en drones",
+   "note": ""
+  },
+  {
+   "statement": "Vreedzame demonstraties moeten worden beschermd, ook als ze de openbare orde tijdelijk verstoren.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Ordeverstorende demonstraties, zoals het blokkeren van infrastructuur, worden verboden",
+   "note": ""
+  },
+  {
+   "statement": "De wet op de inlichtingen- en veiligheidsdiensten geeft de AIVD/MIVD te ruime bevoegdheden.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Kraken zou niet strafbaar moeten zijn als een pand lang leegstaat.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Kraakverbod streng handhaven",
+   "note": ""
+  },
+  {
+   "statement": "Persoonlijke vrijheden mogen niet worden ingeperkt op basis van ‘aanstootgevendheid’.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Afschaffen strafbaarstelling “Groepsbelediging” (artikel 137c Wetboek van Strafrecht)",
+   "note": ""
+  },
+  {
+   "statement": "Drugsgebruikers horen niet strafrechtelijk vervolgd te worden, maar geholpen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De politie heeft ruimere bevoegdheden nodig om de veiligheid op straat te garanderen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Gericht preventief fouilleren",
+   "note": ""
+  },
+  {
+   "statement": "Verdachten van zware criminaliteit moeten preventief vastgehouden kunnen worden, ook zonder sluitend bewijs.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Terreurverdachten moeten ook zonder strafrechtelijke veroordeling hun nationaliteit kunnen verliezen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": "Programma koppelt denaturalisatie juist aan een veroordeling voor één ernstig misdrijf; geen uitspraak over ontneming zonder veroordeling."
+  },
+  {
+   "statement": "Cameratoezicht en slimme sensoren maken onze samenleving veiliger en moeten worden uitgebreid.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Tussen de grensovergangen patrouilleert het leger met gebruikmaking van camera’s en drones",
+   "note": ""
+  },
+  {
+   "statement": "Onlinediensten moeten verplicht achterdeurtjes bouwen voor opsporingsdiensten.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Demonstraties die de openbare orde verstoren moeten harder worden aangepakt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Klimaatactivisten die de snelweg blokkeren, worden direct opgepakt, vastgezet en gestraft",
+   "note": ""
+  },
+  {
+   "statement": "Strengere straffen werken afschrikwekkend en dienen het algemeen belang.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Alleen met snoeiharde straffen krijgen we de geweldplegers eronder",
+   "note": ""
+  },
+  {
+   "statement": "Een verbod op gezichtsbedekkende kleding in publieke ruimtes is gerechtvaardigd.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.eerstekamer.nl/wetsvoorstel/34349_wet_gedeeltelijk_verbod",
+   "quote": "We voeren een algeheel boerkaverbod in",
+   "note": "Kamer: Wet gedeeltelijk verbod gezichtsbedekkende kleding (34.349) aangenomen TK 29-11-2016 en EK 26-6-2018, PVV voor; PVV wil nu een algeheel verbod."
+  },
+  {
+   "statement": "Meer macht naar de Europese Unie zou Nederland uiteindelijk versterken.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Niet nóg meer miljarden en bevoegdheden overhevelen naar Brussel, maar juist terughalen",
+   "note": ""
+  },
+  {
+   "statement": "Belangrijke besluiten over klimaat, migratie en defensie horen op Europees niveau te worden genomen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Nederland moet al het mogelijke vetoën, waaronder de EU-begroting",
+   "note": ""
+  },
+  {
+   "statement": "Gemeentes verdienen meer eigen beleidsruimte en geld, ook als dat tot verschillen tussen regio's leidt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Een gezamenlijk Europees leger zou een verstandige stap zijn.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Soeverein Nederland, geen geopolitieke Europese superstaat",
+   "note": ""
+  },
+  {
+   "statement": "Burgers moeten meer directe zeggenschap krijgen via burgerraden of referenda.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Wij steunen de nu in het parlement voorliggende Grondwetswijziging voor een bindend correctief referendum",
+   "note": ""
+  },
+  {
+   "statement": "Eurobonds en gezamenlijke schulduitgifte versterken Europa als geheel.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Geen eurobonds, geen Europese belastingen, geen digitale euro",
+   "note": ""
+  },
+  {
+   "statement": "Een referendum kan een waardevolle aanvulling zijn op de parlementaire democratie.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Daarnaast willen we zoveel mogelijk inspraak via laagdrempelige landelijke én lokale referenda",
+   "note": ""
+  },
+  {
+   "statement": "Provincies en gemeentes verdienen meer financiële zelfstandigheid van Den Haag.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet zelf bepalen wie er ons land binnenkomt, niet Brussel.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Opt-out op asiel en immigratie bij de EU afdwingen met inzet vetorecht",
+   "note": ""
+  },
+  {
+   "statement": "De Europese Unie heeft te veel macht en moet kleiner worden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "een Unie die steeds meer macht naar zich toetrekt en ons alles tot in de puntjes dicteert",
+   "note": ""
+  },
+  {
+   "statement": "Belangrijke nationale beslissingen mogen niet door internationale rechters worden tegengehouden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Ook leggen we vast dat asielzoekers niet meer tegen een afgewezen asielaanvraag kunnen procederen",
+   "note": ""
+  },
+  {
+   "statement": "Een serieus debat over een Nexit verdient een eerlijke kans in de Tweede Kamer.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": "Programma 2025 noemt Nexit niet meer; historic: PVV-motie voor een Nexit-referendum werd in 2016 verworpen. Geen recente stemming gevonden."
+  },
+  {
+   "statement": "Bij conflict tussen Nederlandse wet en EU-recht moet de Nederlandse wet voorgaan.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Nederland moet ophouden om telkens het braafste jongetje van de EU-klas te zijn",
+   "note": ""
+  },
+  {
+   "statement": "Het Europees Parlement is te ver van de gewone burger om belangrijke beslissingen te nemen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "de ongekozen bureaucraten in Brussel met hun riante salarissen",
+   "note": ""
+  },
+  {
+   "statement": "Centralisatie in Den Haag is efficiënter dan macht overdragen aan provincies.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Internationale verdragen mogen Nederland niet binden tegen de wil van een meerderheid.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Opzeggen VN-Vluchtelingenverdrag, Europees Verdrag voor de Rechten van de Mens, Europees Verdrag inzake Nationaliteit",
+   "note": ""
+  },
+  {
+   "statement": "De rechtspraak in Nederland werkt over het algemeen onafhankelijk en eerlijk.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nederlandse wetenschappers en experts zijn over het algemeen te vertrouwen op hun vakgebied.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Onze verkiezingen verlopen eerlijk en zijn betrouwbaar.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De NPO en kwaliteitskranten leveren grotendeels betrouwbare informatie.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Het subsidie-infuus van de NPO moet geheel stoppen",
+   "note": ""
+  },
+  {
+   "statement": "Toezichthouders zoals AFM, DNB, NZa en ACM doen hun werk over het algemeen goed.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Het RIVM en andere kennisinstituten verdienen vertrouwen, ook bij omstreden adviezen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Het democratische stelsel met partijen, parlement en regering is nog steeds het beste systeem dat we hebben.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Wij willen échte directe democratie – geen onzinnige, nietszeggende burgerberaden",
+   "note": ""
+  },
+  {
+   "statement": "Politici zijn over het algemeen mensen die zich oprecht inzetten voor het algemeen belang.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "middelmatige politici die elkaar naar de mond praten, uw problemen negeren",
+   "note": ""
+  },
+  {
+   "statement": "De gevestigde media verzwijgen of vertekenen belangrijke onderwerpen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "De mening van de gewone Nederlander, die de PVV de grootste partij heeft gemaakt, doet er blijkbaar niet toe",
+   "note": ""
+  },
+  {
+   "statement": "De overheid heeft tijdens de coronacrisis fouten gemaakt waarover ze nooit eerlijk zal zijn.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Politici zijn vooral bezig met hun eigen carrière, niet met het landsbelang.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "steeds duiken afgedankte oud-politici op die alleen vanwege hun partijkaart en netwerkvriendjes op zo’n post komen",
+   "note": ""
+  },
+  {
+   "statement": "Big tech en multinationals hebben meer macht dan democratisch gekozen regeringen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Wetenschappelijk onderzoek wordt te veel gestuurd door commerciële of politieke belangen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Banken en de financiële sector zijn nooit echt verantwoordelijk gehouden na de kredietcrisis.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Het toeslagenschandaal toont aan dat onze instituties fundamenteel niet deugen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De rechtspraak laat in haar uitspraken vaker politieke voorkeuren meewegen dan recht.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": "Programma bekritiseert rechterlijke uitspraken (Raad van State, België), maar zegt niets over politieke voorkeuren van rechters."
+  },
+  {
+   "statement": "Nederland moet de klimaatdoelen aanscherpen, ook als dat ten koste gaat van economische groei op de korte termijn.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.eerstekamer.nl/wetsvoorstel/34534_initiatiefvoorstel_klaver",
+   "quote": "We trekken ons terug uit het VN-Klimaatakkoord van Parijs en trekken de Klimaatwet in",
+   "note": "Kamer: Klimaatwet (34.534) aangenomen TK 20-12-2018 (112-27); PVV stemde tegen, ook in de EK (28-5-2019)."
+  },
+  {
+   "statement": "Vlees en zuivel moeten zwaarder belast worden om de uitstoot omlaag te krijgen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Ook stoppen we met alle betutteling van de overheid, zoals de klimaatcampagne Zet ook de knop om",
+   "note": ""
+  },
+  {
+   "statement": "Kernenergie hoort een centrale rol te spelen in de Nederlandse energiemix.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Nieuwe kerncentrales bijbouwen, ook kleine modulaire reactoren; inzet op thorium",
+   "note": ""
+  },
+  {
+   "statement": "De overheid moet vervuilende industrie versneld sluiten als ze niet snel genoeg verduurzaamt.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "We moeten bedrijven koesteren in plaats van wegpesten",
+   "note": ""
+  },
+  {
+   "statement": "De boeren hebben in Nederland te veel concessies hoeven doen voor het klimaatbeleid.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Gedwongen uitkoop of onteigening van boeren is bij ons absoluut een no-go",
+   "note": ""
+  },
+  {
+   "statement": "Korte vluchten binnen Europa moeten verboden worden als er een treinverbinding bestaat.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Van de PVV mag Schiphol groeien",
+   "note": ""
+  },
+  {
+   "statement": "Rijden in een privé-auto op fossiele brandstof moet over tien jaar onmogelijk zijn.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Geen rekeningrijden, geen verbod op de verkoop van brandstofauto’s, niet verplicht elektrisch rijden",
+   "note": ""
+  },
+  {
+   "statement": "De klimaatcrisis verdient méér aandacht in het onderwijs dan ze nu krijgt.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Geen klimaat- of woke-indoctrinatie op school",
+   "note": ""
+  },
+  {
+   "statement": "Subsidies op zonnepanelen en warmtepompen moeten verder uitgebreid worden voor lage inkomens.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "SDE++ en andere klimaatsubsidies schrappen",
+   "note": ""
+  },
+  {
+   "statement": "Nederland mag klimaatdoelen niet opofferen voor internationale concurrentie, zelfs als andere landen achterblijven.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Het Nederlandse effect op het wereldwijde klimaat is verwaarloosbaar klein",
+   "note": ""
+  },
+  {
+   "statement": "Het eigen risico in de zorgverzekering moet afgeschaft worden.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://zoek.officielebekendmakingen.nl/kst-36800-IX-7.html",
+   "quote": "verzoekt de regering het eigen risico af te schaffen, de zorgverzekeraars volledig te compenseren",
+   "note": "Kamer: eigen motie-Van Dijck (PVV), 36800-IX-7, 2-10-2025, verworpen (30% voor). Programmapunt: 'Eigen risico geheel afschaffen'."
+  },
+  {
+   "statement": "Winstuitkering in de zorgsector moet wettelijk verboden worden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Stoppen met woekerwinsten in de zorg, weren van private equity",
+   "note": ""
+  },
+  {
+   "statement": "De geestelijke gezondheidszorg verdient een veel groter aandeel van het zorgbudget.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Zorgverzekeraars moeten verdwijnen en de zorg moet weer puur publiek gefinancierd worden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "We gaan zorgverzekeraars volledig compenseren",
+   "note": ""
+  },
+  {
+   "statement": "Mensen moeten meer eigen verantwoordelijkheid nemen voor hun gezondheid (sporten, dieet, niet roken), ook als dat hun zorgkosten beïnvloedt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Mantelzorgers verdienen een financiële vergoeding van de overheid.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "De PVV wil hen financieel belonen met een mantelzorgbonus",
+   "note": ""
+  },
+  {
+   "statement": "Een patiënt heeft het recht om bij ondraaglijk lijden zelf voor euthanasie te kiezen, ook bij dementie of voltooid leven.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": "Euthanasie en voltooid leven komen niet voor in het programma; geen plenaire stemming gevonden."
+  },
+  {
+   "statement": "Preventie en leefstijl horen een veel groter deel van het zorgbudget te krijgen, ook als curatieve zorg moet inleveren.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Verpleegkundigen en zorgmedewerkers verdienen aanzienlijk meer salaris, zelfs als dat de premie verhoogt.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Meerwerkbonus voor verplegend personeel",
+   "note": "Extra geld voor meer uren, maar geen algemene loonsverhoging; het programma belooft juist dat de premie niet stijgt."
+  },
+  {
+   "statement": "Mensen die zelf bewust ongezond leven, moeten een hogere zorgpremie betalen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Het aantal asielzoekers dat Nederland jaarlijks opvangt moet expliciet aan een maximum gebonden worden.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.eerstekamer.nl/wetsvoorstel/36704_asielnoodmaatregelenwet",
+   "quote": "We hebben te veel vreemdelingen, te veel asielzoekers, te veel islam en veel te veel azc's",
+   "note": "Kamer: Asielnoodmaatregelenwet (36.704) en Wet invoering tweestatusstelsel (36.703) aangenomen 3-7-2025, PVV voor."
+  },
+  {
+   "statement": "Wie naar Nederland komt, moet vanaf dag één Nederlands leren en de wet kennen, op straffe van consequenties voor verblijf.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Naturalisatie pas na 15 jaar legaal verblijf",
+   "note": ""
+  },
+  {
+   "statement": "Arbeidsmigratie binnen de EU moet beperkt worden om Nederlandse arbeiders en huisvesting te beschermen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Tegen azc’s, tegen de massa-immigratie en islamisering",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet meer doen om vluchtelingen op te vangen die op de grens van Europa stranden.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Palestijnse vluchtelingen zijn hier niet welkom; zij kunnen zich in Arabische landen hervestigen",
+   "note": ""
+  },
+  {
+   "statement": "Kennismigranten met een hoog inkomen moeten andere fiscale regels krijgen dan andere migranten.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Verder stoppen we met de NPO, met de oneerlijke expatregeling",
+   "note": ""
+  },
+  {
+   "statement": "Migranten zonder verblijfsstatus (ongedocumenteerden) horen recht te hebben op basiszorg en onderdak.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "verbod op bed-bad-broodregelingen voor illegalen",
+   "note": ""
+  },
+  {
+   "statement": "Inburgering, asielprocedures en migratie horen Europees geregeld te worden, niet alleen nationaal.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "een opt-out op asiel en immigratie afdwingen",
+   "note": ""
+  },
+  {
+   "statement": "Iedereen die ergens fout in Nederland is geboren, moet automatisch Nederlander zijn (ius soli).",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Wij zijn tegen dubbele loyaliteiten en dus tegen dubbele nationaliteiten",
+   "note": ""
+  },
+  {
+   "statement": "Religieuze symbolen (zoals hoofddoek, keppel, kruis) horen niet thuis bij ambtenaren in publieke functies (politie, rechter).",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Verbod op het dragen van islamitische hoofddoekjes in alle overheidsgebouwen",
+   "note": ""
+  },
+  {
+   "statement": "Migratiebeperking is een hogere prioriteit dan de invulling van vacatures in de Nederlandse economie.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Nederland is vol, overvol, bomvol",
+   "note": ""
+  },
+  {
+   "statement": "Erfenissen boven €500.000 horen veel zwaarder belast te worden.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Het verschil tussen vast en flex op de arbeidsmarkt moet veel kleiner worden, zelfs als dat ondernemers beperkt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Een aanvullende belasting op grote vermogens (>€2 miljoen) is noodzakelijk om de begroting eerlijk te maken.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Pensioenleeftijd mag verder omhoog naar 70 jaar voor wie nu jonger dan 40 is.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "We verlagen de AOW-leeftijd naar 65 jaar",
+   "note": ""
+  },
+  {
+   "statement": "De overheid moet veel actiever industriebeleid voeren en strategische sectoren beschermen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Multinationals die de Nederlandse fiscaliteit ontwijken horen daarvoor hard aangepakt te worden, ook ten koste van vestigingsklimaat.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet veel agressiever bezuinigen om de staatsschuld omlaag te krijgen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Een 32-urige werkweek moet de norm worden in plaats van 40 uur.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Zo zorgen we ervoor dat meer werken gaat lonen",
+   "note": ""
+  },
+  {
+   "statement": "De Nederlandse economie hoort meer op groen ondernemerschap te wedden, ook al kost dat traditionele banen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "We stoppen met de energietransitie en gaan netcongestie oplossen",
+   "note": ""
+  },
+  {
+   "statement": "Het is meer rechtvaardig om ondernemers fiscaal te belonen dan om werknemers extra te beschermen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nederland hoort meer bevoegdheden over te dragen aan de EU op het gebied van defensie en buitenlands beleid.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "De PVV wil onze nationale soevereiniteit en identiteit behouden",
+   "note": ""
+  },
+  {
+   "statement": "Er moet een vetorecht behouden blijven voor nationale parlementen op alle grote EU-besluiten.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Vetorechten behouden, in ere herstellen én inzetten voor een opt-out op asiel en immigratie!",
+   "note": ""
+  },
+  {
+   "statement": "Een rijkere EU-lidstaat zoals Nederland hoort ruimhartig bij te dragen aan een sterk EU-budget.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Ook willen we miljarden minder afdragen aan de Europese Unie",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de optie van vertrek uit de EU bespreekbaar houden.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": "Programma 2025 noemt Nexit niet; de PVV zet in op opt-outs en hervorming van binnenuit. Geen recente stemming over gevonden."
+  },
+  {
+   "statement": "De EU moet meer macht krijgen om in te grijpen wanneer een lidstaat de rechtsstaat ondermijnt.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "de EU van binnenuit op de schop te nemen",
+   "note": ""
+  },
+  {
+   "statement": "Europese verkiezingen verdienen veel meer aandacht dan ze nu in Nederland krijgen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De EU is uiteindelijk meer in het belang van bedrijven dan van gewone burgers.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Europese minimumlonen en sociale standaarden moeten in alle lidstaten gelden.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet zich aansluiten bij landen die de uitbreiding van de EU naar de Balkan tegenhouden.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "De toetredingsonderhandelingen met Turkije en alle andere kandidaat-lidstaten moeten direct en definitief worden verbroken",
+   "note": ""
+  },
+  {
+   "statement": "Nederland hoort koploper te zijn in een sterk Europees klimaatbeleid, ook al kost dat economisch geld.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Het klimaatbeleid is compleet failliet",
+   "note": ""
+  },
+  {
+   "statement": "Een referendum over belangrijke wetten moet eenvoudig te organiseren zijn voor burgers.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Bindend correctief referendum invoeren; laagdrempelige landelijke en lokale referenda",
+   "note": ""
+  },
+  {
+   "statement": "Rechters moeten wetten van het parlement aan de Grondwet kunnen toetsen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Het Nederlandse kiesstelsel hoort district-elementen te bevatten zodat kiezers een persoonlijker stem hebben.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Politieke partijen moeten verplicht hun financiering volledig openbaar maken.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De macht van de minister-president moet uitgebreid worden zodat regeren slagvaardiger wordt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Publieke omroep (NPO) is een onmisbaar tegengewicht tegen de macht van commerciële media.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Financiering van de NPO geheel stoppen",
+   "note": ""
+  },
+  {
+   "statement": "Wetenschappers horen zich vooral terughoudend op te stellen in politieke discussies.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Lokale gemeenten verdienen meer eigen geld en bevoegdheden dan ze nu hebben.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De achtergrond van politici en bestuurders weerspiegelt de samenleving onvoldoende.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Benoemingen in de (semi-)publieke sector alleen op grond van inhoudelijke kwaliteiten",
+   "note": ""
+  },
+  {
+   "statement": "Een burgerberaad met door loting gekozen burgers hoort bindende invloed te krijgen op grote beslissingen.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "geen onzinnige, nietszeggende burgerberaden",
+   "note": ""
+  },
+  {
+   "statement": "Beleggers moeten geweerd worden van de markt voor betaalbare koopwoningen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De Wet betaalbare huur moet uitgebreid worden tot meer woningen en hogere huurklassen.",
+   "stance": "eens",
+   "basis": "stemgedrag",
+   "sourceUrl": "https://www.eerstekamer.nl/wetsvoorstel/36496_wet_betaalbare_huur",
+   "quote": "regulering van huurprijzen en de bescherming van rechten van huurders",
+   "note": "Kamer: Wet betaalbare huur (36.496) aangenomen TK 25-4-2024 en EK 25-6-2024; PVV stemde voor. Programma: sociale huren met 10% verlagen en inkomensgrenzen verhogen."
+  },
+  {
+   "statement": "Bouwen in groene gebieden moet mogelijk worden gemaakt om de woningnood op te lossen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Daarnaast moeten we volop buitenstedelijk gaan bouwen: méér nieuwe, grootschalige woningbouwlocaties",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet veel meer publieke woningbouwgrond zelf in eigendom houden om speculatie tegen te gaan.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Een sterke woningcorporatie hoort weer een dominante speler te zijn in de Nederlandse woningmarkt.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Woningbouwcorporaties krijgen de taak om niet alleen sociale huurwoningen, maar ook middenhuurwoningen te bouwen",
+   "note": ""
+  },
+  {
+   "statement": "Hypotheekrenteaftrek hoort verder afgebouwd te worden om de huizenmarkt eerlijker te maken.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "De hypotheekrenteaftrek blijft; daar wordt niet aan getornd!",
+   "note": ""
+  },
+  {
+   "statement": "Statushouders horen niet langer voorrang te krijgen op sociale huurwoningen.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://zoek.officielebekendmakingen.nl/kst-36512-30.html",
+   "quote": "Nooit meer voorrang op sociale huurwoningen voor statushouders – ook niet met urgentie",
+   "note": "Kamer: amendement-Mooiman (PVV), 36512-30, bij de Wet versterking regie volkshuisvesting; stemming 1-7-2025 (61,4% voor)."
+  },
+  {
+   "statement": "Vakantiewoningen in toeristische gebieden mogen niet ten koste gaan van permanent wonen.",
+   "stance": "eens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Permanente bewoning van recreatiewoningen volledig toestaan",
+   "note": ""
+  },
+  {
+   "statement": "Nieuwbouw hoort veel meer in een hoog tempo via prefab en industriële bouw te gaan, ook al kost dat architectonische kwaliteit.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De prioriteit bij de woningmarkt moet liggen bij starters en jonge gezinnen, niet bij doorstromers.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De Europese AI-verordening (AI Act) is een goede zaak, ook als dat innovatie kan vertragen.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "De overheid moet werkenden actief beschermen tegen banenverlies door AI, ook als dat extra belastinggeld kost.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "AI-bedrijven moeten verplicht hun trainingsdata openbaar maken zodat makers van content kunnen controleren of hun werk is gebruikt.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de NAVO-norm van 5% bbp voor defensie volledig overnemen, ook als dat ten koste gaat van zorg of onderwijs.",
+   "stance": "eens",
+   "basis": "beide",
+   "sourceUrl": "https://www.rijksoverheid.nl/actueel/nieuws/2025/06/13/nederland-steunt-navo-norm-van-5",
+   "quote": "Nederland steunt NAVO-norm van 5%",
+   "note": "Kabinet-Schoof met PVV-bewindslieden steunde de norm (Rijksoverheid 13-6-2025); motie-Van Baarle/Dijk tegen de 5%-norm (2025Z12474) verworpen, PVV stemde tegen. Programma: ambitie om defensie-uitgaven te laten groeien."
+  },
+  {
+   "statement": "Europa moet zo snel mogelijk een eigen defensie opbouwen die niet afhankelijk is van de Verenigde Staten.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Soeverein Nederland, geen geopolitieke Europese superstaat",
+   "note": ""
+  },
+  {
+   "statement": "De dienstplicht moet weer geactiveerd worden om de Nederlandse krijgsmacht op sterkte te brengen.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.tweedekamer.nl/kamerstukken/detail?id=2026Z04481&did=2026D10198",
+   "quote": "Beroepsleger en reservisten; opschorting van de dienstplicht (opkomstplicht) handhaven",
+   "note": "Kamer: motie-Dobbe/Van Baarle over afzien van een opkomstplicht (36800-X-58) verworpen op 10-3-2026 (57-75); de PVV-fractie stemde voor."
+  },
+  {
+   "statement": "Nederland moet doorgaan met militaire en financiële steun aan Oekraïne, ook als dat onze eigen begroting onder druk zet.",
+   "stance": "neutraal",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Laat andere landen nu wat meer doen, dan hebben wij meer geld voor de Nederlanders",
+   "note": "De PVV steunt Oekraïne, maar wil de lasten verschuiven en geen onbeperkte Nederlandse steun."
+  },
+  {
+   "statement": "Sociale media zoals TikTok en Instagram moeten verboden worden voor kinderen onder de 15 jaar.",
+   "stance": "oneens",
+   "basis": "stemgedrag",
+   "sourceUrl": "https://www.tweedekamer.nl/kamerstukken/moties/detail?id=2025Z03210&did=2025D07255",
+   "quote": "Motie van het lid Van der Werf c.s. over gedifferentieerde leeftijdsgrenzen voor socialmediaplatforms",
+   "note": "Kamer: motie aangenomen op 4-3-2025; de PVV-fractie (37 zetels) stemde tegen. Programma zwijgt over sociale media voor minderjarigen."
+  },
+  {
+   "statement": "Smartphones en tablets horen tijdens schooluren volledig de klas uit, op alle niveaus.",
+   "stance": "geen-standpunt",
+   "basis": "programma",
+   "sourceUrl": "",
+   "quote": "",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet de Palestijnse staat erkennen, ook als dat de relatie met Israël onder druk zet.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "de hoofdstad van de enige echte Palestijnse staat: Jordanië",
+   "note": ""
+  },
+  {
+   "statement": "Nederland moet een eventueel ICC-arrestatiebevel tegen Netanyahu uitvoeren als hij Nederlands grondgebied zou betreden.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.tweedekamer.nl/kamerstukken/moties/detail?did=2024D45333&id=2024Z19036",
+   "quote": "Terugtrekken als verdragspartij bij en gastland van het Internationaal Strafhof",
+   "note": "Kamer: motie-Piri c.s. over naleving van het ICC-arrestatiebevel (36600-V-21) aangenomen op 26-11-2024; de PVV-fractie stemde tegen."
+  },
+  {
+   "statement": "Nederland moet militaire samenwerking met Israël opschorten zolang er geen overtuigende waarborgen zijn dat die niet bijdraagt aan schendingen van het humanitair oorlogsrecht.",
+   "stance": "oneens",
+   "basis": "programma",
+   "sourceUrl": "https://www.pvv.nl/images/2025/PVV_Programma_Digi_2025.pdf",
+   "quote": "Wapenleveranties aan Israël moeten onverminderd kunnen doorgaan",
+   "note": ""
+  },
+  {
+   "statement": "Internationale rechtbanken zoals het ICC en IGH verdienen ons vertrouwen, ook als hun uitspraken Nederlandse bondgenoten ongelegen komen.",
+   "stance": "oneens",
+   "basis": "beide",
+   "sourceUrl": "https://www.tweedekamer.nl/kamerstukken/moties/detail?did=2024D45333&id=2024Z19036",
+   "quote": "Terugtrekken als verdragspartij bij en gastland van het Internationaal Strafhof",
+   "note": "Kamer: de PVV stemde tegen de motie-Piri c.s. (36600-V-21, 26-11-2024) over naleving van het ICC-arrestatiebevel."
+  }
+ ]
+}
