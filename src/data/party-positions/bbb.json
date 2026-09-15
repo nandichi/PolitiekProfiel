@@ -1,0 +1,1170 @@
+{
+  "partySlug": "bbb",
+  "programmeTitle": "BBB Verkiezingsprogramma 2025 - 2029",
+  "programmeUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+  "reviewed": "2026-09-15",
+  "positions": [
+    {
+      "statement": "De overheid moet de hoogste inkomens (boven €150.000 per jaar) zwaarder belasten dan nu.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Grote bedrijven betalen in Nederland nu te weinig winstbelasting.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Essentiële diensten zoals openbaar vervoer en zorg horen in publieke handen, niet bij de markt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het minimumloon mag verder omhoog naar minimaal €16 per uur, ook als bedrijven dat moeilijk vinden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De overheid moet zelf actief sociale huurwoningen blijven bouwen, ook als dat de woningmarkt verstoort.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het is rechtvaardig om vermogen boven €1 miljoen progressief te belasten.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Werknemers verdienen meer formele zeggenschap in beslissingen van bedrijven waar ze werken.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Een vorm van basisinkomen zou voor iedere volwassene in Nederland mogelijk moeten zijn.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Lagere belastingen voor bedrijven zijn beter voor de Nederlandse economie.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De overheid bemoeit zich te veel met de keuzes die bedrijven en burgers maken.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Minder regels, meer resultaat."
+    },
+    {
+      "statement": "Werknemers moeten makkelijker ontslagen kunnen worden zodat bedrijven flexibeler zijn.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "vaste arbeidscontracten minder vast worden en flexibele arbeidscontracten minder flexibel worden.",
+      "note": "BBB wil beide contractvormen minder extreem maken; het programma formuleert geen algemene voorkeur voor eenvoudiger ontslag."
+    },
+    {
+      "statement": "Privatisering heeft Nederland over het algemeen welvarender en efficiënter gemaakt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Een vlaktaks (één belastingtarief voor iedereen) is rechtvaardiger dan progressieve belasting.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "De sterkste schouders dragen de zwaarste lasten"
+    },
+    {
+      "statement": "De zorg werkt het beste met concurrentie tussen private aanbieders en zorgverzekeraars.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Marktwerking moet er niet zijn op de meest noodzakelijke zorg"
+    },
+    {
+      "statement": "Strenge milieuregels remmen economische groei en moeten worden versoepeld.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Het klimaatbeleid in Nederland is doorgeslagen"
+    },
+    {
+      "statement": "De huidige uitkeringen in Nederland zijn aan de hoge kant en moeten naar beneden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet meer asielzoekers opvangen dan nu het geval is.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "BBB kiest voor strenge, maar rechtvaardige maatregelen om de instroom daadwerkelijk te beperken."
+    },
+    {
+      "statement": "Onderwijs op school moet expliciet aandacht besteden aan diversiteit en LGBTQ+-thema's.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Kostbare onderwijstijd gaat verloren aan verplichte programma’s zoals de Week van de Lentekriebels"
+    },
+    {
+      "statement": "Mannen en vrouwen verdienen wettelijk gelijke kansen, ook als dat actieve quota of voorrangsbeleid vraagt.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Selectie op kwaliteit, niet op quota.",
+      "note": "BBB wijst quota expliciet af bij de werving van politiekrachten, maar het programma koppelt dit niet aan alle vormen van gelijke-kansenbeleid."
+    },
+    {
+      "statement": "De positie van het koningshuis moet democratischer worden of zelfs heroverwogen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Wij zijn zuinig op ons Koningshuis."
+    },
+    {
+      "statement": "Religieuze symbolen horen niet thuis bij overheidsfuncties (politie, rechter, leerkracht in het openbaar onderwijs).",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "er geen ruimte is voor zichtbare uitingen van politieke of religieuze overtuiging.",
+      "note": "BBB formuleert dit expliciet voor politie en andere publieke uniformberoepen, niet voor alle functies die in de stelling worden genoemd."
+    },
+    {
+      "statement": "Drugs zoals XTC en MDMA zouden onder strikte voorwaarden gereguleerd verkrijgbaar moeten zijn.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Discriminatie tegen mensen met een migratie-achtergrond is een groot probleem in Nederland.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het Sinterklaasfeest moet zich blijven aanpassen aan moderne opvattingen over racisme.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet de instroom van asielzoekers fors beperken.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Migratie beheersbaar maken."
+    },
+    {
+      "statement": "Tradities en culturele wortels van Nederland moeten beter beschermd worden.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "onze tradities zijn geen achterhaalde folklore, maar bouwstenen van een gedeelde cultuur."
+    },
+    {
+      "statement": "Op scholen moet de Nederlandse cultuur en geschiedenis centraler komen te staan.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "ruime aandacht besteed aan streekgeschiedenis, ambacht en erfgoed"
+    },
+    {
+      "statement": "Inburgering voor nieuwkomers moet strenger en sneller verlopen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Migranten dienen een verplichte taalcursus te volgen en minimaal B1-niveau te behalen."
+    },
+    {
+      "statement": "Het traditionele gezin als hoeksteen van de samenleving is iets om te koesteren.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Religieuze instellingen verdienen meer respect en ruimte in het publieke debat.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Genderneutrale taal (zoals 'reizigers' i.p.v. 'dames en heren') gaat te ver.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nationale symbolen zoals vlag en volkslied verdienen een prominentere plek in het openbare leven.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Van Koningsdag tot Dodenherdenking, van dialect tot volkslied"
+    },
+    {
+      "statement": "De overheid mag mijn berichten en e-mails niet zonder concrete verdenking inzien.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Veranker digitale grondrechten in de Grondwet om de privacy, zeggenschap en autonomie van burgers in het digitale domein te waarborgen.",
+      "note": "BBB beschermt digitale privacy en grondrechten, maar noemt geen specifieke regel dat e-mailinzage uitsluitend bij concrete verdenking mag."
+    },
+    {
+      "statement": "End-to-end versleuteling moet beschermd blijven, ook als het politieonderzoek bemoeilijkt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Cameratoezicht in publieke ruimtes is een te grote inbreuk op privacy.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Beperk of verbied het gebruik van gezichtsherkenning en andere surveillance in de publieke ruimte zonder expliciete wetgeving en strikt toezicht.",
+      "note": "BBB wil publieke surveillance beperken of verbieden zonder wettelijke basis en streng toezicht, maar formuleert geen absoluut verbod op alle cameratoezicht."
+    },
+    {
+      "statement": "Vreedzame demonstraties moeten worden beschermd, ook als ze de openbare orde tijdelijk verstoren.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Demonstreren is een fundamenteel recht in onze democratie, maar dat recht mag nooit ontaarden in chaos of onveiligheid.",
+      "note": "BBB erkent het demonstratierecht, maar stelt openbare orde en veiligheid als expliciete grens."
+    },
+    {
+      "statement": "De wet op de inlichtingen- en veiligheidsdiensten geeft de AIVD/MIVD te ruime bevoegdheden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "We geven onze geheime diensten de bevoegdheden om Nederland en haar kennis en kunde te beschermen"
+    },
+    {
+      "statement": "Kraken zou niet strafbaar moeten zijn als een pand lang leegstaat.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Persoonlijke vrijheden mogen niet worden ingeperkt op basis van ‘aanstootgevendheid’.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Drugsgebruikers horen niet strafrechtelijk vervolgd te worden, maar geholpen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De politie heeft ruimere bevoegdheden nodig om de veiligheid op straat te garanderen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "De bevoegdheid preventief fouilleren wordt - met de nodige juridische waarborgen - uitgebreid."
+    },
+    {
+      "statement": "Verdachten van zware criminaliteit moeten preventief vastgehouden kunnen worden, ook zonder sluitend bewijs.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Terreurverdachten moeten ook zonder strafrechtelijke veroordeling hun nationaliteit kunnen verliezen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Cameratoezicht en slimme sensoren maken onze samenleving veiliger en moeten worden uitgebreid.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Beperk of verbied het gebruik van gezichtsherkenning en andere surveillance in de publieke ruimte zonder expliciete wetgeving en strikt toezicht.",
+      "note": "BBB kiest niet voor onvoorwaardelijke uitbreiding van surveillance en wil gebruik in publieke ruimte beperken of verbieden zonder expliciete wetgeving."
+    },
+    {
+      "statement": "Onlinediensten moeten verplicht achterdeurtjes bouwen voor opsporingsdiensten.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Demonstraties die de openbare orde verstoren moeten harder worden aangepakt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "werkelijk te worden gehandhaafd, ook met betrekking tot vervolgen en straffen."
+    },
+    {
+      "statement": "Strengere straffen werken afschrikwekkend en dienen het algemeen belang.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Zo krijgt straf weer de afschrikwekkende werking die nodig is."
+    },
+    {
+      "statement": "Een verbod op gezichtsbedekkende kleding in publieke ruimtes is gerechtvaardigd.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Verbod gezichtsbedekking bij demonstraties.",
+      "note": "De programmatische ban ziet expliciet op demonstraties, niet op alle publieke ruimtes."
+    },
+    {
+      "statement": "Meer macht naar de Europese Unie zou Nederland uiteindelijk versterken.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Geen verdere overdracht van Nederlandse bevoegdheden en"
+    },
+    {
+      "statement": "Belangrijke besluiten over klimaat, migratie en defensie horen op Europees niveau te worden genomen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Geen verdere overdracht van Nederlandse bevoegdheden en"
+    },
+    {
+      "statement": "Gemeentes verdienen meer eigen beleidsruimte en geld, ook als dat tot verschillen tussen regio's leidt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Lokale overheden meer de ruimte en middelen bieden."
+    },
+    {
+      "statement": "Een gezamenlijk Europees leger zou een verstandige stap zijn.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "er komt geen Europees leger."
+    },
+    {
+      "statement": "Burgers moeten meer directe zeggenschap krijgen via burgerraden of referenda.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Eurobonds en gezamenlijke schulduitgifte versterken Europa als geheel.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "BBB wil geen giften, gemeenschappelijke schulden, Eurobonds of soortgelijke gezamenlijke schulden"
+    },
+    {
+      "statement": "Een referendum kan een waardevolle aanvulling zijn op de parlementaire democratie.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Provincies en gemeentes verdienen meer financiële zelfstandigheid van Den Haag.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet zelf bepalen wie er ons land binnenkomt, niet Brussel.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Nederland moet weer zelf kunnen bepalen wie ons land binnenkomt en wie niet."
+    },
+    {
+      "statement": "De Europese Unie heeft te veel macht en moet kleiner worden.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Geen federaal Europa."
+    },
+    {
+      "statement": "Belangrijke nationale beslissingen mogen niet door internationale rechters worden tegengehouden.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Nederland dient juist extra kritisch te blijven als ze hun mandaat overschrijden of politiek handelen.",
+      "note": "BBB noemt kritische toetsing van internationale rechterlijke instellingen bij mandaatoverschrijding of politiek handelen, niet een algemeen verbod op blokkeren."
+    },
+    {
+      "statement": "Een serieus debat over een Nexit verdient een eerlijke kans in de Tweede Kamer.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Bij conflict tussen Nederlandse wet en EU-recht moet de Nederlandse wet voorgaan.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het Europees Parlement is te ver van de gewone burger om belangrijke beslissingen te nemen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Centralisatie in Den Haag is efficiënter dan macht overdragen aan provincies.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Geen aanpak van bovenaf die alles gelijk wil maken, maar maatwerk dat past bij elke regio."
+    },
+    {
+      "statement": "Internationale verdragen mogen Nederland niet binden tegen de wil van een meerderheid.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "mag nooit ten koste gaan van onze democratische zeggenschap.",
+      "note": "BBB beschermt democratische zeggenschap bij internationale samenwerking, maar spreekt niet letterlijk over elk verdrag of elke meerderheidsbeslissing."
+    },
+    {
+      "statement": "De rechtspraak in Nederland werkt over het algemeen onafhankelijk en eerlijk.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederlandse wetenschappers en experts zijn over het algemeen te vertrouwen op hun vakgebied.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Onze verkiezingen verlopen eerlijk en zijn betrouwbaar.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De NPO en kwaliteitskranten leveren grotendeels betrouwbare informatie.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Toezichthouders zoals AFM, DNB, NZa en ACM doen hun werk over het algemeen goed.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het RIVM en andere kennisinstituten verdienen vertrouwen, ook bij omstreden adviezen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het democratische stelsel met partijen, parlement en regering is nog steeds het beste systeem dat we hebben.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Politici zijn over het algemeen mensen die zich oprecht inzetten voor het algemeen belang.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De gevestigde media verzwijgen of vertekenen belangrijke onderwerpen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De overheid heeft tijdens de coronacrisis fouten gemaakt waarover ze nooit eerlijk zal zijn.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Politici zijn vooral bezig met hun eigen carrière, niet met het landsbelang.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Big tech en multinationals hebben meer macht dan democratisch gekozen regeringen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Wetenschappelijk onderzoek wordt te veel gestuurd door commerciële of politieke belangen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Banken en de financiële sector zijn nooit echt verantwoordelijk gehouden na de kredietcrisis.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het toeslagenschandaal toont aan dat onze instituties fundamenteel niet deugen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De rechtspraak laat in haar uitspraken vaker politieke voorkeuren meewegen dan recht.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet de klimaatdoelen aanscherpen, ook als dat ten koste gaat van economische groei op de korte termijn.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Klimaatbeleid moet haalbaar, uitvoerbaar en betaalbaar zijn."
+    },
+    {
+      "statement": "Vlees en zuivel moeten zwaarder belast worden om de uitstoot omlaag te krijgen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Geen suikertaks, geen vleesbelasting"
+    },
+    {
+      "statement": "Kernenergie hoort een centrale rol te spelen in de Nederlandse energiemix.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "We versnellen de bouw van kerncentrales"
+    },
+    {
+      "statement": "De overheid moet vervuilende industrie versneld sluiten als ze niet snel genoeg verduurzaamt.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "We stoppen pas met fossiele energie als er echt"
+    },
+    {
+      "statement": "De boeren hebben in Nederland te veel concessies hoeven doen voor het klimaatbeleid.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Een pas op de plaats in beleid dat boeren van het land drijft."
+    },
+    {
+      "statement": "Korte vluchten binnen Europa moeten verboden worden als er een treinverbinding bestaat.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Luchtvaart blijft een onmisbare schakel in de vervoersketen."
+    },
+    {
+      "statement": "Rijden in een privé-auto op fossiele brandstof moet over tien jaar onmogelijk zijn.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Auto behouden, deze is onmisbaar."
+    },
+    {
+      "statement": "De klimaatcrisis verdient méér aandacht in het onderwijs dan ze nu krijgt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Subsidies op zonnepanelen en warmtepompen moeten verder uitgebreid worden voor lage inkomens.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland mag klimaatdoelen niet opofferen voor internationale concurrentie, zelfs als andere landen achterblijven.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Klimaatbeleid moet haalbaar, uitvoerbaar en betaalbaar zijn."
+    },
+    {
+      "statement": "Het eigen risico in de zorgverzekering moet afgeschaft worden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Winstuitkering in de zorgsector moet wettelijk verboden worden.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Deze moeten voortaan geïnvesteerd worden in de zorg.",
+      "note": "BBB wil dat zorgverzekeraars hun winsten in de zorg investeren, maar spreekt zich niet uit over een algemeen verbod op winstuitkering in de hele zorgsector."
+    },
+    {
+      "statement": "De geestelijke gezondheidszorg verdient een veel groter aandeel van het zorgbudget.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Zorgverzekeraars moeten verdwijnen en de zorg moet weer puur publiek gefinancierd worden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "We onderzoeken de mogelijkheid van één wettelijk verplichte basisverzekering met gelijke inhoud en premie"
+    },
+    {
+      "statement": "Mensen moeten meer eigen verantwoordelijkheid nemen voor hun gezondheid (sporten, dieet, niet roken), ook als dat hun zorgkosten beïnvloedt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Mensen kunnen zelf verstandige keuzes maken."
+    },
+    {
+      "statement": "Mantelzorgers verdienen een financiële vergoeding van de overheid.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Een patiënt heeft het recht om bij ondraaglijk lijden zelf voor euthanasie te kiezen, ook bij dementie of voltooid leven.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "De voltooidlevenwet voegt niets toe aan de huidige euthanasiepraktijk en zullen wij dan ook niet steunen.",
+      "note": "BBB steunt de bestaande euthanasiepraktijk, maar wijst een aparte voltooidlevenwet af; de stelling combineert beide."
+    },
+    {
+      "statement": "Preventie en leefstijl horen een veel groter deel van het zorgbudget te krijgen, ook als curatieve zorg moet inleveren.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Gezond leven begint met voorkomen in plaats van genezen.",
+      "note": "BBB geeft preventie prioriteit, maar koppelt dit niet expliciet aan een groter budget ten koste van curatieve zorg."
+    },
+    {
+      "statement": "Verpleegkundigen en zorgmedewerkers verdienen aanzienlijk meer salaris, zelfs als dat de premie verhoogt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Mensen die zelf bewust ongezond leven, moeten een hogere zorgpremie betalen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het aantal asielzoekers dat Nederland jaarlijks opvangt moet expliciet aan een maximum gebonden worden.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "instroom drastisch te beperken tot een maximum van 15.000 plekken per jaar"
+    },
+    {
+      "statement": "Wie naar Nederland komt, moet vanaf dag één Nederlands leren en de wet kennen, op straffe van consequenties voor verblijf.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Migranten dienen een verplichte taalcursus te volgen en minimaal B1-niveau te behalen."
+    },
+    {
+      "statement": "Arbeidsmigratie binnen de EU moet beperkt worden om Nederlandse arbeiders en huisvesting te beschermen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Arbeidsmigratie moet bijdragen aan het oplossen van knelpunten op de arbeidsmarkt, zonder te leiden tot overbelasting van integratie en huisvesting."
+    },
+    {
+      "statement": "Nederland moet meer doen om vluchtelingen op te vangen die op de grens van Europa stranden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "BBB is voorstander van zoveel mogelijk opvang in eigen regio."
+    },
+    {
+      "statement": "Kennismigranten met een hoog inkomen moeten andere fiscale regels krijgen dan andere migranten.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Handhaving van de huidige fiscale regeling voor kenniswerkers."
+    },
+    {
+      "statement": "Migranten zonder verblijfsstatus (ongedocumenteerden) horen recht te hebben op basiszorg en onderdak.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Inburgering, asielprocedures en migratie horen Europees geregeld te worden, niet alleen nationaal.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Nederland moet weer zelf kunnen bepalen wie ons land binnenkomt en wie niet."
+    },
+    {
+      "statement": "Iedereen die ergens fout in Nederland is geboren, moet automatisch Nederlander zijn (ius soli).",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Religieuze symbolen (zoals hoofddoek, keppel, kruis) horen niet thuis bij ambtenaren in publieke functies (politie, rechter).",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "geen ruimte is voor zichtbare uitingen van politieke of religieuze overtuiging.",
+      "note": "BBB formuleert dit expliciet voor politie en andere publieke uniformberoepen, niet voor alle publieke functies in de stelling."
+    },
+    {
+      "statement": "Migratiebeperking is een hogere prioriteit dan de invulling van vacatures in de Nederlandse economie.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Arbeidsmigratie moet bijdragen aan het oplossen van knelpunten op de arbeidsmarkt, zonder te leiden tot overbelasting van integratie en huisvesting.",
+      "note": "BBB kiest voor selectieve arbeidsmigratie die zowel arbeidsmarktknelpunten als druk op huisvesting en integratie meeweegt."
+    },
+    {
+      "statement": "Erfenissen boven €500.000 horen veel zwaarder belast te worden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "De erf- en schenkbelasting zeker niet verhogen."
+    },
+    {
+      "statement": "Het verschil tussen vast en flex op de arbeidsmarkt moet veel kleiner worden, zelfs als dat ondernemers beperkt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "vaste arbeidscontracten minder vast worden en flexibele arbeidscontracten minder flexibel worden."
+    },
+    {
+      "statement": "Een aanvullende belasting op grote vermogens (>€2 miljoen) is noodzakelijk om de begroting eerlijk te maken.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "De belastingen op sparen in box 3 en op ondernemen in box 2 niet verhogen."
+    },
+    {
+      "statement": "Pensioenleeftijd mag verder omhoog naar 70 jaar voor wie nu jonger dan 40 is.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De overheid moet veel actiever industriebeleid voeren en strategische sectoren beschermen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "De overheid moet actief voorkomen dat toeleveranciers in essentiële ketens"
+    },
+    {
+      "statement": "Multinationals die de Nederlandse fiscaliteit ontwijken horen daarvoor hard aangepakt te worden, ook ten koste van vestigingsklimaat.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet veel agressiever bezuinigen om de staatsschuld omlaag te krijgen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "we willen niet dat Nederland kapot bezuinigd wordt"
+    },
+    {
+      "statement": "Een 32-urige werkweek moet de norm worden in plaats van 40 uur.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De Nederlandse economie hoort meer op groen ondernemerschap te wedden, ook al kost dat traditionele banen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het is meer rechtvaardig om ondernemers fiscaal te belonen dan om werknemers extra te beschermen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland hoort meer bevoegdheden over te dragen aan de EU op het gebied van defensie en buitenlands beleid.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Geen verdere overdracht van Nederlandse bevoegdheden en"
+    },
+    {
+      "statement": "Er moet een vetorecht behouden blijven voor nationale parlementen op alle grote EU-besluiten.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "BBB wil het vetorecht niet afschaffen inzake buitenlands beleid",
+      "note": "Het programma beschermt het vetorecht expliciet voor buitenlands beleid, maar niet letterlijk voor alle grote EU-besluiten."
+    },
+    {
+      "statement": "Een rijkere EU-lidstaat zoals Nederland hoort ruimhartig bij te dragen aan een sterk EU-budget.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Afbouw van bijdragen aan de EU moet worden voortgezet."
+    },
+    {
+      "statement": "Nederland moet de optie van vertrek uit de EU bespreekbaar houden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De EU moet meer macht krijgen om in te grijpen wanneer een lidstaat de rechtsstaat ondermijnt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Europese verkiezingen verdienen veel meer aandacht dan ze nu in Nederland krijgen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De EU is uiteindelijk meer in het belang van bedrijven dan van gewone burgers.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Europese minimumlonen en sociale standaarden moeten in alle lidstaten gelden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet zich aansluiten bij landen die de uitbreiding van de EU naar de Balkan tegenhouden.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Eerst moeten we de EU hervormen en pas daarna kunnen we weer uitbreiden."
+    },
+    {
+      "statement": "Nederland hoort koploper te zijn in een sterk Europees klimaatbeleid, ook al kost dat economisch geld.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "BBB is kritisch op de opstelling van Nederland als “klimaatkoploper” binnen Europa."
+    },
+    {
+      "statement": "Een referendum over belangrijke wetten moet eenvoudig te organiseren zijn voor burgers.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Rechters moeten wetten van het parlement aan de Grondwet kunnen toetsen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het Nederlandse kiesstelsel hoort district-elementen te bevatten zodat kiezers een persoonlijker stem hebben.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Politieke partijen moeten verplicht hun financiering volledig openbaar maken.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De macht van de minister-president moet uitgebreid worden zodat regeren slagvaardiger wordt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Publieke omroep (NPO) is een onmisbaar tegengewicht tegen de macht van commerciële media.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Wetenschappers horen zich vooral terughoudend op te stellen in politieke discussies.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Lokale gemeenten verdienen meer eigen geld en bevoegdheden dan ze nu hebben.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Lokale overheden meer de ruimte en middelen bieden."
+    },
+    {
+      "statement": "De achtergrond van politici en bestuurders weerspiegelt de samenleving onvoldoende.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Een burgerberaad met door loting gekozen burgers hoort bindende invloed te krijgen op grote beslissingen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Beleggers moeten geweerd worden van de markt voor betaalbare koopwoningen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De Wet betaalbare huur moet uitgebreid worden tot meer woningen en hogere huurklassen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "We willen de Wet betaalbare huur dan ook afschaffen"
+    },
+    {
+      "statement": "Bouwen in groene gebieden moet mogelijk worden gemaakt om de woningnood op te lossen.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "We beschermen kostbaar boerenland, maar willen wel woningbouw in buurtschappen, aan de rand van dorpen en steden mogelijk maken.",
+      "note": "BBB beschermt kostbaar landbouwland maar staat woningbouw aan dorps- en stadsranden toe; de stelling is daarom niet volledig eenzijdig."
+    },
+    {
+      "statement": "Nederland moet veel meer publieke woningbouwgrond zelf in eigendom houden om speculatie tegen te gaan.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Om woningbouw en gebiedsontwikkeling van de grond te laten komen, is meer regie op grond nodig."
+    },
+    {
+      "statement": "Een sterke woningcorporatie hoort weer een dominante speler te zijn in de Nederlandse woningmarkt.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Woningcorporaties worden gestimuleerd om weer 30.000 sociale huurwoningen per jaar te bouwen.",
+      "note": "BBB stimuleert woningcorporaties sterk, maar formuleert geen dominante positie voor corporaties in de hele woningmarkt."
+    },
+    {
+      "statement": "Hypotheekrenteaftrek hoort verder afgebouwd te worden om de huizenmarkt eerlijker te maken.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "De hypotheekrenteaftrek wordt niet verder beperkt"
+    },
+    {
+      "statement": "Statushouders horen niet langer voorrang te krijgen op sociale huurwoningen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Iedereen sluit achteraan in de rij van woningzoekers, ook statushouders."
+    },
+    {
+      "statement": "Vakantiewoningen in toeristische gebieden mogen niet ten koste gaan van permanent wonen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nieuwbouw hoort veel meer in een hoog tempo via prefab en industriële bouw te gaan, ook al kost dat architectonische kwaliteit.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "We zetten in op fabrieksmatige en tijdelijke woningbouw om efficiënter te bouwen."
+    },
+    {
+      "statement": "De prioriteit bij de woningmarkt moet liggen bij starters en jonge gezinnen, niet bij doorstromers.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Starters, senioren en middeninkomens moeten weer kansen krijgen op een passend huis.",
+      "note": "BBB noemt starters als prioriteit, maar noemt daarnaast ook senioren en middeninkomens; het sluit doorstromers niet uit."
+    },
+    {
+      "statement": "De Europese AI-verordening (AI Act) is een goede zaak, ook als dat innovatie kan vertragen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De overheid moet werkenden actief beschermen tegen banenverlies door AI, ook als dat extra belastinggeld kost.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "AI-bedrijven moeten verplicht hun trainingsdata openbaar maken zodat makers van content kunnen controleren of hun werk is gebruikt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet de NAVO-norm van 5% bbp voor defensie volledig overnemen, ook als dat ten koste gaat van zorg of onderwijs.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "BBB legt zich nu nog niet vast op het bereiken van 3,5% BBP"
+    },
+    {
+      "statement": "Europa moet zo snel mogelijk een eigen defensie opbouwen die niet afhankelijk is van de Verenigde Staten.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "er komt geen Europees leger."
+    },
+    {
+      "statement": "De dienstplicht moet weer geactiveerd worden om de Nederlandse krijgsmacht op sterkte te brengen.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "We handhaven de huidige status van de dienstplicht en activeren de opkomst",
+      "note": "BBB handhaaft de huidige dienstplicht maar activeert de opkomstplicht alleen conditioneel."
+    },
+    {
+      "statement": "Nederland moet doorgaan met militaire en financiële steun aan Oekraïne, ook als dat onze eigen begroting onder druk zet.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "BBB blijft achter de steun aan Oekraïne staan"
+    },
+    {
+      "statement": "Sociale media zoals TikTok en Instagram moeten verboden worden voor kinderen onder de 15 jaar.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Smartphones en tablets horen tijdens schooluren volledig de klas uit, op alle niveaus.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet de Palestijnse staat erkennen, ook als dat de relatie met Israël onder druk zet.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet een eventueel ICC-arrestatiebevel tegen Netanyahu uitvoeren als hij Nederlands grondgebied zou betreden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "De specifieke stelling wordt niet expliciet behandeld in het BBB-verkiezingsprogramma 2025-2029; zonder een eenduidige primaire bron is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet militaire samenwerking met Israël opschorten zolang er geen overtuigende waarborgen zijn dat die niet bijdraagt aan schendingen van het humanitair oorlogsrecht.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "En we bieden actieve steun aan de zelfverdediging van Oekraïne en Israël.",
+      "note": "BBB spreekt actieve steun voor Israëls zelfverdediging uit, maar noemt niet expliciet of militaire samenwerking moet worden opgeschort bij onvoldoende waarborgen."
+    },
+    {
+      "statement": "Internationale rechtbanken zoals het ICC en IGH verdienen ons vertrouwen, ook als hun uitspraken Nederlandse bondgenoten ongelegen komen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://dnpprepo.ub.rug.nl/88739/7/BBB%20Verkiezingsprogramma%20TK2025.pdf",
+      "quote": "Nederland dient juist extra kritisch te blijven als ze hun mandaat overschrijden of politiek handelen."
+    }
+  ]
+}

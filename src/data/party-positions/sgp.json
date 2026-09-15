@@ -1,0 +1,1161 @@
+{
+  "partySlug": "sgp",
+  "programmeTitle": "Stem christelijk voor Nederland — Verkiezingsprogramma Tweede Kamer 2025",
+  "programmeUrl": "https://sgp.nl/verkiezingsprogramma",
+  "reviewed": "2026-09-15",
+  "positions": [
+    {
+      "statement": "De overheid moet de hoogste inkomens (boven €150.000 per jaar) zwaarder belasten dan nu.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het programma noemt geen extra tarief voor inkomens boven €150.000; het spreekt alleen algemeen over rechtvaardige belastingheffing."
+    },
+    {
+      "statement": "Grote bedrijven betalen in Nederland nu te weinig winstbelasting.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah10",
+      "quote": "bij multinationals blijkt nog te vaak dat ze nauwelijks belasting in Nederland afdragen."
+    },
+    {
+      "statement": "Essentiële diensten zoals openbaar vervoer en zorg horen in publieke handen, niet bij de markt.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah3",
+      "quote": "Winsten en private financiering in de zorg worden niet verboden, maar wel gereguleerd."
+    },
+    {
+      "statement": "Het minimumloon mag verder omhoog naar minimaal €16 per uur, ook als bedrijven dat moeilijk vinden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het programma noemt geen verhoging van het minimumloon naar €16 per uur."
+    },
+    {
+      "statement": "De overheid moet zelf actief sociale huurwoningen blijven bouwen, ook als dat de woningmarkt verstoort.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah11",
+      "quote": "Ook de bouw van sociale huurwoningen verdient meer urgentie."
+    },
+    {
+      "statement": "Het is rechtvaardig om vermogen boven €1 miljoen progressief te belasten.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah10",
+      "quote": "Geen jacht op ‘grote vermogens’, maar een rechtvaardige belasting."
+    },
+    {
+      "statement": "Werknemers verdienen meer formele zeggenschap in beslissingen van bedrijven waar ze werken.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Een vorm van basisinkomen zou voor iedere volwassene in Nederland mogelijk moeten zijn.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Lagere belastingen voor bedrijven zijn beter voor de Nederlandse economie.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah10",
+      "quote": "De winstbelasting voor het bedrijfsleven en de werkgeverslasten worden verlicht"
+    },
+    {
+      "statement": "De overheid bemoeit zich te veel met de keuzes die bedrijven en burgers maken.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah10",
+      "quote": "Er komt een uitgebreide regelschrapoperatie waarbij zeker een kwart van de regels verdwijnt."
+    },
+    {
+      "statement": "Werknemers moeten makkelijker ontslagen kunnen worden zodat bedrijven flexibeler zijn.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Privatisering heeft Nederland over het algemeen welvarender en efficiënter gemaakt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Een vlaktaks (één belastingtarief voor iedereen) is rechtvaardiger dan progressieve belasting.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De zorg werkt het beste met concurrentie tussen private aanbieders en zorgverzekeraars.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah3",
+      "quote": "Het polisaanbod van verzekeraars blijft in stand zodat verzekerden keuzevrijheid houden.",
+      "note": "De SGP handhaaft keuzevrijheid en verzekeraars, maar reguleert private financiering; dat is geen onvoorwaardelijke keuze voor concurrentie."
+    },
+    {
+      "statement": "Strenge milieuregels remmen economische groei en moeten worden versoepeld.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah9",
+      "quote": "Maar niet door ons wettelijk vast te pinnen op concrete doelen voor reductie van de CO2-uitstoot, zoals 55% in 2030.",
+      "note": "De SGP wil uitstoot verminderen, maar verzet zich tegen wettelijk vastgepinde nationale reductiedoelen; daarom is dit geen eenduidig voor- of tegenstandpunt."
+    },
+    {
+      "statement": "De huidige uitkeringen in Nederland zijn aan de hoge kant en moeten naar beneden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah10",
+      "quote": "De bijstand wordt daarom stapsgewijs verhoogd"
+    },
+    {
+      "statement": "Nederland moet meer asielzoekers opvangen dan nu het geval is.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah7",
+      "quote": "De SGP is van mening dat de migratiestroom in al haar verschijningsvormen op humane wijze moet worden ingeperkt."
+    },
+    {
+      "statement": "Onderwijs op school moet expliciet aandacht besteden aan diversiteit en LGBTQ+-thema's.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah4",
+      "quote": "Scholen houden op grond van de vrijheid van onderwijs voluit de ruimte",
+      "note": "De SGP verdedigt schoolautonomie en verzet zich in het programma tegen woke- en genderideologische druk; het schrijft geen expliciete LGBTQ+-lesplicht voor."
+    },
+    {
+      "statement": "Mannen en vrouwen verdienen wettelijk gelijke kansen, ook als dat actieve quota of voorrangsbeleid vraagt.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah10",
+      "quote": "Voor het vervullen van topfuncties hanteert de overheid geen quota voor bepaalde doelgroepen."
+    },
+    {
+      "statement": "De positie van het koningshuis moet democratischer worden of zelfs heroverwogen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah2",
+      "quote": "Nederland heeft een bijzondere geschiedenis als constitutionele monarchie met het Oranjehuis"
+    },
+    {
+      "statement": "Religieuze symbolen horen niet thuis bij overheidsfuncties (politie, rechter, leerkracht in het openbaar onderwijs).",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Drugs zoals XTC en MDMA zouden onder strikte voorwaarden gereguleerd verkrijgbaar moeten zijn.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het programma spreekt zich wel uit tegen legalisering van drugs, maar niet met een aparte regeling die precies deze XTC/MDMA-stelling adresseert."
+    },
+    {
+      "statement": "Discriminatie tegen mensen met een migratie-achtergrond is een groot probleem in Nederland.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het Sinterklaasfeest moet zich blijven aanpassen aan moderne opvattingen over racisme.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet de instroom van asielzoekers fors beperken.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah7",
+      "quote": "Voorop staat dat de asielinstroom moet worden beperkt"
+    },
+    {
+      "statement": "Tradities en culturele wortels van Nederland moeten beter beschermd worden.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah7",
+      "quote": "Ons land heeft christelijke wortels."
+    },
+    {
+      "statement": "Op scholen moet de Nederlandse cultuur en geschiedenis centraler komen te staan.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Inburgering voor nieuwkomers moet strenger en sneller verlopen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah7",
+      "quote": "Van nieuwkomers mag verwacht worden dat ze zich aanpassen en zo snel mogelijk Nederlands leren en spreken."
+    },
+    {
+      "statement": "Het traditionele gezin als hoeksteen van de samenleving is iets om te koesteren.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah4",
+      "quote": "Een stabiel gezin biedt een stevige basis voor kinderen en volwassenen"
+    },
+    {
+      "statement": "Religieuze instellingen verdienen meer respect en ruimte in het publieke debat.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah1",
+      "quote": "Zij biedt kerken waar mogelijk de ruimte om daaraan bij te dragen"
+    },
+    {
+      "statement": "Genderneutrale taal (zoals 'reizigers' i.p.v. 'dames en heren') gaat te ver.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nationale symbolen zoals vlag en volkslied verdienen een prominentere plek in het openbare leven.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De overheid mag mijn berichten en e-mails niet zonder concrete verdenking inzien.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah5",
+      "quote": "De Wet op de inlichtingen- en veiligheidsdiensten moet voldoende ruimte bieden om snel op nieuwe dreigingen in te spelen"
+    },
+    {
+      "statement": "End-to-end versleuteling moet beschermd blijven, ook als het politieonderzoek bemoeilijkt.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah5",
+      "quote": "Het verwijderen of ontsleutelen van content moet kunnen worden verplicht."
+    },
+    {
+      "statement": "Cameratoezicht in publieke ruimtes is een te grote inbreuk op privacy.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Vreedzame demonstraties moeten worden beschermd, ook als ze de openbare orde tijdelijk verstoren.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah2",
+      "quote": "Het recht op betoging is een grondrecht, binnen de grenzen van de wet."
+    },
+    {
+      "statement": "De wet op de inlichtingen- en veiligheidsdiensten geeft de AIVD/MIVD te ruime bevoegdheden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah5",
+      "quote": "De Wet op de inlichtingen- en veiligheidsdiensten moet voldoende ruimte bieden om snel op nieuwe dreigingen in te spelen"
+    },
+    {
+      "statement": "Kraken zou niet strafbaar moeten zijn als een pand lang leegstaat.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Persoonlijke vrijheden mogen niet worden ingeperkt op basis van ‘aanstootgevendheid’.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Drugsgebruikers horen niet strafrechtelijk vervolgd te worden, maar geholpen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah5",
+      "quote": "We stoppen met gedogen en gaan de wet handhaven."
+    },
+    {
+      "statement": "De politie heeft ruimere bevoegdheden nodig om de veiligheid op straat te garanderen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Verdachten van zware criminaliteit moeten preventief vastgehouden kunnen worden, ook zonder sluitend bewijs.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Terreurverdachten moeten ook zonder strafrechtelijke veroordeling hun nationaliteit kunnen verliezen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het programma zegt dat terroristen hun Nederlanderschap verliezen, maar specificeert niet dat dit zonder strafrechtelijke veroordeling moet gebeuren."
+    },
+    {
+      "statement": "Cameratoezicht en slimme sensoren maken onze samenleving veiliger en moeten worden uitgebreid.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Onlinediensten moeten verplicht achterdeurtjes bouwen voor opsporingsdiensten.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Demonstraties die de openbare orde verstoren moeten harder worden aangepakt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah2",
+      "quote": "De SGP staat voor sanctioneren in plaats van faciliteren."
+    },
+    {
+      "statement": "Strengere straffen werken afschrikwekkend en dienen het algemeen belang.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah5",
+      "quote": "Te vaak krijgen daders voorwaardelijke straffen of taakstraffen. Dit moet strenger"
+    },
+    {
+      "statement": "Een verbod op gezichtsbedekkende kleding in publieke ruimtes is gerechtvaardigd.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Meer macht naar de Europese Unie zou Nederland uiteindelijk versterken.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah12",
+      "quote": "Samenwerking met andere landen betekent voor de SGP niet dat er steeds meer macht naar Brussel moet."
+    },
+    {
+      "statement": "Belangrijke besluiten over klimaat, migratie en defensie horen op Europees niveau te worden genomen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah12",
+      "quote": "De SGP kiest voor een Europese Unie die ten dienste staat van de lidstaten",
+      "note": "De SGP erkent Europese samenwerking, maar verwerpt overdracht van belangrijke nationale bevoegdheden als algemeen uitgangspunt."
+    },
+    {
+      "statement": "Gemeentes verdienen meer eigen beleidsruimte en geld, ook als dat tot verschillen tussen regio's leidt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah2",
+      "quote": "De financiering van gemeenten moet structureel toereikend zijn"
+    },
+    {
+      "statement": "Een gezamenlijk Europees leger zou een verstandige stap zijn.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah5",
+      "quote": "De SGP wil echter geen Europees leger"
+    },
+    {
+      "statement": "Burgers moeten meer directe zeggenschap krijgen via burgerraden of referenda.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Eurobonds en gezamenlijke schulduitgifte versterken Europa als geheel.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah12",
+      "quote": "Er komen geen Europese leningen of gezamenlijke schuldeninstrumenten."
+    },
+    {
+      "statement": "Een referendum kan een waardevolle aanvulling zijn op de parlementaire democratie.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Provincies en gemeentes verdienen meer financiële zelfstandigheid van Den Haag.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet zelf bepalen wie er ons land binnenkomt, niet Brussel.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah7",
+      "quote": "Nederland blijft zelf verantwoordelijk voor het bewaken van de eigen landsgrenzen."
+    },
+    {
+      "statement": "De Europese Unie heeft te veel macht en moet kleiner worden.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah12",
+      "quote": "De EU moet ten dienste staan van de lidstaten."
+    },
+    {
+      "statement": "Belangrijke nationale beslissingen mogen niet door internationale rechters worden tegengehouden.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah2",
+      "quote": "Onze Grondwet verdient een steviger positie ten opzichte van internationale regelingen en verdragen."
+    },
+    {
+      "statement": "Een serieus debat over een Nexit verdient een eerlijke kans in de Tweede Kamer.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah12",
+      "quote": "een Nexit politiek en economisch gezien onwenselijk",
+      "note": "De SGP noemt Nexit onwenselijk, maar laat heroverweging open bij verregaande ontwikkelingen; de stelling gaat alleen over ruimte voor debat."
+    },
+    {
+      "statement": "Bij conflict tussen Nederlandse wet en EU-recht moet de Nederlandse wet voorgaan.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het Europees Parlement is te ver van de gewone burger om belangrijke beslissingen te nemen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Centralisatie in Den Haag is efficiënter dan macht overdragen aan provincies.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah11",
+      "quote": "De SGP vindt dat het lokale bestuur een grote rol heeft in de woningbouwopgave."
+    },
+    {
+      "statement": "Internationale verdragen mogen Nederland niet binden tegen de wil van een meerderheid.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah2",
+      "quote": "sluit zich in beginsel niet aan bij nieuwe verdragen die de vrije handelingsruimte van de wetgever beperken"
+    },
+    {
+      "statement": "De rechtspraak in Nederland werkt over het algemeen onafhankelijk en eerlijk.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederlandse wetenschappers en experts zijn over het algemeen te vertrouwen op hun vakgebied.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Onze verkiezingen verlopen eerlijk en zijn betrouwbaar.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De NPO en kwaliteitskranten leveren grotendeels betrouwbare informatie.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Toezichthouders zoals AFM, DNB, NZa en ACM doen hun werk over het algemeen goed.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het RIVM en andere kennisinstituten verdienen vertrouwen, ook bij omstreden adviezen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het democratische stelsel met partijen, parlement en regering is nog steeds het beste systeem dat we hebben.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Politici zijn over het algemeen mensen die zich oprecht inzetten voor het algemeen belang.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De gevestigde media verzwijgen of vertekenen belangrijke onderwerpen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De overheid heeft tijdens de coronacrisis fouten gemaakt waarover ze nooit eerlijk zal zijn.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Politici zijn vooral bezig met hun eigen carrière, niet met het landsbelang.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Big tech en multinationals hebben meer macht dan democratisch gekozen regeringen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Wetenschappelijk onderzoek wordt te veel gestuurd door commerciële of politieke belangen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Banken en de financiële sector zijn nooit echt verantwoordelijk gehouden na de kredietcrisis.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het toeslagenschandaal toont aan dat onze instituties fundamenteel niet deugen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De rechtspraak laat in haar uitspraken vaker politieke voorkeuren meewegen dan recht.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet de klimaatdoelen aanscherpen, ook als dat ten koste gaat van economische groei op de korte termijn.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah9",
+      "quote": "Maar niet door ons wettelijk vast te pinnen op concrete doelen voor reductie van de CO2-uitstoot, zoals 55% in 2030."
+    },
+    {
+      "statement": "Vlees en zuivel moeten zwaarder belast worden om de uitstoot omlaag te krijgen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Kernenergie hoort een centrale rol te spelen in de Nederlandse energiemix.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah9",
+      "quote": "Het Rijk ondersteunt de bouw van tenminste twee grote kerncentrales"
+    },
+    {
+      "statement": "De overheid moet vervuilende industrie versneld sluiten als ze niet snel genoeg verduurzaamt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De boeren hebben in Nederland te veel concessies hoeven doen voor het klimaatbeleid.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah8",
+      "quote": "De SGP verzet zich tegen gedwongen opkoop"
+    },
+    {
+      "statement": "Korte vluchten binnen Europa moeten verboden worden als er een treinverbinding bestaat.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Rijden in een privé-auto op fossiele brandstof moet over tien jaar onmogelijk zijn.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah9",
+      "quote": "Jojobeleid is onwenselijk. Techniekneutraliteit is een belangrijk vertrekpunt."
+    },
+    {
+      "statement": "De klimaatcrisis verdient méér aandacht in het onderwijs dan ze nu krijgt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Subsidies op zonnepanelen en warmtepompen moeten verder uitgebreid worden voor lage inkomens.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah9",
+      "quote": "De SGP wil inzet op gemeentelijke verduurzamingsregelingen"
+    },
+    {
+      "statement": "Nederland mag klimaatdoelen niet opofferen voor internationale concurrentie, zelfs als andere landen achterblijven.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah9",
+      "quote": "Nationale koppen op het Europese emissiehandelssysteem voor CO2 worden zoveel mogelijk voorkomen."
+    },
+    {
+      "statement": "Het eigen risico in de zorgverzekering moet afgeschaft worden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah3",
+      "quote": "De SGP bevriest het eigen risico de komende kabinetsperiode op 385 euro."
+    },
+    {
+      "statement": "Winstuitkering in de zorgsector moet wettelijk verboden worden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah3",
+      "quote": "Winsten en private financiering in de zorg worden niet verboden, maar wel gereguleerd."
+    },
+    {
+      "statement": "De geestelijke gezondheidszorg verdient een veel groter aandeel van het zorgbudget.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah3",
+      "quote": "De SGP wil extra middelen voor het terugdringen van de wachttijden in de ggz."
+    },
+    {
+      "statement": "Zorgverzekeraars moeten verdwijnen en de zorg moet weer puur publiek gefinancierd worden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah3",
+      "quote": "Het polisaanbod van verzekeraars blijft in stand zodat verzekerden keuzevrijheid houden."
+    },
+    {
+      "statement": "Mensen moeten meer eigen verantwoordelijkheid nemen voor hun gezondheid (sporten, dieet, niet roken), ook als dat hun zorgkosten beïnvloedt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah3",
+      "quote": "met respect voor de persoonlijke verantwoordelijkheid van eenieder voor zijn of haar leven."
+    },
+    {
+      "statement": "Mantelzorgers verdienen een financiële vergoeding van de overheid.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah3",
+      "quote": "Er komt een structurele mantelzorgvergoeding"
+    },
+    {
+      "statement": "Een patiënt heeft het recht om bij ondraaglijk lijden zelf voor euthanasie te kiezen, ook bij dementie of voltooid leven.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah3",
+      "quote": "De SGP is daarom tegen verruiming van hulp bij zelfdoding"
+    },
+    {
+      "statement": "Preventie en leefstijl horen een veel groter deel van het zorgbudget te krijgen, ook als curatieve zorg moet inleveren.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah3",
+      "quote": "een structureel preventiefonds voor bewezen effectieve interventies",
+      "note": "De SGP steunt bewezen preventie, maar het programma zegt niet dat curatieve zorg daarvoor moet inleveren."
+    },
+    {
+      "statement": "Verpleegkundigen en zorgmedewerkers verdienen aanzienlijk meer salaris, zelfs als dat de premie verhoogt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah3",
+      "quote": "Verpleegkundigen en verzorgenden krijgen een salarisverhoging."
+    },
+    {
+      "statement": "Mensen die zelf bewust ongezond leven, moeten een hogere zorgpremie betalen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Het aantal asielzoekers dat Nederland jaarlijks opvangt moet expliciet aan een maximum gebonden worden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het programma wil een bovengrens voor het totale migratiesaldo, maar formuleert geen expliciet jaarlijks maximum voor asielopvang."
+    },
+    {
+      "statement": "Wie naar Nederland komt, moet vanaf dag één Nederlands leren en de wet kennen, op straffe van consequenties voor verblijf.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah7",
+      "quote": "Zij die niet aan de inburgeringsplicht willen voldoen, worden beboet, en als dat kan uitgezet."
+    },
+    {
+      "statement": "Arbeidsmigratie binnen de EU moet beperkt worden om Nederlandse arbeiders en huisvesting te beschermen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah7",
+      "quote": "Binnen de EU moeten meer mogelijkheden komen om waar nodig het aantal arbeidsmigranten te beperken"
+    },
+    {
+      "statement": "Nederland moet meer doen om vluchtelingen op te vangen die op de grens van Europa stranden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Kennismigranten met een hoog inkomen moeten andere fiscale regels krijgen dan andere migranten.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Migranten zonder verblijfsstatus (ongedocumenteerden) horen recht te hebben op basiszorg en onderdak.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Inburgering, asielprocedures en migratie horen Europees geregeld te worden, niet alleen nationaal.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah7",
+      "quote": "Het migratievraagstuk overstijgt landsgrenzen.",
+      "note": "De SGP wil Europese samenwerking én nationale verantwoordelijkheid; de stelling legt de keuze te absoluut bij Europees niveau."
+    },
+    {
+      "statement": "Iedereen die ergens fout in Nederland is geboren, moet automatisch Nederlander zijn (ius soli).",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Religieuze symbolen (zoals hoofddoek, keppel, kruis) horen niet thuis bij ambtenaren in publieke functies (politie, rechter).",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Migratiebeperking is een hogere prioriteit dan de invulling van vacatures in de Nederlandse economie.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah7",
+      "quote": "Het aantal arbeidsmigranten moet daarom omlaag."
+    },
+    {
+      "statement": "Erfenissen boven €500.000 horen veel zwaarder belast te worden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah10",
+      "quote": "De erfbelasting verhogen we niet."
+    },
+    {
+      "statement": "Het verschil tussen vast en flex op de arbeidsmarkt moet veel kleiner worden, zelfs als dat ondernemers beperkt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah10",
+      "quote": "De positie van de flexwerker wordt verbeterd om onzekerheid in werk en inkomen tegen te gaan"
+    },
+    {
+      "statement": "Een aanvullende belasting op grote vermogens (>€2 miljoen) is noodzakelijk om de begroting eerlijk te maken.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah10",
+      "quote": "Geen jacht op ‘grote vermogens’, maar een rechtvaardige belasting."
+    },
+    {
+      "statement": "Pensioenleeftijd mag verder omhoog naar 70 jaar voor wie nu jonger dan 40 is.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De overheid moet veel actiever industriebeleid voeren en strategische sectoren beschermen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah10",
+      "quote": "Om Nederlandse scheepswerven te beschermen tegen buitenlandse werven met een voorsprong door staatssteun, keert de garantieregeling scheepsbouw terug."
+    },
+    {
+      "statement": "Multinationals die de Nederlandse fiscaliteit ontwijken horen daarvoor hard aangepakt te worden, ook ten koste van vestigingsklimaat.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah10",
+      "quote": "De mazen in ons fiscale stelsel worden gedicht.",
+      "note": "De SGP wil fiscale ontwijking aanpakken, maar benadrukt tegelijk een aantrekkelijk vestigingsklimaat; de stelling bevat een expliciete kostenafweging die het programma niet maakt."
+    },
+    {
+      "statement": "Nederland moet veel agressiever bezuinigen om de staatsschuld omlaag te krijgen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Een 32-urige werkweek moet de norm worden in plaats van 40 uur.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De Nederlandse economie hoort meer op groen ondernemerschap te wedden, ook al kost dat traditionele banen.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah10",
+      "quote": "Bedrijven worden (financieel) gestimuleerd duurzame en eerlijke keuzes te maken",
+      "note": "De SGP stimuleert groen en duurzaam ondernemen, maar zegt niet dat dit ten koste van traditionele banen moet gaan."
+    },
+    {
+      "statement": "Het is meer rechtvaardig om ondernemers fiscaal te belonen dan om werknemers extra te beschermen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland hoort meer bevoegdheden over te dragen aan de EU op het gebied van defensie en buitenlands beleid.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah5",
+      "quote": "Niet Brussel, maar Den Haag blijft besluiten over het uitzenden van troepen."
+    },
+    {
+      "statement": "Er moet een vetorecht behouden blijven voor nationale parlementen op alle grote EU-besluiten.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Een rijkere EU-lidstaat zoals Nederland hoort ruimhartig bij te dragen aan een sterk EU-budget.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah12",
+      "quote": "Nederland is een nettobetaler en moet zich hier zéker tegen verzetten."
+    },
+    {
+      "statement": "Nederland moet de optie van vertrek uit de EU bespreekbaar houden.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah12",
+      "quote": "een Nexit politiek en economisch gezien onwenselijk"
+    },
+    {
+      "statement": "De EU moet meer macht krijgen om in te grijpen wanneer een lidstaat de rechtsstaat ondermijnt.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah12",
+      "quote": "De EU moet ten dienste staan van de lidstaten."
+    },
+    {
+      "statement": "Europese verkiezingen verdienen veel meer aandacht dan ze nu in Nederland krijgen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De EU is uiteindelijk meer in het belang van bedrijven dan van gewone burgers.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Europese minimumlonen en sociale standaarden moeten in alle lidstaten gelden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet zich aansluiten bij landen die de uitbreiding van de EU naar de Balkan tegenhouden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland hoort koploper te zijn in een sterk Europees klimaatbeleid, ook al kost dat economisch geld.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah9",
+      "quote": "Nationale koppen op het Europese emissiehandelssysteem voor CO2 worden zoveel mogelijk voorkomen."
+    },
+    {
+      "statement": "Een referendum over belangrijke wetten moet eenvoudig te organiseren zijn voor burgers.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Rechters moeten wetten van het parlement aan de Grondwet kunnen toetsen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah2",
+      "quote": "Invoering van een constitutioneel hof is onwenselijk."
+    },
+    {
+      "statement": "Het Nederlandse kiesstelsel hoort district-elementen te bevatten zodat kiezers een persoonlijker stem hebben.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah2",
+      "quote": "Het kiesstelsel gaat niet op de schop"
+    },
+    {
+      "statement": "Politieke partijen moeten verplicht hun financiering volledig openbaar maken.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De macht van de minister-president moet uitgebreid worden zodat regeren slagvaardiger wordt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Publieke omroep (NPO) is een onmisbaar tegengewicht tegen de macht van commerciële media.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah2",
+      "quote": "De publieke omroep heeft de taak om tegenwicht te bieden tegen eenzijdige commerciële belangen"
+    },
+    {
+      "statement": "Wetenschappers horen zich vooral terughoudend op te stellen in politieke discussies.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Lokale gemeenten verdienen meer eigen geld en bevoegdheden dan ze nu hebben.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah2",
+      "quote": "Het belastinggebied van gemeenten wordt vergroot"
+    },
+    {
+      "statement": "De achtergrond van politici en bestuurders weerspiegelt de samenleving onvoldoende.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Een burgerberaad met door loting gekozen burgers hoort bindende invloed te krijgen op grote beslissingen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Beleggers moeten geweerd worden van de markt voor betaalbare koopwoningen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De Wet betaalbare huur moet uitgebreid worden tot meer woningen en hogere huurklassen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Bouwen in groene gebieden moet mogelijk worden gemaakt om de woningnood op te lossen.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah11",
+      "quote": "Er wordt niet alleen binnenstedelijk, maar ook buitenstedelijk gebouwd."
+    },
+    {
+      "statement": "Nederland moet veel meer publieke woningbouwgrond zelf in eigendom houden om speculatie tegen te gaan.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Een sterke woningcorporatie hoort weer een dominante speler te zijn in de Nederlandse woningmarkt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Hypotheekrenteaftrek hoort verder afgebouwd te worden om de huizenmarkt eerlijker te maken.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah11",
+      "quote": "De SGP is geen voorstander van afschaffing van de hypotheekrenteaftrek",
+      "note": "De SGP verwerpt afschaffing maar staat wel open voor herziening onder lastenverlichting; dat is geen helder voor- of tegenstandpunt over verdere afbouw."
+    },
+    {
+      "statement": "Statushouders horen niet langer voorrang te krijgen op sociale huurwoningen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Vakantiewoningen in toeristische gebieden mogen niet ten koste gaan van permanent wonen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah11",
+      "quote": "Permanente bewoning van recreatiewoningen wordt alleen mogelijk onder strenge voorwaarden."
+    },
+    {
+      "statement": "Nieuwbouw hoort veel meer in een hoog tempo via prefab en industriële bouw te gaan, ook al kost dat architectonische kwaliteit.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah11",
+      "quote": "Industrieel bouwen wordt aantrekkelijker gemaakt.",
+      "note": "De SGP stimuleert industrieel bouwen, maar neemt in de stelling geen expliciet standpunt in over het offeren van architectonische kwaliteit."
+    },
+    {
+      "statement": "De prioriteit bij de woningmarkt moet liggen bij starters en jonge gezinnen, niet bij doorstromers.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De Europese AI-verordening (AI Act) is een goede zaak, ook als dat innovatie kan vertragen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "De overheid moet werkenden actief beschermen tegen banenverlies door AI, ook als dat extra belastinggeld kost.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "AI-bedrijven moeten verplicht hun trainingsdata openbaar maken zodat makers van content kunnen controleren of hun werk is gebruikt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet de NAVO-norm van 5% bbp voor defensie volledig overnemen, ook als dat ten koste gaat van zorg of onderwijs.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah5",
+      "quote": "In 2035 besteedt Nederland 5% van het BBP aan onze Defensie",
+      "note": "De SGP steunt de 5%-norm, maar het programma zegt niet dat dit ten koste van zorg of onderwijs moet gaan."
+    },
+    {
+      "statement": "Europa moet zo snel mogelijk een eigen defensie opbouwen die niet afhankelijk is van de Verenigde Staten.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah5",
+      "quote": "De NAVO is onze belangrijkste veiligheidspartner."
+    },
+    {
+      "statement": "De dienstplicht moet weer geactiveerd worden om de Nederlandse krijgsmacht op sterkte te brengen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet doorgaan met militaire en financiële steun aan Oekraïne, ook als dat onze eigen begroting onder druk zet.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah12",
+      "quote": "Nederland blijft Oekraïne steunen met geld, wapens, humanitaire en diplomatieke middelen."
+    },
+    {
+      "statement": "Sociale media zoals TikTok en Instagram moeten verboden worden voor kinderen onder de 15 jaar.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah4",
+      "quote": "De SGP wil een verbod op sociale media voor kinderen jonger dan 15 jaar."
+    },
+    {
+      "statement": "Smartphones en tablets horen tijdens schooluren volledig de klas uit, op alle niveaus.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet de Palestijnse staat erkennen, ook als dat de relatie met Israël onder druk zet.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah6",
+      "quote": "De SGP is tegen eenzijdige erkenning van een Palestijnse staat"
+    },
+    {
+      "statement": "Nederland moet een eventueel ICC-arrestatiebevel tegen Netanyahu uitvoeren als hij Nederlands grondgebied zou betreden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    },
+    {
+      "statement": "Nederland moet militaire samenwerking met Israël opschorten zolang er geen overtuigende waarborgen zijn dat die niet bijdraagt aan schendingen van het humanitair oorlogsrecht.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://sgp.nl/verkiezingsprogramma/verkiezingsprogrammah6",
+      "quote": "Nederland gaat een intensievere samenwerking aan met Israël op defensie- en veiligheidsterrein"
+    },
+    {
+      "statement": "Internationale rechtbanken zoals het ICC en IGH verdienen ons vertrouwen, ook als hun uitspraken Nederlandse bondgenoten ongelegen komen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Het SGP-verkiezingsprogramma 2025 bevat geen expliciete positie over deze specifieke stelling; daarom is geen standpunt gecodeerd."
+    }
+  ]
+}

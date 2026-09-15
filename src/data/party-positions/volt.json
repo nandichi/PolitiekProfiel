@@ -1,0 +1,1185 @@
+{
+  "partySlug": "volt",
+  "programmeTitle": "Verkiezingsprogramma Tweede Kamerverkiezingen 2025 (Volt Nederland)",
+  "programmeUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+  "reviewed": "2026-09-15",
+  "positions": [
+    {
+      "statement": "De overheid moet de hoogste inkomens (boven €150.000 per jaar) zwaarder belasten dan nu.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Grote bedrijven betalen in Nederland nu te weinig winstbelasting.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Grote vermogens en bedrijven gaan meer bijdragen"
+    },
+    {
+      "statement": "Essentiële diensten zoals openbaar vervoer en zorg horen in publieke handen, niet bij de markt.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "De zorgkosten moeten voor een groter deel uit de collectieve middelen betaald worden.",
+      "note": "Volt kiest voor meer collectieve financiering en regulering, maar het programma legt niet vast dat openbaar vervoer en zorg volledig publiek moeten zijn."
+    },
+    {
+      "statement": "Het minimumloon mag verder omhoog naar minimaal €16 per uur, ook als bedrijven dat moeilijk vinden.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "verhogen we het minimumloon geleidelijk naar 19 euro."
+    },
+    {
+      "statement": "De overheid moet zelf actief sociale huurwoningen blijven bouwen, ook als dat de woningmarkt verstoort.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "We stellen de woningcorporaties in staat meer te bouwen."
+    },
+    {
+      "statement": "Het is rechtvaardig om vermogen boven €1 miljoen progressief te belasten.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Er wordt een progressieve vermogensbelasting geïntroduceerd voor vermogens boven één miljoen euro."
+    },
+    {
+      "statement": "Werknemers verdienen meer formele zeggenschap in beslissingen van bedrijven waar ze werken.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Een vorm van basisinkomen zou voor iedere volwassene in Nederland mogelijk moeten zijn.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "We vervangen alle toeslagen, premies, belastingkortingen en vrijstellingen door één basisinkomen."
+    },
+    {
+      "statement": "Lagere belastingen voor bedrijven zijn beter voor de Nederlandse economie.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Grote vermogens en bedrijven gaan meer bijdragen",
+      "note": "Volt koppelt economische keuzes aan hogere bijdragen van grote bedrijven en vermogens, naast gerichte innovatiestimulansen."
+    },
+    {
+      "statement": "De overheid bemoeit zich te veel met de keuzes die bedrijven en burgers maken.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Werknemers moeten makkelijker ontslagen kunnen worden zodat bedrijven flexibeler zijn.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "We investeren in beter werk, hogere lonen en meer vaste contracten."
+    },
+    {
+      "statement": "Privatisering heeft Nederland over het algemeen welvarender en efficiënter gemaakt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Een vlaktaks (één belastingtarief voor iedereen) is rechtvaardiger dan progressieve belasting.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "de sterkste schouders dragen de zwaarste lasten"
+    },
+    {
+      "statement": "De zorg werkt het beste met concurrentie tussen private aanbieders en zorgverzekeraars.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "meer regulatie van de marktwerking toe te laten",
+      "note": "Het programma behoudt zorgverzekeraars en het eigen risico, maar wil marktwerking sterker reguleren en zorg collectiever financieren."
+    },
+    {
+      "statement": "Strenge milieuregels remmen economische groei en moeten worden versoepeld.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Grote vervuilers moeten vergroenen."
+    },
+    {
+      "statement": "De huidige uitkeringen in Nederland zijn aan de hoge kant en moeten naar beneden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "niemand meer onder het sociaal minimum hoeft te leven."
+    },
+    {
+      "statement": "Nederland moet meer asielzoekers opvangen dan nu het geval is.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "aantal hervestigingen flink vergroten",
+      "note": "Volt wil meer hervestiging en humane opvang, maar spreekt zich in dit programma niet uit over een totale stijging van alle asielinstroom."
+    },
+    {
+      "statement": "Onderwijs op school moet expliciet aandacht besteden aan diversiteit en LGBTQ+-thema's.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "onderwijs geven over seksuele- en genderdiversiteit."
+    },
+    {
+      "statement": "Mannen en vrouwen verdienen wettelijk gelijke kansen, ook als dat actieve quota of voorrangsbeleid vraagt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Er komt een gender-balanced kabinet (oftewel: gelijke representatie van mannen en vrouwen)"
+    },
+    {
+      "statement": "De positie van het koningshuis moet democratischer worden of zelfs heroverwogen.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Een niet-gekozen staatshoofd mag geen uitzonderingspositie in de maatschappij hebben.",
+      "note": "Volt wil de uitzonderingspositie van een niet-gekozen staatshoofd beperken, maar spreekt zich hier niet uit voor afschaffing van het Nederlandse koningshuis."
+    },
+    {
+      "statement": "Religieuze symbolen horen niet thuis bij overheidsfuncties (politie, rechter, leerkracht in het openbaar onderwijs).",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "een hoofddoek of andere religieuze uitingen"
+    },
+    {
+      "statement": "Drugs zoals XTC en MDMA zouden onder strikte voorwaarden gereguleerd verkrijgbaar moeten zijn.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "hoe we bepaalde drugs, zoals mdma (xtc) en lsd, kunnen legaliseren en reguleren.",
+      "note": "Volt wil legalisering en regulering van specifieke drugs nader onderzoeken; dat is geen onvoorwaardelijke instemming met gereguleerde verkrijgbaarheid."
+    },
+    {
+      "statement": "Discriminatie tegen mensen met een migratie-achtergrond is een groot probleem in Nederland.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Wij zetten ons in voor antiracisme en antidiscriminatie"
+    },
+    {
+      "statement": "Het Sinterklaasfeest moet zich blijven aanpassen aan moderne opvattingen over racisme.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Overheidsmiddelen mogen niet worden gebruikt voor tradities of uitingen die stereotypen in stand houden."
+    },
+    {
+      "statement": "Nederland moet de instroom van asielzoekers fors beperken.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "aantal hervestigingen flink vergroten",
+      "note": "Volt kiest voor uitbreiding van hervestiging en menswaardige opvang, niet voor een forse algemene instroombeperking."
+    },
+    {
+      "statement": "Tradities en culturele wortels van Nederland moeten beter beschermd worden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Op scholen moet de Nederlandse cultuur en geschiedenis centraler komen te staan.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "inclusieve geschiedenis (zoals over het koloniale verleden)",
+      "note": "Volt kiest voor inclusieve geschiedenis en aandacht voor koloniale geschiedenis, racisme en discriminatie, niet voor een exclusief nationaal curriculum."
+    },
+    {
+      "statement": "Inburgering voor nieuwkomers moet strenger en sneller verlopen.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "vanaf dag één meedoen in de samenleving",
+      "note": "Volt wil vanaf dag één taalonderwijs en deelname, maar noemt in dit programma geen strengere plichten of verblijfsconsequenties zoals in de stelling."
+    },
+    {
+      "statement": "Het traditionele gezin als hoeksteen van de samenleving is iets om te koesteren.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Religieuze instellingen verdienen meer respect en ruimte in het publieke debat.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Genderneutrale taal (zoals 'reizigers' i.p.v. 'dames en heren') gaat te ver.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Nationale symbolen zoals vlag en volkslied verdienen een prominentere plek in het openbare leven.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "De overheid mag mijn berichten en e-mails niet zonder concrete verdenking inzien.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Persoonsgegevens zijn van jezelf en jij mag dus bepalen óf, met wie en waarom je ze deelt."
+    },
+    {
+      "statement": "End-to-end versleuteling moet beschermd blijven, ook als het politieonderzoek bemoeilijkt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Voor Volt is het afzwakken van end-to-end encryptie ten behoeve van schijnveiligheid onaanvaardbaar."
+    },
+    {
+      "statement": "Cameratoezicht in publieke ruimtes is een te grote inbreuk op privacy.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "illegale inzet van grootschalige real-time gezichtsherkenning of sleepnetten",
+      "note": "Volt verzet zich tegen grootschalige gezichtsherkenning en sleepnetten, maar neemt geen algemeen standpunt in over alle vormen van cameratoezicht."
+    },
+    {
+      "statement": "Vreedzame demonstraties moeten worden beschermd, ook als ze de openbare orde tijdelijk verstoren.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "In Nederland heeft iedereen het recht om te demonstreren."
+    },
+    {
+      "statement": "De wet op de inlichtingen- en veiligheidsdiensten geeft de AIVD/MIVD te ruime bevoegdheden.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "De huidige Wet op de inlichtingen- en veiligheidsdiensten (de WIV-2017) wordt zo snel mogelijk herzien."
+    },
+    {
+      "statement": "Kraken zou niet strafbaar moeten zijn als een pand lang leegstaat.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Persoonlijke vrijheden mogen niet worden ingeperkt op basis van ‘aanstootgevendheid’.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Drugsgebruikers horen niet strafrechtelijk vervolgd te worden, maar geholpen.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "gecontroleerde decriminalisering van specifieke drugs",
+      "note": "Volt wil gecontroleerde decriminalisering van specifieke drugs onderzoeken, niet een algemene strafrechtelijke uitzondering voor alle drugsgebruikers."
+    },
+    {
+      "statement": "De politie heeft ruimere bevoegdheden nodig om de veiligheid op straat te garanderen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Verdachten van zware criminaliteit moeten preventief vastgehouden kunnen worden, ook zonder sluitend bewijs.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Terreurverdachten moeten ook zonder strafrechtelijke veroordeling hun nationaliteit kunnen verliezen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Cameratoezicht en slimme sensoren maken onze samenleving veiliger en moeten worden uitgebreid.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "illegale inzet van grootschalige real-time gezichtsherkenning of sleepnetten",
+      "note": "Volt onderschrijft veiligheid, maar het programma beperkt zich hier tot waarborgen tegen grootschalige gezichtsherkenning en sleepnetten."
+    },
+    {
+      "statement": "Onlinediensten moeten verplicht achterdeurtjes bouwen voor opsporingsdiensten.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Voor Volt is het afzwakken van end-to-end-encryptie onaanvaardbaar omdat het dan schijnveiligheid wordt."
+    },
+    {
+      "statement": "Demonstraties die de openbare orde verstoren moeten harder worden aangepakt.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "We moeten demonstranten niet als criminelen behandelen."
+    },
+    {
+      "statement": "Strengere straffen werken afschrikwekkend en dienen het algemeen belang.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Een verbod op gezichtsbedekkende kleding in publieke ruimtes is gerechtvaardigd.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Meer macht naar de Europese Unie zou Nederland uiteindelijk versterken.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt strijdt in Nederland voor een sterk, democratisch, federaal Europa."
+    },
+    {
+      "statement": "Belangrijke besluiten over klimaat, migratie en defensie horen op Europees niveau te worden genomen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Grote vraagstukken lossen we alleen op als we samenwerken."
+    },
+    {
+      "statement": "Gemeentes verdienen meer eigen beleidsruimte en geld, ook als dat tot verschillen tussen regio's leidt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "als volwaardige medeoverheid ook eigen keuzes kunnen maken."
+    },
+    {
+      "statement": "Een gezamenlijk Europees leger zou een verstandige stap zijn.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt pleit voor een gezamenlijke Europese commandostructuur"
+    },
+    {
+      "statement": "Burgers moeten meer directe zeggenschap krijgen via burgerraden of referenda.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "aanbevelingen uit individuele burgerberaden worden door de politiek serieus meegenomen",
+      "note": "Volt steunt burgerberaden met zwaarwegende aanbevelingen, maar verwerpt een bindend correctief referendum; de stelling combineert beide instrumenten."
+    },
+    {
+      "statement": "Eurobonds en gezamenlijke schulduitgifte versterken Europa als geheel.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "De uitbreiding binnen defensie wordt gezamenlijk gefinancierd met eurobonds."
+    },
+    {
+      "statement": "Een referendum kan een waardevolle aanvulling zijn op de parlementaire democratie.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt is tegen een bindend correctief referendum"
+    },
+    {
+      "statement": "Provincies en gemeentes verdienen meer financiële zelfstandigheid van Den Haag.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "geven we gemeenten niet alleen taken, maar ook de bijbehorende middelen"
+    },
+    {
+      "statement": "Nederland moet zelf bepalen wie er ons land binnenkomt, niet Brussel.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt houdt vast aan internationale en Europese verdragen."
+    },
+    {
+      "statement": "De Europese Unie heeft te veel macht en moet kleiner worden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "We werken aan een federale en democratische Europese Unie (EU)."
+    },
+    {
+      "statement": "Belangrijke nationale beslissingen mogen niet door internationale rechters worden tegengehouden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Het Hof krijgt de bevoegdheid om nationale wetten nietig te verklaren"
+    },
+    {
+      "statement": "Een serieus debat over een Nexit verdient een eerlijke kans in de Tweede Kamer.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Het Nederlandse lidmaatschap van de EU moet worden vastgelegd in onze Grondwet."
+    },
+    {
+      "statement": "Bij conflict tussen Nederlandse wet en EU-recht moet de Nederlandse wet voorgaan.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "in strijd zijn met de Europese verdragen."
+    },
+    {
+      "statement": "Het Europees Parlement is te ver van de gewone burger om belangrijke beslissingen te nemen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Het Europees Parlement krijgt het recht van initiatief"
+    },
+    {
+      "statement": "Centralisatie in Den Haag is efficiënter dan macht overdragen aan provincies.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "We moeten centraal regie voeren op de ruimtelijke ordening",
+      "note": "Volt wil centrale regie in ruimtelijke ordening, maar geeft gemeenten en regio’s ook middelen, rollen en eigen keuzes; dit is geen algemeen oordeel over centralisatie."
+    },
+    {
+      "statement": "Internationale verdragen mogen Nederland niet binden tegen de wil van een meerderheid.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt houdt vast aan internationale en Europese verdragen."
+    },
+    {
+      "statement": "De rechtspraak in Nederland werkt over het algemeen onafhankelijk en eerlijk.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "rechtspraak die onafhankelijk en toegankelijk is."
+    },
+    {
+      "statement": "Nederlandse wetenschappers en experts zijn over het algemeen te vertrouwen op hun vakgebied.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Onze verkiezingen verlopen eerlijk en zijn betrouwbaar.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "De NPO en kwaliteitskranten leveren grotendeels betrouwbare informatie.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Toezichthouders zoals AFM, DNB, NZa en ACM doen hun werk over het algemeen goed.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Het RIVM en andere kennisinstituten verdienen vertrouwen, ook bij omstreden adviezen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Het democratische stelsel met partijen, parlement en regering is nog steeds het beste systeem dat we hebben.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Politici zijn over het algemeen mensen die zich oprecht inzetten voor het algemeen belang.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "De gevestigde media verzwijgen of vertekenen belangrijke onderwerpen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "De overheid heeft tijdens de coronacrisis fouten gemaakt waarover ze nooit eerlijk zal zijn.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Politici zijn vooral bezig met hun eigen carrière, niet met het landsbelang.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Big tech en multinationals hebben meer macht dan democratisch gekozen regeringen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "We beschermen onze democratie tegen de invloed van grote technologiebedrijven."
+    },
+    {
+      "statement": "Wetenschappelijk onderzoek wordt te veel gestuurd door commerciële of politieke belangen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Banken en de financiële sector zijn nooit echt verantwoordelijk gehouden na de kredietcrisis.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Het toeslagenschandaal toont aan dat onze instituties fundamenteel niet deugen.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "De overheid moet een nieuw, AI-gedreven, toeslagenschandaal voorkomen.",
+      "note": "Volt erkent uitvoerings- en rechtsstatelijke risico’s via herstel van het toeslagenschandaal en AI-waarborgen, maar noemt instituties niet fundamenteel ondeugdelijk."
+    },
+    {
+      "statement": "De rechtspraak laat in haar uitspraken vaker politieke voorkeuren meewegen dan recht.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Nederland moet de klimaatdoelen aanscherpen, ook als dat ten koste gaat van economische groei op de korte termijn.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "maatschappelijke waarden belangrijker zijn dan economische groei."
+    },
+    {
+      "statement": "Vlees en zuivel moeten zwaarder belast worden om de uitstoot omlaag te krijgen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "belastingen op vlees, zuivel en suikerhoudende alcoholvrije dranken."
+    },
+    {
+      "statement": "Kernenergie hoort een centrale rol te spelen in de Nederlandse energiemix.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Hernieuwbare energie en kernenergie worden de basis van het energiesysteem van de toekomst."
+    },
+    {
+      "statement": "De overheid moet vervuilende industrie versneld sluiten als ze niet snel genoeg verduurzaamt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Lukt dit niet? Dan trekken we de vergunningen in."
+    },
+    {
+      "statement": "De boeren hebben in Nederland te veel concessies hoeven doen voor het klimaatbeleid.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Korte vluchten binnen Europa moeten verboden worden als er een treinverbinding bestaat.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "We willen minder vluchten in heel de EU.",
+      "note": "Volt wil minder vluchten via Europese belastingen, maar het programma stelt geen algemeen verbod op korte vluchten met een treinverbinding voor."
+    },
+    {
+      "statement": "Rijden in een privé-auto op fossiele brandstof moet over tien jaar onmogelijk zijn.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "In 2030 zijn we volledig gestopt met de verkoop van verbrandingsmotoren.",
+      "note": "Volt verbiedt de verkoop van nieuwe fossiele motoren, maar maakt niet elke bestaande fossiele privéauto binnen tien jaar onmogelijk."
+    },
+    {
+      "statement": "De klimaatcrisis verdient méér aandacht in het onderwijs dan ze nu krijgt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Het tegengaan van klimaatverandering moet topprioriteit zijn."
+    },
+    {
+      "statement": "Subsidies op zonnepanelen en warmtepompen moeten verder uitgebreid worden voor lage inkomens.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "de verduurzaming te financieren bij inwoners die dit zelf niet kunnen betalen."
+    },
+    {
+      "statement": "Nederland mag klimaatdoelen niet opofferen voor internationale concurrentie, zelfs als andere landen achterblijven.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Nederland en de Europese Unie (EU) zijn in 2040 klimaatneutraal."
+    },
+    {
+      "statement": "Het eigen risico in de zorgverzekering moet afgeschaft worden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Het eigen risico blijft bestaan."
+    },
+    {
+      "statement": "Winstuitkering in de zorgsector moet wettelijk verboden worden.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "wettelijke beperkingen op winstuitkeringen in de zorg in te voeren",
+      "note": "Volt wil winstuitkeringen in de zorg beperken, maar het programma spreekt niet over een volledig wettelijk verbod."
+    },
+    {
+      "statement": "De geestelijke gezondheidszorg verdient een veel groter aandeel van het zorgbudget.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt investeert in langlopende programma’s voor mentale gezondheid van jongeren"
+    },
+    {
+      "statement": "Zorgverzekeraars moeten verdwijnen en de zorg moet weer puur publiek gefinancierd worden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Iedere zorgverzekeraar heeft een acceptatieplicht"
+    },
+    {
+      "statement": "Mensen moeten meer eigen verantwoordelijkheid nemen voor hun gezondheid (sporten, dieet, niet roken), ook als dat hun zorgkosten beïnvloedt.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt investeert in structureel onderzoek naar kostenefficiënte preventie",
+      "note": "Volt maakt preventie belangrijker, maar zegt niet dat individuele zorgkosten via hogere premies aan eigen gedrag gekoppeld moeten worden."
+    },
+    {
+      "statement": "Mantelzorgers verdienen een financiële vergoeding van de overheid.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Ook moet er voldoende financiële steun zijn."
+    },
+    {
+      "statement": "Een patiënt heeft het recht om bij ondraaglijk lijden zelf voor euthanasie te kiezen, ook bij dementie of voltooid leven.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "blijvende stervenswens kunnen legaal en onder begeleiding toegang krijgen tot euthanasie.",
+      "note": "Volt ondersteunt begeleide euthanasie bij een vrijwillige en weloverwogen blijvende stervenswens, maar noemt dementie en voltooid leven niet afzonderlijk."
+    },
+    {
+      "statement": "Preventie en leefstijl horen een veel groter deel van het zorgbudget te krijgen, ook als curatieve zorg moet inleveren.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt brengt preventieve en acute mondzorg terug in het basispakket.",
+      "note": "Volt investeert in preventie en breidt preventieve zorg uit, maar stelt niet dat dit ten koste van curatieve zorg moet gaan."
+    },
+    {
+      "statement": "Verpleegkundigen en zorgmedewerkers verdienen aanzienlijk meer salaris, zelfs als dat de premie verhoogt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "We verhogen de lonen in de zorg stap voor stap"
+    },
+    {
+      "statement": "Mensen die zelf bewust ongezond leven, moeten een hogere zorgpremie betalen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Het aantal asielzoekers dat Nederland jaarlijks opvangt moet expliciet aan een maximum gebonden worden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "aantal hervestigingen flink vergroten",
+      "note": "Volt kiest voor uitbreiding van hervestiging en structurele humane opvang, niet voor een expliciet maximum op de jaarlijkse opvang."
+    },
+    {
+      "statement": "Wie naar Nederland komt, moet vanaf dag één Nederlands leren en de wet kennen, op straffe van consequenties voor verblijf.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "vanaf dag één meedoen in de samenleving",
+      "note": "Volt ondersteunt taalonderwijs en participatie vanaf dag één, maar de stelling voegt sancties voor verblijf toe die het programma niet specificeert."
+    },
+    {
+      "statement": "Arbeidsmigratie binnen de EU moet beperkt worden om Nederlandse arbeiders en huisvesting te beschermen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Arbeidsmigratie blijft belangrijk, maar moeten we eerlijker en beter regelen",
+      "note": "Volt noemt arbeidsmigratie belangrijk en wil EU-brede bescherming, betere huisvesting en meer legale routes, niet een algemene beperking."
+    },
+    {
+      "statement": "Nederland moet meer doen om vluchtelingen op te vangen die op de grens van Europa stranden.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "wereldwijde solidariteit."
+    },
+    {
+      "statement": "Kennismigranten met een hoog inkomen moeten andere fiscale regels krijgen dan andere migranten.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "salaris bovendien niet langer de norm zijn voor toepasbaarheid",
+      "note": "Volt wil expatregelingen tussen EU-lidstaten gelijktrekken en salaris niet langer als norm gebruiken, niet een aparte gunst voor hoge inkomens."
+    },
+    {
+      "statement": "Migranten zonder verblijfsstatus (ongedocumenteerden) horen recht te hebben op basiszorg en onderdak.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "toegang tot gezondheidszorg en arbeidsrechten wordt gegarandeerd."
+    },
+    {
+      "statement": "Inburgering, asielprocedures en migratie horen Europees geregeld te worden, niet alleen nationaal.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "De Europese grens- en kustwacht Frontex wordt grondig hervormd"
+    },
+    {
+      "statement": "Iedereen die ergens fout in Nederland is geboren, moet automatisch Nederlander zijn (ius soli).",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Religieuze symbolen (zoals hoofddoek, keppel, kruis) horen niet thuis bij ambtenaren in publieke functies (politie, rechter).",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt is om die reden tegen het verbod op het dragen van een hoofddoek"
+    },
+    {
+      "statement": "Migratiebeperking is een hogere prioriteit dan de invulling van vacatures in de Nederlandse economie.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Arbeidsmigratie blijft belangrijk, maar moeten we eerlijker en beter regelen"
+    },
+    {
+      "statement": "Erfenissen boven €500.000 horen veel zwaarder belast te worden.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Het verschil tussen vast en flex op de arbeidsmarkt moet veel kleiner worden, zelfs als dat ondernemers beperkt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "vaste en tijdelijke arbeidsovereenkomsten, in sectoren waar structureel misstanden voorkomen, alleen nog maar direct bij een werkgever mogen worden afgesloten."
+    },
+    {
+      "statement": "Een aanvullende belasting op grote vermogens (>€2 miljoen) is noodzakelijk om de begroting eerlijk te maken.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Er wordt een progressieve vermogensbelasting geïntroduceerd voor vermogens boven één miljoen euro."
+    },
+    {
+      "statement": "Pensioenleeftijd mag verder omhoog naar 70 jaar voor wie nu jonger dan 40 is.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "We verhogen de AOW-leeftijd met één jaar",
+      "note": "Volt wil de AOW-leeftijd met één jaar verhogen, maar spreekt zich niet uit voor een pensioenleeftijd van 70 jaar voor iedereen jonger dan 40."
+    },
+    {
+      "statement": "De overheid moet veel actiever industriebeleid voeren en strategische sectoren beschermen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt bepleit dat industrie een Europese competentie wordt."
+    },
+    {
+      "statement": "Multinationals die de Nederlandse fiscaliteit ontwijken horen daarvoor hard aangepakt te worden, ook ten koste van vestigingsklimaat.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt wil een Europese belastingautoriteit om belastingontwijking effectief tegen te gaan."
+    },
+    {
+      "statement": "Nederland moet veel agressiever bezuinigen om de staatsschuld omlaag te krijgen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "de overheidsschuld loopt op tot 150% bbp in 2060."
+    },
+    {
+      "statement": "Een 32-urige werkweek moet de norm worden in plaats van 40 uur.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "De Nederlandse economie hoort meer op groen ondernemerschap te wedden, ook al kost dat traditionele banen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt ondersteunt internationaal groen ondernemerschap"
+    },
+    {
+      "statement": "Het is meer rechtvaardig om ondernemers fiscaal te belonen dan om werknemers extra te beschermen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Goede bescherming van werknemers, eerlijke bijdragen en meer contact van de overheid met het bedrijfsleven"
+    },
+    {
+      "statement": "Nederland hoort meer bevoegdheden over te dragen aan de EU op het gebied van defensie en buitenlands beleid.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt wil een Europese minister van Buitenlandse Zaken",
+      "note": "Volt bepleit Europese bevoegdheden en een Europese minister van Buitenlandse Zaken; het programma ondersteunt overdracht op deze terreinen."
+    },
+    {
+      "statement": "Er moet een vetorecht behouden blijven voor nationale parlementen op alle grote EU-besluiten.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt gaat het vetorecht (ook wel: het unanimiteitsvereiste) afschaffen."
+    },
+    {
+      "statement": "Een rijkere EU-lidstaat zoals Nederland hoort ruimhartig bij te dragen aan een sterk EU-budget.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt bepleit een grotere Europese begroting met meer aandacht voor gemeenschappelijke doelen en strategische uitdagingen."
+    },
+    {
+      "statement": "Nederland moet de optie van vertrek uit de EU bespreekbaar houden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Het Nederlandse lidmaatschap van de EU moet worden vastgelegd in onze Grondwet."
+    },
+    {
+      "statement": "De EU moet meer macht krijgen om in te grijpen wanneer een lidstaat de rechtsstaat ondermijnt.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Europese subsidies worden automatisch ingehouden bij ernstige schendingen van de democratie, de rechtsstaat en de grondrechten"
+    },
+    {
+      "statement": "Europese verkiezingen verdienen veel meer aandacht dan ze nu in Nederland krijgen.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "De huidige Europese verkiezingen zijn niet echt Europees.",
+      "note": "Volt wil Europese verkiezingen hervormen en grensoverschrijdend maken, maar zegt niet expliciet dat ze in Nederland meer aandacht moeten krijgen."
+    },
+    {
+      "statement": "De EU is uiteindelijk meer in het belang van bedrijven dan van gewone burgers.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "in het belang van alle Europeanen"
+    },
+    {
+      "statement": "Europese minimumlonen en sociale standaarden moeten in alle lidstaten gelden.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "We willen EU-brede standaarden voor sociale zekerheid en arbeidsomstandigheden"
+    },
+    {
+      "statement": "Nederland moet zich aansluiten bij landen die de uitbreiding van de EU naar de Balkan tegenhouden.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "snelle uitbreiding van de EU.",
+      "note": "Volt steunt snelle EU-uitbreiding onder voorwaarden, dus niet het tegenhouden van uitbreiding naar de Balkan."
+    },
+    {
+      "statement": "Nederland hoort koploper te zijn in een sterk Europees klimaatbeleid, ook al kost dat economisch geld.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Het tegengaan van klimaatverandering moet topprioriteit zijn."
+    },
+    {
+      "statement": "Een referendum over belangrijke wetten moet eenvoudig te organiseren zijn voor burgers.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt is tegen een bindend correctief referendum"
+    },
+    {
+      "statement": "Rechters moeten wetten van het parlement aan de Grondwet kunnen toetsen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt vindt dat Nederlandse wet- en regelgeving aan de Grondwet getoetst moet kunnen worden."
+    },
+    {
+      "statement": "Het Nederlandse kiesstelsel hoort district-elementen te bevatten zodat kiezers een persoonlijker stem hebben.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "mogelijkheid om op een kandidaat of op een partij te stemmen.",
+      "note": "Volt steunt een sterkere voorkeurstem, maar spreekt zich niet uit voor district-elementen."
+    },
+    {
+      "statement": "Politieke partijen moeten verplicht hun financiering volledig openbaar maken.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "De macht van de minister-president moet uitgebreid worden zodat regeren slagvaardiger wordt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Publieke omroep (NPO) is een onmisbaar tegengewicht tegen de macht van commerciële media.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt streeft naar een krachtige, onafhankelijke en onpartijdige publieke omroep."
+    },
+    {
+      "statement": "Wetenschappers horen zich vooral terughoudend op te stellen in politieke discussies.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Lokale gemeenten verdienen meer eigen geld en bevoegdheden dan ze nu hebben.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "als volwaardige medeoverheid ook eigen keuzes kunnen maken."
+    },
+    {
+      "statement": "De achtergrond van politici en bestuurders weerspiegelt de samenleving onvoldoende.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "gemeenteraad geen goede afspiegeling van de samenleving."
+    },
+    {
+      "statement": "Een burgerberaad met door loting gekozen burgers hoort bindende invloed te krijgen op grote beslissingen.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "aanbevelingen uit individuele burgerberaden worden door de politiek serieus meegenomen in de besluitvorming.",
+      "note": "Volt ondersteunt burgerberaden en zwaarwegende aanbevelingen, maar gebruikt niet het woord bindend voor hun invloed."
+    },
+    {
+      "statement": "Beleggers moeten geweerd worden van de markt voor betaalbare koopwoningen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "pensioenfondsen en verzekeraars aantrekkelijker wordt om te blijven investeren in woningbouw- en beheer.",
+      "note": "Volt wil institutionele investeringen in woningbouw mogelijk maken en pakt speculatie met grond aan; het sluit beleggers niet algemeen uit."
+    },
+    {
+      "statement": "De Wet betaalbare huur moet uitgebreid worden tot meer woningen en hogere huurklassen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt is voorstander van de uitbreiding van de huurregulering naar het middensegment."
+    },
+    {
+      "statement": "Bouwen in groene gebieden moet mogelijk worden gemaakt om de woningnood op te lossen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Nederland moet veel meer publieke woningbouwgrond zelf in eigendom houden om speculatie tegen te gaan.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Gemeenten worden financieel in staat gesteld om actiever grondbeleid te voeren, door vaker grond aan te kopen"
+    },
+    {
+      "statement": "Een sterke woningcorporatie hoort weer een dominante speler te zijn in de Nederlandse woningmarkt.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "We stellen de woningcorporaties in staat meer te bouwen.",
+      "note": "Volt wil woningcorporaties sterker maken en meer laten bouwen, maar maakt geen corporaties tot dominante speler."
+    },
+    {
+      "statement": "Hypotheekrenteaftrek hoort verder afgebouwd te worden om de huizenmarkt eerlijker te maken.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "We bouwen de hypotheekrenteaftrek en het eigenwoningforfait zo snel mogelijk af"
+    },
+    {
+      "statement": "Statushouders horen niet langer voorrang te krijgen op sociale huurwoningen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Ook statushouders zonder woning moeten een urgentieverklaring krijgen"
+    },
+    {
+      "statement": "Vakantiewoningen in toeristische gebieden mogen niet ten koste gaan van permanent wonen.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Nieuwbouw hoort veel meer in een hoog tempo via prefab en industriële bouw te gaan, ook al kost dat architectonische kwaliteit.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Waar mogelijk bouwen we modulair en prefab.",
+      "note": "Volt stimuleert prefab en modulair bouwen, maar weegt dit niet af tegen architectonische kwaliteit in deze stelling."
+    },
+    {
+      "statement": "De prioriteit bij de woningmarkt moet liggen bij starters en jonge gezinnen, niet bij doorstromers.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "doorstroomoffensief dat het voor senioren ook echt aantrekkelijk maakt om door te stromen",
+      "note": "Volt steunt starters en jonge gezinnen én wil doorstroming voor senioren; het kiest niet exclusief voor één groep."
+    },
+    {
+      "statement": "De Europese AI-verordening (AI Act) is een goede zaak, ook als dat innovatie kan vertragen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "AI die de overheid inzet, voldoet altijd aan de AI-verordening en de Europese eisen en waarden."
+    },
+    {
+      "statement": "De overheid moet werkenden actief beschermen tegen banenverlies door AI, ook als dat extra belastinggeld kost.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "sectoren, waar veel automatisering plaatsvindt, extra te begeleiden bij het omscholen van werknemers."
+    },
+    {
+      "statement": "AI-bedrijven moeten verplicht hun trainingsdata openbaar maken zodat makers van content kunnen controleren of hun werk is gebruikt.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Nederland moet de NAVO-norm van 5% bbp voor defensie volledig overnemen, ook als dat ten koste gaat van zorg of onderwijs.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "focus op resultaat, niet alleen op hoeveel procent van het budget naar defensie gaat."
+    },
+    {
+      "statement": "Europa moet zo snel mogelijk een eigen defensie opbouwen die niet afhankelijk is van de Verenigde Staten.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "een Europees leger bouwen."
+    },
+    {
+      "statement": "De dienstplicht moet weer geactiveerd worden om de Nederlandse krijgsmacht op sterkte te brengen.",
+      "stance": "oneens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Volt bepleit een vrijwillig Europees dienmodel."
+    },
+    {
+      "statement": "Nederland moet doorgaan met militaire en financiële steun aan Oekraïne, ook als dat onze eigen begroting onder druk zet.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "De 220 miljard euro aan bevroren Russische tegoeden wordt ingezet voor Oekraïne"
+    },
+    {
+      "statement": "Sociale media zoals TikTok en Instagram moeten verboden worden voor kinderen onder de 15 jaar.",
+      "stance": "neutraal",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Platforms met verslavende ontwerpkeuzes zoals eindeloos scrollen of gepersonaliseerde advertenties gericht op minderjarigen worden verboden.",
+      "note": "Volt wil kindgerichte verslavende ontwerpkeuzes en gerichte advertenties verbieden, maar spreekt zich niet uit voor een algemeen platformverbod onder 15 jaar."
+    },
+    {
+      "statement": "Smartphones en tablets horen tijdens schooluren volledig de klas uit, op alle niveaus.",
+      "stance": "geen-standpunt",
+      "basis": "programma",
+      "sourceUrl": "",
+      "note": "Geen expliciet Volt-standpunt in het geraadpleegde verkiezingsprogramma 2025 gevonden; de positie is niet afgeleid uit algemene ideologie."
+    },
+    {
+      "statement": "Nederland moet de Palestijnse staat erkennen, ook als dat de relatie met Israël onder druk zet.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "De onmiddellijke erkenning van Palestina"
+    },
+    {
+      "statement": "Nederland moet een eventueel ICC-arrestatiebevel tegen Netanyahu uitvoeren als hij Nederlands grondgebied zou betreden.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "arrestatiebevelen van het Internationaal Strafhof tegen premier Netanyahu en oud-minister Gallant."
+    },
+    {
+      "statement": "Nederland moet militaire samenwerking met Israël opschorten zolang er geen overtuigende waarborgen zijn dat die niet bijdraagt aan schendingen van het humanitair oorlogsrecht.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Het opschorten van militaire samenwerking en een volledig embargo op de import en export van wapens"
+    },
+    {
+      "statement": "Internationale rechtbanken zoals het ICC en IGH verdienen ons vertrouwen, ook als hun uitspraken Nederlandse bondgenoten ongelegen komen.",
+      "stance": "eens",
+      "basis": "programma",
+      "sourceUrl": "https://voltnederland.org/storage/doc/volt_verkiezingsprogramma_2025.pdf",
+      "quote": "Aansluiting bij de genocidezaak van Zuid-Afrika tegen Israël bij het Internationaal Gerechtshof."
+    }
+  ]
+}

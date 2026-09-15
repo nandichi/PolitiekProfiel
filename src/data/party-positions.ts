@@ -62,6 +62,17 @@ import pvv from "./party-positions/pvv.json";
 import cda from "./party-positions/cda.json";
 import vvd from "./party-positions/vvd.json";
 import progressiefNederland from "./party-positions/progressief-nederland.json";
+import ja21 from "./party-positions/ja21.json";
+import fvd from "./party-positions/fvd.json";
+import groepMarkuszower from "./party-positions/groep-markuszower.json";
+import bbb from "./party-positions/bbb.json";
+import denk from "./party-positions/denk.json";
+import sp from "./party-positions/sp.json";
+import sgp from "./party-positions/sgp.json";
+import pvdd from "./party-positions/pvdd.json";
+import fiftyPlus from "./party-positions/50plus.json";
+import volt from "./party-positions/volt.json";
+import lidKeijzer from "./party-positions/lid-keijzer.json";
 
 /**
  * De gecodeerde standpunten per partij. Elke partij is één JSON-bestand, zodat
@@ -74,6 +85,17 @@ export const PARTY_POSITIONS: PartyPositionSet[] = [
   cda as PartyPositionSet,
   vvd as PartyPositionSet,
   progressiefNederland as PartyPositionSet,
+  ja21 as PartyPositionSet,
+  fvd as PartyPositionSet,
+  groepMarkuszower as PartyPositionSet,
+  bbb as PartyPositionSet,
+  denk as PartyPositionSet,
+  sp as PartyPositionSet,
+  sgp as PartyPositionSet,
+  pvdd as PartyPositionSet,
+  fiftyPlus as PartyPositionSet,
+  volt as PartyPositionSet,
+  lidKeijzer as PartyPositionSet,
 ];
 
 export function getPartyPositionSet(

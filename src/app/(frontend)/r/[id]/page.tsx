@@ -24,6 +24,7 @@ import { ConfidenceIndicator } from "@/components/result/ConfidenceIndicator";
 import { ThemeBars } from "@/components/result/ThemeBars";
 import { ParadoxList, type ParadoxItemContext } from "@/components/result/ParadoxList";
 import { PartyContext } from "@/components/result/PartyContext";
+import { PartyStatementCompare } from "@/components/result/PartyStatementCompare";
 import { PersonalProfile } from "@/components/result/PersonalProfile";
 import { AnswerAtlas } from "@/components/result/AnswerAtlas";
 import { PivotalAnswers } from "@/components/result/PivotalAnswers";
@@ -46,6 +47,8 @@ import { createPersonalProfile } from "@/lib/result-profile-narrative";
 import { deriveAnswerAtlas } from "@/lib/result-answer-atlas";
 import { derivePivotalAnswers } from "@/lib/result-pivotal-answers";
 import { getQuestionPoolForTier } from "@/lib/quiz-data";
+import { PARTY_POSITIONS } from "@/data/party-positions";
+import { buildPartyComparisons } from "@/lib/party-position-comparison";
 
 type Args = { params: Promise<{ id: string }> };
 
@@ -109,6 +112,7 @@ const INDEX_ITEMS = [
   { id: "steelman", label: "Andere richting" },
   { id: "paradoxen", label: "Paradoxen" },
   { id: "partijen", label: "Partij-context" },
+  { id: "partijstandpunten", label: "Partijstandpunten" },
   { id: "politici", label: "Politici" },
   { id: "landen", label: "Landen" },
   { id: "delen", label: "Delen & export" },
@@ -223,6 +227,32 @@ export default async function ResultPage({ params }: Args) {
       })
     : [];
 
+  const partyComparisons = result.answers
+    ? buildPartyComparisons({
+        answers: result.answers,
+        questions: pivotalPool.map((question) => ({
+          id: question.id,
+          statement: question.statement,
+        })),
+        positionSets: PARTY_POSITIONS,
+        parties: allParties
+          .filter((party) => party.region === "NL")
+          .map((party) => ({
+            slug: party.slug,
+            name: party.name,
+            abbreviation: party.abbreviation,
+            region: party.region,
+            regionType: party.regionType,
+            country: party.country,
+            description: party.description,
+            founded: party.founded,
+            leader: party.leader,
+            websiteUrl: party.websiteUrl,
+          })),
+        limit: isExtendedResult ? 8 : 6,
+      })
+    : [];
+
   const steelmanCandidates = DIMENSIONS.map((dimension) => {
     const yourScore = result.dimensions[dimension.id];
     if (Math.abs(yourScore) < 40) return null;
@@ -295,6 +325,13 @@ export default async function ResultPage({ params }: Args) {
     ),
     partijen: readingMinutesFor(
       ...parties.flatMap((party) => [party.name, party.description]),
+    ),
+    partijstandpunten: readingMinutesFor(
+      ...partyComparisons.flatMap((comparison) => [
+        comparison.party.name,
+        ...comparison.agreements.map((item) => item.statement),
+        ...comparison.differences.map((item) => item.statement),
+      ]),
     ),
     politici: readingMinutesFor(
       ...rankedPoliticians
@@ -692,6 +729,37 @@ export default async function ResultPage({ params }: Args) {
                 <ScrollRevealItem>
                   <div className="mt-10">
                     <PartyContext parties={parties} ideologyName={ideo.name} />
+                  </div>
+                </ScrollRevealItem>
+              </ScrollReveal>
+            </section>
+
+            {/* SECTIE 6b · STELLINGEN PER PARTIJ */}
+            <section
+              id="partijstandpunten"
+              className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
+            >
+              <ScrollReveal variant="stagger">
+                <ScrollRevealItem>
+                  <Kicker number="6b">Stellingen per partij</Kicker>
+                  <h2 className="display mt-5 max-w-3xl">
+                    Niet alleen een label: zie waar jouw antwoorden aansluiten.
+                  </h2>
+                </ScrollRevealItem>
+                <ScrollRevealItem>
+                  <p className="mt-4 max-w-2xl text-sm text-ink-muted">
+                    Hieronder vergelijken we je letterlijke antwoorden met de
+                    gecontroleerde bronnen van Nederlandse partijen. Alleen jouw
+                    eigen beantwoorde stellingen tellen mee.
+                  </p>
+                </ScrollRevealItem>
+                <ScrollRevealItem>
+                  <div className="mt-10">
+                    <PartyStatementCompare
+                      comparisons={partyComparisons}
+                      answeredCount={result.answeredCount}
+                      isExtended={isExtendedResult}
+                    />
                   </div>
                 </ScrollRevealItem>
               </ScrollReveal>

@@ -80,6 +80,75 @@ describe("standpunten per partij per stelling", () => {
     expect(fout).toEqual([]);
   });
 
+  it("heeft voor elke gekoppelde partij exact één codering per stelling", () => {
+    const fout: string[] = [];
+    for (const set of PARTY_POSITIONS) {
+      if (set.positions.length !== ALL_QUESTION_STATEMENTS.length) {
+        fout.push(`${set.partySlug}: ${set.positions.length} in plaats van ${ALL_QUESTION_STATEMENTS.length}`);
+      }
+      const statements = set.positions.map((position) => normalizeStatement(position.statement));
+      if (new Set(statements).size !== statements.length) {
+        fout.push(`${set.partySlug}: dubbele stelling`);
+      }
+    }
+
+    expect(fout).toEqual([]);
+  });
+
+  it("heeft een bron en controledatum per partijset", () => {
+    const fout: string[] = [];
+    for (const set of PARTY_POSITIONS) {
+      if (!/^https:\/\//.test(set.programmeUrl)) {
+        fout.push(`${set.partySlug}: ongeldige programmalink`);
+      }
+      if (!set.reviewed.trim()) {
+        fout.push(`${set.partySlug}: ontbrekende controledatum`);
+      }
+    }
+
+    expect(fout).toEqual([]);
+  });
+
+  it("houdt citaten kort en laat geen standpunt zonder citaat staan", () => {
+    const fout: string[] = [];
+    for (const set of PARTY_POSITIONS) {
+      for (const position of set.positions) {
+        if (position.stance === "geen-standpunt" && position.quote) {
+          fout.push(`${set.partySlug}: citaat bij geen-standpunt`);
+        }
+        if (position.quote && position.quote.trim().split(/\s+/).length > 20) {
+          fout.push(`${set.partySlug}: te lang citaat bij "${position.statement.slice(0, 40)}"`);
+        }
+      }
+    }
+
+    expect(fout).toEqual([]);
+  });
+
+  it("heeft alle Nederlandse partijen uit de vragenbank gekoppeld", () => {
+    expect(new Set(PARTY_POSITIONS.map((set) => set.partySlug))).toEqual(
+      new Set([
+        "d66",
+        "christenunie",
+        "pvv",
+        "cda",
+        "vvd",
+        "progressief-nederland",
+        "sp",
+        "pvdd",
+        "bbb",
+        "ja21",
+        "fvd",
+        "denk",
+        "sgp",
+        "volt",
+        "50plus",
+        "groep-markuszower",
+        "lid-keijzer",
+      ]),
+    );
+  });
+
   it("laat een partij niet dubbel voorkomen", () => {
     const slugs = PARTY_POSITIONS.map((set) => set.partySlug);
 
