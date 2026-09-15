@@ -42,17 +42,36 @@ describe("standpunten per partij per stelling", () => {
     expect(fout).toEqual([]);
   });
 
-  it("geeft elk standpunt een bron, behalve als er geen standpunt is", () => {
+  it("geeft elk echt standpunt een bron", () => {
+    // Een codering als eens, oneens of neutraal zonder bron is niet te
+    // controleren en mag de site niet op. Bij "geen standpunt" is een bron
+    // optioneel: de een laat hem leeg, de ander verwijst naar het programma
+    // waarin hij tevergeefs is gezocht.
     const fout: string[] = [];
     for (const set of PARTY_POSITIONS) {
       for (const position of set.positions) {
-        const heeftBron = /^https:\/\//.test(position.sourceUrl);
-        if (position.stance === "geen-standpunt" && heeftBron) {
-          fout.push(`${set.partySlug}: geen standpunt hoort geen bron te hebben`);
-        }
-        if (position.stance !== "geen-standpunt" && !heeftBron) {
+        if (position.stance === "geen-standpunt") continue;
+        if (!/^https:\/\//.test(position.sourceUrl)) {
           fout.push(
-            `${set.partySlug}: "${position.statement.slice(0, 40)}" heeft standpunt ${position.stance} zonder bron`,
+            `${set.partySlug}: "${position.statement.slice(0, 40)}" heeft codering ${position.stance} zonder bron`,
+          );
+        }
+      }
+    }
+
+    expect(fout).toEqual([]);
+  });
+
+  it("citeert alleen bij een echt standpunt", () => {
+    // Bij "geen standpunt" mag de bron wel staan (dat is het programma waarin
+    // we het tevergeefs zochten), maar er hoort geen citaat te zijn: er is
+    // niets om te citeren.
+    const fout: string[] = [];
+    for (const set of PARTY_POSITIONS) {
+      for (const position of set.positions) {
+        if (position.stance === "geen-standpunt" && position.quote) {
+          fout.push(
+            `${set.partySlug}: geen standpunt met een citaat bij "${position.statement.slice(0, 40)}"`,
           );
         }
       }
