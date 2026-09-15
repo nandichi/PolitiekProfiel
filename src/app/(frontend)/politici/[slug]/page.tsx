@@ -204,6 +204,45 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
         </Container>
       </section>
 
+      {/* Opvallende feiten */}
+      {politicus.facts?.length ? (
+        <section className="border-t border-rule">
+          <Container width="bleed" className="py-12 md:py-16">
+            <ScrollReveal variant="stagger">
+              <ScrollRevealItem>
+                <Kicker number={1}>Opvallende feiten</Kicker>
+                <h2 className="display mt-5 max-w-3xl">
+                  Wat deze politicus opvallend maakt.
+                </h2>
+                <p className="mt-4 max-w-2xl text-sm text-ink-2 leading-relaxed">
+                  Verifieerbare feiten uit het parlementaire archief en openbare
+                  bronnen. Geen roddels en niets over het priv&eacute;leven.
+                </p>
+              </ScrollRevealItem>
+              <ScrollRevealItem>
+                <ul className="mt-8 max-w-3xl border-t border-rule">
+                  {politicus.facts.map((fact) => (
+                    <li key={fact.claim} className="border-b border-rule py-4">
+                      <p className="text-base text-ink-2 leading-relaxed">
+                        {fact.claim}
+                      </p>
+                      <a
+                        href={fact.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 inline-block text-xs text-ink-muted underline decoration-rule hover:text-ink"
+                      >
+                        Bron bij dit feit
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </ScrollRevealItem>
+            </ScrollReveal>
+          </Container>
+        </section>
+      ) : null}
+
       {/* Bronnen */}
       {politicus.sources.length > 0 && (
         <section className="border-t border-rule bg-paper-50/40">
