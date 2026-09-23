@@ -1,152 +1,130 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { BrandWordmark } from "@/components/brand/BrandWordmark";
+import { MeasureRule } from "@/components/system/MeasureRule";
 
-interface FooterColumn {
-  index: string;
-  title: string;
-  links: Array<{ href: string; label: string }>;
-}
+const PRIMARY_LINKS = [
+  { href: "/methodiek", label: "Methodiek", note: "Hoe de vijf meetlijnen werken" },
+  { href: "/privacy", label: "Privacy", note: "Wat we wel en niet bewaren" },
+  { href: "/voorwaarden", label: "Voorwaarden", note: "Aankoop en gebruik" },
+  { href: "/contact", label: "Contact", note: "Vraag, probleem of correctie" },
+] as const;
 
-const COLUMNS: FooterColumn[] = [
-  {
-    index: "01",
-    title: "Start",
-    links: [
-      { href: "/quiz/standard", label: "Quiz" },
-      { href: "/vergelijk", label: "Vergelijk" },
-      { href: "/verkennen", label: "Verkennen" },
-    ],
-  },
-  {
-    index: "02",
-    title: "Bibliotheek",
-    links: [
-      { href: "/stellingen", label: "Stellingen" },
-      { href: "/ideologieen", label: "Ideologieën" },
-      { href: "/politici", label: "Politici" },
-      { href: "/partijen", label: "Partijen" },
-      { href: "/landen", label: "Landen" },
-      { href: "/woordenboek", label: "Woordenboek" },
-    ],
-  },
-  {
-    index: "03",
-    title: "Tools",
-    links: [
-      { href: "/coalitie", label: "Coalitie-simulator" },
-      { href: "/turing-test", label: "Turing test" },
-      { href: "/evolutie", label: "Politieke evolutie" },
-    ],
-  },
-  {
-    index: "04",
-    title: "Methode & juridisch",
-    links: [
-      { href: "/methodiek", label: "Methodiek" },
-      { href: "/privacy", label: "Privacyverklaring" },
-      { href: "/voorwaarden", label: "Algemene voorwaarden" },
-      { href: "/disclaimer", label: "Disclaimer" },
-      { href: "/herroepingsrecht", label: "Herroepingsrecht" },
-      { href: "/contact", label: "Contact" },
-    ],
-  },
-];
+const INDEX_LINKS = [
+  { href: "/verkennen", label: "Verkennen" },
+  { href: "/stellingen", label: "Stellingen" },
+  { href: "/ideologieen", label: "Ideologieën" },
+  { href: "/politici", label: "Politici" },
+  { href: "/partijen", label: "Partijen" },
+  { href: "/landen", label: "Landen" },
+  { href: "/woordenboek", label: "Woordenboek" },
+  { href: "/coalitie", label: "Coalitie-simulator" },
+  { href: "/turing-test", label: "Turing test" },
+  { href: "/evolutie", label: "Politieke evolutie" },
+] as const;
 
 export function SiteFooter() {
+  const pathname = usePathname();
   const year = new Date().getFullYear();
+
+  if (pathname.startsWith("/quiz/") || pathname.startsWith("/embed/")) {
+    return null;
+  }
+
   return (
-    <footer className="mt-16 sm:mt-24 border-t border-rule bg-paper">
-      <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-10 pt-12 sm:pt-16 lg:pt-24 pb-8 sm:pb-10">
-        {/* Manifest + columns */}
-        <div className="grid grid-cols-1 gap-10 sm:gap-14 lg:gap-20 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <p className="kicker mb-5">Colofon</p>
-            <p className="display text-[1.6rem] md:text-[1.85rem] leading-[1.1] text-ink tracking-tight">
-              Een onafhankelijk politiek{" "}
-              <em className="display-italic font-light text-navy">kompas</em>,
-              ontwikkeld als publiek instrument voor reflectie.
+    <footer className="mt-16 border-t border-ink bg-ink text-canvas sm:mt-24">
+      <MeasureRule inverted />
+      <div className="mx-auto max-w-[1500px] px-4 pb-8 pt-12 sm:px-6 sm:pb-10 sm:pt-16 lg:px-10 lg:pt-24">
+        <div className="grid grid-cols-5 gap-x-4 gap-y-10 md:grid-cols-10 md:gap-x-5 lg:grid-cols-15 lg:gap-x-6">
+          <div className="col-span-5 md:col-span-8 lg:col-span-10">
+            <p className="mono text-[0.68rem] uppercase tracking-[0.17em] text-focus">
+              Publiek instrument voor politieke reflectie
             </p>
-            <p className="mt-5 text-sm text-ink-2 max-w-sm leading-relaxed">
-              Geen reclame. Geen tracking. Geen account. Vijf dimensies, een
-              eerlijke vergelijking.
+            <p className="display mt-5 max-w-[16ch] text-[clamp(2.7rem,6.8vw,7rem)] font-black leading-[0.88] tracking-[-0.055em] text-canvas">
+              Meet meer dan één politieke lijn.
             </p>
             <Link
-              href="/quiz/standard"
-              className="mt-7 inline-flex items-center gap-2 text-sm text-ink no-underline border-b border-ink/40 hover:border-ink pb-0.5"
+              href="/quiz/quick"
+              className="mt-8 inline-flex min-h-12 items-center gap-3 bg-signal px-5 py-3 text-sm font-bold text-canvas no-underline hover:bg-signal-pressed hover:text-canvas"
             >
-              Start de quiz
-              <ArrowUpRight size={14} strokeWidth={1.8} />
+              Doe de Quick · gratis
+              <ArrowRight aria-hidden size={16} strokeWidth={2} />
             </Link>
           </div>
 
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 sm:gap-x-8 gap-y-8 sm:gap-y-10">
-            {COLUMNS.map((col) => (
-              <div key={col.title}>
-                <div className="flex items-baseline gap-3 mb-4">
-                  <span className="index-num text-[0.7rem]">{col.index}</span>
-                  <span
-                    aria-hidden
-                    className="block h-px w-4 bg-rule-strong translate-y-[-2px]"
-                  />
-                  <p className="kicker">{col.title}</p>
-                </div>
-                <ul className="space-y-2.5">
-                  {col.links.map((link) => (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="text-sm text-ink-2 no-underline hover:text-navy"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="col-span-5 md:col-span-10 lg:col-span-5 lg:col-start-11">
+            <p className="mono text-[0.65rem] uppercase tracking-[0.15em] text-canvas/55">
+              Direct controleren
+            </p>
+            <ul className="mt-4 border-t border-canvas/30">
+              {PRIMARY_LINKS.map((link, index) => (
+                <li key={link.href} className="border-b border-canvas/25">
+                  <Link
+                    href={link.href}
+                    className="group grid min-h-16 grid-cols-[2rem_1fr_auto] items-center gap-3 py-3 text-canvas no-underline hover:text-focus"
+                  >
+                    <span className="mono text-[0.6rem] text-canvas/45">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span>
+                      <span className="block text-sm font-bold">{link.label}</span>
+                      <span className="mt-0.5 block text-xs text-canvas/55">{link.note}</span>
+                    </span>
+                    <ArrowUpRight aria-hidden size={15} strokeWidth={1.8} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
-        {/* Bottom line */}
-        <div className="mt-10 sm:mt-14 lg:mt-20 pt-6 border-t border-rule flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:gap-4 min-w-0">
-            <Link
-              href="/"
-              className="display text-lg font-medium tracking-tight no-underline shrink-0"
-            >
-              <span className="text-ink">Politiek</span>
-              <span className="text-navy">Profiel</span>
-            </Link>
-            <span
-              aria-hidden
-              className="hidden sm:block w-8 h-px bg-rule-strong translate-y-[-3px] shrink-0"
-            />
-            <span className="mono text-xs text-ink-muted tracking-wide">
-              © {year}
-            </span>
+        <div className="mt-14 border-t border-canvas/25 pt-6 lg:mt-20">
+          <nav aria-label="Footer index">
+            <ul className="flex flex-wrap gap-x-6 gap-y-3">
+              {INDEX_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="inline-flex min-h-11 items-center text-sm text-canvas/70 no-underline hover:text-focus"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="mt-6 flex flex-col gap-5 border-t border-canvas/20 pt-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <BrandWordmark className="text-lg" inverted />
+              <p className="mono mt-2 text-[0.62rem] uppercase tracking-[0.12em] text-canvas/50">
+                © {year} · Nederland · onafhankelijk
+              </p>
+            </div>
+            <p className="mono text-[0.62rem] tracking-[0.1em] text-canvas/50 sm:text-right">
+              Gebouwd door{" "}
+              <a
+                href="https://naoufalandichi.nl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-canvas underline-offset-4 hover:text-focus"
+              >
+                Naoufal Andichi
+              </a>
+              {" · "}
+              <a
+                href="https://www.linkedin.com/in/naoufalandichi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-canvas underline-offset-4 hover:text-focus"
+              >
+                LinkedIn
+              </a>
+            </p>
           </div>
-          <p className="mono text-xs text-ink-muted tracking-wide sm:text-right max-sm:leading-relaxed">
-            Gebouwd door{" "}
-            <a
-              href="https://naoufalandichi.nl/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-ink-2 underline-offset-2 hover:text-navy hover:underline"
-            >
-              Naoufal Andichi
-            </a>
-            <span aria-hidden className="mx-1.5 text-ink-muted">
-              ·
-            </span>
-            <a
-              href="https://www.linkedin.com/in/naoufalandichi/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-ink-2 underline-offset-2 hover:text-navy hover:underline"
-            >
-              LinkedIn
-            </a>
-          </p>
         </div>
       </div>
     </footer>

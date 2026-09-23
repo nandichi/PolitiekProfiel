@@ -90,7 +90,7 @@ export default function ApiDocsPage() {
       <h1 className="display text-4xl md:text-5xl tracking-tight text-ink mt-3 mb-6">
         Voor developers en AI-agents
       </h1>
-      <p className="text-ink/80 text-lg leading-relaxed max-w-2xl mb-12">
+      <p className="text-ink-raised text-lg leading-relaxed max-w-2xl mb-12">
         PolitiekProfiel is gebouwd voor mensen, maar publiceert ook de discovery-metadata
         die AI-agents nodig hebben om de site programmatisch te begrijpen. Hieronder een
         overzicht van de publieke endpoints en de Link headers die op de homepage worden
@@ -99,9 +99,9 @@ export default function ApiDocsPage() {
 
       <section className="mb-16">
         <h2 className="display text-2xl md:text-3xl text-ink mb-6">Endpoints</h2>
-        <div className="overflow-x-auto rounded-lg border border-ink/10">
+        <div className="overflow-x-auto rounded-lg border border-rule">
           <table className="w-full text-sm">
-            <thead className="bg-ink/5 text-ink/70">
+            <thead className="bg-canvas-pressed text-text-muted">
               <tr>
                 <th className="text-left px-4 py-3 font-medium">Methode</th>
                 <th className="text-left px-4 py-3 font-medium">Pad</th>
@@ -112,20 +112,20 @@ export default function ApiDocsPage() {
             </thead>
             <tbody>
               {ENDPOINTS.map((e) => (
-                <tr key={`${e.method}-${e.path}`} className="border-t border-ink/10 align-top">
+                <tr key={`${e.method}-${e.path}`} className="border-t border-rule align-top">
                   <td className="px-4 py-3 font-mono text-xs">{e.method}</td>
                   <td className="px-4 py-3 font-mono text-xs">
                     <Link href={e.path} className="text-ink hover:underline">
                       {e.path}
                     </Link>
                   </td>
-                  <td className="px-4 py-3 font-mono text-xs text-ink/70">
+                  <td className="px-4 py-3 font-mono text-xs text-text-muted">
                     {e.contentType}
                   </td>
-                  <td className="px-4 py-3 font-mono text-xs text-ink/70">
+                  <td className="px-4 py-3 font-mono text-xs text-text-muted">
                     {e.rel ?? "n.v.t."}
                   </td>
-                  <td className="px-4 py-3 text-ink/80">{e.description}</td>
+                  <td className="px-4 py-3 text-ink-raised">{e.description}</td>
                 </tr>
               ))}
             </tbody>
@@ -137,11 +137,11 @@ export default function ApiDocsPage() {
         <h2 className="display text-2xl md:text-3xl text-ink mb-6">
           Link headers op de homepage
         </h2>
-        <p className="text-ink/80 leading-relaxed mb-4">
+        <p className="text-ink-raised leading-relaxed mb-4">
           De homepage geeft een <code className="font-mono text-sm">Link</code>-response-header
           terug (RFC 8288) die agents naar deze resources wijst:
         </p>
-        <pre className="bg-ink/5 border border-ink/10 rounded-lg p-4 overflow-x-auto text-xs font-mono text-ink/90">
+        <pre className="bg-canvas-pressed border border-rule rounded-lg p-4 overflow-x-auto text-xs font-mono text-ink">
           {`Link: ${HOMEPAGE_LINK_HEADERS.join(",\n      ")}`}
         </pre>
       </section>
@@ -150,7 +150,7 @@ export default function ApiDocsPage() {
         <h2 className="display text-2xl md:text-3xl text-ink mb-6">
           Markdown for Agents
         </h2>
-        <p className="text-ink/80 leading-relaxed mb-4">
+        <p className="text-ink-raised leading-relaxed mb-4">
           De editorial pagina&apos;s <code className="font-mono text-sm">/</code>,{" "}
           <code className="font-mono text-sm">/methodiek</code> en{" "}
           <code className="font-mono text-sm">/privacy</code> ondersteunen content
@@ -159,14 +159,14 @@ export default function ApiDocsPage() {
           <code className="font-mono text-sm">Content-Type: text/markdown</code>. HTML
           blijft de default voor browsers.
         </p>
-        <pre className="bg-ink/5 border border-ink/10 rounded-lg p-4 overflow-x-auto text-xs font-mono text-ink/90">
+        <pre className="bg-canvas-pressed border border-rule rounded-lg p-4 overflow-x-auto text-xs font-mono text-ink">
           {`curl -H "Accept: text/markdown" https://politiekprofiel.nl/methodiek`}
         </pre>
       </section>
 
       <section className="mb-16">
         <h2 className="display text-2xl md:text-3xl text-ink mb-6">WebMCP</h2>
-        <p className="text-ink/80 leading-relaxed mb-4">
+        <p className="text-ink-raised leading-relaxed mb-4">
           Bij het laden van de site wordt{" "}
           <code className="font-mono text-sm">navigator.modelContext.provideContext()</code>
           {" "}aangeroepen (indien beschikbaar) zodat browser-gebaseerde agents drie tools
@@ -177,7 +177,7 @@ export default function ApiDocsPage() {
 
       <section>
         <h2 className="display text-2xl md:text-3xl text-ink mb-6">Crawl-beleid</h2>
-        <p className="text-ink/80 leading-relaxed">
+        <p className="text-ink-raised leading-relaxed">
           Volledig open: zowel zoekmachines als AI-crawlers (training, real-time grounding,
           search) mogen de publieke pagina&apos;s indexeren en gebruiken. Alleen{" "}
           <code className="font-mono text-sm">/admin/</code> en{" "}

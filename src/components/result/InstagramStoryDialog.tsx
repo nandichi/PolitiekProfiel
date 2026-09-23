@@ -121,7 +121,7 @@ export function InstagramStoryDialog({
             </Dialog.Overlay>
             <Dialog.Content asChild>
               <motion.div
-                className="fixed left-1/2 top-1/2 z-50 w-[calc(100vw-2rem)] max-w-3xl -translate-x-1/2 -translate-y-1/2 bg-paper border border-rule-strong shadow-2xl max-h-[calc(100vh-2rem)] overflow-y-auto"
+                className="fixed left-1/2 top-1/2 z-50 w-[calc(100vw-2rem)] max-w-3xl -translate-x-1/2 -translate-y-1/2 bg-canvas border border-rule-strong shadow-2xl max-h-[calc(100vh-2rem)] overflow-y-auto"
                 initial={{ opacity: 0, scale: 0.96, y: "-46%" }}
                 animate={{ opacity: 1, scale: 1, y: "-50%" }}
                 exit={{ opacity: 0, scale: 0.96, y: "-46%" }}
@@ -131,7 +131,7 @@ export function InstagramStoryDialog({
                 <div className="flex items-center justify-between px-6 sm:px-8 h-16 border-b border-rule">
                   <div className="flex items-center gap-3">
                     <span
-                      className="flex h-7 w-7 items-center justify-center text-paper text-xs"
+                      className="flex h-7 w-7 items-center justify-center text-canvas text-xs"
                       style={{
                         backgroundImage:
                           "linear-gradient(135deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%)",
@@ -144,7 +144,7 @@ export function InstagramStoryDialog({
                     <button
                       type="button"
                       aria-label="Sluiten"
-                      className="w-10 h-10 -mr-2 inline-flex items-center justify-center text-ink-muted hover:text-ink"
+                      className="w-10 h-10 -mr-2 inline-flex items-center justify-center text-text-muted hover:text-ink"
                     >
                       <X size={20} strokeWidth={1.7} />
                     </button>
@@ -157,7 +157,7 @@ export function InstagramStoryDialog({
                   <div className="p-6 sm:p-8 md:border-r border-rule flex flex-col items-center md:items-start">
                     <p className="kicker mb-4">Voorbeeld</p>
                     <div
-                      className="relative w-full max-w-[200px] md:max-w-[210px] border border-rule-strong bg-paper-50 overflow-hidden"
+                      className="relative w-full max-w-[200px] md:max-w-[210px] border border-rule-strong bg-canvas-raised overflow-hidden"
                       style={{ aspectRatio: "9 / 16" }}
                     >
                       {storyUrl && (
@@ -170,7 +170,7 @@ export function InstagramStoryDialog({
                         />
                       )}
                     </div>
-                    <p className="mt-3 mono text-[0.62rem] tracking-wider text-ink-subtle">
+                    <p className="mt-3 mono text-[0.62rem] tracking-wider text-text-muted">
                       1080 × 1920 · PNG
                     </p>
                     <Dialog.Title asChild>
@@ -179,7 +179,7 @@ export function InstagramStoryDialog({
                       </h3>
                     </Dialog.Title>
                     <Dialog.Description asChild>
-                      <p className="mt-2 text-sm text-ink-2 leading-relaxed">
+                      <p className="mt-2 text-sm text-ink-raised leading-relaxed">
                         Klaar voor 9:16. Met je ideologie, dimensiescores en
                         top-thema&apos;s.
                       </p>
@@ -190,7 +190,7 @@ export function InstagramStoryDialog({
                   <div className="p-6 sm:p-8 flex flex-col gap-6">
                     {capability === "share-files" && (
                       <Section number="01" title="Direct delen">
-                        <p className="text-sm text-ink-2 mb-4 leading-relaxed">
+                        <p className="text-sm text-ink-raised mb-4 leading-relaxed">
                           Open het deelmenu, kies <strong className="text-ink">Instagram</strong> en
                           tik op <strong className="text-ink">Voeg toe aan je verhaal</strong>.
                         </p>
@@ -198,7 +198,7 @@ export function InstagramStoryDialog({
                           type="button"
                           onClick={handleShare}
                           disabled={sharing}
-                          className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-medium text-paper transition-all disabled:opacity-60"
+                          className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-medium text-canvas transition-all disabled:opacity-60"
                           style={{
                             backgroundImage:
                               "linear-gradient(135deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%)",
@@ -223,12 +223,12 @@ export function InstagramStoryDialog({
                           )}
                         </button>
                         {error && (
-                          <p className="mt-3 text-xs text-terra">{error}</p>
+                          <p className="mt-3 text-xs text-danger">{error}</p>
                         )}
                         <button
                           type="button"
                           onClick={openInstagramDeepLink}
-                          className="mt-3 inline-flex items-center gap-2 text-xs text-ink-muted hover:text-ink underline-offset-2 hover:underline"
+                          className="mt-3 inline-flex items-center gap-2 text-xs text-text-muted hover:text-ink underline-offset-2 hover:underline"
                         >
                           <ExternalLink size={12} strokeWidth={1.8} />
                           Open Instagram-app
@@ -238,12 +238,12 @@ export function InstagramStoryDialog({
 
                     {capability !== "share-files" && (
                       <Section number="01" title="Scan met je telefoon">
-                        <p className="text-sm text-ink-2 mb-4 leading-relaxed">
+                        <p className="text-sm text-ink-raised mb-4 leading-relaxed">
                           Scan deze QR-code met je telefoon, download de afbeelding
                           en deel daarna vanuit je galerij op Instagram.
                         </p>
                         <div className="flex items-start gap-5">
-                          <div className="bg-paper border border-rule-strong p-3 shrink-0">
+                          <div className="bg-canvas border border-rule-strong p-3 shrink-0">
                             {storyUrl && (
                               <QRCodeSVG
                                 value={storyUrl}
@@ -254,7 +254,7 @@ export function InstagramStoryDialog({
                               />
                             )}
                           </div>
-                          <div className="text-xs text-ink-muted leading-relaxed">
+                          <div className="text-xs text-text-muted leading-relaxed">
                             <p className="kicker mb-2 text-[0.62rem]">
                               <Smartphone
                                 size={11}
@@ -275,14 +275,14 @@ export function InstagramStoryDialog({
                     )}
 
                     <Section number="02" title="Download de PNG">
-                      <p className="text-sm text-ink-2 mb-4 leading-relaxed">
+                      <p className="text-sm text-ink-raised mb-4 leading-relaxed">
                         Of bewaar de afbeelding direct en upload zelf naar
                         Instagram of een andere app.
                       </p>
                       <a
                         href={storyUrl}
                         download={filename}
-                        className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium border border-ink text-ink hover:bg-ink hover:text-paper transition-colors"
+                        className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium border border-ink text-ink hover:bg-ink hover:text-canvas transition-colors"
                       >
                         <Download size={15} strokeWidth={1.8} />
                         Download story-PNG
@@ -292,7 +292,7 @@ export function InstagramStoryDialog({
                     {profileUrl && (
                       <div className="border-t border-rule pt-4">
                         <p className="kicker mb-1.5">Of deel de link</p>
-                        <code className="block mono text-xs text-ink-2 break-all">
+                        <code className="block mono text-xs text-ink-raised break-all">
                           {profileUrl}
                         </code>
                       </div>

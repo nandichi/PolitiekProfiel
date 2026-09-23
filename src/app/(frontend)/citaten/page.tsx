@@ -55,12 +55,12 @@ export default function CitatenPage() {
             style={{ letterSpacing: "-0.025em" }}
           >
             Wat zegt een{" "}
-            <em className="display-italic font-light text-navy">stroming</em>{" "}
+            <em className="not-italic font-extrabold text-signal">stroming</em>{" "}
             in één zin?
           </h1>
         </ScrollRevealItem>
         <ScrollRevealItem>
-          <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
+          <p className="mt-8 max-w-2xl text-lg text-ink-raised leading-relaxed">
             Voor elke ideologie genereren we een citaat-kaart op basis van de
             kernbeschrijving, bedoeld om te delen op sociale media of in een
             essay. Geen partijpropaganda, wel de stroming in haar eigen taal.
@@ -78,21 +78,21 @@ export default function CitatenPage() {
               {ideologies.map((ideo) => (
                 <li
                   key={ideo.slug}
-                  className="border border-rule bg-paper p-6 flex flex-col"
+                  className="border border-rule bg-canvas p-6 flex flex-col"
                 >
-                  <p className="mono text-[0.62rem] tracking-wider text-ink-subtle uppercase">
+                  <p className="mono text-[0.62rem] tracking-wider text-text-muted uppercase">
                     {ideo.spectrumPosition.replace(/-/g, " ")}
                   </p>
                   <p className="display mt-2 text-2xl text-ink leading-tight">
                     {ideo.name}
                   </p>
-                  <p className="mt-4 text-sm text-ink-2 leading-relaxed flex-1">
+                  <p className="mt-4 text-sm text-ink-raised leading-relaxed flex-1">
                     {ideo.shortDescription}
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3 items-center">
                     <Link
                       href={`/ideologie/${ideo.slug}`}
-                      className="text-sm text-ink hover:text-navy"
+                      className="text-sm text-ink hover:text-signal"
                     >
                       Lees ideologie →
                     </Link>
@@ -100,7 +100,7 @@ export default function CitatenPage() {
                       href={`/api/citaat/${ideo.slug}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-ink-2 hover:text-navy"
+                      className="text-sm text-ink-raised hover:text-signal"
                     >
                       Bekijk kaart
                     </a>
@@ -121,7 +121,7 @@ export default function CitatenPage() {
 
       <section className="mt-20 border-t border-ink pt-10 max-w-3xl">
         <Kicker number={2}>Hoe te gebruiken</Kicker>
-        <p className="mt-4 text-sm text-ink-2 leading-relaxed">
+        <p className="mt-4 text-sm text-ink-raised leading-relaxed">
           De citaat-kaarten zijn vrij te gebruiken in artikelen, essays en op
           sociale media, mits met bronvermelding naar{" "}
           <code className="mono text-xs">politiekprofiel.nl</code>. Klik op een

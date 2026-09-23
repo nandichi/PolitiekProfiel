@@ -16,7 +16,7 @@ export function AiContentBlock({
   if (!content) {
     if (!fallback) return null;
     return (
-      <p className="text-ink-2 leading-relaxed text-base">{fallback}</p>
+      <p className="text-ink-raised leading-relaxed text-base">{fallback}</p>
     );
   }
 
@@ -26,7 +26,7 @@ export function AiContentBlock({
         className={
           variant === "prose"
             ? "editorial-prose"
-            : "text-ink-2 leading-relaxed text-sm md:text-base [&>p]:mt-3 [&>p:first-child]:mt-0"
+            : "text-ink-raised leading-relaxed text-sm md:text-base [&>p]:mt-3 [&>p:first-child]:mt-0"
         }
       >
         <LexicalRenderer value={content.bodyLexical} />
@@ -44,27 +44,27 @@ export function AiContentItemList({
 }) {
   if (!content || content.items.length === 0) {
     if (!emptyText) return null;
-    return <p className="text-ink-muted text-sm">{emptyText}</p>;
+    return <p className="text-text-muted text-sm">{emptyText}</p>;
   }
   return (
     <ul className="space-y-4">
       {content.items.map((item, i) => (
         <li
           key={i}
-          className="border-l-2 border-rule pl-4 text-sm md:text-base text-ink-2 leading-relaxed"
+          className="border-l-2 border-rule pl-4 text-sm md:text-base text-ink-raised leading-relaxed"
         >
           {item.link ? (
             <a
               href={item.link}
               target="_blank"
               rel="noopener noreferrer nofollow"
-              className="group inline-flex items-start gap-1.5 text-ink hover:text-navy underline decoration-rule-strong underline-offset-4 decoration-1 hover:decoration-navy transition-colors"
+              className="group inline-flex items-start gap-1.5 text-ink hover:text-signal underline decoration-rule-strong underline-offset-4 decoration-1 hover:decoration-signal transition-colors"
             >
               <span>{item.text}</span>
               <ArrowUpRight
                 size={14}
                 strokeWidth={1.6}
-                className="mt-1 shrink-0 text-ink-subtle group-hover:text-navy transition-colors"
+                className="mt-1 shrink-0 text-text-muted group-hover:text-signal transition-colors"
                 aria-hidden
               />
             </a>
@@ -72,7 +72,7 @@ export function AiContentItemList({
             <p>{item.text}</p>
           )}
           {item.meta && (
-            <p className="mono text-[0.62rem] tracking-wider text-ink-subtle mt-1">
+            <p className="mono text-[0.62rem] tracking-wider text-text-muted mt-1">
               {item.meta.toUpperCase()}
             </p>
           )}

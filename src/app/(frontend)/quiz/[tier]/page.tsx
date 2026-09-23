@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import {
   getInitialAdaptiveQuestions,
   getQuestionsForTier,
 } from "@/lib/quiz-data";
 import { QuizEngine } from "@/components/QuizEngine";
-import { CheckoutButton } from "@/components/CheckoutButton";
-import { Container } from "@/components/Container";
-import { Kicker } from "@/components/Kicker";
+import { PaidQuizGate } from "@/components/quiz/PaidQuizGate";
 import type { Tier } from "@/lib/dimensions";
 import { TIER_QUESTION_COUNT } from "@/lib/dimensions";
 import {
   normalizeEntitlementToken,
   validateEntitlementForTier,
 } from "@/lib/entitlements";
-import { isPaidTier, type PaidTier } from "@/lib/stripe";
+import { isPaidTier } from "@/lib/stripe";
 import {
   buildBreadcrumbList,
   buildQuizSchema,
@@ -156,66 +152,3 @@ export default async function QuizPage({ params, searchParams }: PageArgs) {
 }
 
 export const dynamic = "force-dynamic";
-
-function PaidQuizGate({
-  tier,
-  entitlementToken,
-  checkoutStatus,
-  entitlementStatus,
-}: {
-  tier: PaidTier;
-  entitlementToken?: string;
-  checkoutStatus?: string;
-  entitlementStatus: string;
-}) {
-  const title =
-    tier === "standard" ? "Standaard quiz" : "Uitgebreide quiz";
-  const price = tier === "standard" ? "5 euro" : "10 euro";
-  const vatAmount = tier === "standard" ? "0,87 euro" : "1,74 euro";
-  const count = TIER_QUESTION_COUNT[tier];
-  const processing =
-    checkoutStatus === "success" &&
-    (entitlementStatus === "pending" || entitlementStatus === "missing");
-  // Al afgerond met dit token. Zonder de /r/-link is het resultaat niet meer
-  // op te halen: het token bewaart bewust geen koppeling met het resultaat.
-  const consumed = entitlementStatus === "consumed";
-
-  return (
-    <Container width="narrow" className="py-20 md:py-28">
-      <Kicker>
-        {processing ? "Betaling verwerken" : consumed ? "Al afgerond" : "Betaalde quiz"}
-      </Kicker>
-      <h1 className="display mt-5 mb-5">{title}</h1>
-      <p className="text-ink-2 leading-relaxed mb-8 max-w-xl">
-        {processing
-          ? "Stripe heeft je teruggestuurd. De webhook verwerkt je betaling nog. Ververs deze pagina over een paar seconden."
-          : consumed
-            ? "Dit toegangstoken is al twee keer gebruikt, dat is het maximum per aankoop. Je uitslag staat op de deel-link die je aan het eind van de quiz kreeg. Die link begint met politiekprofiel.nl/r/ en is ook naar je gemaild als je daarom hebt gevraagd."
-            : `${title} bevat ${count} stellingen en kost ${price} inclusief 21% btw, waarvan ${vatAmount} btw. Na betaling kun je zonder account verder naar de quiz, die je maximaal twee keer kunt afronden.`}
-      </p>
-      <div className="flex flex-wrap gap-3">
-        {processing ? (
-          <Link
-            href={`/quiz/${tier}${entitlementToken ? `?entitlement=${entitlementToken}&checkout=success` : ""}`}
-            className="btn btn-secondary"
-          >
-            Opnieuw controleren
-            <ArrowRight size={16} strokeWidth={1.8} />
-          </Link>
-        ) : consumed ? (
-          <Link href="/contact" className="btn btn-secondary">
-            Resultaat kwijt? Stuur een bericht
-          </Link>
-        ) : (
-          <CheckoutButton tier={tier}>
-            Koop voor {price}
-            <ArrowRight size={16} strokeWidth={1.8} />
-          </CheckoutButton>
-        )}
-        <Link href="/quiz/quick" className="btn-ghost">
-          Start gratis met 15 vragen
-        </Link>
-      </div>
-    </Container>
-  );
-}

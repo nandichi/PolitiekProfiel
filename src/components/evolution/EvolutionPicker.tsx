@@ -97,18 +97,34 @@ export function EvolutionPicker({ initialIds }: EvolutionPickerProps) {
   }
 
   return (
-    <div className="border border-rule bg-paper-50/40 p-6 max-w-3xl">
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-3">
-        <label className="block">
-          <span className="kicker mb-2 block">Voeg een share-link of -id toe</span>
-          <div className="flex items-center gap-2 border border-rule bg-paper px-3 py-2">
-            <Plus size={14} strokeWidth={1.8} className="text-ink-muted" />
+    <section
+      aria-labelledby="evolution-picker-heading"
+      className="max-w-3xl border border-rule bg-canvas-raised p-5 sm:p-6"
+    >
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-[1fr_auto]">
+        <label htmlFor="evolution-share-id" className="block">
+          <span id="evolution-picker-heading" className="kicker mb-2 block">
+            Voeg een share-link of -id toe
+          </span>
+          <div className="flex min-h-11 items-center gap-2 rounded-[2px] border border-rule-strong bg-canvas px-3 transition-colors focus-within:border-ink focus-within:outline focus-within:outline-[3px] focus-within:outline-offset-2 focus-within:outline-focus">
+            <Plus
+              size={15}
+              strokeWidth={1.8}
+              className="shrink-0 text-text-muted"
+              aria-hidden
+            />
             <input
+              id="evolution-share-id"
               type="text"
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={(e) => {
+                setInput(e.target.value);
+                if (error) setError(null);
+              }}
               placeholder="abc123XYZ of https://politiekprofiel.nl/r/abc123…"
-              className="flex-1 bg-transparent text-sm text-ink focus:outline-none"
+              className="min-w-0 flex-1 bg-transparent py-2.5 text-base text-ink outline-none placeholder:text-text-muted focus-visible:outline-none"
+              aria-invalid={Boolean(error)}
+              aria-describedby={error ? "evolution-picker-error" : undefined}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.preventDefault();
@@ -121,41 +137,51 @@ export function EvolutionPicker({ initialIds }: EvolutionPickerProps) {
         <button
           type="button"
           onClick={handleAdd}
-          className="btn btn-primary self-end"
+          className="btn btn-primary min-h-11 self-end focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
         >
           Voeg toe
-          <ArrowRight size={14} strokeWidth={1.8} />
+          <ArrowRight size={14} strokeWidth={1.8} aria-hidden />
         </button>
       </div>
 
-      {error && <p className="mt-3 text-xs text-terra">{error}</p>}
+      {error && (
+        <p
+          id="evolution-picker-error"
+          role="alert"
+          className="mt-3 border-l-2 border-danger bg-danger/10 px-3 py-2 text-sm text-danger"
+        >
+          {error}
+        </p>
+      )}
 
       {ids.length > 0 && (
-        <div className="mt-6">
-          <div className="flex items-baseline justify-between">
+        <div className="mt-6 border-t border-rule pt-5">
+          <div className="flex items-center justify-between gap-4">
             <p className="kicker">In je tijdlijn</p>
             <button
               type="button"
               onClick={handleClear}
-              className="text-xs text-ink-muted hover:text-terra"
+              className="min-h-11 px-2 text-xs font-semibold text-text-muted underline decoration-rule-strong underline-offset-4 transition-colors hover:text-danger focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
             >
               Leegmaken
             </button>
           </div>
-          <ul className="mt-3 flex flex-wrap gap-2">
+          <ul className="mt-3 flex flex-wrap gap-2" aria-live="polite">
             {ids.map((id) => (
               <li
                 key={id}
-                className="inline-flex items-center gap-2 border border-rule bg-paper px-3 py-1.5"
+                className="inline-flex min-h-11 max-w-full items-center gap-2 border border-rule bg-canvas px-3"
               >
-                <span className="mono text-xs text-ink-2">{id}</span>
+                <span className="mono min-w-0 break-all text-xs text-ink-raised">
+                  {id}
+                </span>
                 <button
                   type="button"
                   onClick={() => handleRemove(id)}
-                  className="text-ink-muted hover:text-terra"
+                  className="-mr-2 inline-flex h-11 w-11 shrink-0 items-center justify-center text-text-muted transition-colors hover:text-danger focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[-3px] focus-visible:outline-focus"
                   aria-label={`Verwijder ${id}`}
                 >
-                  <X size={12} strokeWidth={2} />
+                  <X size={14} strokeWidth={2} aria-hidden />
                 </button>
               </li>
             ))}
@@ -163,10 +189,10 @@ export function EvolutionPicker({ initialIds }: EvolutionPickerProps) {
         </div>
       )}
 
-      <p className="mt-6 text-xs text-ink-muted">
+      <p className="mt-6 max-w-[68ch] text-xs leading-relaxed text-text-muted">
         Tip: bewaar de URL als bookmark als je vaker terug wilt komen. We slaan
         je keten alleen in jouw browser op (localStorage), nooit op de server.
       </p>
-    </div>
+    </section>
   );
 }

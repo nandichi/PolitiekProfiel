@@ -25,19 +25,19 @@ export function AxisSelect({
         onValueChange={(v) => onChange(v as DimensionId)}
       >
         <Select.Trigger
-          className="mt-2 w-full inline-flex items-center justify-between border-b border-rule-strong bg-transparent pb-2 pt-1 text-left text-base text-ink hover:border-ink focus:outline-none focus:border-navy transition-colors"
+          className="mt-2 inline-flex min-h-11 w-full items-center justify-between border-b border-rule-strong bg-transparent py-2 text-left text-base text-ink transition-colors hover:border-ink focus-visible:border-ink focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
           aria-label={label}
         >
           <Select.Value />
           <Select.Icon>
-            <ChevronDown size={16} strokeWidth={1.7} className="text-ink-muted" />
+            <ChevronDown size={16} strokeWidth={1.7} className="text-text-muted" />
           </Select.Icon>
         </Select.Trigger>
         <Select.Portal>
           <Select.Content
             position="popper"
             sideOffset={6}
-            className="z-50 min-w-(--radix-select-trigger-width) bg-paper border border-rule-strong shadow-[0_20px_40px_-20px_rgba(14,16,20,0.25)]"
+            className="z-50 min-w-(--radix-select-trigger-width) bg-canvas border border-rule-strong shadow-[0_20px_40px_-20px_rgba(14,16,20,0.25)]"
           >
             <Select.Viewport className="p-1">
               {DIMENSIONS.map((d) => {
@@ -47,7 +47,7 @@ export function AxisSelect({
                     key={d.id}
                     value={d.id}
                     disabled={disabled}
-                    className="relative flex items-center gap-2 px-3 py-2 text-sm text-ink cursor-default select-none data-highlighted:bg-paper-100 data-highlighted:outline-none data-disabled:text-ink-subtle data-disabled:cursor-not-allowed"
+                    className="relative flex min-h-11 cursor-default select-none items-center gap-2 px-3 py-2 text-sm text-ink data-highlighted:bg-canvas-pressed data-highlighted:outline-none data-disabled:cursor-not-allowed data-disabled:text-text-muted"
                   >
                     <Select.ItemIndicator>
                       <Check size={14} strokeWidth={1.8} />

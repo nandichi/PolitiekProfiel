@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
+import { ContentMasthead } from "@/components/content/PublicContent";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -93,45 +94,21 @@ export default async function WoordenboekDetailPage({ params }: PageProps) {
       />
 
       <Container width="bleed" className="pt-10 md:pt-16">
-        <Link
-          href="/woordenboek"
-          className="inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-ink no-underline mb-6"
-        >
-          <ArrowLeft size={14} strokeWidth={1.8} />
-          Hele woordenboek
-        </Link>
-
-        <ScrollReveal variant="stagger" immediate>
-          <ScrollRevealItem>
-            <Kicker>{CATEGORY_LABEL[term.category]}</Kicker>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <h1
-              className="display mt-6 max-w-4xl"
-              style={{ letterSpacing: "-0.025em" }}
-            >
-              {term.term}
-            </h1>
-          </ScrollRevealItem>
-          {term.aliases && term.aliases.length > 0 && (
-            <ScrollRevealItem>
-              <p className="mt-4 text-sm text-ink-muted">
-                Ook bekend als:{" "}
-                {term.aliases.map((a, i) => (
-                  <span key={a}>
-                    <em>{a}</em>
-                    {i < term.aliases!.length - 1 && <span>, </span>}
-                  </span>
-                ))}
-              </p>
-            </ScrollRevealItem>
-          )}
-          <ScrollRevealItem>
-            <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
-              {term.short}
-            </p>
-          </ScrollRevealItem>
-        </ScrollReveal>
+        <ContentMasthead
+          backHref="/woordenboek"
+          backLabel="Hele woordenboek"
+          eyebrow={CATEGORY_LABEL[term.category]}
+          title={term.term}
+          intro={<p>{term.short}</p>}
+          noteTitle={term.aliases && term.aliases.length > 0 ? "Ook bekend als" : "Categorie"}
+          note={
+            term.aliases && term.aliases.length > 0 ? (
+              <p>{term.aliases.join(", ")}</p>
+            ) : (
+              <p>{CATEGORY_LABEL[term.category]}</p>
+            )
+          }
+        />
       </Container>
 
       {/* Uitleg */}
@@ -142,7 +119,7 @@ export default async function WoordenboekDetailPage({ params }: PageProps) {
               <Kicker number={1}>Uitleg</Kicker>
             </ScrollRevealItem>
             <ScrollRevealItem>
-              <div className="editorial-prose mt-6 max-w-3xl text-base md:text-lg text-ink-2 leading-relaxed">
+              <div className="editorial-prose mt-6 max-w-3xl text-base md:text-lg text-ink-raised leading-relaxed">
                 {term.long.split(/\n\n+/).map((p, i) => (
                   <p key={i} className={i === 0 ? "" : "mt-4"}>
                     {p}
@@ -156,7 +133,7 @@ export default async function WoordenboekDetailPage({ params }: PageProps) {
 
       {/* Zie ook */}
       {related.length > 0 && (
-        <section className="border-t border-rule bg-paper-50/40">
+        <section className="border-t border-rule bg-canvas-raised/40">
           <Container width="bleed" className="py-12 md:py-16">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
@@ -165,21 +142,21 @@ export default async function WoordenboekDetailPage({ params }: PageProps) {
               <ScrollRevealItem>
                 <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl">
                   {related.map((r) => (
-                    <li key={r.slug} className="border border-rule bg-paper p-5">
+                    <li key={r.slug} className="border border-rule bg-canvas p-5">
                       <Link
                         href={`/woordenboek/${r.slug}`}
                         className="block no-underline group"
                       >
-                        <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                        <p className="mono text-[0.62rem] tracking-wider text-text-muted">
                           {CATEGORY_LABEL[r.category].toUpperCase()}
                         </p>
-                        <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-navy transition-colors">
+                        <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-signal transition-colors">
                           {r.term}
                         </p>
-                        <p className="mt-2 text-sm text-ink-2 leading-snug">
+                        <p className="mt-2 text-sm text-ink-raised leading-snug">
                           {r.short}
                         </p>
-                        <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-ink-2 group-hover:text-navy">
+                        <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-ink-raised group-hover:text-signal">
                           Lees
                           <ArrowRight size={12} strokeWidth={1.8} />
                         </p>
@@ -212,16 +189,16 @@ export default async function WoordenboekDetailPage({ params }: PageProps) {
                         className="group block py-4 no-underline"
                       >
                         <div className="flex items-baseline gap-4">
-                          <p className="display text-base text-ink group-hover:text-navy transition-colors min-w-[160px]">
+                          <p className="display text-base text-ink group-hover:text-signal transition-colors min-w-[160px]">
                             {s.term}
                           </p>
-                          <p className="text-sm text-ink-2 leading-snug flex-1">
+                          <p className="text-sm text-ink-raised leading-snug flex-1">
                             {s.short}
                           </p>
                           <ArrowRight
                             size={14}
                             strokeWidth={1.8}
-                            className="text-ink-muted group-hover:text-navy transition-colors shrink-0"
+                            className="text-text-muted group-hover:text-signal transition-colors shrink-0"
                           />
                         </div>
                       </Link>

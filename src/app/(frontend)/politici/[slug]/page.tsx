@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
 import { DimensionBar } from "@/components/DimensionBar";
 import { PoliticianProfileLens } from "@/components/politicians/PoliticianProfileLens";
+import { ContentMasthead } from "@/components/content/PublicContent";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -133,37 +134,20 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
       />
 
       <Container width="bleed" className="pt-10 md:pt-16">
-        <Link
-          href="/politici"
-          className="inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-ink no-underline mb-6"
-        >
-          <ArrowLeft size={14} strokeWidth={1.8} />
-          Alle politici
-        </Link>
-
-        <ScrollReveal variant="stagger" immediate>
-          <ScrollRevealItem>
-            <Kicker>
-              {politicus.country.toUpperCase()} · {politicus.party.toUpperCase()}
-            </Kicker>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <h1
-              className="display mt-6 max-w-4xl"
-              style={{ letterSpacing: "-0.025em" }}
-            >
-              {politicus.name}
-            </h1>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <p className="mt-3 text-ink-muted">{politicus.role}</p>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <p className="mt-8 max-w-2xl text-base md:text-lg text-ink-2 leading-relaxed">
-              {politicus.bio}
+        <ContentMasthead
+          backHref="/politici"
+          backLabel="Alle politici"
+          eyebrow={`${politicus.country.toUpperCase()} · ${politicus.party.toUpperCase()}`}
+          title={politicus.name}
+          intro={<p>{politicus.bio}</p>}
+          noteTitle="Functie"
+          note={
+            <p>
+              {politicus.role}
+              {politicus.lastReviewed ? ` · Laatst geverifieerd ${politicus.lastReviewed}` : ""}
             </p>
-          </ScrollRevealItem>
-        </ScrollReveal>
+          }
+        />
       </Container>
 
       <Container width="bleed" className="mt-16 md:mt-20">
@@ -193,7 +177,7 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
               </div>
             </ScrollRevealItem>
             <ScrollRevealItem>
-              <p className="mt-6 mono text-[0.65rem] tracking-wider text-ink-subtle max-w-3xl">
+              <p className="mt-6 mono text-[0.65rem] tracking-wider text-text-muted max-w-3xl">
                 POSITIES ZIJN SCHATTINGEN OP BASIS VAN PUBLIEKE STANDPUNTEN
                 {politicus.lastReviewed
                   ? ` · LAATST GEVERIFIEERD ${politicus.lastReviewed.toUpperCase()}`
@@ -214,7 +198,7 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
                 <h2 className="display mt-5 max-w-3xl">
                   Wat deze politicus opvallend maakt.
                 </h2>
-                <p className="mt-4 max-w-2xl text-sm text-ink-2 leading-relaxed">
+                <p className="mt-4 max-w-2xl text-sm text-ink-raised leading-relaxed">
                   Verifieerbare feiten uit het parlementaire archief en openbare
                   bronnen. Geen roddels en niets over het priv&eacute;leven.
                 </p>
@@ -223,14 +207,14 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
                 <ul className="mt-8 max-w-3xl border-t border-rule">
                   {politicus.facts.map((fact) => (
                     <li key={fact.claim} className="border-b border-rule py-4">
-                      <p className="text-base text-ink-2 leading-relaxed">
+                      <p className="text-base text-ink-raised leading-relaxed">
                         {fact.claim}
                       </p>
                       <a
                         href={fact.sourceUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-2 inline-block text-xs text-ink-muted underline decoration-rule hover:text-ink"
+                        className="mt-2 inline-block text-xs text-text-muted underline decoration-rule hover:text-ink"
                       >
                         Bron bij dit feit
                       </a>
@@ -245,7 +229,7 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
 
       {/* Bronnen */}
       {politicus.sources.length > 0 && (
-        <section className="border-t border-rule bg-paper-50/40">
+        <section className="border-t border-rule bg-canvas-raised/40">
           <Container width="bleed" className="py-12 md:py-16">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
@@ -253,7 +237,7 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
                 <h2 className="display mt-5 max-w-3xl">
                   Controleer de uitgangspunten zelf.
                 </h2>
-                <p className="mt-4 max-w-2xl text-sm text-ink-2 leading-relaxed">
+                <p className="mt-4 max-w-2xl text-sm text-ink-raised leading-relaxed">
                   Functie, partijcontext en de redactionele positieraming zijn
                   gebaseerd op publieke informatie. De vijfdimensiepositie blijft
                   een transparante redactionele schatting, geen letterlijk
@@ -268,7 +252,7 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
                         href={source.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm text-ink hover:text-navy no-underline"
+                        className="inline-flex items-center gap-1.5 text-sm text-ink hover:text-signal no-underline"
                       >
                         {source.label}
                         <ArrowRight size={14} strokeWidth={1.8} aria-hidden="true" />
@@ -296,7 +280,7 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
                 </h2>
               </ScrollRevealItem>
               <ScrollRevealItem>
-                <p className="mt-4 max-w-2xl text-sm text-ink-2 leading-relaxed">
+                <p className="mt-4 max-w-2xl text-sm text-ink-raised leading-relaxed">
                   Onderstaande positie is geen schatting van standpunten, maar
                   een projectie van werkelijk stemgedrag van{" "}
                   {party?.abbreviation ?? politicus.party} in de Tweede Kamer
@@ -332,7 +316,7 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
                 </div>
               </ScrollRevealItem>
               <ScrollRevealItem>
-                <p className="mt-6 mono text-[0.65rem] tracking-wider text-ink-subtle max-w-3xl">
+                <p className="mt-6 mono text-[0.65rem] tracking-wider text-text-muted max-w-3xl">
                   PROJECTIE VIA THEMA→DIMENSIE-MATRIX OP BASIS VAN DE
                   STELLINGEN-DATABASE. RUWE BENADERING; STEMRICHTING PER MOTIE
                   WORDT NIET MEEGENOMEN.
@@ -345,7 +329,7 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
 
       {/* Dichtstbijzijnde ideologie */}
       {closest && (
-        <section className="border-t border-rule bg-paper-50/40">
+        <section className="border-t border-rule bg-canvas-raised/40">
           <Container width="bleed" className="py-14 md:py-20">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
@@ -357,12 +341,12 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
                     <h2 className="display text-3xl md:text-4xl text-ink">
                       {closest.item.name}
                     </h2>
-                    <p className="mt-3 text-ink-2 leading-relaxed">
+                    <p className="mt-3 text-ink-raised leading-relaxed">
                       {closest.item.shortDescription}
                     </p>
                     <Link
                       href={`/ideologie/${closest.item.slug}`}
-                      className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-ink hover:text-navy no-underline"
+                      className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-ink hover:text-signal no-underline"
                     >
                       Lees ideologie-deepdive
                       <ArrowRight size={14} strokeWidth={1.8} />
@@ -372,7 +356,7 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
                     <p className="kicker mb-1">Overeenkomst</p>
                     <span className="display tabular-nums text-5xl md:text-6xl text-ink leading-none">
                       {closest.similarity}
-                      <span className="text-2xl text-ink-muted">%</span>
+                      <span className="text-2xl text-text-muted">%</span>
                     </span>
                   </div>
                 </div>
@@ -396,12 +380,12 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
               <ScrollRevealItem>
                 <div className="mt-8 grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10 max-w-5xl">
                   <div>
-                    <p className="text-ink-2 leading-relaxed">
+                    <p className="text-ink-raised leading-relaxed">
                       {party.description}
                     </p>
                     <Link
                       href={`/partij/${party.slug}`}
-                      className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-ink hover:text-navy no-underline"
+                      className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-ink hover:text-signal no-underline"
                     >
                       Partij-deepdive
                       <ArrowRight size={14} strokeWidth={1.8} />
@@ -438,7 +422,7 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
                             href={party.websiteUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-ink underline underline-offset-2 hover:text-navy break-all"
+                            className="text-ink underline underline-offset-2 hover:text-signal break-all"
                           >
                             {party.websiteUrl.replace(/^https?:\/\//, "")}
                           </a>
@@ -455,7 +439,7 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
 
       {/* Andere politici uit dezelfde partij */}
       {sameParty.length > 0 && (
-        <section className="border-t border-rule bg-paper-50/40">
+        <section className="border-t border-rule bg-canvas-raised/40">
           <Container width="bleed" className="py-14 md:py-20">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
@@ -464,18 +448,18 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
               <ScrollRevealItem>
                 <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl">
                   {sameParty.map((p) => (
-                    <li key={p.slug} className="border border-rule bg-paper p-4">
+                    <li key={p.slug} className="border border-rule bg-canvas p-4">
                       <Link
                         href={`/politici/${p.slug}`}
                         className="block no-underline group"
                       >
-                        <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                        <p className="mono text-[0.62rem] tracking-wider text-text-muted">
                           {p.country.toUpperCase()}
                         </p>
-                        <p className="display mt-1 text-lg leading-tight text-ink group-hover:text-navy transition-colors">
+                        <p className="display mt-1 text-lg leading-tight text-ink group-hover:text-signal transition-colors">
                           {p.name}
                         </p>
-                        <p className="mt-1 text-xs text-ink-muted">{p.role}</p>
+                        <p className="mt-1 text-xs text-text-muted">{p.role}</p>
                       </Link>
                     </li>
                   ))}
@@ -499,19 +483,19 @@ export default async function PoliticusDetailPage({ params }: PageProps) {
             <ScrollRevealItem>
               <ul className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl">
                 {sortedByDistance.map((p) => (
-                  <li key={p.slug} className="border border-rule bg-paper p-5">
+                  <li key={p.slug} className="border border-rule bg-canvas p-5">
                     <Link
                       href={`/politici/${p.slug}`}
                       className="block no-underline group"
                     >
-                      <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                      <p className="mono text-[0.62rem] tracking-wider text-text-muted">
                         {p.party.toUpperCase()} · {p.country.toUpperCase()}
                       </p>
-                      <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-navy transition-colors">
+                      <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-signal transition-colors">
                         {p.name}
                       </p>
-                      <p className="mt-1 text-xs text-ink-muted">{p.role}</p>
-                      <p className="mt-3 mono text-[0.65rem] tracking-wider text-ink-subtle">
+                      <p className="mt-1 text-xs text-text-muted">{p.role}</p>
+                      <p className="mt-3 mono text-[0.65rem] tracking-wider text-text-muted">
                         AFSTAND {Math.round(p.d)}
                       </p>
                     </Link>

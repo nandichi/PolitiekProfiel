@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
-import { Kicker } from "@/components/Kicker";
 import {
-  ScrollReveal,
-  ScrollRevealItem,
-} from "@/components/motion/ScrollReveal";
+  ContentMasthead,
+  RuledLink,
+  RuledList,
+} from "@/components/content/PublicContent";
 import {
   buildBreadcrumbList,
   jsonLdString,
@@ -38,13 +36,39 @@ export const metadata: Metadata = {
   },
 };
 
+type GroupId = "questions" | "people" | "history" | "tools";
+
 interface HubEntry {
+  group: GroupId;
   kicker: string;
   href: string;
   title: string;
   description: string;
   meta: string;
 }
+
+const GROUPS: Array<{ id: GroupId; label: string; description: string }> = [
+  {
+    id: "questions",
+    label: "Vragen en methode",
+    description: "De vragenbank, politieke stromingen, begrippen en het denkraam achter de meting.",
+  },
+  {
+    id: "people",
+    label: "Partijen en personen",
+    description: "Publieke profielen van partijen en politici op vijf afzonderlijke assen.",
+  },
+  {
+    id: "history",
+    label: "Landen en geschiedenis",
+    description: "Vergelijkende landenprofielen en kabinetten sinds 1994.",
+  },
+  {
+    id: "tools",
+    label: "Tools en experimenten",
+    description: "Interactieve verkenningen, tijdlijnen en deelbare publicatievormen.",
+  },
+];
 
 export default async function VerkennenPage() {
   const [questions, parties, politicians, countries, ideologies] =
@@ -58,6 +82,7 @@ export default async function VerkennenPage() {
 
   const entries: HubEntry[] = [
     {
+      group: "questions",
       kicker: "A1",
       href: "/stellingen",
       title: "Stellingen-bibliotheek",
@@ -66,6 +91,7 @@ export default async function VerkennenPage() {
       meta: `${questions.length} STELLINGEN · ${questions.filter((q) => q.tiers.includes("quick")).length} IN DE QUICK QUIZ`,
     },
     {
+      group: "questions",
       kicker: "A2",
       href: "/ideologieen",
       title: "Ideologieën",
@@ -74,6 +100,7 @@ export default async function VerkennenPage() {
       meta: `${ideologies.length} IDEOLOGIEËN`,
     },
     {
+      group: "people",
       kicker: "A3",
       href: "/politici",
       title: "Politici",
@@ -82,6 +109,7 @@ export default async function VerkennenPage() {
       meta: `${politicians.length} POLITICI`,
     },
     {
+      group: "people",
       kicker: "B1",
       href: "/partijen",
       title: "Partijen",
@@ -90,6 +118,7 @@ export default async function VerkennenPage() {
       meta: `${parties.length} PARTIJEN MET ZETELS`,
     },
     {
+      group: "history",
       kicker: "B2",
       href: "/kabinetten",
       title: "Kabinetten",
@@ -98,6 +127,7 @@ export default async function VerkennenPage() {
       meta: `${CABINETS.length} KABINETTEN`,
     },
     {
+      group: "history",
       kicker: "A4",
       href: "/landen",
       title: "Landen",
@@ -106,6 +136,7 @@ export default async function VerkennenPage() {
       meta: `${countries.length} LANDEN`,
     },
     {
+      group: "questions",
       kicker: "A7",
       href: "/woordenboek",
       title: "Woordenboek",
@@ -114,6 +145,7 @@ export default async function VerkennenPage() {
       meta: `${GLOSSARY.length} TERMEN`,
     },
     {
+      group: "tools",
       kicker: "B5",
       href: "/coalitie",
       title: "Coalitie-simulator",
@@ -122,6 +154,7 @@ export default async function VerkennenPage() {
       meta: "EXPERIMENTEEL",
     },
     {
+      group: "tools",
       kicker: "B6",
       href: "/turing-test",
       title: "Retoriekspel",
@@ -130,6 +163,7 @@ export default async function VerkennenPage() {
       meta: "EXPERIMENTEEL",
     },
     {
+      group: "tools",
       kicker: "C1",
       href: "/evolutie",
       title: "Politieke evolutie",
@@ -138,6 +172,7 @@ export default async function VerkennenPage() {
       meta: "VOOR HERHAALDE QUIZZEN",
     },
     {
+      group: "questions",
       kicker: "C2",
       href: "/typology",
       title: "Politieke typologie",
@@ -146,6 +181,7 @@ export default async function VerkennenPage() {
       meta: "PRIVACYVEILIG DENKRAAM",
     },
     {
+      group: "tools",
       kicker: "D3",
       href: "/citaten",
       title: "Citaten-bibliotheek",
@@ -161,71 +197,66 @@ export default async function VerkennenPage() {
   ]);
 
   return (
-    <Container width="bleed" className="pt-12 md:pt-20 pb-24">
+    <Container width="bleed" className="pb-24 pt-10 md:pt-16">
       <script
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: jsonLdString(breadcrumbLd) }}
       />
 
-      <ScrollReveal variant="stagger" immediate>
-        <ScrollRevealItem>
-          <Kicker number="NL · 2026">Verken het kompas</Kicker>
-        </ScrollRevealItem>
-
-        <ScrollRevealItem>
-          <h1
-            className="display mt-6 max-w-4xl"
-            style={{ letterSpacing: "-0.025em" }}
-          >
-            Alles wat het kompas voedt,{" "}
-            <em className="display-italic font-light text-navy">openbaar</em>.
-          </h1>
-        </ScrollRevealItem>
-
-        <ScrollRevealItem>
-          <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
+      <ContentMasthead
+        code="NL · 2026"
+        eyebrow="Verken het kompas"
+        title="Alles wat het kompas voedt, openbaar."
+        intro={
+          <p>
             De vragenlijst is niet het einde. Hier vind je de stellingen,
             ideologieën, politici, partijen, landen en termen die het profiel
             opbouwen, zonder ranking en zonder oordeel.
           </p>
-        </ScrollRevealItem>
-      </ScrollReveal>
+        }
+        noteTitle="Register"
+        note={<p>{entries.length} openbare ingangen, geordend in vier dossiers.</p>}
+      />
 
-      <section className="mt-16 md:mt-20 border-t border-ink">
-        <ScrollReveal variant="stagger">
-          <ul>
-            {entries.map((e) => (
-              <ScrollRevealItem as="li" key={e.href}>
-                <Link
-                  href={e.href}
-                  className="group block border-b border-rule py-8 md:py-10 no-underline"
-                >
-                  <div className="grid grid-cols-1 gap-6 lg:grid-cols-[80px_1fr_auto] lg:gap-12 items-baseline">
-                    <p className="index-num text-sm">{e.kicker}</p>
-                    <div className="min-w-0">
-                      <h2 className="display text-3xl md:text-4xl leading-tight text-ink group-hover:text-navy transition-colors">
-                        {e.title}
-                      </h2>
-                      <p className="mt-4 max-w-2xl text-ink-2 leading-relaxed">
-                        {e.description}
-                      </p>
-                      <p className="mt-4 mono text-[0.65rem] tracking-wider text-ink-subtle">
-                        {e.meta}
-                      </p>
-                    </div>
-                    <ArrowRight
-                      size={20}
-                      strokeWidth={1.6}
-                      className="text-ink-muted group-hover:text-navy group-hover:translate-x-1 transition-all hidden lg:block"
-                    />
-                  </div>
-                </Link>
-              </ScrollRevealItem>
-            ))}
-          </ul>
-        </ScrollReveal>
-      </section>
+      <div className="mt-14 space-y-16 md:mt-20 md:space-y-20">
+        {GROUPS.map((group, groupIndex) => {
+          const groupEntries = entries.filter((entry) => entry.group === group.id);
+          return (
+            <section key={group.id} aria-labelledby={`group-${group.id}`}>
+              <div className="grid grid-cols-5 gap-x-4 gap-y-4 border-t border-ink pt-5 md:grid-cols-10 md:gap-x-5 lg:grid-cols-15 lg:gap-x-6">
+                <p className="col-span-1 font-mono text-[0.68rem] font-semibold tracking-[0.12em] text-signal">
+                  {String(groupIndex + 1).padStart(2, "0")}
+                </p>
+                <div className="col-span-4 md:col-span-6 lg:col-span-8">
+                  <h2
+                    id={`group-${group.id}`}
+                    className="font-display text-3xl font-extrabold leading-none tracking-[-0.035em] md:text-4xl"
+                  >
+                    {group.label}
+                  </h2>
+                </div>
+                <p className="col-start-2 col-span-4 text-sm leading-6 text-text-muted md:col-start-auto md:col-span-3 lg:col-span-5">
+                  {group.description}
+                </p>
+              </div>
+
+              <RuledList className="mt-7">
+                {groupEntries.map((entry) => (
+                  <RuledLink
+                    key={entry.href}
+                    href={entry.href}
+                    code={entry.kicker}
+                    title={entry.title}
+                    description={entry.description}
+                    meta={entry.meta}
+                  />
+                ))}
+              </RuledList>
+            </section>
+          );
+        })}
+      </div>
     </Container>
   );
 }

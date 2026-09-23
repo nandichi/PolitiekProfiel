@@ -64,14 +64,14 @@ export default async function TuringTestPage({ searchParams }: PageProps) {
             style={{ letterSpacing: "-0.025em" }}
           >
             Raad het kamp,{" "}
-            <em className="display-italic font-light text-navy">
+            <em className="display-italic font-light text-signal">
               niet de partij
             </em>
             .
           </h1>
         </ScrollRevealItem>
         <ScrollRevealItem>
-          <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
+          <p className="mt-8 max-w-2xl text-lg text-ink-raised leading-relaxed">
             {n} redactionele oefenfragmenten, geschreven om verschillende
             politieke retoriek te herkennen. Bij elk fragment kies je het kamp
             dat er het beste bij past: links, midden of rechts. Het zijn geen
@@ -90,7 +90,7 @@ export default async function TuringTestPage({ searchParams }: PageProps) {
             <Kicker number={1}>Hoe werkt deze test?</Kicker>
           </ScrollRevealItem>
           <ScrollRevealItem>
-            <p className="mt-4 text-sm text-ink-2 leading-relaxed">
+            <p className="mt-4 text-sm text-ink-raised leading-relaxed">
               De bibliotheek bevat {TURING_QUOTES.length} redactionele oefenfragmenten,
               verdeeld over drie kampen: links,
               midden en rechts. Een standaardronde toont er 8; een langere

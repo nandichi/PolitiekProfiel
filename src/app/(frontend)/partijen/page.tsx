@@ -5,6 +5,7 @@ import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
 import { MiniVector } from "@/components/MiniVector";
 import { InternationalPartyIndex } from "@/components/parties/InternationalPartyIndex";
+import { ContentMasthead } from "@/components/content/PublicContent";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -81,28 +82,20 @@ export default function PartijenOverviewPage() {
         dangerouslySetInnerHTML={{ __html: jsonLdString(breadcrumbLd) }}
       />
 
-      <ScrollReveal variant="stagger" immediate>
-        <ScrollRevealItem>
-          <Kicker number="B1">Partijen</Kicker>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
-          <h1
-            className="display mt-6 max-w-4xl"
-            style={{ letterSpacing: "-0.025em" }}
-          >
-            Partijen,{" "}
-            <em className="display-italic font-light text-navy">geordend</em>{" "}
-            op zetels en spectrum.
-          </h1>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
-          <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
+      <ContentMasthead
+        code="B1"
+        eyebrow="Partijen"
+        title="Partijen, geordend op zetels en spectrum."
+        intro={
+          <p>
             Per partij: positie op de vijf dimensies, fractieleider, actuele
             fractiegrootte, coalitiestatus en, voor de grootste partijen, een
             redactionele samenvatting van het verkiezingsprogramma uit 2025.
           </p>
-        </ScrollRevealItem>
-      </ScrollReveal>
+        }
+        noteTitle="Partijregister"
+        note={<p>{nl.length} fracties met zetels, aangevuld met internationale referenties.</p>}
+      />
 
       {/* Tweede Kamer */}
       <section className="mt-16 md:mt-20 border-t border-ink pt-10">
@@ -114,7 +107,7 @@ export default function PartijenOverviewPage() {
             </h2>
           </ScrollRevealItem>
           <ScrollRevealItem>
-            <p className="mt-4 max-w-2xl text-sm text-ink-muted">
+            <p className="mt-4 max-w-2xl text-sm text-text-muted">
               Actuele fractiegrootte volgens de Tweede Kamer. De lijst bevat ook
               eenpersoonsfracties. Coalitie = kabinet-Jetten (D66 + VVD + CDA).
             </p>
@@ -132,30 +125,30 @@ export default function PartijenOverviewPage() {
                         {String(i + 1).padStart(2, "0")}
                       </p>
                       <div>
-                        <p className="display text-lg text-ink group-hover:text-navy transition-colors">
+                        <p className="display text-lg text-ink group-hover:text-signal transition-colors">
                           {p.name}
                         </p>
-                        <p className="mono text-[0.62rem] tracking-wider text-ink-subtle mt-0.5">
+                        <p className="mono text-[0.62rem] tracking-wider text-text-muted mt-0.5">
                           {p.abbreviation.toUpperCase()}
                         </p>
                       </div>
-                      <p className="text-sm text-ink-2 leading-snug">
+                      <p className="text-sm text-ink-raised leading-snug">
                         {p.factionLeader ?? p.leader ?? "Onbekend"}
                         {p.coalitionStatus && (
-                          <span className="ml-2 mono text-[0.6rem] tracking-wider text-ink-muted">
+                          <span className="ml-2 mono text-[0.6rem] tracking-wider text-text-muted">
                             {COALITION_LABEL[p.coalitionStatus].toUpperCase()}
                           </span>
                         )}
                       </p>
                       <p className="mono tabular-nums text-sm text-ink">
                         {p.seatsTK2025 ?? 0}{" "}
-                        <span className="text-ink-muted text-xs">zetels</span>
+                        <span className="text-text-muted text-xs">zetels</span>
                       </p>
                       <MiniVector vector={p.positionVector} size="sm" />
                       <ArrowRight
                         size={14}
                         strokeWidth={1.8}
-                        className="text-ink-muted group-hover:text-navy group-hover:translate-x-0.5 transition-all"
+                        className="text-text-muted group-hover:text-signal group-hover:translate-x-0.5 transition-all"
                       />
                     </div>
                   </Link>
@@ -177,20 +170,20 @@ export default function PartijenOverviewPage() {
               </h2>
             </ScrollRevealItem>
             <ScrollRevealItem>
-              <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <ul className="mt-8 border-t border-rule-strong divide-y divide-rule">
                 {eu.map((p) => (
-                  <li key={p.slug} className="border border-rule bg-paper p-5">
+                  <li key={p.slug}>
                     <Link
                       href={`/partij/${p.slug}`}
-                      className="block no-underline group"
+                      className="group grid grid-cols-5 gap-4 py-5 no-underline md:grid-cols-10 md:items-center lg:grid-cols-15"
                     >
-                      <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                      <p className="col-span-1 mono text-[0.62rem] tracking-wider text-text-muted lg:col-span-2">
                         EU · {p.abbreviation.toUpperCase()}
                       </p>
-                      <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-navy transition-colors">
+                      <p className="col-span-4 display text-lg leading-tight text-ink transition-colors group-hover:text-signal-pressed md:col-span-5 lg:col-span-7">
                         {p.name}
                       </p>
-                      <div className="mt-4">
+                      <div className="col-start-2 col-span-4 md:col-start-auto md:col-span-4 lg:col-span-6">
                         <MiniVector vector={p.positionVector} size="sm" />
                       </div>
                     </Link>
@@ -210,20 +203,20 @@ export default function PartijenOverviewPage() {
               <Kicker number={3}>Amerikaanse partijen</Kicker>
             </ScrollRevealItem>
             <ScrollRevealItem>
-              <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
+              <ul className="mt-8 max-w-5xl border-t border-rule-strong divide-y divide-rule">
                 {us.map((p) => (
-                  <li key={p.slug} className="border border-rule bg-paper p-5">
+                  <li key={p.slug}>
                     <Link
                       href={`/partij/${p.slug}`}
-                      className="block no-underline group"
+                      className="group grid grid-cols-5 gap-4 py-5 no-underline md:grid-cols-10 md:items-center"
                     >
-                      <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                      <p className="col-span-1 mono text-[0.62rem] tracking-wider text-text-muted">
                         US · {p.abbreviation.toUpperCase()}
                       </p>
-                      <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-navy transition-colors">
+                      <p className="col-span-4 display text-lg leading-tight text-ink transition-colors group-hover:text-signal-pressed md:col-span-5">
                         {p.name}
                       </p>
-                      <div className="mt-4">
+                      <div className="col-start-2 col-span-4 md:col-start-auto md:col-span-4">
                         <MiniVector vector={p.positionVector} size="sm" />
                       </div>
                     </Link>

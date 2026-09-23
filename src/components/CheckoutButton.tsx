@@ -14,6 +14,9 @@ interface CheckoutButtonProps {
   className?: string;
 }
 
+const CHECKOUT_VISITOR_ERROR =
+  "Betalen is tijdelijk niet beschikbaar. Probeer het later opnieuw.";
+
 export function CheckoutButton({
   tier,
   children,
@@ -30,23 +33,30 @@ export function CheckoutButton({
         "promo",
       );
       await startStripeCheckout(tier, promotionCode);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Onbekende fout.");
+    } catch {
+      setError(CHECKOUT_VISITOR_ERROR);
       setLoading(false);
     }
   }
 
   return (
-    <span className="inline-flex flex-col gap-2">
+    <span className="inline-flex flex-col items-start gap-2">
       <button
         type="button"
-        className={className}
+        className={`${className} min-h-11 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus`}
         onClick={startCheckout}
         disabled={loading}
+        aria-busy={loading}
+        aria-describedby={error ? `checkout-error-${tier}` : undefined}
       >
         {loading ? (
           <>
-            <Loader2 size={16} className="animate-spin" strokeWidth={1.8} />
+            <Loader2
+              size={16}
+              className="animate-spin"
+              strokeWidth={1.8}
+              aria-hidden
+            />
             Naar Stripe…
           </>
         ) : (
@@ -54,7 +64,11 @@ export function CheckoutButton({
         )}
       </button>
       {error && (
-        <span role="alert" className="max-w-xs text-xs text-terra">
+        <span
+          id={`checkout-error-${tier}`}
+          role="alert"
+          className="max-w-sm border-l-2 border-danger bg-danger/10 px-3 py-2 text-sm text-danger"
+        >
           {error}
         </span>
       )}

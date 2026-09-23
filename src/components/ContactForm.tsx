@@ -14,7 +14,9 @@ const SUBJECTS = [
 ] as const;
 
 const inputClass =
-  "w-full border border-rule bg-paper-50 px-3 py-2 text-sm text-ink outline-none focus:border-ink";
+  "min-h-11 w-full rounded-[2px] border border-rule bg-canvas-raised px-3 py-2.5 text-base text-ink outline-none transition-colors placeholder:text-text-muted hover:border-rule-strong focus-visible:border-ink focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus disabled:cursor-not-allowed disabled:opacity-60";
+const CONTACT_ERROR =
+  "Je bericht kon niet worden verstuurd. Probeer het later opnieuw.";
 
 export function ContactForm() {
   const [name, setName] = useState("");
@@ -41,26 +43,29 @@ export function ContactForm() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ name, email, subject, message, website }),
       });
-      const json = (await res.json().catch(() => ({}))) as {
-        ok?: boolean;
-        error?: string;
-      };
+      const json = (await res.json().catch(() => ({}))) as { ok?: boolean };
       if (!res.ok || !json.ok) {
-        throw new Error(json.error ?? "Versturen mislukt.");
+        throw new Error(CONTACT_ERROR);
       }
       setSent(true);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Onbekende fout.");
+    } catch {
+      setError(CONTACT_ERROR);
       setSending(false);
     }
   }
 
   if (sent) {
     return (
-      <div className="border border-rule bg-paper-50 p-6">
-        <p className="kicker mb-3">Verstuurd</p>
-        <p className="display text-2xl leading-tight">Je bericht is aangekomen.</p>
-        <p className="mt-4 text-sm leading-relaxed text-ink-2">
+      <div
+        role="status"
+        aria-live="polite"
+        className="border border-success bg-success/10 p-6"
+      >
+        <p className="kicker mb-3 text-success">Verstuurd</p>
+        <h2 className="display text-2xl leading-tight">
+          Je bericht is aangekomen.
+        </h2>
+        <p className="mt-4 max-w-[68ch] text-sm leading-relaxed text-ink-raised">
           Ik lees je bericht zelf en antwoord meestal binnen een dag. Heb je een
           betaalde quiz gekocht en gaat er iets mis met je rapport? Dan heb ik je
           e-mailadres van de betaling nodig, dat mag je in je bericht zetten.
@@ -70,11 +75,17 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={submit} className="flex flex-col gap-4">
-      <div className="grid gap-4 sm:grid-cols-2">
-        <label className="flex flex-col gap-1.5">
+    <form
+      onSubmit={submit}
+      className="flex flex-col gap-5"
+      aria-busy={sending}
+      aria-describedby={error ? "contact-form-error" : undefined}
+    >
+      <div className="grid gap-5 sm:grid-cols-2">
+        <label htmlFor="contact-name" className="flex flex-col gap-2">
           <span className="kicker">Naam</span>
           <input
+            id="contact-name"
             className={inputClass}
             value={name}
             onChange={(event) => setName(event.target.value)}
@@ -83,9 +94,10 @@ export function ContactForm() {
             autoComplete="name"
           />
         </label>
-        <label className="flex flex-col gap-1.5">
+        <label htmlFor="contact-email" className="flex flex-col gap-2">
           <span className="kicker">E-mail</span>
           <input
+            id="contact-email"
             className={inputClass}
             type="email"
             value={email}
@@ -97,9 +109,10 @@ export function ContactForm() {
         </label>
       </div>
 
-      <label className="flex flex-col gap-1.5">
+      <label htmlFor="contact-subject" className="flex flex-col gap-2">
         <span className="kicker">Onderwerp</span>
         <select
+          id="contact-subject"
           className={inputClass}
           value={subject}
           onChange={(event) => setSubject(event.target.value)}
@@ -112,9 +125,10 @@ export function ContactForm() {
         </select>
       </label>
 
-      <label className="flex flex-col gap-1.5">
+      <label htmlFor="contact-message" className="flex flex-col gap-2">
         <span className="kicker">Bericht</span>
         <textarea
+          id="contact-message"
           className={`${inputClass} min-h-[180px] resize-y`}
           value={message}
           onChange={(event) => setMessage(event.target.value)}
@@ -124,7 +138,6 @@ export function ContactForm() {
         />
       </label>
 
-      {/* Honeypot: onzichtbaar voor bezoekers, bots vullen hem in. */}
       <div className="hidden" aria-hidden>
         <label>
           Website
@@ -137,7 +150,7 @@ export function ContactForm() {
         </label>
       </div>
 
-      <label className="flex max-w-xl cursor-pointer items-start gap-3 text-sm leading-relaxed text-ink-2">
+      <label className="flex min-h-11 max-w-xl cursor-pointer items-start gap-3 py-2 text-sm leading-relaxed text-ink-raised">
         <input
           type="checkbox"
           checked={consent}
@@ -145,40 +158,53 @@ export function ContactForm() {
             setConsent(event.target.checked);
             if (event.target.checked) setError(null);
           }}
-          className="mt-1 h-4 w-4 shrink-0 accent-terra"
+          className="mt-0.5 h-5 w-5 shrink-0 rounded-[2px] accent-signal focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
+          aria-describedby="contact-consent-copy"
         />
-        <span>
+        <span id="contact-consent-copy">
           Ik geef toestemming om mijn bericht en e-mailadres te gebruiken om mij
           te antwoorden. Zie de{" "}
-          <Link href="/privacy" className="underline">
+          <Link
+            href="/privacy"
+            className="underline decoration-rule-strong underline-offset-4 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
+          >
             privacyverklaring
           </Link>
           .
         </span>
       </label>
 
-      <div className="flex flex-wrap items-center gap-4">
+      <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
         <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary min-h-11 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
           disabled={sending || !consent}
         >
           {sending ? (
             <>
-              <Loader2 size={16} className="animate-spin" strokeWidth={1.8} />
+              <Loader2
+                size={16}
+                className="animate-spin"
+                strokeWidth={1.8}
+                aria-hidden
+              />
               Versturen…
             </>
           ) : (
             <>
               Verstuur bericht
-              <ArrowRight size={16} strokeWidth={1.8} />
+              <ArrowRight size={16} strokeWidth={1.8} aria-hidden />
             </>
           )}
         </button>
         {error && (
-          <span role="alert" className="text-xs text-terra">
+          <p
+            id="contact-form-error"
+            role="alert"
+            className="border-l-2 border-danger bg-danger/10 px-3 py-2 text-sm text-danger"
+          >
             {error}
-          </span>
+          </p>
         )}
       </div>
     </form>

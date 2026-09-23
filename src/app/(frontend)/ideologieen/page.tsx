@@ -2,12 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
-import { Kicker } from "@/components/Kicker";
 import { MiniVector } from "@/components/MiniVector";
-import {
-  ScrollReveal,
-  ScrollRevealItem,
-} from "@/components/motion/ScrollReveal";
+import { ContentMasthead } from "@/components/content/PublicContent";
 import { getAllIdeologiesSeed } from "@/lib/seed-readers";
 import {
   buildBreadcrumbList,
@@ -74,57 +70,49 @@ export default function IdeologieenPage() {
         dangerouslySetInnerHTML={{ __html: jsonLdString(breadcrumbLd) }}
       />
 
-      <ScrollReveal variant="stagger" immediate>
-        <ScrollRevealItem>
-          <Kicker number="A2">Ideologieën</Kicker>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
-          <h1
-            className="display mt-6 max-w-4xl"
-            style={{ letterSpacing: "-0.025em" }}
-          >
-            Zestien manieren om de wereld te ordenen,{" "}
-            <em className="display-italic font-light text-navy">
-              zonder hokjes
-            </em>
-            .
-          </h1>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
-          <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
+      <ContentMasthead
+        code="A2"
+        eyebrow="Ideologieën"
+        title="Zestien manieren om de wereld te ordenen, zonder hokjes."
+        intro={
+          <p>
             Geen ideologie is een toetssteen voor &apos;goed&apos; of &apos;fout&apos;. Wij beschrijven
             ze als coherente verzamelingen ideeën, met hun kerngedachten, hun
             voorbeelden en de bijbehorende positie op de vijf dimensies.
           </p>
-        </ScrollRevealItem>
-      </ScrollReveal>
+        }
+        noteTitle="Leeswijzer"
+        note={<p>De spectrumpositie ordent de lijst. De vijf assen tonen de inhoudelijke verschillen.</p>}
+      />
 
       <section className="mt-16 md:mt-20 border-t border-ink">
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-rule border-x border-b border-rule">
+        <ul className="border-t border-rule-strong divide-y divide-rule">
           {ideologies.map((i, idx) => (
-            <li key={i.slug} className="bg-paper">
+            <li key={i.slug}>
               <Link
                 href={`/ideologie/${i.slug}`}
-                className="group block p-7 md:p-9 no-underline h-full"
+                className="group grid grid-cols-5 gap-x-4 gap-y-4 py-6 no-underline md:grid-cols-10 md:gap-x-5 lg:grid-cols-15 lg:items-center lg:gap-x-6"
               >
-                <div className="flex items-baseline justify-between gap-4 mb-3">
+                <div className="col-span-1 flex flex-col gap-2 lg:col-span-2">
                   <span className="index-num text-xs">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
-                  <span className="mono text-[0.65rem] tracking-wider text-ink-subtle">
+                  <span className="mono text-[0.65rem] tracking-wider text-text-muted">
                     {SPECTRUM_LABEL[i.spectrumPosition] ?? i.spectrumPosition}
                   </span>
                 </div>
-                <h2 className="display text-2xl md:text-3xl leading-tight text-ink group-hover:text-navy transition-colors">
-                  {i.name}
-                </h2>
-                <p className="mt-3 text-ink-2 leading-relaxed text-sm md:text-base">
-                  {i.shortDescription}
-                </p>
-                <div className="mt-6">
+                <div className="col-span-4 min-w-0 md:col-span-5 lg:col-span-7">
+                  <h2 className="display text-2xl leading-tight text-ink transition-colors group-hover:text-signal-pressed md:text-3xl">
+                    {i.name}
+                  </h2>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-raised md:text-base">
+                    {i.shortDescription}
+                  </p>
+                </div>
+                <div className="col-start-2 col-span-4 md:col-start-auto md:col-span-4 lg:col-span-5">
                   <MiniVector vector={i.profileVector} />
                 </div>
-                <p className="mt-6 inline-flex items-center gap-2 text-xs font-medium text-ink group-hover:text-navy transition-colors">
+                <p className="col-start-2 col-span-4 inline-flex items-center gap-2 text-xs font-medium text-ink transition-colors group-hover:text-signal-pressed md:col-start-auto md:col-span-1 lg:col-span-1">
                   Lees deepdive
                   <ArrowRight size={14} strokeWidth={1.8} />
                 </p>

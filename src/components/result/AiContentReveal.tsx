@@ -99,7 +99,7 @@ export function AiContentReveal({
         {shouldClip && (
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-linear-to-b from-transparent to-paper"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-linear-to-b from-transparent to-canvas"
           />
         )}
       </div>
@@ -108,7 +108,7 @@ export function AiContentReveal({
           <button
             type="button"
             onClick={() => setExpanded((v) => !v)}
-            className="group inline-flex items-center gap-2 mono text-[0.72rem] tracking-[0.18em] uppercase text-ink hover:text-navy transition-colors border-b border-ink hover:border-navy pb-1"
+            className="group inline-flex items-center gap-2 mono text-[0.72rem] tracking-[0.18em] uppercase text-ink hover:text-signal transition-colors border-b border-ink hover:border-signal pb-1"
           >
             <span>{expanded ? collapseLabel : expandLabel}</span>
             <ChevronDown

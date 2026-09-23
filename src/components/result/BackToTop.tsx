@@ -52,8 +52,12 @@ export function BackToTop({ threshold = 0.5 }: BackToTopProps) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 8 }}
-          transition={{ duration: 0.22, ease: [0.22, 0.61, 0.36, 1] }}
-          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-40 inline-flex items-center gap-2 bg-ink text-paper px-4 py-3 mono text-[0.7rem] tracking-[0.18em] uppercase shadow-[0_10px_30px_-12px_rgba(14,16,20,0.45)] hover:bg-navy transition-colors"
+          transition={
+            reduce
+              ? { duration: 0 }
+              : { duration: 0.22, ease: [0.22, 0.61, 0.36, 1] }
+          }
+          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-40 inline-flex items-center gap-2 bg-ink text-canvas px-4 py-3 mono text-[0.7rem] tracking-[0.18em] uppercase shadow-[0_10px_30px_-12px_rgba(14,16,20,0.45)] hover:bg-signal transition-colors"
         >
           <ArrowUp size={14} strokeWidth={1.8} aria-hidden />
           <span className="hidden sm:inline">Naar boven</span>

@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, useInView, useReducedMotion } from "motion/react";
-import { useRef } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import { THEMES, type ThemeId, type ThemeScores } from "@/lib/themes";
 import { themeCoverageLabel, themeCoverageState } from "@/lib/theme-coverage";
+import { MeasureMarker } from "@/components/viz/MeasureMarker";
 
 const TICKS = [-100, 0, 100];
 
@@ -13,19 +13,32 @@ interface ThemeBarsProps {
   coverage?: Partial<Record<ThemeId, number>>;
 }
 
+function position(value: number): number {
+  return (Math.max(-100, Math.min(100, value)) + 100) / 2;
+}
+
+function signed(value: number): string {
+  const rounded = Math.round(value);
+  return (rounded > 0 ? "+" : "") + rounded;
+}
+
 export function ThemeBars({ scores, coverage }: ThemeBarsProps) {
   return (
     <div className="border-t border-rule">
-      {THEMES.map((t, i) =>
-        themeCoverageState(coverage?.[t.id]) === "geen" ? (
-          <ThemeWithoutQuestions key={t.id} theme={t.id} index={i} />
+      {THEMES.map((theme, index) =>
+        themeCoverageState(coverage?.[theme.id]) === "geen" ? (
+          <ThemeWithoutQuestions
+            key={theme.id}
+            theme={theme.id}
+            index={index}
+          />
         ) : (
           <ThemeRow
-            key={t.id}
-            theme={t.id}
-            value={Number.isFinite(scores[t.id]) ? scores[t.id] : 0}
-            index={i}
-            coverageLabel={themeCoverageLabel(coverage?.[t.id])}
+            key={theme.id}
+            theme={theme.id}
+            value={Number.isFinite(scores[theme.id]) ? scores[theme.id] : 0}
+            index={index}
+            coverageLabel={themeCoverageLabel(coverage?.[theme.id])}
           />
         ),
       )}
@@ -33,10 +46,6 @@ export function ThemeBars({ scores, coverage }: ThemeBarsProps) {
   );
 }
 
-/**
- * Een thema waarover de quiz niets vroeg. Hier hoort geen cijfer te staan: een
- * nul zou niet te onderscheiden zijn van een oprecht neutraal antwoord.
- */
 function ThemeWithoutQuestions({
   theme,
   index,
@@ -44,16 +53,16 @@ function ThemeWithoutQuestions({
   theme: ThemeId;
   index: number;
 }) {
-  const meta = THEMES.find((t) => t.id === theme)!;
+  const meta = THEMES.find((item) => item.id === theme)!;
   return (
-    <div className="py-6 border-b border-rule last:border-b-0">
-      <div className="flex items-baseline gap-4 min-w-0">
-        <span className="index-num text-xs hidden sm:inline">
+    <div className="border-b border-rule py-5 last:border-b-0 sm:py-6">
+      <div className="flex min-w-0 items-start gap-3 sm:gap-4">
+        <span className="mono hidden pt-0.5 text-[0.65rem] tabular-nums text-text-muted sm:inline">
           {String(index + 1).padStart(2, "0")}
         </span>
         <div className="min-w-0">
-          <p className="kicker mb-1">{meta.label}</p>
-          <p className="text-sm text-ink-muted leading-relaxed">
+          <p className="kicker">{meta.label}</p>
+          <p className="mt-1 text-sm leading-relaxed text-text-muted">
             Geen vragen over dit thema in jouw quiz.
           </p>
         </div>
@@ -73,90 +82,93 @@ function ThemeRow({
   index: number;
   coverageLabel?: string | null;
 }) {
-  const meta = THEMES.find((t) => t.id === theme)!;
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
+  const meta = THEMES.find((item) => item.id === theme)!;
   const reduce = useReducedMotion();
-
-  const left = ((value + 100) / 200) * 100;
-  const sign = value > 0 ? "+" : value === 0 ? "" : "";
+  const left = position(value);
 
   return (
-    <div ref={ref} className="py-6 border-b border-rule last:border-b-0">
-      <div className="flex items-start justify-between gap-5 mb-4">
-        <div className="flex items-baseline gap-4 min-w-0">
-          <span className="index-num text-xs hidden sm:inline">
+    <div
+      className="border-b border-rule py-5 last:border-b-0 sm:py-6"
+      aria-label={meta.label + ": " + signed(value)}
+    >
+      <div className="mb-4 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4">
+        <div className="flex min-w-0 items-start gap-3 sm:gap-4">
+          <span className="mono hidden pt-0.5 text-[0.65rem] tabular-nums text-text-muted sm:inline">
             {String(index + 1).padStart(2, "0")}
           </span>
           <div className="min-w-0">
-            <p className="kicker mb-1">{meta.label}</p>
+            <div className="flex items-center gap-2">
+              <MeasureMarker
+                shape="circle"
+                size={10}
+                className="shrink-0 text-chart-marker"
+              />
+              <p className="kicker">{meta.label}</p>
+            </div>
             <h3
               lang="nl"
-              className="display text-lg md:text-xl leading-tight text-ink wrap-break-word [hyphens:auto]"
+              className="display mt-1 text-base leading-tight text-ink [hyphens:auto] [overflow-wrap:anywhere] sm:text-lg"
             >
               {meta.poleNegative.label}
-              <span className="text-ink-subtle font-light mx-2">/</span>
+              <span aria-hidden className="mx-2 font-normal text-text-muted">
+                /
+              </span>
               {meta.polePositive.label}
             </h3>
           </div>
         </div>
-        <div className="text-right shrink-0">
-          <span className="display tabular-nums text-2xl md:text-3xl text-ink leading-none">
-            {sign}
-            {value}
-          </span>
-        </div>
+        <span className="mono shrink-0 border-l border-rule pl-3 text-lg font-semibold tabular-nums leading-none text-ink sm:pl-5 sm:text-xl">
+          {signed(value)}
+        </span>
       </div>
 
-      <div className="relative h-7 select-none">
-        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[5px] bg-paper-100 border-y border-rule" />
-        <div className="absolute left-1/2 top-0 bottom-0 w-px bg-rule-strong" />
-        {TICKS.map((t) => {
-          const x = ((t + 100) / 200) * 100;
-          return (
-            <div
-              key={t}
-              className="absolute top-0 bottom-0 w-px bg-rule-strong"
-              style={{ left: `${x}%`, transform: "translateX(-50%)" }}
-              aria-hidden
-            />
-          );
-        })}
-        <motion.div
-          initial={{ left: "50%", opacity: 0 }}
-          animate={
-            inView
-              ? { left: `${left}%`, opacity: 1 }
-              : { left: "50%", opacity: 0 }
-          }
+      <div className="relative h-8 select-none" aria-hidden>
+        <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-chart-track" />
+        <div className="absolute inset-x-0 top-[calc(50%+4px)] border-t border-dotted border-rule" />
+        {TICKS.map((tick) => (
+          <span
+            key={tick}
+            className={
+              "absolute top-1/2 w-px -translate-x-1/2 -translate-y-1/2 bg-rule-strong " +
+              (tick === 0 ? "h-6" : "h-3")
+            }
+            style={{ left: position(tick) + "%" }}
+          />
+        ))}
+        <motion.span
+          initial={false}
+          animate={{ left: left + "%" }}
           transition={
             reduce
               ? { duration: 0 }
-              : {
-                  left: { type: "spring", stiffness: 220, damping: 26 },
-                  opacity: { duration: 0.2 },
-                }
+              : { type: "spring", stiffness: 240, damping: 28 }
           }
-          style={{ transform: "translateX(-50%)" }}
-          className="absolute top-0 bottom-0 flex items-center pointer-events-none"
+          className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 bg-canvas p-0.5 text-chart-marker"
         >
-          <span className="block w-2.5 h-2.5 rotate-45 bg-ink" />
-        </motion.div>
+          <MeasureMarker shape="circle" size={14} />
+        </motion.span>
       </div>
 
-      <div className="mt-2 flex justify-between text-xs text-ink-muted">
-        <span>
-          <span className="mono mr-1.5 text-[0.65rem]">←</span>
+      <div className="mt-2 grid grid-cols-2 gap-4 text-xs leading-snug text-text-muted">
+        <span lang="nl" className="min-w-0 [hyphens:auto] [overflow-wrap:anywhere]">
+          <span aria-hidden className="mono mr-1">
+            ←
+          </span>
           {meta.poleNegative.label}
         </span>
-        <span className="text-right">
+        <span
+          lang="nl"
+          className="min-w-0 text-right [hyphens:auto] [overflow-wrap:anywhere]"
+        >
           {meta.polePositive.label}
-          <span className="mono ml-1.5 text-[0.65rem]">→</span>
+          <span aria-hidden className="mono ml-1">
+            →
+          </span>
         </span>
       </div>
 
       {coverageLabel ? (
-        <p className="mt-2 text-xs text-ink-muted">{coverageLabel}</p>
+        <p className="mt-2 text-xs text-text-muted">{coverageLabel}</p>
       ) : null}
     </div>
   );

@@ -17,7 +17,7 @@ function EvidenceList({
   empty: string;
 }) {
   if (items.length === 0) {
-    return <p className="text-sm text-ink-muted leading-relaxed">{empty}</p>;
+    return <p className="text-sm text-text-muted leading-relaxed">{empty}</p>;
   }
 
   return (
@@ -25,24 +25,24 @@ function EvidenceList({
       {items.map((item) => (
         <li key={`${item.statement}-${item.partyStance}`} className="border-t border-rule pt-4">
           <p className="text-sm text-ink leading-relaxed">{item.statement}</p>
-          <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-ink-muted">
+          <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-text-muted">
             <span>Jij: {item.userAnswerLabel}</span>
             <span>Partij: {item.partyStanceLabel}</span>
             <span>{sourceLabel(item.basis)}</span>
           </div>
           {item.quote ? (
-            <p className="mt-2 border-l-2 border-rule-strong pl-3 text-xs italic text-ink-2 leading-relaxed">
+            <p className="mt-2 border-l-2 border-rule-strong pl-3 text-xs italic text-ink-raised leading-relaxed">
               “{item.quote}”
             </p>
           ) : null}
           {item.note ? (
-            <p className="mt-2 text-xs text-ink-muted leading-relaxed">{item.note}</p>
+            <p className="mt-2 text-xs text-text-muted leading-relaxed">{item.note}</p>
           ) : null}
           <a
             href={item.sourceUrl}
             target="_blank"
             rel="noreferrer"
-            className="mt-2 inline-flex text-xs text-navy underline underline-offset-2 hover:text-ink"
+            className="mt-2 inline-flex text-xs text-signal underline underline-offset-2 hover:text-ink"
           >
             Bron openen
           </a>
@@ -77,9 +77,9 @@ export function PartyStatementCompare({
 }) {
   if (comparisons.length === 0) {
     return (
-      <div className="border border-rule bg-paper-100 p-5 md:p-7">
+      <div className="border border-rule bg-canvas-pressed p-5 md:p-7">
         <p className="kicker mb-2">Nog geen partijvergelijking</p>
-        <p className="text-sm text-ink-2 leading-relaxed">
+        <p className="text-sm text-ink-raised leading-relaxed">
           Er zijn nog geen gecontroleerde partijstandpunten gekoppeld aan de
           beantwoorde vragen in dit rapport.
         </p>
@@ -89,8 +89,8 @@ export function PartyStatementCompare({
 
   return (
     <div>
-      <aside className="border border-navy/30 bg-navy/3 px-4 py-4 md:px-5 md:py-5 text-sm text-ink-2 leading-relaxed max-w-3xl">
-        <p className="kicker mb-2 text-navy">Eerst antwoorden, dan vergelijken</p>
+      <aside className="border border-signal/30 bg-signal/3 px-4 py-4 md:px-5 md:py-5 text-sm text-ink-raised leading-relaxed max-w-3xl">
+        <p className="kicker mb-2 text-signal">Eerst antwoorden, dan vergelijken</p>
         <p>
           Deze laag staat bewust pas in je resultaat. Als je partijstandpunten
           vooraf leest, kunnen ze je eigen antwoorden kleuren. De percentages
@@ -110,13 +110,13 @@ export function PartyStatementCompare({
           return (
             <article
               key={comparison.partySlug}
-              className="border border-rule bg-paper-100 p-5 md:p-6"
+              className="border border-rule bg-canvas-pressed p-5 md:p-6"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex min-w-0 items-start gap-3">
                   <PartyMark slug={comparison.partySlug} abbreviation={comparison.party.abbreviation} />
                   <div className="min-w-0">
-                    <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                    <p className="mono text-[0.62rem] tracking-wider text-text-muted">
                       {String(index + 1).padStart(2, "0")} · {comparison.party.abbreviation}
                     </p>
                     <h3 className="display mt-1 text-xl leading-tight text-ink wrap-break-word [hyphens:auto]">
@@ -125,31 +125,31 @@ export function PartyStatementCompare({
                   </div>
                 </div>
                 <div className="shrink-0 text-right">
-                  <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">RUWE OVEREENKOMST</p>
-                  <p className="display mt-1 text-2xl leading-none text-navy" aria-label={`Ruwe overeenkomst: ${percentage}`}>
+                  <p className="mono text-[0.62rem] tracking-wider text-text-muted">RUWE OVEREENKOMST</p>
+                  <p className="display mt-1 text-2xl leading-none text-signal" aria-label={`Ruwe overeenkomst: ${percentage}`}>
                     {percentage}
                   </p>
                 </div>
               </div>
 
-              <p className="mt-5 text-sm text-ink-2 leading-relaxed">
+              <p className="mt-5 text-sm text-ink-raised leading-relaxed">
                 {comparison.matchingAnswers} van {comparison.consideredAnswers} vergelijkbare antwoorden komen overeen.
                 {comparison.noPositionAnswers > 0
                   ? ` Bij ${comparison.noPositionAnswers} beantwoorde stelling${comparison.noPositionAnswers === 1 ? "" : "en"} heeft deze partij geen publiek standpunt.`
                   : ""}
               </p>
-              <p className="mt-3 mono text-[0.62rem] tracking-wider text-ink-subtle">
+              <p className="mt-3 mono text-[0.62rem] tracking-wider text-text-muted">
                 {basisCountLabel(comparison)} · {answeredCount} antwoorden in jouw rapport
               </p>
               <Link
                 href={`/partij/${comparison.partySlug}`}
-                className="mt-3 inline-flex text-xs text-navy underline underline-offset-2 hover:text-ink"
+                className="mt-3 inline-flex text-xs text-signal underline underline-offset-2 hover:text-ink"
               >
                 Open partijprofiel
               </Link>
 
               <details className="mt-6 border-t border-rule pt-4" open={index === 0}>
-                <summary className="cursor-pointer list-none text-sm font-medium text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy">
+                <summary className="cursor-pointer list-none text-sm font-medium text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal">
                   Bekijk waar de overeenkomst en verschillen zitten
                 </summary>
                 <div className="mt-5 space-y-7">
@@ -174,7 +174,7 @@ export function PartyStatementCompare({
         })}
       </div>
 
-      <p className="mt-6 max-w-3xl text-xs text-ink-muted leading-relaxed">
+      <p className="mt-6 max-w-3xl text-xs text-text-muted leading-relaxed">
         Geen partijstandpunt betekent niet automatisch dat de partij het ermee
         eens of oneens is. De selectie hierboven is een transparante
         vergelijking van bronnen en antwoorden, geen ranglijst van wat je zou

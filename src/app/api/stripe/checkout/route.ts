@@ -16,6 +16,10 @@ import {
   buildPromotionCheckoutOptions,
   normalizePromotionCode,
 } from "@/lib/checkout-promotion";
+import {
+  CHECKOUT_UNAVAILABLE_RESPONSE,
+  checkoutUnavailableBody,
+} from "@/lib/checkout-error";
 import type { Tier } from "@/lib/dimensions";
 
 interface Body {
@@ -114,7 +118,10 @@ export async function POST(request: Request) {
         sessionId: session.id,
       });
       return NextResponse.json(
-        { error: "Stripe checkout kon niet worden gestart (geen URL)." },
+        {
+          ...checkoutUnavailableBody(),
+          code: CHECKOUT_UNAVAILABLE_RESPONSE,
+        },
         { status: 500 },
       );
     }
@@ -129,7 +136,10 @@ export async function POST(request: Request) {
     const summary = describeError(err);
     console.error("[stripe-checkout] failed:", summary);
     return NextResponse.json(
-      { error: `Checkout-fout: ${summary.message}` },
+      {
+        ...checkoutUnavailableBody(),
+        code: CHECKOUT_UNAVAILABLE_RESPONSE,
+      },
       { status: 500 },
     );
   }

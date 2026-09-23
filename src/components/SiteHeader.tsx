@@ -13,6 +13,8 @@ import { usePathname } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, ArrowRight, ChevronDown, Plus, Minus } from "lucide-react";
+import { BrandWordmark } from "@/components/brand/BrandWordmark";
+import { MeasureRule } from "@/components/system/MeasureRule";
 import { cx } from "@/lib/cx";
 
 interface NavLink {
@@ -111,7 +113,7 @@ export function SiteHeader() {
 
   const megaPanelId = useId();
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLElement | null>(null);
   // Capture open-state on pointerDown to make click toggle robust tegen
   // de hover→click race (hover zet open, click zou anders altijd sluiten).
   const wasOpenOnPointerDown = useRef(false);
@@ -156,6 +158,18 @@ export function SiteHeader() {
     };
   }, [megaOpen]);
 
+  // Radix closes the dialog too, but retain an explicit page-level Escape
+  // handler so the full-screen mobile navigation cannot trap the keyboard
+  // during an exit animation.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
+
   const exploreActive = pathname.startsWith("/verkennen") ||
     EXPLORE_COLUMNS.some((c) =>
       c.links.some((l) => pathname.startsWith(l.href)),
@@ -173,29 +187,46 @@ export function SiteHeader() {
     closeTimer.current = setTimeout(() => setMegaOpen(false), 120);
   }, [cancelClose]);
 
+  if (pathname.startsWith("/quiz/")) {
+    return (
+      <header className="sticky top-0 z-40 border-b border-rule-strong bg-canvas">
+        <div className="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:px-10">
+          <Link href="/" className="no-underline" aria-label="PolitiekProfiel home">
+            <BrandWordmark className="text-lg" />
+          </Link>
+          <div className="flex items-center gap-4">
+            <span className="mono hidden text-[0.64rem] uppercase tracking-[0.14em] text-text-muted sm:inline">
+              Actieve meting
+            </span>
+            <Link
+              href="/"
+              className="inline-flex min-h-11 items-center border-l border-rule pl-4 text-sm font-semibold text-ink no-underline hover:text-signal-pressed"
+            >
+              Stoppen
+            </Link>
+          </div>
+        </div>
+        <MeasureRule />
+      </header>
+    );
+  }
+
   return (
     <header
       ref={containerRef}
       className={cx(
-        "sticky top-0 z-40 transition-[background-color,border-color,backdrop-filter] duration-300",
-        scrolled || megaOpen
-          ? "bg-paper/90 backdrop-blur-md border-b border-rule"
-          : "bg-paper/0 border-b border-transparent",
+        "sticky top-0 z-40 border-b border-rule-strong bg-canvas transition-colors duration-200",
+        (scrolled || megaOpen) && "bg-canvas-raised",
       )}
     >
       <div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 lg:px-10 h-16 md:h-[72px]">
-        <Link
-          href="/"
-          className="display text-[1.15rem] md:text-[1.25rem] font-medium tracking-tight no-underline hover:text-ink"
-          onMouseEnter={cancelClose}
-        >
-          <span className="text-ink">Politiek</span>
-          <span className="text-navy">Profiel</span>
+        <Link href="/" className="no-underline" onMouseEnter={cancelClose}>
+          <BrandWordmark className="text-[1.15rem] md:text-[1.25rem]" />
         </Link>
 
         {/* Desktop nav */}
         <nav
-          className="hidden md:flex items-center gap-8"
+          className="hidden lg:flex items-center gap-8"
           aria-label="Hoofdnavigatie"
         >
           <div
@@ -226,7 +257,7 @@ export function SiteHeader() {
                 "inline-flex items-center gap-1.5 text-sm transition-colors outline-none",
                 exploreActive || megaOpen
                   ? "text-ink"
-                  : "text-ink-muted hover:text-ink",
+                  : "text-text-muted hover:text-ink",
               )}
             >
               Verkennen
@@ -250,7 +281,7 @@ export function SiteHeader() {
                 "text-sm no-underline transition-colors",
                 pathname.startsWith(link.href)
                   ? "text-ink"
-                  : "text-ink-muted hover:text-ink",
+                  : "text-text-muted hover:text-ink",
               )}
             >
               {link.label}
@@ -261,7 +292,7 @@ export function SiteHeader() {
             onMouseEnter={scheduleClose}
             className="btn btn-primary text-[0.82rem] py-2.5 px-4"
           >
-            Start de quiz
+            Kies je quiz
             <ArrowRight size={14} strokeWidth={1.8} />
           </Link>
         </nav>
@@ -272,7 +303,7 @@ export function SiteHeader() {
             <button
               type="button"
               aria-label="Menu openen"
-              className="md:hidden inline-flex items-center justify-center w-10 h-10 -mr-2 text-ink"
+              className="lg:hidden inline-flex min-h-11 min-w-11 items-center justify-center -mr-2 text-ink"
             >
               <Menu size={20} strokeWidth={1.7} />
             </button>
@@ -282,19 +313,20 @@ export function SiteHeader() {
               <Dialog.Portal forceMount>
                 <Dialog.Overlay asChild>
                   <motion.div
-                    className="fixed inset-0 z-50 bg-ink/30 backdrop-blur-sm"
+                    className="fixed inset-0 z-50 bg-ink"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   />
                 </Dialog.Overlay>
-                <Dialog.Content asChild>
+                <Dialog.Content asChild onEscapeKeyDown={() => setMobileOpen(false)}>
                   <motion.div
-                    className="fixed inset-y-0 right-0 z-50 w-[88%] max-w-sm bg-paper border-l border-rule-strong flex flex-col"
-                    initial={{ x: "100%" }}
-                    animate={{ x: 0 }}
-                    exit={{ x: "100%" }}
+                    data-mobile-menu
+                    className="fixed inset-0 z-50 flex h-[100dvh] min-h-[100dvh] w-full flex-col overflow-y-auto bg-ink text-canvas"
+                    initial={{ opacity: 0, y: -12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
                     transition={{
                       type: "spring",
                       stiffness: 320,
@@ -302,27 +334,24 @@ export function SiteHeader() {
                     }}
                   >
                     <Dialog.Title className="sr-only">Navigatie</Dialog.Title>
-                    <div className="flex items-center justify-between px-6 h-16 border-b border-rule">
-                      <span className="display text-lg">
-                        <span className="text-ink">Politiek</span>
-                        <span className="text-navy">Profiel</span>
-                      </span>
+                    <div className="flex items-center justify-between px-6 h-16 border-b border-canvas/25">
+                      <BrandWordmark className="text-lg" inverted />
                       <Dialog.Close asChild>
                         <button
                           type="button"
                           aria-label="Menu sluiten"
-                          className="w-10 h-10 -mr-2 inline-flex items-center justify-center text-ink-muted hover:text-ink"
+                          className="inline-flex min-h-11 min-w-11 -mr-2 items-center justify-center text-canvas/70 hover:text-focus"
                         >
                           <X size={20} strokeWidth={1.7} />
                         </button>
                       </Dialog.Close>
                     </div>
                     <nav
-                      className="flex-1 px-6 py-7 flex flex-col overflow-y-auto"
+                      className="flex-1 px-6 py-7 flex flex-col overflow-y-auto text-canvas"
                       aria-label="Mobiele navigatie"
                     >
-                      <p className="kicker mb-5">Navigatie</p>
-                      <ul className="border-t border-rule">
+                      <p className="kicker mb-5 text-canvas/60">Navigatie</p>
+                      <ul className="border-t border-canvas/25">
                         <MobileExploreItem
                           open={mobileExploreOpen}
                           onToggle={() =>
@@ -333,16 +362,16 @@ export function SiteHeader() {
                         {PRIMARY_LINKS.map((link, i) => (
                           <li
                             key={link.href}
-                            className="border-b border-rule"
+                            className="border-b border-canvas/25"
                           >
                             <Link
                               href={link.href}
                               className="flex items-baseline justify-between py-4 no-underline"
                             >
-                              <span className="display text-[1.55rem] leading-none text-ink">
+                              <span className="display text-[1.55rem] leading-none text-canvas">
                                 {link.label}
                               </span>
-                              <span className="index-num text-xs">
+                              <span className="index-num text-xs text-canvas/60">
                                 {String(i + 2).padStart(2, "0")}
                               </span>
                             </Link>
@@ -353,12 +382,12 @@ export function SiteHeader() {
                         href="/quiz/standard"
                         className="btn btn-primary mt-8"
                       >
-                        Start de quiz
+                        Kies je quiz
                         <ArrowRight size={16} strokeWidth={1.8} />
                       </Link>
                     </nav>
-                    <div className="px-6 py-5 border-t border-rule">
-                      <p className="kicker">Geen tracking · Geen reclame</p>
+                    <div className="px-6 py-5 border-t border-canvas/25">
+                      <p className="mono text-[0.65rem] uppercase tracking-[0.14em] text-canvas/60">Geen tracking · Geen reclame</p>
                     </div>
                   </motion.div>
                 </Dialog.Content>
@@ -367,6 +396,8 @@ export function SiteHeader() {
           </AnimatePresence>
         </Dialog.Root>
       </div>
+
+      <MeasureRule />
 
       {/* Mega-menu paneel (desktop) */}
       <AnimatePresence>
@@ -410,21 +441,17 @@ function DesktopMegaMenu({
       animate={{ y: 0, clipPath: "inset(0 0 0% 0)" }}
       exit={{ y: -8, clipPath: "inset(0 0 100% 0)" }}
       transition={{ duration: 0.22, ease: [0.22, 0.61, 0.36, 1] }}
-      className="hidden md:block absolute inset-x-0 top-full border-t border-rule shadow-[0_30px_60px_-40px_rgba(14,16,20,0.18)] overflow-hidden"
-      style={{ backgroundColor: "var(--color-paper)" }}
+      className="hidden lg:block absolute inset-x-0 top-full border-t border-rule-strong overflow-hidden"
+      style={{ backgroundColor: "var(--color-canvas)" }}
     >
       <div className="mx-auto max-w-[1500px] px-6 lg:px-10 py-10">
         <div className="grid grid-cols-12 gap-10">
           <div className="col-span-12 lg:col-span-3">
             <p className="kicker">Verkennen</p>
             <p className="display mt-3 text-[1.6rem] leading-tight text-ink">
-              Alles wat het{" "}
-              <em className="display-italic font-light text-navy">
-                kompas
-              </em>{" "}
-              voedt.
+              Alles wat het kompas voedt.
             </p>
-            <p className="mt-4 text-sm text-ink-2 max-w-xs leading-relaxed">
+            <p className="mt-4 text-sm text-ink-raised max-w-xs leading-relaxed">
               Stellingen, ideologieën, mensen, partijen, landen en tools:
               doorbladerbaar en uitlegbaar.
             </p>
@@ -468,14 +495,14 @@ function DesktopMegaMenu({
                             className={cx(
                               "display text-[1.15rem] leading-tight transition-colors",
                               active
-                                ? "text-navy"
-                                : "text-ink group-hover:text-navy",
+                                ? "text-signal"
+                                : "text-ink group-hover:text-signal",
                             )}
                           >
                             {link.label}
                           </span>
                           {link.description && (
-                            <span className="mt-1 block text-[0.82rem] leading-snug text-ink-muted">
+                            <span className="mt-1 block text-[0.82rem] leading-snug text-text-muted">
                               {link.description}
                             </span>
                           )}
@@ -501,23 +528,23 @@ interface MobileExploreItemProps {
 
 function MobileExploreItem({ open, onToggle, index }: MobileExploreItemProps) {
   return (
-    <li className="border-b border-rule">
+    <li className="border-b border-canvas/25">
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={open}
-        className="w-full flex items-baseline justify-between py-4"
+        className="w-full flex min-h-11 items-baseline justify-between py-4 text-canvas"
       >
-        <span className="display text-[1.55rem] leading-none text-ink">
+        <span className="display text-[1.55rem] leading-none text-canvas">
           Verkennen
         </span>
         <span className="flex items-baseline gap-3">
-          <span className="index-num text-xs">
+          <span className="index-num text-xs text-canvas/60">
             {String(index).padStart(2, "0")}
           </span>
           <span
             aria-hidden
-            className="inline-flex items-center justify-center w-5 h-5 text-ink-muted"
+            className="inline-flex items-center justify-center w-5 h-5 text-canvas/60"
           >
             {open ? (
               <Minus size={14} strokeWidth={1.7} />
@@ -539,7 +566,7 @@ function MobileExploreItem({ open, onToggle, index }: MobileExploreItemProps) {
             <div className="pb-5 pl-1">
               <Link
                 href="/verkennen"
-                className="inline-flex items-center gap-2 text-sm text-ink no-underline border-b border-ink/40 hover:border-ink pb-0.5 mb-4"
+                className="mb-4 inline-flex min-h-11 items-center gap-2 border-b border-canvas/50 pb-0.5 text-sm text-canvas no-underline hover:border-focus hover:text-focus"
               >
                 Bekijk overzicht
                 <ArrowRight size={14} strokeWidth={1.8} />
@@ -559,19 +586,19 @@ function MobileExploreColumns(): ReactNode {
       {EXPLORE_COLUMNS.map((col) => (
         <div key={col.title}>
           <div className="flex items-baseline gap-3 mb-2.5">
-            <span className="index-num text-[0.7rem]">{col.kicker}</span>
+            <span className="index-num text-[0.7rem] text-canvas/60">{col.kicker}</span>
             <span
               aria-hidden
-              className="block h-px w-4 bg-rule-strong translate-y-[-2px]"
+              className="block h-px w-4 bg-canvas/40 translate-y-[-2px]"
             />
-            <span className="kicker">{col.title}</span>
+            <span className="kicker text-canvas/60">{col.title}</span>
           </div>
           <ul className="space-y-1.5">
             {col.links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="display text-[1.05rem] leading-tight text-ink no-underline"
+                  className="display inline-flex min-h-11 items-center text-[1.05rem] leading-tight text-canvas no-underline hover:text-focus"
                 >
                   {link.label}
                 </Link>

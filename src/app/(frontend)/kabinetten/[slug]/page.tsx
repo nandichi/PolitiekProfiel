@@ -87,8 +87,8 @@ export default async function CabinetDetailPage({ params }: PageProps) {
         <ScrollRevealItem>
           <dl className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-rule border border-rule max-w-5xl">
             {meta.map((item) => (
-              <div key={item.term} className="bg-paper p-5">
-                <dt className="mono text-[0.62rem] tracking-wider text-ink-muted uppercase">
+              <div key={item.term} className="bg-canvas p-5">
+                <dt className="mono text-[0.62rem] tracking-wider text-text-muted uppercase">
                   {item.term}
                 </dt>
                 <dd className="mt-2 text-sm text-ink leading-relaxed">
@@ -102,7 +102,7 @@ export default async function CabinetDetailPage({ params }: PageProps) {
         <ScrollRevealItem>
           <div className="mt-12 max-w-3xl border-t border-rule pt-6">
             <p className="kicker">Waarom dit kabinet eindigde</p>
-            <p className="mt-3 text-base text-ink-2 leading-relaxed">
+            <p className="mt-3 text-base text-ink-raised leading-relaxed">
               {cabinet.endReason}
             </p>
           </div>
@@ -117,18 +117,18 @@ export default async function CabinetDetailPage({ params }: PageProps) {
         <ol className="mt-10 max-w-4xl divide-y divide-rule border-y border-rule">
           {cabinet.achievements.map((claim, index) => (
             <li key={claim.claim} className="grid grid-cols-[2rem_1fr] gap-4 py-5">
-              <span className="mono text-xs text-ink-muted pt-1.5">
+              <span className="mono text-xs text-text-muted pt-1.5">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <div className="min-w-0">
-                <p className="text-base text-ink-2 leading-relaxed">
+                <p className="text-base text-ink-raised leading-relaxed">
                   {claim.claim}
                 </p>
                 <a
                   href={claim.sourceUrl}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="mt-2 inline-block text-xs text-ink-muted underline decoration-rule hover:text-ink"
+                  className="mt-2 inline-block text-xs text-text-muted underline decoration-rule hover:text-ink"
                 >
                   Bron bij deze maatregel
                 </a>
@@ -146,18 +146,18 @@ export default async function CabinetDetailPage({ params }: PageProps) {
         <ol className="mt-10 max-w-4xl divide-y divide-rule border-y border-rule">
           {cabinet.unfulfilled.map((claim, index) => (
             <li key={claim.claim} className="grid grid-cols-[2rem_1fr] gap-4 py-5">
-              <span className="mono text-xs text-ink-muted pt-1.5">
+              <span className="mono text-xs text-text-muted pt-1.5">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <div className="min-w-0">
-                <p className="text-base text-ink-2 leading-relaxed">
+                <p className="text-base text-ink-raised leading-relaxed">
                   {claim.claim}
                 </p>
                 <a
                   href={claim.sourceUrl}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="mt-2 inline-block text-xs text-ink-muted underline decoration-rule hover:text-ink"
+                  className="mt-2 inline-block text-xs text-text-muted underline decoration-rule hover:text-ink"
                 >
                   Bron bij dit punt
                 </a>
@@ -169,7 +169,7 @@ export default async function CabinetDetailPage({ params }: PageProps) {
 
       <section className="mt-20 border-t border-ink pt-10">
         <Kicker number={3}>Opvallend</Kicker>
-        <div className="mt-6 max-w-3xl border border-rule bg-paper p-6">
+        <div className="mt-6 max-w-3xl border border-rule bg-canvas p-6">
           <p className="text-base text-ink leading-relaxed">
             {cabinet.interestingFact}
           </p>
@@ -177,7 +177,7 @@ export default async function CabinetDetailPage({ params }: PageProps) {
             href={cabinet.interestingFactSource}
             target="_blank"
             rel="noreferrer noopener"
-            className="mt-3 inline-block text-xs text-ink-muted underline decoration-rule hover:text-ink"
+            className="mt-3 inline-block text-xs text-text-muted underline decoration-rule hover:text-ink"
           >
             Bron bij dit feit
           </a>
@@ -195,7 +195,7 @@ export default async function CabinetDetailPage({ params }: PageProps) {
         </Link>
       </div>
 
-      <p className="mt-10 max-w-3xl text-sm text-ink-muted leading-relaxed">
+      <p className="mt-10 max-w-3xl text-sm text-text-muted leading-relaxed">
         Elke bewering op deze pagina verwijst naar een bron. Het onderscheid
         tussen een voornemen in een coalitieakkoord en een aangenomen of
         uitgevoerde maatregel is bewust aangehouden. Bijgewerkt op{" "}

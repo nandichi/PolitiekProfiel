@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { StickyIndex } from "@/components/StickyIndex";
 import {
-  ScrollReveal,
-  ScrollRevealItem,
-} from "@/components/motion/ScrollReveal";
+  DossierGrid,
+  DossierNote,
+} from "@/components/content/PublicContent";
 import {
   buildArticleSchema,
   buildBreadcrumbList,
@@ -71,42 +71,54 @@ export default function HerroepingsrechtPage() {
           __html: jsonLdString([articleLd, breadcrumbLd]),
         }}
       />
-      <div className="grid grid-cols-1 gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
-        <StickyIndex items={INDEX} topOffset={96} />
-
+      <DossierGrid
+        index={<StickyIndex items={INDEX} topOffset={96} />}
+        aside={
+          <div className="space-y-8 lg:sticky lg:top-24">
+            <DossierNote label="Bedenktijd">
+              <p>Veertien dagen na aankoop, met de uitzonderingen die in dit document staan.</p>
+            </DossierNote>
+            <DossierNote label="Versie">
+              <p className="font-mono text-[0.66rem] uppercase tracking-[0.12em]">
+                1.1 · {PAGE_MODIFIED}
+              </p>
+            </DossierNote>
+          </div>
+        }
+      >
         <div className="min-w-0 max-w-3xl">
           <section id="intro" className="scroll-mt-32">
-            <ScrollReveal variant="stagger" immediate>
-              <ScrollRevealItem>
+            <>
+              <>
                 <Kicker>Betalen</Kicker>
-              </ScrollRevealItem>
-              <ScrollRevealItem>
+              </>
+              <>
                 <h1
                   className="display mt-6"
                   style={{ letterSpacing: "-0.025em" }}
                 >
                   Herroepingsrecht
                   <span className="block">
-                    <em className="display-italic font-light text-navy">
+                    <em className="not-italic font-extrabold text-signal">
                       & refunds.
                     </em>
                   </span>
                 </h1>
-              </ScrollRevealItem>
-              <ScrollRevealItem>
-                <p className="mt-8 text-lg md:text-xl text-ink-2 leading-relaxed">
+              </>
+              <>
+                <p className="mt-8 text-lg md:text-xl text-ink-raised leading-relaxed">
                   Betaal je voor een quiz, dan heb je standaard{" "}
                   <strong>14 dagen bedenktijd</strong>, zonder opgaaf
                   van reden. Op deze pagina staat exact hoe het werkt, wat de
                   uitzonderingen zijn en hoe je geld terugkrijgt.
                 </p>
-              </ScrollRevealItem>
-              <ScrollRevealItem>
-                <p className="mt-6 mono text-xs text-ink-muted tracking-wide">
+              </>
+              <>
+                <p className="mt-6 mono text-xs text-text-muted tracking-wide">
                   Versie 1.1 · laatst bijgewerkt op 14 september 2026
                 </p>
-              </ScrollRevealItem>
-            </ScrollReveal>
+              </>
+            </>
           </section>
 
           <Block
@@ -205,7 +217,7 @@ export default function HerroepingsrechtPage() {
             id="uitzonderingen"
             kicker="05 · Uitzonderingen"
             title="Wanneer de bedenktijd vervalt."
-            accent="terra"
+            accent="danger"
           >
             <p>
               Voor digitale inhoud kan het herroepingsrecht alleen vóór het
@@ -294,7 +306,7 @@ en een bevestiging op een duurzame gegevensdrager. PolitiekProfiel beroept zich
             id="misbruik"
             kicker="09 · Betalingsfraude"
             title="Fraude verandert je rechten niet."
-            accent="terra"
+            accent="danger"
             last
           >
             <p>
@@ -306,7 +318,7 @@ en een bevestiging op een duurzame gegevensdrager. PolitiekProfiel beroept zich
             </p>
           </Block>
         </div>
-      </div>
+      </DossierGrid>
     </Container>
   );
 }
@@ -323,10 +335,10 @@ function Block({
   kicker: string;
   title: string;
   children: React.ReactNode;
-  accent: "ink" | "terra";
+  accent: "ink" | "danger";
   last?: boolean;
 }) {
-  const accentClass = accent === "terra" ? "text-terra" : "text-ink";
+  const accentClass = accent === "danger" ? "text-danger" : "text-ink";
   return (
     <section
       id={id}
@@ -334,15 +346,15 @@ function Block({
         last ? "pb-16" : ""
       }`}
     >
-      <ScrollReveal variant="stagger">
-        <ScrollRevealItem>
+      <>
+        <>
           <p className="kicker">{kicker}</p>
           <h2 className={`display mt-4 ${accentClass}`}>{title}</h2>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
+        </>
+        <>
           <div className="mt-6 editorial-prose">{children}</div>
-        </ScrollRevealItem>
-      </ScrollReveal>
+        </>
+      </>
     </section>
   );
 }

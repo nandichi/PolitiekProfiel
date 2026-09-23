@@ -21,16 +21,16 @@ export function PersonalProfile({ profile }: PersonalProfileProps) {
           <h2 id="persoonlijke-kern-title" className="display mt-4 max-w-3xl text-3xl md:text-4xl leading-[1.02] text-ink">
             Dit is het patroon achter je antwoorden.
           </h2>
-          <p className="mt-5 max-w-3xl text-base md:text-lg text-ink-2 leading-relaxed">
+          <p className="mt-5 max-w-3xl text-base md:text-lg text-ink-raised leading-relaxed">
             {profile.lead}
           </p>
         </div>
-        <aside className="border-l-2 border-terra pl-5 md:pl-6 self-start">
+        <aside className="border-l-2 border-signal pl-5 md:pl-6 self-start">
           <p className="kicker">Antwoordbasis</p>
           <p className="display mt-2 text-xl leading-tight text-ink">
             {profile.coverage.label}
           </p>
-          <p className="mt-3 text-sm text-ink-2 leading-relaxed">
+          <p className="mt-3 text-sm text-ink-raised leading-relaxed">
             {profile.coverage.message}
           </p>
         </aside>
@@ -54,21 +54,21 @@ export function PersonalProfile({ profile }: PersonalProfileProps) {
       {profile.contextualAxes.length > 0 && (
         <div className="mt-10 border-t border-rule pt-6">
           <p className="kicker">Voorzichtige signalen</p>
-          <p className="mt-3 max-w-3xl text-sm text-ink-2 leading-relaxed">
+          <p className="mt-3 max-w-3xl text-sm text-ink-raised leading-relaxed">
             Deze richtingen komen wel terug, maar niet zo sterk dat ze je profiel moeten domineren. Zie ze als context voor de duidelijkere lijnen hierboven.
           </p>
           <ul className="mt-5 grid grid-cols-1 gap-x-8 gap-y-5 md:grid-cols-2">
             {profile.contextualAxes.map((axis) => (
               <li key={axis.id} className="border-t border-rule pt-4">
                 <p className="kicker">{axis.label}</p>
-                <p className="display mt-1 text-lg leading-tight text-ink">{axis.direction}</p>
+                <p lang="nl" className="display mt-1 text-lg leading-tight text-ink [hyphens:auto] [overflow-wrap:anywhere]">{axis.direction}</p>
               </li>
             ))}
           </ul>
         </div>
       )}
 
-      <p className="mt-8 max-w-3xl text-sm text-ink-muted leading-relaxed">
+      <p className="mt-8 max-w-3xl text-sm text-text-muted leading-relaxed">
         Wat elke richting precies betekent staat bij de vijf assen en de zeven
         thema&apos;s verderop in dit rapport.
       </p>
@@ -92,17 +92,17 @@ function ProfileAxisSection({
       <p className="kicker">{kicker}</p>
       <h3 className="display mt-3 text-2xl leading-tight text-ink">{title}</h3>
       {axes.length === 0 ? (
-        <p className="mt-4 max-w-xl text-sm text-ink-2 leading-relaxed">{empty}</p>
+        <p className="mt-4 max-w-xl text-sm text-ink-raised leading-relaxed">{empty}</p>
       ) : (
         <ol className="mt-6 divide-y divide-rule border-y border-rule">
           {axes.map((axis, index) => (
             <li key={axis.id} className="grid grid-cols-[2rem_1fr_auto] gap-3 py-4 md:grid-cols-[3rem_1fr_auto] md:gap-5">
-              <span className="mono text-xs text-ink-muted pt-1.5">{String(index + 1).padStart(2, "0")}</span>
+              <span className="mono text-xs text-text-muted pt-1.5">{String(index + 1).padStart(2, "0")}</span>
               <div className="min-w-0">
                 <p className="kicker">{axis.label}</p>
-                <p className="display mt-1 text-lg leading-tight text-ink">{axis.direction}</p>
+                <p lang="nl" className="display mt-1 text-lg leading-tight text-ink [hyphens:auto] [overflow-wrap:anywhere]">{axis.direction}</p>
               </div>
-              <span className="mono tabular-nums text-sm text-ink-muted pt-1.5">{axis.score > 0 ? "+" : ""}{axis.score}</span>
+              <span className="mono tabular-nums text-sm text-text-muted pt-1.5">{axis.score > 0 ? "+" : ""}{axis.score}</span>
             </li>
           ))}
         </ol>

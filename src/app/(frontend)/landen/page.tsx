@@ -2,12 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
-import { Kicker } from "@/components/Kicker";
 import { MiniVector } from "@/components/MiniVector";
-import {
-  ScrollReveal,
-  ScrollRevealItem,
-} from "@/components/motion/ScrollReveal";
+import { ContentMasthead } from "@/components/content/PublicContent";
 import { getAllCountriesSeed } from "@/lib/seed-readers";
 import {
   buildBreadcrumbList,
@@ -50,52 +46,44 @@ export default function LandenOverviewPage() {
         dangerouslySetInnerHTML={{ __html: jsonLdString(breadcrumbLd) }}
       />
 
-      <ScrollReveal variant="stagger" immediate>
-        <ScrollRevealItem>
-          <Kicker number="A4">Landen</Kicker>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
-          <h1
-            className="display mt-6 max-w-4xl"
-            style={{ letterSpacing: "-0.025em" }}
-          >
-            Hoe positioneren landen{" "}
-            <em className="display-italic font-light text-navy">
-              zich politiek
-            </em>
-            ?
-          </h1>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
-          <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
+      <ContentMasthead
+        code="A4"
+        eyebrow="Landen"
+        title="Hoe positioneren landen zich politiek?"
+        intro={
+          <p>
             Korte profielen op basis van V-Dem Liberal Democracy Index, Heritage
             Index of Economic Freedom, Eurobarometer en RSF Press Freedom Index.
             Het is een momentopname; politieke regimes verschuiven.
           </p>
-        </ScrollRevealItem>
-      </ScrollReveal>
+        }
+        noteTitle="Vergelijking"
+        note={<p>{countries.length} landen, alfabetisch geordend en op dezelfde vijf assen gezet.</p>}
+      />
 
       <section className="mt-16 md:mt-20 border-t border-ink">
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-rule border-x border-b border-rule">
+        <ul className="border-t border-rule-strong divide-y divide-rule">
           {countries.map((c) => (
-            <li key={c.countryCode} className="bg-paper">
+            <li key={c.countryCode}>
               <Link
                 href={`/land/${c.countryCode.toLowerCase()}`}
-                className="group block p-6 md:p-7 no-underline h-full"
+                className="group grid grid-cols-5 gap-x-4 gap-y-4 py-6 no-underline md:grid-cols-10 md:gap-x-5 lg:grid-cols-15 lg:items-center lg:gap-x-6"
               >
-                <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                <p className="col-span-1 mono text-[0.62rem] tracking-wider text-text-muted lg:col-span-2">
                   {c.countryCode}
                 </p>
-                <h2 className="display mt-1.5 text-xl md:text-2xl leading-tight text-ink group-hover:text-navy transition-colors">
-                  {c.name}
-                </h2>
-                <p className="mt-3 text-sm text-ink-2 leading-relaxed [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] overflow-hidden">
-                  {c.description}
-                </p>
-                <div className="mt-5">
+                <div className="col-span-4 min-w-0 md:col-span-5 lg:col-span-7">
+                  <h2 className="display text-xl leading-tight text-ink transition-colors group-hover:text-signal-pressed md:text-2xl">
+                    {c.name}
+                  </h2>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-raised">
+                    {c.description}
+                  </p>
+                </div>
+                <div className="col-start-2 col-span-4 md:col-start-auto md:col-span-4 lg:col-span-5">
                   <MiniVector vector={c.positionVector} size="sm" />
                 </div>
-                <p className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-ink group-hover:text-navy transition-colors">
+                <p className="col-start-2 col-span-4 inline-flex items-center gap-1.5 text-xs font-medium text-ink transition-colors group-hover:text-signal-pressed md:col-start-auto md:col-span-1 lg:col-span-1">
                   Landenprofiel
                   <ArrowRight size={12} strokeWidth={1.8} />
                 </p>

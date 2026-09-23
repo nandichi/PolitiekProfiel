@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
 import { DimensionBar } from "@/components/DimensionBar";
+import { ContentMasthead } from "@/components/content/PublicContent";
 import { IDEOLOGY_READING } from "@/data/ideology-reading";
 import {
   ScrollReveal,
@@ -109,36 +110,16 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
       />
 
       <Container width="bleed" className="pt-10 md:pt-16">
-        <Link
-          href="/ideologieen"
-          className="inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-ink no-underline mb-6"
-        >
-          <ArrowLeft size={14} strokeWidth={1.8} />
-          Alle ideologieën
-        </Link>
-
-        <ScrollReveal variant="stagger" immediate>
-          <ScrollRevealItem>
-            <Kicker number="A2">
-              Ideologie · {SPECTRUM_LABEL[ideology.spectrumPosition]}
-            </Kicker>
-          </ScrollRevealItem>
-
-          <ScrollRevealItem>
-            <h1
-              className="display mt-6 max-w-4xl"
-              style={{ letterSpacing: "-0.025em" }}
-            >
-              {ideology.name}
-            </h1>
-          </ScrollRevealItem>
-
-          <ScrollRevealItem>
-            <p className="mt-6 max-w-2xl text-lg text-ink-2 leading-relaxed">
-              {ideology.shortDescription}
-            </p>
-          </ScrollRevealItem>
-        </ScrollReveal>
+        <ContentMasthead
+          backHref="/ideologieen"
+          backLabel="Alle ideologieën"
+          code="A2"
+          eyebrow={`Ideologie · ${SPECTRUM_LABEL[ideology.spectrumPosition]}`}
+          title={ideology.name}
+          intro={<p>{ideology.shortDescription}</p>}
+          noteTitle="Dossier"
+          note={<p>{sources.length} bronnen en {curatedReading.length} titels voor verdere verdieping.</p>}
+        />
       </Container>
 
       {/* Vector */}
@@ -186,7 +167,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
 
       {/* Voorbeelden */}
       {ideology.examplePeople.length > 0 && (
-        <section className="border-t border-rule bg-paper-50/40">
+        <section className="border-t border-rule bg-canvas-raised/40">
           <Container width="bleed" className="py-16 md:py-20">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
@@ -198,9 +179,9 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
                   {ideology.examplePeople.map((p, i) => (
                     <li
                       key={i}
-                      className="border border-rule p-4 md:p-5 bg-paper"
+                      className="border border-rule p-4 md:p-5 bg-canvas"
                     >
-                      <span className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                      <span className="mono text-[0.62rem] tracking-wider text-text-muted">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <p className="mt-1.5 text-ink leading-snug">{p}</p>
@@ -223,7 +204,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
                   Bronnen en verdere verdieping.
                 </h2>
                 {usesCuratedReadingAsSources ? (
-                  <p className="mt-3 max-w-2xl text-sm text-ink-2 leading-relaxed">
+                  <p className="mt-3 max-w-2xl text-sm text-ink-raised leading-relaxed">
                     Deze Engelstalige titels geven achtergrond bij de redactionele
                     schets. Zij vormen geen volledige bronverantwoording voor
                     iedere actuele partij- of persoonsclassificatie.
@@ -238,7 +219,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
                         href={source.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-ink hover:text-navy no-underline"
+                        className="text-sm text-ink hover:text-signal no-underline"
                       >
                         {source.label}
                       </a>
@@ -252,13 +233,13 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
       ) : null}
 
       {curatedReading.length && ideology.sources?.length ? (
-        <section className="border-t border-rule bg-paper-50/40">
+        <section className="border-t border-rule bg-canvas-raised/40">
           <Container width="bleed" className="py-16 md:py-20">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
                 <Kicker number={5}>Engelstalige verdieping</Kicker>
                 <h2 className="display mt-5">Boeken en essays.</h2>
-                <p className="mt-3 max-w-2xl text-sm text-ink-2 leading-relaxed">
+                <p className="mt-3 max-w-2xl text-sm text-ink-raised leading-relaxed">
                   Dit zijn bestaande titels. Elke link opent een cataloguszoekopdracht,
                   zodat je zelf een editie, bibliotheek of verkoper kunt kiezen.
                 </p>
@@ -271,13 +252,13 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
                         href={book.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="no-underline text-ink hover:text-navy"
+                        className="no-underline text-ink hover:text-signal"
                       >
                         <span className="display text-lg leading-tight">{book.title}</span>
-                        <span className="block mt-1 text-sm text-ink-2">
+                        <span className="block mt-1 text-sm text-ink-raised">
                           {book.author} ({book.year})
                         </span>
-                        <span className="block mt-2 text-sm text-ink-muted leading-relaxed">
+                        <span className="block mt-2 text-sm text-text-muted leading-relaxed">
                           {book.note}
                         </span>
                       </a>
@@ -303,7 +284,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <div className="mt-3 mb-8 max-w-3xl">
-                  <p className="text-xs text-ink-2 leading-relaxed border border-navy/30 bg-navy/3 px-4 py-3">
+                  <p className="text-xs text-ink-raised leading-relaxed border border-signal/30 bg-signal/3 px-4 py-3">
                     Dit is geen stemwijzer. Een partij past zelden volledig
                     binnen één stroming.
                   </p>
@@ -316,14 +297,14 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
                         className="no-underline group block"
                       >
                         <div className="flex items-baseline justify-between gap-3 mb-1">
-                          <h3 className="display text-lg md:text-xl text-ink leading-tight group-hover:text-navy transition-colors">
+                          <h3 className="display text-lg md:text-xl text-ink leading-tight group-hover:text-signal transition-colors">
                             {p.name}
                           </h3>
-                          <span className="mono text-[0.65rem] tracking-wider text-ink-muted">
+                          <span className="mono text-[0.65rem] tracking-wider text-text-muted">
                             {p.abbreviation}
                           </span>
                         </div>
-                        <p className="text-sm text-ink-2 leading-relaxed">
+                        <p className="text-sm text-ink-raised leading-relaxed">
                           {p.description}
                         </p>
                       </Link>
@@ -349,7 +330,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
                   <li key={i.slug}>
                     <Link
                       href={`/ideologie/${i.slug}`}
-                      className="inline-flex items-center gap-1.5 border border-rule px-3 py-2 text-xs text-ink-2 hover:bg-paper-50 hover:text-ink no-underline"
+                      className="inline-flex items-center gap-1.5 border border-rule px-3 py-2 text-xs text-ink-raised hover:bg-canvas-raised hover:text-ink no-underline"
                     >
                       {i.name}
                       <ArrowRight size={12} strokeWidth={1.8} />
@@ -367,7 +348,7 @@ export default async function IdeologieDetailPage({ params }: PageProps) {
 
 function StaticProse({ text }: { text: string }) {
   return (
-    <div className="space-y-5 text-base md:text-lg text-ink-2 leading-relaxed">
+    <div className="space-y-5 text-base md:text-lg text-ink-raised leading-relaxed">
       {text
         .split(/\n{2,}/)
         .filter(Boolean)

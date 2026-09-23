@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
 import { DimensionBar } from "@/components/DimensionBar";
+import { ContentMasthead } from "@/components/content/PublicContent";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -86,32 +87,15 @@ export default async function LandDetailPage({ params }: PageProps) {
       />
 
       <Container width="bleed" className="pt-10 md:pt-16">
-        <Link
-          href="/landen"
-          className="inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-ink no-underline mb-6"
-        >
-          <ArrowLeft size={14} strokeWidth={1.8} />
-          Alle landen
-        </Link>
-
-        <ScrollReveal variant="stagger" immediate>
-          <ScrollRevealItem>
-            <Kicker>{country.countryCode}</Kicker>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <h1
-              className="display mt-6 max-w-4xl"
-              style={{ letterSpacing: "-0.025em" }}
-            >
-              {country.name}
-            </h1>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <p className="mt-6 max-w-2xl text-base md:text-lg text-ink-2 leading-relaxed">
-              {country.description}
-            </p>
-          </ScrollRevealItem>
-        </ScrollReveal>
+        <ContentMasthead
+          backHref="/landen"
+          backLabel="Alle landen"
+          eyebrow={country.countryCode}
+          title={country.name}
+          intro={<p>{country.description}</p>}
+          noteTitle="Bronnen"
+          note={<p>{country.sources.length} openbare bronnen voor deze momentopname.</p>}
+        />
       </Container>
 
       {/* Dimensies */}
@@ -137,7 +121,7 @@ export default async function LandDetailPage({ params }: PageProps) {
               </div>
             </ScrollRevealItem>
             <ScrollRevealItem>
-              <p className="mt-8 mono text-[0.65rem] tracking-wider text-ink-subtle max-w-3xl">
+              <p className="mt-8 mono text-[0.65rem] tracking-wider text-text-muted max-w-3xl">
                 BRONNEN:{" "}
                 {country.sources.map((s, index) => (
                   <span key={s.url}>
@@ -146,7 +130,7 @@ export default async function LandDetailPage({ params }: PageProps) {
                       href={s.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-ink-2 hover:text-navy no-underline"
+                      className="text-ink-raised hover:text-signal no-underline"
                     >
                       {s.label}
                     </a>
@@ -160,7 +144,7 @@ export default async function LandDetailPage({ params }: PageProps) {
 
       {/* Politici uit dit land */}
       {localPoliticians.length > 0 && (
-        <section className="border-t border-rule bg-paper-50/40">
+        <section className="border-t border-rule bg-canvas-raised/40">
           <Container width="bleed" className="py-14 md:py-20">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
@@ -169,18 +153,18 @@ export default async function LandDetailPage({ params }: PageProps) {
               <ScrollRevealItem>
                 <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl">
                   {localPoliticians.map((p) => (
-                    <li key={p.slug} className="border border-rule bg-paper p-5">
+                    <li key={p.slug} className="border border-rule bg-canvas p-5">
                       <Link
                         href={`/politici/${p.slug}`}
                         className="block no-underline group"
                       >
-                        <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                        <p className="mono text-[0.62rem] tracking-wider text-text-muted">
                           {p.party.toUpperCase()}
                         </p>
-                        <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-navy transition-colors">
+                        <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-signal transition-colors">
                           {p.name}
                         </p>
-                        <p className="mt-1 text-xs text-ink-muted">{p.role}</p>
+                        <p className="mt-1 text-xs text-text-muted">{p.role}</p>
                       </Link>
                     </li>
                   ))}
@@ -204,21 +188,21 @@ export default async function LandDetailPage({ params }: PageProps) {
             <ScrollRevealItem>
               <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl">
                 {closeCountries.map((c) => (
-                  <li key={c.countryCode} className="border border-rule bg-paper p-5">
+                  <li key={c.countryCode} className="border border-rule bg-canvas p-5">
                     <Link
                       href={`/land/${c.countryCode.toLowerCase()}`}
                       className="block no-underline group"
                     >
-                      <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                      <p className="mono text-[0.62rem] tracking-wider text-text-muted">
                         {c.countryCode}
                       </p>
-                      <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-navy transition-colors">
+                      <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-signal transition-colors">
                         {c.name}
                       </p>
-                      <p className="mt-3 mono text-[0.65rem] tracking-wider text-ink-subtle">
+                      <p className="mt-3 mono text-[0.65rem] tracking-wider text-text-muted">
                         AFSTAND {Math.round(c.d)}
                       </p>
-                      <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-ink-2 group-hover:text-navy transition-colors">
+                      <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-ink-raised group-hover:text-signal transition-colors">
                         Bekijk
                         <ArrowRight size={12} strokeWidth={1.8} />
                       </p>

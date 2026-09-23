@@ -1,22 +1,24 @@
 import { DIMENSIONS } from "@/lib/dimensions";
 import type { DimensionScores } from "@/lib/scoring";
 import { cx } from "@/lib/cx";
+import {
+  MeasureMarker,
+  dimensionMarkerShape,
+} from "@/components/viz/MeasureMarker";
 
 interface MiniVectorProps {
   vector: DimensionScores;
-  /** Optioneel: tweede vector voor side-by-side vergelijking (bv. gebruikersprofiel). */
   compareVector?: DimensionScores;
   className?: string;
-  /** Toont dimensiekoppen onder de bars. Default: false. */
   showLabels?: boolean;
   size?: "sm" | "md";
 }
 
-/**
- * Server-rendered compacte 5-dimensionale weergave als rijtje voltmeters.
- * Bedoeld voor lijst-cards (politici/partijen/landen overview), niet voor
- * de detail-pagina (gebruik daar `DimensionBar`).
- */
+function position(value: number): number {
+  return (Math.max(-100, Math.min(100, value)) + 100) / 2;
+}
+
+/** Compact, server-rendered view of five independent measurements. */
 export function MiniVector({
   vector,
   compareVector,
@@ -24,53 +26,55 @@ export function MiniVector({
   showLabels = false,
   size = "md",
 }: MiniVectorProps) {
-  const barH = size === "sm" ? "h-1" : "h-1.5";
-  const trackH = size === "sm" ? "h-3" : "h-4";
   return (
-    <div className={cx("space-y-2", className)}>
-      <ul className="grid grid-cols-5 gap-2 md:gap-3">
-        {DIMENSIONS.map((d) => {
-          const v = vector[d.id];
-          const userLeft = ((v + 100) / 200) * 100;
-          const compare = compareVector?.[d.id];
-          const compareLeft =
-            compare !== undefined ? ((compare + 100) / 200) * 100 : null;
+    <div className={cx("min-w-0", className)}>
+      <ul className="grid grid-cols-5 gap-1.5 sm:gap-2 md:gap-3">
+        {DIMENSIONS.map((dimension) => {
+          const value = vector[dimension.id];
+          const compare = compareVector?.[dimension.id];
+          const markerShape = dimensionMarkerShape(dimension.id);
           return (
-            <li key={d.id} className="min-w-0">
-              <div className={cx("relative", trackH)}>
-                <div
-                  className={cx(
-                    "absolute inset-x-0 top-1/2 -translate-y-1/2 bg-paper-100 border border-rule",
-                    barH,
-                  )}
-                />
-                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-rule-strong" />
-                {compareLeft !== null && (
-                  <span
-                    aria-hidden
-                    className="absolute top-0 bottom-0 w-px bg-terra"
-                    style={{
-                      left: `${compareLeft}%`,
-                      transform: "translateX(-50%)",
-                    }}
-                  />
+            <li
+              key={dimension.id}
+              className="min-w-0"
+              aria-label={dimension.label + ": " + value}
+            >
+              <div
+                className={cx(
+                  "relative",
+                  size === "sm" ? "h-5" : "h-6",
                 )}
+                aria-hidden
+              >
+                <span className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-chart-track" />
+                <span className="absolute inset-x-0 top-[calc(50%+3px)] border-t border-dotted border-rule" />
+                <span className="absolute inset-y-1 left-1/2 w-px -translate-x-1/2 bg-rule-strong" />
+                {compare !== undefined ? (
+                  <span
+                    className="absolute inset-y-0 -translate-x-1/2 border-l border-dashed border-signal text-signal"
+                    style={{ left: position(compare) + "%" }}
+                  >
+                    <span className="absolute left-1/2 top-0 -translate-x-1/2 bg-canvas">
+                      <MeasureMarker shape="square" size={7} />
+                    </span>
+                  </span>
+                ) : null}
                 <span
-                  aria-hidden
-                  className="absolute top-0 bottom-0 flex items-center"
-                  style={{
-                    left: `${userLeft}%`,
-                    transform: "translateX(-50%)",
-                  }}
+                  className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 bg-canvas p-px text-chart-marker"
+                  style={{ left: position(value) + "%" }}
                 >
-                  <span className="block w-2 h-2 bg-ink rotate-45" />
+                  <MeasureMarker
+                    shape={markerShape}
+                    className="bg-ink [background-color:transparent]"
+                    size={size === "sm" ? 9 : 11}
+                  />
                 </span>
               </div>
-              {showLabels && (
-                <p className="mono text-[0.6rem] tracking-wider text-ink-muted mt-1.5 text-center">
-                  {d.shortLabel.toUpperCase()}
+              {showLabels ? (
+                <p className="mono mt-1 text-center text-[0.52rem] tracking-[0.05em] text-text-muted [overflow-wrap:anywhere] sm:text-[0.58rem]">
+                  {dimension.shortLabel.toUpperCase()}
                 </p>
-              )}
+              ) : null}
             </li>
           );
         })}

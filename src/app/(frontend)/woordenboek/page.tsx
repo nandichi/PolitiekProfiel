@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
+import { ContentMasthead } from "@/components/content/PublicContent";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -58,31 +59,21 @@ export default function WoordenboekPage() {
         dangerouslySetInnerHTML={{ __html: jsonLdString(breadcrumbLd) }}
       />
 
-      <ScrollReveal variant="stagger" immediate>
-        <ScrollRevealItem>
-          <Kicker number="A7">Woordenboek</Kicker>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
-          <h1
-            className="display mt-6 max-w-4xl"
-            style={{ letterSpacing: "-0.025em" }}
-          >
-            {totalTerms} politieke termen,{" "}
-            <em className="display-italic font-light text-navy">
-              klip en klaar
-            </em>
-            .
-          </h1>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
-          <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
+      <ContentMasthead
+        code="A7"
+        eyebrow="Woordenboek"
+        title={`${totalTerms} politieke termen, klip en klaar.`}
+        intro={
+          <p>
             Wat is een motie van wantrouwen? Wat doet de Raad van State?
             Wat betekent ‘subsidiariteit’? Hier vind je korte definities en
             langere uitleg per begrip. Bedoeld als naslag, niet als
             encyclopedie.
           </p>
-        </ScrollRevealItem>
-      </ScrollReveal>
+        }
+        noteTitle="Register"
+        note={<p>{letters.length} lettergroepen, met categorie per begrip.</p>}
+      />
 
       {/* Letter-anker */}
       <section className="mt-12 border-t border-rule pt-6">
@@ -92,7 +83,7 @@ export default function WoordenboekPage() {
               <li key={l}>
                 <a
                   href={`#letter-${l}`}
-                  className="mono text-xs tracking-wider text-ink-2 hover:text-navy border border-rule px-2.5 py-1.5 no-underline"
+                  className="mono text-xs tracking-wider text-ink-raised hover:text-signal border border-rule px-2.5 py-1.5 no-underline"
                 >
                   {l}
                 </a>
@@ -110,7 +101,7 @@ export default function WoordenboekPage() {
             <li key={cat}>
               <span className="inline-flex items-baseline gap-2 border border-rule px-3 py-2 text-xs">
                 <span className="text-ink">{CATEGORY_LABEL[cat]}</span>
-                <span className="mono tabular-nums text-ink-subtle">
+                <span className="mono tabular-nums text-text-muted">
                   {byCategory.get(cat) ?? 0}
                 </span>
               </span>
@@ -128,10 +119,10 @@ export default function WoordenboekPage() {
               <ScrollReveal variant="stagger">
                 <ScrollRevealItem>
                   <div className="flex items-baseline gap-6 border-b border-ink pb-3">
-                    <span className="display text-5xl md:text-6xl text-navy">
+                    <span className="display text-5xl md:text-6xl text-signal">
                       {l}
                     </span>
-                    <span className="mono text-[0.65rem] tracking-wider text-ink-subtle">
+                    <span className="mono text-[0.65rem] tracking-wider text-text-muted">
                       {terms.length} TERMEN
                     </span>
                   </div>
@@ -145,20 +136,20 @@ export default function WoordenboekPage() {
                           className="group block py-5 no-underline"
                         >
                           <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr_auto] gap-3 lg:gap-8 items-baseline">
-                            <p className="display text-lg text-ink group-hover:text-navy transition-colors">
+                            <p className="display text-lg text-ink group-hover:text-signal transition-colors">
                               {t.term}
                             </p>
-                            <p className="text-sm text-ink-2 leading-relaxed max-w-3xl">
+                            <p className="text-sm text-ink-raised leading-relaxed max-w-3xl">
                               {t.short}
                             </p>
                             <div className="flex flex-wrap items-center gap-2">
-                              <span className="mono text-[0.6rem] tracking-wider text-ink-muted border border-rule px-1.5 py-0.5">
+                              <span className="mono text-[0.6rem] tracking-wider text-text-muted border border-rule px-1.5 py-0.5">
                                 {CATEGORY_LABEL[t.category].toUpperCase()}
                               </span>
                               <ArrowRight
                                 size={14}
                                 strokeWidth={1.8}
-                                className="text-ink-muted group-hover:text-navy group-hover:translate-x-0.5 transition-all"
+                                className="text-text-muted group-hover:text-signal group-hover:translate-x-0.5 transition-all"
                               />
                             </div>
                           </div>

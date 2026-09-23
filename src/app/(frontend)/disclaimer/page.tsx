@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { StickyIndex } from "@/components/StickyIndex";
 import {
-  ScrollReveal,
-  ScrollRevealItem,
-} from "@/components/motion/ScrollReveal";
+  DossierGrid,
+  DossierNote,
+} from "@/components/content/PublicContent";
 import {
   buildArticleSchema,
   buildBreadcrumbList,
@@ -70,43 +70,55 @@ export default function DisclaimerPage() {
           __html: jsonLdString([articleLd, breadcrumbLd]),
         }}
       />
-      <div className="grid grid-cols-1 gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
-        <StickyIndex items={INDEX} topOffset={96} />
-
+      <DossierGrid
+        index={<StickyIndex items={INDEX} topOffset={96} />}
+        aside={
+          <div className="space-y-8 lg:sticky lg:top-24">
+            <DossierNote label="Strekking">
+              <p>{PAGE_DESCRIPTION}</p>
+            </DossierNote>
+            <DossierNote label="Versie">
+              <p className="font-mono text-[0.66rem] uppercase tracking-[0.12em]">
+                1.1 · {PAGE_MODIFIED}
+              </p>
+            </DossierNote>
+          </div>
+        }
+      >
         <div className="min-w-0 max-w-3xl">
           <section id="intro" className="scroll-mt-32">
-            <ScrollReveal variant="stagger" immediate>
-              <ScrollRevealItem>
+            <>
+              <>
                 <Kicker>Disclaimer</Kicker>
-              </ScrollRevealItem>
-              <ScrollRevealItem>
+              </>
+              <>
                 <h1
                   className="display mt-6"
                   style={{ letterSpacing: "-0.025em" }}
                 >
                   Geen advies.
                   <span className="block">
-                    <em className="display-italic font-light text-navy">
+                    <em className="not-italic font-extrabold text-signal">
                       Geen oordeel.
                     </em>
                   </span>
                 </h1>
-              </ScrollRevealItem>
-              <ScrollRevealItem>
-                <p className="mt-8 text-lg md:text-xl text-ink-2 leading-relaxed">
+              </>
+              <>
+                <p className="mt-8 text-lg md:text-xl text-ink-raised leading-relaxed">
                   PolitiekProfiel is een educatief instrument voor
                   zelfreflectie, niet meer en niet minder. Deze disclaimer
                   legt vast wat dat juridisch betekent, voor jou, voor ons,
                   en voor wie ooit een conclusie aan een resultaat probeert
                   te koppelen.
                 </p>
-              </ScrollRevealItem>
-              <ScrollRevealItem>
-                <p className="mt-6 mono text-xs text-ink-muted tracking-wide">
+              </>
+              <>
+                <p className="mt-6 mono text-xs text-text-muted tracking-wide">
                   Versie 1.1 · laatst bijgewerkt op 13 september 2026
                 </p>
-              </ScrollRevealItem>
-            </ScrollReveal>
+              </>
+            </>
           </section>
 
           <Block
@@ -144,7 +156,7 @@ export default function DisclaimerPage() {
             id="geen-advies"
             kicker="02 · Geen advies"
             title="Wat PolitiekProfiel uitdrukkelijk niet is."
-            accent="terra"
+            accent="danger"
           >
             <p>De inhoud van PolitiekProfiel is geen:</p>
             <ul>
@@ -273,7 +285,7 @@ export default function DisclaimerPage() {
             id="aansprakelijkheid"
             kicker="07 · Aansprakelijkheid"
             title="Verwijzing naar de algemene voorwaarden."
-            accent="terra"
+            accent="danger"
           >
             <p>
               Voor de volledige beperking en uitsluiting van
@@ -313,7 +325,7 @@ export default function DisclaimerPage() {
             </p>
           </Block>
         </div>
-      </div>
+      </DossierGrid>
     </Container>
   );
 }
@@ -330,10 +342,10 @@ function Block({
   kicker: string;
   title: string;
   children: React.ReactNode;
-  accent: "ink" | "terra";
+  accent: "ink" | "danger";
   last?: boolean;
 }) {
-  const accentClass = accent === "terra" ? "text-terra" : "text-ink";
+  const accentClass = accent === "danger" ? "text-danger" : "text-ink";
   return (
     <section
       id={id}
@@ -341,15 +353,15 @@ function Block({
         last ? "pb-16" : ""
       }`}
     >
-      <ScrollReveal variant="stagger">
-        <ScrollRevealItem>
+      <>
+        <>
           <p className="kicker">{kicker}</p>
           <h2 className={`display mt-4 ${accentClass}`}>{title}</h2>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
+        </>
+        <>
           <div className="mt-6 editorial-prose">{children}</div>
-        </ScrollRevealItem>
-      </ScrollReveal>
+        </>
+      </>
     </section>
   );
 }

@@ -2,6 +2,10 @@ import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
 import { StickyIndex } from "@/components/StickyIndex";
 import {
+  DossierGrid,
+  DossierNote,
+} from "@/components/content/PublicContent";
+import {
   ScrollReveal,
   ScrollRevealItem,
 } from "@/components/motion/ScrollReveal";
@@ -102,9 +106,22 @@ export default function MethodiekPage() {
           __html: jsonLdString([articleLd, breadcrumbLd, faqLd]),
         }}
       />
-      <div className="grid grid-cols-1 gap-10 lg:gap-16 lg:grid-cols-[220px_1fr]">
-        <StickyIndex items={INDEX} topOffset={96} />
-
+      <DossierGrid
+        index={<StickyIndex items={INDEX} topOffset={96} />}
+        aside={
+          <div className="space-y-8 lg:sticky lg:top-24">
+            <DossierNote label="Status">
+              <p>{PAGE_DESCRIPTION}</p>
+              <p className="mt-3 font-mono text-[0.66rem] uppercase tracking-[0.12em]">
+                Bijgewerkt {PAGE_MODIFIED}
+              </p>
+            </DossierNote>
+            <DossierNote label="Schaal">
+              <p>Iedere dimensie loopt afzonderlijk van −100 tot +100.</p>
+            </DossierNote>
+          </div>
+        }
+      >
         <div className="min-w-0 max-w-3xl">
           {/* Intro */}
           <section id="intro" className="scroll-mt-32">
@@ -119,14 +136,14 @@ export default function MethodiekPage() {
                 >
                   Politiek meten
                   <span className="block">
-                    <em className="display-italic font-light text-navy">
+                    <em className="not-italic font-extrabold text-signal">
                       zonder karikatuur.
                     </em>
                   </span>
                 </h1>
               </ScrollRevealItem>
               <ScrollRevealItem>
-                <p className="mt-8 text-lg md:text-xl text-ink-2 leading-relaxed">
+                <p className="mt-8 text-lg md:text-xl text-ink-raised leading-relaxed">
                   We willen niet weten of je &lsquo;links&rsquo; of
                   &lsquo;rechts&rsquo; bent. We willen weten waar je staat op
                   vijf afzonderlijk geconstrueerde politieke dimensies. Dat laat
@@ -140,6 +157,7 @@ export default function MethodiekPage() {
           {/* Dimensies */}
           <section
             id="dimensies"
+            data-method-story
             className="mt-20 md:mt-28 scroll-mt-32 border-t border-ink pt-12"
           >
             <ScrollReveal variant="stagger">
@@ -148,6 +166,7 @@ export default function MethodiekPage() {
                 <h2 className="display mt-5">
                   Vijf afzonderlijk geconstrueerde politieke dimensies.
                 </h2>
+                <div data-method-line aria-hidden className="mt-6 h-1 w-full bg-signal" />
               </ScrollRevealItem>
               <ScrollRevealItem>
                 <div className="mt-10 space-y-8">
@@ -165,12 +184,12 @@ export default function MethodiekPage() {
                       <div>
                         <h3 className="display text-2xl md:text-3xl leading-tight">
                           {d.poleNegative.label}
-                          <span className="text-ink-subtle font-light mx-2">
+                          <span className="text-text-muted font-light mx-2">
                             /
                           </span>
                           {d.polePositive.label}
                         </h3>
-                        <p className="mt-3 text-ink-2 leading-relaxed">
+                        <p className="mt-3 text-ink-raised leading-relaxed">
                           {d.description}
                         </p>
                         <dl className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -178,15 +197,15 @@ export default function MethodiekPage() {
                             <dt className="kicker mb-1.5">
                               {d.poleNegative.label}
                             </dt>
-                            <dd className="text-sm text-ink-2 leading-relaxed">
+                            <dd className="text-sm text-ink-raised leading-relaxed">
                               {d.poleNegative.description}
                             </dd>
                           </div>
-                          <div className="border-l-2 border-navy pl-4">
+                          <div className="border-l-2 border-signal pl-4">
                             <dt className="kicker mb-1.5">
                               {d.polePositive.label}
                             </dt>
-                            <dd className="text-sm text-ink-2 leading-relaxed">
+                            <dd className="text-sm text-ink-raised leading-relaxed">
                               {d.polePositive.description}
                             </dd>
                           </div>
@@ -252,7 +271,7 @@ export default function MethodiekPage() {
                 </div>
               </ScrollRevealItem>
               <ScrollRevealItem>
-                <div className="mt-8 border border-rule p-6 md:p-8 bg-paper-50/60">
+                <div className="mt-8 border border-rule p-6 md:p-8 bg-canvas-raised/60">
                   <p className="kicker mb-4">Formule per dimensie</p>
                   <pre className="mono text-sm leading-relaxed text-ink overflow-x-auto whitespace-pre">
                     {`raw    = Σ ( direction × antwoord × gewicht )
@@ -304,7 +323,7 @@ score  = ( raw / ( maxW × 2 ) ) × 100   →  [-100 … +100]`}
             </ScrollReveal>
           </section>
         </div>
-      </div>
+      </DossierGrid>
     </Container>
   );
 }

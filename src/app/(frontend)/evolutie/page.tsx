@@ -114,11 +114,11 @@ export default async function EvolutiePage({ searchParams }: PageProps) {
             style={{ letterSpacing: "-0.025em" }}
           >
             Jouw eigen{" "}
-            <em className="display-italic font-light text-navy">tijdlijn</em>.
+            <em className="display-italic font-light text-signal">tijdlijn</em>.
           </h1>
         </ScrollRevealItem>
         <ScrollRevealItem>
-          <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
+          <p className="mt-8 max-w-2xl text-lg text-ink-raised leading-relaxed">
             We bewaren niet wie wat heeft ingevuld. Daarom werk je hier met
             share-IDs: korte codes die je vindt onderaan jouw resultaatpagina.
             Plak er meerdere achter elkaar en je ziet hoe je vector evolueert.
@@ -136,7 +136,7 @@ export default async function EvolutiePage({ searchParams }: PageProps) {
       </section>
 
       {valid.length === 0 && ids.length > 0 && (
-        <p className="mt-10 text-sm text-terra">
+        <p className="mt-10 text-sm text-danger">
           Geen geldige resultaten gevonden voor: {ids.join(", ")}
         </p>
       )}
@@ -174,7 +174,7 @@ export default async function EvolutiePage({ searchParams }: PageProps) {
                         </p>
                         <Link
                           href={`/r/${entry.id}`}
-                          className="mt-2 inline-block text-xs text-ink-2 hover:text-navy no-underline"
+                          className="mt-2 inline-block text-xs text-ink-raised hover:text-signal no-underline"
                         >
                           Bekijk volledig →
                         </Link>
@@ -226,19 +226,19 @@ export default async function EvolutiePage({ searchParams }: PageProps) {
                         return (
                           <tr key={d.id} className="border-b border-rule">
                             <td className="py-3 text-sm text-ink">{d.label}</td>
-                            <td className="py-3 mono tabular-nums text-sm text-ink-2 text-right">
+                            <td className="py-3 mono tabular-nums text-sm text-ink-raised text-right">
                               {Math.round(first)}
                             </td>
-                            <td className="py-3 mono tabular-nums text-sm text-ink-2 text-right">
+                            <td className="py-3 mono tabular-nums text-sm text-ink-raised text-right">
                               {Math.round(last)}
                             </td>
                             <td
                               className={`py-3 mono tabular-nums text-sm text-right ${
                                 Math.abs(delta) > 5
                                   ? delta > 0
-                                    ? "text-navy"
-                                    : "text-terra"
-                                  : "text-ink-muted"
+                                    ? "text-signal"
+                                    : "text-danger"
+                                  : "text-text-muted"
                               }`}
                             >
                               {sign}
@@ -280,19 +280,19 @@ export default async function EvolutiePage({ searchParams }: PageProps) {
                               <td className="py-3 text-sm text-ink">
                                 {t.label}
                               </td>
-                              <td className="py-3 mono tabular-nums text-sm text-ink-2 text-right">
+                              <td className="py-3 mono tabular-nums text-sm text-ink-raised text-right">
                                 {Math.round(first)}
                               </td>
-                              <td className="py-3 mono tabular-nums text-sm text-ink-2 text-right">
+                              <td className="py-3 mono tabular-nums text-sm text-ink-raised text-right">
                                 {Math.round(last)}
                               </td>
                               <td
                                 className={`py-3 mono tabular-nums text-sm text-right ${
                                   Math.abs(delta) > 5
                                     ? delta > 0
-                                      ? "text-navy"
-                                      : "text-terra"
-                                    : "text-ink-muted"
+                                      ? "text-signal"
+                                      : "text-danger"
+                                    : "text-text-muted"
                                 }`}
                               >
                                 {sign}
@@ -313,7 +313,7 @@ export default async function EvolutiePage({ searchParams }: PageProps) {
 
       <section className="mt-16 border-t border-ink pt-10 max-w-3xl">
         <p className="kicker mb-3">Privacy</p>
-        <p className="text-sm text-ink-2 leading-relaxed">
+        <p className="text-sm text-ink-raised leading-relaxed">
           Wij koppelen geen share-IDs aan elkaar in onze database. De keten
           waaruit deze tijdlijn bestaat, leeft alleen in de URL die je nu in je
           browser hebt staan. Sluit deze tab zonder hem te bookmarken en de

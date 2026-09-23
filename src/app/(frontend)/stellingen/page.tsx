@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
+import { ContentMasthead } from "@/components/content/PublicContent";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -62,30 +63,20 @@ export default async function StellingenOverviewPage() {
         dangerouslySetInnerHTML={{ __html: jsonLdString(breadcrumbLd) }}
       />
 
-      <ScrollReveal variant="stagger" immediate>
-        <ScrollRevealItem>
-          <Kicker number="A1">Stellingen-bibliotheek</Kicker>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
-          <h1
-            className="display mt-6 max-w-4xl"
-            style={{ letterSpacing: "-0.025em" }}
-          >
-            {all.length} stellingen,{" "}
-            <em className="display-italic font-light text-navy">
-              uitgelegd
-            </em>
-            .
-          </h1>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
-          <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
+      <ContentMasthead
+        code="A1"
+        eyebrow="Stellingen-bibliotheek"
+        title={`${all.length} stellingen, uitgelegd.`}
+        intro={
+          <p>
             Iedere stelling met haar achterliggende context, de sterkste
             argumenten voor en tegen, bronnen en het thema waarop ze raakt.
             Geordend per dimensie zodat je per as ziet wat de quiz meet.
           </p>
-        </ScrollRevealItem>
-      </ScrollReveal>
+        }
+        noteTitle="Vragenbank"
+        note={<p>{all.length} stellingen, geordend per dimensie en voorzien van thema&apos;s.</p>}
+      />
 
       {/* Thema-overview */}
       <section className="mt-16 md:mt-20 border-t border-ink pt-10">
@@ -99,7 +90,7 @@ export default async function StellingenOverviewPage() {
                 <li key={t.id}>
                   <span className="inline-flex items-baseline gap-2 border border-rule px-3 py-2 text-xs">
                     <span className="text-ink">{t.label}</span>
-                    <span className="mono tabular-nums text-ink-subtle">
+                    <span className="mono tabular-nums text-text-muted">
                       {byTheme.get(t.id) ?? 0}
                     </span>
                   </span>
@@ -121,14 +112,14 @@ export default async function StellingenOverviewPage() {
                   <Kicker number={dIdx + 2}>{d.label}</Kicker>
                   <h2 className="display mt-5 max-w-3xl">
                     {d.poleNegative.label}
-                    <span className="text-ink-subtle font-light mx-2">/</span>
+                    <span className="text-text-muted font-light mx-2">/</span>
                     {d.polePositive.label}
                   </h2>
                 </ScrollRevealItem>
                 <ScrollRevealItem>
-                  <p className="mt-3 max-w-2xl text-sm text-ink-2 leading-relaxed">
+                  <p className="mt-3 max-w-2xl text-sm text-ink-raised leading-relaxed">
                     {d.description}{" "}
-                    <span className="mono text-[0.65rem] tracking-wider text-ink-subtle ml-1">
+                    <span className="mono text-[0.65rem] tracking-wider text-text-muted ml-1">
                       {list.length} STELLINGEN
                     </span>
                   </p>
@@ -142,17 +133,17 @@ export default async function StellingenOverviewPage() {
                           className="group block py-5 md:py-6 no-underline"
                         >
                           <div className="grid grid-cols-1 lg:grid-cols-[60px_1fr_auto] gap-3 lg:gap-8 items-baseline">
-                            <p className="mono text-[0.65rem] tracking-wider text-ink-subtle">
+                            <p className="mono text-[0.65rem] tracking-wider text-text-muted">
                               {q.id.toUpperCase()}
                             </p>
-                            <p className="text-base md:text-lg text-ink leading-snug group-hover:text-navy transition-colors">
+                            <p className="text-base md:text-lg text-ink leading-snug group-hover:text-signal transition-colors">
                               {q.statement}
                             </p>
                             <div className="flex flex-wrap items-center gap-2">
                               {q.themes.map((t) => (
                                 <span
                                   key={t}
-                                  className="mono text-[0.6rem] tracking-wider text-ink-muted border border-rule px-1.5 py-0.5"
+                                  className="mono text-[0.6rem] tracking-wider text-text-muted border border-rule px-1.5 py-0.5"
                                 >
                                   {t.toUpperCase()}
                                 </span>
@@ -160,7 +151,7 @@ export default async function StellingenOverviewPage() {
                               <ArrowRight
                                 size={14}
                                 strokeWidth={1.8}
-                                className="text-ink-muted group-hover:text-navy group-hover:translate-x-0.5 transition-all"
+                                className="text-text-muted group-hover:text-signal group-hover:translate-x-0.5 transition-all"
                               />
                             </div>
                           </div>

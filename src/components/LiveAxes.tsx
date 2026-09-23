@@ -13,7 +13,7 @@ export function LiveAxes() {
     <div className="w-full h-full flex flex-col gap-5 md:gap-7">
       <div className="flex items-baseline justify-between">
         <p className="kicker">Vijf dimensies · live</p>
-        <span className="mono text-[0.62rem] text-ink-subtle tracking-wider">
+        <span className="mono text-[0.62rem] text-text-muted tracking-wider">
           -100 · 0 · +100
         </span>
       </div>
@@ -25,7 +25,7 @@ export function LiveAxes() {
           return (
             <div key={d.id} className="grid grid-cols-[auto_1fr] gap-4 items-center">
               <div className="w-[110px] md:w-[130px]">
-                <p className="mono text-[0.62rem] tracking-wider text-ink-muted">
+                <p className="mono text-[0.62rem] tracking-wider text-text-muted">
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <p className="display text-sm md:text-base text-ink leading-tight mt-0.5">
@@ -76,10 +76,10 @@ export function LiveAxes() {
       </div>
 
       <div className="mt-2 pt-4 border-t border-rule flex items-center justify-between">
-        <p className="text-xs text-ink-muted">
+        <p className="text-xs text-text-muted">
           Een schets, niet een uitkomst.
         </p>
-        <span className="mono text-[0.62rem] tracking-widest text-ink-subtle">
+        <span className="mono text-[0.62rem] tracking-widest text-text-muted">
           DEMO
         </span>
       </div>

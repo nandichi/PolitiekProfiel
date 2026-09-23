@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Fraunces, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { PublicMotionRuntime } from "@/components/motion/PublicMotionRuntime";
 import { WebMcpProvider } from "@/components/WebMcpProvider";
 import "./globals.css";
 
@@ -11,18 +13,24 @@ const SITE_NAME = "PolitiekProfiel";
 const SITE_DESCRIPTION =
   "Een onafhankelijk Nederlands politiek kompas op vijf onafhankelijke dimensies: economisch, sociaal-cultureel, burgerrechten, bestuur en systeemvertrouwen. Geen tracking, geen account, anonieme deelbare resultaten.";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+const cabinet = localFont({
+  src: "../../../public/fonts/CabinetGrotesk-Variable.woff2",
+  variable: "--font-cabinet",
   display: "swap",
-  weight: ["400", "500", "600"],
+  style: "normal",
+  weight: "100 900",
+  fallback: ["sans-serif"],
+  adjustFontFallback: false,
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
+const switzer = localFont({
+  src: "../../../public/fonts/Switzer-Variable.woff2",
+  variable: "--font-switzer",
   display: "swap",
-  axes: ["opsz"],
+  style: "normal",
+  weight: "100 900",
+  fallback: ["sans-serif"],
+  adjustFontFallback: false,
 });
 
 const plex = IBM_Plex_Mono({
@@ -202,13 +210,16 @@ export default function FrontendLayout({
   return (
     <html
       lang="nl"
-      className={`${inter.variable} ${fraunces.variable} ${plex.variable}`}
+      className={`${cabinet.variable} ${switzer.variable} ${plex.variable}`}
     >
-      <body className="min-h-screen flex flex-col bg-paper text-ink antialiased">
+      <body className="min-h-screen flex flex-col bg-canvas text-ink antialiased">
         <SiteHeader />
-        <main className="flex-1">{children}</main>
+        <main className="public-main flex-1" data-public-surface="meetstaat">
+          {children}
+        </main>
         <SiteFooter />
 
+        <PublicMotionRuntime />
         <WebMcpProvider />
 
         <script

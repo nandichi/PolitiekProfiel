@@ -123,7 +123,7 @@ export function SocialShareGrid({ shareId, ideologyName }: SocialShareGridProps)
   return (
     <div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-px bg-rule border border-rule">
-        {/* Instagram Story – special handler */}
+        {/* Instagram Story: special handler */}
         <ShareTile
           label="Instagram Story"
           shortLabel="IG Story"
@@ -189,7 +189,7 @@ function ShareTile({
     <motion.div
       whileHover={{ y: -2 }}
       transition={{ type: "spring", stiffness: 320, damping: 22 }}
-      className="group relative flex h-full flex-col items-start justify-between gap-6 bg-paper p-4 sm:p-5 transition-colors"
+      className="group relative flex h-full flex-col items-start justify-between gap-6 bg-canvas p-4 sm:p-5 transition-colors"
       style={
         {
           // Brand kleur als CSS variable zodat hover staat werkt
@@ -199,7 +199,7 @@ function ShareTile({
     >
       {accentGradient ? (
         <span
-          className="flex h-10 w-10 items-center justify-center text-paper"
+          className="flex h-10 w-10 items-center justify-center text-canvas"
           style={{
             backgroundImage:
               "linear-gradient(135deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%)",
@@ -222,7 +222,7 @@ function ShareTile({
           {shortLabel}
         </span>
         <span
-          className="mono text-[0.62rem] tracking-wider text-ink-subtle transition-colors group-hover:text-(--brand)"
+          className="mono text-[0.62rem] tracking-wider text-text-muted transition-colors group-hover:text-(--brand)"
           aria-hidden
         >
           →
@@ -244,7 +244,7 @@ function ShareTile({
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Deel op ${label}`}
-        className="block focus:outline-none focus:ring-2 focus:ring-navy"
+        className="block focus:outline-none focus:ring-2 focus:ring-signal"
       >
         {content}
       </a>
@@ -256,7 +256,7 @@ function ShareTile({
       type="button"
       onClick={onClick}
       aria-label={`Deel via ${label}`}
-      className="block text-left focus:outline-none focus:ring-2 focus:ring-navy"
+      className="block text-left focus:outline-none focus:ring-2 focus:ring-signal"
     >
       {content}
     </button>

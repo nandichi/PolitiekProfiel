@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
+import { ContentMasthead } from "@/components/content/PublicContent";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -87,30 +88,14 @@ export default async function StellingDetailPage({ params }: PageProps) {
       />
 
       <Container width="bleed" className="pt-10 md:pt-16">
-        <Link
-          href="/stellingen"
-          className="inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-ink no-underline mb-6"
-        >
-          <ArrowLeft size={14} strokeWidth={1.8} />
-          Alle stellingen
-        </Link>
-
-        <ScrollReveal variant="stagger" immediate>
-          <ScrollRevealItem>
-            <Kicker>
-              {id.toUpperCase()} · {dim.label}
-            </Kicker>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <h1
-              className="display mt-6 max-w-4xl text-3xl md:text-5xl"
-              style={{ letterSpacing: "-0.025em" }}
-              lang="nl"
-            >
-              {q.statement}
-            </h1>
-          </ScrollRevealItem>
-        </ScrollReveal>
+        <ContentMasthead
+          backHref="/stellingen"
+          backLabel="Alle stellingen"
+          eyebrow={`${id.toUpperCase()} · ${dim.label}`}
+          title={<span lang="nl">{q.statement}</span>}
+          noteTitle="Meetregel"
+          note={<p>{DIRECTION_LABEL[q.direction]} · gewicht {(q.weight ?? 1).toFixed(1).toString()}</p>}
+        />
 
         {/* Meta-strip */}
         <ScrollReveal>
@@ -142,7 +127,7 @@ export default async function StellingDetailPage({ params }: PageProps) {
               </h2>
             </ScrollRevealItem>
             <ScrollRevealItem>
-              <p className="mt-6 max-w-3xl text-base md:text-lg text-ink-2 leading-relaxed">
+              <p className="mt-6 max-w-3xl text-base md:text-lg text-ink-raised leading-relaxed">
                 {q.info.context}
               </p>
             </ScrollRevealItem>
@@ -151,7 +136,7 @@ export default async function StellingDetailPage({ params }: PageProps) {
       </section>
 
       {/* Argumenten */}
-      <section className="border-t border-rule bg-paper-50/40">
+      <section className="border-t border-rule bg-canvas-raised/40">
         <Container width="bleed" className="py-14 md:py-20">
           <ScrollReveal variant="stagger">
             <ScrollRevealItem>
@@ -168,7 +153,7 @@ export default async function StellingDetailPage({ params }: PageProps) {
                     {q.info.argumentsFor.map((a, i) => (
                       <li
                         key={i}
-                        className="border-l-2 border-ink pl-4 text-ink-2 leading-relaxed"
+                        className="border-l-2 border-ink pl-4 text-ink-raised leading-relaxed"
                       >
                         <p>{a}</p>
                       </li>
@@ -181,7 +166,7 @@ export default async function StellingDetailPage({ params }: PageProps) {
                     {q.info.argumentsAgainst.map((a, i) => (
                       <li
                         key={i}
-                        className="border-l-2 border-navy pl-4 text-ink-2 leading-relaxed"
+                        className="border-l-2 border-signal pl-4 text-ink-raised leading-relaxed"
                       >
                         <p>{a}</p>
                       </li>
@@ -205,12 +190,12 @@ export default async function StellingDetailPage({ params }: PageProps) {
               <ScrollRevealItem>
                 <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl">
                   {themeMeta.map((t) => (
-                    <li key={t.id} className="border border-rule bg-paper p-5">
+                    <li key={t.id} className="border border-rule bg-canvas p-5">
                       <p className="kicker mb-1">{t.shortLabel}</p>
                       <h3 className="display text-lg leading-tight text-ink">
                         {t.label}
                       </h3>
-                      <p className="mt-2 text-sm text-ink-2 leading-relaxed">
+                      <p className="mt-2 text-sm text-ink-raised leading-relaxed">
                         {t.description}
                       </p>
                     </li>
@@ -224,7 +209,7 @@ export default async function StellingDetailPage({ params }: PageProps) {
 
       {/* Bronnen */}
       {q.info.sources.length > 0 && (
-        <section className="border-t border-rule bg-paper-50/40">
+        <section className="border-t border-rule bg-canvas-raised/40">
           <Container width="bleed" className="py-12 md:py-16">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
@@ -238,9 +223,9 @@ export default async function StellingDetailPage({ params }: PageProps) {
                         href={s.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-baseline gap-2 text-ink no-underline hover:text-navy"
+                        className="inline-flex items-baseline gap-2 text-ink no-underline hover:text-signal"
                       >
-                        <span className="mono text-[0.62rem] tracking-wider text-ink-subtle shrink-0">
+                        <span className="mono text-[0.62rem] tracking-wider text-text-muted shrink-0">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <span className="text-sm leading-snug">
@@ -248,7 +233,7 @@ export default async function StellingDetailPage({ params }: PageProps) {
                           <ExternalLink
                             size={12}
                             strokeWidth={1.8}
-                            className="inline-block ml-1.5 mb-0.5 text-ink-muted"
+                            className="inline-block ml-1.5 mb-0.5 text-text-muted"
                           />
                         </span>
                       </a>
@@ -274,19 +259,19 @@ export default async function StellingDetailPage({ params }: PageProps) {
                   {related.map((r) => (
                     <li
                       key={r.id}
-                      className="border border-rule bg-paper p-5"
+                      className="border border-rule bg-canvas p-5"
                     >
                       <Link
                         href={`/stelling/${r.id}`}
                         className="block no-underline group"
                       >
-                        <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                        <p className="mono text-[0.62rem] tracking-wider text-text-muted">
                           {r.id.toUpperCase()} · {dimensionMeta(r.dimension).shortLabel.toUpperCase()}
                         </p>
-                        <p className="mt-2 text-ink leading-snug group-hover:text-navy transition-colors">
+                        <p className="mt-2 text-ink leading-snug group-hover:text-signal transition-colors">
                           {r.statement}
                         </p>
-                        <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-ink-2 group-hover:text-navy">
+                        <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-ink-raised group-hover:text-signal">
                           Lees uitleg
                           <ArrowRight size={12} strokeWidth={1.8} />
                         </p>
@@ -305,7 +290,7 @@ export default async function StellingDetailPage({ params }: PageProps) {
 
 function Meta({ term, value }: { term: string; value: string }) {
   return (
-    <div className="bg-paper p-4">
+    <div className="bg-canvas p-4">
       <dt className="kicker mb-1">{term}</dt>
       <dd className="text-sm text-ink">{value}</dd>
     </div>

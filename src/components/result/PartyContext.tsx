@@ -26,9 +26,9 @@ interface PartyContextProps {
 export function PartyContext({ parties, ideologyName }: PartyContextProps) {
   if (parties.length === 0) {
     return (
-      <div className="border border-rule p-5 md:p-7 bg-paper-100">
+      <div className="border border-rule p-5 md:p-7 bg-canvas-pressed">
         <p className="kicker mb-2">Nog geen partij-context</p>
-        <p className="text-ink-2 text-sm leading-relaxed">
+        <p className="text-ink-raised text-sm leading-relaxed">
           Voor &ldquo;{ideologyName}&rdquo; hebben we nog geen partijen
           gekoppeld. Wel worden de scores per dimensie en thema getoond zodat je
           zelf de vergelijking kunt maken.
@@ -53,7 +53,7 @@ export function PartyContext({ parties, ideologyName }: PartyContextProps) {
 
   return (
     <div className="space-y-12">
-      <div className="border border-navy/30 bg-navy/3 px-4 py-3 text-xs text-ink-2 leading-relaxed max-w-3xl">
+      <div className="border border-signal/30 bg-signal/3 px-4 py-3 text-xs text-ink-raised leading-relaxed max-w-3xl">
         Dit is geen stemwijzer. We tonen partijen die in hoofdlijnen
         overeenkomen met de ideologie waarop jouw profiel het meest lijkt,
         niet met je individuele scores.
@@ -75,15 +75,15 @@ export function PartyContext({ parties, ideologyName }: PartyContextProps) {
                   <h4 className="display text-lg md:text-xl text-ink leading-tight wrap-break-word [hyphens:auto]">
                     {party.name}
                   </h4>
-                  <span className="mono text-[0.65rem] tracking-wider text-ink-muted">
+                  <span className="mono text-[0.65rem] tracking-wider text-text-muted">
                     {party.abbreviation}
                   </span>
                 </div>
-                <p className="mt-2 text-sm text-ink-2 leading-relaxed">
+                <p className="mt-2 text-sm text-ink-raised leading-relaxed">
                   {party.description}
                 </p>
                 {(party.founded || party.leader) && (
-                  <p className="mt-3 mono text-[0.65rem] tracking-wider text-ink-subtle">
+                  <p className="mt-3 mono text-[0.65rem] tracking-wider text-text-muted">
                     {[party.founded, party.leader].filter(Boolean).join(" · ").toUpperCase()}
                   </p>
                 )}

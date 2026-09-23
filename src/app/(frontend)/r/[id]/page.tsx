@@ -14,10 +14,7 @@ import { ImageDownloads } from "@/components/result/ImageDownloads";
 import { DeleteResultButton } from "@/components/result/DeleteResultButton";
 import { StickyIndex } from "@/components/StickyIndex";
 import { Kicker } from "@/components/Kicker";
-import {
-  ScrollReveal,
-  ScrollRevealItem,
-} from "@/components/motion/ScrollReveal";
+
 import { BackToTop } from "@/components/result/BackToTop";
 import { readingMinutesFor } from "@/lib/reading-time";
 import { ConfidenceIndicator } from "@/components/result/ConfidenceIndicator";
@@ -156,12 +153,6 @@ export default async function ResultPage({ params }: Args) {
     }))
   );
 
-  const overallConfidence = result.confidence
-    ? Math.round(
-        (DIMENSIONS.reduce((s, d) => s + (result.confidence?.[d.id] ?? 0), 0) /
-          DIMENSIONS.length),
-      )
-    : null;
 
   const themeResultCards = result.themeScores
     ? THEMES.map((theme) => ({
@@ -352,6 +343,7 @@ export default async function ResultPage({ params }: Args) {
     ? [
         ...INDEX_ITEMS.filter((it) => it.id === "profiel" || it.id === "dimensies"),
         { id: "premium", label: "Volledig rapport" },
+        { id: "delen", label: "Delen & export" },
       ]
     : INDEX_ITEMS;
 
@@ -369,120 +361,70 @@ export default async function ResultPage({ params }: Args) {
           <div className="min-w-0">
             {/* SECTIE 1 · PROFIEL */}
             <section id="profiel" className="scroll-mt-32">
-              <ScrollReveal variant="stagger" immediate>
-                <ScrollRevealItem>
-                  <Kicker number={1}>Jouw politieke profiel</Kicker>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
+              <Kicker number={1}>Jouw politieke profiel</Kicker>
+              <div className="mt-5 grid grid-cols-1 gap-7 border-b border-ink pb-8 md:grid-cols-[minmax(0,1.5fr)_minmax(16rem,0.7fr)] md:items-end md:gap-12">
+                <div className="min-w-0">
                   <h1
                     lang="nl"
-                    className="display mt-6 text-ink leading-[0.95] wrap-break-word [hyphens:auto]"
-                    style={{
-                      fontSize: "clamp(2.6rem, 7vw, 6rem)",
-                      letterSpacing: "-0.025em",
-                    }}
+                    className="display text-ink [hyphens:auto] [overflow-wrap:anywhere]"
+                    style={{ fontSize: "clamp(2.4rem, 6vw, 5.6rem)" }}
                   >
                     {ideo.name}
-                    <span className="text-terra">.</span>
+                    <span className="text-signal">.</span>
                   </h1>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
-                  <p className="mt-8 max-w-2xl text-lg md:text-xl text-ink-2 leading-relaxed">
-                    {ideo.shortDescription}
+                  <p className="mt-5 max-w-3xl text-lg font-semibold leading-snug text-ink md:text-xl">
+                    {personalProfile.lead}
                   </p>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
-                  <div className="mt-8 flex flex-wrap items-center gap-2">
-                    <MetaPill label="Tier" value={tierLabel(result.tier)} />
-                    <MetaPill
-                      label="Beantwoord"
-                      value={`${result.answeredCount}/${result.totalQuestions}`}
-                    />
-                    {result.skippedCount > 0 && (
-                      <MetaPill
-                        label="Overgeslagen"
-                        value={String(result.skippedCount)}
-                      />
-                    )}
-                    <MetaPill
-                      label="Spectrum"
-                      value={ideo.spectrumPosition.replace("-", " ")}
-                      capitalize
-                    />
-                    {overallConfidence !== null && (
-                      <ConfidenceIndicator
-                        score={overallConfidence}
-                        label="Duidelijkheid van dit patroon"
-                      />
-                    )}
-                  </div>
-                  {isExtendedResult && (
-                    <div className="mt-6 max-w-2xl border border-navy/30 bg-navy/5 p-5">
-                      <p className="kicker mb-2">Uitgebreide verdieping</p>
-                      <p className="text-sm text-ink-2 leading-relaxed">
-                        Dit resultaat is gebaseerd op de langste quiz. Daarom
-                        tonen we per thema twee onderbouwende antwoorden in
-                        plaats van één, en vergelijken we met meer politici.
-                      </p>
-                    </div>
-                  )}
-                </ScrollRevealItem>
-              </ScrollReveal>
-
-              {!isFreeResult && <PersonalProfile profile={personalProfile} />}
-
-              <div className="mt-16 md:mt-20 max-w-3xl">
-                <Kicker>Wat houdt dit profiel in?</Kicker>
-                <div className="mt-5">
-                  {isFreeResult ? (
-                    <InlinePaywall
-                      title="De volledige profieluitleg is onderdeel van het betaalde rapport."
-                      body="Je gratis uitslag geeft de kern: profielnaam en vijf assen. Met de standaard quiz krijg je de volledige duiding, context en leesverdieping."
-                    />
-                  ) : (
-                    <StaticProse text={ideo.description} />
-                  )}
                 </div>
+                <aside className="border-l-2 border-signal pl-4">
+                  <p className="kicker">Leeswijzer</p>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-raised">
+                    Een profiel vat je antwoorden samen, maar maakt nuance
+                    kleiner. De vijf assen blijven los van elkaar. Dit is geen
+                    partijranglijst en geen stemadvies.
+                  </p>
+                </aside>
+              </div>
 
-                {ideo.examplePeople?.length ? (
-                  <div className="mt-10 border-t border-rule pt-6">
-                    <p className="kicker mb-4">Bekende voorbeelden</p>
-                    <ul className="flex flex-wrap gap-2 text-sm">
-                      {ideo.examplePeople.map((ex, i) => (
-                        <li
-                          key={i}
-                          className="border border-rule px-3 py-1 text-ink-2"
-                        >
-                          {ex.text}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              <div className="mt-5 flex flex-wrap items-center gap-2">
+                <MetaPill label="Versie" value={tierLabel(result.tier)} />
+                <MetaPill
+                  label="Beantwoord"
+                  value={`${result.answeredCount}/${result.totalQuestions}`}
+                />
+                {result.skippedCount > 0 ? (
+                  <MetaPill
+                    label="Overgeslagen"
+                    value={String(result.skippedCount)}
+                  />
                 ) : null}
               </div>
+
+              {isExtendedResult ? (
+                <p className="mt-5 max-w-3xl border-l border-rule-strong pl-4 text-sm leading-relaxed text-text-muted">
+                  Deze uitgebreide versie gebruikt de langste vragenlijst en
+                  toont per thema extra onderbouwing en meer vergelijkingen.
+                </p>
+              ) : null}
             </section>
 
             {/* SECTIE 2 · DIMENSIES */}
             <section
               id="dimensies"
-              className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
+              className="mt-10 scroll-mt-32 border-t border-ink pt-7 md:mt-12 md:pt-9"
             >
-              <ScrollReveal variant="stagger">
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_auto] md:items-end mb-8">
-                  <ScrollRevealItem>
-                    <Kicker number={2}>Je scores op vijf assen</Kicker>
-                    <h2 className="display mt-5">Waar je staat, in cijfers.</h2>
-                  </ScrollRevealItem>
-                  <ScrollRevealItem>
-                    <p className="text-sm text-ink-muted max-w-xs">
-                      Iedere score loopt van −100 tot +100. Een score rond nul
-                      betekent geen sterke voorkeur op die as.
-                    </p>
-                  </ScrollRevealItem>
+              <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-[1fr_auto] md:items-end">
+                <div>
+                  <Kicker number={2}>Je profiel in vijf assen</Kicker>
+                  <h2 className="display mt-3">Vijf onafhankelijke meetlijnen.</h2>
                 </div>
+                <p className="max-w-sm text-sm leading-relaxed text-text-muted">
+                  Elke lijn loopt van -100 tot +100. Nul is het midden van die
+                  ene as, niet een gemiddelde van je hele profiel.
+                </p>
+              </div>
 
-                <ScrollRevealItem>
-                  <div className="border-t border-rule">
+              <div className="border-t border-rule">
                     {DIMENSIONS.map((dimension, index) => {
                       const value = result.dimensions[dimension.id];
                       const dimConfidence = result.confidence?.[dimension.id];
@@ -498,28 +440,21 @@ export default async function ResultPage({ params }: Args) {
                             value={value}
                             index={index}
                           />
-                          <div className="pb-7 mt-5 md:mt-6 grid grid-cols-1 md:grid-cols-[1fr_auto] md:gap-8 md:items-start">
+                          <div className="grid grid-cols-1 gap-4 pb-6 pt-1 md:grid-cols-[minmax(0,1fr)_auto] md:items-start md:gap-8">
                             <div className="max-w-2xl">
-                              {isFreeResult ? (
-                                <p className="text-sm text-ink-muted leading-relaxed">
-                                  De gratis indicatie toont je positie op deze
-                                  as. De volledige betaalde analyse legt uit
-                                  wat deze score politiek betekent en waar de
-                                  nuance zit.
-                                </p>
-                              ) : hasDirection ? (
+                              {hasDirection ? (
                                   <>
                                     <p className="kicker mb-2">
                                       Jouw richting: {matchedPole.label}
                                     </p>
-                                    <p className="text-sm text-ink-2 leading-relaxed">
+                                    <p className="text-sm text-ink-raised leading-relaxed">
                                       {matchedPole.description}
                                     </p>
                                   </>
                                 ) : (
                                   <>
                                     <p className="kicker mb-2">Geen duidelijke richting</p>
-                                    <p className="text-sm text-ink-2 leading-relaxed">
+                                    <p className="text-sm text-ink-raised leading-relaxed">
                                       Je antwoorden liggen op deze as dicht bij het midden. Daaruit
                                       volgt geen sterke voorkeur voor een van beide polen.
                                     </p>
@@ -527,12 +462,12 @@ export default async function ResultPage({ params }: Args) {
                                 )}
                             </div>
                             {dimConfidence !== undefined && (
-                              <div className="mt-4 md:mt-1">
+                              <div className="md:mt-1">
                                 <ConfidenceIndicator
                                   score={dimConfidence}
                                   label="Duidelijkheid op deze as"
                                 />
-                                <p className="mt-2 text-xs text-ink-muted max-w-56">
+                                <p className="mt-2 text-xs text-text-muted max-w-56">
                                   {confidenceExplain(dimConfidence)}
                                 </p>
                               </div>
@@ -541,10 +476,35 @@ export default async function ResultPage({ params }: Args) {
                         </div>
                       );
                     })}
-                  </div>
-                </ScrollRevealItem>
-              </ScrollReveal>
+              </div>
             </section>
+
+            {!isFreeResult ? (
+              <>
+                <PersonalProfile profile={personalProfile} />
+                <section className="mt-16 max-w-3xl border-t border-rule pt-8 md:mt-20">
+                  <Kicker>Wat houdt dit profiel in?</Kicker>
+                  <div className="mt-5">
+                    <StaticProse text={ideo.description} />
+                  </div>
+                  {ideo.examplePeople?.length ? (
+                    <div className="mt-10 border-t border-rule pt-6">
+                      <p className="kicker mb-4">Bekende voorbeelden</p>
+                      <ul className="flex flex-wrap gap-2 text-sm">
+                        {ideo.examplePeople.map((example, index) => (
+                          <li
+                            key={index}
+                            className="border border-rule px-3 py-1 text-ink-raised [overflow-wrap:anywhere]"
+                          >
+                            {example.text}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                </section>
+              </>
+            ) : null}
 
             {isFreeResult ? (
               <FreeResultPaywall />
@@ -555,32 +515,32 @@ export default async function ResultPage({ params }: Args) {
               id="themas"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
             >
-              <ScrollReveal variant="stagger">
+              <>
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_auto] md:items-end mb-8">
-                  <ScrollRevealItem>
+                  <>
                     <Kicker number={3}>Zeven beleidsthema&apos;s</Kicker>
                     <h2 className="display mt-5">
                       Hoe je denkt per onderwerp.
                     </h2>
-                  </ScrollRevealItem>
-                  <ScrollRevealItem>
-                    <p className="text-sm text-ink-muted max-w-xs">
+                  </>
+                  <>
+                    <p className="text-sm text-text-muted max-w-xs">
                       Thema-scores zijn afgeleid uit relevante stellingen en
                       vullen het dimensie-profiel aan met concrete politieke
                       onderwerpen.
                     </p>
-                  </ScrollRevealItem>
+                  </>
                 </div>
 
                 {result.themeScores ? (
                   <>
-                    <ScrollRevealItem>
+                    <>
                       <ThemeBars
                         scores={result.themeScores}
                         coverage={result.themeCoverage}
                       />
-                    </ScrollRevealItem>
-                    <ScrollRevealItem>
+                    </>
+                    <>
                       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
                         {themeResultCards.map(({ theme, score }) => {
                           const position = describeThemeScore(theme, score);
@@ -590,10 +550,10 @@ export default async function ResultPage({ params }: Args) {
                               <p className="display text-lg leading-snug text-ink">
                                 {position.label}
                               </p>
-                              <p className="mt-2 text-sm text-ink-2 leading-relaxed">
+                              <p className="mt-2 text-sm text-ink-raised leading-relaxed">
                                 {position.description}
                               </p>
-                              <p className="mt-3 text-xs text-ink-muted">
+                              <p className="mt-3 text-xs text-text-muted">
                                 Score {formatScore(score)} op basis van de beantwoorde
                                 vragen bij dit thema.
                               </p>
@@ -601,15 +561,15 @@ export default async function ResultPage({ params }: Args) {
                           );
                         })}
                       </div>
-                    </ScrollRevealItem>
+                    </>
                   </>
                 ) : (
-                  <p className="text-ink-muted text-sm">
+                  <p className="text-text-muted text-sm">
                     Voor dit resultaat zijn nog geen thema-scores beschikbaar.
                     Doe de quiz opnieuw om thema-data te krijgen.
                   </p>
                 )}
-              </ScrollReveal>
+              </>
             </section>
 
             {/* SECTIE 3b · ANTWOORDKAART */}
@@ -631,21 +591,21 @@ export default async function ResultPage({ params }: Args) {
                 id="steelman"
                 className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
               >
-                <ScrollReveal variant="stagger">
-                  <ScrollRevealItem>
+                <>
+                  <>
                     <Kicker number="4b">De andere richting</Kicker>
                     <h2 className="display mt-5 max-w-3xl">
                       De tegenoverliggende positie op assen waar je duidelijk uitslaat.
                     </h2>
-                  </ScrollRevealItem>
-                  <ScrollRevealItem>
-                    <p className="mt-4 max-w-2xl text-sm text-ink-muted">
+                  </>
+                  <>
+                    <p className="mt-4 max-w-2xl text-sm text-text-muted">
                       Bij een duidelijke score tonen we het andere uiteinde van
                       dezelfde schaal. Gebruik dit als een korte check van de
                       afweging die achter je score zit.
                     </p>
-                  </ScrollRevealItem>
-                  <ScrollRevealItem>
+                  </>
+                  <>
                     <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-8 max-w-5xl">
                       {steelmanCandidates.map((candidate) => (
                         <div
@@ -654,7 +614,7 @@ export default async function ResultPage({ params }: Args) {
                         >
                           <div className="flex items-baseline justify-between gap-3">
                             <p className="kicker">{candidate.dimension.label}</p>
-                            <p className="mono tabular-nums text-xs text-ink-muted">
+                            <p className="mono tabular-nums text-xs text-text-muted">
                               JOUW SCORE {formatScore(candidate.yourScore)}
                             </p>
                           </div>
@@ -663,7 +623,7 @@ export default async function ResultPage({ params }: Args) {
                               ? candidate.dimension.poleNegative.label
                               : candidate.dimension.polePositive.label}
                           </p>
-                          <p className="mt-2 text-sm text-ink-2 leading-relaxed">
+                          <p className="mt-2 text-sm text-ink-raised leading-relaxed">
                             {candidate.yourScore > 0
                               ? candidate.dimension.poleNegative.description
                               : candidate.dimension.polePositive.description}
@@ -671,8 +631,8 @@ export default async function ResultPage({ params }: Args) {
                         </div>
                       ))}
                     </div>
-                  </ScrollRevealItem>
-                </ScrollReveal>
+                  </>
+                </>
               </section>
             )}
 
@@ -682,27 +642,27 @@ export default async function ResultPage({ params }: Args) {
               id="paradoxen"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
             >
-              <ScrollReveal variant="stagger">
-                <ScrollRevealItem>
+              <>
+                <>
                   <Kicker number={5}>Interne spanningen</Kicker>
                   <h2 className="display mt-5 max-w-3xl">
                     Waar je antwoorden elkaar mogelijk tegenspreken.
                   </h2>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
-                  <p className="mt-4 max-w-2xl text-sm text-ink-muted">
+                </>
+                <>
+                  <p className="mt-4 max-w-2xl text-sm text-text-muted">
                     Spanningen tussen antwoorden zijn niet per se fout. Ze
                     kunnen wijzen op een genuanceerde positie, een
                     onderbelichte afweging of een onderwerp waar je nog over
                     nadenkt.
                   </p>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
+                </>
+                <>
                   <div className="mt-10">
                     <ParadoxList items={paradoxItems} />
                   </div>
-                </ScrollRevealItem>
-              </ScrollReveal>
+                </>
+              </>
             </section>
 
             {/* SECTIE 6 · PARTIJ-CONTEXT */}
@@ -710,28 +670,28 @@ export default async function ResultPage({ params }: Args) {
               id="partijen"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
             >
-              <ScrollReveal variant="stagger">
-                <ScrollRevealItem>
+              <>
+                <>
                   <Kicker number={6}>Partij-context per regio</Kicker>
                   <h2 className="display mt-5 max-w-3xl">
                     Welke partijen sluiten doorgaans aan bij jouw ideologie?
                   </h2>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
-                  <p className="mt-4 max-w-2xl text-sm text-ink-muted">
+                </>
+                <>
+                  <p className="mt-4 max-w-2xl text-sm text-text-muted">
                     PolitiekProfiel rangschikt geen partijen voor jou
                     persoonlijk. We tonen wel welke partijen in hoofdlijnen
                     overeenkomen met de ideologie waar jouw profiel het
                     sterkst op lijkt, voor Nederland, Europa en de Verenigde
                     Staten.
                   </p>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
+                </>
+                <>
                   <div className="mt-10">
                     <PartyContext parties={parties} ideologyName={ideo.name} />
                   </div>
-                </ScrollRevealItem>
-              </ScrollReveal>
+                </>
+              </>
             </section>
 
             {/* SECTIE 6b · STELLINGEN PER PARTIJ */}
@@ -739,21 +699,21 @@ export default async function ResultPage({ params }: Args) {
               id="partijstandpunten"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
             >
-              <ScrollReveal variant="stagger">
-                <ScrollRevealItem>
+              <>
+                <>
                   <Kicker number="6b">Stellingen per partij</Kicker>
                   <h2 className="display mt-5 max-w-3xl">
                     Niet alleen een label: zie waar jouw antwoorden aansluiten.
                   </h2>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
-                  <p className="mt-4 max-w-2xl text-sm text-ink-muted">
+                </>
+                <>
+                  <p className="mt-4 max-w-2xl text-sm text-text-muted">
                     Hieronder vergelijken we je letterlijke antwoorden met de
                     gecontroleerde bronnen van Nederlandse partijen. Alleen jouw
                     eigen beantwoorde stellingen tellen mee.
                   </p>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
+                </>
+                <>
                   <div className="mt-10">
                     <PartyStatementCompare
                       comparisons={partyComparisons}
@@ -761,8 +721,8 @@ export default async function ResultPage({ params }: Args) {
                       isExtended={isExtendedResult}
                     />
                   </div>
-                </ScrollRevealItem>
-              </ScrollReveal>
+                </>
+              </>
             </section>
 
             {/* SECTIE 7 · POLITICI */}
@@ -770,14 +730,14 @@ export default async function ResultPage({ params }: Args) {
               id="politici"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
             >
-              <ScrollReveal variant="stagger">
-                <ScrollRevealItem>
+              <>
+                <>
                   <Kicker number={7}>Vergelijk met politici</Kicker>
                   <h2 className="display mt-5 max-w-3xl">
                     Welke politici staan dichtbij jouw posities?
                   </h2>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
+                </>
+                <>
                   <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
                     <div className="min-w-0">
                       <ScatterPlot
@@ -801,8 +761,8 @@ export default async function ResultPage({ params }: Args) {
                       />
                     </div>
                   </div>
-                </ScrollRevealItem>
-              </ScrollReveal>
+                </>
+              </>
             </section>
 
             {/* SECTIE 8 · LANDEN */}
@@ -810,14 +770,14 @@ export default async function ResultPage({ params }: Args) {
               id="landen"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12"
             >
-              <ScrollReveal variant="stagger">
-                <ScrollRevealItem>
+              <>
+                <>
                   <Kicker number={8}>Vergelijk met landen</Kicker>
                   <h2 className="display mt-5 max-w-3xl">
                     Op welk land lijkt jouw profiel het meest?
                   </h2>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
+                </>
+                <>
                   <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-12">
                     <div className="min-w-0 lg:order-2">
                       <ScatterPlot
@@ -837,24 +797,27 @@ export default async function ResultPage({ params }: Args) {
                       <RankedList matches={rankedCountries} highlightFirst />
                     </div>
                   </div>
-                </ScrollRevealItem>
-              </ScrollReveal>
+                </>
+              </>
             </section>
+
+              </>
+            )}
 
             {/* SECTIE 9 · DELEN */}
             <section
               id="delen"
               className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12 pb-8"
             >
-              <ScrollReveal variant="stagger">
-                <ScrollRevealItem>
+              <>
+                <>
                   <Kicker number={9}>Deel, lees verder of vergelijk</Kicker>
                   <h2 className="display mt-5 max-w-3xl">
                     Bewaar je profiel, leg het naast iemand anders, of duik
                     dieper in deze ideologie.
                   </h2>
-                </ScrollRevealItem>
-                <ScrollRevealItem>
+                </>
+                <>
                   <div className="mt-10">
                     <ShareBlock
                       shareId={result.shareId}
@@ -862,21 +825,21 @@ export default async function ResultPage({ params }: Args) {
                     />
                     <DeleteResultButton shareId={result.shareId} />
                   </div>
-                </ScrollRevealItem>
+                </>
 
                 {/* Mail mij deze link (opt-in) */}
-                <ScrollRevealItem>
+                <>
                   <div className="mt-6">
                     <EmailResultLinkBlock shareId={result.shareId} />
                   </div>
-                </ScrollRevealItem>
+                </>
 
                 {/* Social media delen */}
-                <ScrollRevealItem>
+                <>
                   <div className="mt-14 border-t border-rule pt-6">
                     <div className="flex flex-wrap items-baseline justify-between gap-3 mb-5">
                       <p className="kicker">Deel op social media</p>
-                      <p className="text-xs text-ink-muted max-w-md">
+                      <p className="text-xs text-text-muted max-w-md">
                         Eén klik. Geen redirect via een derde-partij, geen
                         tracking-pixel.
                       </p>
@@ -886,14 +849,14 @@ export default async function ResultPage({ params }: Args) {
                       ideologyName={ideo.name}
                     />
                   </div>
-                </ScrollRevealItem>
+                </>
 
                 {/* Downloadable images */}
-                <ScrollRevealItem>
+                <>
                   <div className="mt-14 border-t border-rule pt-6">
                     <div className="flex flex-wrap items-baseline justify-between gap-3 mb-5">
                       <p className="kicker">Download als afbeelding</p>
-                      <p className="text-xs text-ink-muted max-w-md">
+                      <p className="text-xs text-text-muted max-w-md">
                         Drie formaten, klaar voor verhaal, post of
                         link-preview.
                       </p>
@@ -903,10 +866,10 @@ export default async function ResultPage({ params }: Args) {
                       ideologyName={ideo.name}
                     />
                   </div>
-                </ScrollRevealItem>
+                </>
 
                 {ideo.furtherReading.length > 0 && (
-                  <ScrollRevealItem>
+                  <>
                     <div className="mt-14 border-t border-rule pt-6">
                       <p className="kicker mb-3">Verder lezen</p>
                       <ul className="max-w-3xl divide-y divide-rule border-t border-rule">
@@ -916,16 +879,16 @@ export default async function ResultPage({ params }: Args) {
                               href={book.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="no-underline text-ink hover:text-navy"
+                              className="no-underline text-ink hover:text-signal"
                             >
                               <span className="display text-lg leading-tight">
                                 {book.title}
                               </span>
-                              <span className="block mt-1 text-sm text-ink-2">
+                              <span className="block mt-1 text-sm text-ink-raised">
                                 {book.author}
                                 {book.publisher ? ` · ${book.publisher}` : ""}
                               </span>
-                              <span className="block mt-2 text-sm text-ink-muted leading-relaxed">
+                              <span className="block mt-2 text-sm text-text-muted leading-relaxed">
                                 {book.note}
                               </span>
                             </a>
@@ -933,10 +896,10 @@ export default async function ResultPage({ params }: Args) {
                         ))}
                       </ul>
                     </div>
-                  </ScrollRevealItem>
+                  </>
                 )}
 
-                <ScrollRevealItem>
+                <>
                   <div className="mt-12 flex flex-wrap gap-3">
                     <Link
                       href={`/vergelijk?a=${result.shareId}`}
@@ -961,11 +924,9 @@ export default async function ResultPage({ params }: Args) {
                       <ArrowRight size={14} strokeWidth={1.8} />
                     </Link>
                   </div>
-                </ScrollRevealItem>
-              </ScrollReveal>
-            </section>
+                </>
               </>
-            )}
+            </section>
           </div>
         </div>
       </Container>
@@ -974,55 +935,14 @@ export default async function ResultPage({ params }: Args) {
   );
 }
 
-function InlinePaywall({ title, body }: { title: string; body: string }) {
-  return (
-    <div className="relative overflow-hidden border border-rule bg-paper-50 p-5">
-      <div
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-b from-transparent to-paper"
-      />
-      <div className="relative">
-        <p className="kicker mb-2 inline-flex items-center gap-2">
-          <Lock size={13} strokeWidth={1.8} />
-          Betaalde verdieping
-        </p>
-        <p className="display text-xl leading-tight text-ink">{title}</p>
-        <p className="mt-3 text-sm text-ink-2 leading-relaxed">{body}</p>
-        <div className="mt-5">
-          <PaidTierButtons
-            options={[
-              {
-                tier: "standard",
-                className: "btn btn-primary",
-                children: (
-                  <>
-                    Ontgrendel voor 5 euro
-                    <ArrowRight size={16} strokeWidth={1.8} />
-                  </>
-                ),
-              },
-              {
-                tier: "extended",
-                className: "btn btn-secondary",
-                children: <>Uitgebreid voor 10 euro</>,
-              },
-            ]}
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function FreeResultPaywall() {
   const locked = [
-    "zeven thema-scores",
-    "uitgesproken antwoorden",
-    "andere richtingen op de vijf assen",
-    "paradoxen",
+    "zeven themaduidingen",
+    "antwoordkaart met bronnen",
+    "doorgerekende kantelpunten",
+    "interne spanningen",
     "partij-context",
     "politici- en landenvergelijking",
-    "delen, evolutie en downloads",
   ];
 
   return (
@@ -1030,29 +950,22 @@ function FreeResultPaywall() {
       id="premium"
       className="mt-24 md:mt-32 scroll-mt-32 border-t border-ink pt-12 pb-8"
     >
-      <ScrollReveal variant="stagger">
-        <ScrollRevealItem>
-          <Kicker number={3}>Volledig rapport</Kicker>
-          <h2 className="display mt-5 max-w-3xl">
-            Je gratis uitslag is een indicatie. De verdieping zit in het
-            betaalde rapport.
-          </h2>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
-          <p className="mt-4 max-w-2xl text-sm text-ink-muted leading-relaxed">
-            Je ziet nu de profielnaam en vijf dimensies. Met de standaard of
-            uitgebreide quiz krijg je meer vragen, scherpere confidence en alle
-            contextsecties die helpen om je uitslag echt te begrijpen.
-          </p>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
+      <Kicker number={3}>Meer onderbouwing</Kicker>
+      <h2 className="display mt-5 max-w-3xl">
+        Je Quick-resultaat staat hierboven. Wil je de antwoorden erachter zien?
+      </h2>
+      <p className="mt-4 max-w-2xl text-sm text-text-muted leading-relaxed">
+        Je vijf posities, richting per as en kwalitatieve kern blijven gratis
+        zichtbaar. De betaalde versies voegen meer vragen, onderbouwing en
+        vergelijkingen toe.
+      </p>
           <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_0.9fr]">
-            <div className="border border-rule bg-paper-50 p-6 md:p-8">
+            <div className="border border-rule bg-canvas-raised p-6 md:p-8">
               <p className="kicker mb-5 inline-flex items-center gap-2">
                 <Lock size={14} strokeWidth={1.8} />
                 Vergrendeld in gratis
               </p>
-              <ul className="grid grid-cols-1 gap-3 text-sm text-ink-2 md:grid-cols-2">
+              <ul className="grid grid-cols-1 gap-3 text-sm text-ink-raised md:grid-cols-2">
                 {locked.map((item) => (
                   <li key={item} className="border-t border-rule pt-3">
                     {item}
@@ -1065,7 +978,7 @@ function FreeResultPaywall() {
               <h3 className="display text-2xl leading-tight">
                 Start de standaard quiz.
               </h3>
-              <p className="mt-4 text-sm text-ink-2 leading-relaxed">
+              <p className="mt-4 text-sm text-ink-raised leading-relaxed">
                 Voor 5 euro krijg je een volledig rapport op basis van 50
                 stellingen. Wil je maximale nuance, kies dan de uitgebreide quiz
                 van 80 vragen.
@@ -1093,8 +1006,6 @@ function FreeResultPaywall() {
               </div>
             </div>
           </div>
-        </ScrollRevealItem>
-      </ScrollReveal>
     </section>
   );
 }
@@ -1110,10 +1021,10 @@ function MetaPill({
 }) {
   return (
     <span className="inline-flex items-baseline gap-2 border border-rule px-3 py-1.5 text-xs">
-      <span className="mono text-[0.62rem] tracking-wider text-ink-muted">
+      <span className="mono text-[0.62rem] tracking-wider text-text-muted">
         {label.toUpperCase()}
       </span>
-      <span className={capitalize ? "capitalize text-ink-2" : "text-ink-2"}>
+      <span className={capitalize ? "capitalize text-ink-raised" : "text-ink-raised"}>
         {value}
       </span>
     </span>
@@ -1139,7 +1050,7 @@ function confidenceExplain(score: number): string {
 
 function StaticProse({ text }: { text: string }) {
   return (
-    <div className="space-y-5 text-ink-2 leading-relaxed">
+    <div className="space-y-5 text-ink-raised leading-relaxed">
       {text
         .split(/\n{2,}/)
         .filter(Boolean)

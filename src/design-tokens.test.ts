@@ -22,8 +22,8 @@ const SRC = path.join(process.cwd(), "src");
 const RUNTIME_INJECTED = [
   /^--tw-/,
   /^--theme-/,
-  /^--font-fraunces$/,
-  /^--font-inter$/,
+  /^--font-cabinet$/,
+  /^--font-switzer$/,
   /^--font-plex$/,
 ];
 

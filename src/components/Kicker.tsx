@@ -2,14 +2,17 @@ import { type ReactNode } from "react";
 import { cx } from "@/lib/cx";
 
 interface KickerProps {
-  children: ReactNode;
+  children?: ReactNode;
   number?: string | number;
   className?: string;
 }
 
 export function Kicker({ children, number, className }: KickerProps) {
   return (
-    <div className={cx("flex items-baseline gap-3", className)}>
+    <div
+      data-system="kicker"
+      className={cx("flex items-baseline gap-3", className)}
+    >
       {number !== undefined && (
         <span className="index-num text-[0.72rem]">
           {typeof number === "number"

@@ -14,45 +14,43 @@ export function ConfidenceIndicator({
 }: ConfidenceIndicatorProps) {
   const band = confidenceBand(score);
   const bandLabel = confidenceBandLabel(band);
-  const filled = Math.round((Math.max(0, Math.min(100, score)) / 100) * 5);
-  const dots = Array.from({ length: 5 }).map((_, i) => i < filled);
+  const clamped = Math.max(0, Math.min(100, score));
+  const filled = Math.round((clamped / 100) * 5);
 
   return (
     <div
       className={cx(
-        "inline-flex items-center gap-3 border border-rule px-3 py-1.5",
+        "inline-grid max-w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 border border-rule px-3 py-2",
         size === "md" ? "text-sm" : "text-xs",
       )}
-      title={`${bandLabel} · score ${score}/100`}
+      title={bandLabel + ", score " + score + " van 100"}
     >
       <span
         className={cx(
-          "mono tracking-wider text-ink-muted",
-          size === "md" ? "text-[0.7rem]" : "text-[0.62rem]",
+          "mono min-w-0 tracking-[0.1em] text-text-muted [overflow-wrap:anywhere]",
+          size === "md" ? "text-[0.68rem]" : "text-[0.6rem]",
         )}
       >
         {label.toUpperCase()}
       </span>
-      <span aria-hidden className="flex items-center gap-1">
-        {dots.map((on, i) => (
+      <span className="font-semibold capitalize text-ink">{band}</span>
+      <span
+        aria-hidden
+        className="col-span-2 grid h-2 grid-cols-5 items-end gap-1"
+      >
+        {Array.from({ length: 5 }).map((_, index) => (
           <span
-            key={i}
+            key={index}
             className={cx(
-              "block w-1.5 h-1.5 rounded-full",
-              on
-                ? band === "hoog"
-                  ? "bg-navy"
-                  : band === "gemiddeld"
-                    ? "bg-ink"
-                    : "bg-ink-muted"
-                : "bg-rule",
+              "block border border-rule-strong",
+              index < filled ? "bg-chart-marker" : "bg-canvas-raised",
             )}
+            style={{ height: 3 + index }}
           />
         ))}
       </span>
-      <span className="capitalize text-ink-2">{band}</span>
       <span className="sr-only">
-        Duidelijkheid van dit patroon: {score} van 100, niveau {bandLabel.toLowerCase()}.
+        {label}: {score} van 100, niveau {bandLabel.toLowerCase()}.
       </span>
     </div>
   );

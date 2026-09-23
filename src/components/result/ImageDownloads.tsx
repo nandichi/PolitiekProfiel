@@ -1,7 +1,6 @@
 "use client";
 
 import { Download } from "lucide-react";
-import { motion } from "motion/react";
 
 interface ImageDownloadsProps {
   shareId: string;
@@ -63,7 +62,7 @@ export function ImageDownloads({ shareId, ideologyName }: ImageDownloadsProps) {
           );
         })}
       </div>
-      <p className="mt-6 text-xs text-ink-muted">
+      <p className="mt-6 text-xs text-text-muted">
         Afbeeldingen worden server-side gerenderd op het moment dat je
         downloadt. PNG, geen tracking, geen watermerk.
       </p>
@@ -87,17 +86,13 @@ function FormatCard({
   ideologyName,
 }: FormatCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10% 0px" }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="group flex flex-col border border-rule bg-paper hover:border-ink transition-colors"
+    <div
+      className="group flex flex-col border border-rule bg-canvas hover:border-ink transition-colors"
     >
       {/* Preview frame */}
-      <div className="relative flex items-center justify-center bg-paper-50 border-b border-rule p-4 md:p-6 min-h-[200px]">
+      <div className="relative flex items-center justify-center bg-canvas-raised border-b border-rule p-4 md:p-6 min-h-[200px]">
         <div
-          className="relative max-h-[280px] w-auto max-w-full border border-rule-strong shadow-sm overflow-hidden bg-paper"
+          className="relative max-h-[280px] w-auto max-w-full border border-rule-strong shadow-sm overflow-hidden bg-canvas"
           style={{
             aspectRatio: format.ratio,
             height:
@@ -118,10 +113,10 @@ function FormatCard({
             loading="lazy"
           />
         </div>
-        <span className="absolute top-3 left-3 mono text-[0.6rem] tracking-wider text-ink-subtle">
+        <span className="absolute top-3 left-3 mono text-[0.6rem] tracking-wider text-text-muted">
           {String(index + 1).padStart(2, "0")}
         </span>
-        <span className="absolute top-3 right-3 mono text-[0.6rem] tracking-wider text-ink-subtle">
+        <span className="absolute top-3 right-3 mono text-[0.6rem] tracking-wider text-text-muted">
           {format.size}
         </span>
       </div>
@@ -129,18 +124,18 @@ function FormatCard({
       {/* Meta + action */}
       <div className="flex-1 flex flex-col p-5">
         <p className="kicker mb-2">{format.label}</p>
-        <p className="text-sm text-ink-2 leading-relaxed mb-5 flex-1">
+        <p className="text-sm text-ink-raised leading-relaxed mb-5 flex-1">
           {format.caption}
         </p>
         <a
           href={src}
           download={downloadName}
-          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium border border-ink text-ink hover:bg-ink hover:text-paper transition-colors"
+          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium border border-ink text-ink hover:bg-ink hover:text-canvas transition-colors"
         >
           <Download size={14} strokeWidth={1.8} />
           Download PNG
         </a>
       </div>
-    </motion.div>
+    </div>
   );
 }

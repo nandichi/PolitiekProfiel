@@ -98,6 +98,7 @@ export function StickyIndex({
     <>
       {/* Desktop sticky rail */}
       <nav
+        data-system="sticky-index"
         aria-label="Pagina-index"
         className={cx(
           "hidden lg:block sticky self-start",
@@ -123,7 +124,7 @@ export function StickyIndex({
                     aria-hidden
                     className={cx(
                       "relative z-10 w-7 h-7 ml-[-2px] flex items-center justify-center transition-colors shrink-0",
-                      isActive ? "bg-ink text-paper" : "bg-paper text-ink-muted",
+                      isActive ? "bg-ink text-canvas" : "bg-canvas text-text-muted",
                     )}
                   >
                     <span className="mono text-[0.62rem] tracking-wider">
@@ -134,13 +135,13 @@ export function StickyIndex({
                     <span
                       className={cx(
                         "text-sm transition-colors",
-                        isActive ? "text-ink" : "text-ink-muted group-hover:text-ink",
+                        isActive ? "text-ink" : "text-text-muted group-hover:text-ink",
                       )}
                     >
                       {item.label}
                     </span>
                     {item.readingMinutes ? (
-                      <span className="mono text-[0.6rem] tracking-wider text-ink-subtle mt-0.5">
+                      <span className="mono text-[0.6rem] tracking-wider text-text-muted mt-0.5">
                         {item.readingMinutes} MIN
                       </span>
                     ) : null}
@@ -148,7 +149,7 @@ export function StickyIndex({
                   {isActive && (
                     <motion.span
                       layoutId="sticky-index-active"
-                      className="absolute right-0 top-1/2 -translate-y-1/2 h-3 w-3 border border-navy"
+                      className="absolute right-0 top-1/2 -translate-y-1/2 h-3 w-3 border border-signal"
                       transition={{
                         type: "spring",
                         stiffness: 380,
@@ -165,8 +166,9 @@ export function StickyIndex({
 
       {/* Mobile horizontal strip: fixed buiten de grid */}
       <nav
+        data-system="sticky-index"
         aria-label="Pagina-index"
-        className="lg:hidden fixed inset-x-0 top-16 md:top-[72px] z-30 border-b border-rule bg-paper/90 backdrop-blur-md"
+        className="lg:hidden fixed inset-x-0 top-16 md:top-[72px] z-30 border-b border-rule bg-canvas"
       >
         <div className="flex items-stretch">
           <div
@@ -183,7 +185,7 @@ export function StickyIndex({
                   data-id={item.id}
                   className={cx(
                     "shrink-0 flex items-baseline gap-2 no-underline",
-                    isActive ? "text-ink" : "text-ink-muted",
+                    isActive ? "text-ink" : "text-text-muted",
                   )}
                 >
                   <span className="mono text-[0.62rem]">
@@ -198,7 +200,7 @@ export function StickyIndex({
             type="button"
             onClick={() => setSheetOpen(true)}
             aria-label="Toon alle secties"
-            className="shrink-0 inline-flex items-center justify-center w-12 border-l border-rule text-ink-muted hover:text-ink active:bg-ink/5 transition-colors"
+            className="shrink-0 inline-flex items-center justify-center w-12 border-l border-rule text-text-muted hover:text-ink active:bg-ink/5 transition-colors"
           >
             <List size={16} strokeWidth={1.7} aria-hidden />
           </button>
@@ -223,7 +225,7 @@ export function StickyIndex({
               </Dialog.Overlay>
               <Dialog.Content asChild>
                 <motion.div
-                  className="lg:hidden fixed inset-x-0 bottom-0 z-50 bg-paper border-t border-rule-strong flex flex-col max-h-[85vh]"
+                  className="lg:hidden fixed inset-x-0 bottom-0 z-50 bg-canvas border-t border-rule-strong flex flex-col max-h-[85vh]"
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   exit={{ y: "100%" }}
@@ -239,7 +241,7 @@ export function StickyIndex({
                       <button
                         type="button"
                         aria-label="Sluiten"
-                        className="w-9 h-9 -mr-2 inline-flex items-center justify-center text-ink-muted hover:text-ink"
+                        className="w-9 h-9 -mr-2 inline-flex items-center justify-center text-text-muted hover:text-ink"
                       >
                         <X size={18} strokeWidth={1.7} />
                       </button>
@@ -264,8 +266,8 @@ export function StickyIndex({
                                 className={cx(
                                   "w-8 h-8 inline-flex items-center justify-center shrink-0 transition-colors",
                                   isActive
-                                    ? "bg-ink text-paper"
-                                    : "bg-paper text-ink-muted border border-rule",
+                                    ? "bg-ink text-canvas"
+                                    : "bg-canvas text-text-muted border border-rule",
                                 )}
                               >
                                 <span className="mono text-[0.62rem] tracking-wider">
@@ -282,7 +284,7 @@ export function StickyIndex({
                                   {item.label}
                                 </span>
                                 {item.readingMinutes ? (
-                                  <span className="mono text-[0.6rem] tracking-wider text-ink-subtle mt-1.5">
+                                  <span className="mono text-[0.6rem] tracking-wider text-text-muted mt-1.5">
                                     {item.readingMinutes} MIN LEZEN
                                   </span>
                                 ) : null}
@@ -290,7 +292,7 @@ export function StickyIndex({
                               {isActive && (
                                 <span
                                   aria-hidden
-                                  className="h-2 w-2 bg-navy shrink-0"
+                                  className="h-2 w-2 bg-signal shrink-0"
                                 />
                               )}
                             </a>

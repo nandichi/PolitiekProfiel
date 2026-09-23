@@ -71,7 +71,7 @@ export default async function ComparePage({ searchParams }: Args) {
           <ScrollRevealItem>
             <Link
               href="/"
-              className="kicker inline-flex items-center gap-2 text-ink-muted hover:text-ink no-underline mb-7"
+              className="kicker inline-flex items-center gap-2 text-text-muted hover:text-ink no-underline mb-7"
             >
               <ArrowLeft size={14} strokeWidth={1.8} />
               <span>Terug naar start</span>
@@ -84,13 +84,13 @@ export default async function ComparePage({ searchParams }: Args) {
               style={{ letterSpacing: "-0.022em" }}
             >
               Twee profielen, vijf assen,{" "}
-              <em className="display-italic font-light text-navy">
+              <em className="display-italic font-light text-signal">
                 één overzicht.
               </em>
             </h1>
           </ScrollRevealItem>
           <ScrollRevealItem>
-            <p className="mt-7 max-w-2xl text-lg text-ink-2 leading-relaxed">
+            <p className="mt-7 max-w-2xl text-lg text-ink-raised leading-relaxed">
               Plak twee deelbare links of share-IDs. Je ziet hoe twee profielen
               op elke as overlappen of verschillen.
             </p>
@@ -99,7 +99,7 @@ export default async function ComparePage({ searchParams }: Args) {
       </Container>
 
       {/* Lookup */}
-      <section className="border-y border-rule bg-paper-50/40">
+      <section className="border-y border-rule bg-canvas-raised/40">
         <Container width="bleed" className="py-10 md:py-14">
           <CompareLookup aPrefill={aId ?? ""} bPrefill={bId ?? ""} />
         </Container>
@@ -109,7 +109,7 @@ export default async function ComparePage({ searchParams }: Args) {
         <Container width="bleed" className="py-20">
           <div className="border-l-2 border-rule-strong pl-6 max-w-2xl">
             <p className="kicker mb-3">Nog geen profielen</p>
-            <p className="text-ink-2 text-lg leading-relaxed">
+            <p className="text-ink-raised text-lg leading-relaxed">
               Voer hierboven twee share-IDs of links in om profielen naast
               elkaar te zien.
             </p>
@@ -119,9 +119,9 @@ export default async function ComparePage({ searchParams }: Args) {
 
       {a && !b && (
         <Container width="bleed" className="py-20">
-          <div className="border-l-2 border-navy pl-6 max-w-2xl">
+          <div className="border-l-2 border-signal pl-6 max-w-2xl">
             <p className="kicker mb-3">Profiel A geladen</p>
-            <p className="text-ink-2 text-lg leading-relaxed">
+            <p className="text-ink-raised text-lg leading-relaxed">
               Voeg een tweede share-ID toe om de vergelijking te zien.
             </p>
           </div>
@@ -156,7 +156,7 @@ export default async function ComparePage({ searchParams }: Args) {
                       ideologyName={ideoB?.name ?? b.ideologySlug}
                       shortDescription={ideoB?.shortDescription}
                       shareId={b.shareId}
-                      accent="terra"
+                      accent="danger"
                     />
                   </div>
                 </ScrollRevealItem>
@@ -188,7 +188,7 @@ export default async function ComparePage({ searchParams }: Args) {
                   </div>
                 </ScrollRevealItem>
                 <ScrollRevealItem>
-                  <p className="mt-6 text-xs text-ink-muted flex items-center gap-4 flex-wrap">
+                  <p className="mt-6 text-xs text-text-muted flex items-center gap-4 flex-wrap">
                     <span className="inline-flex items-center gap-2">
                       <span
                         aria-hidden
@@ -208,7 +208,7 @@ export default async function ComparePage({ searchParams }: Args) {
                           y1="1.5"
                           x2="14"
                           y2="1.5"
-                          stroke="var(--color-terra)"
+                          stroke="var(--color-danger)"
                           strokeWidth="2"
                           strokeDasharray="3 2"
                         />
@@ -239,9 +239,9 @@ function ProfileSummary({
   ideologyName: string;
   shortDescription?: string;
   shareId: string;
-  accent: "ink" | "terra";
+  accent: "ink" | "danger";
 }) {
-  const accentClass = accent === "terra" ? "text-terra" : "text-ink";
+  const accentClass = accent === "danger" ? "text-danger" : "text-ink";
   return (
     <div>
       <div className="flex items-center gap-3 mb-5">
@@ -260,9 +260,9 @@ function ProfileSummary({
         {ideologyName}
       </h3>
       {shortDescription && (
-        <p className="mt-4 text-ink-2 leading-relaxed">{shortDescription}</p>
+        <p className="mt-4 text-ink-raised leading-relaxed">{shortDescription}</p>
       )}
-      <p className="mt-6 mono text-xs tracking-wider text-ink-muted">
+      <p className="mt-6 mono text-xs tracking-wider text-text-muted">
         SHARE · {shareId}
       </p>
     </div>

@@ -27,24 +27,24 @@ export function TldrCallout({
     <aside
       className={
         compact
-          ? "border-l-2 border-navy/30 pl-4 py-1 my-3"
-          : "border-l-2 border-navy/40 pl-5 py-2 my-5"
+          ? "border-l-2 border-signal/30 pl-4 py-1 my-3"
+          : "border-l-2 border-signal/40 pl-5 py-2 my-5"
       }
     >
       {kicker && !compact && (
-        <p className="kicker text-navy mb-2">{kicker}</p>
+        <p className="kicker text-signal mb-2">{kicker}</p>
       )}
       <p
         className={
           compact
-            ? "display-italic text-[0.95rem] leading-snug text-ink-2"
-            : "display-italic text-lg md:text-xl leading-snug text-ink-2"
+            ? "font-display text-[0.95rem] font-bold leading-snug text-ink-raised"
+            : "font-display text-lg font-bold leading-snug text-ink-raised md:text-xl"
         }
       >
         <Quote
           size={compact ? 11 : 13}
           strokeWidth={1.6}
-          className="inline-block mr-1.5 -mt-1 text-navy/60"
+          className="inline-block mr-1.5 -mt-1 text-signal/60"
           aria-hidden
         />
         {text}

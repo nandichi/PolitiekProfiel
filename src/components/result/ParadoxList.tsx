@@ -14,9 +14,9 @@ interface ParadoxListProps {
 export function ParadoxList({ items, emptyText }: ParadoxListProps) {
   if (items.length === 0) {
     return (
-      <div className="border border-rule p-5 md:p-7 bg-paper-100">
+      <div className="border border-rule p-5 md:p-7 bg-canvas-pressed">
         <p className="kicker mb-2">Geen paradoxen gedetecteerd</p>
-        <p className="text-ink-2 text-sm leading-relaxed">
+        <p className="text-ink-raised text-sm leading-relaxed">
           {emptyText ??
             "Je antwoorden zijn intern consistent. Dat kan betekenen dat je een sterk profiel hebt op deze quiz, of dat we te weinig sterke antwoorden hebben om spanningen op te merken."}
         </p>
@@ -32,7 +32,7 @@ export function ParadoxList({ items, emptyText }: ParadoxListProps) {
           className="border-t border-rule pt-7 first:border-t-0 first:pt-0"
         >
           <div className="flex items-baseline gap-5">
-            <span className="mono text-xs tabular-nums text-ink-muted">
+            <span className="mono text-xs tabular-nums text-text-muted">
               {String(i + 1).padStart(2, "0")}
             </span>
             <div className="min-w-0 flex-1">
@@ -42,13 +42,13 @@ export function ParadoxList({ items, emptyText }: ParadoxListProps) {
               <h3 className="display text-xl md:text-2xl leading-tight text-ink wrap-break-word [hyphens:auto]">
                 {paradoxTitle(ctx.signal.type)}
               </h3>
-              <p className="mt-4 max-w-2xl text-sm text-ink-2 leading-relaxed">
+              <p className="mt-4 max-w-2xl text-sm text-ink-raised leading-relaxed">
                 {ctx.signal.description}
               </p>
               {ctx.examples && ctx.examples.length > 0 && (
                 <div className="mt-5 border-l-2 border-rule pl-4">
                   <p className="kicker mb-3">Antwoorden die hier op wezen</p>
-                  <ul className="space-y-2 text-sm text-ink-muted italic">
+                  <ul className="space-y-2 text-sm text-text-muted italic">
                     {ctx.examples.map((ex) => (
                       <li key={ex.id} className="wrap-break-word">
                         &ldquo;{ex.statement}&rdquo;

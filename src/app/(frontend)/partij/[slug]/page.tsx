@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
 import { DimensionBar } from "@/components/DimensionBar";
-import { PartyDossier } from "@/components/parties/PartyDossier";
+import { PartyDossier } from "@/components/content/PartyDossier";
+import { ContentMasthead } from "@/components/content/PublicContent";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -147,31 +148,23 @@ export default async function PartijDetailPage({ params }: PageProps) {
       />
 
       <Container width="bleed" className="pt-10 md:pt-16">
-        <Link
-          href="/partijen"
-          className="inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-ink no-underline mb-6"
-        >
-          <ArrowLeft size={14} strokeWidth={1.8} />
-          Alle partijen
-        </Link>
+        <ContentMasthead
+          backHref="/partijen"
+          backLabel="Alle partijen"
+          eyebrow={party.abbreviation}
+          title={party.name}
+          titleClassName="party-title"
+          intro={<p>{party.description}</p>}
+          noteTitle="Partijprofiel"
+          note={
+            <p>
+              {party.coalitionStatus ? COALITION_LABEL[party.coalitionStatus] : party.country}
+              {party.lastReviewed ? ` · Laatst geverifieerd ${party.lastReviewed}` : ""}
+            </p>
+          }
+        />
 
         <ScrollReveal variant="stagger" immediate>
-          <ScrollRevealItem>
-            <Kicker>{party.abbreviation}</Kicker>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <h1
-              className="party-title display mt-6 max-w-4xl"
-              style={{ letterSpacing: "-0.025em" }}
-            >
-              {party.name}
-            </h1>
-          </ScrollRevealItem>
-          <ScrollRevealItem>
-            <p className="mt-8 max-w-3xl text-base md:text-lg text-ink-2 leading-relaxed">
-              {party.description}
-            </p>
-          </ScrollRevealItem>
 
           {/* Meta-strip */}
           <ScrollRevealItem>
@@ -211,10 +204,10 @@ export default async function PartijDetailPage({ params }: PageProps) {
                 <h2 className="display mt-4 max-w-3xl">
                   Wat deze partij in de regering bereikte.
                 </h2>
-                <p className="mt-4 max-w-3xl text-sm text-ink-2 leading-relaxed">
+                <p className="mt-4 max-w-3xl text-sm text-ink-raised leading-relaxed">
                   Meegeregeerd in: {governmentRecord.cabinets.join(", ")}.
                 </p>
-                <p className="mt-3 max-w-3xl text-sm text-ink-muted leading-relaxed">
+                <p className="mt-3 max-w-3xl text-sm text-text-muted leading-relaxed">
                   Belangrijkste bewindslieden: {governmentRecord.keyMinisters}.
                 </p>
 
@@ -222,17 +215,17 @@ export default async function PartijDetailPage({ params }: PageProps) {
                 <ol className="mt-5 max-w-4xl divide-y divide-rule border-y border-rule">
                   {governmentRecord.results.map((result) => (
                     <li key={result.claim} className="py-5">
-                      <p className="text-base text-ink-2 leading-relaxed">
+                      <p className="text-base text-ink-raised leading-relaxed">
                         {result.claim}
                       </p>
-                      <p className="mt-2 text-xs text-ink-muted">
+                      <p className="mt-2 text-xs text-text-muted">
                         {result.responsibleMinister} &middot; {result.year}
                       </p>
                       <a
                         href={result.sourceUrl}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="mt-2 inline-block text-xs text-ink-muted underline decoration-rule hover:text-ink"
+                        className="mt-2 inline-block text-xs text-text-muted underline decoration-rule hover:text-ink"
                       >
                         Bron bij dit resultaat
                       </a>
@@ -244,14 +237,14 @@ export default async function PartijDetailPage({ params }: PageProps) {
                 <ol className="mt-5 max-w-4xl divide-y divide-rule border-y border-rule">
                   {governmentRecord.notDelivered.map((item) => (
                     <li key={item.claim} className="py-5">
-                      <p className="text-base text-ink-2 leading-relaxed">
+                      <p className="text-base text-ink-raised leading-relaxed">
                         {item.claim}
                       </p>
                       <a
                         href={item.sourceUrl}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="mt-2 inline-block text-xs text-ink-muted underline decoration-rule hover:text-ink"
+                        className="mt-2 inline-block text-xs text-text-muted underline decoration-rule hover:text-ink"
                       >
                         Bron bij dit punt
                       </a>
@@ -259,7 +252,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
                   ))}
                 </ol>
 
-                <p className="mt-8 max-w-3xl text-sm text-ink-muted leading-relaxed">
+                <p className="mt-8 max-w-3xl text-sm text-text-muted leading-relaxed">
                   Een maatregel van een kabinet is niet automatisch de verdienste
                   van één partij. Waar een besluit van de hele coalitie was,
                   staat dat erbij. Bijgewerkt op {GOVERNMENT_RECORD_REVIEWED}.
@@ -275,14 +268,14 @@ export default async function PartijDetailPage({ params }: PageProps) {
                 <ul className="divide-y divide-rule border-y border-rule">
                   {party.facts.map((fact) => (
                     <li key={fact.claim} className="py-4">
-                      <p className="text-sm text-ink-2 leading-relaxed">
+                      <p className="text-sm text-ink-raised leading-relaxed">
                         {fact.claim}
                       </p>
                       <a
                         href={fact.sourceUrl}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="mt-2 inline-block text-xs text-ink-muted underline decoration-rule hover:text-ink"
+                        className="mt-2 inline-block text-xs text-text-muted underline decoration-rule hover:text-ink"
                       >
                         Bron bij dit feit
                       </a>
@@ -297,20 +290,20 @@ export default async function PartijDetailPage({ params }: PageProps) {
             <div className="mt-6 flex flex-wrap items-center gap-3 text-xs">
               {party.coalitionStatus && (
                 <span className="inline-flex items-baseline gap-2 border border-rule px-3 py-1.5">
-                  <span className="mono text-[0.62rem] tracking-wider text-ink-muted">
+                  <span className="mono text-[0.62rem] tracking-wider text-text-muted">
                     STATUS
                   </span>
-                  <span className="text-ink-2">
+                  <span className="text-ink-raised">
                     {COALITION_LABEL[party.coalitionStatus]}
                   </span>
                 </span>
               )}
               {party.cpbReviewed2025 && (
                 <span className="inline-flex items-baseline gap-2 border border-rule px-3 py-1.5">
-                  <span className="mono text-[0.62rem] tracking-wider text-ink-muted">
+                  <span className="mono text-[0.62rem] tracking-wider text-text-muted">
                     CPB 2025
                   </span>
-                  <span className="text-ink-2">Doorgerekend</span>
+                  <span className="text-ink-raised">Doorgerekend</span>
                 </span>
               )}
               {party.websiteUrl && (
@@ -318,7 +311,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
                   href={party.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 border border-rule px-3 py-1.5 text-ink-2 no-underline hover:text-navy"
+                  className="inline-flex items-center gap-1.5 border border-rule px-3 py-1.5 text-ink-raised no-underline hover:text-signal"
                 >
                   Partijwebsite
                   <ExternalLink size={11} strokeWidth={1.8} />
@@ -353,7 +346,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
               </div>
             </ScrollRevealItem>
             <ScrollRevealItem>
-              <p className="mt-6 mono text-[0.62rem] tracking-wider text-ink-subtle max-w-3xl">
+              <p className="mt-6 mono text-[0.62rem] tracking-wider text-text-muted max-w-3xl">
                 BRONNEN:{" "}
                 {party.sources.map((s, index) => (
                   <span key={s.url}>
@@ -362,7 +355,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
                       href={s.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-ink-2 hover:text-navy no-underline"
+                      className="text-ink-raised hover:text-signal no-underline"
                     >
                       {s.label}
                     </a>
@@ -376,7 +369,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
 
       {/* Programma per thema */}
       {programme && (
-        <section className="border-t border-rule bg-paper-50/40">
+        <section className="border-t border-rule bg-canvas-raised/40">
           <Container width="bleed" className="py-14 md:py-20">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
@@ -386,7 +379,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
                 </h2>
               </ScrollRevealItem>
               <ScrollRevealItem>
-                <p className="mt-4 max-w-2xl text-sm text-ink-muted">
+                <p className="mt-4 max-w-2xl text-sm text-text-muted">
                   Redactionele samenvatting per thema, op basis van het
                   verkiezingsprogramma 2025. Deze pagina beschrijft geen later
                   kabinetsbeleid of recente Kamerstemmen.
@@ -410,9 +403,9 @@ export default async function PartijDetailPage({ params }: PageProps) {
                           {block.bullets.map((b, i) => (
                             <li
                               key={i}
-                              className="flex gap-3 text-sm text-ink-2 leading-relaxed"
+                              className="flex gap-3 text-sm text-ink-raised leading-relaxed"
                             >
-                              <span className="mono text-[0.6rem] tracking-wider text-ink-subtle shrink-0 mt-1">
+                              <span className="mono text-[0.6rem] tracking-wider text-text-muted shrink-0 mt-1">
                                 {String(i + 1).padStart(2, "0")}
                               </span>
                               <span>{b.text}</span>
@@ -426,13 +419,13 @@ export default async function PartijDetailPage({ params }: PageProps) {
               </ScrollRevealItem>
               {programmeSource && (
                 <ScrollRevealItem>
-                  <p className="mt-10 mono text-[0.62rem] tracking-wider text-ink-subtle">
+                  <p className="mt-10 mono text-[0.62rem] tracking-wider text-text-muted">
                     BRON:{" "}
                     <a
                       href={programmeSource.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-ink-2 hover:text-navy no-underline"
+                      className="text-ink-raised hover:text-signal no-underline"
                     >
                       {programmeSource.label.toUpperCase()}
                       <ExternalLink
@@ -461,7 +454,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
                 </h2>
               </ScrollRevealItem>
               <ScrollRevealItem>
-                <p className="mt-4 max-w-2xl text-sm text-ink-muted">
+                <p className="mt-4 max-w-2xl text-sm text-text-muted">
                   Aggregaat van moties en wetsvoorstellen die in de Tweede
                   Kamer ter stemming kwamen. Thema-classificatie via
                   keyword-mapping. Gewogen percentage &apos;voor&apos; van het totaal
@@ -483,7 +476,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
                           </p>
                         </div>
                         <VotingBar v={v} />
-                        <p className="mt-1.5 text-[0.7rem] text-ink-muted">
+                        <p className="mt-1.5 text-[0.7rem] text-text-muted">
                           {v
                             ? `${v.voor} voor · ${v.tegen} tegen · ${v.onthouding} onth. · n=${v.totaal}`
                             : "Nog geen data deze refresh-cyclus."}
@@ -494,7 +487,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
                 </ul>
               </ScrollRevealItem>
               <ScrollRevealItem>
-                <p className="mt-6 mono text-[0.6rem] tracking-wider text-ink-subtle">
+                <p className="mt-6 mono text-[0.6rem] tracking-wider text-text-muted">
                   BRON: TWEEDE KAMER OPEN DATA (OData v4) · WEKELIJKSE REFRESH
                 </p>
               </ScrollRevealItem>
@@ -514,20 +507,20 @@ export default async function PartijDetailPage({ params }: PageProps) {
               <ScrollRevealItem>
                 <ul className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl">
                   {ideologies.map((i) => (
-                    <li key={i.slug} className="border border-rule bg-paper p-5">
+                    <li key={i.slug} className="border border-rule bg-canvas p-5">
                       <Link
                         href={`/ideologie/${i.slug}`}
                         className="block no-underline group"
                       >
-                        <p className="display text-lg text-ink group-hover:text-navy transition-colors">
+                        <p className="display text-lg text-ink group-hover:text-signal transition-colors">
                           {i.name}
                         </p>
                         {i.shortDescription && (
-                          <p className="mt-2 text-sm text-ink-2 leading-snug">
+                          <p className="mt-2 text-sm text-ink-raised leading-snug">
                             {i.shortDescription}
                           </p>
                         )}
-                        <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-ink-2 group-hover:text-navy">
+                        <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-ink-raised group-hover:text-signal">
                           Verken ideologie
                           <ArrowRight size={12} strokeWidth={1.8} />
                         </p>
@@ -543,7 +536,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
 
       {/* Politici van deze partij */}
       {politicians.length > 0 && (
-        <section className="border-t border-rule bg-paper-50/40">
+        <section className="border-t border-rule bg-canvas-raised/40">
           <Container width="bleed" className="py-12 md:py-16">
             <ScrollReveal variant="stagger">
               <ScrollRevealItem>
@@ -556,16 +549,16 @@ export default async function PartijDetailPage({ params }: PageProps) {
                   {politicians.map((pol) => (
                     <li
                       key={pol.slug}
-                      className="border border-rule bg-paper p-5"
+                      className="border border-rule bg-canvas p-5"
                     >
                       <Link
                         href={`/politici/${pol.slug}`}
                         className="block no-underline group"
                       >
-                        <p className="display text-base text-ink group-hover:text-navy transition-colors">
+                        <p className="display text-base text-ink group-hover:text-signal transition-colors">
                           {pol.name}
                         </p>
-                        <p className="mt-1 text-xs text-ink-muted">
+                        <p className="mt-1 text-xs text-text-muted">
                           {pol.role}
                         </p>
                       </Link>
@@ -592,21 +585,21 @@ export default async function PartijDetailPage({ params }: PageProps) {
               <ScrollRevealItem>
                 <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl">
                   {closeParties.map((p) => (
-                    <li key={p.slug} className="border border-rule bg-paper p-5">
+                    <li key={p.slug} className="border border-rule bg-canvas p-5">
                       <Link
                         href={`/partij/${p.slug}`}
                         className="block no-underline group"
                       >
-                        <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                        <p className="mono text-[0.62rem] tracking-wider text-text-muted">
                           {p.abbreviation.toUpperCase()}
                         </p>
-                        <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-navy transition-colors">
+                        <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-signal transition-colors">
                           {p.name}
                         </p>
-                        <p className="mt-3 mono text-[0.65rem] tracking-wider text-ink-subtle">
+                        <p className="mt-3 mono text-[0.65rem] tracking-wider text-text-muted">
                           AFSTAND {Math.round(p.d)}
                         </p>
-                        <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-ink-2 group-hover:text-navy">
+                        <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-ink-raised group-hover:text-signal">
                           Bekijk
                           <ArrowRight size={12} strokeWidth={1.8} />
                         </p>
@@ -625,7 +618,7 @@ export default async function PartijDetailPage({ params }: PageProps) {
 
 function Meta({ term, value }: { term: string; value: string }) {
   return (
-    <div className="bg-paper p-4">
+    <div className="bg-canvas p-4">
       <dt className="party-meta-term kicker mb-1">{term}</dt>
       <dd className="text-sm text-ink">{value}</dd>
     </div>
@@ -649,8 +642,8 @@ function VotingBar({
   const tegen = (v.tegen / v.totaal) * 100;
   return (
     <div className="mt-2 h-1.5 bg-rule overflow-hidden flex" aria-hidden>
-      <span style={{ width: `${voor}%` }} className="bg-navy" />
-      <span style={{ width: `${tegen}%` }} className="bg-terra" />
+      <span style={{ width: `${voor}%` }} className="bg-signal" />
+      <span style={{ width: `${tegen}%` }} className="bg-danger" />
     </div>
   );
 }

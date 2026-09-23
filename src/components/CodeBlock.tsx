@@ -22,28 +22,31 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
   }, [code]);
 
   return (
-    <div className="border border-rule bg-paper-50 relative">
-      <div className="flex items-center justify-between border-b border-rule px-3 py-2">
-        <span className="mono text-[0.62rem] tracking-wider text-ink-subtle uppercase">
+    <div className="relative border border-rule bg-canvas-raised">
+      <div className="flex min-h-11 items-center justify-between border-b border-rule px-3">
+        <span className="mono text-[0.62rem] uppercase tracking-wider text-text-muted">
           {language ?? "code"}
         </span>
         <button
           type="button"
           onClick={copy}
-          className="inline-flex items-center gap-1 text-xs text-ink-2 hover:text-navy"
+          className="inline-flex min-h-11 items-center gap-2 px-2 text-xs font-semibold text-ink-raised transition-colors hover:text-signal focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[-3px] focus-visible:outline-focus"
         >
           {copied ? (
             <>
-              <Check size={12} strokeWidth={1.8} /> Gekopieerd
+              <Check size={14} strokeWidth={1.8} aria-hidden /> Gekopieerd
             </>
           ) : (
             <>
-              <Copy size={12} strokeWidth={1.8} /> Kopieer
+              <Copy size={14} strokeWidth={1.8} aria-hidden /> Kopieer
             </>
           )}
         </button>
+        <span role="status" aria-live="polite" className="sr-only">
+          {copied ? "Code gekopieerd" : ""}
+        </span>
       </div>
-      <pre className="mono text-xs leading-relaxed overflow-x-auto px-3 py-3 text-ink whitespace-pre">
+      <pre className="mono overflow-x-auto px-3 py-4 text-xs leading-relaxed text-ink whitespace-pre">
         <code>{code}</code>
       </pre>
     </div>

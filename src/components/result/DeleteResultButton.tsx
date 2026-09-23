@@ -28,7 +28,7 @@ export function DeleteResultButton({ shareId }: { shareId: string }) {
 
   if (status === "deleted") {
     return (
-      <p className="text-sm text-ink-2" role="status">
+      <p className="text-sm text-ink-raised" role="status">
         Dit resultaat is verwijderd. De deelbare link werkt niet meer.
       </p>
     );
@@ -37,7 +37,7 @@ export function DeleteResultButton({ shareId }: { shareId: string }) {
   return (
     <div className="mt-8 border-t border-rule pt-6">
       <p className="kicker mb-2">Resultaat verwijderen</p>
-      <p className="max-w-2xl text-sm text-ink-muted leading-relaxed">
+      <p className="max-w-2xl text-sm text-text-muted leading-relaxed">
         Verwijder dit resultaat met de link die je nu gebruikt. Dit wist het
         actieve resultaat en maakt de deelbare link onbruikbaar. Afbeeldingen of
         posts die al door externe platforms zijn gekopieerd, kunnen we niet
@@ -47,12 +47,12 @@ export function DeleteResultButton({ shareId }: { shareId: string }) {
         type="button"
         onClick={deleteProfile}
         disabled={status === "deleting"}
-        className="btn btn-ghost mt-4 border-terra text-terra hover:bg-terra hover:text-paper disabled:cursor-wait disabled:opacity-60"
+        className="btn btn-ghost mt-4 border-danger text-danger hover:bg-danger hover:text-canvas disabled:cursor-wait disabled:opacity-60"
       >
         {status === "deleting" ? "Resultaat verwijderen..." : "Verwijder dit resultaat"}
       </button>
       {status === "error" && (
-        <p className="mt-3 text-sm text-terra" role="alert">
+        <p className="mt-3 text-sm text-danger" role="alert">
           Verwijderen is niet gelukt. Probeer het opnieuw of gebruik het contactformulier.
         </p>
       )}

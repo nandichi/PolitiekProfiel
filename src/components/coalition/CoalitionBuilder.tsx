@@ -125,21 +125,29 @@ export function CoalitionBuilder({
   return (
     <div className="space-y-12">
       {/* Live metrics dashboard */}
-      <div className="border border-ink p-6 md:p-8 bg-paper">
+      <section
+        aria-labelledby="coalition-live-summary"
+        className="border border-rule-strong bg-canvas-raised p-5 sm:p-6 md:p-8"
+      >
         <div className="flex items-baseline justify-between mb-6">
-          <p className="kicker">Live samenvatting</p>
+          <p id="coalition-live-summary" className="kicker">
+            Live samenvatting
+          </p>
           {selected.size > 0 && (
             <button
               type="button"
               onClick={reset}
-              className="text-xs text-ink-muted hover:text-ink underline underline-offset-2 decoration-rule-strong"
+              className="min-h-11 px-2 text-xs font-semibold text-text-muted underline decoration-rule-strong underline-offset-4 transition-colors hover:text-signal focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
             >
               Begin opnieuw
             </button>
           )}
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div
+          className="grid grid-cols-1 gap-6 min-[400px]:grid-cols-2 md:grid-cols-4 md:gap-8"
+          aria-live="polite"
+        >
           <Metric
             label="Zetels"
             value={String(totalSeats)}
@@ -171,17 +179,21 @@ export function CoalitionBuilder({
           />
           <Metric
             label="Spanning"
-            value={selectedParties.length < 2 ? "—" : String(Math.round(spread))}
+            value={
+              selectedParties.length < 2 ? "n.v.t." : String(Math.round(spread))
+            }
             sub={
               selectedParties.length < 2
-                ? "—"
+                ? "Selecteer minstens 2 partijen"
                 : `${tensionLabel(spread)} (max-afstand)`
             }
           />
           {userVector ? (
             <Metric
               label="Afstand tot jou"
-              value={userDistance !== null ? String(Math.round(userDistance)) : "—"}
+              value={
+                userDistance !== null ? String(Math.round(userDistance)) : "n.v.t."
+              }
               sub={
                 userDistance === null
                   ? "Selecteer partijen"
@@ -191,7 +203,7 @@ export function CoalitionBuilder({
           ) : (
             <div>
               <p className="kicker mb-2">Match met jou</p>
-              <p className="text-xs text-ink-muted leading-relaxed">
+              <p className="text-xs text-text-muted leading-relaxed">
                 Plak je share-link hieronder om de afstand tot jouw eigen
                 profiel te zien.
               </p>
@@ -214,10 +226,10 @@ export function CoalitionBuilder({
                 <div className="flex items-baseline justify-between mb-4 gap-3 flex-wrap">
                   <p className="kicker">Coalitie-positie op de vijf assen</p>
                   {userVector && (
-                    <p className="text-[0.65rem] mono tracking-wider text-ink-subtle">
+                    <p className="text-[0.65rem] mono tracking-wider text-text-muted">
                       <span className="inline-block w-2 h-2 bg-ink rotate-45 mr-1.5 align-middle" />
                       ZWAARTEPUNT
-                      <span className="inline-block w-px h-3 bg-terra mx-2 align-middle" />
+                      <span className="mx-2 inline-block h-3 w-px bg-compare-b align-middle" />
                       JOUW POSITIE
                     </p>
                   )}
@@ -233,7 +245,7 @@ export function CoalitionBuilder({
                     const v = centroid[d.id];
                     return (
                       <li key={d.id} className="text-xs">
-                        <p className="mono text-[0.6rem] tracking-wider text-ink-subtle">
+                        <p className="mono text-[0.6rem] tracking-wider text-text-muted">
                           {d.shortLabel.toUpperCase()}
                         </p>
                         <p className="mono tabular-nums text-ink mt-1">
@@ -248,7 +260,7 @@ export function CoalitionBuilder({
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
+      </section>
 
       {/* Presets sneltoegankelijk */}
       {presets.length > 0 && (
@@ -260,10 +272,10 @@ export function CoalitionBuilder({
                 <button
                   type="button"
                   onClick={() => applyPreset(preset)}
-                  className="inline-flex items-baseline gap-2 border border-rule bg-paper px-3 py-1.5 text-xs text-ink-2 hover:border-ink hover:text-ink"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-[2px] border border-rule bg-canvas-raised px-3 py-2 text-xs text-ink-raised transition-colors hover:border-ink hover:text-ink focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus"
                 >
                   <span>{preset.name}</span>
-                  <span className="mono tabular-nums text-[0.65rem] text-ink-subtle">
+                  <span className="mono tabular-nums text-[0.65rem] text-text-muted">
                     {preset.parties.reduce((s, p) => s + p.seats, 0)}
                   </span>
                 </button>
@@ -277,12 +289,12 @@ export function CoalitionBuilder({
       <div>
         <div className="flex items-baseline justify-between mb-4 gap-3 flex-wrap">
           <p className="kicker">Bouw je coalitie</p>
-          <p className="text-xs text-ink-muted">
+          <p className="text-xs text-text-muted">
             Klik om partijen toe te voegen of te verwijderen. Volgorde =
             zetelaantal.
           </p>
         </div>
-        <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+        <ul className="grid grid-cols-1 gap-2 min-[400px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
           {sortedPool.map((p) => {
             const isOn = selected.has(p.slug);
             const statusLabel = p.coalitionStatus
@@ -295,10 +307,10 @@ export function CoalitionBuilder({
                   onClick={() => toggle(p.slug)}
                   aria-pressed={isOn}
                   className={cx(
-                    "w-full text-left border px-3 py-3 transition-colors group",
+                    "group min-h-[88px] w-full rounded-[2px] border px-3 py-3 text-left transition-colors focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus",
                     isOn
-                      ? "border-ink bg-ink text-paper"
-                      : "border-rule bg-paper hover:border-ink",
+                      ? "border-ink bg-ink text-canvas-raised"
+                      : "border-rule bg-canvas-raised hover:border-ink",
                   )}
                 >
                   <div className="flex items-baseline justify-between gap-2">
@@ -306,7 +318,7 @@ export function CoalitionBuilder({
                     <span
                       className={cx(
                         "mono tabular-nums text-[0.7rem]",
-                        isOn ? "opacity-80" : "text-ink-subtle",
+                        isOn ? "opacity-80" : "text-text-muted",
                       )}
                     >
                       {p.seats}
@@ -314,8 +326,8 @@ export function CoalitionBuilder({
                   </div>
                   <p
                     className={cx(
-                      "text-xs mt-0.5 truncate",
-                      isOn ? "opacity-75" : "text-ink-muted",
+                      "mt-0.5 break-words text-xs [overflow-wrap:anywhere]",
+                      isOn ? "opacity-75" : "text-text-muted",
                     )}
                   >
                     {p.name}
@@ -324,7 +336,7 @@ export function CoalitionBuilder({
                     <p
                       className={cx(
                         "mono text-[0.55rem] tracking-wider mt-2 uppercase",
-                        isOn ? "opacity-65" : "text-ink-subtle",
+                        isOn ? "opacity-65" : "text-text-muted",
                       )}
                     >
                       {statusLabel}
@@ -338,10 +350,10 @@ export function CoalitionBuilder({
       </div>
 
       {userShareId && (
-        <p className="text-xs text-ink-muted">
+        <p className="text-xs text-text-muted">
           Gekoppeld aan jouw profiel{" "}
-          <code className="mono text-ink">{userShareId}</code>. Verwijder
-          <code className="mono mx-1">?r=</code>uit de URL om los te koppelen.
+          <code className="mono text-ink">{userShareId}</code>. Verwijder{" "}
+          <code className="mono mx-1">?r=</code> uit de URL om los te koppelen.
         </p>
       )}
     </div>
@@ -368,15 +380,15 @@ function Metric({
           tone === "success"
             ? "text-success"
             : tone === "warn"
-              ? "text-terra"
+              ? "text-signal-pressed"
               : tone === "muted"
-                ? "text-ink-muted"
+                ? "text-text-muted"
                 : "text-ink",
         )}
       >
         {value}
       </p>
-      <p className="mt-2 text-xs text-ink-muted leading-snug">{sub}</p>
+      <p className="mt-2 text-xs text-text-muted leading-snug">{sub}</p>
     </div>
   );
 }

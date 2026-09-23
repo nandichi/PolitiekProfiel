@@ -1,7 +1,3 @@
-"use client";
-
-import { motion, useInView, useReducedMotion } from "motion/react";
-import { useRef } from "react";
 import { cx } from "@/lib/cx";
 import { type RankedMatch, type VectorTarget } from "@/lib/scoring";
 
@@ -21,99 +17,65 @@ export function RankedList<T extends ItemWithMeta>({
   highlightFirst?: boolean;
 }) {
   const shown = limit ? matches.slice(0, limit) : matches;
-  const ref = useRef<HTMLOListElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
-  const reduce = useReducedMotion();
 
   return (
-    <ol ref={ref} className="relative">
-      {shown.map((m, idx) => {
-        const isTop3 = highlightFirst && idx < 3;
+    <ol className="relative border-t border-rule">
+      {shown.map((match, index) => {
+        const highlighted = highlightFirst && index < 3;
+        const similarity = Math.max(0, Math.min(100, match.similarity));
         return (
           <li
-            key={m.item.id}
+            key={match.item.id}
             className={cx(
-              "relative flex items-center gap-4 py-3.5 border-b border-rule last:border-b-0 transition-colors",
-              isTop3 ? "pl-4" : "pl-0",
+              "relative grid min-w-0 grid-cols-[2rem_minmax(0,1fr)_auto] items-center gap-2 border-b border-rule py-3.5 sm:grid-cols-[2.5rem_minmax(0,1fr)_auto] sm:gap-3",
+              highlighted ? "pl-3" : "pl-0",
             )}
           >
-            {/* Top-3 accent */}
-            {isTop3 && (
+            {highlighted ? (
               <span
                 aria-hidden
-                className="absolute left-0 top-2 bottom-2 w-[2px] bg-terra"
+                className="absolute inset-y-2 left-0 w-0.5 bg-signal"
               />
-            )}
-
-            {/* Index */}
+            ) : null}
             <span
               className={cx(
-                "mono text-xs w-7 shrink-0 tabular-nums",
-                isTop3 ? "text-ink" : "text-ink-subtle",
+                "mono text-[0.68rem] tabular-nums",
+                highlighted ? "font-semibold text-ink" : "text-text-muted",
               )}
             >
-              {String(idx + 1).padStart(2, "0")}
+              {String(index + 1).padStart(2, "0")}
             </span>
-
-            {/* Name */}
-            <div className="min-w-0 flex-1">
+            <div className="min-w-0">
               <p
-                className={cx(
-                  // Sta tot twee regels toe voor lange namen
-                  // ("Dilan Yesilgöz-Zegerius", "Alexandria Ocasio-Cortez")
-                  // zodat ze niet afgekapt worden met "...". Single-line bij
-                  // korte namen blijft, dankzij `line-clamp-2`.
-                  "display leading-tight text-[1.02rem] md:text-[1.08rem] line-clamp-2 wrap-break-word",
-                  isTop3 ? "text-ink" : "text-ink",
-                )}
+                lang="nl"
+                className="display text-[1rem] leading-tight text-ink [hyphens:auto] [overflow-wrap:anywhere] sm:text-[1.06rem]"
               >
-                {m.item.primary}
+                {match.item.primary}
               </p>
-              {m.item.secondary && (
-                <p className="text-xs text-ink-muted line-clamp-2 mt-0.5">
-                  {m.item.secondary}
+              {match.item.secondary ? (
+                <p
+                  lang="nl"
+                  className="mt-1 line-clamp-2 text-xs leading-snug text-text-muted [hyphens:auto] [overflow-wrap:anywhere]"
+                >
+                  {match.item.secondary}
                 </p>
-              )}
+              ) : null}
             </div>
-
-            {/*
-              Similariteits-balk + percentage.
-              Verbergen onder `xl`: vanaf `lg` (1024px) wordt de pagina-grid
-              `1.5fr / 1fr`, waardoor de RankedList in een smalle kolom van
-              ~280-360px terechtkomt. Met de balk erbij houdt de naam slechts
-              ~70px over en wordt hij agressief afgekapt. Onder `xl` tonen we
-              daarom alleen het percentage inline; vanaf `xl` is er weer
-              voldoende ruimte voor de volledige horizontale layout.
-            */}
-            <div className="hidden xl:flex items-center gap-3 shrink-0">
-              <div className="relative w-20 xl:w-28 h-[3px] bg-paper-100">
-                <motion.div
-                  className="absolute inset-y-0 left-0 bg-navy"
-                  initial={{ width: 0 }}
-                  animate={
-                    inView
-                      ? { width: `${m.similarity}%` }
-                      : { width: 0 }
-                  }
-                  transition={
-                    reduce
-                      ? { duration: 0 }
-                      : {
-                          duration: 0.9,
-                          ease: [0.22, 0.61, 0.36, 1],
-                          delay: 0.05 * Math.min(idx, 8),
-                        }
-                  }
+            <div className="flex shrink-0 items-center gap-2">
+              <span
+                aria-hidden
+                className="relative hidden h-3 w-16 border-y border-rule xl:block xl:w-24"
+              >
+                <span className="absolute inset-x-0 top-1/2 border-t border-dotted border-rule-strong" />
+                <span
+                  className="absolute inset-y-0 left-0 border-r-2 border-chart-marker"
+                  style={{ width: similarity + "%" }}
                 />
-              </div>
-              <span className="mono tabular-nums text-xs text-ink-muted w-10 text-right">
-                {m.similarity}%
+              </span>
+              <span className="mono min-w-10 text-right text-xs tabular-nums text-text-muted">
+                {similarity}%
               </span>
             </div>
-
-            <span className="xl:hidden mono tabular-nums text-xs text-ink-muted shrink-0">
-              {m.similarity}%
-            </span>
           </li>
         );
       })}

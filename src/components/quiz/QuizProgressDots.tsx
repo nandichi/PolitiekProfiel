@@ -34,7 +34,7 @@ export function QuizProgressDots({
               <span
                 className={cx(
                   "kicker text-[0.62rem] truncate",
-                  isCurrent ? "text-ink" : "text-ink-muted",
+                  isCurrent ? "text-ink" : "text-text-muted",
                 )}
               >
                 {d.shortLabel}
@@ -42,17 +42,17 @@ export function QuizProgressDots({
               <span
                 className={cx(
                   "mono text-[0.62rem] tabular-nums shrink-0 ml-2",
-                  isCurrent ? "text-ink" : "text-ink-subtle",
+                  isCurrent ? "text-ink" : "text-text-muted",
                 )}
               >
                 {answered}/{total}
               </span>
             </div>
-            <div className="relative h-[3px] bg-paper-100">
+            <div className="relative h-[3px] bg-canvas-pressed">
               <motion.div
                 className={cx(
                   "absolute inset-y-0 left-0",
-                  isCurrent ? "bg-ink" : "bg-ink-muted",
+                  isCurrent ? "bg-ink" : "bg-text-muted",
                 )}
                 initial={false}
                 animate={{ width: `${pct}%` }}

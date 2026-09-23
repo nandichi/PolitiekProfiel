@@ -3,7 +3,7 @@ import { Container } from "@/components/Container";
 import { cx } from "@/lib/cx";
 
 interface SectionProps {
-  children: ReactNode;
+  children?: ReactNode;
   id?: string;
   width?: "narrow" | "default" | "wide" | "bleed";
   className?: string;
@@ -28,6 +28,7 @@ export function Section({
   return (
     <section
       id={id}
+      data-system="section"
       className={cx(
         "relative",
         bordered && "border-b border-rule",

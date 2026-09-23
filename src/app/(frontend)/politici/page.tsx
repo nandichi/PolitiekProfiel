@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/Container";
 import { Kicker } from "@/components/Kicker";
 import { MiniVector } from "@/components/MiniVector";
+import { ContentMasthead } from "@/components/content/PublicContent";
 import {
   ScrollReveal,
   ScrollRevealItem,
@@ -50,30 +51,20 @@ export default function PoliticiOverviewPage() {
         dangerouslySetInnerHTML={{ __html: jsonLdString(breadcrumbLd) }}
       />
 
-      <ScrollReveal variant="stagger" immediate>
-        <ScrollRevealItem>
-          <Kicker number="A3">Politici</Kicker>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
-          <h1
-            className="display mt-6 max-w-4xl"
-            style={{ letterSpacing: "-0.025em" }}
-          >
-            Bekende politici{" "}
-            <em className="display-italic font-light text-navy">
-              op de vijf assen
-            </em>
-            .
-          </h1>
-        </ScrollRevealItem>
-        <ScrollRevealItem>
-          <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
+      <ContentMasthead
+        code="A3"
+        eyebrow="Politici"
+        title="Bekende politici op de vijf assen."
+        intro={
+          <p>
             Posities zijn schattingen op basis van publieke standpunten,
             verkiezingsprogramma&apos;s en Kieskompas. Per politicus: dichtstbijzijnde
             ideologie, bio, en alle vijf scores. Geactualiseerd 14 september 2026.
           </p>
-        </ScrollRevealItem>
-      </ScrollReveal>
+        }
+        noteTitle="Meetwijze"
+        note={<p>Vijf losse dimensies per persoon, zonder totaalscore of stemadvies.</p>}
+      />
 
       <Section
         title="Nederland: kabinet en Kamer"
@@ -112,7 +103,7 @@ function Section({
           <Kicker number={kickerNum}>{title}</Kicker>
         </ScrollRevealItem>
         <ScrollRevealItem>
-          <p className="mt-3 max-w-2xl text-ink-2 leading-relaxed text-sm md:text-base">
+          <p className="mt-3 max-w-2xl text-ink-raised leading-relaxed text-sm md:text-base">
             {subtitle}
           </p>
         </ScrollRevealItem>
@@ -130,25 +121,27 @@ function PoliticianGrid({
   items: ReturnType<typeof getAllPoliticiansSeed>;
 }) {
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-rule border border-rule">
+    <ul className="border-t border-rule-strong divide-y divide-rule">
       {items.map((p) => (
-        <li key={p.slug} className="bg-paper">
+        <li key={p.slug}>
           <Link
             href={`/politici/${p.slug}`}
-            className="group block p-6 md:p-7 no-underline h-full"
+            className="group grid min-h-28 grid-cols-5 gap-x-4 gap-y-4 py-5 no-underline md:grid-cols-10 md:gap-x-5 lg:grid-cols-15 lg:items-center lg:gap-x-6 lg:py-6"
           >
-            <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+            <p className="col-span-1 mono text-[0.62rem] tracking-wider text-text-muted lg:col-span-2">
               {p.party.toUpperCase()}
             </p>
-            <h3 className="display mt-1.5 text-xl md:text-2xl leading-tight text-ink group-hover:text-navy transition-colors">
-              {p.name}
-            </h3>
-            <p className="mt-1 text-xs text-ink-muted">{p.role}</p>
-            <div className="mt-5">
+            <div className="col-span-4 min-w-0 md:col-span-5 lg:col-span-6">
+              <h3 className="display text-xl leading-tight text-ink transition-colors group-hover:text-signal-pressed md:text-2xl">
+                {p.name}
+              </h3>
+              <p className="mt-1 text-xs text-text-muted">{p.role}</p>
+            </div>
+            <div className="col-start-2 col-span-4 md:col-start-auto md:col-span-4 lg:col-span-5">
               <MiniVector vector={p.positionVector} size="sm" />
             </div>
-            <p className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-ink group-hover:text-navy transition-colors">
-              Profiel
+            <p className="col-start-2 col-span-4 inline-flex items-center justify-end gap-1.5 text-xs font-semibold text-ink transition-colors group-hover:text-signal-pressed md:col-start-auto md:col-span-1 lg:col-span-2">
+              <span className="sr-only">Profiel van {p.name}</span>
               <ArrowRight size={12} strokeWidth={1.8} />
             </p>
           </Link>

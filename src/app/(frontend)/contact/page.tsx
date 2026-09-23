@@ -33,7 +33,7 @@ export default function ContactPage() {
       />
       <Kicker>Contact</Kicker>
       <h1 className="display mt-5 mb-4">Een vraag of iets dat niet werkt?</h1>
-      <p className="mb-10 max-w-xl leading-relaxed text-ink-2">
+      <p className="mb-10 max-w-xl leading-relaxed text-ink-raised">
         Gebruik het formulier hieronder. Je bericht komt direct bij mij binnen en
         ik antwoord meestal binnen een dag. Heb je een betaalde quiz gekocht en
         lukt iets niet, noem dan het e-mailadres waarmee je hebt betaald; dan kan
@@ -42,7 +42,7 @@ export default function ContactPage() {
 
       <ContactForm />
 
-      <p className="mt-10 text-xs leading-relaxed text-ink-2">
+      <p className="mt-10 text-xs leading-relaxed text-ink-raised">
         Je bericht wordt alleen gebruikt om je te antwoorden en niet aan je
         quizresultaten gekoppeld. Betalingen verlopen via Stripe; ik zie nooit je
         kaartgegevens.

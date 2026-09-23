@@ -9,7 +9,7 @@ export function PoliticianProfileLens({ lens }: PoliticianProfileLensProps) {
     <section aria-labelledby="portret-context" className="border-y border-[var(--color-ink)]/15 py-12 md:py-16">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14">
         <div>
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--color-terra)]">
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--color-danger)]">
             Portret in context
           </p>
           <h2 id="portret-context" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -20,8 +20,8 @@ export function PoliticianProfileLens({ lens }: PoliticianProfileLensProps) {
           </p>
         </div>
 
-        <aside className="border-l-2 border-[var(--color-terra)] pl-5 sm:pl-7">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-terra)]">
+        <aside className="border-l-2 border-[var(--color-danger)] pl-5 sm:pl-7">
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-danger)]">
             Zo lees je de kaart
           </p>
           <p className="mt-3 text-sm leading-6 text-[var(--color-ink)]/72">{lens.profileNote}</p>
@@ -30,7 +30,7 @@ export function PoliticianProfileLens({ lens }: PoliticianProfileLensProps) {
 
       {lens.strongestSignals.length ? (
         <div className="mt-10 border-t border-[var(--color-ink)]/12 pt-6">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--color-terra)]">
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--color-danger)]">
             Opvallend in deze kaart
           </p>
           <ul className="mt-5 grid grid-cols-1 gap-6 md:grid-cols-2">

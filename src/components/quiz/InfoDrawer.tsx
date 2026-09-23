@@ -1,7 +1,7 @@
 "use client";
 
 import * as Dialog from "@radix-ui/react-dialog";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { ExternalLink, X } from "lucide-react";
 import { type ReactNode } from "react";
 
@@ -26,32 +26,38 @@ interface InfoDrawerProps {
 }
 
 export function InfoDrawer({ open, onOpenChange, content }: InfoDrawerProps) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
-      <AnimatePresence>
+      <AnimatePresence initial={!reduceMotion}>
         {open && (
           <Dialog.Portal forceMount>
             <Dialog.Overlay asChild>
               <motion.div
                 className="fixed inset-0 z-50 bg-ink/30 backdrop-blur-sm"
-                initial={{ opacity: 0 }}
+                initial={reduceMotion ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
+                exit={reduceMotion ? undefined : { opacity: 0 }}
+                transition={{ duration: reduceMotion ? 0 : 0.18 }}
                 onClick={() => onOpenChange(false)}
               />
             </Dialog.Overlay>
             <Dialog.Content asChild>
               <motion.div
-                className="fixed inset-y-0 right-0 z-50 w-full sm:w-[520px] lg:w-[560px] bg-paper border-l border-rule-strong flex flex-col"
-                initial={{ x: "100%" }}
+                className="fixed inset-y-0 right-0 z-50 flex w-full flex-col border-l border-rule-strong bg-canvas-raised sm:w-[520px] lg:w-[560px]"
+                initial={reduceMotion ? false : { x: "100%" }}
                 animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{
-                  type: "spring",
-                  stiffness: 280,
-                  damping: 32,
-                }}
+                exit={reduceMotion ? undefined : { x: "100%" }}
+                transition={
+                  reduceMotion
+                    ? { duration: 0 }
+                    : {
+                        type: "spring",
+                        stiffness: 280,
+                        damping: 32,
+                      }
+                }
               >
                 {/* Drawer header */}
                 <div className="flex items-center justify-between px-7 h-16 border-b border-rule shrink-0">
@@ -60,7 +66,7 @@ export function InfoDrawer({ open, onOpenChange, content }: InfoDrawerProps) {
                     type="button"
                     aria-label="Sluiten"
                     onClick={() => onOpenChange(false)}
-                    className="w-10 h-10 -mr-2 inline-flex items-center justify-center text-ink-muted hover:text-ink"
+                    className="-mr-2 inline-flex h-11 w-11 items-center justify-center text-text-muted hover:text-ink focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-focus focus-visible:ring-offset-2"
                   >
                     <X size={20} strokeWidth={1.7} />
                   </button>
@@ -81,7 +87,7 @@ export function InfoDrawer({ open, onOpenChange, content }: InfoDrawerProps) {
 
                   {content.context && (
                     <DrawerSection title="Context" number="01">
-                      <p className="text-sm text-ink-2 leading-relaxed">
+                      <p className="text-sm text-ink-raised leading-relaxed">
                         {content.context}
                       </p>
                     </DrawerSection>
@@ -112,7 +118,7 @@ export function InfoDrawer({ open, onOpenChange, content }: InfoDrawerProps) {
                               href={s.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-sm inline-flex items-baseline gap-2 no-underline border-b border-rule-strong pb-0.5 hover:border-navy hover:text-navy"
+                              className="inline-flex min-h-11 items-center gap-2 border-b border-rule-strong text-sm no-underline hover:border-signal hover:text-signal focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-focus focus-visible:ring-offset-2"
                             >
                               <span>{s.label}</span>
                               <ExternalLink
@@ -166,11 +172,11 @@ function ArgumentList({
   return (
     <ul className="space-y-2.5">
       {items.map((arg, i) => (
-        <li key={i} className="flex gap-3 text-sm text-ink-2 leading-relaxed">
+        <li key={i} className="flex gap-3 text-sm text-ink-raised leading-relaxed">
           <span
             aria-hidden
             className={`mono text-[0.62rem] tracking-wider shrink-0 mt-1 ${
-              side === "for" ? "text-success" : "text-terra"
+              side === "for" ? "text-success" : "text-danger"
             }`}
           >
             {side === "for" ? "PRO" : "CON"}

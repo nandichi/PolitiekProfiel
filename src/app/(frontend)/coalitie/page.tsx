@@ -101,14 +101,14 @@ export default async function CoalitiePage({ searchParams }: PageProps) {
             style={{ letterSpacing: "-0.025em" }}
           >
             Bouw jouw coalitie,{" "}
-            <em className="display-italic font-light text-navy">
+            <em className="display-italic font-light text-signal">
               meet de spanning
             </em>
             .
           </h1>
         </ScrollRevealItem>
         <ScrollRevealItem>
-          <p className="mt-8 max-w-2xl text-lg text-ink-2 leading-relaxed">
+          <p className="mt-8 max-w-2xl text-lg text-ink-raised leading-relaxed">
             Met de actuele zetelverdeling van de Tweede Kamer (stand 14 september
             2026) zoek je zelf naar een meerderheid van 76 zetels. Per geselecteerde
             combinatie zie je het zetelgewogen zwaartepunt op de vijf dimensies en de
@@ -135,7 +135,7 @@ export default async function CoalitiePage({ searchParams }: PageProps) {
             <Kicker number={1}>Interactieve coalition-builder</Kicker>
           </ScrollRevealItem>
           <ScrollRevealItem>
-            <p className="mt-4 max-w-2xl text-sm text-ink-muted">
+            <p className="mt-4 max-w-2xl text-sm text-text-muted">
               Plak je share-link of share-ID om je eigen vector mee te nemen.
               Werkt ook zonder; dan zie je alleen de coalitie-positie.
             </p>
@@ -168,7 +168,7 @@ export default async function CoalitiePage({ searchParams }: PageProps) {
             </h2>
           </ScrollRevealItem>
           <ScrollRevealItem>
-            <p className="mt-4 max-w-2xl text-sm text-ink-muted">
+            <p className="mt-4 max-w-2xl text-sm text-text-muted">
               Geen rekening gehouden met uitsluitingen of politieke voorkeuren.
               Puur arithmetisch. Gesorteerd op spread, de maximale afstand
               tussen partijen binnen de coalitie. Klik een combinatie
@@ -193,10 +193,10 @@ export default async function CoalitiePage({ searchParams }: PageProps) {
                           <li key={p.slug}>
                             <Link
                               href={`/partij/${p.slug}`}
-                              className="inline-flex items-baseline gap-2 border border-rule px-2.5 py-1 text-xs text-ink-2 no-underline hover:text-navy"
+                              className="inline-flex items-baseline gap-2 border border-rule px-2.5 py-1 text-xs text-ink-raised no-underline hover:text-signal"
                             >
                               <span>{p.abbreviation}</span>
-                              <span className="mono tabular-nums text-[0.6rem] text-ink-subtle">
+                              <span className="mono tabular-nums text-[0.6rem] text-text-muted">
                                 {p.seats}
                               </span>
                             </Link>
@@ -205,10 +205,10 @@ export default async function CoalitiePage({ searchParams }: PageProps) {
                       </ul>
                       <p className="mono tabular-nums text-sm text-ink">
                         {c.totalSeats}{" "}
-                        <span className="text-ink-muted text-xs">zetels</span>
+                        <span className="text-text-muted text-xs">zetels</span>
                       </p>
                       <div>
-                        <p className="mono text-[0.6rem] tracking-wider text-ink-subtle">
+                        <p className="mono text-[0.6rem] tracking-wider text-text-muted">
                           SPREAD
                         </p>
                         <p className="mono tabular-nums text-sm text-ink">
@@ -226,7 +226,7 @@ export default async function CoalitiePage({ searchParams }: PageProps) {
       {/* Disclaimer */}
       <section className="mt-20 border-t border-ink pt-10 max-w-3xl">
         <p className="kicker mb-3">Geen stemadvies</p>
-        <p className="text-sm text-ink-2 leading-relaxed">
+        <p className="text-sm text-ink-raised leading-relaxed">
           Deze simulator rekent op afstanden tussen partijposities op vijf
           dimensies. Een lage afstand zegt niets over haalbaarheid in de
           praktijk: politiek wordt mede bepaald door uitsluitingen,

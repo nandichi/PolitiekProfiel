@@ -4,10 +4,10 @@ import { cx } from "@/lib/cx";
 type Width = "narrow" | "default" | "wide" | "bleed";
 
 const widthClass: Record<Width, string> = {
-  narrow: "max-w-3xl px-6",
-  default: "max-w-5xl px-6",
-  wide: "max-w-7xl px-6 lg:px-10",
-  bleed: "max-w-[1500px] px-6 lg:px-10",
+  narrow: "max-w-[52rem]",
+  default: "max-w-[72rem]",
+  wide: "max-w-[90rem]",
+  bleed: "max-w-[1500px]",
 };
 
 export function Container({
@@ -16,13 +16,20 @@ export function Container({
   className,
   as: As = "div",
 }: {
-  children: ReactNode;
+  children?: ReactNode;
   width?: Width;
   className?: string;
   as?: "div" | "section" | "header" | "footer" | "article" | "main";
 }) {
   return (
-    <As className={cx("mx-auto w-full", widthClass[width], className)}>
+    <As
+      data-system="container"
+      className={cx(
+        "mx-auto w-full px-4 sm:px-6 lg:px-10",
+        widthClass[width],
+        className,
+      )}
+    >
       {children}
     </As>
   );

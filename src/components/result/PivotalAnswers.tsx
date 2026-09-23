@@ -40,7 +40,7 @@ export function PivotalAnswers({ items }: PivotalAnswersProps) {
       className="border-y border-[var(--color-ink)]/15 py-12 sm:py-16"
     >
       <div className="max-w-3xl">
-        <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--color-terra)]">
+        <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--color-signal)]">
           Doorgerekend op jouw antwoorden
         </p>
         <h2 id="kantelpunt-heading" className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -60,15 +60,15 @@ export function PivotalAnswers({ items }: PivotalAnswersProps) {
           return (
             <li
               key={item.questionId}
-              className="border-l-2 border-[var(--color-terra)] pl-5 sm:pl-7"
+              className="border-l-2 border-[var(--color-signal)] pl-5 sm:pl-7"
             >
-              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-terra)]">
+              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-signal)]">
                 {meta.label}
               </p>
-              <p className="mt-2 max-w-3xl text-lg font-semibold leading-7 text-[var(--color-ink)]">
+              <p lang="nl" className="mt-2 max-w-3xl text-lg font-semibold leading-7 text-[var(--color-ink)] [hyphens:auto] [overflow-wrap:anywhere]">
                 {item.statement}
               </p>
-              <dl className="mt-4 grid max-w-3xl grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-3">
+              <dl className="mt-4 grid min-w-0 max-w-3xl grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-3">
                 <div>
                   <dt className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-ink)]/55">
                     Jouw antwoord

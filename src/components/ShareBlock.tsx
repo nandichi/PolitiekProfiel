@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Check, Copy, Link2, Share2 } from "lucide-react";
 
 export function ShareBlock({
@@ -11,6 +11,7 @@ export function ShareBlock({
   shareId: string;
   ideologyName: string;
 }) {
+  const reduce = useReducedMotion();
   const [url, setUrl] = useState<string>("");
   const [copied, setCopied] = useState(false);
   const [canShare, setCanShare] = useState(false);
@@ -53,53 +54,57 @@ export function ShareBlock({
   }, [url, ideologyName]);
 
   return (
-    <div className="border border-rule-strong bg-paper">
+    <section
+      aria-labelledby={`share-heading-${shareId}`}
+      className="border border-rule-strong bg-canvas-raised"
+    >
       <div className="grid grid-cols-1 gap-0 lg:grid-cols-[1fr_auto]">
-        {/* URL display */}
-        <div className="px-4 sm:px-6 py-6 lg:py-7 border-b lg:border-b-0 lg:border-r border-rule min-w-0">
-          <p className="kicker mb-3 flex items-center gap-2">
-            <Link2 size={12} strokeWidth={1.8} />
+        <div className="min-w-0 border-b border-rule px-4 py-6 sm:px-6 lg:border-r lg:border-b-0 lg:py-7">
+          <p
+            id={`share-heading-${shareId}`}
+            className="kicker mb-3 flex items-center gap-2"
+          >
+            <Link2 size={12} strokeWidth={1.8} aria-hidden />
             <span>Deelbare link</span>
           </p>
-          <code className="block mono text-xs sm:text-sm md:text-base text-ink break-all leading-relaxed">
+          <code className="mono block break-all text-xs leading-relaxed text-ink sm:text-sm md:text-base">
             {url || "…"}
           </code>
-          <p className="mt-3 mono text-[0.62rem] tracking-wider text-ink-subtle">
+          <p className="mono mt-3 text-[0.62rem] tracking-wider text-text-muted">
             SHARE · {shareId}
           </p>
         </div>
 
-        {/* Actions */}
-        <div className="flex lg:flex-col items-stretch">
+        <div className="flex items-stretch lg:flex-col">
           <button
             type="button"
             onClick={copy}
-            className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-4 sm:px-6 py-4 lg:py-6 text-sm font-medium border-r lg:border-r-0 lg:border-b border-rule hover:bg-paper-50 transition-colors lg:min-w-[140px]"
+            className="flex min-h-11 flex-1 items-center justify-center gap-2 border-r border-rule px-4 py-4 text-sm font-semibold transition-colors hover:bg-canvas-pressed focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[-3px] focus-visible:outline-focus sm:px-6 lg:min-w-[148px] lg:flex-none lg:border-r-0 lg:border-b lg:py-6"
             disabled={!url}
           >
             <AnimatePresence mode="wait" initial={false}>
               {copied ? (
                 <motion.span
                   key="copied"
-                  initial={{ opacity: 0, y: 4 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.18 }}
+                  transition={{ duration: reduce ? 0 : 0.18 }}
                   className="inline-flex items-center gap-2 text-success"
                 >
-                  <Check size={16} strokeWidth={1.8} />
+                  <Check size={16} strokeWidth={1.8} aria-hidden />
                   Gekopieerd
                 </motion.span>
               ) : (
                 <motion.span
                   key="copy"
-                  initial={{ opacity: 0, y: 4 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.18 }}
+                  transition={{ duration: reduce ? 0 : 0.18 }}
                   className="inline-flex items-center gap-2"
                 >
-                  <Copy size={16} strokeWidth={1.8} />
+                  <Copy size={16} strokeWidth={1.8} aria-hidden />
                   Kopieer
                 </motion.span>
               )}
@@ -109,14 +114,17 @@ export function ShareBlock({
             <button
               type="button"
               onClick={share}
-              className="flex-1 lg:flex-none flex items-center justify-center gap-2 px-4 sm:px-6 py-4 lg:py-6 text-sm font-medium bg-ink text-paper hover:bg-navy transition-colors lg:min-w-[140px]"
+              className="flex min-h-11 flex-1 items-center justify-center gap-2 bg-ink px-4 py-4 text-sm font-semibold text-canvas-raised transition-colors hover:bg-ink-raised focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[-3px] focus-visible:outline-focus sm:px-6 lg:min-w-[148px] lg:flex-none lg:py-6"
             >
-              <Share2 size={16} strokeWidth={1.8} />
+              <Share2 size={16} strokeWidth={1.8} aria-hidden />
               Deel
             </button>
           )}
         </div>
       </div>
-    </div>
+      <span role="status" aria-live="polite" className="sr-only">
+        {copied ? "Deelbare link gekopieerd" : ""}
+      </span>
+    </section>
   );
 }

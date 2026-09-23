@@ -68,19 +68,19 @@ export default async function EmbedConfigPage({ params }: PageProps) {
             style={{ letterSpacing: "-0.025em" }}
           >
             Deel jouw profiel als een{" "}
-            <em className="display-italic font-light text-navy">widget</em>.
+            <em className="display-italic font-light text-signal">widget</em>.
           </h1>
         </ScrollRevealItem>
         <ScrollRevealItem>
-          <p className="mt-8 max-w-2xl text-base text-ink-2 leading-relaxed">
+          <p className="mt-8 max-w-2xl text-base text-ink-raised leading-relaxed">
             Plak één van onderstaande snippets in je blog, essay of website. Geen
             tracking, geen externe scripts: alleen een iframe of statische
             afbeelding. Niet bedoeld voor commercieel her-gebruik.
           </p>
         </ScrollRevealItem>
         <ScrollRevealItem>
-          <p className="mt-2 max-w-2xl text-xs text-ink-muted">
-            <Link href={`/r/${id}`} className="hover:text-navy">
+          <p className="mt-2 max-w-2xl text-xs text-text-muted">
+            <Link href={`/r/${id}`} className="hover:text-signal">
               ← Terug naar profiel {id}
             </Link>
           </p>
@@ -105,7 +105,7 @@ export default async function EmbedConfigPage({ params }: PageProps) {
                   height={520}
                   style={{
                     border: "1px solid var(--color-rule)",
-                    background: "var(--color-paper)",
+                    background: "var(--color-canvas)",
                     maxWidth: 520,
                   }}
                   loading="lazy"
@@ -152,7 +152,7 @@ export default async function EmbedConfigPage({ params }: PageProps) {
 
       <section className="mt-20 border-t border-ink pt-10 max-w-3xl">
         <Kicker number={3}>Spelregels</Kicker>
-        <ul className="mt-5 list-disc pl-5 space-y-2 text-sm text-ink-2 leading-relaxed">
+        <ul className="mt-5 list-disc pl-5 space-y-2 text-sm text-ink-raised leading-relaxed">
           <li>
             Bron-vermelding naar{" "}
             <code className="mono text-xs">politiekprofiel.nl</code> is verplicht

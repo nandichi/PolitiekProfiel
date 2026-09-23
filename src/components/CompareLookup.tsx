@@ -20,6 +20,9 @@ function extractId(input: string): string {
   return trimmed;
 }
 
+const fieldClass =
+  "mt-3 min-h-11 w-full rounded-[2px] border border-rule-strong bg-canvas-raised px-3 py-2.5 text-base text-ink outline-none transition-colors placeholder:text-text-muted hover:border-ink focus-visible:border-ink focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus";
+
 export function CompareLookup({
   aPrefill,
   bPrefill,
@@ -44,43 +47,48 @@ export function CompareLookup({
   return (
     <form
       onSubmit={submit}
-      className="grid grid-cols-1 gap-8 md:gap-12 md:grid-cols-[1fr_1fr_auto] md:items-end"
+      className="grid grid-cols-1 gap-6 border-y border-rule py-6 md:grid-cols-[1fr_1fr_auto] md:items-end md:gap-8"
     >
-      <label className="block">
+      <label htmlFor="compare-profile-a" className="block">
         <span className="kicker">
-          <span className="display text-base text-ink mr-2 align-baseline">
+          <span className="display mr-2 align-baseline text-base text-compare-a">
             A
           </span>
           Profiel A
         </span>
         <input
+          id="compare-profile-a"
           type="text"
           value={a}
           onChange={(e) => setA(e.target.value)}
           placeholder="Plak link of share-id"
-          className="field-editorial mt-3"
+          className={fieldClass}
           autoComplete="off"
         />
       </label>
-      <label className="block">
+      <label htmlFor="compare-profile-b" className="block">
         <span className="kicker">
-          <span className="display text-base text-terra mr-2 align-baseline">
+          <span className="display mr-2 align-baseline text-base text-compare-b">
             B
           </span>
           Profiel B
         </span>
         <input
+          id="compare-profile-b"
           type="text"
           value={b}
           onChange={(e) => setB(e.target.value)}
           placeholder="Plak link of share-id"
-          className="field-editorial mt-3"
+          className={fieldClass}
           autoComplete="off"
         />
       </label>
-      <button type="submit" className="btn btn-primary md:self-end">
+      <button
+        type="submit"
+        className="btn btn-primary min-h-11 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-focus md:self-end"
+      >
         Vergelijk
-        <ArrowRight size={16} strokeWidth={1.8} />
+        <ArrowRight size={16} strokeWidth={1.8} aria-hidden />
       </button>
     </form>
   );

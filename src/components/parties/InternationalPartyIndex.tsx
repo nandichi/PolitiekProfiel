@@ -47,7 +47,7 @@ export function InternationalPartyIndex({
           </h2>
         </ScrollRevealItem>
         <ScrollRevealItem>
-          <p className="mt-4 max-w-2xl text-sm text-ink-muted leading-relaxed">
+          <p className="mt-4 max-w-2xl text-sm text-text-muted leading-relaxed">
             Elk profiel begint bij de eigen partijbron en een officiële
             uitslagenbron, zodat je kunt doorlezen zonder te verdwalen in losse
             labels. Bewust een selectie, niet een volledige wereldindex.
@@ -59,31 +59,31 @@ export function InternationalPartyIndex({
             <div className="mt-12">
               <div className="flex flex-wrap items-baseline justify-between gap-3 border-b border-rule pb-3">
                 <h3 className="display text-xl text-ink">{country.country}</h3>
-                <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                <p className="mono text-[0.62rem] tracking-wider text-text-muted">
                   {country.note}
                 </p>
               </div>
               <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {country.parties.map((party) => (
-                  <li key={party.slug} className="border border-rule bg-paper p-5">
+                  <li key={party.slug} className="border border-rule bg-canvas p-5">
                     <Link
                       href={"/partij/" + party.slug}
-                      className="block no-underline group focus:outline-none focus-visible:ring-2 focus-visible:ring-navy"
+                      className="block no-underline group focus:outline-none focus-visible:ring-2 focus-visible:ring-signal"
                     >
-                      <p className="mono text-[0.62rem] tracking-wider text-ink-subtle">
+                      <p className="mono text-[0.62rem] tracking-wider text-text-muted">
                         {country.code} ·{" "}
                         {party.abbreviation.toUpperCase()}
                       </p>
-                      <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-navy transition-colors">
+                      <p className="display mt-1.5 text-lg leading-tight text-ink group-hover:text-signal transition-colors">
                         {party.name}
                       </p>
-                      <p className="mt-2 text-sm leading-5 text-ink-muted">
+                      <p className="mt-2 text-sm leading-5 text-text-muted">
                         {party.description}
                       </p>
                       <div className="mt-4">
                         <MiniVector vector={party.vector} size="sm" />
                       </div>
-                      <p className="mt-4 inline-flex items-center gap-1.5 text-xs text-ink-muted group-hover:text-navy transition-colors">
+                      <p className="mt-4 inline-flex items-center gap-1.5 text-xs text-text-muted group-hover:text-signal transition-colors">
                         Bekijk het profiel
                         <ArrowRight size={12} strokeWidth={1.8} aria-hidden="true" />
                       </p>
